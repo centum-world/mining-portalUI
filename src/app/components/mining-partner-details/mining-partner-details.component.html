@@ -1,0 +1,179 @@
+<div class="container">
+    <h5>Mining Partner Details</h5><span><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
+      placeholder="Search by name, userid, phone and email...."></span>
+    <div class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Sn.</th>
+                <th>Ref no</th>
+                <th>Name</th>
+                <th>Aadhar</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>DOB</th>
+                <th>Nominee</th>
+                <th>Nominee Aadhar</th>
+                <th>Nominee Phone</th>
+                <th>DOP</th>
+                <th>Amount</th>
+                <th>Terms</th>
+                <th>User ID</th>
+                <!-- <th>Password</th> -->
+                <th>Refferal ID</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of miningPartnerDetails | filter:searchText | paginate: {itemsPerPage:10, currentPage:p}; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{data.p_reffered_id}}</td>
+                <td>{{data.p_name}}</td>
+                <td>{{data.p_aadhar}} </td>
+                <td> {{data.p_phone}} </td>
+                <td> {{data.p_email}} </td>
+                <td> {{data.p_address}} </td>
+                <td> {{data.p_state}} </td>
+                <td> {{data.p_dob | date}} </td>
+                <td> {{data.p_nominee_name}} </td>
+                <td> {{data.p_nominee_aadhar}} </td>
+                <td> {{data.p_nominee_phone}} </td>
+                <td> {{data.p_dop | date}} </td>
+                <td> {{data.p_liquidity | currency:'INR'}} </td>
+                <td> {{data.terms}} </td>
+                <td> {{data.p_userid}} </td>
+                <!-- <td> {{data.p_password}} </td> -->
+                <td> {{data.p_refferal_id}} </td>
+                <td>
+                    <div class="action">
+                        <a href="javascript:void(0)" class="edit" data-toggle="modal" data-target="#editMinigPartner" (click)="fetchPartnerDetailsUsingPartnerId(data.p_userid)"><i class="fa fa-edit">Edit</i></a>&nbsp;
+                        <span  (click)="individualPartnerFunction(data.p_userid)">view</span>
+                    </div>
+
+                </td>
+            </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+
+<!-- Mingin partner modal -->
+<div class="modal fade" id="editMinigPartner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit mining partners details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            
+  
+            <div class="form-group col-md-6">
+              <label for="pName">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="partnerDetails.name"  id="pName" placeholder="Enter partners name">
+  
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="phoneNo">Phone</label>
+              <input type="text" id="phoneNo" [(ngModel)]="partnerDetails.phone" class="form-control" placeholder="Enter Phone no.">
+            </div>
+          </div>
+  
+          
+  
+          <div class="row">
+            
+  
+            <div class="form-group col-md-6">
+              <label for="emailPartner">Email</label>
+              <input type="email" id="emailPartner" [(ngModel)]="partnerDetails.email" class="form-control" placeholder="Enter partner email">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="m_p_aadhar">Aadhar</label>
+              <input type="text" id="m_p_aadhar" class="form-control" [(ngModel)]="partnerDetails.aadhar" placeholder="Enter mining partner aadhar">
+            </div> 
+          </div>
+  
+          <div class="form-group">
+            <label for="partnerAddress">Address</label>
+            <textarea class="form-control" id="partnerAddress" [(ngModel)]="partnerDetails.address" placeholder="Address"></textarea>
+          </div>
+  
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="state">State</label>
+              <input type="text" id="state" [(ngModel)]="partnerDetails.state" class="form-control" placeholder="Enter state">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nominee">Nominee name</label>
+              <input type="text" id="nominee" [(ngModel)]="partnerDetails.nominee_name" class="form-control" placeholder="Enter nominee name">
+            </div>
+  
+            
+          </div>
+  
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="nomineePhone">Nominee Phone no</label>
+              <input type="text" id="nomineePhone" [(ngModel)]="partnerDetails.nominee_phone" class="form-control" placeholder="Enter nominee phone">
+            </div>
+  
+            <div class="form-group col-md-6">
+              <label for="aadhar"> Nominee Aadhar</label>
+              <input type="text" id="aadhar" [(ngModel)]="partnerDetails.nominee_aadhar" class="form-control" placeholder="Enter nominee addhar">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="dob">DOB</label>
+              <input type="date" id="dob" [(ngModel)]="partnerDetails.dob" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="dop">DOP</label>
+              <input type="date" id="dop" [(ngModel)]="partnerDetails.dop" class="form-control">
+            </div>
+  
+            
+          </div>
+  
+         
+         
+  
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="liquidity">Liquidity</label>
+                <select name="liquidity" id="liquidity" (change)="changePartnerLiquidity($event)" class="form-control">
+                  <option value="undefined">Select Liquidity</option>
+                  <option value="600000" [selected]="partnerDetails.liquidity === '600000'">6 Lakh</option>
+                  <option value="500000" [selected]="partnerDetails.liquidity === '500000'">5 Lakh</option>
+                  <option value="400000" [selected]="partnerDetails.liquidity === '400000'">4 Lakh</option>
+                  <option value="300000" [selected]="partnerDetails.liquidity === '300000'">3 Lakh</option>
+                  <option value="200000" [selected]="partnerDetails.liquidity === '200000'">2 Lakh</option>
+                  <option value="100000" [selected]="partnerDetails.liquidity === '100000'">1 Lakh</option>
+                </select>
+              </div>
+            </div>
+  
+            <!-- <div class="form-group col-md-6">
+              <label for="min_password">Password1</label>
+              <input type="text" id="min_password" [(ngModel)]="partnerDetails.password" class="form-control" placeholder="Enter Password">
+            </div> -->
+          </div>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updatePartnerData()" data-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End mining partner modal -->

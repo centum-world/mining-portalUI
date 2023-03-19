@@ -1,0 +1,13 @@
+.table thead tr th{
+    font-size: small;
+    font-family:'Times New Roman', Times, serif;
+}
+.table tbody tr td{
+    font-size: small;
+    font-family: sans-serif;
+    background: honeydew;
+}
+.bank_detail{
+    margin-top: 15%;
+}
+

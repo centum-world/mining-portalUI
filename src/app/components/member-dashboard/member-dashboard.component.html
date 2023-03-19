@@ -1,0 +1,422 @@
+
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <h3><a class="fa fa-qrcode" href="/memberdashboard"></a></h3>
+    <h2><span class="fa fa-qrcode"></span><a style="color: #fff;" href="/memberdashboard">Dashboard</a></h2>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-user"></i>
+            <span>Profile</span> 
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-user-plus"></i>
+             <span>Valid Referal</span>
+        </a>
+    </li> 
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-exchange"></i>
+             <span>Transaction</span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-money"></i>
+            <span>Withdrawal</span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-users"></i>
+            <span>Team</span>
+            
+        </a>
+    </li>
+    <li>
+        <a href=""><i class="fa fa-sign-out"></i>
+            <span (click)="logOut()">Log Out</span>
+        </a>
+    </li>
+    
+    </ul>
+  </div>
+</div>
+
+<div class="main-content">
+  <header>
+    <h2>
+      <label for="nav-toggle">
+
+        <div class="d-flex justify-content-between">
+          <span class="fa fa-bars"></span>
+          <span>CENTUM WORLD</span>
+        </div>
+      </label>
+      
+    </h2>
+    
+    <div class="user-wrapper">
+      <img src="assets/image/profile.png" alt="" width="50px" height="50px">
+      <div>
+        
+        <small style="color: crimson;">{{displayUserId}}</small>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <div *ngIf="!profileDetails" class="cards">
+      <div class="card-single">
+        <div>
+          <h6>Profile</h6>
+          <span>See your profile!</span>
+          
+        </div>
+        
+        <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
+        <div class="icon" (click)="memberDetails()"><i class="fa fa-eye"></i></div>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
+          <i class="fa fa-bank"></i>
+      </a>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>User ID  {{displayUserId}}</h6>
+          
+          <span>My refferal id <a href="/member-signup/?refferId={{displayMemberRefferalId}}" target="_blank">{{displayMemberRefferalId}}</a></span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Wallet</h6>
+          <span>Each day transaction!</span>
+        </div>
+        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite"><i class="fa fa-eye"></i></div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal</h6>
+          <span>History</span>
+        </div>
+        <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory"><i class="fa fa-eye"></i></div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Member Team</h6>
+          <span></span>
+        </div>
+        <div data-toggle="modal" data-target="#myTeamUseMyRefferalId"><i class="fa fa-eye"></i></div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Partner Team</h6>
+          <span></span>
+        </div>
+        <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner"><i class="fa fa-eye"></i></div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Wallet</span>
+        </div>
+        <div style="font-weight: bold; font-size: large;" >{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Withdrawal</span>
+        </div>
+        <div style="font-size: large; font-weight: bold;">{{withdrawAmount | currency:'INR'}}</div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal Request</h6>
+          
+        </div>
+        <div data-toggle="modal" data-target="#memberWithdrawalRequest"><i class="fa fa-eye"></i></div>
+      </div>
+      
+
+      
+    </div>
+
+    <div *ngIf="profileDetails">
+      <app-member-portal-details></app-member-portal-details>
+    </div>
+
+
+  </main>
+</div>
+
+
+
+<!-- Add member Bank details -->
+<div class="modal fade" id="addBankDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Bank Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="holderName">A/c holder name</label>
+            <input type="text" class="form-control" [(ngModel)]="bankDetails.holder_name"  id="holderName" placeholder="A/c holder name">
+
+          </div>
+
+           <div class="form-group col-md-6">
+            <label for="ifsc">IFSC Code</label>
+            <input type="text" class="form-control" [(ngModel)]="bankDetails.ifsc_code" id="ifsc" placeholder="IFSC Code">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="account_no">A/c no.</label>
+          <input type="text" class="form-control" [(ngModel)]="bankDetails.account_no" id="account_no" placeholder="Account number">
+
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="bank_name">Bank name</label>
+            <input type="text" id="bank_name" [(ngModel)]="bankDetails.bank_name" class="form-control" placeholder="Bank name">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="bank_branch">Branch name</label>
+            <input type="text" id="bank_branch" [(ngModel)]="bankDetails.branch_name" class="form-control" placeholder="Branch name">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addMemberBankDetails()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- My team member detail using my refferal id model-->
+
+
+
+<div class="modal fade" id="myTeamUseMyRefferalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">My Reffer Members</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Member Name</th>
+              <th scope="col">User ID</th>
+              <th scope="col">Joining Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of myTeamDetails; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{data.m_name}}</td>
+              <td>{{data.m_userid}}</td>
+              <td>{{data.m_doj| date}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- create mining partner team use members refferal id -->
+<div class="modal fade" id="myTeamUseMyRefferalIdForPartner" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">My Reffer Mining Partner</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Member Name</th>
+              <th scope="col">User ID</th>
+              <th scope="col">Joining Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let data of memberRefferalIdToPartner; let i = index">
+              <th >{{i+1}}</th>
+              <td>{{data.p_name}}</td>
+              <td>{{data.p_userid}}</td>
+              <td>{{data.p_dop | date}}</td>
+        
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- member each day wallet deposite -->
+
+<div class="modal fade" id="memberEachDayWalletDeposite" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Eech Day Wallet Diposite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Credit Date</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of memberEachDayWallet; let i = index">
+              <th >{{i+1}}</th>
+              <td>{{data.walletAmount}}</td>
+              <td>{{data.wallet_update_date | date:'medium'}}</td>
+              
+        
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Each month Withdrawal request History-->
+
+<div class="modal fade" id="eachMonthWithdrawalHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Approved Withdrawal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Request Date</th>
+              <th scope="col">Approved Date</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of memberWithdrawalHistoy; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{data.member_wallet | currency:'INR'}}</td>
+              <td>{{data.request_date|date:'medium'}}</td>
+              <td>{{data.approve_date|date:'medium'}}</td>
+              
+        
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- member withdrawal request -->
+<div class="modal fade" id="memberWithdrawalRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Withdrawal Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Request Date</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of memberRequest; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{data.member_wallet}}</td>
+              <td>{{data.request_date | date:'medium'}}</td>
+              
+              
+        
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>

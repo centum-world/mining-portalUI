@@ -1,0 +1,52 @@
+body{
+
+    left: 0;
+    right: 0;
+    display: block;
+    background: rgb(243, 240, 240);
+}
+.table tbody tr td{
+    font-size: 15px;
+    font-family: fantasy;
+    font-weight: lighter;
+}
+.action a{
+    display: inline;
+    margin: 5px;
+}
+/* modal */
+.modal{
+    margin-top: 10px;
+    margin-left: 30%;
+    width: 50%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    
+}
+.form{
+    margin: 1rem;
+}
+.form input ,textarea{
+    margin-bottom: 10px;
+}
+.modal-footer button{
+    margin: 10px;
+}
+.modal-title{
+    margin: 10px;
+}
+.modal-header button{
+    margin: 10px;
+    color: red;
+}
+
+.table thead tr th{
+    font-size: small;
+    font-family:'Times New Roman', Times, serif;
+}
+.table tbody tr td{
+    font-size: small;
+    font-family: sans-serif;
+    background: honeydew;
+}

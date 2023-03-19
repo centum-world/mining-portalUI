@@ -1,0 +1,459 @@
+
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <h3><a class="fa fa-qrcode" href="/miningdashboard"></a></h3>
+    <h2><span class="fa fa-qrcode"></span><a style="color: #fff;" href="/miningdashboard">Dashboard</a></h2>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="javascript:void(0)" (click)="mining_profile_details('profile_detail')"><i class="fa fa-user"></i>
+            <span>Profile</span> 
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-user-plus"></i>
+             <span>Deposit/Liquidity</span>
+        </a>
+    </li> 
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-money"></i>
+             <span>Withdrawal History</span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"><i class="fa fa-exchange"></i>
+            <span>Transaction</span>
+        </a>
+    </li>
+   
+    <li>
+        <a href=""><i class="fa fa-sign-out"></i>
+            <span (click)="logOut()">Log Out</span>
+        </a>
+    </li>
+    
+    </ul>
+  </div>
+</div>
+
+<div class="main-content">
+  <header>
+    <h2>
+      <label for="nav-toggle">
+        <div class="d-flex justify-content-between">
+          <span class="fa fa-bars"></span>
+          <span>CENTUM WORLD</span>
+        </div>
+      </label>
+  
+    </h2>
+    
+    <div class="user-wrapper">
+      <img src="assets/image/profile.png" alt="" width="50px" height="50px">
+      <div>
+        
+        <small style="color:crimson;"> {{partnerId}}</small>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <div class="cards" *ngIf="!view_detail">
+      <div class="card-single">
+        <div>
+          <h6>Profile</h6>
+          <span>Add Bank details</span>
+        </div>
+        
+        <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
+        <div class="icon" (click)="mining_profile_details('profile_detail')">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
+            <i class="fa fa-bank"></i>
+        </a>
+      </div> 
+      <div class="card-single">
+        <div>
+          <h6>User ID:- {{partnerId}}</h6>
+          
+          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{refferID}}" target="_blank">{{refferID}}</a></span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Deposit/Liquidity</h6>
+          <span>History</span>
+        </div>
+       <div class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
+      </div>
+
+      <div class="card-single">
+        <div class="col-md-8">
+          <h6>My Wallet (Per day)</h6>
+        </div>
+        <div class="col-md-4">
+          <div class="card-view" data-toggle="modal" data-target="#perDayWalletHistory">
+            <!-- <i class="fa fa-eye"></i> -->
+            <span>view</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Wallet</span>
+        </div>
+        <span style="font-weight: bold;">{{totalPartnerWalletAmount | currency:'INR'}}</span>
+      </div>
+      <div class="card-single">
+        <div>
+          <h6>My Team</h6>
+          
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#myTeamUsingMyRefferalID">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal</h6>
+          <span>Pending History</span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerWithdrawalRequest">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal</h6>
+          <span>Success History</span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerSuccessWithdrawalHistroy">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Withdrawal</span>
+        </div>
+        <span style="font-weight: bold;">{{totalAmount | currency:'INR'}}</span>
+      </div>
+      
+      <div class="card-single">
+        <div>
+          <h6>Payment Details</h6>
+          <span>
+            <div class="dop1" *ngIf="userStatus">
+              <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
+          </div>
+          <div class="dop1" *ngIf="month_count === 12 ">
+              <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
+          </div>
+          </span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerPaymentDetails">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+     
+
+      
+
+
+      
+    </div>
+
+    <div *ngIf="view_detail">
+        <app-mining-profile-details></app-mining-profile-details>
+    </div>
+
+  </main>
+</div>
+
+
+<!-- Add bank modal detail -->
+<div class="modal fade" id="addBankDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Bank Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="holderName"><strong>A/c holder name</strong></label>
+              <input type="text" class="form-control" [(ngModel)]="bankDetails.holder_name"  id="holderName" placeholder="A/c holder name">
+  
+            </div>
+  
+             <div class="form-group col-md-6">
+              <label for="ifsc"><strong>IFSC Code</strong></label>
+              <input type="text" class="form-control" [(ngModel)]="bankDetails.ifsc_code" id="ifsc" placeholder="IFSC Code">
+  
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="account_no"><strong>A/c no.</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="bankDetails.account_no" id="account_no" placeholder="Account number">
+
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="bank_name"><strong>Bank name</strong></label>
+              <input type="text" id="bank_name" [(ngModel)]="bankDetails.bank_name" class="form-control" placeholder="Bank name">
+            </div>
+  
+            <div class="form-group col-md-6">
+              <label for="bank_branch"><strong>Branch name</strong></label>
+              <input type="text" id="bank_branch" [(ngModel)]="bankDetails.branch_name" class="form-control" placeholder="Branch name">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addBankDetails()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- My team using my refferal id -->
+
+<div class="modal fade" id="myTeamUsingMyRefferalID" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">My Reffer Members</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Partner Name</th>
+              <th scope="col">User ID</th>
+              <th scope="col">Joining Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of myMiningTeamDetails; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{data.p_name}}</td>
+              <td>{{data.p_userid}}</td>
+              <td>{{data.p_dop| date}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Per day wallet histoy -->
+<div class="modal fade" id="perDayWalletHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Daily Wallet History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Credited Date</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of dailyWalletAmountHistory; let i = index" >
+              <td>{{i+1}}</td>
+              <td>{{data.walletAmount}}</td>
+              <td>{{data.wallet_update_date | date:'medium'}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner withdrawal success history -->
+<div class="modal fade" id="partnerSuccessWithdrawalHistroy" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Withdrawal Success History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Request Date </th>
+              <th scope="col">Approve Date</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of partnerWithdrawalSuccessHistoryList; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{data.partner_wallet}}</td>
+              <td>{{data.request_date | date:'medium'}}</td>
+              <td>{{data.approve_date | date:'medium'}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- withdrawal request for partner -->
+<div class="modal fade" id="partnerWithdrawalRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Withdrawal Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Request Date </th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of partnerWithdrawalRequestData; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{data.partner_wallet}}</td>
+              <td>{{data.request_date | date:'medium'}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="partnerPaymentDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Payment Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="payment-details">
+          <div class="left">
+              <div class="dop">
+                  <span>Date of Partner</span>: <p>{{dateOfPartner | date}}</p>
+              </div>
+              <div class="dop">
+                  <span>Total Liquidity</span>: <p>{{partnerLiquidity}}</p>
+              </div>
+              <div class="dop">
+                  <span>Partner Commission</span>: <p>12 Months</p>
+              </div>
+              <div class="dop">
+                  <span>Complited tenure</span>: <p>{{month_count}} Months</p>
+              </div>
+          </div>
+          <div class="right">
+              <div class="dop">
+                  <span>Pending tenure</span>: <p>{{12 - month_count}} Months</p>
+              </div>
+              <div class="dop">
+                  <span>Last Payment Date</span>: <p>{{lastPaymentDate|date :'medium'}}</p>
+              </div>
+              <div class="dop">
+                  <span>Next Payment Date</span>: <p>15 to 22 (Of Every Months)</p>
+              </div>
+              <div class="dop" *ngIf="userStatus">
+                  <span>Status</span>: <p style="color:green;">Active</p>
+              </div>
+              <div class="dop" *ngIf="month_count === 12 ">
+                  <span>Status</span>: <p style="color: red;">Closed</p>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

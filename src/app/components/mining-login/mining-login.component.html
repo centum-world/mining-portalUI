@@ -1,0 +1,116 @@
+
+<!--   
+<div class="box">
+    <div class="form">
+      <h2>Mining Partner</h2>
+      <div class="input-box">
+        <input type="email" required>
+        <span>UserId</span>
+        <i></i>
+      </div>
+  
+      <div class="input-box">
+        <input type="text" required>
+        <span>Password</span>
+        <i></i>
+      </div><br>
+      <a class="btn btn-primary" href="/miningdashboard">Login</a>
+      <br>
+      <div class="link">
+        <a href="https://centumworld.com">Centum World</a>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="logo">
+    <img src="assets/image/clogo.png" alt="">
+  </div>
+  <div class="box">
+    <div class="form">
+          <h2>Mining Partner</h2>
+        <form [formGroup]="partnerLoginForm">  
+          <div class="input-box">
+  
+            <div class="form-group">
+              <input type="text" formControlName="partner_id" required>
+              <span>UserId</span>
+              <i></i>
+            </div>
+            
+          </div>
+  
+          <div class="input-box">
+  
+            <div class="form-group">
+              <input type="password" formControlName="partner_password" required>
+              <span>Password</span>
+              <i></i>
+            </div>
+            
+          </div><br>
+          <div class="login-header">
+            <div class="login">
+              <button class="btn btn-primary" [disabled]="!(partnerLoginForm.valid && partnerLoginForm.dirty)" (click)="submit(partnerLoginForm)">Login</button>
+            </div>
+
+            <div class="home">
+              <a href="" class="btn btn-secondary" >Home</a>
+            </div>
+          </div>
+          <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+          
+          <br>
+          <div class="link">
+            <a href="https://centumworld.com">Centum World</a>
+          </div>
+          <div class="forget_password">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">Forget Password</a>
+          </div>
+          <div class="signup">
+            <p>Haven't an account ?  <a href="javascript:void(0)" style="color: white;" (click)="SignUpPartner()">SignUp</a></p>
+           
+          </div>
+        </form>  
+    </div>
+  </div>
+
+  <!-- reset password -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: red;">Forget Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="userid_field" class="input-mobile-no">
+            <label for="userid">User ID</label>
+            <input type="text" placeholder="Enter your User ID" name="userid" [(ngModel)]="partner_userid" class="form-control">
+          </div>
+          <div *ngIf="otp_field" class="verify">
+            <label for="verify">Enter OTP</label>
+            <input type="text" placeholder="Enter OTP" name="otp" [(ngModel)]="otp" class="form-control">
+          </div>
+          <div *ngIf="new_password" class="verify">
+            <label for="new_password">Enter New Password</label>
+            <input type="text" placeholder="Enter new password" name="new_password" [(ngModel)]="partner_password" class="form-control">
+          </div>
+        </div>
+        <div *ngIf="userid_field" class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="sendOtp()">Send OTP</button>
+        </div>
+        <div *ngIf="otp_field" class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" (click)="verifyOtp()">Verify</button>
+        </div>
+        <div *ngIf="new_password" class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" (click)="setPassword()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

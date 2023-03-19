@@ -1,0 +1,24 @@
+.table thead tr th{
+    font-size: small;
+    font-family:'Times New Roman', Times, serif;
+}
+.table tbody tr td{
+    font-size: small;
+    font-family: sans-serif;
+    background: honeydew;
+}
+.action{
+    display: flex;
+    
+}
+
+.action span{
+    cursor: pointer;
+    color: rgb(198, 219, 9);
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    background: blue;
+    border-radius: 5px;
+
+}

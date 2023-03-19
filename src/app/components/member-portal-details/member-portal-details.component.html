@@ -1,0 +1,188 @@
+<div class="container">
+   
+    <div class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">Sr</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Reffered ID</th>
+            <th scope="col">State</th>
+            <th scope="col">Email</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Salary</th>
+            <th scope="col">DOB</th>
+            <th scope="col">DOJ</th>
+            <th scope="col">User ID</th>
+            <!-- <th scope="col">Password</th> -->
+            <th scope="col">Refferal ID</th>
+            <th scope="col"> Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of memberDetails; let i = index">
+            
+            <td>{{i+1}}</td>
+            <td>{{data.m_name}}</td>
+            <td>{{data.m_phone}}</td>
+            <td>{{data.m_add}}</td>
+            <td>{{data.m_refferid}}</td>
+            <td>{{data.m_state}}</td>
+            <td>{{data.m_email}}</td>
+            <td>{{data.m_designation}}</td>
+            <td>{{data.m_quali}}</td>
+            <td>{{data.m_gender}}</td>
+            <td>{{data.m_exp}}</td>
+            <td>{{data.m_salary}}</td>
+            <td>{{data.m_dob | date}}</td>
+            <td>{{data.m_doj | date}}</td>
+            <td>{{data.m_userid}}</td>
+            <!-- <td>{{data.m_password}}</td> -->
+            <td>{{data.reffer_id}}</td>
+            <td><a href="javascript:void(0)" data-toggle="modal" data-target="#editMemberDetails"><i class="fa fa-edit">Edit</i></a></td>
+           
+          </tr>
+         
+        </tbody>
+    
+</div>
+<!-- member bank deatails list -->
+
+<div class="bank_detail">
+  <h6>Bank Details</h6>
+  <div class="table table-hover table-responsive">
+      <thead>
+          <tr>
+              <th>Sr No</th>
+              <th>Bank Holder Name</th>
+              <th>A/c No.</th>
+              <th>IFSC Code</th>
+              <th>Branch Name</th>
+              <th>Bank Name</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let data of memberBankDetails; let i= index">
+            <td> {{i+1}} </td>
+            <td> {{data.holder_name}} </td>
+            <td> {{data.account_no}} </td>
+            <td> {{data.ifsc_code}} </td>
+            <td> {{data.branch_name}} </td>
+            <td> {{data.bank_name}} </td>
+          </tr>
+      </tbody>
+  </div>
+</div>
+
+<!-- Edit member details -->
+
+
+<div class="modal fade" id="editMemberDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Member Details </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- form -->
+        
+        <div class="form">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="userEmail">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="popupData.email"   id="userEmail" placeholder="Enter Email">
+            </div> 
+            <div class="form-group col-md-6">
+              <label for="userName">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="popupData.name"  id="userName" placeholder="Enter name">
+            </div>
+          </div> 
+
+            <div class="form-group ">
+              <label for="inputAddress">Address</label>
+              <textarea class="form-control" [(ngModel)]="popupData.address" id="inputAddress" placeholder="Enter address"></textarea>
+            </div> 
+          
+
+          <div class="row">
+              <div class="form-group col-md-6">
+              <label for="">Highest Qualification</label><br>
+              <input type="radio" (change)="changeMemberQuali($event)" name="quali" [checked]= "popupData.qualification === 'matric'"  id="qualification1" value="matric">
+              <label for="qualification1">10th</label>&nbsp;
+              <input type="radio" (change)="changeMemberQuali($event)" name="quali" [checked]="popupData.qualification ==='inter' "  id="qualification2" value="inter">
+              <label for="qualification2">10+2</label>&nbsp;
+              <input type="radio" (change)="changeMemberQuali($event)" name="quali" [checked]="popupData.qualification === 'graduation'"  id="qualification3" value="graduation">
+              <label for="qualification3">Graduation</label>&nbsp;
+              </div>
+
+               <div class="form-group col-md-6">
+                <label for="gender">Gender</label><br>
+                <input type="radio" (change)="changeMemberGender($event)" [checked]="popupData.gender  ==='male'" name="gender" id="male" value="male">
+                <label for="male">Male</label>&nbsp;
+                <input type="radio" (change)="changeMemberGender($event)" [checked]=" popupData.gender  ==='female'"   name="gender" id="female" value="female">
+                <label for="female">Female</label>&nbsp;
+                <input type="radio" (change)="changeMemberGender($event)" name="gender" [checked]="popupData.gender  ==='other'" id="other" value="other">
+                <label for="other">other</label>&nbsp;
+                
+              </div>
+          </div> 
+
+          <div class="row">
+            <div class="form-gruop col-md-6">
+              <label for="state">State</label>
+              <input type="text" class="form-control" [(ngModel)]="popupData.state"  id="state" placeholder="Enter state">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="userPhone">Phone</label>
+              <input type="text" class="form-control" [(ngModel)]="popupData.phone"  id="userPhone" placeholder="Enter Phone">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="dob">DOB</label>
+              <input type="date" [(ngModel)]="popupData.dob" name="popupData.dob" id="dob" class="form-control">
+            </div> 
+           
+            <!-- <div class="form-group col-md-6">
+              <label for="upassword">User Password</label>
+              <input type="text" class="form-control" [(ngModel)]="popupData.password"  placeholder="Enter Password"  id="upassword">
+            </div>   -->
+          </div>
+
+          
+          
+
+          
+            
+          
+          
+          
+      </div><!---->
+      <div class="modal-footer">
+        <div class="row">
+          <div class="message col-md-6">
+            <span>*Please fill All fields to Activate the save Button</span>
+          </div>
+          <div class="button_fields col-md-6">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary"  
+              data-dismiss="modal" (click)="updateMemberData()">Save</button> 
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

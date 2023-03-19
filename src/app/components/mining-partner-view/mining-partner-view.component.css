@@ -1,0 +1,204 @@
+/* .user-name{
+    display: flex;
+}*/
+
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+.partnerview_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:80vh;
+   
+}
+.heading button{
+    padding: 5px;
+}
+.partner_view_card{
+    width: 900px;
+    height: 80vh;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 15px;
+   margin-top: 20px;
+   overflow: hidden;
+}
+.heading p{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: sans-serif;
+} 
+.heading{
+    display: flex;
+    justify-content: space-between;
+}
+.heading span{
+    width: 80px;
+    height: 30px;
+    background: rgb(33, 13, 218);
+    color: #fff;
+    border: 1px solid rgb(241, 30, 30);
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.paid-div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    border-radius: 20px;
+    border:1px dotted blue;
+    margin-top: 30px;
+    padding: 5px 10px 5px 20px;
+    overflow-x: scroll;
+}
+.user-name,.per-day-amount,.paid-date{
+    margin-right: 20px;
+}
+.paid-div::-webkit-scrollbar{
+    display: none;
+}
+.user-name span, .per-day-amount span, .paid-date span{
+    font-size: 18px;
+    font-weight: 600;
+    color: #9e9a9a;
+
+}
+.paid-button button{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.day-month ul{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 60px;
+    margin: 10px 0 0 10px;
+    color: #fdfdff;
+    background: rgb(238, 123, 123);
+    border-radius: 5px 5px 0 0;
+    padding: 0 5px 0 5px;
+    cursor:pointer;
+
+}
+.day-month ul li{
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.no-plan{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:10% ;
+}
+.no-plan-paragraph{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:2% ;
+}
+.no-plan-paragraph p{
+    font-size: 18px;
+    color: #7f22e9;
+    font-weight: bold;
+}
+.no-plan span{
+    width: 100px;
+    height: 100px;
+    background: #6512c4;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+.content-value{
+    width: auto;
+    height: 300px;
+    overflow-y: scroll;
+}
+.content-value::-webkit-scrollbar{
+    display: none;
+}
+.table tbody tr td span{
+    padding: 5px;
+    border-radius:5px ;
+    background: green;
+    color: rgb(253, 252, 252);
+}
+
+.table tbody tr td{
+    font-size: small;
+    font-family: sans-serif;
+    background: honeydew;
+}
+
+.payment-details{
+    display: flex;
+    justify-content: space-between;
+    background: honeydew;
+    margin-top: 15px;
+    padding: 15px 10px 0 10px;
+}
+.dop{
+    display: flex;
+}
+.dop span{
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #6512c4;
+    margin-right: 10px;
+}
+.dop p{
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #040108;
+    margin-left: 10px;
+    font-weight: bold; 
+}
+
+/* media query */
+@media only screen and (max-width:768px){
+    .paid-div{
+        display: block;
+        width: auto;
+        height:auto;
+        
+    }
+    .partner_view_card{
+        border-radius: 5px;
+        height: auto;
+        padding:5px ;
+        margin-top: 35%;
+       
+    }
+    .user-name,.per-day-amount,.paid-date{
+        margin-bottom: 8px;
+    }
+    .paid-button{
+        margin-bottom: 8px;
+    }
+    .day-month ul li{
+        margin-right: 2px;
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .payment-details{
+        display: block;
+    }
+   
+}

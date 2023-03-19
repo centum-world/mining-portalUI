@@ -1,0 +1,26 @@
+<div class="container">
+    
+    <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">Sr No</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Reffered ID</th>
+            <th scope="col">Liquidity</th>
+            <th scope="col">Phone No</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of pendingPartnerListing; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{data.p_userid}}</td>
+            <td>{{data.p_name}}</td>
+            <td>{{data.p_reffered_id}}</td>
+            <td>{{data.p_liquidity | currency:'INR'}}</td>
+            <td>{{data.p_phone}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>

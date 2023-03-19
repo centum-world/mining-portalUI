@@ -1,0 +1,29 @@
+<div class="container">
+  <span><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
+    placeholder="Search by name, user ID..."></span>
+<div class="active-partner-table table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Reffered ID</th>
+        <th scope="col">Liquidity</th>
+        <th scope="col">DOP</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of activePartnerListing | filter:searchText | paginate: {itemsPerPage:10, currentPage:p}; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{data.p_userid}}</td>
+        <td>{{data.p_name}}</td>
+        <td>{{data.p_reffered_id}}</td>
+        <td>{{data.p_liquidity}}</td>
+        <td>{{data.p_dop | date}}</td>
+        <td [ngClass]="{'color': getColor(data.month_count,data.partner_status)}">{{display}}</td>
+      </tr>
+     
+    </tbody>
+  </div>
+</div>
