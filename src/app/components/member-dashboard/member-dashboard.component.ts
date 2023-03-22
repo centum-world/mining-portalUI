@@ -189,6 +189,8 @@ export class MemberDashboardComponent implements OnInit {
         if (response) {
           this.displayMemberRefferalIdToPartner = Object.values(response.data);
           this.withdrawAmount = this.displayMemberRefferalIdToPartner[0].sumOfMemberWallet;
+        
+          
         }
       },
       error: error => {

@@ -231,6 +231,23 @@ main{
     margin-top: 25px;
 
 }
+.icon span{
+    color: blue;
+    cursor: pointer;
+}
+th{
+    font-size: 14px;
+    font-family: bold;
+}
+td{
+    font-size: 12px;
+}
+.modal-body{
+    overflow-x: scroll;
+}
+.modal-body::-webkit-scrollbar{
+    display: none;
+}
 @media only screen and (min-width : 769px){
     .sidebar-brand h3{
         display: none;

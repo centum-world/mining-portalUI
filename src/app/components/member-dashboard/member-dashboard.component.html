@@ -76,7 +76,9 @@
         </div>
         
         <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
-        <div class="icon" (click)="memberDetails()"><i class="fa fa-eye"></i></div>
+        <div class="icon" (click)="memberDetails()">
+          <span>View</span>
+        </div>
         <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
           <i class="fa fa-bank"></i>
       </a>
@@ -85,8 +87,8 @@
       <div class="card-single">
         <div>
           <h6>User ID  {{displayUserId}}</h6>
-          
-          <span>My refferal id <a href="/member-signup/?refferId={{displayMemberRefferalId}}" target="_blank">{{displayMemberRefferalId}}</a></span>
+          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{displayMemberRefferalId}}" target="_blank">{{displayMemberRefferalId}}</a></span>
+          <!-- <span>My refferal id <a href="/member-signup/?refferId={{displayMemberRefferalId}}" target="_blank">{{displayMemberRefferalId}}</a></span> -->
         </div>
       </div>
 
@@ -95,31 +97,35 @@
           <h6>Wallet</h6>
           <span>Each day transaction!</span>
         </div>
-        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite"><i class="fa fa-eye"></i></div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal</h6>
-          <span>History</span>
+        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite">
+          <div class="icon"><span>View</span></div>
         </div>
-        <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory"><i class="fa fa-eye"></i></div>
       </div>
 
-      <div class="card-single">
+     
+
+      <!-- <div class="card-single">
         <div>
           <h6>Member Team</h6>
           <span></span>
         </div>
-        <div data-toggle="modal" data-target="#myTeamUseMyRefferalId"><i class="fa fa-eye"></i></div>
-      </div>
+        <div data-toggle="modal" data-target="#myTeamUseMyRefferalId">
+          <div class="icon">
+           <span>View</span>
+          </div>
+        </div>
+      </div> -->
 
       <div class="card-single">
         <div>
           <h6>Partner Team</h6>
           <span></span>
         </div>
-        <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner"><i class="fa fa-eye"></i></div>
+        <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner">
+          <div class="icon">
+            <span>View</span>
+          </div>
+        </div>
       </div>
 
       <div class="card-single">
@@ -127,15 +133,7 @@
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
-        <div style="font-weight: bold; font-size: large;" >{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Withdrawal</span>
-        </div>
-        <div style="font-size: large; font-weight: bold;">{{withdrawAmount | currency:'INR'}}</div>
+        <div style="font-weight: bold; font-size:medium;" >{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
       </div>
 
       <div class="card-single">
@@ -143,9 +141,31 @@
           <h6>Withdrawal Request</h6>
           
         </div>
-        <div data-toggle="modal" data-target="#memberWithdrawalRequest"><i class="fa fa-eye"></i></div>
+        <div data-toggle="modal" data-target="#memberWithdrawalRequest">
+          <div class="icon">
+            <span>View</span>
+          </div>
+        </div>
       </div>
-      
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal</h6>
+          <span>History</span>
+        </div>
+        <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory">
+          <div class="icon">
+            <span>View</span>
+          </div></div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Withdrawal</span>
+        </div>
+        <div style="font-size:medium; font-weight: bold;">{{withdrawAmount-[(withdrawAmount*5)/100] | currency:'INR'}}</div>
+      </div>
 
       
     </div>
@@ -226,7 +246,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table table-hover table-light">
+        <table class="table table-hover table-light table-responsive">
           <thead>
             <tr>
               <th scope="col">Sr No.</th>
@@ -265,7 +285,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table table-hover table-light">
+        <table class="table table-hover table-light table-responsive">
           <thead>
             <tr>
               <th scope="col">Sr No.</th>
@@ -318,7 +338,7 @@
           <tbody>
             <tr *ngFor="let data of memberEachDayWallet; let i = index">
               <th >{{i+1}}</th>
-              <td>{{data.walletAmount}}</td>
+              <td>{{data.walletAmount |currency:'INR'}}</td>
               <td>{{data.wallet_update_date | date:'medium'}}</td>
               
         
@@ -353,6 +373,8 @@
             <tr>
               <th scope="col">Sr No.</th>
               <th scope="col">Amount</th>
+              <th scope="col">Service charge(5%)</th>
+              <th scope="col">Paid Amount</th>
               <th scope="col">Request Date</th>
               <th scope="col">Approved Date</th>
               
@@ -362,10 +384,10 @@
             <tr *ngFor="let data of memberWithdrawalHistoy; let i = index">
               <td>{{i+1}}</td>
               <td>{{data.member_wallet | currency:'INR'}}</td>
+              <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
+              <td>{{data.member_wallet-[(data.member_wallet*5)/100] | currency:'INR'}}</td>
               <td>{{data.request_date|date:'medium'}}</td>
               <td>{{data.approve_date|date:'medium'}}</td>
-              
-        
             </tr>
             
           </tbody>
@@ -395,6 +417,8 @@
             <tr>
               <th scope="col">Sr No.</th>
               <th scope="col">Amount</th>
+              <th scope="col">Service charge(5%)</th>
+              <th scope="col">Payble Amount</th>
               <th scope="col">Request Date</th>
               
               
@@ -403,11 +427,10 @@
           <tbody>
             <tr *ngFor="let data of memberRequest; let i = index">
               <td>{{i+1}}</td>
-              <td>{{data.member_wallet}}</td>
+              <td>{{data.member_wallet | currency:'INR'}}</td>
+              <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
+              <td>{{data.member_wallet-[(data.member_wallet*5)/100] | currency:'INR'}}</td>
               <td>{{data.request_date | date:'medium'}}</td>
-              
-              
-        
             </tr>
             
           </tbody>

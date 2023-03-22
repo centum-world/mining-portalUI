@@ -446,4 +446,18 @@ export class UserService {
     })
   }
 
+  //partner-refferal-perday-wallet-history
+  partnerRefferalPerdayWalletHistory(data) {
+    return this.http.post(this.url + "/mining/partner-refferal-perday-wallet-history", data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //partner-refferal-perday-wallet-history
+  partnerRrefferalPerdayWalletHistory(data) {
+    return this.http.post(this.url + "/mining/partner-refferal-perday-wallet-history", data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
 }

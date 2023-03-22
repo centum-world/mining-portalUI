@@ -14,6 +14,7 @@ export class MiningPartnerViewComponent implements OnInit {
   confirmPayment: boolean;
   userStatus: any;
   pLiquidity: any;
+  perDayAmountDropDown:any;
   month_count: any;
   partnerDailyAmount: any;
   partnerWithdrawalRequestHistroy: any;
@@ -26,6 +27,7 @@ export class MiningPartnerViewComponent implements OnInit {
   approveArray = [];
   perDayAmount: any;
   perDayAmounReal: any;
+  consfirm:boolean;
   constructor(private userService: UserService, private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -39,28 +41,40 @@ export class MiningPartnerViewComponent implements OnInit {
 
   perDayFunction() {
     if (this.perDayAmount === 'real') {
-      this.perDayAmounReal = this.pLiquidity;
+      this.perDayAmounReal = this.perDayAmountDropDown;
     }
     if (this.perDayAmount === 'zero') {
       this.perDayAmounReal = 0;
     }
-    let data = {
-      p_userid: this.userid,
-      partnerdate: this.selectDate,
-      perDayAmounReal: this.perDayAmounReal
-    }
-    this.userService.partnerPerDayAmountPaymentManually(data).subscribe({
-      next: (result) => {
-        if (result) {
-          this.selectDate = '';
-          this.ngOnInit();
-          this.toastr.success("Paid successfully", 'Success')
-        }
-      },
-      error: error => {
-        this.toastr.warning("Select date", 'warning');
+
+    this.consfirm = confirm("Are you sure want to pay?");
+    
+    if(this.consfirm){
+      let data = {
+        p_userid: this.userid,
+        partnerdate: this.selectDate,
+        perDayAmounReal: this.perDayAmounReal
       }
-    })
+      this.userService.partnerPerDayAmountPaymentManually(data).subscribe({
+        next: (result) => {
+          if (result) {
+            this.selectDate = '';
+            this.ngOnInit();
+            this.toastr.success("Paid successfully", 'Success')
+          }
+        },
+        error: error => {
+          if(error.error.status === 409){
+            this.toastr.warning("Aready paid to this date!",'Warning')
+          }
+          if(error.error.status === 422){
+            this.toastr.warning(error.error.message,'Warning')
+          }
+
+        
+        }
+      })
+    }
   }
 
   findUserStatus() {
@@ -71,10 +85,24 @@ export class MiningPartnerViewComponent implements OnInit {
       next: (result: any) => {
         if (result) {
           this.userStatus = result.data[0].partner_status;
-          this.pLiquidity = (result.data[0].p_liquidity / 20000);
+           this.pLiquidity = (result.data[0].p_liquidity);
           this.month_count = result.data[0].month_count;
           this.dateOfPartnr = result.data[0].p_dop;
           this.parterLiquidity = result.data[0].p_liquidity;
+          if(this.pLiquidity === 600000){
+            this.perDayAmountDropDown = 2250;
+          }
+          if(this.pLiquidity === 300000){
+            this.perDayAmountDropDown = 1350;
+          }
+          if(this.pLiquidity === 200000){
+            this.perDayAmountDropDown = 900;
+          }
+          if(this.pLiquidity === 100000){
+            this.perDayAmountDropDown = 450;
+          }
+          
+
         }
       },
       error: error => {

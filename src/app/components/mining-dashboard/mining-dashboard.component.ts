@@ -31,6 +31,7 @@ export class MiningDashboardComponent implements OnInit {
   approveArray = [];
   lastPaymentOfIndex: any;
   lastPaymentDate: any;
+  partnerRefferalParDayAmont=[];
   options = {
 
   }
@@ -64,6 +65,7 @@ export class MiningDashboardComponent implements OnInit {
     this.partnerWithdrawalRequest();
     this.paymentDetails();
     this.lastApproveDate();
+    this.partnerRrefferalPerday();
   }
 
 
@@ -152,6 +154,12 @@ export class MiningDashboardComponent implements OnInit {
       }
     })
   }
+
+  // partnerRefferalPerDayWallet(){
+  //   let data={
+
+  //   }
+  // }
 
   mining_profile_details(message_string) {
     this.view_detail = true;
@@ -249,6 +257,9 @@ export class MiningDashboardComponent implements OnInit {
         this.month_count = result.data[0].month_count;
         this.dateOfPartner = result.data[0].p_dop;
         this.partnerLiquidity = result.data[0].p_liquidity;
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong ', 'Error');
       }
     })
   }
@@ -273,8 +284,27 @@ export class MiningDashboardComponent implements OnInit {
         this.approveArray = Object.values(result.data);
         this.lastPaymentOfIndex = this.approveArray.length;
         this.lastPaymentDate = this.approveArray[this.lastPaymentOfIndex - 1].approve_date;
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong ', 'Error');
       }
     })
   }
+
+  partnerRrefferalPerday(){
+    let data = {
+      p_userid: this.partnerId
+    }
+    this.userService.partnerRrefferalPerdayWalletHistory(data).subscribe({
+      next:(result:any)=>{
+        this.partnerRefferalParDayAmont = Object.values(result.data);
+        console.log(this.partnerRefferalParDayAmont)
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong ', 'Error');
+      }
+    })
+  }
+
 
 }

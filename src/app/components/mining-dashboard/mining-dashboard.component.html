@@ -95,16 +95,28 @@
 
       <div class="card-single">
         <div class="col-md-8">
-          <h6>My Wallet (Per day)</h6>
+          <h6>My Wallet</h6>
+          <span>Per Day</span>
         </div>
         <div class="col-md-4">
           <div class="card-view" data-toggle="modal" data-target="#perDayWalletHistory">
-            <!-- <i class="fa fa-eye"></i> -->
             <span>view</span>
           </div>
         </div>
-
       </div>
+
+      <div class="card-single">
+        <div class="col-md-8">
+          <h6>Reffer Wallet</h6>
+          <span>Per Day</span>
+        </div>
+        <div class="col-md-4">
+          <div class="card-view" data-toggle="modal" data-target="#perDayRefferWalletHistory">
+            <span>view</span>
+          </div>
+        </div>
+      </div>
+
       <div class="card-single">
         <div>
           <h6>Transaction</h6>
@@ -152,7 +164,7 @@
           <h6>Transaction</h6>
           <span>Total Withdrawal</span>
         </div>
-        <span style="font-weight: bold;">{{totalAmount | currency:'INR'}}</span>
+        <span style="font-weight: bold;">{{totalAmount-[(totalAmount*5)/100] | currency:'INR'}}</span>
       </div>
       
       <div class="card-single">
@@ -172,12 +184,6 @@
           <span>view</span>
         </div>
       </div>
-
-     
-
-      
-
-
       
     </div>
 
@@ -306,7 +312,7 @@
           <tbody>
             <tr *ngFor="let data of dailyWalletAmountHistory; let i = index" >
               <td>{{i+1}}</td>
-              <td>{{data.walletAmount}}</td>
+              <td>{{data.walletAmount | currency:'INR'}}</td>
               <td>{{data.wallet_update_date | date:'medium'}}</td>
             </tr>
             
@@ -337,6 +343,8 @@
             <tr>
               <th scope="col">Sr No.</th>
               <th scope="col">Amount</th>
+              <th scope="col">Service Charge(5%)</th>
+              <th scope="col">Paid Amount</th>
               <th scope="col">Request Date </th>
               <th scope="col">Approve Date</th>
               
@@ -345,7 +353,9 @@
           <tbody>
             <tr *ngFor="let data of partnerWithdrawalSuccessHistoryList; let i = index">
               <td>{{i+1}}</td>
-              <td>{{data.partner_wallet}}</td>
+              <td>{{data.partner_wallet | currency:'INR'}}</td>
+              <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+              <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
               <td>{{data.request_date | date:'medium'}}</td>
               <td>{{data.approve_date | date:'medium'}}</td>
             </tr>
@@ -377,6 +387,8 @@
             <tr>
               <th scope="col">Sr No.</th>
               <th scope="col">Amount</th>
+              <th scope="col">Service Charge(5%)</th>
+              <th scope="col">Payable Amount</th>
               <th scope="col">Request Date </th>
               
               
@@ -385,7 +397,9 @@
           <tbody>
             <tr *ngFor="let data of partnerWithdrawalRequestData; let i = index">
               <td>{{i+1}}</td>
-              <td>{{data.partner_wallet}}</td>
+              <td>{{data.partner_wallet | currency:'INR'}}</td>
+              <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+              <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
               <td>{{data.request_date | date:'medium'}}</td>
             </tr>
             
@@ -420,7 +434,7 @@
                   <span>Date of Partner</span>: <p>{{dateOfPartner | date}}</p>
               </div>
               <div class="dop">
-                  <span>Total Liquidity</span>: <p>{{partnerLiquidity}}</p>
+                  <span>Total Liquidity</span>: <p>{{partnerLiquidity | currency:'INR'}}</p>
               </div>
               <div class="dop">
                   <span>Partner Commission</span>: <p>12 Months</p>
@@ -455,5 +469,43 @@
   </div>
 </div>
 
-
+<!-- Per day wallet histoy -->
+<div class="modal fade" id="perDayRefferWalletHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Daily Reffer Wallet History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">User ID</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Credited Date</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of partnerRefferalParDayAmont; let i = index" >
+              <td>{{i+1}}</td>
+              <td>{{data.reffer_p_userid}}</td>
+              <td>{{data.wallet_amount | currency:'INR'}}</td>
+              <td>{{data.date | date:'medium'}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -8,6 +8,8 @@
             <th scope="col">Sr No</th>
             <th scope="col">User ID</th>
             <th scope="col">Amount</th>
+            <th scope="col">Service Charge(5%)</th>
+            <th scope="col">Payable Amount</th>
             <th scope="col">Requested Date</th>
             <th scope="col">Action</th>
           </tr>
@@ -17,7 +19,9 @@
           <tr *ngFor="let data of withdrawalRequestData; let i = index">
             <td>{{i+1}}</td>
             <td>{{data.p_userid}}</td>
-            <td>{{data.partner_wallet}}</td>
+            <td>{{data.partner_wallet | currency:'INR'}}</td>
+            <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+            <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
             <td>{{data.request_date | date}}</td>
             <td> <button type="button" class="btn btn-outline-success" (click) = "sendUserId(data.p_userid)">Approve</button></td>
           </tr>

@@ -91,9 +91,9 @@
 
 }
 .day-month ul li{
-    margin-right: 10px;
-    font-size: 18px;
-    font-weight: 400;
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .no-plan{
@@ -130,6 +130,7 @@
     width: auto;
     height: 300px;
     overflow-y: scroll;
+    padding-bottom: 20px;
 }
 .content-value::-webkit-scrollbar{
     display: none;
@@ -169,6 +170,17 @@
     color: #040108;
     margin-left: 10px;
     font-weight: bold; 
+}
+ .btn{
+    width: auto;
+    height: auto;
+    background: blue;
+    color: white;
+    
+}
+th{
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* media query */

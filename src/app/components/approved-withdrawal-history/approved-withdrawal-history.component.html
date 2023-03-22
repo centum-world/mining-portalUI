@@ -11,6 +11,8 @@
           
             <th scope="col">User ID</th>
             <th scope="col">Amount</th>
+            <th scope="col">Service Charge(5%)</th>
+            <th scope="col">Paid Amount</th>
             <th scope="col">Requested Date</th>
             <th scope="col">Approved Date</th>
           </tr>
@@ -20,7 +22,9 @@
            <td>{{i+1}}</td>
             
             <td>{{data.p_userid}}</td>
-            <td>{{data.partner_wallet}}</td>
+            <td>{{data.partner_wallet | currency:'INR'}}</td>
+            <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+            <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
             <td>{{data.request_date | date}}</td>
             <td> {{data.approve_date | date}}</td>
           </tr> 

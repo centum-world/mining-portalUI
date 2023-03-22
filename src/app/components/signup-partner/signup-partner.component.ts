@@ -24,10 +24,11 @@ export class SignupPartnerComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(data => {
       this.b = data['refferId'];
+      console.log(this.b);
     })
   }
   partnerSignUpForm = new FormGroup({
-    reffered_id: new FormControl(this.b, [Validators.required]),
+    reffered_id: new FormControl("", [Validators.required]),
     name: new FormControl("", [Validators.required]),
     aadhar: new FormControl("", [Validators.required, Validators.maxLength(12),
     Validators.minLength(12)]),
@@ -51,8 +52,19 @@ export class SignupPartnerComponent implements OnInit {
 
   addPartnerData(partnerSignUpForm) {
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
+    //console.log(this.b);
+    let a = '';
+    if (this.b === '' || this.b === undefined) {
+
+      a = this.partnerSignUpForm.value.reffered_id;
+    }
+    else {
+      a = this.b
+    }
+
     var data = {
-      p_reffered_id: this.partnerSignUpForm.value.reffered_id,
+
+      p_reffered_id: a,
       p_name: this.partnerSignUpForm.value.name,
       p_aadhar: this.partnerSignUpForm.value.aadhar,
       p_phone: this.partnerSignUpForm.value.phone,

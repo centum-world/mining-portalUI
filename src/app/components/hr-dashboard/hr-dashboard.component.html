@@ -141,11 +141,11 @@
 
       <div class="card-single">
         <div class="row">
-          <div class="col-sm-6">
-            <h6>Total Liquidity:</h6>
+          <div class="col-sm-8">
+            <h6>Total Liquidity :</h6>
           </div>
           
-          <div class=" icon col-sm-6" (click)="viewList('active_partner')">
+          <div class=" icon col-sm-4" (click)="viewList('active_partner')">
             <!-- <i class="fa fa-eye"></i> -->
             <span>view</span>
           </div>
@@ -179,11 +179,11 @@
       </div>
 
       <div class="card-single">
-        <div>
-          <h6>Send Withdrawal Amount</h6>
+        <div class="col-sm-8">
+          <h6>Send Withdrawal</h6>
           <span>Member</span>
         </div>
-        <div class="icon" (click)="viewList('send_withdrawal_member')">
+        <div class="icon col-sm-4" (click)="viewList('send_withdrawal_member')">
           <!-- <i class="fa fa-eye"></i> -->
           <span>view</span>
         </div>
@@ -191,7 +191,7 @@
 
       <div class="card-single">
         <div>
-          <h6>Approved Withdrawal History</h6>
+          <h6>Approved Withdrawal</h6>
           <span>Member</span>
         </div>
         <div class="icon" (click)="viewList('approved-member-history')">
@@ -203,7 +203,7 @@
 
       <div class="card-single">
         <div>
-          <h6>Send Withdrawal amount</h6>
+          <h6>Send Withdrawal</h6>
           <span>Partner</span>
           
         </div>
@@ -215,7 +215,7 @@
 
       <div class="card-single">
         <div>
-          <h6>Approved Withdrawal History</h6>
+          <h6>Approved Withdrawal</h6>
           <span>Partner</span>
         </div>
         <div class="icon" (click)="viewList('approved_withdrawal')">
@@ -295,7 +295,7 @@
              
               <td>{{i+1}}</td>
               <td>{{data.p_userid}}</td>
-              <td>{{data.walletAmount}}</td>
+              <td>{{data.walletAmount | currency:'INR'}}</td>
               <td>{{data.wallet_update_date | date}}</td>
             </tr>
             
@@ -339,7 +339,7 @@
              
               <td>{{i+1}}</td>
               <td>{{data.m_userid}}</td>
-              <td>{{data.walletAmount}}</td>
+              <td>{{data.walletAmount | currency:'INR'}}</td>
               <td>{{data.wallet_update_date | date}}</td>
             </tr>
             
@@ -628,8 +628,8 @@
                 <select name="liquidity" id="liquidity" formControlName="liquidity" class="form-control">
                   <option value="">Select Liquidity</option>
                   <option value="600000">6 Lakh</option>
-                  <option value="500000">5 Lakh</option>
-                  <option value="400000">4 Lakh</option>
+                  <!-- <option value="500000">5 Lakh</option>
+                  <option value="400000">4 Lakh</option> -->
                   <option value="300000">3 Lakh</option>
                   <option value="200000">2 Lakh</option>
                   <option value="100000">1 Lakh</option>

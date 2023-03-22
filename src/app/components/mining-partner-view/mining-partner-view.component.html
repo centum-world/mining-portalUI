@@ -18,8 +18,8 @@
                 <br>
                 <select name="" id="" [(ngModel)]="perDayAmount" class="form-control">
                     <option value="undefined">Select Amount</option>
-                    <option value="real">{{pLiquidity | currency}}</option>
-                    <option value="zero">$0.00</option>
+                    <option value="real">{{perDayAmountDropDown | currency:'INR'}}</option>
+                    <option value="zero">{{0 | currency:'INR'}} </option>
                 </select>
             </div>
             <div class="paid-date">
@@ -28,15 +28,16 @@
                 <input type="datetime-local" class="form-control" [(ngModel)]="selectDate" >
             </div>
             <div class="paid-button">
-                <span class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal">Pay</span>
+                <!-- <span class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal">Pay</span> -->
+                <span class="btn btn-primary" (click)="perDayFunction()"  >Pay</span>
             </div>
         </div>
         <div *ngIf="userStatus||(month_count === 12)" class="day-month">
             <ul>
-                <li id="day" (click)="tabChange('day')">Day Wise</li>|&nbsp;
-                <li id="request" (click)="tabChange('request')">Withdrawal Request</li>|&nbsp;
-                <li id="withdrawal" (click)="tabChange('withdrawal')">Withdrawal History</li>|&nbsp;
-                <li id="withdrawal" (click)="tabChange('payment')">Payment History</li>
+                <li class="btn" id="day" (click)="tabChange('day')">Day Wise</li>|&nbsp;
+                <li class="btn" id="request" (click)="tabChange('request')">Withdrawal Request</li>|&nbsp;
+                <li class="btn" id="withdrawal" (click)="tabChange('withdrawal')">Withdrawal History</li>|&nbsp;
+                <li class="btn" id="withdrawal" (click)="tabChange('payment')">Payment History</li>
             </ul>
             <div class="content">
                 <div class="content-value" *ngIf="id === 'day'">
@@ -52,7 +53,7 @@
                         <tbody>
                             <tr *ngFor="let data of partnerDailyAmount; let i= index">
                                 <td>{{i+1}}</td>
-                                <td>{{data.walletAmount | currency}}</td>
+                                <td>{{data.walletAmount | currency:'INR'}}</td>
                                 <td>{{data.wallet_update_date | date:'medium'}}</td>
                                 <td><span>Paid</span></td>
                             </tr>
@@ -61,11 +62,14 @@
                 </div>
                 <div class="content-value" *ngIf=" id === 'request'">
                     <div class="container">
+                        <h6 style="color: rgb(68, 68, 248);">Withdrawal Request</h6>
                         <table class="table table table-responsive">
                             <thead>
                                 <tr>
                                     <th scope="col">Sr No</th>
-                                    <th scope="col">Amount</th>
+                                    <th scope="col">Total Amount</th>
+                                    <th scope="col">Service Charge (5%)</th>
+                                    <th scope="col">Payable Amount</th>
                                     <th scope="col">Requested Date</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -73,7 +77,9 @@
                             <tbody>
                                 <tr *ngFor="let data of partnerWithdrawalRequestHistroy; let i= index">
                                     <td>{{i+1}}</td>
-                                    <td>{{data.partner_wallet |currency}}</td>
+                                    <td>{{data.partner_wallet |currency:'INR'}}</td>
+                                    <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+                                    <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
                                     <td>{{data.request_date|date:'medium'}}</td>
                                     <td><button type="button" class="btn btn-outline-success" (click) = "sendUserId(userid)">Approve</button></td>
                                 </tr>
@@ -83,13 +89,16 @@
                 </div>
                 <div class="content-value" *ngIf=" id === 'withdrawal'">
                     <div class="container">
+                        <h6 style="color: rgb(68, 68, 248);">Withdrawal History</h6>
                         <table class="table table-hover table-responsive">
                             <thead>
                               <tr>
                                 <th scope="col">Sr No</th>
                               
                                 <th scope="col">User ID</th>
-                                <th scope="col">Amount</th>
+                                <th scope="col">Total Amount</th>
+                                <th scope="col">Service Charge (5%)</th>
+                                <th scope="col">Payable Amount</th>
                                 <th scope="col">Requested Date</th>
                                 <th scope="col">Approved Date</th>
                               </tr>
@@ -99,7 +108,9 @@
                                <td>{{i+1}}</td>
                                 
                                 <td>{{data.p_userid}}</td>
-                                <td>{{data.partner_wallet | currency}}</td>
+                                <td>{{data.partner_wallet | currency:'INR'}}</td>
+                                <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+                                <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
                                 <td>{{data.request_date | date:'medium'}}</td>
                                 <td>{{data.approve_date | date:'medium'}}</td>
                               </tr> 
@@ -160,7 +171,7 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -178,4 +189,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
