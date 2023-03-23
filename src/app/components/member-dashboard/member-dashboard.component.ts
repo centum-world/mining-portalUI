@@ -32,6 +32,8 @@ export class MemberDashboardComponent implements OnInit {
   displayMemberRefferalIdToPartner: any;
   withdrawAmount: any;
   displayUserId: any;
+  serviceCharge:any;
+  paidAmount:any;
 
 
   constructor(private userService: UserService, private toastr: ToastrService) { }
@@ -189,7 +191,8 @@ export class MemberDashboardComponent implements OnInit {
         if (response) {
           this.displayMemberRefferalIdToPartner = Object.values(response.data);
           this.withdrawAmount = this.displayMemberRefferalIdToPartner[0].sumOfMemberWallet;
-        
+          this.serviceCharge = (this.withdrawAmount*5)/100;
+          this.paidAmount = this.withdrawAmount -this.serviceCharge
           
         }
       },

@@ -3,7 +3,7 @@
         <div class="heading ">
             <p>{{userid}} Details</p>
             <span *ngIf="userStatus">Active </span>
-            <span *ngIf="month_count === 12 " style="color: red;">Closed </span>
+            <span *ngIf="month_count === 12 && !userStatus" style="color: red;">Closed </span>
             <button *ngIf="!userStatus && month_count === 0" class="btn btn-outline-success" (click)="confirmModal()">Do
                 Activate</button>
         </div>
@@ -79,7 +79,7 @@
                                     <td>{{i+1}}</td>
                                     <td>{{data.partner_wallet |currency:'INR'}}</td>
                                     <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
-                                    <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
+                                    <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
                                     <td>{{data.request_date|date:'medium'}}</td>
                                     <td><button type="button" class="btn btn-outline-success" (click) = "sendUserId(userid)">Approve</button></td>
                                 </tr>
@@ -110,7 +110,7 @@
                                 <td>{{data.p_userid}}</td>
                                 <td>{{data.partner_wallet | currency:'INR'}}</td>
                                 <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
-                                <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
+                                <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
                                 <td>{{data.request_date | date:'medium'}}</td>
                                 <td>{{data.approve_date | date:'medium'}}</td>
                               </tr> 
@@ -147,7 +147,7 @@
                         <div class="dop" *ngIf="userStatus">
                             <span>Status</span>: <p style="color:green;">Active</p>
                         </div>
-                        <div class="dop" *ngIf="month_count === 12 ">
+                        <div class="dop" *ngIf="month_count === 12 && !userStatus ">
                             <span>Status</span>: <p style="color: red;">Closed</p>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -87,6 +88,12 @@ export class SignupPartnerComponent implements OnInit {
       next: response => {
         if (response) {
           this.toastr.success('Data submitted successfully', 'Success');
+        
+            // submit form data here
+        
+            // clear form data after submission
+            partnerSignUpForm.reset();
+          
         }
       },
       error: error => {

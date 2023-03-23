@@ -164,7 +164,7 @@
           <h6>Transaction</h6>
           <span>Total Withdrawal</span>
         </div>
-        <span style="font-weight: bold;">{{totalAmount-[(totalAmount*5)/100] | currency:'INR'}}</span>
+        <span style="font-weight: bold;">{{[totalAmount-(totalAmount*5)/100] | currency:'INR'}}</span>
       </div>
       
       <div class="card-single">
@@ -355,7 +355,7 @@
               <td>{{i+1}}</td>
               <td>{{data.partner_wallet | currency:'INR'}}</td>
               <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
-              <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
+              <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
               <td>{{data.request_date | date:'medium'}}</td>
               <td>{{data.approve_date | date:'medium'}}</td>
             </tr>
@@ -399,7 +399,7 @@
               <td>{{i+1}}</td>
               <td>{{data.partner_wallet | currency:'INR'}}</td>
               <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
-              <td>{{data.partner_wallet-[(data.partner_wallet*5)/100] | currency:'INR'}}</td>
+              <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
               <td>{{data.request_date | date:'medium'}}</td>
             </tr>
             

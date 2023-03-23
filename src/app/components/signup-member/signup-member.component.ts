@@ -75,6 +75,7 @@ export class SignupMemberComponent implements OnInit {
       next: result => {
         if (result) {
           this.toastr.success('Member Created Successfully!', 'Success');
+          userForm.reset();
         }
       },
       error: error => {

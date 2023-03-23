@@ -20,7 +20,7 @@
             <td>{{data.m_userid}}</td>
             <td>{{data.member_wallet | currency:'INR'}}</td>
             <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
-            <td>{{data.member_wallet-[(data.member_wallet*5)/100] | currency:'INR'}}</td>
+            <td>{{(data.member_wallet-(data.member_wallet*5)/100) | currency:'INR'}}</td>
             <td>{{data.request_date | date}}</td>
             <td> <button type="button" class="btn btn-outline-success" (click) = "sendUserId(data.m_userid)">Approve</button></td>
           </tr>

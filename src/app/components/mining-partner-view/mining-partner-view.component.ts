@@ -59,8 +59,8 @@ export class MiningPartnerViewComponent implements OnInit {
         next: (result) => {
           if (result) {
             this.selectDate = '';
+            this.toastr.success("Paid successfully", 'Success');
             this.ngOnInit();
-            this.toastr.success("Paid successfully", 'Success')
           }
         },
         error: error => {

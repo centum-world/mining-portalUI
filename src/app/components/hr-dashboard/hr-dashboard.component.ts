@@ -122,7 +122,7 @@ export class HrDashboardComponent implements OnInit {
           if(result){
            
             this.toastr.success('Member Created Successfully!','Success');
-            
+            userForm.reset();
           }
         },
         error:error=>{
@@ -196,7 +196,7 @@ export class HrDashboardComponent implements OnInit {
           if(result){
 
             this.toastr.success('Partner created successfully','Success');
-            this.ngOnInit();
+            partnerForm.reset();
           }
         },
         error:error=>{

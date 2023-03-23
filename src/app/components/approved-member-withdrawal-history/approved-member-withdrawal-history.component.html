@@ -25,7 +25,7 @@
             <td>{{data.m_userid}}</td>
             <td>{{data.member_wallet | currency:'INR'}}</td>
             <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
-            <td>{{data.member_wallet-[(data.member_wallet*5)/100] | currency:'INR'}}</td>
+            <td>{{(data.member_wallet-(data.member_wallet*5)/100) | currency:'INR'}}</td>
             <td>{{data.request_date | date}}</td>
             <td> {{data.approve_date | date}}</td>
           </tr> 
