@@ -1,7 +1,7 @@
 <div class="marque">
     <h4>Withdrawal Request</h4>
 </div>
-<div class="cotainer">
+<div class="container">
     <table class="table table-hover table-responsive">
         <thead>
           <tr>
@@ -22,7 +22,7 @@
             <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
             <td>{{(data.member_wallet-(data.member_wallet*5)/100) | currency:'INR'}}</td>
             <td>{{data.request_date | date}}</td>
-            <td> <button type="button" class="btn btn-outline-success" (click) = "sendUserId(data.m_userid)">Approve</button></td>
+            <td> <button type="button" class="btn btn-outline-success" (click) = "sendUserId(data.m_userid,data.id)">Approve</button></td>
           </tr>
           
         </tbody>

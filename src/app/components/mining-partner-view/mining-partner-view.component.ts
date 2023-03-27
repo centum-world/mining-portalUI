@@ -135,6 +135,7 @@ export class MiningPartnerViewComponent implements OnInit {
     this.userService.perticularPartnerWithdrawalRequest(data).subscribe({
       next: (result: any) => {
         this.partnerWithdrawalRequestHistroy = Object.values(result.data);
+        console.log(this.partnerWithdrawalRequestHistroy);
 
       },
       error: error => {
@@ -143,11 +144,12 @@ export class MiningPartnerViewComponent implements OnInit {
     })
   }
 
-  sendUserId(value) {
+  sendUserId(value,id) {
 
 
     let data = {
-      p_userid: value
+      p_userid: value,
+      id:id
     }
     this.userService.approvedWithdrawalHistory(data).subscribe({
       next: response => {

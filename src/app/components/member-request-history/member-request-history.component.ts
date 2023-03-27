@@ -19,6 +19,8 @@ export class MemberRequestHistoryComponent implements OnInit {
       next: (response: any) => {
         if (response) {
           this.memberRequestHistory = Object.values(response.data);
+          console.log(this.memberRequestHistory);
+          
         }
       },
       error: error => {
@@ -27,9 +29,10 @@ export class MemberRequestHistoryComponent implements OnInit {
     })
   }
 
-  sendUserId(value) {
+  sendUserId(value,id) {
     let data = {
-      m_userid: value
+      m_userid: value,
+      id:id
     }
     this.userService.adminWillApprovedMemberRequest(data).subscribe({
       next: (response: any) => {

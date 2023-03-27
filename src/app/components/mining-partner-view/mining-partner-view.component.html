@@ -81,7 +81,7 @@
                                     <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
                                     <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
                                     <td>{{data.request_date|date:'medium'}}</td>
-                                    <td><button type="button" class="btn btn-outline-success" (click) = "sendUserId(userid)">Approve</button></td>
+                                    <td><button type="button" class="btn btn-outline-success" (click) = "sendUserId(userid,data.id)">Approve</button></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -31,6 +31,7 @@ export class SendWithdrawalAmountComponent implements OnInit {
       next: (response: any) => {
         if (response) {
           this.withdrawalRequestData = Object.values(response.data);
+          console.log(this.withdrawalRequestData);
         }
       },
       error: error => {
@@ -41,10 +42,11 @@ export class SendWithdrawalAmountComponent implements OnInit {
 
   }
 
-  sendUserId(value) {
+  sendUserId(value,id) {
     this.uderid.emit(value);
     let data = {
-      p_userid: value
+      p_userid: value,
+      id:id
     }
     this.userService.approvedWithdrawalHistory(data).subscribe({
       next: response => {
