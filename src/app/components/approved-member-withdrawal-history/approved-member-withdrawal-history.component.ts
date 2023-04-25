@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./approved-member-withdrawal-history.component.css']
 })
 export class ApprovedMemberWithdrawalHistoryComponent implements OnInit {
-  approvedMemberWithdrawalAmount:any;
+  approvedMemberWithdrawalAmount=[];
   searchText:any;
   p:any;
   constructor( private userService: UserService, private toastr:ToastrService) { }

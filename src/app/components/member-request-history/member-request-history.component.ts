@@ -7,8 +7,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./member-request-history.component.css']
 })
 export class MemberRequestHistoryComponent implements OnInit {
-  memberRequestHistory: any;
+  memberRequestHistory=[];
   memberApprovedData: any;
+  noRequestAvailable:boolean=false;
   constructor(private userService: UserService, private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class MemberRequestHistoryComponent implements OnInit {
         if (response) {
           this.memberRequestHistory = Object.values(response.data);
           console.log(this.memberRequestHistory);
+         
           
         }
       },
@@ -30,6 +32,7 @@ export class MemberRequestHistoryComponent implements OnInit {
   }
 
   sendUserId(value,id) {
+    console.log(id);
     let data = {
       m_userid: value,
       id:id

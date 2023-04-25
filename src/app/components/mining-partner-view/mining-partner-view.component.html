@@ -128,21 +128,21 @@
                             <span>Total Liquidity</span>: <p>{{parterLiquidity | currency:'INR'}}</p>
                         </div>
                         <div class="dop">
-                            <span>Partner Commission</span>: <p>12 Months</p>
+                            <span>Payout Tenure</span>: <p>12 TN</p>
                         </div>
                         <div class="dop">
-                            <span>Complited tenure</span>: <p>{{month_count}} Months</p>
+                            <span>Paid Tenure</span>: <p>{{month_count}} TN</p>
                         </div>
                     </div>
                     <div class="right">
                         <div class="dop">
-                            <span>Pending tenure</span>: <p>{{12 - month_count}} Months</p>
+                            <span>RemainingTenure</span>: <p>{{12 - month_count}} TN</p>
                         </div>
                         <div class="dop">
-                            <span>Last Payment Date</span>: <p>{{lastPaymentDate|date}}</p>
+                            <span>Last Payout</span>: <p>{{lastPaymentDate|date}}</p>
                         </div>
                         <div class="dop">
-                            <span>Next Payment Date</span>: <p>15 to 22 (Of Every Months)</p>
+                            <span>Next Payout</span>: <p>15 to 22 (Of Every Months)</p>
                         </div>
                         <div class="dop" *ngIf="userStatus">
                             <span>Status</span>: <p style="color:green;">Active</p>

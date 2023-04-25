@@ -254,7 +254,14 @@ export class HrDashboardComponent implements OnInit {
     } else if( view === 'pending_payment'){
       this.viewMemberList = true;
       this.show_detail_list = view;
+    } else if( view === 'refferal_request'){
+      this.viewMemberList = true;
+      this.show_detail_list = view;
+    } else if( view === 'refferal_approved'){
+      this.viewMemberList = true;
+      this.show_detail_list = view;
     } 
+
     
   }
 

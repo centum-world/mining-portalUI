@@ -248,6 +248,45 @@ td{
 .modal-body::-webkit-scrollbar{
     display: none;
 }
+
+/* partner details */
+.modal-header h5{
+    color: purple;
+    font-weight: 700;
+}
+.dop1{
+    display: flex;
+}
+.dop{
+    display: flex;
+}
+.dop span{
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #6512c4;
+    margin-right: 10px;
+}
+.dop p{
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #040108;
+    margin-left: 10px;
+    font-weight: bold; 
+}
+th{
+    font-size: 14px;
+    font-family: bold;
+}
+td{
+    font-size: 12px;
+}
+
+
+
+
+
+
+/* close */
 @media only screen and (min-width : 769px){
     .sidebar-brand h3{
         display: none;

@@ -292,6 +292,7 @@
               <th scope="col">Member Name</th>
               <th scope="col">User ID</th>
               <th scope="col">Joining Date</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -300,6 +301,8 @@
               <td>{{data.p_name}}</td>
               <td>{{data.p_userid}}</td>
               <td>{{data.p_dop | date}}</td>
+              
+              <td><button class="btn btn-primary" (click)="fetchPartnerDetails(data.p_userid)" data-toggle="modal" data-target="#partnerPaymentDetails" >View</button></td>
         
             </tr>
             
@@ -377,6 +380,7 @@
               <th scope="col">Paid Amount</th>
               <th scope="col">Request Date</th>
               <th scope="col">Approved Date</th>
+              <th scope="col">Refferal</th>
               
             </tr>
           </thead>
@@ -388,6 +392,7 @@
               <td>{{(data.member_wallet- (data.member_wallet*5)/100) | currency:'INR'}}</td>
               <td>{{data.request_date|date:'medium'}}</td>
               <td>{{data.approve_date|date:'medium'}}</td>
+              <td>{{data.reffer_p_userid}}</td>
             </tr>
             
           </tbody>
@@ -420,6 +425,7 @@
               <th scope="col">Service charge(5%)</th>
               <th scope="col">Payble Amount</th>
               <th scope="col">Request Date</th>
+              <th scope="col">Referal</th>
               
               
             </tr>
@@ -431,10 +437,73 @@
               <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
               <td>{{(data.member_wallet-(data.member_wallet*5)/100) | currency:'INR'}}</td>
               <td>{{data.request_date | date:'medium'}}</td>
+              <td>{{data.reffer_p_userid}}</td>
             </tr>
             
           </tbody>
         </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- partner payment details -->
+
+<div class="modal fade" id="partnerPaymentDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Partner Payment Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="payment-details">
+          <div class="left">
+            <div class="dop">
+              <span>Partner ID</span>: <p>{{partner_userid}}</p>
+            </div>
+            <div class="dop">
+              <span>Date of Partner</span>: <p>{{partnerDop | date}}</p>
+            </div>
+            <div class="dop">
+              <span>Total Liquidity</span>: <p>{{partnerLiquidity | currency:'INR'}}</p>
+            </div>
+            <div class="dop">
+              <span>Monthly Payout</span>: <p>{{lastPayOutAmount |currency:'INR'}}</p>
+            </div>
+            <div class="dop">
+              <span>Payout Tenure</span>: <p>12 TN</p>
+            </div>
+            <div class="dop">
+              <span>Paid Tenure</span>: <p>{{partner_month_count}} TN</p>
+            </div>
+          </div>
+          <div class="right">
+            <div class="dop">
+              <span>Remaining Tenure</span>: <p>{{12 - partner_month_count}} TN</p>
+            </div>
+            <div class="dop">
+              <span>Last Payout</span>: <p>{{lastPayOutMonth | date : 'medium'}}</p>
+            </div>
+            <div class="dop">
+              <span>Next Payout</span>: <p>15 to 22 (Of Every Months)</p>
+            </div>
+            <div class="dop" *ngIf="partnerStatus">
+              <span>Status</span>: <p style="color:green;">Active</p>
+            </div>
+            <div class="dop" *ngIf="partner_month_count === 12 ">
+              <span>Status</span>: <p style="color: red;">Closed</p>
+            </div>
+          </div>
+        </div>
+          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

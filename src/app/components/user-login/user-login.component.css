@@ -176,3 +176,11 @@ animation: animate 6s linear infinite;
   color: #ddcc30;
   box-decoration-break: none;
 }
+
+
+@media only screen and (max-width : 480px){
+  .box{
+    width: 90%;
+    margin-left:20px;
+  }
+ }

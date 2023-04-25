@@ -258,7 +258,7 @@ export class UserService {
   //member withdrawal request
 
   memberWithdrawalRequest() {
-    return this.http.get(this.url + "/admin/fetch-member-withdrawal-request-to-admin", {
+    return this.http.get(this.url + "/admin/fetch-member-reffer-withdrawal-request-from-admin", {
       headers: new HttpHeaders().set('Content-Type', "application/json")
     })
   }
@@ -275,14 +275,14 @@ export class UserService {
 
   // admin will approved member request
   adminWillApprovedMemberRequest(data) {
-    return this.http.post(this.url + "/admin/member-withdrawal-history-details", data, {
+    return this.http.post(this.url + "/admin/approve-member-reffer-withdrawal-request", data, {
       headers: new HttpHeaders().set('Content-Type', "application/json")
     })
   }
 
   //approved member withdrawal
   approvedMemberWithdrawalAmount() {
-    return this.http.get(this.url + "/admin/fetch-member-approve-withdrawal-history-for-admin", {
+    return this.http.get(this.url + "/admin/fetch-member-reffer-approve-withdrawal-history-from-admin", {
       headers: new HttpHeaders().set('Content-Type', "application/json")
     })
   }
@@ -460,4 +460,67 @@ export class UserService {
     })
   }
 
+  // isPartner-active-from-partner
+  isPartnerActiveFromPartner(data) {
+    return this.http.post(this.url + "/mining/isPartner-active-from-partner", data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+//fetchPartnerRefferalAmountRequest
+  fetchPartnerRefferalAmountRequest() {
+    return this.http.get(this.url + "/admin/fetch-partner-refferal-withdrawal-request", {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //approvePartnerRefferalWithdrawalRequest
+  approvePartnerRefferalWithdrawalRequest(data){
+    return this.http.post(this.url + "/admin/approve-reffer-partner-withdrawal-request",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //fetchPartnerRefferalWithdrawalApproved
+  fetchPartnerRefferalWithdrawalApproved() {
+    return this.http.get(this.url + "/admin/fetch-partner-refferal-approve-withdrawal", {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //partnerRefferalLastPayout
+  partnerRefferalLastPayout(data){
+    return this.http.post(this.url + "/mining/fetch-partner-refferal-withdrawal-history-from-partner",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //fetch partner details from member
+
+  fetchPartnerDetailsFromMember(data){
+    return this.http.post(this.url + "/member/fetch-refferal-partner-details-from-member",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  memberLastPayout(data){
+    return this.http.post(this.url + "/member/fetch-member-last-payout",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //reffer withdrawal request from partner
+  refferWithdrawalRequestFromPartner(data){
+    return this.http.post(this.url + "/mining/fetch-reffer-partner-withdrawal-request",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //refferWithdrawalSuccessFromPartner
+  refferWithdrawalSuccessFromPartner(data){
+    return this.http.post(this.url + "/mining/fetch-reffer-partner-withdrawal-success-history",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+  
 }

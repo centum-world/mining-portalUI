@@ -35,6 +35,19 @@ export class MemberDashboardComponent implements OnInit {
   serviceCharge:any;
   paidAmount:any;
 
+  partnerDetailsIsActiveOrNot=[];
+  partnerStatus:any;
+  partnerLiquidity:any;
+  partner_month_count:any;
+  partnerName:'';
+  partnerDop:'';
+  partner_userid:'';
+  memberWithdrawalHistoryArray =[];
+  indexOfLastPayment:any;
+  lastPayOutAmount:any;
+  lastPayOutMonth:any;
+
+
 
   constructor(private userService: UserService, private toastr: ToastrService) { }
 
@@ -218,6 +231,60 @@ export class MemberDashboardComponent implements OnInit {
 
     })
   }
+
+  //fetchPartnerDetails(data.p_userid)
+  fetchPartnerDetails(id){
+    this.partner_userid=id;
+    let data = {
+      p_userid: id
+    }
+    this.userService.fetchPartnerDetailsFromMember(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.partnerDetailsIsActiveOrNot = Object.values(response.data);
+          //console.log(this.partnerDetailsIsActiveOrNot);
+          this.partnerStatus = this.partnerDetailsIsActiveOrNot[0].partner_status;
+          this.partnerLiquidity = this.partnerDetailsIsActiveOrNot[0].p_liquidity;
+          this.partnerDop = this.partnerDetailsIsActiveOrNot[0].p_dop;
+          this.partner_month_count = this.partnerDetailsIsActiveOrNot[0].month_count;
+          this.partnerName = this.partnerDetailsIsActiveOrNot[0].p_name;
+        }
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong ', 'Error');
+      }
+    })
+
+
+    let lastPayout = {
+      m_userid: id
+    }
+    this.userService.memberLastPayout(lastPayout).subscribe({
+      next:(resposne:any)=>{
+        if(resposne){
+           this.memberWithdrawalHistoryArray =Object.values(resposne.data);
+            this.indexOfLastPayment= this.memberWithdrawalHistoryArray.length;
+            console.log(this.memberWithdrawalHistoryArray)
+          if(this.indexOfLastPayment > 0){
+            this.lastPayOutAmount = this.memberWithdrawalHistoryArray[this.indexOfLastPayment - 1].member_wallet;
+            this.lastPayOutMonth = this.memberWithdrawalHistoryArray[this.indexOfLastPayment - 1].approve_date;
+          }
+          if(this.indexOfLastPayment === 0){
+            this.lastPayOutAmount = null;
+            this.lastPayOutMonth = null;
+          }
+          
+         
+        
+        }
+      }
+    })
+    
+  }
+
+
+
+
 
   logOut() {
     localStorage.removeItem('token');

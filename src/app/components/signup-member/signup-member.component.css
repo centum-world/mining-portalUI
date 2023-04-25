@@ -35,6 +35,9 @@ body{
      
      /* display: block; */
     }
+    .container{
+      width: 100%;
+    }
    }
   @media only screen and (max-width : 768px) and (min-width: 481px){
    .container h1{
@@ -151,7 +154,7 @@ textarea:focus, input:focus{
 }
 
 .account span{
-  color: aqua;
+  color: rgb(5, 5, 5);
 }
 
 .account a {

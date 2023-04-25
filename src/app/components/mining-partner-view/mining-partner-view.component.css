@@ -214,3 +214,14 @@ th{
     }
    
 }
+
+@media only screen and (max-width:576px){
+    .day-month ul{
+        overflow-x: scroll;
+        
+    }
+    .partner_view_card{
+       width: 100%;
+       
+    }
+}

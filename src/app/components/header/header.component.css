@@ -41,27 +41,42 @@
   .logo {
     line-height: 1;
   }
-  
-  @media (min-width: 1200px) {
-    .logo {
-      width: 280px;
-    }
+  .logo span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #012970;
+    font-family: "Nunito", sans-serif;
   }
- 
-  
+  .bubble{
+    position: relative;
+    display: flex;
+  }
+  .bubble span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: cyan;
+    margin:5px;
+    /* border-radius: 50%; */
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s /var(--i));
+    
+  }
+  .bubble span:nth-child(even){
+    background: #ff2d75;
+    box-shadow: 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+  }
+
   .logo img {
     width: 50px;
     height: 50px;
     
   }
-  
-  .logo span {
-    font-size: 26px;
-    font-weight: 700;
-    color: #012970;
-    font-family: "Nunito", sans-serif;
-  }
-  
+
   .header {
     transition: all 0.5s;
     z-index: 997;
@@ -88,46 +103,7 @@
     background-color: #0cedf5;
     margin-top: 5px;
   }
-  @media only screen and (max-width : 768px) and (min-width: 481px){
-     .button_basic{
-     font-size: 12px;
-     margin-top: 15px;
-    }
-    .header span{
-      font-size: 15px;
-    }
-   }
-   @media only screen and (max-width : 480px){
-    .button_basic{
-      font-size:7px;
-    }
-   }
-  
 
-  .bubble{
-    position: relative;
-    display: flex;
-  }
-  .bubble span{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background: cyan;
-    margin:5px;
-    /* border-radius: 50%; */
-    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
-    animation: animate 15s linear infinite;
-    animation-duration: calc(125s /var(--i));
-    
-  }
-  .bubble span:nth-child(even){
-    background: #ff2d75;
-    box-shadow: 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
-  }
-  
   @keyframes animate{
     0%{
       transform: translateY(100vh) scale(0);
@@ -156,3 +132,94 @@
  /* .middle-animation:hover{
     transform: rotate(360deg);
  } */
+ .loin_button{
+  background: #012970;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  color: #fff;
+  margin: 10px 10px 0 0;
+ }
+ /* .button_basic{
+  background: #012970;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  color: #fff;
+  margin: 10px 10px 0 0;
+ } */
+
+ .middle-animation{
+  font-size: 38px;
+}
+  
+  .refferal_id{
+    display: none;
+    
+  }
+
+  @media (min-width: 1200px) {
+    .logo {
+      width: 280px;
+    }
+  }
+  
+ 
+
+  @media only screen and (max-width : 768px) and (min-width: 481px){
+     .button_basic{
+     font-size: 12px;
+     margin-top: 15px;
+    }
+    .header span{
+      font-size: 15px;
+    }
+    .middle-animation{
+      font-size: 26px;
+    }
+    
+   }
+   @media only screen and (max-width : 576px){
+    .middle-animation{
+      font-size: 22px;
+    }
+    .bubble span{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px #4fc3dc44, 0 0 20px #4fc3dc,
+      0 0 50px #4fc3dc;
+    }
+    .refferal_id span{
+        font-size: 12px;
+    }
+    .nav-button{
+      padding:0 0 0 16px;
+    }
+    .loin_button{
+      width: 60px;
+      height: 30px;
+      font-size: 14px;
+    }
+    .refferal_id {
+      display: block;
+      
+    }
+    .refferal_id span{
+      font-size: 16px;
+      font-weight: 600;
+      color: #012970;
+      font-family: "Nunito", sans-serif;
+    }
+    
+   }
+   @media only screen and (max-width : 480px){
+    .button_basic{
+      font-size:12px;
+    }
+   }
+  
+ 
+
+ 
+

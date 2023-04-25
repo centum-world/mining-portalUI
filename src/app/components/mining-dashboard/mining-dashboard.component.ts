@@ -21,7 +21,7 @@ export class MiningDashboardComponent implements OnInit {
   partnerWithdrawalSuccessHistoryList = [];
   partnerTotalWithdrawal: any;
   totalAmount: any;
-  partnerWithdrawalRequestData: any;
+  partnerWithdrawalRequestData:any;
   userStatus: any;
   month_count: any;
   dateOfPartner: any;
@@ -32,6 +32,21 @@ export class MiningDashboardComponent implements OnInit {
   lastPaymentOfIndex: any;
   lastPaymentDate: any;
   partnerRefferalParDayAmont=[];
+  monthlyPayout :any;
+  partnerUserName:any;
+  myTeamUserStatus:any;
+  myTeamMonth_count:any;
+  myTeamDateOfPartner:any;
+  myTeamPartnerLiquidity:any;
+  myTeamPartnerUserName:any;
+  myTeamUserid:any;
+  refferalApprovedArray = [];
+  lastRefferalOfIndex:any;
+  refferalMonthlyPayout:any;
+  refferalLastPayout:any;
+
+  reqestHistoryOfpartnerArray = [];
+  successWithdrawal = [];
   options = {
 
   }
@@ -66,6 +81,8 @@ export class MiningDashboardComponent implements OnInit {
     this.paymentDetails();
     this.lastApproveDate();
     this.partnerRrefferalPerday();
+    this.refferalWithdrawalRequest();
+    this.refferalWithdrawalSuccess();
   }
 
 
@@ -110,9 +127,12 @@ export class MiningDashboardComponent implements OnInit {
     this.userService.fetchMiningPartnerWallet(data).subscribe({
       next: (response: any) => {
         if (response) {
-          this.walletAndDate = Object.values(response.data);
+          console.log(response.results)
+          // this.walletAndDate = Object.values(response.data);
 
-          this.totalPartnerWalletAmount = this.walletAndDate[0].partner_wallet;
+          // this.totalPartnerWalletAmount = this.walletAndDate[0].partner_wallet;
+          this.totalPartnerWalletAmount = response.results;
+          
         }
       },
       error: error => {
@@ -131,6 +151,15 @@ export class MiningDashboardComponent implements OnInit {
         if (response) {
           this.partnerWithdrawalSuccessHistoryList = Object.values(response.data);
           this.partnerLastPayment = this.partnerWithdrawalSuccessHistoryList.length;
+          // console.log(this.partnerLastPayment);
+          if(this.partnerLastPayment > 0){
+            this.monthlyPayout= this.partnerWithdrawalSuccessHistoryList[this.partnerLastPayment-1].partner_wallet;
+          }
+          else{
+            this.monthlyPayout= null;
+          }
+         
+          
         }
       },
       error: error => {
@@ -145,8 +174,11 @@ export class MiningDashboardComponent implements OnInit {
     this.userService.partnerTotalWithdrawalHistory(data).subscribe({
       next: (response: any) => {
         if (response) {
-          this.partnerTotalWithdrawal = Object.values(response.data);
-          this.totalAmount = this.partnerTotalWithdrawal[0].sumOfPartnerWallet;
+          // this.partnerTotalWithdrawal = Object.values(response.data);
+          // this.totalAmount = this.partnerTotalWithdrawal[0].sumOfPartnerWallet;
+          this.totalAmount = response.results
+          console.log(this.totalAmount);
+          
         }
       },
       error: error => {
@@ -238,6 +270,8 @@ export class MiningDashboardComponent implements OnInit {
       next: (response: any) => {
         if (response) {
           this.partnerWithdrawalRequestData = Object.values(response.data);
+          console.log(this.partnerWithdrawalRequestData);
+          
         }
       },
       error: error => {
@@ -251,12 +285,15 @@ export class MiningDashboardComponent implements OnInit {
     let data = {
       p_userid: this.partnerId
     }
-    this.userService.isPartnerActiveManualFromAdmin(data).subscribe({
+    this.userService.isPartnerActiveFromPartner(data).subscribe({
       next: (result: any) => {
+        console.log(result.data);
+        
         this.userStatus = result.data[0].partner_status;
         this.month_count = result.data[0].month_count;
         this.dateOfPartner = result.data[0].p_dop;
         this.partnerLiquidity = result.data[0].p_liquidity;
+        this.partnerUserName = result.data[0].p_name;
       },
       error: error => {
         this.toastr.error('Something Went Wrong ', 'Error');
@@ -283,7 +320,12 @@ export class MiningDashboardComponent implements OnInit {
       next: (result: any) => {
         this.approveArray = Object.values(result.data);
         this.lastPaymentOfIndex = this.approveArray.length;
-        this.lastPaymentDate = this.approveArray[this.lastPaymentOfIndex - 1].approve_date;
+        if(this.lastPaymentOfIndex > 0){
+          this.lastPaymentDate = this.approveArray[this.lastPaymentOfIndex - 1].approve_date;
+        }else{
+          this.lastPaymentDate = null;
+        }
+        
       },
       error: error => {
         this.toastr.error('Something Went Wrong ', 'Error');
@@ -306,5 +348,80 @@ export class MiningDashboardComponent implements OnInit {
     })
   }
 
+  myTeamPaymentDetails(id){
+    console.log(id);
+    this.myTeamUserid = id;
+    let data = {
+      p_userid:id
+    }
+    this.userService.isPartnerActiveFromPartner(data).subscribe({
+      next: (result: any) => {
+        console.log(result.data);
+        
+        this.myTeamUserStatus = result.data[0].partner_status;
+        this.myTeamMonth_count = result.data[0].month_count;
+        this.myTeamDateOfPartner = result.data[0].p_dop;
+        this.myTeamPartnerLiquidity = result.data[0].p_liquidity;
+        this.myTeamPartnerUserName = result.data[0].p_name;
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong ', 'Error');
+      }
+    })
+
+    this.userService.partnerRefferalLastPayout(data).subscribe({
+      next: (result: any) => {
+        this.refferalApprovedArray = Object.values(result.data);
+        this.lastRefferalOfIndex = this.refferalApprovedArray.length;
+        console.log(this.lastRefferalOfIndex);
+        //console.log(this.refferalApprovedArray)
+        if(this.lastRefferalOfIndex > 0){
+          this.refferalLastPayout = this.refferalApprovedArray[this.lastRefferalOfIndex - 1].approve_date;
+         this.refferalMonthlyPayout = this.refferalApprovedArray[this.lastRefferalOfIndex - 1].partner_wallet;
+        }else{
+          this.refferalLastPayout=null;
+          this.refferalMonthlyPayout=null;
+        }
+        
+        
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong ', 'Error');
+      }
+    })
+  }
+
+  refferalWithdrawalRequest(){
+    let data = {
+      p_userid: this.partnerId
+    }
+
+    this.userService.refferWithdrawalRequestFromPartner(data).subscribe({
+      next:(results:any)=>{
+        this.reqestHistoryOfpartnerArray =  Object.values(results.data);
+        console.log(this.reqestHistoryOfpartnerArray);
+      },
+      error:error=>{
+        this.toastr.error('Something Went Wrong ', 'Error');
+      }
+    })
+  }
+
+  refferalWithdrawalSuccess(){
+    let data = {
+      p_userid: this.partnerId
+    }
+
+    this.userService.refferWithdrawalSuccessFromPartner(data).subscribe({
+      next:(results:any)=>{
+        this.successWithdrawal =  Object.values(results.data);
+        console.log(this.successWithdrawal);
+      },
+      error:error=>{
+        this.toastr.error('Something Went Wrong ', 'Error');
+      }
+    })
+  }
+  
 
 }

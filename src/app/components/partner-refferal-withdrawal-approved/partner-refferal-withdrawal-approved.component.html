@@ -1,5 +1,6 @@
+
 <div class="marque">
-    <h4>Approved Withdrawal History</h4>
+    <h4>Refferal Approved Withdrawal History</h4>
 </div>
 <div class="cotainer">
   <br><span><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
@@ -13,18 +14,20 @@
             <th scope="col">Amount</th>
             <th scope="col">Service Charge(5%)</th>
             <th scope="col">Paid Amount</th>
+            <th scope="col">Refferal</th>
             <th scope="col">Requested Date</th>
             <th scope="col">Approved Date</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of finalWithdrawalList | filter:searchText | paginate: {itemsPerPage:10, currentPage:p}; let i = index">
+          <tr *ngFor="let data of refferalWithdrawalList | filter:searchText | paginate: {itemsPerPage:10, currentPage:p}; let i = index">
            <td>{{i+1}}</td>
             
             <td>{{data.p_userid}}</td>
             <td>{{data.partner_wallet | currency:'INR'}}</td>
             <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
             <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
+            <td>{{data.reffer_p_userid}}</td>
             <td>{{data.request_date | date}}</td>
             <td> {{data.approve_date | date}}</td>
           </tr> 

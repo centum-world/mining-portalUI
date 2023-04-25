@@ -234,6 +234,28 @@
           <span>view</span>
         </div>
       </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Refferal Request</h6>
+          <span>Partner</span>
+        </div>
+        <div class="icon" (click)="viewList('refferal_request')">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Refferal Approved</h6>
+          <span>Partner</span>
+        </div>
+        <div class="icon" (click)="viewList('refferal_approved')">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
     </div>
 
     <div *ngIf="viewMemberList && (show_detail_list === 'view_member')">
@@ -262,6 +284,12 @@
     </div>
     <div *ngIf="partnerView">
       <app-mining-partner-view [userid]="receiveFromPartnerView"></app-mining-partner-view>
+    </div>
+    <div *ngIf="viewMemberList && show_detail_list === 'refferal_request'">
+      <app-partner-refferal-withdrawal-request></app-partner-refferal-withdrawal-request>
+    </div>
+    <div *ngIf="viewMemberList && show_detail_list === 'refferal_approved'">
+      <app-partner-refferal-withdrawal-approved></app-partner-refferal-withdrawal-approved>
     </div>
 
   </main>

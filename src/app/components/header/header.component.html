@@ -3,18 +3,19 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="" class="logo d-flex align-items-center" >
         <img src="assets/image/clogo.png" alt="">
-        <span class="centum d-none d-lg-block">CENTUM WORLD</span>
+        <span class="centum d-none d-sm-block">CENTUM WORLD</span>
       </a>
-      <span style="color: white;">Official Refferal Id:- admin123</span>
+      <!-- <div class="refferal_id"><span style="color: white;">Official Refferal Id:- admin123</span></div> -->
+      <div class="refferal_id "><span> MINING RIG</span></div>
     </div><!-- End Logo -->
 
     
 
     <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
+      <ul class="nav-button d-flex align-items-center">
 
-        
-        <li>
+        <!-- <li><button class="btn btn-info button_basic" (click)="adminLogin()"> Login</button></li> --> 
+         <li>
             <a class="btn btn-info button_basic" href="/login">Admin Login</a>
         </li>
         <li>
@@ -23,8 +24,11 @@
         <li>
           <a class="btn btn-info button_basic" href="/mininglogin">Mining Portal</a>
       </li>
-        
-        
+        <!-- <li><button mat-button class="loin_button" [matMenuTriggerFor]="menu">Login</button></li>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="memberPage()">Refferal Member</button>
+          <button mat-menu-item (click)="partnerPage()">Partner</button>
+        </mat-menu> -->
       </ul>  
     </nav>
 </header> 
