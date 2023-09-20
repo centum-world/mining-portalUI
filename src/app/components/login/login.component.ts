@@ -15,10 +15,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
+
   loginForm: FormGroup;
   admin_userid: string = "";
   admin_password: string = "";
-
+  // functionCalled:boolean = false;
   constructor(
     private router: Router,
     private userService: UserService,
@@ -33,6 +34,16 @@ export class LoginComponent implements OnInit {
     })
 
   }
+  ngOnInit() {
+  //  this.myFunction()
+  }
+  // myFunction() {
+  //   if (!this.functionCalled) {
+  //     window.location.reload();
+  //     this.functionCalled =true;
+  //   }
+  // }
+  
 
 
   msa: string = "";
@@ -75,7 +86,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-  ngOnInit() {
-  }
+ 
 
 }

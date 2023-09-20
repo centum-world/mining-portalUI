@@ -38,15 +38,25 @@ export class ActivePartnerComponent implements OnInit {
 
   
   getColor(month,status):string{
-    if(month === 11 && status===0){
+    let cssClass;
+    if(month === 12 && status===0){
       this.display = 'Completed';
-      return 'RGBA(94,167,88,0.9)';
+       cssClass={
+        'one':true
+      }
+      return cssClass;
     }
     if(status === 1 && month < 11){
       this.display = 'Active';
-      return 'RGBA(94,167,88,0.9)';
+      cssClass={
+        'two':true
+      }
+      return cssClass;
+
+
 
     }
+
   }
 
 }

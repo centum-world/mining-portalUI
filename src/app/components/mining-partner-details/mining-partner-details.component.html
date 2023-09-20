@@ -1,5 +1,7 @@
 <div class="container">
-    <h5>Mining Partner Details</h5><span><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
+  <a href="/dashboard">Home</a><br>
+
+    <h5 class="mt-2">Mining Partner Details </h5><span><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
       placeholder="Search by name, userid, phone and email...."></span>
     <div class="table table-hover table-responsive">
         <thead>
@@ -49,7 +51,7 @@
                 <td>
                     <div class="action">
                         <a href="javascript:void(0)" class="edit" data-toggle="modal" data-target="#editMinigPartner" (click)="fetchPartnerDetailsUsingPartnerId(data.p_userid)"><i class="fa fa-edit">Edit</i></a>&nbsp;
-                        <span  (click)="individualPartnerFunction(data.p_userid)">view</span>
+                        <a href="javascript:void(0)" class="edit" (click)="individualPartnerFunction(data.p_userid)">view</a>
                     </div>
 
                 </td>

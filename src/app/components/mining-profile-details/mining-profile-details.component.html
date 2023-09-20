@@ -1,3 +1,6 @@
+<div class="back-to-home mb-3">
+  <a href="/miningdashboard">Home</a>
+</div>
 <div class="container">
     <h6>Mining Partner Details</h6>
     <div class="table table-hover table-responsive">
@@ -46,7 +49,7 @@
                 <!-- <td> {{data.p_refferal_id}} </td> -->
                 <td>
                     <div class="action">
-                        <a href="javascript:void(0)" class="edit" data-toggle="modal" data-target="#editMinigPartner"><i class="fa fa-edit"></i></a>
+                        <button mat-button  class="edit" data-toggle="modal" data-target="#editMinigPartner"><i class="fa fa-edit">Edit</i></button>
                         
                     </div>
                 </td>
@@ -55,7 +58,7 @@
     </div>
 </div>
 <!-- Add bank details -->
-<div class="bank_detail">
+<!-- <div class="bank_detail">
     <h6>Bank Details</h6>
     <div class="table table-hover table-responsive">
         <thead>
@@ -79,7 +82,7 @@
             </tr>
         </tbody>
     </div>
-</div>
+</div> -->
 <!-- Mingin partner modal -->
 <div class="modal fade" id="editMinigPartner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -131,7 +134,7 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label for="state">State</label>
-              <input type="text" id="state" [(ngModel)]="partnerDataUpdate.p_address" class="form-control" placeholder="Enter state">
+              <input type="text" id="state" [(ngModel)]="partnerDataUpdate.p_state" class="form-control" placeholder="Enter state">
             </div>
 
             <div class="form-group col-md-6">

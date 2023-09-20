@@ -48,6 +48,7 @@ export class SendWithdrawalAmountComponent implements OnInit {
       p_userid: value,
       id:id
     }
+    console.log(data);
     this.userService.approvedWithdrawalHistory(data).subscribe({
       next: response => {
         if (response) {

@@ -9,13 +9,32 @@
     <div class="row">
       <div class="column">
         <div class="form-group">
-          <label for="name"> Name </label>
-          <input type="text" id="name" name="name" formControlName="name" placeholder="Enter Name">
+          <label for="name">First Name </label>
+          <input type="text" id="name" name="name" formControlName="name" placeholder="Enter first Name">
           <span style="color: red;" *ngIf="signForm.get('name').invalid && signForm.get('name').touched">
             Name is required
           </span>
         </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="lname">Last Name </label>
+          <input type="text" id="name" name="lname" formControlName="lname" placeholder="Enter last Name">
+          <span style="color: red;" *ngIf="signForm.get('lname').invalid && signForm.get('lname').touched">
+            Name is required
+          </span>
+        </div>
+      </div>
+    </div>
 
+  
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="Address">Enter Address</label>
+          <textarea type="text" name="address" formControlName="address" placeholder="Enter Address"
+            id="address"> </textarea>
+        </div>
       </div>
       <div class="column">
         <div class="form-group">
@@ -23,22 +42,16 @@
           <input type="text" id="designation" name="phone" formControlName="phone" placeholder="Enter Phone">
           <span style="color: red;" *ngIf="signForm.get('phone').invalid && signForm.get('phone').touched">
             <small>(*Must start with +91)</small>
-        </span>
+          </span>
         </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="form-group">
-        <label for="Address">Enter Address</label>
-        <textarea type="text" name="address" formControlName="address" placeholder="Enter Address" id="address"> </textarea>
       </div>
     </div>
     <div class="row">
       <div class="column">
         <div class="form-group">
           <label for="refferid"> RefferID </label>
-          <input type="text" id="refferid" name="refferid" [value]="b===undefined?'':b"  formControlName="reffered_id" placeholder="Enter RefferId">
+          <input type="text" id="refferid" name="refferid" [value]="b===undefined?'':b" formControlName="reffered_id"
+            placeholder="Enter RefferId">
           <small style="font-size: 12px;">*If don't have refferal id, use (admin123)</small>
         </div>
       </div>
@@ -61,14 +74,14 @@
       <div class="column">
 
         <div class="form-group ">
-          <label  for="designation">Designation</label>
-                  <select class="Designation" name="designation" id="designation" formControlName="designation">
-                    <option value="">Select</option>
-                    <option value="software engineer">Software engineer</option>
-                    <option value="bussiness manager">Bussiness Manager</option>
-                    <option value="web developer">Web Developer</option>
-                    <option value="full stack">Full stack developer</option>
-                  </select>
+          <label for="designation">Designation</label>
+          <select class="Designation" name="designation" id="designation" formControlName="designation">
+            <option value="">Select</option>
+            <option value="software engineer">Software engineer</option>
+            <option value="bussiness manager">Bussiness Manager</option>
+            <option value="web developer">Web Developer</option>
+            <option value="full stack">Full stack developer</option>
+          </select>
         </div>
       </div>
 
@@ -77,11 +90,11 @@
       <div class="col">
         <div class="form-group Gender">
           <label for="gender">Gender</label>
-          <input type="radio" name="gender" formControlName="gender" value="male"  id="gender1">
+          <input type="radio" name="gender" formControlName="gender" value="male" id="gender1">
           <label for="gender1">Male</label>
           <input type="radio" name="gender" formControlName="gender" value="female" id="gender2">
           <label for="gender2">Female</label>
-          <input type="radio"  formControlName="gender" name="gender" value="other" id="gender3">
+          <input type="radio" formControlName="gender" name="gender" value="other" id="gender3">
           <label for="gender3">Other</label>
         </div>
       </div>
@@ -90,9 +103,10 @@
           <label for="ten">Qualification</label>
           <input type="radio" formControlName="qualification" value="ten" name="qualification" id="qualification1">
           <label for="ten">10th</label>
-          <input type="radio"  formControlName="qualification" value="twelve" name="qualification"  id="qualification2">
+          <input type="radio" formControlName="qualification" value="twelve" name="qualification" id="qualification2">
           <label for="twelve">10+2</label>
-          <input type="radio"  formControlName="qualification" value="graduation"  name="qualification" id="qualification2">
+          <input type="radio" formControlName="qualification" value="graduation" name="qualification"
+            id="qualification2">
           <label for="graduation">Graduation</label>
         </div>
       </div>
@@ -102,7 +116,7 @@
       <div class="col">
         <div class="form-group">
           <label for="experience">Experience</label>
-          <select class="Experiance" name="experiance" id="experiance" formControlName="experiance" >
+          <select class="Experiance" name="experiance" id="experiance" formControlName="experiance">
             <option value="undefined">Select</option>
             <option *ngFor="let data of userExperience" [value]="data.name">{{data.name}}</option>
           </select>
@@ -149,20 +163,20 @@
     </div>
 
     <div class="row">
-      
+
       <div class="footer">
         <div class="account">
           <span>Have an account?</span><a href="/memberlogin">Login</a>
         </div>
         <div>
-          <button  type="submit" class="save" [disabled]="!signForm.valid" data-toggle="dismiss">Register</button>
+          <button type="submit" class="save" [disabled]="!signForm.valid" data-toggle="dismiss">Register</button>
 
         </div>
-        
+
 
       </div>
     </div>
 
-    
+
   </form>
 </div>

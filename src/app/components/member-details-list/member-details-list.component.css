@@ -5,9 +5,19 @@ body{
     display: block;
     background: rgb(243, 240, 240);
 }
+.container a{
+    background: rgb(89, 0, 255);
+    color: white;
+    text-decoration: none;
+    padding: 8px 11px 8px 11px;
+    border-radius: 4px;
+}
+.table thead tr th{
+    font-family: Calibri;
+}
 .table tbody tr td{
     font-size: 15px;
-    font-family: fantasy;
+    font-family: sans-serif;
     font-weight: lighter;
 }
 .action a{

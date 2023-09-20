@@ -2,6 +2,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { AuthServiceService } from 'src/app/serviceAuth/auth-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-mining-dashboard',
   templateUrl: './mining-dashboard.component.html',
@@ -44,11 +47,21 @@ export class MiningDashboardComponent implements OnInit {
   lastRefferalOfIndex:any;
   refferalMonthlyPayout:any;
   refferalLastPayout:any;
+  miningPartnerDetailsPopUp:any;
 
   reqestHistoryOfpartnerArray = [];
   successWithdrawal = [];
+  monthlyAmount:any;
+  perDayAmount : any
   options = {
 
+  }
+  public viewBankDetails = {
+    holder_name: '',
+    account_no: '',
+    ifsc_code: '',
+    branch_name: '',
+    bank_name: '',
   }
   public bankDetails = {
     holder_name: '',
@@ -59,10 +72,35 @@ export class MiningDashboardComponent implements OnInit {
   }
   refferID: string = '';
   partnerId: string = '';
+  partnerBankDetails=[];
+  myQuery='';
+  partnerDetails:any;
+
+  partnerProfileDetailsPopUP = {
+    p_userid: '',
+    p_name: '',
+    p_phone: '',
+    p_aadhar: '',
+    p_email: '',
+    p_address: '',
+    p_state: '',
+    p_nominee_name: '',
+    p_nominee_aadhar: '',
+    p_nominee_phone: '',
+    p_dob: '',
+    p_dop:'',
+   // p_gender:'',
+    p_reffered_id:'',
+    p_refferal_id:''
+
+  }
+
   constructor(
     private userService: UserService,
     private authService: AuthServiceService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router:Router,
+    private datePipe:DatePipe
   ) {
   }
 
@@ -83,6 +121,8 @@ export class MiningDashboardComponent implements OnInit {
     this.partnerRrefferalPerday();
     this.refferalWithdrawalRequest();
     this.refferalWithdrawalSuccess();
+    this.miningBankDetails();
+    this.fetchMiningPartnerProfileDetails();
   }
 
 
@@ -253,6 +293,8 @@ export class MiningDashboardComponent implements OnInit {
       next: (response: any) => {
         if (response) {
           this.toastr.success(response.message);
+          this.bankDetails.holder_name ='';
+
         }
       },
       error: error => {
@@ -294,6 +336,22 @@ export class MiningDashboardComponent implements OnInit {
         this.dateOfPartner = result.data[0].p_dop;
         this.partnerLiquidity = result.data[0].p_liquidity;
         this.partnerUserName = result.data[0].p_name;
+        if(this.partnerLiquidity === 600000){
+          this.monthlyAmount = 67500;
+          this.perDayAmount = 2250;
+        }
+        if(this.partnerLiquidity === 300000){
+          this.monthlyAmount = 40500;
+          this.perDayAmount = 1350;
+        }
+        if(this.partnerLiquidity === 200000){
+          this.monthlyAmount = 27000;
+          this.perDayAmount = 900;
+        }
+        if(this.partnerLiquidity === 100000){
+          this.monthlyAmount = 13500;
+          this.perDayAmount = 450;
+        }
       },
       error: error => {
         this.toastr.error('Something Went Wrong ', 'Error');
@@ -308,9 +366,7 @@ export class MiningDashboardComponent implements OnInit {
     this.rzp1.open();
   }
 
-  logOut() {
-    localStorage.removeItem('token');
-  }
+  
 
   lastApproveDate() {
     let data = {
@@ -422,6 +478,95 @@ export class MiningDashboardComponent implements OnInit {
       }
     })
   }
-  
+
+  miningBankDetails() {
+    let data = {
+      user_id: localStorage.getItem('partnerdetails')
+    }
+    this.userService.fetchMiningPartnerBankDetails(data).subscribe((response: any) => {
+      if (response) {
+        this.partnerBankDetails = Object.values(response);
+        console.log(this.partnerBankDetails.length);  
+        if(this.partnerBankDetails.length > 0){
+          console.log(this.partnerBankDetails);
+          
+          
+          this.viewBankDetails.holder_name = this.partnerBankDetails[1][0].holder_name;
+          
+          
+          this.viewBankDetails.account_no = this.partnerBankDetails[1][0].account_no;
+          this.viewBankDetails.ifsc_code = this.partnerBankDetails[1][0].ifsc_code;
+          this.viewBankDetails.branch_name = this.partnerBankDetails[1][0].branch_name;
+          this.viewBankDetails.bank_name = this.partnerBankDetails[1][0].bank_name;
+         
+        }
+        
+      } else {
+        // console.log("error");
+      }
+    })
+  }
+
+  //  profile details in popup
+
+  fetchMiningPartnerProfileDetails(){
+    let partnerIdDetails = localStorage.getItem('partnerdetails');
+    let data = {
+      p_userid: partnerIdDetails
+    }
+    this.userService.fetchMiningPartnerProfileDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.partnerDetails = Object.values(response.data);
+          console.log(this.partnerDetails)
+          this.partnerProfileDetailsPopUP.p_userid = this.partnerDetails[0].p_userid;
+          this.partnerProfileDetailsPopUP.p_name = this.partnerDetails[0].p_name;
+          this.partnerProfileDetailsPopUP.p_phone = this.partnerDetails[0].p_phone;
+          this.partnerProfileDetailsPopUP.p_aadhar = this.partnerDetails[0].p_aadhar;
+          this.partnerProfileDetailsPopUP.p_email = this.partnerDetails[0].p_email;
+          this.partnerProfileDetailsPopUP.p_address = this.partnerDetails[0].p_address;
+          //this.partnerProfileDetailsPopUP.p_gender = this.partnerDetails[0].p_gender;
+          this.partnerProfileDetailsPopUP.p_state = this.partnerDetails[0].p_state;
+          this.partnerProfileDetailsPopUP.p_nominee_name = this.partnerDetails[0].p_nominee_name;
+          this.partnerProfileDetailsPopUP.p_nominee_aadhar = this.partnerDetails[0].p_nominee_aadhar;
+          this.partnerProfileDetailsPopUP.p_nominee_phone = this.partnerDetails[0].p_nominee_phone;
+          this.partnerProfileDetailsPopUP.p_dob = this.datePipe.transform(this.partnerDetails[0].p_dob, 'yyyy-MM-dd');
+          this.partnerProfileDetailsPopUP.p_dop = this.datePipe.transform(this.partnerDetails[0].p_dop, 'yyyy-MM-dd');
+          this.partnerProfileDetailsPopUP.p_reffered_id = this.partnerDetails[0].p_reffered_id;
+          this.partnerProfileDetailsPopUP.p_refferal_id = this.partnerDetails[0].p_refferal_id         
+
+        }
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong', 'Error');
+      }
+    })
+  }
+
+
+
+
+  query(){
+    let data = {
+      p_userid: localStorage.getItem('partnerdetails'),
+      query: this.myQuery
+    }
+    this.userService.partnerHelpAndQuery(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.toastr.success("Query Submitted");
+           this.myQuery = '';
+        }
+      },
+      error:error=>{
+        this.toastr.error('Something Went Wrong', 'Error');
+      }
+    })
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    
+  }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-member-details-list',
   templateUrl: './member-details-list.component.html',
@@ -13,7 +14,7 @@ export class MemberDetailsListComponent implements OnInit {
 
   memberListDetail = [];
   searchText:any;
-  constructor(private userService: UserService, private toastr: ToastrService, private datePipe: DatePipe) { }
+  constructor(private userService: UserService, private toastr: ToastrService, private datePipe: DatePipe, private router:Router) { }
   token: string = '';
   p: number = 1;
   memberUpdateDetails = {
@@ -147,5 +148,9 @@ export class MemberDetailsListComponent implements OnInit {
     })
 
   }
+  // home(){
+  //   this.router.navigate(['/dashboard']);
+  //   console.log('jiii');
+  // }
 
 }

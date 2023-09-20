@@ -1,7 +1,14 @@
+<div class="back-to-home mb-3">
+    <a href="/dashboard">Home</a>
+  </div>
+
 <div class="partnerview_container">
     <div class="partner_view_card">
         <div class="heading ">
-            <p>{{userid}} Details</p>
+            <div class="name_userid">
+                <p>{{userid}} </p>
+                <small>{{partner_name}}</small>
+            </div>
             <span *ngIf="userStatus">Active </span>
             <span *ngIf="month_count === 12 && !userStatus" style="color: red;">Closed </span>
             <button *ngIf="!userStatus && month_count === 0" class="btn btn-outline-success" (click)="confirmModal()">Do
@@ -14,27 +21,27 @@
                 <strong>{{userid}}</strong>
             </div>
             <div class="per-day-amount">
-                <span>Per Day Amount</span>
+                <span>Monthly Payout</span>
                 <br>
                 <select name="" id="" [(ngModel)]="perDayAmount" class="form-control">
                     <option value="undefined">Select Amount</option>
                     <option value="real">{{perDayAmountDropDown | currency:'INR'}}</option>
-                    <option value="zero">{{0 | currency:'INR'}} </option>
+                    <option value="zero">{{februaryAmount | currency:'INR'}} </option>
                 </select>
             </div>
             <div class="paid-date">
                 <span>Paid Date</span>
                 <br>
-                <input type="datetime-local" class="form-control" [(ngModel)]="selectDate" >
+                <input type="datetime-local" class="form-control" [(ngModel)]="selectDate">
             </div>
             <div class="paid-button">
                 <!-- <span class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal">Pay</span> -->
-                <span class="btn btn-primary" (click)="perDayFunction()"  >Pay</span>
+                <span class="btn btn-primary" (click)="perDayFunction()">Pay</span>
             </div>
         </div>
         <div *ngIf="userStatus||(month_count === 12)" class="day-month">
             <ul>
-                <li class="btn" id="day" (click)="tabChange('day')">Day Wise</li>|&nbsp;
+                <li class="btn" id="day" (click)="tabChange('day')">Month Wise</li>|&nbsp;
                 <li class="btn" id="request" (click)="tabChange('request')">Withdrawal Request</li>|&nbsp;
                 <li class="btn" id="withdrawal" (click)="tabChange('withdrawal')">Withdrawal History</li>|&nbsp;
                 <li class="btn" id="withdrawal" (click)="tabChange('payment')">Payment History</li>
@@ -54,7 +61,7 @@
                             <tr *ngFor="let data of partnerDailyAmount; let i= index">
                                 <td>{{i+1}}</td>
                                 <td>{{data.walletAmount | currency:'INR'}}</td>
-                                <td>{{data.wallet_update_date | date:'medium'}}</td>
+                                <td>{{data.wallet_update_date | date:'medium':'GMT+5:30' }}</td>
                                 <td><span>Paid</span></td>
                             </tr>
                         </tbody>
@@ -81,7 +88,8 @@
                                     <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
                                     <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
                                     <td>{{data.request_date|date:'medium'}}</td>
-                                    <td><button type="button" class="btn btn-outline-success" (click) = "sendUserId(userid,data.id)">Approve</button></td>
+                                    <td><button type="button" class="btn btn-outline-success"
+                                            (click)="sendUserId(userid,data.id)">Approve</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -92,31 +100,31 @@
                         <h6 style="color: rgb(68, 68, 248);">Withdrawal History</h6>
                         <table class="table table-hover table-responsive">
                             <thead>
-                              <tr>
-                                <th scope="col">Sr No</th>
-                              
-                                <th scope="col">User ID</th>
-                                <th scope="col">Total Amount</th>
-                                <th scope="col">Service Charge (5%)</th>
-                                <th scope="col">Payable Amount</th>
-                                <th scope="col">Requested Date</th>
-                                <th scope="col">Approved Date</th>
-                              </tr>
+                                <tr>
+                                    <th scope="col">Sr No</th>
+
+                                    <th scope="col">User ID</th>
+                                    <th scope="col">Total Amount</th>
+                                    <th scope="col">Service Charge (5%)</th>
+                                    <th scope="col">Payable Amount</th>
+                                    <th scope="col">Requested Date</th>
+                                    <th scope="col">Approved Date</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let data of partnerWithdrawalHistory; let i = index">
-                               <td>{{i+1}}</td>
-                                
-                                <td>{{data.p_userid}}</td>
-                                <td>{{data.partner_wallet | currency:'INR'}}</td>
-                                <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
-                                <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
-                                <td>{{data.request_date | date:'medium'}}</td>
-                                <td>{{data.approve_date | date:'medium'}}</td>
-                              </tr> 
-                              
+                                <tr *ngFor="let data of partnerWithdrawalHistory; let i = index">
+                                    <td>{{i+1}}</td>
+
+                                    <td>{{data.p_userid}}</td>
+                                    <td>{{data.partner_wallet | currency:'INR'}}</td>
+                                    <td>{{(data.partner_wallet*5)/100 | currency:'INR'}}</td>
+                                    <td>{{(data.partner_wallet-(data.partner_wallet*5)/100) | currency:'INR'}}</td>
+                                    <td>{{data.request_date | date:'medium'}}</td>
+                                    <td>{{data.approve_date | date:'medium'}}</td>
+                                </tr>
+
                             </tbody>
-                          </table>
+                        </table>
                     </div>
                 </div>
                 <div class="payment-details" *ngIf=" id === 'payment'">
@@ -142,7 +150,7 @@
                             <span>Last Payout</span>: <p>{{lastPaymentDate|date}}</p>
                         </div>
                         <div class="dop">
-                            <span>Next Payout</span>: <p>15 to 22 (Of Every Months)</p>
+                            <span>Next Payout</span>: <p>15 to 22nd (Of Every Month)</p>
                         </div>
                         <div class="dop" *ngIf="userStatus">
                             <span>Status</span>: <p style="color:green;">Active</p>
@@ -169,9 +177,9 @@
 
 <!-- Button trigger modal -->
 
-  
-  <!-- Modal -->
-  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

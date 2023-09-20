@@ -230,19 +230,51 @@ main{
 }
 .icon span {
    color: blue;
-   text-decoration: underline;
+   text-decoration: none;
 }
 .member_history span{
     color:#ffff;
     cursor: pointer;
 
 }
-.modal-body{
-    overflow-x: scroll;
+
+table thead tr th, tbody tr td {
+    font-family: Calibri ;
 }
-.modal-body::-webkit-scrollbar{
+
+/* partnership bond  */
+
+.modal-header h4{
+    color:#8214e9;
+    font-weight: 700;
+    font-family: Calibri;
+}
+
+
+.account_paid_withdrawal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.account_paid_withdrawal p{
+    font-family: Calibri;
+    
+}
+.account_paid_withdrawal span{
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.modal-dialog{
+    overflow-y:scroll;
+
+  }
+  .modal-dialog::-webkit-scrollbar{
     display: none;
 }
+
+
 @media only screen and (max-width:1024px) and (min-width:769px){
     .header{
         left: 261px;
@@ -312,7 +344,6 @@ main{
     header h2 span{
         font-size: 1rem;
     }
-
    
 }
 

@@ -1,3 +1,10 @@
+.container a{
+    background: rgb(89, 0, 255);
+    color: white;
+    text-decoration: none;
+    padding: 8px 11px 8px 11px;
+    border-radius: 4px;
+}
 .table thead tr th{
     font-size: small;
     font-family:'Times New Roman', Times, serif;
@@ -9,6 +16,14 @@
     font-family: sans-serif;
     background: honeydew;
 }
+
 /* .active-partner-table thead tr th{
     justify-content: space-between;
 } */
+
+.one{
+    color: red;
+}
+.two{
+    color: green;
+}

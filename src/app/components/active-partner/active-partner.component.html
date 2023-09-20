@@ -1,6 +1,7 @@
 <div class="container">
-  <span><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
-    placeholder="Search by name, user ID..."></span>
+  <a href="/dashboard">Home</a><br>
+  <div class="mt-3" ><input type="text" class="form-control" name="search" [(ngModel)]="searchText"
+    placeholder="Search by name, user ID..."></div>
 <div class="active-partner-table table table-hover table-responsive">
     <thead>
       <tr>
@@ -21,9 +22,10 @@
         <td>{{data.p_reffered_id}}</td>
         <td>{{data.p_liquidity}}</td>
         <td>{{data.p_dop | date}}</td>
-        <td [ngClass]="{'color': getColor(data.month_count,data.partner_status)}">{{display}}</td>
+        <td [ngClass]="getColor(data.month_count ,data.partner_status)">{{display}}</td>
       </tr>
      
     </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

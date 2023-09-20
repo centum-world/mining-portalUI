@@ -7,7 +7,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -96,6 +98,9 @@ import { PartnerRefferalWithdrawalApprovedComponent } from './components/partner
     Ng2SearchPipeModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
       progressBar: true,

@@ -523,4 +523,43 @@ export class UserService {
     })
   }
   
+  //upload bond file
+  uploadBondFile(data){
+    return this.http.post(this.url + "/admin/upload-partnership-bond",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  // Help And Support
+  HelpAndSupport(){
+    return this.http.get(this.url + "/admin/fetch-help-and-support-query", {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  helpAndSupportSingleQuery(data){
+    return this.http.post(this.url + "/admin/fetch-particular-help-And-support-query",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+  //Acount total payout
+  acountTotalPayout(){
+    return this.http.get(this.url + "/admin/accounts-paid-withdrawal-admin", {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //Query
+  partnerHelpAndQuery(data){
+    return this.http.post(this.url + "/mining/help-and-support",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //fetch partnerLiquidity
+  fetchPartnerLiquidity(data){
+    return this.http.post(this.url + "/member/fetch-Liquidity-for-member-summary",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
 }

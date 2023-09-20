@@ -32,6 +32,7 @@ export class SignupMemberComponent implements OnInit {
 
   signForm = new FormGroup({
     name: new FormControl("", [Validators.required]),
+    lname: new FormControl("", [Validators.required]),
     phone: new FormControl("", [Validators.required, Validators.maxLength(13),
     Validators.minLength(13), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     address: new FormControl("", [Validators.required]),
@@ -54,6 +55,7 @@ export class SignupMemberComponent implements OnInit {
     this.createMember.refferal_id = this.signForm.value.user_id + Math.floor(Math.random() * 100000);
     var data = {
       m_name: this.signForm.value.name,
+      m_lname: this.signForm.value.lname,
       m_phone: this.signForm.value.phone,
       m_add: this.signForm.value.address,
       m_refferid: this.signForm.value.reffered_id,

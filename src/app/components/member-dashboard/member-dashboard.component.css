@@ -280,6 +280,9 @@ th{
 td{
     font-size: 12px;
 }
+.card-single span a{
+    text-decoration: none;
+}
 
 
 

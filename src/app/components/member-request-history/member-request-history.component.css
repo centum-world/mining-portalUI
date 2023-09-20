@@ -1,3 +1,10 @@
+.back-to-home a{
+    background: rgb(89, 0, 255);
+    color: white;
+    text-decoration: none;
+    padding: 8px 11px 8px 11px;
+    border-radius: 4px;
+}
 .marque {
     height: 50px;
     overflow: hidden;
@@ -5,6 +12,7 @@
     background: #fefefe;
     color: rgb(235, 23, 23);
     border: 1px solid #4a4a4a;
+    z-index: -1;
 }
 
 .marque h4 {
@@ -21,6 +29,7 @@
     -webkit-animation: bouncing-text 5s linear infinite alternate;
     animation: bouncing-text 10s linear infinite alternate;
 }
+
 
 @-moz-keyframes bouncing-text {
     0% {
@@ -55,7 +64,7 @@
 
 .table thead tr th{
     font-size: small;
-    font-family:'Times New Roman', Times, serif;
+    font-family:Calibri;
 }
 .table tbody tr td{
     font-size: small;
@@ -77,4 +86,10 @@
     color: #da1e1e;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
+}
+.not-found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }

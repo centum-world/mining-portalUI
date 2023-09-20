@@ -12,18 +12,30 @@
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-user-plus"></i>
-          <span>Deposit/Liquidity</span>
-        </a>
+        <button mat-button [matMenuTriggerFor]="menu1">
+          <div class="d-flex bank_button">
+            <p><i class="fa fa-bank"></i></p>&nbsp;&nbsp;&nbsp;<span>Bank Details</span>
+          </div>
+        </button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item data-toggle="modal" data-target="#addBankDetail">Add Bank</button>
+          <button mat-menu-item data-toggle="modal" data-target="#viewBankDetail">View Bank</button>
+        </mat-menu>
       </li>
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-money"></i>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#partnerSuccessWithdrawalHistroy"><i
+            class="fa fa-money"></i>
           <span>Withdrawal History</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="javascript:void(0)"><i class="fa fa-exchange"></i>
           <span>Transaction</span>
+        </a>
+      </li> -->
+      <li>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#help-support"><i class="fa fa-question"></i>
+          <span>Help & Support</span>
         </a>
       </li>
 
@@ -50,7 +62,14 @@
     </h2>
 
     <div class="user-wrapper">
-      <img src="assets/image/profile.png" alt="" width="50px" height="50px">
+
+      <button mat-button class="loin_button" [matMenuTriggerFor]="menu"><img src="assets/image/profile.png" alt=""
+          width="50px" height="50px"></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item data-toggle="modal" data-target="#partnerProfile">Profile</button>
+        <button mat-menu-item data-toggle="modal" data-target="#partnerSummry">Summary</button>
+        <a href="" mat-menu-item (click)="logOut()">Log Out</a>
+      </mat-menu>
       <div>
 
         <small style="color:crimson;"> {{partnerId}}</small>
@@ -61,25 +80,44 @@
   <main>
 
     <div class="cards" *ngIf="!view_detail">
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Profile</h6>
           <span>Add Bank details</span>
         </div>
 
-        <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
+      
         <div class="icon" (click)="mining_profile_details('profile_detail')">
-          <!-- <i class="fa fa-eye"></i> -->
+        
           <span>view</span>
         </div>
         <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
           <i class="fa fa-bank"></i>
         </a>
-      </div>
+      </div> -->
       <div class="card-single">
         <div>
-          <h6>User ID:- {{partnerId}}</h6>
+          <h6>Account Details</h6>
+          <span>
+            <div class="dop1" *ngIf="userStatus">
+              <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
+            </div>
+            <div class="dop1" *ngIf="month_count === 12 ">
+              <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
+            </div>
+            <div class="dop1" *ngIf="!userStatus && month_count === 0">
+              <span style="font-weight: 600;">Status</span>: <p style="color:red;">Not Active</p>
+            </div>
+          </span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerPaymentDetails">
 
+          <span>view</span>
+        </div>
+      </div>
+      <div class="card-single">
+        <div class="partner-refferal-id">
+          <h6>User ID:- {{partnerId}}</h6>
           <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{refferID}}"
               target="_blank">{{refferID}}</a></span>
         </div>
@@ -87,43 +125,46 @@
 
       <div class="card-single">
         <div>
-          <h6>Deposit/Liquidity</h6>
-          <span>History</span>
+          <h6>Liquidity</h6>
+          <!-- <span>History</span> -->
         </div>
-        <div class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
+        <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
+        <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
       </div>
 
-      <div class="card-single">
-        <div class="col-md-8">
-          <h6>My Wallet</h6>
-          <span>Per Day</span>
+      <!-- <div class="card-single">
+        <div class="col-md-6">
+
+          <span>Monthly Payout</span>
+      
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="card-view" data-toggle="modal" data-target="#perDayWalletHistory">
             <span>view</span>
           </div>
+      
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div class="col-md-8">
-          <h6>Reffer Wallet</h6>
-          <span>Per Day</span>
+          <h6>Refferal</h6>
+          <span>Monthly Payout</span>
         </div>
         <div class="col-md-4">
           <div class="card-view" data-toggle="modal" data-target="#perDayRefferWalletHistory">
             <span>view</span>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
         <span style="font-weight: bold;">{{totalPartnerWalletAmount | currency:'INR'}}</span>
-      </div>
+      </div> -->
       <div class="card-single">
         <div>
           <h6>My Team</h6>
@@ -178,10 +219,6 @@
         </div>
       </div>
 
-     
-
-
-
       <div class="card-single">
         <div>
           <h6>Transaction</h6>
@@ -190,23 +227,23 @@
         <span style="font-weight: bold;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
       </div>
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
-          <h6>Payment Details</h6>
-          <span>
-            <div class="dop1" *ngIf="userStatus">
-              <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
-            </div>
-            <div class="dop1" *ngIf="month_count === 12 ">
-              <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
-            </div>
-          </span>
+          <h6>Profile</h6>
+          <span>Add Bank details</span>
         </div>
-        <div class="card-view" data-toggle="modal" data-target="#partnerPaymentDetails">
-          <!-- <i class="fa fa-eye"></i> -->
+
+      
+        <div class="icon" (click)="mining_profile_details('profile_detail')">
+        
           <span>view</span>
         </div>
-      </div>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
+          <i class="fa fa-bank"></i>
+        </a>
+      </div> -->
+
+
 
     </div>
 
@@ -461,7 +498,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title-partner" id="exampleModalLabel"><small>Dear CENTUM WORLD RIG PARTNER
-            <mark>{{partnerUserName}}</mark> join with the rig program on <mark>{{dateOfPartner |date:
+            <mark>{{partnerUserName}}</mark> join with the RIG program on <mark>{{dateOfPartner |date:
               'dd/MM/yyyy'}}</mark>. Here are the details of your Account Payout:</small></h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -472,6 +509,9 @@
       <div class="modal-body">
         <div class="payment-details">
           <div class="left">
+            <div class="dop">
+              <span>User ID</span>: <p>{{partnerId}}</p>
+            </div>
             <div class="dop">
               <span>Date of Partner</span>: <p>{{dateOfPartner | date}}</p>
             </div>
@@ -496,13 +536,16 @@
               <span>Last Payout</span>: <p>{{lastPaymentDate|date :'medium'}}</p>
             </div>
             <div class="dop">
-              <span>Next Payout</span>: <p>15 to 22 (Of Every Months)</p>
+              <span>Next Payout</span>: <p>15 to 22nd (Of Every Month)</p>
             </div>
             <div class="dop" *ngIf="userStatus">
               <span>Status</span>: <p style="color:green;">Active</p>
             </div>
             <div class="dop" *ngIf="month_count === 12 ">
               <span>Status</span>: <p style="color: red;">Closed</p>
+            </div>
+            <div class="dop" *ngIf="!userStatus && month_count === 0">
+              <span>Status</span>: <p style="color:red;">Account not active</p>
             </div>
           </div>
         </div>
@@ -616,8 +659,8 @@
 </div>
 
 <!-- Refferal pending withdrawal histoty -->
-<div class="modal fade" id="refferalWithdrawal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="refferalWithdrawal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -662,8 +705,8 @@
 </div>
 
 <!-- Refferal success withdrawal histoty -->
-<div class="modal fade" id="refferalSuccess" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="refferalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -707,4 +750,164 @@
     </div>
   </div>
 </div>
+<!-- viewBankDetail -->
+<div class="modal fade" id="viewBankDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Your Bank Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
+        <div class="payment-details">
+          <div class="left">
+            <div class="dop">
+              <span>Account Holder Name</span>: <p>{{viewBankDetails.holder_name}}</p>
+            </div>
+            <div class="dop">
+              <span>Account Number</span>: <p>{{viewBankDetails.account_no}}</p>
+            </div>
+            <div class="dop">
+              <span>IFSC Code</span>: <p>{{viewBankDetails.ifsc_code}}</p>
+            </div>
+            <div class="dop">
+              <span>Bank Name</span>: <p>{{viewBankDetails.bank_name}}</p>
+            </div>
+            <div class="dop">
+              <span>Branck Name</span>: <p>{{viewBankDetails.branch_name}}</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Help and support -->
+<div class="modal fade" id="help-support" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Help & Support</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-form-field>
+          <textarea matInput placeholder="Ask your query" rows="4" cols="80" [(ngModel)]="myQuery"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="query()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- summry  -->
+<div class="modal fade" id="partnerSummry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" style="color: blueviolet;">Summary</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="summry d-flex">
+          <p>Monthly Payout</p>:&nbsp;<span>{{monthlyAmount|currency:"INR"}}</span>
+        </div>
+        <div class="summry d-flex">
+          <p>Perday Payout</p>:&nbsp;<span>{{perDayAmount|currency:"INR"}}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Profile Pop Up -->
+
+<div class="modal fade" id="partnerProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" style="color: blueviolet;">My Profile</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="payment-details">
+          <div class="left">
+            <div class="dop">
+              <span>Name</span>: <p>{{partnerProfileDetailsPopUP.p_name}}</p>
+            </div>
+            <div class="dop">
+              <span>Phone</span>: <p>{{partnerProfileDetailsPopUP.p_phone}}</p>
+            </div>
+            <div class="dop">
+              <span>Address</span>: <p>{{partnerProfileDetailsPopUP.p_address}}</p>
+            </div>
+            <div class="dop">
+              <span>Reffered ID</span>: <p>{{partnerProfileDetailsPopUP.p_reffered_id}}</p>
+            </div>
+            <div class="dop">
+              <span>State</span>: <p>{{partnerProfileDetailsPopUP.p_state}}</p>
+            </div>
+            <div class="dop">
+              <span>Email</span>: <p>{{partnerProfileDetailsPopUP.p_email}}</p>
+            </div>
+          </div>
+          <div class="right">
+
+
+            <div class="dop">
+              <span>Aadhar</span>: <p>{{partnerProfileDetailsPopUP.p_aadhar}}</p>
+            </div>
+
+            <div class="dop">
+              <span>DOB</span>: <p>{{partnerProfileDetailsPopUP.p_dob}}</p>
+            </div>
+            <div class="dop">
+              <span>DOP</span>: <p>{{partnerProfileDetailsPopUP.p_dop}}</p>
+            </div>
+            <div class="dop">
+              <span>Nominee Name</span>: <p>{{partnerProfileDetailsPopUP.p_nominee_name}}</p>
+            </div>
+            <div class="dop">
+              <span>Nominee Phone</span>: <p>{{partnerProfileDetailsPopUP.p_nominee_phone}}</p>
+            </div>
+            <div class="dop">
+              <span>Nominee Aadhar</span>: <p>{{partnerProfileDetailsPopUP.p_nominee_aadhar}}</p>
+            </div>
+            <div class="dop">
+              <span>User ID</span>: <p>{{partnerProfileDetailsPopUP.p_userid}}</p>
+            </div>
+            <div class="dop">
+              <span>Refferal ID</span>: <p>{{partnerProfileDetailsPopUP.p_refferal_id}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

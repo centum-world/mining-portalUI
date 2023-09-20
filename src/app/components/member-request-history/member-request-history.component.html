@@ -1,8 +1,12 @@
+<div class="back-to-home mb-3">
+  <a href="/dashboard">Home</a>
+</div>
 <div class="marque">
+  
     <h4>Withdrawal Request</h4>
 </div>
 <div class="container">
-    <div class="table table-hover table-responsive">
+    <div *ngIf="noRequestAvailable" class="table table-hover table-responsive">
         <thead>
           <tr>
             <th scope="col">Sr No</th>
@@ -28,6 +32,9 @@
           </tr>
           
         </tbody>
+      </div>
+      <div class="not-found" *ngIf="!noRequestAvailable" style="color:red">
+        No data found
       </div>
       
       

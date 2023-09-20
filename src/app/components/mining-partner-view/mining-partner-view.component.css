@@ -7,6 +7,13 @@
     margin: 0;
     box-sizing: border-box;
 } */
+.back-to-home a{
+    background: rgb(89, 0, 255);
+    color: white;
+    text-decoration: none;
+    padding: 8px 11px 8px 11px;
+    border-radius: 4px;
+}
 .partnerview_container{
     display: flex;
     justify-content: center;
@@ -27,14 +34,20 @@
    margin-top: 20px;
    overflow: hidden;
 }
-.heading p{
-    font-size: 20px;
-    font-weight: 600;
-    font-family: sans-serif;
-} 
+
 .heading{
     display: flex;
     justify-content: space-between;
+}
+.name_userid p{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin-bottom: 0px;
+} 
+.name_userid small{
+    font-family: sans-serif;
+    font-weight: 700;
 }
 .heading span{
     width: 80px;
@@ -84,10 +97,11 @@
     height: 60px;
     margin: 10px 0 0 10px;
     color: #fdfdff;
-    background: rgb(238, 123, 123);
+    background: #faf9f9;
     border-radius: 5px 5px 0 0;
     padding: 0 5px 0 5px;
     cursor:pointer;
+    box-shadow: 2px 2px 2px green;
 
 }
 .day-month ul li{

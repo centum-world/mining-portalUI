@@ -1,43 +1,40 @@
-
-
-
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
   <div class="sidebar-brand">
     <h3><a class="fa fa-qrcode" href="/dashboard"></a></h3>
-     <h2><a style="color: #fff;" href="/dashboard"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a></h2>
+    <h2><a style="color: #fff;" href="/dashboard"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a></h2>
 
   </div>
   <div class="sidebar-menu">
     <ul>
       <li>
         <a href="javascript:void(0)" data-toggle="modal" data-target="#teamMates"><i class="fa fa-user"></i>
-            <span>Create Member</span> 
+          <span>Create Member</span>
         </a>
-    </li>
-    <li>
-      <div class="member_history" (click)="viewList('view_member')">
-        <!-- <i class="fa fa-address-book-o"></i>
+      </li>
+      <li>
+        <div class="member_history" (click)="viewList('view_member')">
+          <!-- <i class="fa fa-address-book-o"></i>
         <span> Member History</span> -->
-        <a href="javascript:void(0)" ><i class=" fa fa-address-book-o"></i>
-          <span>Member History</span> 
-      </a>
-      </div>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#miningPartner"><i class="fa fa-book"></i>
-             <span>Create Mining Partner</span>
+          <a href="javascript:void(0)"><i class="fa fa-book"></i>
+            <span>Member History</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#miningPartner"><i class="fa fa-user"></i>
+          <span>Create Mining Partner</span>
         </a>
 
-    </li> 
-    <li>
-      <div class="partner_history " (click)="viewList('view_mining_partner')">
-        <a href="javascript:void(0)" data-toggle="modal"><i class="fa fa-book"></i>
-          <span>Partner History</span>
-     </a>
-      </div>
-    </li>
-    <!-- <li>
+      </li>
+      <li>
+        <div class="partner_history " (click)="viewList('view_mining_partner')">
+          <a href="javascript:void(0)" data-toggle="modal"><i class="fa fa-book"></i>
+            <span>Partner History</span>
+          </a>
+        </div>
+      </li>
+      <!-- <li>
         <a href=""><i class="fa fa-play"></i>
              <span>Activity</span>
         </a>
@@ -47,12 +44,12 @@
             <span>Leave Management</span>
         </a>
     </li> -->
-    <li>
+      <li>
         <a href="javascript:void(0)" (click)="viewList('active_partner')"><i class="fa fa-money"></i>
-            <span>Total Liquidity</span>
+          <span>Total Liquidity</span>
         </a>
-    </li>
-    <!-- <li>
+      </li>
+      <!-- <li>
         <a href="#"><i class="fa fa-wallet"></i>
             <span>Wallet History</span>
             
@@ -62,20 +59,32 @@
         <a href=""><i class="fa fa-exchange"></i>
             <span>Transaction</span>
         </a>
-    </li>
-    <li>
-      <a href=""><i class="fa fa-money-bill-transfer"></i>
-          <span>Send Withdrawal Amount</span>
-      </a>
-  </li> -->
+    </li>-->
+      <li>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#partnershipBond"><i class="	fa fa-file"></i>
+          <span>Partnership Bond</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#helpAndSupport"><i class="	fa fa-question"></i>
+          <span>Help & Support</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#accountsPaidWithdrawal"><i
+            class="fa fa-address-card-o"></i>
+          <span>Accounts</span>
+        </a>
+      </li>
 
 
-
-    <li>
-      <a href=""><i class="fa fa-sign-out"></i>
+      <li>
+        <a href=""><i class="fa fa-sign-out"></i>
           <span (click)="logOut()">Log Out</span>
-      </a>
-  </li>
+        </a>
+      </li>
     </ul>
   </div>
 </div>
@@ -84,14 +93,14 @@
   <header>
     <h2>
       <label for="nav-toggle">
-        
+
         <div class="d-flex justify-content-between">
           <span class="fa fa-bars"></span>
           <span>CENTUM WORLD</span>
         </div>
-        
+
       </label>&nbsp;
-       
+
     </h2>
     <!-- <div class="search-wrapper">
       <span class="fa fa-search"></span>
@@ -101,22 +110,24 @@
       <img src="assets/image/profile.png" alt="" width="50px" height="50px">
       <div>
         <h4 style="color: darkred;">Admin</h4>
-        
+
       </div>
     </div>
   </header>
 
   <main>
-    
+
     <div *ngIf="!viewMemberList" class="cards">
       <div class="card-single">
         <div>
-          <h6><div class=" fa fa-plus" data-toggle="modal" data-target="#teamMates" ></div></h6>
-          
+          <h6>
+            <div class=" fa fa-plus" data-toggle="modal" data-target="#teamMates"></div>
+          </h6>
+
 
           <span>Add Member</span>
         </div>
-        
+
         <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
         <div class="icon" (click)="viewList('view_member')">
           <!-- <i class="fa fa-eye"></i> -->
@@ -129,22 +140,22 @@
           <h6><span class="fa fa-plus" data-toggle="modal" data-target="#miningPartner"></span></h6>
           <span>Add Partner</span>
         </div>
-        
+
         <div class="icon" (click)="viewList('view_mining_partner')">
           <!-- <span><i class="fa fa-eye"></i></span> -->
           <span>view</span>
-          
+
         </div>
       </div>
 
-     
+
 
       <div class="card-single">
         <div class="row">
           <div class="col-sm-8">
             <h6>Total Liquidity :</h6>
           </div>
-          
+
           <div class=" icon col-sm-4" (click)="viewList('active_partner')">
             <!-- <i class="fa fa-eye"></i> -->
             <span>view</span>
@@ -153,9 +164,9 @@
             <b>{{totalLiquidityOfPartner | currency:'INR'}}</b>
           </div>
         </div>
-      
-        
-       
+
+
+
       </div>
 
       <div class="card-single">
@@ -163,9 +174,9 @@
           <h6>Wallet</h6>
           <span>Partner History</span>
         </div>
-       <div class="icon">
-        <span data-toggle="modal" data-target="#allPartnerWallet">view</span>
-       </div>
+        <div class="icon">
+          <span data-toggle="modal" data-target="#allPartnerWallet">view</span>
+        </div>
       </div>
 
       <div class="card-single">
@@ -174,13 +185,13 @@
           <span>Member History</span>
         </div>
         <div class="icon">
-          <span  data-toggle="modal" data-target="#allMemberWallet">view</span>
+          <span data-toggle="modal" data-target="#allMemberWallet">view</span>
         </div>
       </div>
 
       <div class="card-single">
         <div class="col-sm-8">
-          <h6>Send Withdrawal</h6>
+          <h6>Withdrawal Request</h6>
           <span>Member</span>
         </div>
         <div class="icon col-sm-4" (click)="viewList('send_withdrawal_member')">
@@ -203,9 +214,9 @@
 
       <div class="card-single">
         <div>
-          <h6>Send Withdrawal</h6>
+          <h6>Withdrawal Request</h6>
           <span>Partner</span>
-          
+
         </div>
         <div class="icon" (click)="viewList('send_withdrawal')">
           <!-- <i class="fa fa-eye"></i> -->
@@ -223,7 +234,7 @@
           <span>view</span>
         </div>
       </div>
-      
+
       <div class="card-single">
         <div>
           <h6>Pending Partners</h6>
@@ -298,7 +309,8 @@
 
 <!-- Add partner total wallet-->
 
- <div class="modal fade" id="allPartnerWallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="allPartnerWallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -315,34 +327,35 @@
               <th scope="col">Partner ID</th>
               <th scope="col">Wallet Amount</th>
               <th scope="col">Date</th>
-             
+
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let data of partnerTotalWallet; let i = index">
-             
+
               <td>{{i+1}}</td>
               <td>{{data.p_userid}}</td>
               <td>{{data.walletAmount | currency:'INR'}}</td>
               <td>{{data.wallet_update_date | date}}</td>
             </tr>
-            
+
           </tbody>
         </table>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      
+
       </div>
     </div>
   </div>
-</div> 
+</div>
 
 
 <!-- Add member total wallet----------------------------------------------------------------------->
 
-<div class="modal fade" id="allMemberWallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="allMemberWallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -359,34 +372,35 @@
               <th scope="col">Member ID</th>
               <th scope="col">Wallet Amount</th>
               <th scope="col">Date</th>
-             
+
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let data of memberWalletEachMonth; let i = index">
-             
+
               <td>{{i+1}}</td>
               <td>{{data.m_userid}}</td>
               <td>{{data.walletAmount | currency:'INR'}}</td>
               <td>{{data.wallet_update_date | date}}</td>
             </tr>
-            
+
           </tbody>
         </table>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      
+
       </div>
     </div>
   </div>
-</div> 
+</div>
 
 
 
 <!--Add member------------------------------------------------------------------------>
-<div class="modal fade" id="teamMates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="teamMates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -400,22 +414,32 @@
           <div class="row">
             <div class="col">
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">First Name</label>
                 <input type="text" class="form-control" name="name" formControlName='name' id="name">
                 <span style="color: red;" *ngIf="userForm.get('name').invalid && userForm.get('name').touched">
-                  Name is required
+                  First Name is required
                 </span>
               </div>
-              
             </div>
             <div class="col">
               <div class="form-group">
-                <label for="phone">Phone</label>
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" name="lname" formControlName='lname' id="lname">
+                <span style="color: red;" *ngIf="userForm.get('lname').invalid && userForm.get('lname').touched">
+                  Last Name is required
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="phone">Phone</label>
               <input type="text" class="form-control" formControlName="phone" id="phone">
               <span style="color: red;" *ngIf="userForm.get('phone').invalid && userForm.get('phone').touched">
-                  <small>(*Must start with +91)</small>
+                <small>(*Must start with +91)</small>
               </span>
-              </div>
             </div>
           </div>
 
@@ -431,14 +455,15 @@
             <div class="col">
               <div class="form-group">
                 <label for="referId">Refer ID</label>
-                <input type="text" class="form-control" name="reffered_id" formControlName="reffered_id" id="referId" disabled>
+                <input type="text" class="form-control" name="reffered_id" formControlName="reffered_id" id="referId"
+                  disabled>
               </div>
-              
+
             </div>
             <div class="col">
               <div class="form-group">
                 <label for="state">State</label>
-              <input type="text" class="form-control" name="state" formControlName="state"  id="state">
+                <input type="text" class="form-control" name="state" formControlName="state" id="state">
               </div>
             </div>
           </div>
@@ -449,7 +474,7 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" name="email" formControlName="email" id="email">
               </div>
-              
+
             </div>
             <div class="col">
               <div class="form-group">
@@ -468,13 +493,16 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label for="">Highest Qualification</label><br>
-              <input type="radio" name="qualification" formControlName="qualification" id="qualification1" value="matric">
+              <input type="radio" name="qualification" formControlName="qualification" id="qualification1"
+                value="matric">
               <label for="qualification1">10th</label>&nbsp;
-              <input type="radio" name="qualification" formControlName="qualification" id="qualification2" value="inter">
+              <input type="radio" name="qualification" formControlName="qualification" id="qualification2"
+                value="inter">
               <label for="qualification2">10+2</label>&nbsp;
-              <input type="radio" name="qualification" formControlName="qualification" id="qualification3" value="graduation">
+              <input type="radio" name="qualification" formControlName="qualification" id="qualification3"
+                value="graduation">
               <label for="qualification3">Graduation</label>&nbsp;
-              
+
             </div>
             <div class="form-group col-md-6">
               <label for="gender">Gender</label><br>
@@ -484,19 +512,19 @@
               <label for="male">Female</label>&nbsp;
               <input type="radio" name="gender" formControlName="gender" id="other" value="other">
               <label for="male">Other</label>&nbsp;
-              
+
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-md-6">
               <label for="experiance">Experience</label>
-             
+
               <select id="experiance" formControlName="experiance" class="form-control">
                 <option value="undefined">Select</option>
                 <option *ngFor="let data of userExperience">{{data.name}}</option>
               </select>
-               
+
             </div>
 
             <div class="form-group col-md-6">
@@ -526,25 +554,27 @@
 
             <div class="form-group col-md-6">
               <label for="upassword">User Password</label>
-              <input type="text" class="form-control" placeholder="Enter Password" formControlName="user_password" id="upassword">
+              <input type="text" class="form-control" placeholder="Enter Password" formControlName="user_password"
+                id="upassword">
             </div>
 
           </div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" [disabled]="!userForm.valid"  class="btn btn-primary">Save</button>
+            <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Save</button>
           </div>
         </form>
       </div>
-      
+
     </div>
   </div>
 </div>
 
 
 <!-- Add mining partner -->
-<div class="modal fade" id="miningPartner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="miningPartner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -554,92 +584,103 @@
         </button>
       </div>
       <div class="modal-body">
-      <form [formGroup]="partnerForm" (ngSubmit)="addMiningData(partnerForm)">
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label for="refid">Ref ID</label>
-              <input type="text" class="form-control" formControlName="reffered_id" id="refid">
+        <form [formGroup]="partnerForm" (ngSubmit)="addMiningData(partnerForm)">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="refid">Ref ID</label>
+                <input type="text" class="form-control" formControlName="reffered_id" id="refid">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="name">First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" formControlName="name" id="name1">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="lname" id="lname1">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="aadhar">Aadhar</label>
+                <input type="text" class="form-control" formControlName="aadhar" id="aadhar1">
+                <span style="color: red;"
+                  *ngIf="partnerForm.get('aadhar').invalid && partnerForm.get('aadhar').touched">
+                  <small>(*Only 12digit numbers allowed)</small>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" formControlName="phone" id="phone1">
+                <span style="color: red;" *ngIf="partnerForm.get('phone').invalid && partnerForm.get('phone').touched">
+                  <small>(*Must start with +91)</small>
+                </span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="email1">
+              </div>
             </div>
           </div>
           <div class="col">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" formControlName="name" id="name1">
+              <label for="address">Address</label>
+              <textarea type="text" class="form-control" formControlName="address" id="address1"></textarea>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="aadhar">Aadhar</label>
-            <input type="text" class="form-control" formControlName="aadhar" id="aadhar1">
-            <span style="color: red;" *ngIf="partnerForm.get('aadhar').invalid && partnerForm.get('aadhar').touched">
-              <small>(*Only 12digit numbers allowed)</small>
-          </span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="text" class="form-control" formControlName="phone" id="phone1">
-              <span style="color: red;" *ngIf="partnerForm.get('phone').invalid && partnerForm.get('phone').touched">
-                <small>(*Must start with +91)</small>
-            </span>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" formControlName="state" id="state1">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="date" class="form-control" formControlName="dob" id="dob1">
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" formControlName="email" id="email1">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="nominee_name">Nominee Name</label>
+                <input type="text" class="form-control" formControlName="nominee_name" id="nominee_name1">
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="address">Address</label>
-            <textarea type="text" class="form-control" formControlName="address" id="address1"></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label for="state">State</label>
-              <input type="text" class="form-control" formControlName="state" id="state1">
+            <div class="col">
+              <div class="form-group">
+                <label for="nominee_aadhar">Nominee Aadhar</label>
+                <input type="text" class="form-control" formControlName="nominee_aadhar" id="nominee_aadhar1">
+                <span style="color: red;"
+                  *ngIf="partnerForm.get('nominee_aadhar').invalid && partnerForm.get('nominee_aadhar').touched">
+                  <small>(*Only 12digit numbers allowed)</small>
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="dob">DOB</label>
-              <input type="date" class="form-control" formControlName="dob" id="dob1">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label for="nominee_name">Nominee Name</label>
-              <input type="text" class="form-control" formControlName="nominee_name"  id="nominee_name1">
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="nominee_aadhar">Nominee Aadhar</label>
-              <input type="text" class="form-control" formControlName="nominee_aadhar" id="nominee_aadhar1">
-              <span style="color: red;" *ngIf="partnerForm.get('nominee_aadhar').invalid && partnerForm.get('nominee_aadhar').touched">
-                <small>(*Only 12digit numbers allowed)</small>
-            </span>
-            </div>
-          </div>
           </div>
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <label for="nominee_phone">Nominee Phone</label>
                 <input type="text" class="form-control" formControlName="nominee_phone" id="nominee_phone1">
-                <span style="color: red;" *ngIf="partnerForm.get('nominee_phone').invalid && partnerForm.get('nominee_phone').touched">
+                <span style="color: red;"
+                  *ngIf="partnerForm.get('nominee_phone').invalid && partnerForm.get('nominee_phone').touched">
                   <small>(*Must start with +91)</small>
-              </span>
+                </span>
               </div>
             </div>
             <div class="col">
@@ -684,20 +725,147 @@
                 <input type="text" class="form-control" formControlName="password" id="password1">
               </div>
             </div>
-            </div>
-        
+          </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" [disabled]="!partnerForm.valid">Save</button>
-        </div>
-      </form>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!partnerForm.valid">Save</button>
+          </div>
+        </form>
       </div>
-      
+
     </div>
   </div>
 </div>
 
+<!-- partnership bond upload -->
+
+<div class="modal fade" id="partnershipBond" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Upload Partnership Bond</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label for="file">Upload a file:</label>&nbsp;
+          <input type="file" id="file" name="file" (change)="onFileSelected($event)" required>
+        </div><br>
+        <div>
+          <label for="userid">User ID:</label>&nbsp;
+          <input type="text" placeholder="User Id" id="userid" name="userid" [(ngModel)]="userid" required>
+        </div>
 
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Help and Support -->
+
+<div class="modal fade" id="helpAndSupport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Help And Support</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-light">
+          <thead>
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Partner ID</th>
+              <th scope="col">Query Date</th>
+              <th scope="col">Action</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of helpAndSupportQuery; let i = index">
+
+              <td>{{i+1}}</td>
+              <td>{{data.p_userid}}</td>
+              <td>{{data.query_date | date}}</td>
+              <td><button class="btn btn-primary" (click)="helpAndSupportQueries(data.p_userid,data.id)"
+                  data-toggle="modal" data-target="#helpAndSupportQueries">view</button></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Help AND Support Queries -->
+<div class="modal fade" id="helpAndSupportQueries" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" style="font-family: Calibri;">Help And Support Queries</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <p style="font-family:Calibri;">{{partnerHelpQuery}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Accounts Paid Withdrawal -->
+
+<div class="modal fade" id="accountsPaidWithdrawal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" style="font-family: Calibri;">Accounts(Paid Withdrawal)</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="account_paid_withdrawal">
+          <p>Partner withdrawal</p>:<span>{{partnerTotalPayout | currency:'INR'}}</span>
+        </div>
+        <div class="account_paid_withdrawal">
+          <p>Refferal partner</p>:<span>{{refferalPartner | currency:'INR'}}</span>
+        </div>
+        <div class="account_paid_withdrawal">
+          <p>Refferal member</p>:<span>{{refferalMember | currency:'INR'}}</span>
+        </div>
+        <div class="account_paid_withdrawal">
+          <p>Total Withdrawal</p>:<span>{{totalWithdrawal | currency:'INR'}}</span>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -31,6 +31,7 @@ export class SignupPartnerComponent implements OnInit {
   partnerSignUpForm = new FormGroup({
     reffered_id: new FormControl("", [Validators.required]),
     name: new FormControl("", [Validators.required]),
+    lname: new FormControl("", [Validators.required]),
     aadhar: new FormControl("", [Validators.required, Validators.maxLength(12),
     Validators.minLength(12)]),
     phone: new FormControl("", [Validators.required, Validators.maxLength(13),
@@ -67,6 +68,7 @@ export class SignupPartnerComponent implements OnInit {
 
       p_reffered_id: a,
       p_name: this.partnerSignUpForm.value.name,
+      p_lname: this.partnerSignUpForm.value.lname,
       p_aadhar: this.partnerSignUpForm.value.aadhar,
       p_phone: this.partnerSignUpForm.value.phone,
       p_email: this.partnerSignUpForm.value.email,

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-member-dashboard',
@@ -27,7 +28,7 @@ export class MemberDashboardComponent implements OnInit {
     bank_name: ''
   }
   memberRefferalId: any;
-  memberRefferalIdToPartner: any;
+  memberRefferalIdToPartner:any;
   displayMemberRefferalId = '';
   displayMemberRefferalIdToPartner: any;
   withdrawAmount: any;
@@ -47,9 +48,32 @@ export class MemberDashboardComponent implements OnInit {
   lastPayOutAmount:any;
   lastPayOutMonth:any;
 
+  memberProfilePopupModalDetails:any;
+  monthlyPayment:any;
+  perDayAmount:any;
+  
+  profilePopup = {
+    email: '',
+    name: '',
+    address: '',
+    state: '',
+    designation: '',
+    qualification: '',
+    exp: '',
+    gender: '',
+    dob: '',
+    password: '',
+    phone: '',
+    salary:'',
+    doj:'',
+    userid:'',
+    reffered_id:'',
+    refferal_id:''
 
+  };
+ 
 
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  constructor(private userService: UserService, private toastr: ToastrService, private datePipe: DatePipe) { }
 
   ngOnInit() {
 
@@ -91,6 +115,7 @@ export class MemberDashboardComponent implements OnInit {
     this.callApiMemberWithdrawalHistory();
     this.callApiMemberTotalWithdrawal();
     this.callApiMemberWithdrawalRequest();
+    this.memberProfileDataPopup();
   }
 
 
@@ -281,11 +306,72 @@ export class MemberDashboardComponent implements OnInit {
     })
     
   }
+  // member profile details in pop up modal
+  memberProfileDataPopup(){
+    let memberIdDetails = localStorage.getItem('userdetail');
+    let data = {
+      m_userid: memberIdDetails
+    }
+    this.userService.fetchMemberPortalDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.memberProfilePopupModalDetails = Object.values(response.data);
+          this.profilePopup.name = this.memberProfilePopupModalDetails[0].m_name;
+          this.profilePopup.phone = this.memberProfilePopupModalDetails[0].m_phone;
+          this.profilePopup.address = this.memberProfilePopupModalDetails[0].m_add;
+          this.profilePopup.email = this.memberProfilePopupModalDetails[0].m_email;
+          this.profilePopup.designation = this.memberProfilePopupModalDetails[0].m_designation;
+          this.profilePopup.qualification = this.memberProfilePopupModalDetails[0].m_quali;
+          this.profilePopup.gender = this.memberProfilePopupModalDetails[0].m_gender;
+          this.profilePopup.exp = this.memberProfilePopupModalDetails[0].m_exp;
+          this.profilePopup.dob = this.datePipe.transform(this.memberProfilePopupModalDetails[0].m_dob, 'yyyy-MM-dd');
+          this.profilePopup.password = this.memberProfilePopupModalDetails[0].m_password;
+          this.profilePopup.state = this.memberProfilePopupModalDetails[0].m_state;
+          this.profilePopup.salary = this.memberProfilePopupModalDetails[0].m_salary;
+          this.profilePopup.doj = this.memberProfilePopupModalDetails[0].m_doj;
+          this.profilePopup.userid = this.memberProfilePopupModalDetails[0].m_userid;
+          this.profilePopup.reffered_id = this.memberProfilePopupModalDetails[0].m_refferid;
+          this.profilePopup.refferal_id = this.memberProfilePopupModalDetails[0].reffer_id
+        }
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
 
+    })
+  }
 
-
-
-
+  fetchPartnerLiquidity(id){
+    let lequidity='';
+    let data = {
+      p_userid: id
+    }
+    this.userService.fetchPartnerLiquidity(data).subscribe({
+      next: (response: any) => {
+        lequidity = response.data[0].p_liquidity;
+        if(parseInt(lequidity) === 600000){
+          this.monthlyPayment = 11000;
+          this.perDayAmount = 366;
+        }
+        if(parseInt(lequidity) === 300000){
+          this.monthlyPayment = 5500;
+          this.perDayAmount = 183;
+        }
+        if(parseInt(lequidity) === 200000){
+          this.monthlyPayment = 3700;
+          this.perDayAmount = 123;
+        }
+        if(parseInt(lequidity) === 100000){
+          this.monthlyPayment = 1850;
+          this.perDayAmount = 61;
+        }
+    },
+    error:error =>{
+      this.toastr.error("Something went wrong",'Error');
+    }
+  })
+}
+  
   logOut() {
     localStorage.removeItem('token');
   }

@@ -20,8 +20,13 @@ export class MemberRequestHistoryComponent implements OnInit {
       next: (response: any) => {
         if (response) {
           this.memberRequestHistory = Object.values(response.data);
-          console.log(this.memberRequestHistory);
-         
+          console.log(this.memberRequestHistory.length);
+          if(this.memberRequestHistory.length > 0){
+            this.noRequestAvailable = true
+          }else{
+            this.noRequestAvailable=false;
+          }
+          
           
         }
       },

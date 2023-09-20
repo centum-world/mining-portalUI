@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-mining-partner-view',
@@ -14,12 +15,14 @@ export class MiningPartnerViewComponent implements OnInit {
   confirmPayment: boolean;
   userStatus: any;
   pLiquidity: any;
-  perDayAmountDropDown:any;
+  perDayAmountDropDown: any;
+  februaryAmount:any;
   month_count: any;
   partnerDailyAmount: any;
   partnerWithdrawalRequestHistroy: any;
   partnerWithdrawalHistory = [];
-  selectDate: any;
+  selectDate: string;
+  partner_name:string;
   dateOfPartnr: any;
   parterLiquidity: any;
   lastPaymentOfIndex: any;
@@ -27,8 +30,9 @@ export class MiningPartnerViewComponent implements OnInit {
   approveArray = [];
   perDayAmount: any;
   perDayAmounReal: any;
-  consfirm:boolean;
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  consfirm: boolean;
+  refferalAmount:any;
+  constructor(private userService: UserService, private toastr: ToastrService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.findUserStatus();
@@ -44,17 +48,28 @@ export class MiningPartnerViewComponent implements OnInit {
       this.perDayAmounReal = this.perDayAmountDropDown;
     }
     if (this.perDayAmount === 'zero') {
-      this.perDayAmounReal = 0;
+      this.perDayAmounReal = this.februaryAmount;
     }
 
     this.consfirm = confirm("Are you sure want to pay?");
-    
-    if(this.consfirm){
+
+    if (this.consfirm) {
+      console.log(this.selectDate);
+      
+      let utcDate = new Date(this.selectDate);
+      console.log(utcDate);
+      
+      let localTime = this.datePipe.transform(utcDate, 'yyyy-MM-dd HH:mm:ss', 'GMT+5:30');
+      console.log(localTime);
       let data = {
         p_userid: this.userid,
-        partnerdate: this.selectDate,
-        perDayAmounReal: this.perDayAmounReal
+        partnerdate: localTime,
+        perDayAmounReal: this.perDayAmounReal,
+        refferal_Amount:this.refferalAmount
       }
+      
+      //console.log(utcDate);
+      
       this.userService.partnerPerDayAmountPaymentManually(data).subscribe({
         next: (result) => {
           if (result) {
@@ -64,14 +79,14 @@ export class MiningPartnerViewComponent implements OnInit {
           }
         },
         error: error => {
-          if(error.error.status === 409){
-            this.toastr.warning("Aready paid to this date!",'Warning')
+          if (error.error.status === 409) {
+            this.toastr.warning("Aready paid to this date!", 'Warning')
           }
-          if(error.error.status === 422){
-            this.toastr.warning(error.error.message,'Warning')
+          if (error.error.status === 422) {
+            this.toastr.warning(error.error.message, 'Warning')
           }
 
-        
+
         }
       })
     }
@@ -84,24 +99,35 @@ export class MiningPartnerViewComponent implements OnInit {
     this.userService.isPartnerActiveManualFromAdmin(data).subscribe({
       next: (result: any) => {
         if (result) {
+          console.log(result);
+          
           this.userStatus = result.data[0].partner_status;
-           this.pLiquidity = (result.data[0].p_liquidity);
+          this.pLiquidity = (result.data[0].p_liquidity);
           this.month_count = result.data[0].month_count;
           this.dateOfPartnr = result.data[0].p_dop;
           this.parterLiquidity = result.data[0].p_liquidity;
-          if(this.pLiquidity === 600000){
-            this.perDayAmountDropDown = 2250;
+          this.partner_name = result.data[0].p_name;
+          if (this.pLiquidity === 600000) {
+            this.perDayAmountDropDown = 67500;
+            this.februaryAmount = 63000;
+            this.refferalAmount = 11000;
           }
-          if(this.pLiquidity === 300000){
-            this.perDayAmountDropDown = 1350;
+          if (this.pLiquidity === 300000) {
+            this.perDayAmountDropDown = 40500;
+            this.februaryAmount = 37800;
+            this.refferalAmount = 5500;
           }
-          if(this.pLiquidity === 200000){
-            this.perDayAmountDropDown = 900;
+          if (this.pLiquidity === 200000) {
+            this.perDayAmountDropDown = 27000;
+            this.februaryAmount = 25200;
+            this.refferalAmount = 3700;
           }
-          if(this.pLiquidity === 100000){
-            this.perDayAmountDropDown = 450;
+          if (this.pLiquidity === 100000) {
+            this.perDayAmountDropDown = 13500;
+            this.februaryAmount= 12600;
+            this.refferalAmount = 1850;
           }
-          
+
 
         }
       },
@@ -119,6 +145,17 @@ export class MiningPartnerViewComponent implements OnInit {
     this.userService.partnerWalletDailyDataInAdmin(data).subscribe({
       next: (result: any) => {
         this.partnerDailyAmount = Object.values(result.data);
+        // console.log(this.partnerDailyAmount);
+        let index = this.partnerDailyAmount.length;
+
+        for (let i = 0; i < index; i++) {
+          let  serverTime = new Date(this.partnerDailyAmount[i].wallet_update_date);
+          //console.log(serverTime);
+          let indianTime = new Date(serverTime.getTime()-(3.5*60*60*1000));
+          this.partnerDailyAmount[i].wallet_update_date = this.datePipe.transform(indianTime, 'yyyy-MM-dd HH:mm:ss');
+          //this.partnerDailyAmount[i].wallet_update_date = this.datePipe.transform(this.partnerDailyAmount[i].wallet_update_date, 'yyyy-MM-dd HH:mm:ss', 'GMT+5:30');
+          //this.partnerDailyAmount[i].wallet_update_date = this.datePipe.transform(serverTime, 'medium', 'en-IN');
+        }
       },
       error: error => {
         // console.log(error);
@@ -144,12 +181,12 @@ export class MiningPartnerViewComponent implements OnInit {
     })
   }
 
-  sendUserId(value,id) {
+  sendUserId(value, id) {
 
 
     let data = {
       p_userid: value,
-      id:id
+      id: id
     }
     this.userService.approvedWithdrawalHistory(data).subscribe({
       next: response => {
