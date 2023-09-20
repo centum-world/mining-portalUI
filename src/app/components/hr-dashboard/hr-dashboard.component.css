@@ -113,13 +113,14 @@ header{
     justify-content: space-between;
     padding: 1rem 1.5rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    position: fixed;
+    position: sticky;
     left: 300px;
-    width: calc(100% - 300px);
+    /* width: calc(100% - 300px); */
     top: 0;
-    z-index: 100%;
+    z-index: 10;
     background: #fff;
     transition: left 300ms;
+    height: 90px;
 }
 
 #nav-toggle{
