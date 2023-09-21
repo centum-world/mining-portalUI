@@ -33,7 +33,7 @@ export class MiningLoginComponent implements OnInit {
     private toastr: ToastrService
   ) {
 
-    this.partnerLoginForm = formBuilder.group({
+    this.partnerLoginForm = this.formBuilder.group({
       partner_id: new FormControl(),
       partner_password: new FormControl(),
     })

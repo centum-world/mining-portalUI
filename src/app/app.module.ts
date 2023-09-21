@@ -48,6 +48,8 @@ import { PendingPartnerPaymentComponent } from './components/pending-partner-pay
 import { MiningPartnerViewComponent } from './components/mining-partner-view/mining-partner-view.component';
 import { PartnerRefferalWithdrawalRequestComponent } from './components/partner-refferal-withdrawal-request/partner-refferal-withdrawal-request.component';
 import { PartnerRefferalWithdrawalApprovedComponent } from './components/partner-refferal-withdrawal-approved/partner-refferal-withdrawal-approved.component';
+import { StatehandlerloginComponent } from './components/statehandlerlogin/statehandlerlogin.component';
+import { StatehandlerRegisterComponent } from './components/statehandler-register/statehandler-register.component';
 
 
 @NgModule({
@@ -80,7 +82,9 @@ import { PartnerRefferalWithdrawalApprovedComponent } from './components/partner
     PendingPartnerPaymentComponent,
     MiningPartnerViewComponent,
     PartnerRefferalWithdrawalRequestComponent,
-    PartnerRefferalWithdrawalApprovedComponent
+    PartnerRefferalWithdrawalApprovedComponent,
+    StatehandlerloginComponent,
+    StatehandlerRegisterComponent
   ],
   imports: [
     BrowserModule,

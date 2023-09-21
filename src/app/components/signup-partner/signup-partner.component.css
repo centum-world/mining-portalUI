@@ -9,53 +9,17 @@
   font-weight: 300;
 }
 body{
-    
-    
     background-color: #0030b8 !important;
-  
   }
 
   .container {
-    
-    /* margin: 100px; */
-    /* width: 100% !important; */
     background-color: #ffffff;
     width: 70%;
     border-radius :10px;
     box-shadow:20px 30px 25px rgba(0,0,0,0.15);
     align-items: center;
     justify-content: center;
-    /* margin-top: 100px; */
-    
-   
   }
-  @media only screen and (max-width : 480px){
-    .container h1{
-     font-size: 15px;
-     
-     /* display: block; */
-    }
-    .container{
-      width: 100%;
-    }
-
-    
-   }
-  @media only screen and (max-width : 768px) and (min-width: 481px){
-   .container h1{
-    font-size: 20px;
-  
-    /* display: block; */
-   }
-
-   .container{
-    width: 90%;
-   }
-  }
-  @media only screen and (max-width : 1024px){
-   
-  }
-
   h1{
     padding-top: 25px;
     font-size: 30px;
@@ -164,4 +128,27 @@ textarea:focus, input:focus{
 
 .container p{
   color: tomato;
+}
+
+@media only screen and (max-width : 480px){
+  .container h1{
+   font-size: 15px;
+  }
+  .container{
+    width: 100%;
+  }
+ }
+@media only screen and (max-width : 768px) and (min-width: 481px){
+ .container h1{
+  font-size: 20px;
+
+  /* display: block; */
+ }
+
+ .container{
+  width: 90%;
+ }
+}
+@media only screen and (max-width : 1024px){
+ 
 }

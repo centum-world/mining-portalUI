@@ -30,7 +30,7 @@ export class UserLoginComponent implements OnInit {
     private toastr: ToastrService
 
   ) {
-    this.memberLoginForm = formBuilder.group({
+    this.memberLoginForm = this.formBuilder.group({
       member_id: new FormControl(),
       member_password: new FormControl(),
     })

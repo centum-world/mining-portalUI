@@ -15,10 +15,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
     
   }
-  // memberPage(){
-  //   this.router.navigate(['/memberlogin']);
-  // }
-  // partnerPage(){
-  //   this.router.navigate(['/mininglogin']);
-  // }
+  memberPage(){
+    this.router.navigate(['/memberlogin']);
+  }
+  partnerPage(){
+    this.router.navigate(['/mininglogin']);
+  }
+
+  stateLogin(){
+    this.router.navigate(['/statelogin']);
+  }
+
+
 }

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService
   ) {
 
-    this.loginForm = formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       admin_id: new FormControl(),
       admin_password: new FormControl(),
     })

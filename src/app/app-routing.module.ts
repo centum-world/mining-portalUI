@@ -13,6 +13,8 @@ import { SendWithdrawalAmountComponent } from './components/send-withdrawal-amou
 import { GuardGuard } from './authGuard/guard.guard';
 import { SignupMemberComponent } from './components/signup-member/signup-member.component';
 import { SignupPartnerComponent } from './components/signup-partner/signup-partner.component';
+import { StatehandlerloginComponent } from './components/statehandlerlogin/statehandlerlogin.component';
+import { StatehandlerRegisterComponent } from './components/statehandler-register/statehandler-register.component';
 
 const routes: Routes = [
 
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'mininglogin', component:MiningLoginComponent},
   { path: 'miningdashboard',canActivate:[GuardGuard],component:MiningDashboardComponent},
   { path: 'dashboard/sendwithdrawal',canActivate:[GuardGuard],component:SendWithdrawalAmountComponent },
+  { path: 'statelogin', component:StatehandlerloginComponent},
+  { path: 'stateRegitration', component:StatehandlerRegisterComponent},
   { path: '', component:HeaderComponent},
   { path: '**', component:PageNotFoundComponent},
   

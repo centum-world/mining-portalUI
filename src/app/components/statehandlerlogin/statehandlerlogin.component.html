@@ -1,0 +1,53 @@
+<div class="logo">
+    <img src="assets/image/clogo.png" alt="">
+</div>
+<div class="box">
+    <div class="form">
+        <h2>State Login</h2>
+        <form [formGroup]="stateLoginForm" (ngSubmit)="onSubmit()">
+            <div class="input-box">
+
+                <div class="form-group">
+                    <input type="text" formControlName="stateId" required>
+                    <span>SHO Id</span>
+                    <i></i>
+                </div>
+
+            </div>
+
+            <div class="input-box">
+
+                <div class="form-group">
+                    <input type="password" formControlName="password" required>
+                    <span>Password</span>
+                    <i></i>
+                </div>
+
+            </div><br>
+            <div class="login-header">
+                <div class="login">
+                    <button class="btn btn-primary" [disabled]="!(stateLoginForm.valid && stateLoginForm.dirty)"
+                    type="submit">Login</button>
+                </div>
+
+                <div class="home">
+                    <a href="" class="btn btn-secondary">Home</a>
+                </div>
+            </div>
+            <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+
+            <br>
+            <div class="link">
+                <a href="https://centumworld.com">Centum World</a>
+            </div>
+            <div class="forget_password">
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">Forget Password</a>
+            </div>
+            <div class="signup">
+                <p>Haven't an account ? <a href="javascript:void(0)" style="color:white;"
+                        (click)="SignUpState()">SignUp</a></p>
+
+            </div>
+        </form>
+    </div>
+</div>
