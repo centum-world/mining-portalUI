@@ -1,0 +1,52 @@
+   <div class="logo">
+    <img src="assets/image/clogo.png" alt="">
+  </div>
+  <div class="box">
+    <div class="form">
+          <h2>Franchise Login</h2>
+        <form [formGroup]="memberLoginForm">  
+          <div class="input-box">
+  
+            <div class="form-group">
+              <input type="text" formControlName="member_id" required>
+              <span>FranchiseId</span>
+              <i></i>
+            </div>
+            
+          </div>
+  
+          <div class="input-box">
+  
+            <div class="form-group">
+              <input type="password" formControlName="member_password" required>
+              <span>Password</span>
+              <i></i>
+            </div>
+            
+          </div><br>
+          <div class="login-header">
+            <div class="login">
+              <button class="btn btn-primary" [disabled]="!(memberLoginForm.valid && memberLoginForm.dirty)" (click)="submit(memberLoginForm)">Login</button>
+            </div>
+
+            <div class="home">
+              <a href="" class="btn btn-secondary">Home</a>
+            </div>
+          </div>
+          <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+          
+          <br>
+          <div class="link">
+            <a href="https://centumworld.com">Centum World</a>
+          </div>
+          <div class="forget_password">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">Forget Password</a>
+          </div>
+          <div class="signup">
+            <p>Haven't an account ?  <a href="javascript:void(0)" style="color:white;" (click)="SignUpFranchise()">SignUp</a></p>
+           
+          </div>
+        </form>  
+    </div>
+  </div>
+  
