@@ -21,10 +21,10 @@ export class HeaderComponent implements OnInit {
   partnerPage(){
     this.router.navigate(['/mininglogin']);
   }
-
   stateLogin(){
     this.router.navigate(['/statelogin']);
   }
-
-
+  FranchisePage(){
+    this.router.navigate(["/franchiselogin"])
+  }
 }

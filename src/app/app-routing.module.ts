@@ -15,6 +15,8 @@ import { SignupMemberComponent } from './components/signup-member/signup-member.
 import { SignupPartnerComponent } from './components/signup-partner/signup-partner.component';
 import { StatehandlerloginComponent } from './components/statehandlerlogin/statehandlerlogin.component';
 import { StatehandlerRegisterComponent } from './components/statehandler-register/statehandler-register.component';
+import { FranchiseLoginComponent } from './components/franchise-login/franchise-login.component';
+import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
 
 const routes: Routes = [
 
@@ -30,9 +32,10 @@ const routes: Routes = [
   { path: 'dashboard/sendwithdrawal',canActivate:[GuardGuard],component:SendWithdrawalAmountComponent },
   { path: 'statelogin', component:StatehandlerloginComponent},
   { path: 'stateRegitration', component:StatehandlerRegisterComponent},
+  {path:"franchiselogin", component:FranchiseLoginComponent},
+  {path:"franchiseSignUp", component:FranchiseSignUpComponent},
   { path: '', component:HeaderComponent},
   { path: '**', component:PageNotFoundComponent},
-  
 ];
 
 @NgModule({

@@ -52,6 +52,8 @@ import { PartnerRefferalWithdrawalRequestComponent } from './components/partner-
 import { PartnerRefferalWithdrawalApprovedComponent } from './components/partner-refferal-withdrawal-approved/partner-refferal-withdrawal-approved.component';
 import { StatehandlerloginComponent } from './components/statehandlerlogin/statehandlerlogin.component';
 import { StatehandlerRegisterComponent } from './components/statehandler-register/statehandler-register.component';
+import { FranchiseLoginComponent } from './components/franchise-login/franchise-login.component';
+import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
 
 
 @NgModule({
@@ -86,7 +88,9 @@ import { StatehandlerRegisterComponent } from './components/statehandler-registe
     PartnerRefferalWithdrawalRequestComponent,
     PartnerRefferalWithdrawalApprovedComponent,
     StatehandlerloginComponent,
-    StatehandlerRegisterComponent
+    StatehandlerRegisterComponent,
+    FranchiseLoginComponent,
+    FranchiseSignUpComponent
   ],
   imports: [
     BrowserModule,
