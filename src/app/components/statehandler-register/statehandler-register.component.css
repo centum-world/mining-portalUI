@@ -8,6 +8,7 @@
     font-weight: 300;
 }
 
+
 body {
     background-color: #0030b8 !important;
 }
@@ -144,6 +145,41 @@ input:focus {
 .container p {
     color: tomato;
 }
+
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1; /* Adjust the flex property to control the width of each column */
+    margin-right: 10px; /* Adjust margin between the columns */
+  }
+
+.example-full-width {
+    width: 100%;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #2196F3;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .custom-file-upload mat-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+
 
 
 
