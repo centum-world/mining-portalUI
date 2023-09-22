@@ -1,8 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~ngx-toastr/toastr.css';
-html, body { height: 100%; }
+@import "~ngx-toastr/toastr.css";
+html,
+body {
+  height: 100%;
+}
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
 /* .modal-header button{
     padding: 5px;
     color:white;
@@ -11,15 +21,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 } */
 /* media query */
 :host ::ng-deep .modal-dialog {
-    max-width: 100%;
-    overflow-x: scroll;
-  }
- 
+  max-width: 100%;
+  overflow-x: scroll;
+}
 
-
-.modal{
+.modal {
   overflow-y: scroll;
 }
-.modal::-webkit-scrollbar{
+.modal::-webkit-scrollbar {
   display: none;
 }
