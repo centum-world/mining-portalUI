@@ -90,7 +90,7 @@ main {
 
 .company-name {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 700;
   color: black;
 }
@@ -489,11 +489,14 @@ for shooting effect */
   .mining {
     font-size: 1.5rem;
   }
+  .company-name{
+    font-size: 4rem;
+  }
 }
 
 @media screen and (max-width: 425px) {
   .company-name{
-    font-size: 5rem;
+    font-size: 4rem;
   }
   .login-btn2 {
     display: none;
