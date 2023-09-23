@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import { Observable, throwError } from 'rxjs';
+ import { Observable, throwError } from 'rxjs';
 // import { retry, catchError } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 
@@ -562,4 +562,17 @@ export class UserService {
       headers: new HttpHeaders().set('Content-Type', "application/json")
     })
   }
+
+  //create sho
+  createSho(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}/admin/create-sho`, formData);
+  }
+
+  //sho login
+  shoLogin(data){
+    return this.http.post(this.url + "/state/login-sho",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+  
 }

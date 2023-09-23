@@ -39,5 +39,10 @@ setPartnerUserId(response:any){
 setToken(response:any){
   localStorage.setItem('token',response);
 }
+
+setStateToken(response:any){
+  localStorage.setItem('stateToken',response);
+}
+
  
 }

@@ -20,6 +20,6 @@ export class AuthServiceService {
   }
 
   isLoggedIn(){
-    return !!localStorage.getItem('token')
+    return !!localStorage.getItem('token') || !!localStorage.getItem('stateToken')
   }
 }

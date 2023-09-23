@@ -112,7 +112,7 @@
         </div>
     </form> -->
 
-    <form class="example-form">
+    <form class="example-form" [formGroup]="stateSignUpForm" (ngSubmit)="addPartnerData(stateSignUpForm)">
         <div class="row">
             <div class="column">
                 <mat-form-field class="example-full-width">
@@ -174,8 +174,7 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>State</mat-label>
                     <mat-select [formControl]="stateFormControl" multiple>
-                        <mat-option *ngFor="let state of allStates"
-                            [value]="state.state">{{state.state}}</mat-option>
+                        <mat-option *ngFor="let state of allStates" [value]="state.state">{{state.state}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -183,13 +182,55 @@
         <div class="row">
             <div class="column">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Profile Image (JPG or PNG)" disabled>
-                  <input type="file" id="profileImage" name="profileImage" (change)="onFileSelected($event)" accept=".jpg,.png">
+                    <input matInput placeholder="Profile Image (JPG or PNG)" disabled>
+                    <input type="file" id="profileImage" name="profileImage" (change)="onFileSelected($event,'profileImage')"
+                        accept=".jpg,.png">
                 </mat-form-field>
                 <mat-error *ngIf="fileTypeInvalid">
-                  Please upload a JPG or PNG file.
+                    Please upload a JPG or PNG file.
                 </mat-error>
-              </div>              
+            </div>
+            <div class="column">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="PAN Card (JPG or PNG)" disabled>
+                    <input type="file" id="panCard" name="pan" (change)="onFileSelected($event, 'panCard')"
+                        accept=".jpg,.png">
+                </mat-form-field>
+                <mat-error *ngIf="fileTypeInvalidPanCard">
+                    Please upload a JPG or PNG file.
+                </mat-error>
+            </div>
         </div>
+        <div class="row">
+            <div class="column">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="State ID" [formControl]="stateIdFormControl">
+                    <mat-hint>This is your state ID</mat-hint>
+                    <mat-error *ngIf="stateIdFormControl.hasError('required')">State ID is
+                        <strong>required</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" [formControl]="passwordFormControl" type="password">
+                    <mat-hint>This is your password</mat-hint>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">Password is
+                        <strong>required</strong></mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+                        Password must be at least 8 characters long
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+              <div class="account">
+                <span>Have an account?</span><a href="/statelogin">Login</a>
+              </div>
+              <div>
+                <button type="submit" class="save">Register</button>
+              </div>
+            </div>
+          </div>
     </form>
 </div>

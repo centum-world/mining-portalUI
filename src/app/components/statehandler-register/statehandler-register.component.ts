@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { allState } from '../common/states';
 import { FormGroup, FormControl, Validators, FormBuilder, FormGroupDirective, NgForm, ValidatorFn, AbstractControl } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -30,35 +32,12 @@ function mobileNumberValidator(): ValidatorFn {
 export class StatehandlerRegisterComponent implements OnInit {
 
   allStates = allState.states;
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-
-  constructor() { }
-
-
 
   ngOnInit() {
     console.log(allState.states)
   }
 
-
-
-
-  // stateSignUpForm = new FormGroup({
-  //   fname: new FormControl("", [Validators.required]),
-  //   lname: new FormControl("", [Validators.required]),
-  //   phone: new FormControl("", [Validators.required]),
-  //   emailFormControl: new FormControl("", [Validators.required,Validators.email]),
-  //   state: new FormControl([], [Validators.required]),
-  //   gender: new FormControl("", [Validators.required]),
-  //   aadhar: new FormControl(File, [Validators.required]),
-  //   pan: new FormControl(File, [Validators.required]),
-  //   stateid:new FormControl("", [Validators.required]),
-  //   password:new FormControl("", [Validators.required]),
-  // })
-
-
-
+  stateSignUpForm: FormGroup;
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   nameFormControl = new FormControl('', [Validators.required,]);
   lastNameFormControl = new FormControl('', [Validators.required]);
@@ -66,50 +45,78 @@ export class StatehandlerRegisterComponent implements OnInit {
   genderFormControl = new FormControl('', [Validators.required]);
   stateFormControl = new FormControl([], [Validators.required]);
   profileImageControl = new FormControl(null, [
-    Validators.required,
-    this.fileTypeValidator(['jpg', 'png']) // Custom file type validator
+    Validators.required,// Custom file type validator
   ]);
+  panControl = new FormControl(null, [
+    Validators.required,// Custom file type validator
+  ]);
+  fileTypeInvalid = false;
+  fileTypeInvalidPanCard = false;
+  stateIdFormControl = new FormControl('', [Validators.required]);
+  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
 
   matcher = new MyErrorStateMatcher();
 
-  fileTypeInvalid = false;
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const files = input && input.files;
-  
-    if (files && files.length > 0) {
-      const file = files[0];
-      const fileType = file.type.split('/')[1].toLowerCase();
-  
-      if (!this.isValidFileType(fileType)) {
-        this.fileTypeInvalid = true;
-        this.profileImageControl.setErrors({ fileTypeInvalid: true });
-      } else {
-        this.fileTypeInvalid = false;
-        this.profileImageControl.setValue(file);
-      }
+  constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService) {
+    this.stateSignUpForm = this.fb.group({
+      fname: this.nameFormControl,
+      lname: this.lastNameFormControl,
+      email: this.emailFormControl,
+      phone: this.mobileFormControl,
+      gender: this.genderFormControl,
+      state: this.stateFormControl,
+      aadhar: this.profileImageControl,
+      pan: this.panControl,
+      stateHandlerId: this.stateIdFormControl,
+      password: this.passwordFormControl
+    });
+  }
+
+  onFileSelected(event: any, fileType: string) {
+    const file = event.target.files[0];
+    if (fileType === 'profileImage') {
+      this.profileImageControl.setValue(file);
+      this.fileTypeInvalid = !file.type.match('image/jpeg') && !file.type.match('image/png');
+    } else if (fileType === 'panCard') {
+      this.panControl.setValue(file);
+      this.fileTypeInvalidPanCard = !file.type.match('image/jpeg') && !file.type.match('image/png');
     }
   }
-  
-  
 
-  private isValidFileType(fileType: string): boolean {
-    return ['jpg', 'jpeg', 'png'].includes(fileType);
-  }
 
-  private fileTypeValidator(allowedTypes: string[]) {
-    return (control: FormControl): { [key: string]: any } | null => {
-      const file = control.value;
-      if (file) {
-        const fileType = file.type.split('/')[1].toLowerCase();
-        if (!allowedTypes.includes(fileType)) {
-          return { fileTypeInvalid: true };
+  addPartnerData(form: FormGroup) {
+    console.log('Form submitted:', form.value.fname, form.value.pan);
+    const formData = new FormData();
+    formData.append('fname', form.value.fname);
+    formData.append('lname', form.value.lname);
+    formData.append('phone', form.value.phone);
+    formData.append('email', form.value.email);
+    formData.append('gender', form.value.gender);
+    formData.append('selectedState', form.value.state);
+    formData.append('adharCard', form.value.aadhar);
+    formData.append('panCard', form.value.pan,);
+    formData.append('stateHandlerId', form.value.stateHandlerId);
+    formData.append('password', form.value.password);
+    formData.append('referredId',"admin@123");
+
+    this.userService.createSho(formData).subscribe({
+      next: (response) => {
+        if (response) {
+          console.log(response)
+          form.reset();
+          this.toastr.success(response.message);
         }
+      },
+      error: error => {
+        console.log(error)
+        this.toastr.error(error.error.message);
       }
-      return null;
-    };
+    })
+    
   }
+
+
 
 
 

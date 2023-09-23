@@ -17,6 +17,7 @@ import { StatehandlerloginComponent } from './components/statehandlerlogin/state
 import { StatehandlerRegisterComponent } from './components/statehandler-register/statehandler-register.component';
 import { FranchiseLoginComponent } from './components/franchise-login/franchise-login.component';
 import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
+import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
 
 const routes: Routes = [
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'frame', component:FrameComponent},
   { path: 'memberlogin', component:UserLoginComponent},
   { path: 'memberdashboard',canActivate:[GuardGuard], component:MemberDashboardComponent},
+  { path: 'statedashboard',canActivate:[GuardGuard], component:StatedashboardComponent},
   { path: 'mininglogin', component:MiningLoginComponent},
   { path: 'miningdashboard',canActivate:[GuardGuard],component:MiningDashboardComponent},
   { path: 'dashboard/sendwithdrawal',canActivate:[GuardGuard],component:SendWithdrawalAmountComponent },
@@ -34,6 +36,7 @@ const routes: Routes = [
   { path: 'stateRegitration', component:StatehandlerRegisterComponent},
   {path:"franchiselogin", component:FranchiseLoginComponent},
   {path:"franchiseSignUp", component:FranchiseSignUpComponent},
+  
   { path: '', component:HeaderComponent},
   { path: '**', component:PageNotFoundComponent},
 ];

@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +56,8 @@ import { StatehandlerloginComponent } from './components/statehandlerlogin/state
 import { StatehandlerRegisterComponent } from './components/statehandler-register/statehandler-register.component';
 import { FranchiseLoginComponent } from './components/franchise-login/franchise-login.component';
 import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
+import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
+import { StateProfileModalComponent } from './components/modal/state-profile-modal/state-profile-modal.component';
 
 
 @NgModule({
@@ -90,7 +94,9 @@ import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchi
     StatehandlerloginComponent,
     StatehandlerRegisterComponent,
     FranchiseLoginComponent,
-    FranchiseSignUpComponent
+    FranchiseSignUpComponent,
+    StatedashboardComponent,
+    StateProfileModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +119,7 @@ import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchi
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
       progressBar: true,
@@ -120,11 +127,8 @@ import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchi
       preventDuplicates: true,
       timeOut: 2000
     }),
-
-
-
-
   ],
+  entryComponents:[StateProfileModalComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
