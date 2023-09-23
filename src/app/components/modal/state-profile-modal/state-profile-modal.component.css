@@ -1,2 +1,52 @@
 
 
+/* styles.css */
+
+.mat-dialog-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #e7e4df;
+    margin-left: -22px;
+    margin-right: -22px;
+    padding-left: 20px;
+    color: #ccc;
+  }
+  
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .stateDetails {
+    display: flex;
+}
+
+.custom-heading {
+    color:#EF2F88;
+}
+
+.stateDetails span {
+    font-size: 18px;
+    font-family: Calibri;
+    color: #6512c4;
+    margin-right: 10px;
+}
+
+.stateDetails p {
+    font-size: 16px;
+    font-family: Calibri;
+    color: #040108;
+    margin-left: 10px;
+    font-weight: bold;
+
+}
+
+th {
+    font-size: 14px;
+    font-family: bold;
+}
+
+td {
+    font-size: 12px;
+}
+  

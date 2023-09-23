@@ -37,6 +37,7 @@ export class StatehandlerloginComponent implements OnInit {
         if (res) {
           console.log(res)
           localStorage.setItem('stateHandlerId',res.user.stateHandlerId)
+          localStorage.setItem('stateRefferalId',res.user.referralId)
           this.shareService.setStateToken(res.token)
           this.router.navigate(['statedashboard']);
           //this.toastr.success(response.message);

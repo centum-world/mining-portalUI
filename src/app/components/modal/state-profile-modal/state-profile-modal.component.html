@@ -1,6 +1,47 @@
-<h1 mat-dialog-title>Profile details</h1>
+<h1 class="custom-heading" mat-dialog-title >{{this.shoDetails.stateHandlerId + ' ' }}Profile details</h1>
 <div mat-dialog-content>
-  
+  <div class="row">
+    <!-- First Column -->
+    <div class="col-md-6">
+      <div class="payment-details">
+        <div class="left">
+          <div class="stateDetails">
+            <span>Name</span>: <p>{{this.shoDetails.fname + ' ' + this.shoDetails.lname}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Refferal ID</span>: <p>{{this.shoDetails.referralId}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Phone</span>: <p>{{this.shoDetails.phone}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Email</span>: <p>{{this.shoDetails.email}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Gender</span>: <p>{{this.shoDetails.gender}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Reffered ID</span>: <p>{{this.shoDetails.refferedId}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6">
+      <div class="stateDetails">
+        <span>Aadhar Card</span> &nbsp;&nbsp;
+        <img src="{{this.shoDetails.aadharCard}}" width="250" height="120" alt="Profile Image" />
+      </div>
+
+      <div style="margin-top: 20px;"></div>
+
+      <div class="stateDetails">
+        <span>Pan Card</span> &nbsp;&nbsp;
+        <img src="{{this.shoDetails.panCard}}" width="250" height="120" alt="Profile Image" />
+      </div>
+    </div>
+  </div>
 </div>
 <div mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close>Ok</button>

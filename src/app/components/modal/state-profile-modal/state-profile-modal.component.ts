@@ -20,6 +20,7 @@ export class StateProfileModalComponent implements OnInit {
     gender:"",
     phone:"",
     referralId:"",
+    refferedId:"",
     aadharCard:"",
     panCard:"",
     stateHandlerId:"",
@@ -43,7 +44,16 @@ export class StateProfileModalComponent implements OnInit {
         if (response) {
           console.log(response)
           this.shoDetails.fname = response.sho.fname,
-          this.shoDetails.lname = response.sho.lname
+          this.shoDetails.lname = response.sho.lname,
+          this.shoDetails.email = response.sho.email,
+          this.shoDetails.phone = response.sho.phone,
+          this.shoDetails.gender = response.sho.gender,
+          this.shoDetails.referralId = response.sho.referralId,
+          this.shoDetails.refferedId = response.sho.referredId,
+          this.shoDetails.stateHandlerId = response.sho.stateHandlerId
+          this.shoDetails.aadharCard = response.sho.adharCard,
+          this.shoDetails.panCard = response.sho.panCard
+
         }
       },
       error: error => {

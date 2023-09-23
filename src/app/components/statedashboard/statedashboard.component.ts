@@ -10,9 +10,14 @@ import { MatDialogConfig } from '@angular/material/dialog';
 })
 export class StatedashboardComponent implements OnInit {
 
+  displayStateHandlerId:any;
+  displayStateRefferalId:any;
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+   this.displayStateHandlerId = localStorage.getItem('stateHandlerId')
+   this.displayStateRefferalId = localStorage.getItem('stateRefferalId')
   }
 
   
