@@ -1,7 +1,7 @@
 .wrapper-container {
   height: 100vh;
   width: 100vw;
-  background-color: #F7F7FC;
+  background-color: #f7f7fc;
   position: relative;
   overflow-x: hidden;
 }
@@ -13,7 +13,7 @@
   height: 10vh;
   width: 100vw;
   margin: 0 auto;
-  background-color: #F7F7FC;
+  background-color: #f7f7fc;
   padding: 10px 10px;
   position: fixed;
   z-index: 2;
@@ -97,7 +97,7 @@ main {
 
 .mining {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 3rem;
+  font-size: 1.2rem;
   color: black;
 }
 
@@ -449,13 +449,17 @@ for shooting effect */
   }
 }
 
-.burger-icon{
+.burger-icon {
   display: none;
 }
 
 @media screen and (max-width: 769px) {
-  .burger-icon{
-    display: block ;
+  .hero-image {
+    height: 300px;
+    width: 300px;
+  }
+  .burger-icon {
+    display: block;
   }
   .asset-img,
   .asset-img2 {
@@ -479,7 +483,7 @@ for shooting effect */
   .star {
     width: 50%;
   }
-  .login-btn2{
+  .login-btn2 {
     display: none;
   }
   .mining {
@@ -487,22 +491,25 @@ for shooting effect */
   }
 }
 
-
 @media screen and (max-width: 425px) {
-  .login-btn2{
+  .company-name{
+    font-size: 5rem;
+  }
+  .login-btn2 {
     display: none;
   }
-  .burger-icon{
-    display: block ;
+  .burger-icon {
+    display: block;
   }
   .navlinks,
   .btn-container {
     display: none;
   }
   .mining {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
   .hero-section {
+    align-items: center;
     flex-direction: column;
   }
   .hero-image {
