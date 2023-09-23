@@ -1,26 +1,244 @@
-<main>
-<nav>
-  <div class="logo-container">
-    <img src="../../../assets/image/clogo.png" alt="" height="50" width="50" />
-    <p class="title">CENTUM WORLD</p>
-  </div>
-  <div>
-    <a href="#intro" class="intro">Introduction</a>
-  </div>
-  <div class="btn-container">
-    <button class="login-btn">Login</button>
-  </div>
-</nav>
+<div class="wrapper-container">
+  <div class="navbar-container">
+    <div class="logo-container">
+      <img src="../../../assets/image/clogo.png" alt="" class="c-logo" />
+      <p>centum <span class="world">world</span></p>
+    </div>
+    <div class="navlinks">
+      <a href="#">Home</a>
+      <a href="#intro">About</a>
+      <a
+        href=""
+        class="seriv"
+        (mouseenter)="onMouseOver()"
+        (mouseleave)="onMouseOut()"
+        >Services
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </a>
+      <a href="#contact">Contact</a>
+      <a href="/whitepaper">White Paper</a>
+    </div>
+    <div class="btn-container">
+      <!-- admin login button -->
+      <button class="login-btn" (click)="adminLogin()">
+        Login
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-box-arrow-in-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+          />
+        </svg>
+      </button>
 
-<section class="bg-img">
-  <img src="../../../assets/image/bg-img2.jpg" alt="" class="bg-img1" />
-  <div class="company-name">
-    <p class="company-title">Centum World</p>
+      <!-- bussiness login button -->
+      <button class="login-btn" [matMenuTriggerFor]="menu">
+        Login
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-box-arrow-in-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+          />
+        </svg>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="memberPage()">Refferal Member</button>
+        <button mat-menu-item (click)="partnerPage()">Partner</button>
+        <button mat-menu-item (click)="stateLogin()">State</button>
+        <button mat-menu-item (click)="FranchisePage()">Franchise</button>
+      </mat-menu>
+    </div>
+    <div class="burger-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        />
+      </svg>
+    </div>
   </div>
-  <p class="subtitle">Mining Rig Partner</p>
-</section>
-</main>
 
-<div id="intro" class="intro-page">
- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet voluptas, dolorem est quae nemo facilis excepturi totam eos aliquam minima magnam cum quam modi perferendis. Deleniti veritatis officiis porro laboriosam eum natus ipsa, sapiente, ducimus in dolorum reiciendis pariatur suscipit voluptas ex magnam laborum facilis, expedita illo. Illum odio unde minus quaerat dolor ut, sit vel nostrum earum assumenda nulla corrupti exercitationem numquam, at asperiores deleniti, esse porro vero excepturi? Adipisci ad fugit voluptates dolorum quos ut nihil accusantium, vitae distinctio omnis, consectetur cumque quod veritatis excepturi pariatur sed sequi provident iusto officiis voluptas tempore? Vel, nulla fuga. Facilis ullam recusandae nostrum reprehenderit aperiam, est odio beatae ad obcaecati cum amet pariatur rem qui illo totam odit placeat provident nisi omnis! Ad, laborum soluta perspiciatis aperiam ipsum dolorem corrupti, iste aut provident illo expedita excepturi odit corporis quam saepe reiciendis velit iure quo. Repudiandae, perspiciatis ullam ab aut placeat perferendis odio ea? Laborum eaque accusamus commodi voluptatibus magni at nostrum consectetur modi et aspernatur impedit molestiae voluptas neque repellat excepturi magnam rerum, asperiores quia officiis voluptate ipsam? Iste nostrum ducimus, modi error est corporis laboriosam excepturi ratione expedita? Ipsa aut asperiores magni doloribus, autem veniam nulla tempora quos quo corporis quisquam fugit iure non deserunt dignissimos quae totam eos cum nihil commodi. Asperiores quae, esse totam pariatur minus magni a dignissimos corrupti illum quia soluta consequuntur tempora nobis ipsam praesentium voluptatum perferendis cum cumque rerum nam blanditiis quo molestiae quod delectus. Cumque tenetur voluptas nemo harum laudantium accusamus voluptatum, quisquam, veniam, sint minus adipisci blanditiis saepe dolore reprehenderit error hic! Iusto id voluptate quibusdam unde totam, possimus voluptatibus repellat ea! Vitae nihil laborum neque ipsum earum ut mollitia deleniti, deserunt enim necessitatibus hic minus? Odit est sequi labore libero rem tempore tempora quam repellendus minima provident eius odio, repellat impedit soluta architecto modi. Nobis, explicabo in. Ipsa odit temporibus quibusdam beatae, dolorum modi praesentium corrupti ea! Necessitatibus perspiciatis cum, a voluptas soluta ipsa beatae, dolores non voluptatem deleniti eos reprehenderit repudiandae excepturi amet impedit veritatis rem sed ducimus cupiditate similique? Porro pariatur ut, placeat error eligendi tempora harum repudiandae reprehenderit cupiditate sapiente nobis explicabo tempore veritatis quasi earum voluptatum doloremque, repellat culpa suscipit saepe. Accusantium rerum ipsum sit officiis, vel fuga odit, nostrum illum consequuntur laudantium totam. Consequuntur quis nemo aliquid facilis quia iste quisquam, laborum culpa nesciunt iusto totam animi beatae modi dolorum officia sapiente, aliquam, dignissimos temporibus dolores quae impedit hic a consequatur. Totam voluptatum quae dolorem hic maiores eum, perferendis quasi iste esse deserunt similique laudantium tempora dignissimos eaque consectetur explicabo distinctio ipsum non accusamus sed optio repellat atque facere. Minima doloribus voluptatum ex suscipit voluptatem incidunt alias voluptatibus ad architecto modi ut, est voluptate libero sint neque dolorum minus quasi. Assumenda distinctio eveniet molestias non ipsam possimus provident suscipit cupiditate aperiam tenetur eius, doloribus maiores omnis adipisci vel animi exercitationem minima, doloremque, quo ducimus laboriosam incidunt quos rem voluptates! Dignissimos alias optio nobis fuga similique soluta sint magnam dolores inventore adipisci. Reprehenderit libero repellat unde ad autem. Quibusdam qui dolores quaerat deleniti perferendis non, id ipsa voluptate earum quisquam excepturi autem consectetur doloribus iusto sapiente inventore repudiandae quia. Placeat cupiditate nulla eum enim eligendi ullam. Quis aut, iure eos vel reprehenderit a consequuntur porro voluptatibus numquam corrupti, earum, minus culpa dignissimos voluptatum sequi quia praesentium pariatur temporibus. Obcaecati ipsam sint incidunt odit totam quod consequuntur enim, doloremque error sunt consequatur, velit et vitae maiores debitis sed nostrum. Eaque debitis eveniet corrupti numquam iure! Assumenda nemo atque quia qui facilis necessitatibus dolor ratione natus nihil doloremque illo sit distinctio at aut, dignissimos sunt nam rerum eius similique sapiente quis ipsa recusandae maxime beatae. Ullam commodi possimus soluta quasi numquam provident dolorum corporis debitis ipsa temporibus. Necessitatibus, minus, autem optio distinctio ut impedit hic ex quae dignissimos, officiis porro magnam. Sit obcaecati amet quisquam minima praesentium esse quam nostrum inventore, dolorum aliquam fugit. Nam velit nihil molestiae. Odit nihil omnis reiciendis labore. Labore impedit, inventore dignissimos vel non sint at in enim? Labore, quaerat. Possimus magnam neque quidem recusandae quod illo ad, consequatur perspiciatis sequi reiciendis suscipit sapiente iste aperiam incidunt quisquam, ab fugit? Unde obcaecati earum mollitia ducimus. Culpa soluta facere, labore commodi harum rerum delectus, quaerat praesentium illo doloribus incidunt repellendus possimus voluptas ad sapiente totam. Ab itaque omnis eligendi in ut minima repellat inventore, fugiat sint pariatur nobis numquam impedit ipsum consectetur corrupti voluptate commodi natus, esse vel! Autem numquam natus perspiciatis optio quo. Facere, quidem tempore! Eveniet a quis ipsam, reprehenderit iusto minima totam, recusandae facere asperiores doloremque porro deserunt nam voluptates magnam minus necessitatibus modi iure? Illo, iusto praesentium quisquam laboriosam debitis ipsa quaerat, voluptas eligendi tempora molestias dolorum unde fuga? Laboriosam iusto quisquam officia laudantium, facilis blanditiis fugit ut ea exercitationem quaerat tempore sequi veritatis enim aut eius atque a, debitis, nostrum adipisci minus maxime ipsa. Velit officiis laboriosam neque fuga corporis repellendus quod est, blanditiis veritatis? Hic eveniet dicta, ullam dolorum itaque doloremque quia quas doloribus suscipit laborum voluptatibus esse iste ipsa! Ipsam quae reiciendis sint doloribus eius similique fugit dolorum error nisi facere cum qui corporis, incidunt dolores alias beatae eaque? Voluptate nam harum consequatur, saepe quia, aspernatur, possimus esse sint reiciendis iure in provident iusto autem quidem magni temporibus. Dolorum vel iure cum laborum, doloremque animi voluptatibus impedit sint repellendus totam at tenetur reprehenderit dolor quia nobis ea, dolore dignissimos? Inventore nihil quae nostrum ducimus fugiat harum optio rem vitae libero voluptatem culpa, neque possimus magnam aperiam sequi similique et, beatae numquam saepe delectus officia expedita dolores id facilis! Tempora reprehenderit cum accusamus et dolor quidem maiores impedit quaerat iusto voluptatem corporis dolore eveniet accusantium, quos, facilis consequatur in debitis vero. Provident, laboriosam animi vero asperiores fuga tenetur! Autem obcaecati deleniti sunt nemo quis! Veritatis, mollitia quasi. Quo dolore atque nobis magnam. Expedita ipsa earum temporibus praesentium ratione, est ad ducimus quibusdam aliquid impedit, aspernatur fuga dicta? Eos odit, impedit fugiat quae a nobis officia assumenda maiores asperiores delectus at, quaerat eius nemo dicta id ab placeat reiciendis. Quam.
+  <main>
+    <div class="sky">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+    <div class="hero-section">
+      <div class="intro-container">
+        <p class="company-name">Centum <span class="world"> World</span></p>
+        <p class="mining">M{{ typedText }}</p>
+        <div class="">
+          <button class="login-btn2" (click)="adminLogin()">
+            Login
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-box-arrow-in-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="img-container">
+        <img src="../../../assets/image/hero.svg" alt="" class="hero-image" />
+        <img
+          src="../../../assets/image/blockchain-removebg-preview.png"
+          alt=""
+          class="asset-img"
+          height="120"
+          width="120"
+        />
+        <img
+          src="../../../assets/image/on_chain-removebg-preview.png"
+          alt=""
+          class="asset-img2"
+          height="120"
+          width="120"
+        />
+      </div>
+    </div>
+  </main>
+
+  <div class="main-container" id="intro">
+    <div class="about-container">
+      <h1 class="about-title">- About</h1>
+      <ul>
+        <li>
+          <h2 class="about-subtitle">
+            Unlock the Power of Crypto Mining with CENTUMO RIG
+          </h2>
+          <p>
+            Partner with us for a lucrative 12-month IaaS program and join our
+            advanced AI-based GPU Mining RIG Distribution Management Ecosystem!
+          </p>
+        </li>
+        <li>
+          <h2 class="about-subtitle">
+            A Partnership Built on Trust and Reliability
+          </h2>
+          <p>
+            At CENTUMO RIG, we value professional relationships and prioritize
+            trust and reliability. Join our Mutual RIG PARTNERSHIP PROGRAM to
+            experience a partnership that is built to last.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">
+            Maximize Your Earnings with Our Profit-Sharing Model
+          </h2>
+          <p>
+            With CENTUMO RIG, you can tap into the potential of crypto mining
+            and earn your share of the profits. We distribute 60% of our
+            earnings from our work profit via our GPU Mining Rig Module,
+            ensuring that you benefit from your partnership.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">
+            Privacy and Security at the Highest Level
+          </h2>
+          <p>
+            Your privacy and security are our top priorities. Rest assured that
+            we have implemented robust measures to safeguard your data and
+            investments, providing you with peace of mind as you participate in
+            our program.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">A Simple Partnership Process</h2>
+          <p>
+            Becoming a partner is easy. Simply add liquidity ranging from 1L to
+            12L or more according to your preferences, sign a mutual contract
+            for 12 months, and enjoy regular payout shares scheduled for each
+            month throughout the contract period.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">Connect with Us Today</h2>
+          <p>
+            If you're ready to take advantage of this opportunity, let's
+            connect! Join CENTUMO RIG now and unlock the potential of crypto
+            mining through our advanced AI-based GPU Mining RIG Distribution
+            Management Ecosystem.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- services container -->
+  <div
+    class="service-container"
+    [class.visible]="isHovered"
+    (mouseenter)="onMouseOver()"
+    (mouseleave)="onMouseOut()"
+  >
+    <div class="services">
+      <h3 class="service-title">JetTrade FX</h3>
+      <hr />
+      <h3 class="service-title">Centum World</h3>
+      <hr />
+      <h3 class="service-title">Centumo Token</h3>
+    </div>
+  </div>
 </div>
