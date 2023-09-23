@@ -1,212 +1,519 @@
-  
-  body {
-    font-family:  sans-serif;
-    background-color: #0f1e4d !important;
-    /* height: 80vh; */
-    overflow: hidden;
-    
-    
-    
-  }
-  
-  a {
-    color: #4154f1;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: #717ff5;
-    text-decoration: none;
-  }
-  
- 
-  /*--------------------------------------------------------------
-  # Header
-  --------------------------------------------------------------*/
-  .logo {
-    line-height: 1;
-  }
-  .logo span {
-    font-size: 22px;
-    font-weight: 700;
-    color: #012970;
-    font-family: "Nunito", sans-serif;
-  }
-  .bubble{
-    position: relative;
-    display: flex;
-  }
-  .bubble span{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background: cyan;
-    margin:5px;
-    /* border-radius: 50%; */
-    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
-    animation: animate 15s linear infinite;
-    animation-duration: calc(125s /var(--i));
-    
-  }
-  .bubble span:nth-child(even){
-    background: #ff2d75;
-    box-shadow: 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
-  }
-
-  .logo img {
-    width: 50px;
-    height: 50px;
-    
-  }
-
-  .header {
-    transition: all 0.5s;
-    z-index: 997;
-    height: 60px;
-    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-    background-color: rgb(241, 57, 57);
-    padding-left: 20px;
-    /* Toggle Sidebar Button */
-    /* Search Bar */
-  }
-  
-  nav a{
-    margin-top: 10px;
-    margin-right: 10px;
-    text-decoration: none;
-    display: block;
-  }
-  nav ul li{
-    list-style-type: none;
-
-  }
-   .button_basic{
-    
-    background-color: #0cedf5;
-    margin-top: 5px;
-  }
-
-  @keyframes animate{
-    0%{
-      transform: translateY(100vh) scale(0);
-    }
-    100%{
-      transform: translateY(0vh) scale(1);
-    }
-  }
-
- .middle-animation{
-
-  left: 0px;
-  bottom: 0px;
-  display: flex;
-  color: white;
-  position: absolute;
-  text-align: center;
-  align-items: center;
-  top: 0px;
-  right: 0px;
-  justify-content: space-around;
-  font-size: 50px;
-  transition: transform 2s;
- }
-
- .nav-button {
-  margin: 0 10px 0 0;
-  
- }
-
- /* .loin_button{
-  background: #012970;
-  width: 80px;
-  height: 40px;
-  border-radius: 10px;
-  color: #fff;
-  
- } */
- .button_basic{
-  background: #012970;
-  width: 80px;
-  height: 40px;
-  border-radius: 10px;
-  color: #fff;
-  margin: 10px 10px 0 0;
- }
-
- .middle-animation{
-  font-size: 38px;
+.wrapper-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #F7F7FC;
+  position: relative;
+  overflow-x: hidden;
 }
-  
-  .refferal_id{
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  width: 100vw;
+  margin: 0 auto;
+  background-color: #F7F7FC;
+  padding: 10px 10px;
+  position: fixed;
+  z-index: 2;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+
+.c-logo {
+  height: 100%;
+}
+
+.logo-container p {
+  text-transform: uppercase;
+  color: black;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.logo-container p span {
+  color: #745bce;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+}
+
+.login-btn {
+  border: none;
+  background-color: #745bce;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.login-btn2 {
+  border: none;
+  background-color: #745bce;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navlinks {
+  display: flex;
+  gap: 3rem;
+}
+
+.hero-section {
+  height: 70%;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.company-name {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: black;
+}
+
+.mining {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 3rem;
+  color: black;
+}
+
+.world {
+  color: #745bce;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 1;
+}
+
+.asset-img {
+  position: absolute;
+  top: 15%;
+  right: 25%;
+  animation: bounce2 2s infinite;
+}
+
+.asset-img2 {
+  position: absolute;
+  bottom: 40%;
+  right: 35%;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0); /* Start and end position */
+  }
+  50% {
+    transform: translateY(-20px); /* Middle position (up) */
+  }
+}
+
+@keyframes bounce2 {
+  0%,
+  100% {
+    transform: translateX(0); /* Start and end position */
+  }
+  50% {
+    transform: translateX(-20px); /* Middle position (up) */
+  }
+}
+
+.main-container {
+  height: max-content;
+  width: 100vw;
+  background-color: #745bce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  padding: 20px;
+  height: 70%;
+  width: 80%;
+}
+
+.about-title {
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.about-subtitle {
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  text-decoration: wavy;
+}
+
+li > p {
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+  font-size: normal;
+}
+
+.about-container ul {
+  list-style-type: none;
+}
+
+.service-container {
+  height: 40vh;
+  width: 20vw;
+  position: absolute;
+  top: 7%;
+  left: 35%;
+  display: none;
+}
+
+.service-container.visible {
+  display: block;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.802);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.services {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.service-title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.sky {
+  position: absolute;
+  height: 100%;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+/* Here we are making roundabout balls  */
+.star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  border-radius: 885px;
+  background: linear-gradient(-45deg, #020202, rgba(0, 0, 255, 0));
+
+  -webkit-filter: drop-shadow(0 0 6px #eef1f8);
+  filter: drop-shadow(0 0 6px #d7dff0);
+  -webkit-animation: tail 3000ms ease-in-out infinite,
+    shooting 3000ms ease-in-out infinite;
+  animation: tail 3000ms ease-in-out infinite,
+    shooting 3000ms ease-in-out infinite;
+}
+
+/* Here we add before and after effect to star */
+.star::before,
+.star::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    -45deg,
+    rgba(227, 227, 230, 0.632),
+    #1d1e1f,
+    rgba(227, 227, 230, 0.632)
+  );
+  -webkit-transform: translateX(50%) rotateZ(45deg);
+  transform: translateX(50%) rotateZ(45deg);
+  border-radius: 100%;
+  -webkit-animation: shining 3000ms ease-in-out infinite;
+  animation: shining 3000ms ease-in-out infinite;
+}
+
+.star::after {
+  -webkit-transform: translateX(50%) rotateZ(-45deg);
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+/* Here we are adding location of each
+   nth-child, animations, delays, and
+   before and after effects to each
+   and every balls(stars) */
+.star:nth-child(1) {
+  top: calc(50% - -119px);
+  left: calc(50% - 43px);
+  -webkit-animation-delay: 4000ms;
+  animation-delay: 4000ms;
+}
+
+.star:nth-child(1)::before,
+.star:nth-child(1)::after {
+  -webkit-animation-delay: 4000ms;
+  animation-delay: 4000ms;
+}
+
+.star:nth-child(2) {
+  top: calc(50% - -43px);
+  left: calc(50% - 37px);
+  -webkit-animation-delay: 5000ms;
+  animation-delay: 5000ms;
+}
+
+.star:nth-child(2)::before,
+.star:nth-child(2)::after {
+  -webkit-animation-delay: 5000ms;
+  animation-delay: 5000ms;
+}
+
+.star:nth-child(3) {
+  top: calc(50% - -40px);
+  left: calc(50% - 222px);
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+.star:nth-child(3)::before,
+.star:nth-child(3)::after {
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+.star:nth-child(4) {
+  top: calc(50% - -29px);
+  left: calc(50% - 113px);
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+.star:nth-child(4)::before,
+.star:nth-child(4)::after {
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+.star:nth-child(5) {
+  top: calc(50% - 146px);
+  left: calc(50% - 112px);
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+
+.star:nth-child(5)::before,
+.star:nth-child(5)::after {
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+
+.star:nth-child(6) {
+  top: calc(50% - -108px);
+  left: calc(50% - 160px);
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+
+.star:nth-child(6)::before,
+.star:nth-child(6)::after {
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+
+.star:nth-child(7) {
+  top: calc(50% - 52px);
+  left: calc(50% - 72px);
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+.star:nth-child(7)::before,
+.star:nth-child(7)::after {
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+/* This code will help to generate
+effect in tail of star */
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+
+  30% {
+    width: 100px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+/* This code will generate shining
+effect in head of star */
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 30px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+/* Here we are adding webkit-animation
+to head of star for shining */
+@-webkit-keyframes shining {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 30px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+/* Here we are adding webkit-animation
+to tail of star */
+@-webkit-keyframes tail {
+  0% {
+    width: 0;
+  }
+
+  30% {
+    width: 100px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+/* Here we are adding webkit-animation
+for shooting effect */
+@-webkit-keyframes shooting {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(270px);
+    transform: translateX(270px);
+  }
+}
+
+/* Here we make shooting effect */
+@keyframes shooting {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(270px);
+    transform: translateX(270px);
+  }
+}
+
+.burger-icon{
+  display: none;
+}
+
+@media screen and (max-width: 769px) {
+  .burger-icon{
+    display: block ;
+  }
+  .asset-img,
+  .asset-img2 {
     display: none;
-    
   }
-
-  @media (min-width: 1200px) {
-    .logo {
-      width: 280px;
-    }
+  .navlinks,
+  .btn-container {
+    display: none;
   }
-  
- 
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
+  .sky {
+    height: 30%;
+    width: 50%;
+  }
+  .star {
+    width: 50%;
+  }
+  .login-btn2{
+    display: none;
+  }
+  .mining {
+    font-size: 1.5rem;
+  }
+}
 
-  @media only screen and (max-width : 768px) and (min-width: 481px){
-     .button_basic{
-     font-size: 12px;
-     margin-top: 15px;
-    }
-    .header span{
-      font-size: 15px;
-    }
-    .middle-animation{
-      font-size: 26px;
-    }
-    
-   }
-   @media only screen and (max-width : 576px){
-    .middle-animation{
-      font-size: 22px;
-    }
-    .bubble span{
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 5px #4fc3dc44, 0 0 20px #4fc3dc,
-      0 0 50px #4fc3dc;
-    }
-    .refferal_id span{
-        font-size: 12px;
-    }
-    .nav-button{
-      padding:0 0 0 16px;
-    }
-    .loin_button{
-      width: 60px;
-      height: 30px;
-      font-size: 14px;
-    }
-    .refferal_id {
-      display: block;
-      
-    }
-    .refferal_id span{
-      font-size: 16px;
-      font-weight: 600;
-      color: #012970;
-      font-family: "Nunito", sans-serif;
-    }
-    
-   }
-   @media only screen and (max-width : 480px){
-    .button_basic{
-      font-size:12px;
-    }
-   }
-  
- 
 
- 
-
+@media screen and (max-width: 425px) {
+  .login-btn2{
+    display: none;
+  }
+  .burger-icon{
+    display: block ;
+  }
+  .navlinks,
+  .btn-container {
+    display: none;
+  }
+  .mining {
+    font-size: 1.2rem;
+  }
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
+  .sky {
+    height: 35%;
+    width: 35%;
+  }
+  .star {
+    width: 50%;
+  }
+}

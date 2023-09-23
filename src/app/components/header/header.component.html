@@ -1,81 +1,244 @@
-<header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="" class="logo d-flex align-items-center" >
-        <img src="assets/image/clogo.png" alt="">
-        <span class="centum d-none d-sm-block">CENTUM WORLD</span>
+<div class="wrapper-container">
+  <div class="navbar-container">
+    <div class="logo-container">
+      <img src="../../../assets/image/clogo.png" alt="" class="c-logo" />
+      <p>centum <span class="world">world</span></p>
+    </div>
+    <div class="navlinks">
+      <a href="#">Home</a>
+      <a href="#intro">About</a>
+      <a
+        href=""
+        class="seriv"
+        (mouseenter)="onMouseOver()"
+        (mouseleave)="onMouseOut()"
+        >Services
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
       </a>
-      <!-- <div class="refferal_id"><span style="color: white;">Official Refferal Id:- admin123</span></div> -->
-      <div class="refferal_id "><span> MINING RIG</span></div>
-    </div><!-- End Logo -->
+      <a href="#contact">Contact</a>
+      <a href="/whitepaper">White Paper</a>
+    </div>
+    <div class="btn-container">
+      <!-- admin login button -->
+      <button class="login-btn" (click)="adminLogin()">
+        Login
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-box-arrow-in-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+          />
+        </svg>
+      </button>
 
-    
-
-    <nav class="header-nav ms-auto">
-      <ul class="nav-button d-flex align-items-center">
-
-        <li><button class="btn btn-info button_basic" (click)="adminLogin()"> Login</button></li> 
-         <!-- <li>
-            <a class="btn btn-info button_basic" href="/login">Admin Login</a>
-        </li>
-        <li>
-            <a class="btn btn-info button_basic" href="/memberlogin">Member Login</a>
-        </li>
-        <li>
-          <a class="btn btn-info button_basic" href="/mininglogin">Mining Portal</a>
-      </li> -->
-        <li><button mat-button class="loin_button" [matMenuTriggerFor]="menu">Login</button></li>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="memberPage()">Refferal Member</button>
-          <button mat-menu-item (click)="partnerPage()">Partner</button>
-          <button mat-menu-item (click)="stateLogin()">State</button>          
-          <button mat-menu-item (click)="FranchisePage()">Franchise</button>
-        </mat-menu>
-      </ul>  
-    </nav>
-</header> 
-  
-<div class="middle-animation">
-  <span>CENTUM WORLD <br> Mining Partner Ecosystem</span>
-</div>
-<!-- Animationn -->
-
-  <div class="bubble">
-    <span style="--i:11;"></span>
-    <span style="--i:2;"></span>
-    <span style="--i:9;"></span>
-    <span style="--i:8;"></span>
-    <span style="--i:15;"></span>
-    <span style="--i:12;"></span>
-    <span style="--i:13;"></span>
-    <span style="--i:16;"></span>
-    <span style="--i:17;"></span>
-    <span style="--i:20;"></span>
-    <span style="--i:25;"></span>
-    <span style="--i:24;"></span>
-    <span style="--i:21;"></span>
-    <span style="--i:22;"></span>
-    <span style="--i:11;"></span>
-    <span style="--i:8;"></span>
-    <span style="--i:12;"></span>
-    <span style="--i:26;"></span>
-    <span style="--i:17;"></span>
-    <span style="--i:11;"></span>
-    <span style="--i:15;"></span>
-    <span style="--i:7;"></span>
-    <span style="--i:27;"></span>
-    <span style="--i:11;"></span>
-    <span style="--i:20;"></span>
-    <span style="--i:27;"></span>
-    <span style="--i:22;"></span>
-    <span style="--i:18;"></span>
-    <span style="--i:25;"></span>
-    <span style="--i:12;"></span>
-    <span style="--i:15;"></span>
-    <span style="--i:7;"></span>
-    
-  
-    
-    
+      <!-- bussiness login button -->
+      <button class="login-btn" [matMenuTriggerFor]="menu">
+        Login
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-box-arrow-in-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+          />
+        </svg>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="memberPage()">Refferal Member</button>
+        <button mat-menu-item (click)="partnerPage()">Partner</button>
+        <button mat-menu-item (click)="stateLogin()">State</button>
+        <button mat-menu-item (click)="FranchisePage()">Franchise</button>
+      </mat-menu>
+    </div>
+    <div class="burger-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        />
+      </svg>
+    </div>
   </div>
 
+  <main>
+    <div class="sky">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+    <div class="hero-section">
+      <div class="intro-container">
+        <p class="company-name">Centum <span class="world"> World</span></p>
+        <p class="mining">M{{ typedText }}</p>
+        <div class="">
+          <button class="login-btn2" (click)="adminLogin()">
+            Login
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-box-arrow-in-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="img-container">
+        <img src="../../../assets/image/hero.svg" alt="" class="hero-image" />
+        <img
+          src="../../../assets/image/blockchain-removebg-preview.png"
+          alt=""
+          class="asset-img"
+          height="120"
+          width="120"
+        />
+        <img
+          src="../../../assets/image/on_chain-removebg-preview.png"
+          alt=""
+          class="asset-img2"
+          height="120"
+          width="120"
+        />
+      </div>
+    </div>
+  </main>
+
+  <div class="main-container" id="intro">
+    <div class="about-container">
+      <h1 class="about-title">- About</h1>
+      <ul>
+        <li>
+          <h2 class="about-subtitle">
+            Unlock the Power of Crypto Mining with CENTUMO RIG
+          </h2>
+          <p>
+            Partner with us for a lucrative 12-month IaaS program and join our
+            advanced AI-based GPU Mining RIG Distribution Management Ecosystem!
+          </p>
+        </li>
+        <li>
+          <h2 class="about-subtitle">
+            A Partnership Built on Trust and Reliability
+          </h2>
+          <p>
+            At CENTUMO RIG, we value professional relationships and prioritize
+            trust and reliability. Join our Mutual RIG PARTNERSHIP PROGRAM to
+            experience a partnership that is built to last.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">
+            Maximize Your Earnings with Our Profit-Sharing Model
+          </h2>
+          <p>
+            With CENTUMO RIG, you can tap into the potential of crypto mining
+            and earn your share of the profits. We distribute 60% of our
+            earnings from our work profit via our GPU Mining Rig Module,
+            ensuring that you benefit from your partnership.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">
+            Privacy and Security at the Highest Level
+          </h2>
+          <p>
+            Your privacy and security are our top priorities. Rest assured that
+            we have implemented robust measures to safeguard your data and
+            investments, providing you with peace of mind as you participate in
+            our program.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">A Simple Partnership Process</h2>
+          <p>
+            Becoming a partner is easy. Simply add liquidity ranging from 1L to
+            12L or more according to your preferences, sign a mutual contract
+            for 12 months, and enjoy regular payout shares scheduled for each
+            month throughout the contract period.
+          </p>
+        </li>
+
+        <li>
+          <h2 class="about-subtitle">Connect with Us Today</h2>
+          <p>
+            If you're ready to take advantage of this opportunity, let's
+            connect! Join CENTUMO RIG now and unlock the potential of crypto
+            mining through our advanced AI-based GPU Mining RIG Distribution
+            Management Ecosystem.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- services container -->
+  <div
+    class="service-container"
+    [class.visible]="isHovered"
+    (mouseenter)="onMouseOver()"
+    (mouseleave)="onMouseOut()"
+  >
+    <div class="services">
+      <h3 class="service-title">JetTrade FX</h3>
+      <hr />
+      <h3 class="service-title">Centum World</h3>
+      <hr />
+      <h3 class="service-title">Centumo Token</h3>
+    </div>
+  </div>
+</div>
