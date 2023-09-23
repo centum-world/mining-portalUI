@@ -13,6 +13,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +61,7 @@ import { FranchiseLoginComponent } from './components/franchise-login/franchise-
 import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
 import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
 import { StateProfileModalComponent } from './components/modal/state-profile-modal/state-profile-modal.component';
+import { AddFranchiseComponent } from './components/add-franchise/add-franchise.component';
 
 
 @NgModule({
@@ -97,6 +101,7 @@ import { StateProfileModalComponent } from './components/modal/state-profile-mod
     FranchiseSignUpComponent,
     StatedashboardComponent,
     StateProfileModalComponent,
+    AddFranchiseComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +115,7 @@ import { StateProfileModalComponent } from './components/modal/state-profile-mod
     MatMenuModule,
     MatListModule,
     HttpClientModule,
+    MatSidenavModule,
     FormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,

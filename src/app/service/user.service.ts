@@ -574,5 +574,12 @@ export class UserService {
       headers: new HttpHeaders().set('Content-Type', "application/json")
     })
   }
+
+  shoDetails(data){
+    return this.http.post(this.url + "/state/fetch-particular-sho",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+  
   
 }

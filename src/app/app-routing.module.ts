@@ -18,7 +18,19 @@ import { StatehandlerRegisterComponent } from './components/statehandler-registe
 import { FranchiseLoginComponent } from './components/franchise-login/franchise-login.component';
 import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
 import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
+import { AddFranchiseComponent } from './components/add-franchise/add-franchise.component';
 
+
+const statedashboardRoutes: Routes = [
+  {
+    path: 'statedashboard',
+    canActivate: [GuardGuard],
+    component: StatedashboardComponent,
+    children: [
+      { path: 'add-franchise', component: AddFranchiseComponent },
+    ],
+  },
+];
 const routes: Routes = [
 
   { path: 'login', component:LoginComponent},
@@ -28,7 +40,8 @@ const routes: Routes = [
   { path: 'frame', component:FrameComponent},
   { path: 'memberlogin', component:UserLoginComponent},
   { path: 'memberdashboard',canActivate:[GuardGuard], component:MemberDashboardComponent},
-  { path: 'statedashboard',canActivate:[GuardGuard], component:StatedashboardComponent},
+  //{ path: 'statedashboard',canActivate:[GuardGuard], component:StatedashboardComponent},
+  ...statedashboardRoutes,
   { path: 'mininglogin', component:MiningLoginComponent},
   { path: 'miningdashboard',canActivate:[GuardGuard],component:MiningDashboardComponent},
   { path: 'dashboard/sendwithdrawal',canActivate:[GuardGuard],component:SendWithdrawalAmountComponent },

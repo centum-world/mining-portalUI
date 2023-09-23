@@ -35,7 +35,8 @@ export class StatehandlerloginComponent implements OnInit {
     this.userService.shoLogin(data).subscribe({
       next: (res: any) => {
         if (res) {
-          console.log(res.token)
+          console.log(res)
+          localStorage.setItem('stateHandlerId',res.user.stateHandlerId)
           this.shareService.setStateToken(res.token)
           this.router.navigate(['statedashboard']);
           //this.toastr.success(response.message);

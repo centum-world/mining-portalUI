@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { UserService } from 'src/app/service/user.service';
+
 
 
 @Component({
@@ -10,15 +11,45 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class StateProfileModalComponent implements OnInit {
 
-  // constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-  //   public dialogRef: MatDialogRef<StateProfileModalComponent>) { }
+  constructor(private userService: UserService) {}
+ 
+  shoDetails={
+    fname:"",
+    lname:"",
+    email:"",
+    gender:"",
+    phone:"",
+    referralId:"",
+    aadharCard:"",
+    panCard:"",
+    stateHandlerId:"",
+    state:[],
+
+
+  }
 
   ngOnInit() {
+    this.callApiToShoDetails();
   }
 
 
-  // closeModal(): void {
-  //   this.dialogRef.close();
-  // }
+  callApiToShoDetails(){
+    let data = {
+      stateHandlerId:localStorage.getItem('stateHandlerId')
+    }
+
+    this.userService.shoDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log(response)
+          this.shoDetails.fname = response.sho.fname,
+          this.shoDetails.lname = response.sho.lname
+        }
+      },
+      error: error => {
+       
+      }
+    })
+  }
 
 }
