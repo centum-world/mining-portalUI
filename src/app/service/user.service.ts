@@ -581,5 +581,10 @@ export class UserService {
     })
   }
   
+  //create franchise
+  createFranchise(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}/admin/create-franchise`, formData);
+  }
+
   
 }

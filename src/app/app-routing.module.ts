@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {  LoginComponent} from './components/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
 import { FrameComponent } from './components/frame/frame.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -19,39 +19,39 @@ import { FranchiseLoginComponent } from './components/franchise-login/franchise-
 import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchise-sign-up.component';
 import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
 import { AddFranchiseComponent } from './components/add-franchise/add-franchise.component';
+import { ShoCardComponent } from './components/sho/sho-card/sho-card.component';
+import { StateAddFranchiseComponent } from './components/sho/state-add-franchise/state-add-franchise.component';
+import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
 
 
-const statedashboardRoutes: Routes = [
-  {
-    path: 'statedashboard',
-    canActivate: [GuardGuard],
-    component: StatedashboardComponent,
-    children: [
-      { path: 'add-franchise', component: AddFranchiseComponent },
-    ],
-  },
-];
 const routes: Routes = [
 
-  { path: 'login', component:LoginComponent},
-  { path: 'member-signup', component:SignupMemberComponent},
-  { path: 'partner-signup', component:SignupPartnerComponent},
-  { path: 'dashboard',canActivate:[GuardGuard], component:HrDashboardComponent},
-  { path: 'frame', component:FrameComponent},
-  { path: 'memberlogin', component:UserLoginComponent},
-  { path: 'memberdashboard',canActivate:[GuardGuard], component:MemberDashboardComponent},
-  //{ path: 'statedashboard',canActivate:[GuardGuard], component:StatedashboardComponent},
-  ...statedashboardRoutes,
-  { path: 'mininglogin', component:MiningLoginComponent},
-  { path: 'miningdashboard',canActivate:[GuardGuard],component:MiningDashboardComponent},
-  { path: 'dashboard/sendwithdrawal',canActivate:[GuardGuard],component:SendWithdrawalAmountComponent },
-  { path: 'statelogin', component:StatehandlerloginComponent},
-  { path: 'stateRegitration', component:StatehandlerRegisterComponent},
-  {path:"franchiselogin", component:FranchiseLoginComponent},
-  {path:"franchiseSignUp", component:FranchiseSignUpComponent},
-  
-  { path: '', component:HeaderComponent},
-  { path: '**', component:PageNotFoundComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'member-signup', component: SignupMemberComponent },
+  { path: 'partner-signup', component: SignupPartnerComponent },
+  { path: 'statelogin', component: StatehandlerloginComponent },
+  { path: 'stateRegitration', component: StatehandlerRegisterComponent },
+  { path: 'dashboard', canActivate: [GuardGuard], component: HrDashboardComponent },
+  { path: 'frame', component: FrameComponent },
+  { path: 'memberlogin', component: UserLoginComponent },
+  { path: 'memberdashboard', canActivate: [GuardGuard], component: MemberDashboardComponent },
+  {
+    path: 'statedashboard', canActivate: [GuardGuard], component: StatedashboardComponent,
+    children:[
+      {path:'home', component: ShoCardComponent},
+      {path:'add-franchise',component: StateAddFranchiseComponent},
+      {path: 'franchise-list', component: FranchiseListComponent},
+      {path:'', redirectTo:'/statedashboard/home', pathMatch:"full"}
+    ]
+  },
+  { path: 'mininglogin', component: MiningLoginComponent },
+  { path: 'miningdashboard', canActivate: [GuardGuard], component: MiningDashboardComponent },
+  { path: 'dashboard/sendwithdrawal', canActivate: [GuardGuard], component: SendWithdrawalAmountComponent },
+  { path: "franchiselogin", component: FranchiseLoginComponent },
+  { path: "franchiseSignUp", component: FranchiseSignUpComponent },
+
+  { path: '', component: HeaderComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

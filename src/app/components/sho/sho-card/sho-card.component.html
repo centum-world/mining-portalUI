@@ -1,0 +1,91 @@
+<main>
+    <div *ngIf="!profileDetails" class="cards">
+      <div class="card-single">
+        <div>
+          <h6>Profile</h6>
+          <span>See your profile!</span>
+
+        </div>
+
+        
+        <div class="icon" (click)="memberDetails()">
+          <span>View</span>
+        </div>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
+          <i class="fa fa-bank"></i>
+        </a>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>User ID {{displayUserId}}</h6>
+          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{displayMemberRefferalId}}"
+              target="_blank">{{displayMemberRefferalId}}</a></span>
+    
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Wallet</h6>
+          <span>Each day transaction!</span>
+        </div>
+        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite">
+          <div class="icon"><span>View</span></div>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Partner Team</h6>
+          <span></span>
+        </div>
+        <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner">
+          <div class="icon">
+            <span>View</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Wallet</span>
+        </div>
+        <div style="font-weight: bold; font-size:medium;">{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal Request</h6>
+
+        </div>
+        <div data-toggle="modal" data-target="#memberWithdrawalRequest">
+          <div class="icon">
+            <span>View</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal success</h6>
+
+        </div>
+        <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory">
+          <div class="icon">
+            <span>View</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Withdrawal</span>
+        </div>
+        <div style="font-size:medium; font-weight: bold;">{{paidAmount | currency:'INR'}}</div>
+      </div>
+    </div>
+  </main>
+
