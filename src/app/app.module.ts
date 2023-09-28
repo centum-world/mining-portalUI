@@ -61,15 +61,12 @@ import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchi
 import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
 import { StateProfileModalComponent } from './components/modal/state-profile-modal/state-profile-modal.component';
 import { AddFranchiseComponent } from './components/add-franchise/add-franchise.component';
-<<<<<<< HEAD
 import { ContactComponent } from './contact/contact.component';
 
-=======
 import { ShoHeaderComponent } from './components/sho/sho-header/sho-header.component';
 import { ShoCardComponent } from './components/sho/sho-card/sho-card.component';
 import { StateAddFranchiseComponent } from './components/sho/state-add-franchise/state-add-franchise.component';
 import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
->>>>>>> main
 
 @NgModule({
   declarations: [
@@ -109,14 +106,11 @@ import { FranchiseListComponent } from './components/sho/franchise-list/franchis
     StatedashboardComponent,
     StateProfileModalComponent,
     AddFranchiseComponent,
-<<<<<<< HEAD
     ContactComponent,
-=======
     ShoHeaderComponent,
     ShoCardComponent,
     StateAddFranchiseComponent,
     FranchiseListComponent,
->>>>>>> main
   ],
   imports: [
     BrowserModule,
