@@ -9,14 +9,13 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCardModule } from '@angular/material/card';
-
-
+import { MatInputModule, MatCardModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -62,8 +61,15 @@ import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchi
 import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
 import { StateProfileModalComponent } from './components/modal/state-profile-modal/state-profile-modal.component';
 import { AddFranchiseComponent } from './components/add-franchise/add-franchise.component';
+<<<<<<< HEAD
 import { ContactComponent } from './contact/contact.component';
 
+=======
+import { ShoHeaderComponent } from './components/sho/sho-header/sho-header.component';
+import { ShoCardComponent } from './components/sho/sho-card/sho-card.component';
+import { StateAddFranchiseComponent } from './components/sho/state-add-franchise/state-add-franchise.component';
+import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
+>>>>>>> main
 
 @NgModule({
   declarations: [
@@ -103,7 +109,14 @@ import { ContactComponent } from './contact/contact.component';
     StatedashboardComponent,
     StateProfileModalComponent,
     AddFranchiseComponent,
+<<<<<<< HEAD
     ContactComponent,
+=======
+    ShoHeaderComponent,
+    ShoCardComponent,
+    StateAddFranchiseComponent,
+    FranchiseListComponent,
+>>>>>>> main
   ],
   imports: [
     BrowserModule,
@@ -128,6 +141,9 @@ import { ContactComponent } from './contact/contact.component';
     MatSelectModule,
     MatOptionModule,
     MatDialogModule,
+    MatCardModule,
+    MatTableModule,
+    RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
       progressBar: true,

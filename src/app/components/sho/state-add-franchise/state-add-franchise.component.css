@@ -1,0 +1,54 @@
+
+.add-franchise-container{
+    width: 70vw;
+    height: 80vh;
+    /* background-color:#e7e4df; */
+    margin-top: 100px;
+    border-radius: 20px;
+}
+/* .franchise-title{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-family: Calibri;
+    font-weight: 600;
+    color: rgb(233, 128, 128);
+    margin-top: 10px;
+} */
+/* .franchise-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} */
+.large-card {
+    width: 90%; /* Adjust the width as needed */
+    margin: auto;
+    padding: 10px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .mat-form-field {
+    width: 100%; /* Adjust the width of each field */
+  }
+  .file-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .file-upload input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  .mat-card-actions {
+    margin-left: 3px;
+    margin-right: -8px;
+    padding: 8px 0;
+}
