@@ -1,3 +1,7 @@
+*{
+  scroll-behavior: smooth;
+}
+
 .wrapper-container {
   height: 100vh;
   width: 100vw;
@@ -526,4 +530,31 @@ for shooting effect */
   .star {
     width: 50%;
   }
+}
+
+.mobile-sidebar{
+  display: none;
+}
+
+.mobile-sidebar.visible {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:aliceblue;
+}
+
+.mobile-navlinks{
+  padding: 20px;
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }

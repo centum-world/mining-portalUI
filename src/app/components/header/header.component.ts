@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   typedText = ""; // Text that gets typed
   animationState = "start";
   isHovered = false;
+  isMobileSidebarVisible = false;
 
   onMouseOver() {
     this.isHovered = true;
@@ -73,5 +74,9 @@ export class HeaderComponent implements OnInit {
   }
   FranchisePage() {
     this.router.navigate(["/franchiselogin"]);
+  }
+  toggleMobileSidebar() {
+    console.log("button pressed")
+    this.isMobileSidebarVisible = !this.isMobileSidebarVisible;
   }
 }

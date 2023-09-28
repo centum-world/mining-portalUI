@@ -5,7 +5,7 @@
       <p>centum <span class="world">world</span></p>
     </div>
     <div class="navlinks">
-      <a href="#">Home</a>
+      <a href="/">Home</a>
       <a href="#intro">About</a>
       <a
         href=""
@@ -89,12 +89,22 @@
         fill="currentColor"
         class="bi bi-list"
         viewBox="0 0 16 16"
+        (click)="toggleMobileSidebar()"
       >
         <path
           fill-rule="evenodd"
           d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
         />
       </svg>
+    </div>
+    <div class="mobile-sidebar" [ngClass]="{'visible': isMobileSidebarVisible}">
+      <div class="mobile-navlinks">
+        <a href="" (click)="toggleMobileSidebar()">Home</a>
+        <a href="#intro" (click)="toggleMobileSidebar()">About</a>
+        <a href="#services" (click)="toggleMobileSidebar()">Services</a>
+        <a href="#contact" (click)="toggleMobileSidebar()">Contact</a>
+        <a href="/whitepaper" (click)="toggleMobileSidebar()">White Paper</a>
+      </div>
     </div>
   </div>
 
@@ -108,7 +118,7 @@
       <div class="star"></div>
       <div class="star"></div>
     </div>
-    <div class="hero-section">
+    <div class="hero-section" id="/">
       <div class="intro-container">
         <p class="company-name">Centum <span class="world"> World</span></p>
         <p class="mining">M{{ typedText }}</p>
@@ -153,8 +163,8 @@
     </div>
   </main>
 
-  <div class="main-container" id="intro">
-    <div class="about-container">
+  <div class="main-container">
+    <div class="about-container"id="intro">
       <h1 class="about-title">- About</h1>
       <ul>
         <li>
