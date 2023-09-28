@@ -158,9 +158,10 @@ main {
 }
 
 .about-container {
-  padding: 20px;
   height: 70%;
   width: 80%;
+  margin-top:10vh;
+  padding-bottom:10vh; 
 }
 
 .about-title {

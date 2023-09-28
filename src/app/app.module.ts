@@ -62,6 +62,7 @@ import { FranchiseSignUpComponent } from './components/franchise-sign-up/franchi
 import { StatedashboardComponent } from './components/statedashboard/statedashboard.component';
 import { StateProfileModalComponent } from './components/modal/state-profile-modal/state-profile-modal.component';
 import { AddFranchiseComponent } from './components/add-franchise/add-franchise.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { AddFranchiseComponent } from './components/add-franchise/add-franchise.
     StatedashboardComponent,
     StateProfileModalComponent,
     AddFranchiseComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
