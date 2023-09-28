@@ -544,17 +544,19 @@ for shooting effect */
   top: 0;
   left: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: start;
   background-color:aliceblue;
 }
 
 .mobile-navlinks{
   padding: 20px;
-  border: 1px solid black;
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.close-box{
+  padding: 20px;
 }

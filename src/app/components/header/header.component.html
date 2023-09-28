@@ -97,13 +97,27 @@
         />
       </svg>
     </div>
-    <div class="mobile-sidebar" [ngClass]="{'visible': isMobileSidebarVisible}">
+    <div class="mobile-sidebar" [ngClass]="{ visible: isMobileSidebarVisible }">
       <div class="mobile-navlinks">
         <a href="" (click)="toggleMobileSidebar()">Home</a>
         <a href="#intro" (click)="toggleMobileSidebar()">About</a>
         <a href="#services" (click)="toggleMobileSidebar()">Services</a>
         <a href="#contact" (click)="toggleMobileSidebar()">Contact</a>
         <a href="/whitepaper" (click)="toggleMobileSidebar()">White Paper</a>
+      </div>
+      <div class="close-box" (click)="toggleMobileSidebar()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+          />
+        </svg>
       </div>
     </div>
   </div>
@@ -164,7 +178,7 @@
   </main>
 
   <div class="main-container">
-    <div class="about-container"id="intro">
+    <div class="about-container" id="intro">
       <h1 class="about-title">- About</h1>
       <ul>
         <li>
