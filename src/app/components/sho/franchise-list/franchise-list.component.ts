@@ -7,18 +7,22 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { VerifyModalComponent } from '../diolog/verify-modal/verify-modal.component';
 import { ViewModalComponent } from '../diolog/view-modal/view-modal.component';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 interface Franchise {
   fname: string;
-  lname : string;
-  franchiseId:string;
+  lname: string;
+  franchiseId: string;
   email: string;
   phone: string;
-  gender : string;
-  franchiseCity : string;
-  franchiseState:string;
-  referralId:string;
-  referredId:string;
+  gender: string;
+  franchiseCity: string;
+  franchiseState: string;
+  referralId: string;
+  referredId: string;
+  verify: string;
   actions: string;
 }
 
@@ -29,18 +33,20 @@ interface Franchise {
 })
 export class FranchiseListComponent implements OnInit {
 
-  
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['franchiseId' ,'fname', 'lname','email', 'phone', 'gender', 'franchiseCity', 'franchiseState', 
-  'referralId' , 'referredId', 'actions'
-];
+  displayedColumns: string[] = ['franchiseId', 'fname', 'lname', 'email', 'phone', 'gender', 'franchiseCity', 'franchiseState',
+    'referralId', 'referredId', 'isVerify', 'actions'
+  ];
+  franchiseReferralId: string = "";
   dataSource: MatTableDataSource<Franchise>;
-  constructor(private userService : UserService, private dialog : MatDialog) {
-    // Dummy data
-    //const dummyData: Franchise[] = [];
+  constructor(
+    private userService: UserService,
+    private dialog: MatDialog,
+    private toastr: ToastrService
+  ) {
     this.dataSource = new MatTableDataSource([]);
-
   }
 
   ngOnInit() {
@@ -49,36 +55,66 @@ export class FranchiseListComponent implements OnInit {
   }
 
 
-  callApiToGetAllFranchiseList(){
+  callApiToGetAllFranchiseList() {
     let data = {
-      referralId : localStorage.getItem('stateRefferalId')
+      referralId: localStorage.getItem('stateRefferalId')
     }
     console.log(data)
     this.userService.getAllFranchiseDetails(data).subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         console.log(res.franchise)
         this.dataSource.data = res.franchise
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err)
       }
     })
   }
 
-   viewFranchise(data){
+  openViewFranchiseDialog(data: any) {
     console.log(data)
+    let config: MatDialogConfig = {
+      height: '45%',
+      width: '55%',
+      panelClass: 'myStateDialogClass',
+      data: data
+    };
+    const dialogRef = this.dialog.open(ViewModalComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("clicked")
+    })
   }
 
-  openVerifyDialog() {
+  openVerifyDialog(id: any) {
+
+    this.franchiseReferralId = id.franchiseId
     let config: MatDialogConfig = {
-      height:'30%', width:'40%', panelClass:'myStateDialogClass'
+      height: '26%', width: '23%', panelClass: 'myStateDialogClass'
     };
-    const dialogRef = this.dialog.open(VerifyModalComponent,config);
+    const dialogRef = this.dialog.open(VerifyModalComponent, config);
+
+
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      let data = {
+        franchiseId: this.franchiseReferralId,
+        isVerify: true
+      }
+      this.userService.shoVerifyFranchise(data).subscribe({
+        next: (res) => {
+          this.toastr.success('Franchsie verified')
+          this.callApiToGetAllFranchiseList();
+        },
+        error: (err) => {
+          console.log(err.data.message)
+        }
+      })
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // Do something with the result if needed
+      console.log("Closed");
     });
+
+
   }
 
 }
