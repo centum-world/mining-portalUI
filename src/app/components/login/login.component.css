@@ -25,6 +25,7 @@
   width: 30%;
   flex-direction: column;
   background-image: linear-gradient(#24243e, #59599b, #0f0c29);
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .name-container {
@@ -114,12 +115,14 @@ h3 {
 }
 
 .login-fields{
-  height: 100%;
+  height: 90%;
   width: 50%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .login-fields h1{
@@ -157,4 +160,21 @@ h3 {
 
 .btn-text{
   margin-top: 15px;
+}
+
+@media screen and (max-width: 769px){
+  .login-container{
+    flex-direction: column;
+  }
+  .left-section{
+    /* flex-direction: row; */
+    height: 30vh;
+    width: 100vw;
+  }
+  .handshake-img{
+    display: none;
+  }
+  .login-fields{
+    width: 100%;
+  }
 }
