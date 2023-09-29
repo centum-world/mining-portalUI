@@ -1,26 +1,82 @@
 <div class="large-expand">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>ID </th>
-      <td mat-cell *matCellDef="let franchise"> {{ franchise.id }}</td>
-    </ng-container>
-  
-    
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let franchise"> {{ franchise.name }} </td>
-    </ng-container>
-  
-    
-    <ng-container matColumnDef="city">
-      <th mat-header-cell *matHeaderCellDef> City </th>
-      <td mat-cell *matCellDef="let franchise"> {{ franchise.city }} </td>
-    </ng-container>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="fname">
+                <th mat-header-cell *matHeaderCellDef> F-Name </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.fname }} </td>
+            </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let franchise; columns: displayedColumns;"></tr>
-  </table>
+
+            <ng-container matColumnDef="lname">
+                <th mat-header-cell *matHeaderCellDef> L-Name </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.lname }} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="franchiseId">
+                <th mat-header-cell *matHeaderCellDef>Id </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.franchiseId }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.email }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Phone </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.phone }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="referredId">
+                <th mat-header-cell *matHeaderCellDef> Referred ID </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.referredId }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="referralId">
+                <th mat-header-cell *matHeaderCellDef> Referral ID </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.referralId }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef>Gender </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.gender }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="franchiseState">
+                <th mat-header-cell *matHeaderCellDef>State</th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.franchiseState }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="franchiseCity">
+                <th mat-header-cell *matHeaderCellDef>Franchise City </th>
+                <td mat-cell *matCellDef="let franchise"> {{ franchise.franchiseCity }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let franchise">
+                    <!-- Use a mat-menu for more options -->
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="viewFranchise(franchise)">
+                            View
+                        </button>
+                        <button mat-menu-item (click)="openVerifyDialog()">
+                            Verify
+                        </button>
+                        <!-- Add more options as needed -->
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let franchise; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]="true">
+        </mat-paginator>
+    </div>
 </div>
-  
-  
-  

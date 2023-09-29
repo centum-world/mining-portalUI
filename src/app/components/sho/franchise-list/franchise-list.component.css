@@ -1,8 +1,23 @@
-.large-expand{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+.large-expand {
+    overflow-x: auto;
+    margin-top: 100px;
+    padding: 20px;
 }
+
 table {
-    width: 95%;
+    width: 100%;
+}
+
+/* Optional: Adjust scrollbar style */
+.large-expand::-webkit-scrollbar {
+    width: 12px;
+}
+
+.large-expand::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.large-expand::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
 }

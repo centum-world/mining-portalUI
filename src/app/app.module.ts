@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule, MatCardModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,6 +68,8 @@ import { ShoHeaderComponent } from './components/sho/sho-header/sho-header.compo
 import { ShoCardComponent } from './components/sho/sho-card/sho-card.component';
 import { StateAddFranchiseComponent } from './components/sho/state-add-franchise/state-add-franchise.component';
 import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
+import { VerifyModalComponent } from './components/sho/diolog/verify-modal/verify-modal.component';
+import { ViewModalComponent } from './components/sho/diolog/view-modal/view-modal.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +114,8 @@ import { FranchiseListComponent } from './components/sho/franchise-list/franchis
     ShoCardComponent,
     StateAddFranchiseComponent,
     FranchiseListComponent,
+    VerifyModalComponent,
+    ViewModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -137,6 +142,7 @@ import { FranchiseListComponent } from './components/sho/franchise-list/franchis
     MatDialogModule,
     MatCardModule,
     MatTableModule,
+    MatPaginatorModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -146,7 +152,11 @@ import { FranchiseListComponent } from './components/sho/franchise-list/franchis
       timeOut: 2000
     }),
   ],
-  entryComponents:[StateProfileModalComponent],
+  entryComponents: [
+    StateProfileModalComponent,
+    VerifyModalComponent,
+    ViewModalComponent
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

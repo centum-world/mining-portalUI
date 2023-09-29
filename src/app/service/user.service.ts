@@ -586,5 +586,11 @@ export class UserService {
     return this.http.post(`${this.url}/admin/create-franchise`, formData);
   }
 
+  //fetch all franchise details
+  getAllFranchiseDetails(data){
+    return this.http.post(this.url + "/state/fetch-all-own-franchise-in-state",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
   
 }

@@ -12,23 +12,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-/* .modal-header button{
-    padding: 5px;
-    color:white;
-    background: rgb(21, 49, 209);
-    border-radius: 20%;
-} */
-/* media query */
 :host ::ng-deep .modal-dialog {
   max-width: 100%;
   overflow-x: scroll;
 }
 
-
-
-.modal {
+.modal dialog{
   overflow-y: scroll;
 }
+/* .modal-dialog {
+  overflow-x: scroll;
+} */
 
 .modal::-webkit-scrollbar {
   display: none;
@@ -39,16 +33,8 @@ body {
     border-radius: 20px;
     padding-top: 0px;
   }
+}
 
-  /* .mat-dialog-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #d77b03;
-    margin-left: -22px;
-    margin-right: -22px;
-    padding-left: 20px;
-    color: #ccc;
-  } */
-
-
+.myStateDialogClass .mat-dialog-content {
+  overflow: hidden !important;
 }
