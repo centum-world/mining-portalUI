@@ -1,4 +1,92 @@
-<div class="logo">
+<div class="login-wrapper">
+  <div class="login-container">
+    <div class="left-section">
+      <div class="name-container">
+        <img
+          src="../../../assets/image/clogo.png"
+          alt=""
+          height="65"
+          width="65"
+        />
+        <p>CENTUM <span>WORLD</span></p>
+      </div>
+      <img
+        src="../../../assets/Light-brown-in-Jacket10.svg"
+        alt=""
+        class="handshake-img"
+      />
+      <h3>Grow With Us</h3>
+      <p class="subtitle">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto quod
+        nobis, placeat qui labore ab quidem expedita suscipit possimus impedit?
+      </p>
+    </div>
+    <div class="right-section">
+      <div class="right-container">
+        <div class="top-container">
+          <div class="back-btn">
+            <a [routerLink]="['/']" class="back-link">
+              <img src="../../../assets/caret-left.svg" alt="" />
+              <p>Return Home</p>
+            </a>
+          </div>
+          <!-- <div class="join-btn">
+            <p>Not a member yet? <a [routerLink]="['/signup']">JOIN NOW</a></p>
+          </div> -->
+        </div>
+        <div class="login-fields">
+          <div class="login-heading">
+            <h1>Welcome Back Admin</h1>
+            <h5>LOGIN TO CONTINUE</h5>
+          </div>
+          <div class="login-input">
+            <form [formGroup]="loginForm">
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="admin_id" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>Password</mat-label>
+                <input
+                  matInput
+                  [type]="passwordFieldType"
+                  formControlName="admin_password"
+                  required
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="togglePasswordVisibility()"
+                >
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <button class="admin-login-btn" (click)="submit(loginForm)">
+                <p class="btn-text">Proceed to my account</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="#eee"
+                  class="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="logo">
   <img src="assets/image/clogo.png" alt="">
 </div>
 <div class="box">
@@ -33,7 +121,7 @@
           </div>
 
         </div>
-        <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+        <a class="btn btn-primary" href="/dashboard">Login</a>
         
         <br>
         <div class="link">
@@ -41,4 +129,4 @@
         </div>
       </form>  
   </div>
-</div>
+</div> -->
