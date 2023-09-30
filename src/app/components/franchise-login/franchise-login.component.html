@@ -29,8 +29,8 @@
         <div class="login">
           <button
             class="btn btn-primary"
-            [disabled]="!(memberLoginForm.valid && memberLoginForm.dirty)"
-            (click)="submit(franchiseLoginForm)"
+            [disabled]="!(franchiseLoginForm.valid && franchiseLoginForm.dirty)"
+            (click)="onSubmit()"
           >
             Login
           </button>

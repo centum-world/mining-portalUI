@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { UserService } from 'src/app/service/user.service';
 import { ShareService } from 'src/app/shareService/share.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-statehandlerlogin',
@@ -15,7 +16,7 @@ export class StatehandlerloginComponent implements OnInit {
 
   stateLoginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router:Router, private shareService: ShareService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router:Router, private shareService: ShareService,private _snackBar:MatSnackBar) {
     this.stateLoginForm = this.formBuilder.group({
       stateId: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]]
@@ -40,12 +41,21 @@ export class StatehandlerloginComponent implements OnInit {
           localStorage.setItem('stateRefferalId',res.user.referralId)
           this.shareService.setStateToken(res.token)
           this.router.navigate(['statedashboard']);
+          setTimeout(function () {
+            window.location.reload();
+          }, 100);
           //this.toastr.success(response.message);
         }
       },
       error: error => {
-        console.log(error)
-        //this.toastr.error(error.error.message);
+        console.log(error.error.message)
+        // this.toastr.error(error.error.message);
+        this._snackBar.open(error.error.message, 'Close', {
+          duration: 3000, // Adjust the duration as needed (in milliseconds)
+          horizontalPosition: 'center', // Horizontal position: 'start' | 'center' | 'end' | 'left' | 'right'
+          verticalPosition: 'top',
+          panelClass: ['custom-snackbar']
+        });
       }
     })
     
@@ -56,5 +66,14 @@ export class StatehandlerloginComponent implements OnInit {
     window.open('/stateRegitration')
   }
 
+  // logout
+  logOut() {
+    localStorage.removeItem('stateToken');
+    localStorage.removeItem('stateHandlerId');
+    localStorage.removeItem('stateRefferalId');
+    // localStorage.removeItem('')
+    localStorage.clear();
+
+  }
 
 }

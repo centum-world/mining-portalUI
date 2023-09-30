@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { UserService } from "src/app/service/user.service";
 import { ShareService } from "src/app/shareService/share.service";
 import { Router } from "@angular/router";
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
   selector: "app-franchise-login",
@@ -17,7 +18,8 @@ export class FranchiseLoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private _snackBar:MatSnackBar
   ) {
     this.franchiseLoginForm = this.formBuilder.group({
       franchiseId: ["", Validators.required],
@@ -42,6 +44,16 @@ export class FranchiseLoginComponent implements OnInit {
           this.router.navigate(["franchisedashboard"]);
         }
       },
+      error: error => {
+        console.log(error.error.message)
+        // this.toastr.error(error.error.message);
+        this._snackBar.open(error.error.message, 'Close', {
+          duration: 3000, // Adjust the duration as needed (in milliseconds)
+          horizontalPosition: 'center', // Horizontal position: 'start' | 'center' | 'end' | 'left' | 'right'
+          verticalPosition: 'top',
+          panelClass: ['custom-snackbar']
+        });
+      }
     });
   }
 

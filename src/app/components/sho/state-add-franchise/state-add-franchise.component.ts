@@ -136,6 +136,7 @@ export class StateAddFranchiseComponent implements OnInit {
     this.userService.createFranchise(formData).subscribe({
       next: (response) => {
         if (response) {
+          this.form.reset();
           console.log(response)
           this.toastr.success(response.message);
         }

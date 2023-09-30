@@ -175,6 +175,9 @@ animation: animate 6s linear infinite;
   box-decoration-break: none;
 }
 
+.custom-snackbar {
+  color: white; /* Set the text color to white */
+}
 
 @media only screen and (max-width : 480px){
   .box{
