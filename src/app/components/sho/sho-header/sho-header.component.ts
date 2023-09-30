@@ -4,6 +4,7 @@ import { StateProfileModalComponent } from '../../modal/state-profile-modal/stat
 import { MatDialogConfig } from '@angular/material/dialog';
 import { StateProfileDocumentsComponent } from '../../modal/state-profile-documents/state-profile-documents.component';
 import { UserService } from 'src/app/service/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sho-header',
   templateUrl: './sho-header.component.html',
@@ -11,7 +12,11 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ShoHeaderComponent implements OnInit {
 
-  constructor(private dialog: MatDialog,private userService:UserService) { }
+  constructor(
+    private dialog: MatDialog,
+    private userService:UserService,
+    private router : Router
+    ) { }
 
   shoDocuments={
     aadharFrontSide:"",
@@ -67,5 +72,10 @@ export class ShoHeaderComponent implements OnInit {
       console.log('The dialog was closed');
       // Do something with the result if needed
     });
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.router.navigate(['/statelogin']);
   }
 }

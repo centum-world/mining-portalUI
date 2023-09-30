@@ -26,6 +26,7 @@ import { FranchisedashboardComponent } from "./franchisedashboard/franchisedashb
 import { FranchiseCardComponent } from "./franchise-card/franchise-card.component";
 import { importExpr } from "@angular/compiler/src/output/output_ast";
 import { FranchiseProfileDetailsComponent } from "./franchise-profile-details/franchise-profile-details.component";
+import { AccountFranchiseComponent } from "./components/sho/diolog/account-franchise/account-franchise.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: "home", component: ShoCardComponent },
       { path: "add-franchise", component: StateAddFranchiseComponent },
       { path: "franchise-list", component: FranchiseListComponent },
+      { path: "franchise-account", component: AccountFranchiseComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
     ],
   },

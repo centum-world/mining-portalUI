@@ -1,0 +1,59 @@
+<div>
+    <h6 class="custom-heading" mat-dialog-title>Edit frachise details</h6>
+    <div mat-dialog-content>
+        <form>
+            <div class="form-row">
+                <mat-form-field>
+                    <input matInput placeholder="Enter your first name" [formControl]="fname" required>
+                    <mat-error *ngIf="fname.invalid">{{getErrorFnameMessage()}}</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput placeholder="Enter your last name" [formControl]="lname" required>
+                    <mat-error *ngIf="lname.invalid">{{getErrorLnameMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div class="form-row">
+                <mat-form-field>
+                    <input matInput placeholder="Enter your email" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput placeholder="Phone Number" [formControl]="phone">
+                    <mat-error *ngIf="phone.hasError('required')">Phone number is required</mat-error>
+                    <mat-error *ngIf="phone.hasError('pattern')">Invalid Indian mobile number</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Select gender</mat-label>
+                    <mat-select [(value)]="selected">
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Other">Other</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Select state</mat-label>
+                    <mat-select [(ngModel)]="state" name="state">
+                        <mat-option *ngFor="let state of states">
+                            {{state.state}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </form>
+        
+
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <span style="margin-left: 10px;"></span>
+        <button mat-raised-button mat-dialog-close style="background-color: greenyellow;"
+            (click)="verifyFranchise()">Ok</button>
+    </div>
+</div>

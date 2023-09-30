@@ -10,7 +10,7 @@ import { ViewModalComponent } from '../diolog/view-modal/view-modal.component';
 import { ToastrService } from 'ngx-toastr';
 import { BlockModalComponent } from '../diolog/block-modal/block-modal.component';
 import { EditFranchiseComponent } from '../diolog/edit-franchise/edit-franchise.component';
-
+import { Router } from '@angular/router';
 
 
 interface Franchise {
@@ -48,7 +48,8 @@ export class FranchiseListComponent implements OnInit {
   constructor(
     private userService: UserService,
     private dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -162,6 +163,11 @@ export class FranchiseListComponent implements OnInit {
       data:id
     };
     const dialogRef = this.dialog.open(EditFranchiseComponent, config)
+  }
+
+
+  gotoFranchiseAccount(){
+    this.router.navigate(['/statedashboard/franchise-account']);
   }
 
 

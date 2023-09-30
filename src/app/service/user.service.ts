@@ -789,12 +789,6 @@ export class UserService {
     })
   }
 
-  //block unblock franchise
-  blockUnblockFranchise(data){
-    return this.http.post(this.url + "/admin/block-and-unblock-franchise",data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
-  }
 
   //save bank details
   saveBankDetails(data){

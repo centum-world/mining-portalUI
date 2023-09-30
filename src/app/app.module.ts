@@ -79,6 +79,7 @@ import { FranchiseHeaderComponent } from './franchise-header/franchise-header.co
 import { FranchiseProfileDetailsComponent } from './franchise-profile-details/franchise-profile-details.component';
 import { BlockModalComponent } from './components/sho/diolog/block-modal/block-modal.component';
 import { EditFranchiseComponent } from './components/sho/diolog/edit-franchise/edit-franchise.component';
+import { AccountFranchiseComponent } from './components/sho/diolog/account-franchise/account-franchise.component';
 
 @NgModule({
   declarations: [
@@ -134,6 +135,7 @@ import { EditFranchiseComponent } from './components/sho/diolog/edit-franchise/e
     StateViewBankDetailsComponent,
     BlockModalComponent,
     EditFranchiseComponent,
+    AccountFranchiseComponent,
   ],
   imports: [
     BrowserModule,
