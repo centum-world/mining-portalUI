@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatSnackBar, MatSnackBarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule, MatCardModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
@@ -72,6 +72,9 @@ import { VerifyModalComponent } from './components/sho/diolog/verify-modal/verif
 import { ViewModalComponent } from './components/sho/diolog/view-modal/view-modal.component';
 import { FranchisedashboardComponent } from './franchisedashboard/franchisedashboard.component';
 import { FranchiseCardComponent } from './franchise-card/franchise-card.component';
+import { StateProfileDocumentsComponent } from './components/modal/state-profile-documents/state-profile-documents.component';
+import { StateAddBankComponent } from './components/modal/state-add-bank/state-add-bank.component';
+import { StateViewBankDetailsComponent } from './components/modal/state-view-bank-details/state-view-bank-details.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +123,9 @@ import { FranchiseCardComponent } from './franchise-card/franchise-card.componen
     ViewModalComponent,
     FranchisedashboardComponent,
     FranchiseCardComponent,
+    StateProfileDocumentsComponent,
+    StateAddBankComponent,
+    StateViewBankDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -147,6 +153,7 @@ import { FranchiseCardComponent } from './franchise-card/franchise-card.componen
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -155,11 +162,15 @@ import { FranchiseCardComponent } from './franchise-card/franchise-card.componen
       preventDuplicates: true,
       timeOut: 2000
     }),
+    
   ],
   entryComponents: [
     StateProfileModalComponent,
     VerifyModalComponent,
-    ViewModalComponent
+    ViewModalComponent,
+    StateProfileDocumentsComponent,
+    StateAddBankComponent,
+    StateViewBankDetailsComponent
   ],
   providers: [
     {

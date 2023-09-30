@@ -782,6 +782,18 @@ export class UserService {
     })
   }
 
+  //save bank details
+  saveBankDetails(data){
+    return this.http.post(this.url + "/state/create-bank-details-for-sho",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
   
+  // fetchStateBankDetails
+  fetchStateBankDetails(data){
+    return this.http.post(this.url + "/state/state/fetch-own-bank-details",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
   
 }

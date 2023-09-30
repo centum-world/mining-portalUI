@@ -8,10 +8,10 @@
     <ul>
       <li>
         <a href="javascript:void(0)"><i class="fa fa-user"></i>
-          <span (click)="openDialog()">My Profile</span>
+          <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>
-      
+      <!-- (click)="openDialog()" -->
       <li>
         <a href="/statedashboard/add-franchise"><i class="fa fa-user"></i>
           <span>Add franchise</span>
@@ -38,6 +38,12 @@
     </ul>
   </div>
 </div> 
+
+<mat-menu #menuProfile="matMenu">
+  <button mat-menu-item (click)="openDialog()">Details</button>
+  <button mat-menu-item (click)="openStateDocumentsDialog()">Documents</button>
+</mat-menu>
+
 <div class="main-content">
   <header>
     <h2>

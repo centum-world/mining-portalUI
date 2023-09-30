@@ -52,7 +52,9 @@ export class StateProfileModalComponent implements OnInit {
           this.shoDetails.refferedId = response.sho.referredId,
           this.shoDetails.stateHandlerId = response.sho.stateHandlerId
           this.shoDetails.aadharCard = response.sho.adharCard,
-          this.shoDetails.panCard = response.sho.panCard
+          this.shoDetails.panCard = response.sho.panCard,
+          this.shoDetails.stateHandlerId = response.sho.stateHandlerId,
+          this.shoDetails.state = response.sho.selectedState
 
         }
       },
