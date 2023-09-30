@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FranchiseProfileDetailsComponent } from '../franchise-profile-details/franchise-profile-details.component';
 import { MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router'
 
 @Component({
   selector: "app-franchise-header",
@@ -9,7 +10,7 @@ import { MatDialogConfig } from '@angular/material/dialog';
   styleUrls: ["./franchise-header.component.css"],
 })
 export class FranchiseHeaderComponent implements OnInit {
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private router  : Router) { }
 
   ngOnInit() {}
 
@@ -24,6 +25,11 @@ export class FranchiseHeaderComponent implements OnInit {
       console.log('The dialog was closed');
       // Do something with the result if needed
     });
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.router.navigate(['/franchiselogin']);
   }
 
 }

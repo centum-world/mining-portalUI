@@ -34,6 +34,8 @@ const routes: Routes = [
   { path: "partner-signup", component: SignupPartnerComponent },
   { path: "statelogin", component: StatehandlerloginComponent },
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
+  { path: "franchiselogin", component: FranchiseLoginComponent },
+  { path: "franchiseSignUp", component: FranchiseSignUpComponent },
   {
     path: "dashboard",
     canActivate: [GuardGuard],
@@ -77,8 +79,7 @@ const routes: Routes = [
     canActivate: [GuardGuard],
     component: SendWithdrawalAmountComponent,
   },
-  { path: "franchiselogin", component: FranchiseLoginComponent },
-  { path: "franchiseSignUp", component: FranchiseSignUpComponent },
+  
 
   { path: "", component: HeaderComponent },
   { path: "**", component: PageNotFoundComponent },

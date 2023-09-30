@@ -1,5 +1,5 @@
 <main>
-    <div *ngIf="!profileDetails" class="cards">
+    <div  class="cards">
       <div class="card-single">
         <div>
           <h6>Profile</h6>
@@ -22,8 +22,8 @@
 
         <mat-menu #menuProfile="matMenu">
           <!-- Define your menu items here -->
-          <button mat-menu-item (click)="openDialog()">Details</button>
-          <button mat-menu-item (click)="stateAddBankDialog()">Documents</button>
+          <!-- <button mat-menu-item (click)="openDialog()">Details</button>
+          <button mat-menu-item (click)="stateAddBankDialog()">Documents</button> -->
           <!-- Add more menu items as needed -->
         </mat-menu>
       </div>
@@ -65,7 +65,7 @@
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
-        <div style="font-weight: bold; font-size:medium;">{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
+        <div style="font-weight: bold; font-size:medium;"></div>
       </div>
 
       <div class="card-single">
@@ -97,7 +97,7 @@
           <h6>Transaction</h6>
           <span>Total Withdrawal</span>
         </div>
-        <div style="font-size:medium; font-weight: bold;">{{paidAmount | currency:'INR'}}</div>
+        <div style="font-size:medium; font-weight: bold;"></div>
       </div>
     </div>
   </main>

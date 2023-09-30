@@ -1,5 +1,5 @@
 <main>
-    <div *ngIf="!profileDetails" class="cards">
+    <div  class="cards">
       <div class="card-single">
         <div>
           <h6>Profile</h6>
@@ -8,7 +8,7 @@
         </div>
 
         
-        <div class="icon" (click)="memberDetails()">
+        <div class="icon" >
           <span>View</span>
         </div>
         <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
@@ -18,9 +18,9 @@
 
       <div class="card-single">
         <div>
-          <h6>User ID {{displayUserId}}</h6>
-          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{displayMemberRefferalId}}"
-              target="_blank">{{displayMemberRefferalId}}</a></span>
+          <h6>Franchise ID {{displayFranchiseId}}</h6>
+          <span>Referral ID &nbsp;<a href="/partner-signup?refferId={{displayFranchiseReferralId}}"
+              target="_blank">{{displayFranchiseReferralId}}</a></span>
     
         </div>
       </div>
@@ -77,7 +77,7 @@
           <h6>Transaction</h6>
           <span>Total Withdrawal</span>
         </div>
-        <div style="font-size:medium; font-weight: bold;">{{paidAmount | currency:'INR'}}</div>
+        <div style="font-size:medium; font-weight: bold;"></div>
       </div>
     </div>
   </main>
