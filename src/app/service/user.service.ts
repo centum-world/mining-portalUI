@@ -776,6 +776,26 @@ export class UserService {
     );
   }
   //sho verify franchise
+  shoVerifyFranchise(data){
+    return this.http.post(this.url + "/franchise/verify-franchise",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
+  //save bank details
+  saveBankDetails(data){
+    return this.http.post(this.url + "/state/create-bank-details-for-sho",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+  
+  // fetchStateBankDetails
+  fetchStateBankDetails(data){
+    return this.http.post(this.url + "/state/state/fetch-own-bank-details",data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+  
   shoVerifyFranchise(data) {
     return this.http.post(this.url + "/franchise/verify-franchise", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),

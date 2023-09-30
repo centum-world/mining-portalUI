@@ -1,3 +1,113 @@
+<div class="user-login-wrapper">
+  <div class="user-login-container">
+    <div class="user-left-section">
+      <div class="left-container">
+      <div class="company-name">
+        <img src="../../../assets/image/clogo.png" alt="" height="100" width="100">
+        <p>Centum World</p>
+      </div>
+      <img src="../../../assets/image/Illustration.png" alt="" class="Illustrationbg" />
+      <div>
+        <p class="subtitle-text">Unlock the Depths of Centumo: Member Login</p>
+      </div>
+    </div>
+    </div>
+    <div class="user-right-section">
+      <div class="user-right-container">
+        <h2>Welcome back, Member to the Centumo Mining Rig</h2>
+        <div class="login-input">
+          <form [formGroup]="memberLoginForm">
+            <mat-form-field appearance="outline" class="name-input">
+              <mat-label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                </svg>Username</mat-label>
+              <input matInput formControlName="member_id" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="name-input">
+              <mat-label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-lock-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                </svg>Password</mat-label>
+              <input matInput [type]="passwordFieldType" formControlName="member_password" required />
+              <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                <mat-icon>{{ showPasswordIcon }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <div class="btn-container">
+              <div>
+                <input type="checkbox" id="remeber-me" />
+                <label for="remeber-me">Remeber me</label>
+              </div>
+              <button class="admin-login-btn" (click)="submit(memberLoginForm)">
+                <p class="btn-text">Proceed to my account</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#eee" class="bi bi-arrow-right"
+                  viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="line"></div>
+        <p>No account yet? <a href="/member-signup" class="singup-text" (click)="SignUpMember()">SIGN UP</a></p>
+        <p class="password-text"> Having issue with passsword? <a href="javascript:void(0)" class="singup-text"  data-toggle="modal" data-target="#exampleModal">Forgot Password</a> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="logo">
+  <img src="assets/image/clogo.png" alt="">
+</div>
+<div class="box">
+  <div class="form">
+        <h2>Admin</h2>
+      <form [formGroup]="loginForm">  
+        <div class="input-box">
+
+          <div class="form-group">
+            <input type="text" formControlName="admin_id" required>
+            <span>UserId</span>
+            <i></i>
+          </div>
+          
+        </div>
+
+        <div class="input-box">
+
+          <div class="form-group">
+            <input type="password" formControlName="admin_password" required>
+            <span>Password</span>
+            <i></i>
+          </div>
+          
+        </div><br>
+        <div class="login-header">
+          <div class="login">
+            <button class="btn btn-primary" [disabled]="!(loginForm.valid && loginForm.dirty)" (click)="submit(loginForm)">Login</button>
+          </div>
+          <div class="home">
+            <a href="" class="btn btn-secondary">Home</a>
+          </div>
+
+        </div>
+        <a class="btn btn-primary" href="/dashboard">Login</a>
+        
+        <br>
+        <div class="link">
+          <a href="https://centumworld.com">Centum World</a>
+        </div>
+      </form>  
+  </div>
+</div> -->
+
 <!-- <div class="box">
     <div class="form">
       <h2>Member</h2>
@@ -22,7 +132,7 @@
  
    -->
 
-   <div class="logo">
+<!-- <div class="logo">
     <img src="assets/image/clogo.png" alt="">
   </div>
   <div class="box">
@@ -57,7 +167,7 @@
               <a href="" class="btn btn-secondary">Home</a>
             </div>
           </div>
-          <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+          <a class="btn btn-primary" href="/dashboard">Login</a>
           
           <br>
           <div class="link">
@@ -76,7 +186,7 @@
   
  
 
-<!--Forget password Modal -->
+Forget password Modal
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -115,4 +225,4 @@
     </div>
   </div>
 </div>
-  
+   -->
