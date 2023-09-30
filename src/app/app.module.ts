@@ -70,6 +70,8 @@ import { StateAddFranchiseComponent } from './components/sho/state-add-franchise
 import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
 import { VerifyModalComponent } from './components/sho/diolog/verify-modal/verify-modal.component';
 import { ViewModalComponent } from './components/sho/diolog/view-modal/view-modal.component';
+import { FranchisedashboardComponent } from './franchisedashboard/franchisedashboard.component';
+import { FranchiseCardComponent } from './franchise-card/franchise-card.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +118,8 @@ import { ViewModalComponent } from './components/sho/diolog/view-modal/view-moda
     FranchiseListComponent,
     VerifyModalComponent,
     ViewModalComponent,
+    FranchisedashboardComponent,
+    FranchiseCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
@@ -22,6 +22,8 @@ import { AddFranchiseComponent } from './components/add-franchise/add-franchise.
 import { ShoCardComponent } from './components/sho/sho-card/sho-card.component';
 import { StateAddFranchiseComponent } from './components/sho/state-add-franchise/state-add-franchise.component';
 import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
+import { FranchisedashboardComponent } from './franchisedashboard/franchisedashboard.component';
+import { FranchiseCardComponent } from './franchise-card/franchise-card.component';
 
 
 const routes: Routes = [
@@ -44,6 +46,12 @@ const routes: Routes = [
       {path:'', redirectTo:'/statedashboard/home', pathMatch:"full"}
     ]
   },
+  { path: 'franchisedashboard', component: FranchisedashboardComponent,
+     children:[
+      {path:"home", component:FranchiseCardComponent},
+      {path:"", redirectTo:"/franchisedashboard/home", pathMatch:"full"}
+     ]  
+     },
   { path: 'mininglogin', component: MiningLoginComponent },
   { path: 'miningdashboard', canActivate: [GuardGuard], component: MiningDashboardComponent },
   { path: 'dashboard/sendwithdrawal', canActivate: [GuardGuard], component: SendWithdrawalAmountComponent },
