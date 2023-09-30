@@ -796,11 +796,6 @@ export class UserService {
     })
   }
   
-  shoVerifyFranchise(data) {
-    return this.http.post(this.url + "/franchise/verify-franchise", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
-  };
 
   // fetch particular franchise profile details inside franchise
   particularFranchise(data) {
