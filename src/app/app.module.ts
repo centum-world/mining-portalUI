@@ -72,6 +72,8 @@ import { VerifyModalComponent } from './components/sho/diolog/verify-modal/verif
 import { ViewModalComponent } from './components/sho/diolog/view-modal/view-modal.component';
 import { FranchisedashboardComponent } from './franchisedashboard/franchisedashboard.component';
 import { FranchiseCardComponent } from './franchise-card/franchise-card.component';
+import { FranchiseHeaderComponent } from './franchise-header/franchise-header.component';
+import { FranchiseProfileDetailsComponent } from './franchise-profile-details/franchise-profile-details.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +122,8 @@ import { FranchiseCardComponent } from './franchise-card/franchise-card.componen
     ViewModalComponent,
     FranchisedashboardComponent,
     FranchiseCardComponent,
+    FranchiseHeaderComponent,
+    FranchiseProfileDetailsComponent,
   ],
   imports: [
     BrowserModule,

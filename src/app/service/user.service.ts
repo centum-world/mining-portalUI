@@ -773,15 +773,21 @@ export class UserService {
       {
         headers: new HttpHeaders().set("Content-Type", "application/json"),
       }
-  );
+    );
   }
   //sho verify franchise
-  shoVerifyFranchise(data){
-    return this.http.post(this.url + "/franchise/verify-franchise",data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
+  shoVerifyFranchise(data) {
+    return this.http.post(this.url + "/franchise/verify-franchise", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  };
+
+  // fetch particular franchise profile details inside franchise
+  particularFranchise(data) {
+    return this.http.post(this.url + "/franchise/verify-franchise", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
-  
-  
+
 }
