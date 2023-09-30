@@ -1,4 +1,8 @@
+
 <div class="large-expand">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="fname">
@@ -71,6 +75,12 @@
                         </button>
                         <button mat-menu-item [disabled]="franchise.isVerify === 1" (click)="openVerifyDialog(franchise)">
                             Verify
+                        </button>
+                        <button mat-menu-item (click)="openIsBlockDialog(franchise)">
+                            {{ franchise.isBlocked === 0 ? 'Block' : 'Unblock' }}
+                        </button>
+                        <button mat-menu-item (click)="openEditFranchiseDialog(franchise)">
+                            Edit
                         </button>
                         <!-- Add more options as needed -->
                     </mat-menu>

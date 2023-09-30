@@ -77,6 +77,8 @@ import { StateAddBankComponent } from './components/modal/state-add-bank/state-a
 import { StateViewBankDetailsComponent } from './components/modal/state-view-bank-details/state-view-bank-details.component';
 import { FranchiseHeaderComponent } from './franchise-header/franchise-header.component';
 import { FranchiseProfileDetailsComponent } from './franchise-profile-details/franchise-profile-details.component';
+import { BlockModalComponent } from './components/sho/diolog/block-modal/block-modal.component';
+import { EditFranchiseComponent } from './components/sho/diolog/edit-franchise/edit-franchise.component';
 
 @NgModule({
   declarations: [
@@ -130,6 +132,8 @@ import { FranchiseProfileDetailsComponent } from './franchise-profile-details/fr
     StateProfileDocumentsComponent,
     StateAddBankComponent,
     StateViewBankDetailsComponent,
+    BlockModalComponent,
+    EditFranchiseComponent,
   ],
   imports: [
     BrowserModule,
@@ -174,7 +178,9 @@ import { FranchiseProfileDetailsComponent } from './franchise-profile-details/fr
     ViewModalComponent,
     StateProfileDocumentsComponent,
     StateAddBankComponent,
-    StateViewBankDetailsComponent
+    StateViewBankDetailsComponent,
+    BlockModalComponent,
+    EditFranchiseComponent
   ],
   providers: [
     {

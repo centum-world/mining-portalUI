@@ -21,3 +21,8 @@ table {
 .large-expand::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

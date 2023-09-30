@@ -38,3 +38,21 @@ body {
 .myStateDialogClass .mat-dialog-content {
   overflow: hidden !important;
 }
+
+.myEditDialogClass {
+  width: 50%;
+  height: 70%;
+  .mat-dialog-container {
+      border-radius: 20px;
+      padding-top: 0px;
+      
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .myEditDialogClass{
+    width: 100%;
+  }
+}
+
+

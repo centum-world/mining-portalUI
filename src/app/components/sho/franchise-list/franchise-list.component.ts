@@ -8,6 +8,8 @@ import { MatDialogConfig } from '@angular/material/dialog';
 import { VerifyModalComponent } from '../diolog/verify-modal/verify-modal.component';
 import { ViewModalComponent } from '../diolog/view-modal/view-modal.component';
 import { ToastrService } from 'ngx-toastr';
+import { BlockModalComponent } from '../diolog/block-modal/block-modal.component';
+import { EditFranchiseComponent } from '../diolog/edit-franchise/edit-franchise.component';
 
 
 
@@ -40,6 +42,8 @@ export class FranchiseListComponent implements OnInit {
     'referralId', 'referredId', 'isVerify', 'actions'
   ];
   franchiseReferralId: string = "";
+  franchiseId:string = "";
+  isBlock:boolean;
   dataSource: MatTableDataSource<Franchise>;
   constructor(
     private userService: UserService,
@@ -86,7 +90,6 @@ export class FranchiseListComponent implements OnInit {
   }
 
   openVerifyDialog(id: any) {
-
     this.franchiseReferralId = id.franchiseId
     let config: MatDialogConfig = {
       height: '26%', width: '23%', panelClass: 'myStateDialogClass'
@@ -113,8 +116,53 @@ export class FranchiseListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("Closed");
     });
-
-
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  openIsBlockDialog(id: any) {
+    this.franchiseId = id.franchiseId;
+    this.isBlock = id.isBlocked;
+    let config: MatDialogConfig = {
+      height: '26%',
+      width: '23%',
+      panelClass: 'myStateDialogClass',
+      data: id
+    };
+    const dialogRef = this.dialog.open(BlockModalComponent, config);
+    console.log(id)
+
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      let data = {
+        "franchiseId":this.franchiseId,
+        "isBlocked":!this.isBlock
+      }
+      this.userService.blockUnblockFranchise(data).subscribe({
+        next:(res:any)=>{
+          this.toastr.success(res.message);
+          this.callApiToGetAllFranchiseList();
+        },
+        error:(error)=>{
+          console.log(error)
+        }
+      })
+      
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
+  }
+
+  openEditFranchiseDialog(id){
+    let config: MatDialogConfig = {
+      panelClass: 'myEditDialogClass',
+      data:id
+    };
+    const dialogRef = this.dialog.open(EditFranchiseComponent, config)
+  }
+
 
 }
