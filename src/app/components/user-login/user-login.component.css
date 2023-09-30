@@ -1,21 +1,140 @@
-.user-login-wrapper{
+@import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*{
+  font-family: "Poppins", sans-serif;
+}
+
+
+.user-login-wrapper {
   height: 100vh;
   width: 100vw;
 }
 
-.user-login-container{
+.user-login-container {
   height: 100%;
   width: 100%;
   display: flex;
 }
 
-.user-left-section{
+.user-left-section {
   height: 100%;
   width: 50%;
   background-image: url(../../../assets/image/bg-left.png);
   background-repeat: no-repeat;
   background-size: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.subtitle-text{
+  color: #eee;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.company-name{
+  display: flex;
+  align-items: center;
+}
+
+.company-name p{
+  color: #fff;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.user-right-section {
+  height: 100%;
+  width: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.user-right-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.user-login-container h2 {
+  text-align: center;
+  width: 50%;
+  font-weight: 800;
+}
+
+.login-fields{
+  height: 90%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.login-fields h1{
+  font-weight: bold;
+  color: #212121;
+}
+
+.login-heading{
+  text-align:center;
+}
+
+.login-input{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name-input{
+  width: 100%;
+}
+
+
+.admin-login-btn{
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: none;
+  background-color: #24243E;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-text{
+  margin-top: 15px;
+}
+
+.singup-text, .singup-text:hover{
+  color: black;
+  font-weight: 700;
+}
+
+.btn-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.line{
+  height: 1px;
+  width: 50%;
+  background-color: black;
+}
+
+
+
