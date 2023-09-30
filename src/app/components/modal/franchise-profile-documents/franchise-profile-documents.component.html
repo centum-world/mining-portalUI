@@ -1,0 +1,44 @@
+
+<h1 class="custom-heading" mat-dialog-title> Documents</h1>
+<div mat-dialog-content>
+  <div class="container">
+    <div class="row">
+      <!-- Left Column for Aadhar Front and Aadhar Back -->
+       <div class="col-md-6">
+        <div class="aadhar-front">
+          <div class="stateDetails">
+            <h6 style="color: blueviolet;">Aadhar front</h6>
+          </div>
+          <div class="stateDetails">
+            <img [src]="data.aadharFrontSide" height="120" width="200" alt="">
+          </div>
+        </div>
+
+        <div class="aadhar-back">
+          <div class="stateDetails">
+            <h6 style="color: blueviolet;">Aadhar Back</h6>
+          </div>
+          <div class="stateDetails">
+            <img [src]="data.aadharBackSide" height="120" width="200" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column for Pan Card -->
+      <div class="col-md-6">
+        <div class="panCard">
+          <div class="stateDetails">
+            <h6 style="color: blueviolet;">Pan Card</h6>
+          </div>
+          <div class="stateDetails">
+            <img [src]="data.panCard" height="120" width="200" alt="">
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Ok</button>
+</div>
