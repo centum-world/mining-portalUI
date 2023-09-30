@@ -67,7 +67,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   SignUpMember() {
-    window.open("/member-signup");
+    window.open( "/member-signup", "_parent");
   }
 
   sendOtp() {
