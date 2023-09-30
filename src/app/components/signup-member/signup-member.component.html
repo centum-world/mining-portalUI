@@ -1,4 +1,179 @@
-<div class="logo">
+<div class="member-wrapper">
+  <div class="member-container">
+    <div class="signup-left-container">
+      <div class="company-name">
+        <img
+          src="../../../assets/image/clogo.png"
+          alt=""
+          height="90"
+          width="90"
+        />
+        <p>Centum World</p>
+      </div>
+      <img
+        src="../../../assets/image/Illustration.png"
+        height="350"
+        width="400"
+        alt=""
+      />
+      <p class="subtitle">
+        Join & Connect the Fastest Growing Online Community
+      </p>
+    </div>
+    <div class="signup-right-container">
+      <h1>Join & Connect the Fastest Growing Trading Community</h1>
+      <div class="member-signup-form">
+        <form
+          [formGroup]="signForm"
+          (ngSubmit)="addMemberData(signForm)"
+          class="signUpForm"
+        >
+          <div>
+            <mat-form-field appearance="outline" class="reffer-input">
+              <mat-label>Reffer Id</mat-label>
+              <input matInput formControlName="reffered_id" />
+              <span class="reffer-sub"
+                >If you don't have any reffer id, Enter admin@123</span
+              >
+            </mat-form-field>
+          </div>
+          <div class="username-box">
+            <mat-form-field appearance="outline" class="name-input">
+              <mat-label> First name</mat-label>
+              <input matInput formControlName="name" required />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="name-input">
+              <mat-label>Last name</mat-label>
+              <input matInput formControlName="lname" required />
+            </mat-form-field>
+          </div>
+          <mat-form-field appearance="outline" class="address-input">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="phone-input">
+            <mat-label>(+91) Phone</mat-label>
+            <input matInput formControlName="phone" required />
+            <span class="phone-sub"
+              >Please enter phone number starting with (+91)</span
+            >
+          </mat-form-field>
+          <div class="gender-box">
+            <label for="gender">Gender: </label>
+            <div>
+              <input
+                type="radio"
+                name="gender"
+                formControlName="gender"
+                value="male"
+                id="gender1"
+              />
+              <label for="gender1"> &nbsp; Male</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="gender"
+                formControlName="gender"
+                value="female"
+                id="gender2"
+              />
+              <label for="gender2"> &nbsp; Female</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                formControlName="gender"
+                name="gender"
+                value="other"
+                id="gender3"
+              />
+              <label for="gender3"> &nbsp; Other</label>
+            </div>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" class="email-input">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" required />
+            </mat-form-field>
+          </div>
+
+          <div class="profession-box">
+            <div class="designation">
+              <label for="designation">Designation</label>
+              <select
+                class="Designation"
+                name="designation"
+                id="designation"
+                formControlName="designation"
+              >
+                <option value="">Select</option>
+                <option value="software engineer">Software engineer</option>
+                <option value="bussiness manager">Bussiness Manager</option>
+                <option value="web developer">Web Developer</option>
+                <option value="full stack">Full stack developer</option>
+              </select>
+            </div>
+            <div class="experiance">
+              <label for="experience">Experience</label>
+              <select
+                class="Experiance"
+                name="experiance"
+                id="experiance"
+                formControlName="experiance"
+              >
+                <option value="">Select</option>
+                <option *ngFor="let data of userExperience" [value]="data.name">
+                  {{ data.name }}
+                </option>
+              </select>
+            </div>
+            <div class="salary">
+              <label for="experience">Salary</label>
+              <mat-form-field appearance="outline" class="salary-input">
+                <mat-label>Enter amount</mat-label>
+                <input matInput formControlName="salary" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="date-box">
+            <div class="dob-box">
+              <label for="dob"> DOB </label>
+              <input
+              class="DOB"
+                type="date"
+                id="dob"
+                name="dob"
+                formControlName="dob"
+                placeholder="Enter DOB"
+              />
+            </div>
+            <div class="doj-box">
+              <label for="doj">DOJ</label>
+              <input
+              class="DOJ"
+                type="date"
+                id="doj"
+                name="doj"
+                formControlName="doj"
+                placeholder="Date of Joining"
+              />
+            </div>
+            <div class="state-box">
+              <label for="experience">State</label>
+              <mat-form-field appearance="outline" class="salary-input">
+                <mat-label>Enter State</mat-label>
+                <input matInput formControlName="salary" required />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="logo">
   <img src="assets/image/clogo.png" alt="" class="center">
 </div>
 <div class="container">
@@ -179,4 +354,4 @@
 
 
   </form>
-</div>
+</div> -->

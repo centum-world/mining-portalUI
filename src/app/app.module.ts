@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatSnackBar, MatSnackBarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule, MatCardModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
@@ -70,6 +70,13 @@ import { StateAddFranchiseComponent } from './components/sho/state-add-franchise
 import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
 import { VerifyModalComponent } from './components/sho/diolog/verify-modal/verify-modal.component';
 import { ViewModalComponent } from './components/sho/diolog/view-modal/view-modal.component';
+import { FranchisedashboardComponent } from './franchisedashboard/franchisedashboard.component';
+import { FranchiseCardComponent } from './franchise-card/franchise-card.component';
+import { StateProfileDocumentsComponent } from './components/modal/state-profile-documents/state-profile-documents.component';
+import { StateAddBankComponent } from './components/modal/state-add-bank/state-add-bank.component';
+import { StateViewBankDetailsComponent } from './components/modal/state-view-bank-details/state-view-bank-details.component';
+import { FranchiseHeaderComponent } from './franchise-header/franchise-header.component';
+import { FranchiseProfileDetailsComponent } from './franchise-profile-details/franchise-profile-details.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +123,13 @@ import { ViewModalComponent } from './components/sho/diolog/view-modal/view-moda
     FranchiseListComponent,
     VerifyModalComponent,
     ViewModalComponent,
+    FranchisedashboardComponent,
+    FranchiseCardComponent,
+    FranchiseHeaderComponent,
+    FranchiseProfileDetailsComponent,
+    StateProfileDocumentsComponent,
+    StateAddBankComponent,
+    StateViewBankDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,6 +157,7 @@ import { ViewModalComponent } from './components/sho/diolog/view-modal/view-moda
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -151,11 +166,15 @@ import { ViewModalComponent } from './components/sho/diolog/view-modal/view-moda
       preventDuplicates: true,
       timeOut: 2000
     }),
+    
   ],
   entryComponents: [
     StateProfileModalComponent,
     VerifyModalComponent,
-    ViewModalComponent
+    ViewModalComponent,
+    StateProfileDocumentsComponent,
+    StateAddBankComponent,
+    StateViewBankDetailsComponent
   ],
   providers: [
     {

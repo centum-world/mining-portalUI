@@ -1,7 +1,11 @@
-<h1 class="custom-heading" mat-dialog-title >Verify franchise</h1>
-<div mat-dialog-content>
-  <p>Are you sure want to verify?</p>
-</div>
-<div mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Ok</button>
+<div style="width: 300px; height: 300;">
+  <h1 class="custom-heading" mat-dialog-title>Verify franchise</h1>
+  <div mat-dialog-content>
+    <p style="font-family: Calibri; font-weight: 600;">Are you sure want to verify?</p>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button mat-dialog-close style="background-color: greenyellow;"
+      (click)="verifyFranchise()">Ok</button>
+  </div>
 </div>

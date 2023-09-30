@@ -2,14 +2,14 @@
 @import '~ngx-toastr/toastr.css';
 
 html,
-body {
+/* body {
   height: 100%;
   scroll-behavior: smooth;
-}
+} */
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Calibri;
 }
 
 :host ::ng-deep .modal-dialog {

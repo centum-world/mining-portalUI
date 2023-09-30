@@ -1,167 +1,121 @@
+@import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-*,
-*:before,
-*:after{
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins",sans-serif;
-  font-weight: 300;
+  font-family: "Poppins", sans-serif;
 }
-body{
-    
-    
-    background-color: #0030b8 !important;
-  
-  }
 
-  .container{
-    /* margin: 100px; */
-    /* width: 100% !important; */
-    background-color: #ffffff;
-    width: 70%;
-    border-radius :10px;
-    box-shadow:20px 30px 25px rgba(0,0,0,0.15);
-    align-items: center;
-    justify-content: center;
-    /* margin-top: 100px; */
-    
-   
-  }
-  @media only screen and (max-width : 480px){
-    .container h1{
-     font-size: 15px;
-     width: 100%;
-     
-     /* display: block; */
-    }
-    .container{
-      width: 100%;
-    }
-   }
-  @media only screen and (max-width : 768px) and (min-width: 481px){
-   .container h1{
-    font-size: 20px;
-    width: 100%;
+.member-wrapper{
+  height: 100vh;
+  width: 100vw;
+}
 
-   }
-   .container{
-    width: 420px;
-  
-   }
-  }
-  @media only screen and (max-width : 1024px){
-   
-  }
-
-  h1{
-    padding-top: 25px;
-    font-size: 30px;
-    text-align: center;
-    color: #1c093c;
-
-  }
-  .Gender{
-    display: flex;
-    margin-top:10px ;
-  }
-  .Qualification{
-    display: flex;
-  }
-  .Designation,.Experiance{
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.2px solid #c4cae0;
-  }
-
-  p{
-    
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    color: #606060;
-    font-size: 25px;
-    font-weight: 400;
-    font-weight: bold;
-
-
-  }
-  form{
-    width: 100%;
-    position: relative;
-    margin: 20px auto 0 auto;
-  }
-  .row{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    grid-gap: 20px 30px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    
-  }
-  
-
-  label{
-    color: #1c093c;
-    font-size: 15px;
-
-  }
-  textarea, input{
+.member-container{
+  height: 100%;
   width: 100%;
-  font-weight: 400;
-   padding: 8px 10px;
-   border-radius: 5px;
-   border: 1.2px solid #c4cae0; 
-}
-
-textarea{
-  resize: none;
-}
-textarea:focus, input:focus{
-  outline: none;
-  border-color: #6f6df4;
-}
-
-.gender{
-  display: inline;
-}
-.footer{
   display: flex;
+}
 
+.signup-left-container{
+  width: 20%;
+  height: 100%;
+  background-image: url(../../../assets/image/bg-left.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.company-name{
+  display: flex;
+  align-items: center;
+}
+
+.company-name p{
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.subtitle{
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.signup-right-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.member-signup-form{
+  height: max-content;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.username-box, .date-box{
+  display: flex;
   justify-content: space-between;
-  margin: 10px;
 }
-.footer button{
-  
-  background-color: #0b1ae9;
-  width: 80px;
+
+.address-input, .phone-input, .email-input{
+  width: 100%;
+}
+
+.reffer-input{
+  width: max-content;
+}
+
+.gender-box{
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
   border-radius: 5px;
-  height: 35px;
-  color: #ffffff;
-
-}
-.logo img{
-  width: 150px;
-    height: 150px;
-    /* margin-left: 250px;
-    margin-top: 20px; */
-    display:block;
-  margin-left: auto;
-  margin-right: auto;
+  border-color: #00000037;
+  margin-top: 0;
 }
 
-.account span{
-  color: rgb(5, 5, 5);
+.signUpForm{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.account a {
-  color: red;
+.Designation, .Experiance, .DOB, .DOJ{
+  height: 65px;
+  border-radius: 5px;
 }
 
-.container p{
-  color: tomato;
+.profession-box{
+  display: flex;
+  gap: 1rem;
+}
+
+.designation, .experiance, .salary, .dob-box, .doj-box, .state-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.reffer-sub, .phone-sub{
+  opacity: 50%;
+  font-size: .8rem;
+}
+
+.state-input{
+  width: 100%;
 }

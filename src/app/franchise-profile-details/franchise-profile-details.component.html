@@ -9,7 +9,7 @@
             <span>Name</span>: <p>{{this.shoDetails.fname + ' ' + this.shoDetails.lname}}</p>
           </div>
           <div class="stateDetails">
-            <span>Referral ID</span>: <p>{{this.shoDetails.referralId}}</p>
+            <span>Refferal ID</span>: <p>{{this.shoDetails.referralId}}</p>
           </div>
           <div class="stateDetails">
             <span>Phone</span>: <p>{{this.shoDetails.phone}}</p>
@@ -21,7 +21,7 @@
             <span>Gender</span>: <p>{{this.shoDetails.gender}}</p>
           </div>
           <div class="stateDetails">
-            <span>Referred ID</span>: <p>{{this.shoDetails.refferedId}}</p>
+            <span>Reffered ID</span>: <p>{{this.shoDetails.refferedId}}</p>
           </div>
         </div>
       </div>
@@ -30,11 +30,15 @@
     <!-- Second Column -->
     <div class="col-md-6">
       <div class="stateDetails">
-        <span>StateHandler ID</span> : <p>{{ this.shoDetails.stateHandlerId}}</p>
+        <span>Aadhar Card</span> &nbsp;&nbsp;
+        <img src="{{this.shoDetails.aadharCard}}" width="250" height="120" alt="Profile Image" />
       </div>
 
+      <div style="margin-top: 20px;"></div>
+
       <div class="stateDetails">
-        <span>Selected State</span> : <p>{{this.shoDetails.state}}</p>
+        <span>Pan Card</span> &nbsp;&nbsp;
+        <img src="{{this.shoDetails.panCard}}" width="250" height="120" alt="Profile Image" />
       </div>
     </div>
   </div>

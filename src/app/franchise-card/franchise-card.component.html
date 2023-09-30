@@ -4,36 +4,23 @@
         <div>
           <h6>Profile</h6>
           <span>See your profile!</span>
+
         </div>
-      
-        <div class="icon" [matMenuTriggerFor]="menuProfile">
+
+        
+        <div class="icon" (click)="memberDetails()">
           <span>View</span>
         </div>
-        
-        <!-- Add a Material Design bank icon -->
-        <button mat-icon-button [matMenuTriggerFor]="menuBank">
-          <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
-        </button>
-        
-        <mat-menu #menuBank="matMenu">
-          <button mat-menu-item (click)="stateAddBankDialog()">Add Bank</button>
-          <button mat-menu-item (click)="stateViewBankDetailsDialog()">View Bank Details</button>
-        </mat-menu>
-
-        <mat-menu #menuProfile="matMenu">
-          <!-- Define your menu items here -->
-          <button mat-menu-item (click)="openDialog()">Details</button>
-          <button mat-menu-item (click)="stateAddBankDialog()">Documents</button>
-          <!-- Add more menu items as needed -->
-        </mat-menu>
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
+          <i class="fa fa-bank"></i>
+        </a>
       </div>
-      
 
       <div class="card-single">
         <div>
-          <h6>StateHandler ID :- {{displayStateHandlerId}}</h6>
-          <span>Referral ID &nbsp;<a href="/partner-signup?refferId={{displayStateHandlerReferralId}}"
-              target="_blank">{{displayStateHandlerReferralId}}</a></span>
+          <h6>User ID {{displayUserId}}</h6>
+          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{displayMemberRefferalId}}"
+              target="_blank">{{displayMemberRefferalId}}</a></span>
     
         </div>
       </div>
@@ -60,13 +47,6 @@
         </div>
       </div>
 
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Wallet</span>
-        </div>
-        <div style="font-weight: bold; font-size:medium;">{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
-      </div>
 
       <div class="card-single">
         <div>
