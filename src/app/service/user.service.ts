@@ -817,5 +817,15 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  addFranchiseBankDetails(data) {
+    return this.http.post(this.url + "/franchise/frenchise/franchise-add-bank-details", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 
+  fetchFranchiseBankDetails(data) {
+    return this.http.post(this.url + "/franchise/frenchise/fetch-bank-details", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

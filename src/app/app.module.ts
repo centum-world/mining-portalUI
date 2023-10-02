@@ -82,6 +82,8 @@ import { BlockModalComponent } from './components/sho/diolog/block-modal/block-m
 import { EditFranchiseComponent } from './components/sho/diolog/edit-franchise/edit-franchise.component';
 import { AccountFranchiseComponent } from './components/sho/diolog/account-franchise/account-franchise.component';
 import { FranchiseProfileDocumentsComponent } from './components/modal/franchise-profile-documents/franchise-profile-documents.component';
+import { FranchiseAddBankComponent } from './components/modal/franchise-add-bank/franchise-add-bank.component';
+import { FranchiseViewBankDetailsComponent } from './components/modal/franchise-view-bank-details/franchise-view-bank-details.component';
 
 
 @NgModule({
@@ -140,6 +142,8 @@ import { FranchiseProfileDocumentsComponent } from './components/modal/franchise
     EditFranchiseComponent,
     AccountFranchiseComponent,
     FranchiseProfileDocumentsComponent,
+    FranchiseAddBankComponent,
+    FranchiseViewBankDetailsComponent,
     
   ],
   imports: [
@@ -189,7 +193,10 @@ import { FranchiseProfileDocumentsComponent } from './components/modal/franchise
     BlockModalComponent,
     EditFranchiseComponent,
     FranchiseProfileDocumentsComponent,
-    FranchiseProfileDetailsComponent
+    FranchiseProfileDetailsComponent,
+    FranchiseAddBankComponent,
+    FranchiseViewBankDetailsComponent
+
   ],
   providers: [
     {
