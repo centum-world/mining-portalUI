@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -80,6 +81,8 @@ import { FranchiseProfileDetailsComponent } from './franchise-profile-details/fr
 import { BlockModalComponent } from './components/sho/diolog/block-modal/block-modal.component';
 import { EditFranchiseComponent } from './components/sho/diolog/edit-franchise/edit-franchise.component';
 import { AccountFranchiseComponent } from './components/sho/diolog/account-franchise/account-franchise.component';
+import { FranchiseProfileDocumentsComponent } from './components/modal/franchise-profile-documents/franchise-profile-documents.component';
+
 
 @NgModule({
   declarations: [
@@ -136,6 +139,8 @@ import { AccountFranchiseComponent } from './components/sho/diolog/account-franc
     BlockModalComponent,
     EditFranchiseComponent,
     AccountFranchiseComponent,
+    FranchiseProfileDocumentsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -182,7 +187,9 @@ import { AccountFranchiseComponent } from './components/sho/diolog/account-franc
     StateAddBankComponent,
     StateViewBankDetailsComponent,
     BlockModalComponent,
-    EditFranchiseComponent
+    EditFranchiseComponent,
+    FranchiseProfileDocumentsComponent,
+    FranchiseProfileDetailsComponent
   ],
   providers: [
     {

@@ -4,6 +4,7 @@ import { StateAddBankComponent } from '../../modal/state-add-bank/state-add-bank
 import { UserService } from 'src/app/service/user.service';
 import { StateViewBankDetailsComponent } from '../../modal/state-view-bank-details/state-view-bank-details.component';
 
+
 @Component({
   selector: 'app-sho-card',
   templateUrl: './sho-card.component.html',

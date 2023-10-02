@@ -2,34 +2,18 @@
 <div class="sidebar">
   <div class="sidebar-brand">
     <h3><a class="fa fa-qrcode" href="/memberdashboard"></a></h3>
-    <h2><span class="fa fa-qrcode"></span><a style="color: #fff;" href="/statedashboard">Dashboard</a></h2>
+    <h2><span class="fa fa-qrcode"></span><a  href="/franchisedashboard/home" style="color: #fff;">Dashboard</a></h2>
   </div>
   <div class="sidebar-menu">
     <ul>
 
       <li>
         <a href="javascript:void(0)"><i class="fa fa-user"></i>
-          <span (click)="openDialog()">My Profile</span>
+          <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
+        
       </li>
       
-      <!-- <li>
-        <a href="/statedashboard/add-franchise"><i class="fa fa-user"></i>
-          <span>Add franchise</span>
-        </a>
-      </li> -->
-
-      <li>
-        <a href="javascript:void(0)"><i class="fa fa-money"></i>
-          <span data-toggle="modal" data-target="#eachMonthWithdrawalHistory">Withdrawal</span>
-        </a>
-      </li>
-      <!-- <li>
-        <a href="javascript:void(0)"><i class="fa fa-users"></i>
-          <span data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner">Team</span>
-
-        </a>
-      </li> -->
       <li>
         <a href=""><i class="fa fa-sign-out"></i>
           <span (click)="logOut()">Log Out</span>
@@ -38,6 +22,10 @@
 
     </ul>
   </div>
+  <mat-menu #menuProfile="matMenu">
+    <button mat-menu-item (click)="openDialog()">Details</button>
+    <button mat-menu-item  (click)="openFranchiseDocumentsDialog()">Documents</button>
+  </mat-menu>
 </div> 
 <div class="main-content">
   <header>

@@ -12,7 +12,9 @@ export class StateProfileDocumentsComponent implements OnInit {
 
   displayStateHandlerId = localStorage.getItem('stateHandlerId')
 
-  constructor( private userService:UserService, @Inject(MAT_DIALOG_DATA) public data:any) {}
+  constructor( private userService:UserService, @Inject(MAT_DIALOG_DATA) public data:any) {
+    console.log(data)
+  }
 
   ngOnInit() {
   }

@@ -812,5 +812,10 @@ export class UserService {
     });
   }
 
+  fetchParticularFranchiseDetails(data) {
+    return this.http.post(this.url + "/franchise/fetch-particular-franchise", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../service/user.service";
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: "app-franchise-profile-details",
@@ -7,29 +9,11 @@ import { UserService } from "../service/user.service";
   styleUrls: ["./franchise-profile-details.component.css"],
 })
 export class FranchiseProfileDetailsComponent implements OnInit {
-  displayedColumns: string[] = [
-    "name",
-    "referralId",
-    "phone",
-    "email",
-    "gender",
-    "referredId",
-  ];
-
-  dataSource = [
-    {
-      name: "John Doe",
-      referralId: "12345",
-      phone: "123-456-7890",
-      email: "john@example.com",
-      gender: "Male",
-      referredId: "67890",
-    },
-  ];
-
-
-
-  constructor() {}
+ 
+  constructor( private userService:UserService, @Inject(MAT_DIALOG_DATA) public data:any) {
+    console.log(data)
+  }
 
   ngOnInit() {}
+
 }

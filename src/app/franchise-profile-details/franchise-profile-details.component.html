@@ -6,22 +6,22 @@
       <div class="payment-details">
         <div class="left">
           <div class="stateDetails">
-            <span>Name</span>: <p></p>
+            <span>Name</span>: <p>{{data.fname + ' ' +data.lname}}</p>
           </div>
           <div class="stateDetails">
-            <span>Refferal ID</span>: <p></p>
+            <span>Franchise ID</span>: <p>{{data.franchiseId}}</p>
           </div>
           <div class="stateDetails">
-            <span>Phone</span>: <p></p>
+            <span>Phone</span>: <p>{{data.phone}}</p>
           </div>
           <div class="stateDetails">
-            <span>Email</span>: <p></p>
+            <span>Email</span>: <p>{{data.email}}</p>
           </div>
           <div class="stateDetails">
-            <span>Gender</span>: <p></p>
+            <span>Gender</span>: <p>{{data.gender}}</p>
           </div>
           <div class="stateDetails">
-            <span>Reffered ID</span>: <p></p>
+            <span>Referred ID</span>: <p>{{data.referredId}}</p>
           </div>
         </div>
       </div>
@@ -30,15 +30,17 @@
     <!-- Second Column -->
     <div class="col-md-6">
       <div class="stateDetails">
-        <span>Aadhar Card</span> &nbsp;&nbsp;
-        <img src="" width="250" height="120" alt="Profile Image" />
+        <span>Referred ID</span>: <p>{{data.referredId}}</p>
       </div>
 
-      <div style="margin-top: 20px;"></div>
-
       <div class="stateDetails">
-        <span>Pan Card</span> &nbsp;&nbsp;
-        <img src=" width="250" height="120" alt="Profile Image" />
+        <span>Referral ID</span>: <p>{{data.referralId}}</p>
+      </div>
+      <div class="stateDetails">
+        <span>State</span>: <p>{{data.state}}</p>
+      </div>
+      <div class="stateDetails">
+        <span>City</span>: <p>{{data.city}}</p>
       </div>
     </div>
   </div>
