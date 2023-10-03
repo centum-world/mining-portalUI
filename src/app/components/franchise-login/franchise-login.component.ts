@@ -60,4 +60,11 @@ export class FranchiseLoginComponent implements OnInit {
   SignUpFranchise() {
     window.open("/franchiseSignUp");
   }
+  logOut(){
+    localStorage.removeItem('stateToken');
+    localStorage.removeItem('stateHandlerId');
+    localStorage.removeItem('stateRefferalId');
+    // localStorage.removeItem('')
+    localStorage.clear();
+  }
 }

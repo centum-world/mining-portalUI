@@ -45,3 +45,23 @@ th {
 td {
     font-size: 12px;
 }
+.view-bank-modal-header{
+    font-family: Calibri;
+    font-weight: 700;
+    color:black;
+    font-size: 14px;
+}
+/* Add the following styles to enable horizontal scrolling */
+@media screen and (max-width: 768px) {
+    /* Add the following styles to enable horizontal scrolling */
+.table-viewport {
+    height: 300px; /* Set the desired height for the virtual scrolling container */
+    overflow: scroll; /* Enable scrollbars as needed */
+  }
+  
+  .view-bank-modal-header {
+    font-weight: bold; /* Example: Make header cells bold */
+  }
+  
+}
+  

@@ -23,7 +23,7 @@ export class ShoCardComponent implements OnInit {
   stateAddBankDialog(){
 
     let config:MatDialogConfig = {
-      height:'70%',width:'60%', panelClass:'myStateDialogClass'
+       panelClass:'stateAddBankDialogClass'
     };
     const dialogRef = this.dialog.open(StateAddBankComponent,config);
 
@@ -43,7 +43,7 @@ export class ShoCardComponent implements OnInit {
         if (response) {
             console.log(response.result)
             let config:MatDialogConfig = {
-              height:'70%',width:'60%', panelClass:'myStateDialogClass', data:response.result
+            panelClass:'stateViewBankDetailsDialogClass', data:response.result
             };
             const dialogRef = this.dialog.open(StateViewBankDetailsComponent,config);
             dialogRef.afterClosed().subscribe(result => {

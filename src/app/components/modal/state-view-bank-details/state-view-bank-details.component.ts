@@ -3,6 +3,8 @@ import { UserService } from 'src/app/service/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+
 
 interface BankDetails{
   holder_name:string;
