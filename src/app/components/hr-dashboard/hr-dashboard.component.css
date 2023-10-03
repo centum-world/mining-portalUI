@@ -316,7 +316,7 @@ table thead tr th, tbody tr td {
     }
     
     .main-content header{
-        width: 100%;
+        width: 100% ;
         left: 70px;
     }
     .sidebar-menu ul{

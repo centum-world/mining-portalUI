@@ -8,6 +8,23 @@
     padding: 2% 8%;
 }
 
+.mat-dialog-content{
+    overflow: hidden;
+    height: max-content;
+}
+
+.mat-dialog-container{
+    padding: 0px !important;
+}
+
+.edit-frnch-form{
+    height: 100%;
+}
+
+.mat-dialog-actions{
+    margin-bottom: 0 !important;
+}
+
 .mat-dialog-actions .mat-button-base+.mat-button-base {
     margin-left: 0;
 }

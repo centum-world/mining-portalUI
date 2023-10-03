@@ -28,6 +28,8 @@ body {
   display: none;
 }
 
+
+
 .myStateDialogClass {
   .mat-dialog-container {
     border-radius: 20px;
@@ -41,8 +43,10 @@ body {
 
 .myEditDialogClass {
   width: 50%;
-  height: 70%;
+  height: 50%;
   .mat-dialog-container {
+    border: 1px solid black !important;
+    height: 100% !important;
       border-radius: 20px;
       padding-top: 0px;
       
