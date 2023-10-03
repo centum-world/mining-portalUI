@@ -30,7 +30,7 @@ export class ShoHeaderComponent implements OnInit {
 
   openDialog() {
     let config: MatDialogConfig = {
-      height:'70%', width:'60%', panelClass:'myStateDialogClass'
+     panelClass:'myStateDialogClass'
     };
     const dialogRef = this.dialog.open(StateProfileModalComponent,config);
 
@@ -63,7 +63,7 @@ export class ShoHeaderComponent implements OnInit {
 
       console.log(this.shoDocuments)
     let config: MatDialogConfig = {
-      height:'70%', width:'60%', panelClass:'myStateDialogClass',data:this.shoDocuments
+     panelClass:'stateProfileDocumetsDialogClass',data:this.shoDocuments
 
     };
     const dialogRef = this.dialog.open(StateProfileDocumentsComponent,config);

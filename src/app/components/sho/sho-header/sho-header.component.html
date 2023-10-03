@@ -1,13 +1,13 @@
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
   <div class="sidebar-brand">
-    <h3><a class="fa fa-qrcode" href="/memberdashboard"></a></h3>
+    <h3><a class="fa fa-qrcode" href="/statedashboard"></a></h3>
     <h2><span class="fa fa-qrcode"></span><a style="color: #fff;" href="/statedashboard">Dashboard</a></h2>
   </div>
   <div class="sidebar-menu">
     <ul>
-      <li>
-        <a href="javascript:void(0)"><i class="fa fa-user"></i>
+      <li> 
+        <a href="javascript:void(0)"><i class="fa fa-user"  [matMenuTriggerFor]="menuProfile"></i>
           <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>

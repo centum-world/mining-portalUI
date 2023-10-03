@@ -71,6 +71,7 @@ const routes: Routes = [
   },
   {
     path: "franchisedashboard",
+    canActivate:[GuardGuard],
     component: FranchisedashboardComponent,
     children: [
       { path: "home", component: FranchiseCardComponent },

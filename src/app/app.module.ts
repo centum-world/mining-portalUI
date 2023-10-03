@@ -17,6 +17,8 @@ import { MatInputModule, MatCardModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -182,6 +184,7 @@ import { FranchiseHistoryComponentComponent } from './franchise-history-componen
     MatTableModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    ScrollingModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
