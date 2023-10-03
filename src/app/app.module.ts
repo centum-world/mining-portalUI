@@ -87,6 +87,7 @@ import { FranchiseViewBankDetailsComponent } from './components/modal/franchise-
 import { ShoHistoryComponent } from './components/admin/sho-history/sho-history.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-sidebar.component';
+import { FranchiseHistoryComponentComponent } from './franchise-history-component/franchise-history-component.component';
 
 
 @NgModule({
@@ -150,6 +151,7 @@ import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-si
     ShoHistoryComponent,
     AdminDashboardComponent,
     AdminSidebarComponent,
+    FranchiseHistoryComponentComponent,
     
   ],
   imports: [

@@ -834,4 +834,11 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  //fetch all franchise inside admin
+  fetchAllFranchise(data){
+    return this.http.post(this.url + "/admin/fetch-all-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

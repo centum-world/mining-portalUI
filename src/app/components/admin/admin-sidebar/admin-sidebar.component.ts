@@ -15,6 +15,9 @@ export class AdminSidebarComponent implements OnInit {
   viewList(){
     this.router.navigate(['/dashboard/sho-history'])
   }
+  FranchiseList(){
+    this.router.navigate(['/dashboard/franchise-hostory'])
+  }
 
 
   logOut(){
