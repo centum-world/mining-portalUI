@@ -90,6 +90,7 @@ import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-si
 import { FranchiseHistoryComponentComponent } from './franchise-history-component/franchise-history-component.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

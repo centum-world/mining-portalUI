@@ -46,7 +46,7 @@ const routes: Routes = [
     children:[
       {path: "home" , component : HrDashboardComponent},
       {path: "sho-history", component: ShoHistoryComponent},
-      {path: "franchise-hostory", component: FranchiseHistoryComponentComponent},
+      {path: "franchise-history", component: FranchiseHistoryComponentComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },

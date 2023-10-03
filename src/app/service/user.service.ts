@@ -776,34 +776,44 @@ export class UserService {
     );
   }
   //sho verify franchise
-  shoVerifyFranchise(data){
-    return this.http.post(this.url + "/franchise/verify-franchise",data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
+  shoVerifyFranchise(data) {
+    return this.http.post(this.url + "/franchise/verify-franchise", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
   //block unblock franchise
-  blockUnblockFranchise(data){
-    return this.http.post(this.url + "/admin/block-and-unblock-franchise",data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
+  blockUnblockFranchise(data) {
+    return this.http.post(
+      this.url + "/admin/block-and-unblock-franchise",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-
 
   //save bank details
-  saveBankDetails(data){
-    return this.http.post(this.url + "/state/create-bank-details-for-sho",data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
+  saveBankDetails(data) {
+    return this.http.post(
+      this.url + "/state/create-bank-details-for-sho",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-  
+
   // fetchStateBankDetails
-  fetchStateBankDetails(data){
-    return this.http.post(this.url + "/state/state/fetch-own-bank-details",data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
+  fetchStateBankDetails(data) {
+    return this.http.post(
+      this.url + "/state/state/fetch-own-bank-details",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-  
 
   // fetch particular franchise profile details inside franchise
   particularFranchise(data) {
@@ -813,31 +823,43 @@ export class UserService {
   }
 
   fetchParticularFranchiseDetails(data) {
-    return this.http.post(this.url + "/franchise/fetch-particular-franchise", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+    return this.http.post(
+      this.url + "/franchise/fetch-particular-franchise",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
   addFranchiseBankDetails(data) {
-    return this.http.post(this.url + "/franchise/frenchise/franchise-add-bank-details", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+    return this.http.post(
+      this.url + "/franchise/frenchise/franchise-add-bank-details",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   fetchFranchiseBankDetails(data) {
-    return this.http.post(this.url + "/franchise/frenchise/fetch-bank-details", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+    return this.http.post(
+      this.url + "/franchise/frenchise/fetch-bank-details",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  callApiToFetchShoAllDetails(){
+  callApiToFetchShoAllDetails() {
     return this.http.get(this.url + "/admin/fetch-all-sho", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //fetch all franchise inside admin
-  fetchAllFranchise(data){
-    return this.http.post(this.url + "/admin/fetch-all-franchise",data, {
+  fetchAllFranchise() {
+    return this.http.get(this.url + "/admin/fetch-all-franchise", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
