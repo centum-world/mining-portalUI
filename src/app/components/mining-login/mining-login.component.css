@@ -67,6 +67,15 @@
   flex-direction: column;
 }
 
+.already-partner-text{
+  font-weight: 700;
+}
+
+.already-partner-text a, a:hover{
+  font-weight: bold;
+  color: black;
+}
+
 .start-btn{
   border: none;
   width: 100%;
