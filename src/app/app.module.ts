@@ -84,6 +84,8 @@ import { AccountFranchiseComponent } from './components/sho/diolog/account-franc
 import { FranchiseProfileDocumentsComponent } from './components/modal/franchise-profile-documents/franchise-profile-documents.component';
 import { FranchiseAddBankComponent } from './components/modal/franchise-add-bank/franchise-add-bank.component';
 import { FranchiseViewBankDetailsComponent } from './components/modal/franchise-view-bank-details/franchise-view-bank-details.component';
+import { ShoHistoryComponent } from './components/admin/sho-history/sho-history.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -144,6 +146,8 @@ import { FranchiseViewBankDetailsComponent } from './components/modal/franchise-
     FranchiseProfileDocumentsComponent,
     FranchiseAddBankComponent,
     FranchiseViewBankDetailsComponent,
+    ShoHistoryComponent,
+    AdminDashboardComponent,
     
   ],
   imports: [

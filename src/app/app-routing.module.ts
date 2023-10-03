@@ -27,6 +27,8 @@ import { FranchiseCardComponent } from "./franchise-card/franchise-card.componen
 import { importExpr } from "@angular/compiler/src/output/output_ast";
 import { FranchiseProfileDetailsComponent } from "./franchise-profile-details/franchise-profile-details.component";
 import { AccountFranchiseComponent } from "./components/sho/diolog/account-franchise/account-franchise.component";
+import { ShoHistoryComponent } from "./components/admin/sho-history/sho-history.component";
+import { AdminDashboardComponent } from "./components/admin/admin-dashboard/admin-dashboard.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -39,7 +41,12 @@ const routes: Routes = [
   {
     path: "dashboard",
     canActivate: [GuardGuard],
-    component: HrDashboardComponent,
+    component: AdminDashboardComponent,
+    children:[
+      {path: "home" , component : HrDashboardComponent},
+      {path: "sho-history", component: ShoHistoryComponent},
+      { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
+    ]
   },
   { path: "frame", component: FrameComponent },
   { path: "memberlogin", component: UserLoginComponent },
