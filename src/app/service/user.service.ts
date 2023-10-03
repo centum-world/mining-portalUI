@@ -834,4 +834,18 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  //admin can block or unblock sho
+  callApiToBlockOrUnblockSho(data:any){
+    return this.http.post(this.url + "/admin/block-and-unblock-sho",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  //admin verify sho
+  callApiToAdminVerifySho(data:any){
+    return this.http.post(this.url + "/state/verify-sho",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

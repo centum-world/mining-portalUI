@@ -89,6 +89,9 @@ import { FranchiseViewBankDetailsComponent } from './components/modal/franchise-
 import { ShoHistoryComponent } from './components/admin/sho-history/sho-history.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-sidebar.component';
+import { BlockShoComponent } from './components/admin/dialog/block-sho/block-sho.component';
+import { VerifyShoComponent } from './components/admin/dialog/verify-sho/verify-sho.component';
+import { ShoViewComponent } from './components/admin/dialog/sho-view/sho-view.component';
 
 
 @NgModule({
@@ -152,6 +155,9 @@ import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-si
     ShoHistoryComponent,
     AdminDashboardComponent,
     AdminSidebarComponent,
+    BlockShoComponent,
+    VerifyShoComponent,
+    ShoViewComponent,
     
   ],
   imports: [
@@ -204,8 +210,10 @@ import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-si
     FranchiseProfileDocumentsComponent,
     FranchiseProfileDetailsComponent,
     FranchiseAddBankComponent,
-    FranchiseViewBankDetailsComponent
-
+    FranchiseViewBankDetailsComponent,
+    BlockShoComponent,
+    VerifyShoComponent,
+    ShoViewComponent
   ],
   providers: [
     {
