@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FranchiseAddBankComponent } from '../components/modal/franchise-add-bank/franchise-add-bank.component';
 import { FranchiseViewBankDetailsComponent } from '../components/modal/franchise-view-bank-details/franchise-view-bank-details.component';
 
+
 @Component({
   selector: 'app-franchise-card',
   templateUrl: './franchise-card.component.html',
@@ -12,16 +13,17 @@ import { FranchiseViewBankDetailsComponent } from '../components/modal/franchise
 export class FranchiseCardComponent implements OnInit {
   displayFranchiseId = localStorage.getItem('franchiseId');
   displayFranchiseReferralId = localStorage.getItem('franchiseReferralId')
+  
 
   constructor(private userService:UserService,private dialog:MatDialog) { }
 
   ngOnInit() {
   }
-
+  
   franchiseAddBankDialog(){
 
     let config:MatDialogConfig = {
-      height:'70%',width:'60%', panelClass:'myStateDialogClass'
+       panelClass:'franchiseAddBankDialogClass'
     };
     const dialogRef = this.dialog.open(FranchiseAddBankComponent,config);
 
@@ -41,7 +43,7 @@ export class FranchiseCardComponent implements OnInit {
         if (response) {
             console.log(response.result)
             let config:MatDialogConfig = {
-              height:'70%',width:'60%', panelClass:'myStateDialogClass', data:response.result
+             panelClass:'franchiseViewBankDetailsDialogClass', data:response.result
             };
             const dialogRef = this.dialog.open(FranchiseViewBankDetailsComponent,config);
             dialogRef.afterClosed().subscribe(result => {

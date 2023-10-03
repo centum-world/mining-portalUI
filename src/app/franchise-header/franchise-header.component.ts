@@ -67,7 +67,7 @@ export class FranchiseHeaderComponent implements OnInit {
 
 
     let config: MatDialogConfig = {
-      height:'70%', width:'60%', panelClass:'myStateDialogClass',data:this.franchiseDetails
+       panelClass:'franchiseProfileDetailsDialogClass',data:this.franchiseDetails
     };
     const dialogRef = this.dialog.open(FranchiseProfileDetailsComponent,config);
 
@@ -100,7 +100,7 @@ export class FranchiseHeaderComponent implements OnInit {
 
 
     let config: MatDialogConfig = {
-      height:'70%', width:'60%', panelClass:'myStateDialogClass',data:this.franchiseDocuments
+       panelClass:'franchiseDocumentsDialogClass',data:this.franchiseDocuments
     };
     const dialogRef = this.dialog.open(FranchiseProfileDocumentsComponent,config);
 

@@ -36,6 +36,13 @@ body {
     padding-top: 0px;
   }
 }
+.franchiseAddBankDialogClass{
+  height: 70%;
+  width: 50%;
+  .mat-dialog-content{
+    height: 70%;
+  }
+}
 
 .myStateDialogClass .mat-dialog-content {
   overflow: hidden !important;
@@ -52,10 +59,38 @@ body {
       
   }
 }
+.franchiseProfileDetailsDialogClass ,.franchiseViewBankDetailsDialogClass{
+  height: 70%;
+  width: 50%;
+  .mat-dialog-content{
+    height: 70%;
+  }
+}
+.franchiseDocumentsDialogClass{
+  height: 80%;
+  width: 50%;
+  .mat-dialog-content{
+    height: 70%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .myEditDialogClass{
     width: 100%;
+  }
+  .franchiseAddBankDialogClass ,.franchiseDocumentsDialogClass,.franchiseViewBankDetailsDialogClass{
+    height:80%;
+    width: 90%;
+    .mat-dialog-content{
+      height: 80%;
+    }
+  }
+  .franchiseProfileDetailsDialogClass {
+    height: 80%;
+    width: 90%;
+    .mat-dialog-content{
+      height: auto;
+    }
   }
 }
 

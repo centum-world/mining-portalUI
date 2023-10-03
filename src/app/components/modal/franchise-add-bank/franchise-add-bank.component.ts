@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { UserService } from 'src/app/service/user.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-franchise-add-bank',
@@ -19,7 +20,10 @@ export class FranchiseAddBankComponent implements OnInit {
     ifscCode: ''
   };
   bankDetailsForm: FormGroup;
-  constructor(private userService:UserService , private formBuilder: FormBuilder,private _snackBar:MatSnackBar) { 
+  constructor(private userService:UserService , private formBuilder: FormBuilder,
+    private _snackBar:MatSnackBar,
+    private dialogRef: MatDialogRef<FranchiseAddBankComponent>
+    ) { 
     this.bankDetailsForm = this.formBuilder.group({
       holderName: ['', Validators.required],
       bankName: ['', Validators.required],
@@ -58,6 +62,7 @@ export class FranchiseAddBankComponent implements OnInit {
             horizontalPosition: 'center', // Horizontal position: 'start' | 'center' | 'end' | 'left' | 'right'
             verticalPosition: 'top',
           });
+          this.dialogRef.close();
         }
       })
       error: () => {
