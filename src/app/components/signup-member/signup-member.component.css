@@ -19,7 +19,7 @@
 }
 
 .signup-left-container{
-  width: 20%;
+  width: 40%;
   height: 100%;
   background-image: url(../../../assets/image/bg-left.png);
   background-repeat: no-repeat;
@@ -54,37 +54,31 @@
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
+  padding: 20px;
 }
 
-.member-signup-form{
-  height: max-content;
-  width: 70%;
+.right-input-container{
   display: flex;
+  height: 100%;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .username-box, .date-box{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.address-input, .phone-input, .email-input{
+.address-input, .phone-input, .email-input, .reffer-input{
   width: 100%;
-}
-
-.reffer-input{
-  width: max-content;
 }
 
 .gender-box{
   padding: 10px;
-  border: 1px solid black;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-radius: 5px;
   border-color: #00000037;
   margin-top: 0;
@@ -93,7 +87,6 @@
 .signUpForm{
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .Designation, .Experiance, .DOB, .DOJ{
@@ -101,9 +94,15 @@
   border-radius: 5px;
 }
 
+.mat-form-field-wrapper{
+  padding-bottom: 0;
+}
+
 .profession-box{
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .designation, .experiance, .salary, .dob-box, .doj-box, .state-box{
@@ -118,4 +117,45 @@
 
 .state-input{
   width: 100%;
+}
+
+.btn-text{
+  margin-top: 15px;
+}
+
+.admin-login-btn{
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: none;
+  background-color: #24243E;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-group-Qualification{
+  display: flex;
+  flex-direction: column;
+}
+
+.right-input-container h1{
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px){
+  .member-container{
+    flex-direction: column;
+  }
+  .signup-left-container, .right-input-container{
+    width: 100%;
+    height: max-content;
+  }
+  .right-input-container{
+    flex-wrap: wrap;
+  }
+  .right-input-container h1{
+    text-align: center;
+  }
 }
