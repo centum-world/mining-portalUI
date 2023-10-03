@@ -1,0 +1,37 @@
+<table>
+  <thead>
+    <tr>
+      <ng-container *ngFor="let header of tableHeaders; let i = index">
+        <th>{{ header }}</th>
+      </ng-container>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of franchiseData">
+      <td>{{ item.franchiseId }}</td>
+      <td>{{ item.fname }}</td>
+      <td>{{ item.lname }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.phone }}</td>
+      <td>{{ item.gender }}</td>
+      <td>{{ item.referralId }}</td>
+      <td>{{ item.franchiseState }}</td>
+      <td>{{ item.franchiseCity }}</td>
+      <td>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editItem(item)">View</button>
+          <button mat-menu-item (click)="deleteItem(item)">Edit</button>
+          <button mat-menu-item (click)="deleteItem(item)">Block</button>
+          <button mat-menu-item (click)="deleteItem(item)">Deelete</button>
+          <button mat-menu-item (click)="deleteItem(item)">Account</button>
+        </mat-menu>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

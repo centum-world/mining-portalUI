@@ -1,0 +1,40 @@
+th {
+  background-color: #f2f2f2;
+  padding: 15px; 
+  text-align: left;
+  position: sticky;
+  top: 38px; 
+  z-index: 1; 
+}
+
+th:hover {
+  background-color: #e0e0e0;
+}
+
+
+table {
+  margin-left: 20%;
+  width: 80%;
+  max-width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+  max-height: 300px;
+  overflow-x: auto; 
+}
+
+
+td {
+  padding: 15px; 
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 768px) {
+  table {
+    width: 100%; 
+    margin-left: 0; 
+  }
+}

@@ -92,6 +92,8 @@ import { AdminSidebarComponent } from './components/admin/admin-sidebar/admin-si
 import { BlockShoComponent } from './components/admin/dialog/block-sho/block-sho.component';
 import { VerifyShoComponent } from './components/admin/dialog/verify-sho/verify-sho.component';
 import { ShoViewComponent } from './components/admin/dialog/sho-view/sho-view.component';
+import { FranchiseHistoryComponentComponent } from './franchise-history-component/franchise-history-component.component';
+
 
 
 @NgModule({
@@ -158,6 +160,7 @@ import { ShoViewComponent } from './components/admin/dialog/sho-view/sho-view.co
     BlockShoComponent,
     VerifyShoComponent,
     ShoViewComponent,
+    FranchiseHistoryComponentComponent,
     
   ],
   imports: [

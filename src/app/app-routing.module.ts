@@ -29,6 +29,7 @@ import { FranchiseProfileDetailsComponent } from "./franchise-profile-details/fr
 import { AccountFranchiseComponent } from "./components/sho/diolog/account-franchise/account-franchise.component";
 import { ShoHistoryComponent } from "./components/admin/sho-history/sho-history.component";
 import { AdminDashboardComponent } from "./components/admin/admin-dashboard/admin-dashboard.component";
+import { FranchiseHistoryComponentComponent } from "./franchise-history-component/franchise-history-component.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
     children:[
       {path: "home" , component : HrDashboardComponent},
       {path: "sho-history", component: ShoHistoryComponent},
+      {path: "franchise-history", component: FranchiseHistoryComponentComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },
