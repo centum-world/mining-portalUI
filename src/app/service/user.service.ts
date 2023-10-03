@@ -828,4 +828,10 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  callApiToFetchShoAllDetails(){
+    return this.http.get(this.url + "/admin/fetch-all-sho", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

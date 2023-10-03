@@ -1,1 +1,57 @@
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti modi, nesciunt delectus impedit eum, voluptas rem porro provident ea assumenda expedita asperiores quisquam illo officiis pariatur dolorem consectetur ut inventore!
+<!-- <div class="sho-list-header">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam ratione saepe quibusdam! A odio, autem sunt ab modi
+    necessitatibus ad temporibus doloribus eos cupiditate nihil praesentium voluptas quas natus. Recusandae.
+</div> -->
+<div class="large-expand">
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <!-- Position Column -->
+            <ng-container matColumnDef="stateHandlerId">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.stateHandlerId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fname">
+                <th mat-header-cell *matHeaderCellDef>F-Name</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.fname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lname">
+                <th mat-header-cell *matHeaderCellDef>L-Name</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.lname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef>Phone</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.phone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef>Gender</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.gender}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="referralId">
+                <th mat-header-cell *matHeaderCellDef>Referral ID</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.referralId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="selectedState">
+                <th mat-header-cell *matHeaderCellDef>State</th>
+                <td mat-cell *matCellDef="let sho"> {{sho.selectedState}} </td>
+            </ng-container>
+    
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let sho; columns: displayedColumns;"></tr>
+        </table>
+    
+        <mat-paginator  [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons="true"></mat-paginator>
+    </div>
+</div>

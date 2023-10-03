@@ -157,7 +157,7 @@ export class FranchiseListComponent implements OnInit {
     });
   }
 
-  openEditFranchiseDialog(id){
+  openEditFranchiseDialog(id:any){
     let config: MatDialogConfig = {
       panelClass: 'myEditDialogClass',
       data:id

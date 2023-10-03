@@ -16,4 +16,10 @@ export class AdminSidebarComponent implements OnInit {
     this.router.navigate(['/dashboard/sho-history'])
   }
 
+
+  logOut(){
+    localStorage.clear();
+    this.router.navigate(['/login'])
+
+  }
 }
