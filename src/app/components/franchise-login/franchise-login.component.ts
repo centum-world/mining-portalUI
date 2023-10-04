@@ -13,6 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 })
 export class FranchiseLoginComponent implements OnInit {
   franchiseLoginForm: FormGroup;
+  passwordFieldType: string = "password"; // Initial type is 'password'
+  showPasswordIcon: string = "visibility"; // Initial icon is 'visibility'
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,5 +68,12 @@ export class FranchiseLoginComponent implements OnInit {
     localStorage.removeItem('stateRefferalId');
     // localStorage.removeItem('')
     localStorage.clear();
+  }
+
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
+    this.showPasswordIcon =
+      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 }
