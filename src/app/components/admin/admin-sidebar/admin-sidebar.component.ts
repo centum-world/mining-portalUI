@@ -23,6 +23,10 @@ export class AdminSidebarComponent implements OnInit {
     this.router.navigate(['/dashboard/member-history'])
   }
 
+  partnerViewList(){
+    this.router.navigate(['dashboard/partner-history'])
+  }
+
 
   logOut(){
     localStorage.clear();

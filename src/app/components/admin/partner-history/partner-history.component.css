@@ -1,0 +1,37 @@
+.sho-list-header{
+    width: calc(100%-300px);
+    height: 70px;
+    background: #ee5411;
+    border-radius: 8px;
+    margin-left: 300px;
+    padding: 20px;
+}
+.title p{
+    font-size: 20px;
+    color: #fff;
+    font-family: Calibri;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 40px;
+    background: antiquewhite;
+    border-radius: 8px;
+
+}
+.large-expand {
+    overflow-x: auto;
+    margin-top:5px;
+    padding: 20px;
+    margin-left: 300px;
+}
+
+table {
+    width: 100%;
+}
+.member-history-header{
+    font-weight: bold;
+    color: black;
+}

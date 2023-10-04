@@ -1,1 +1,96 @@
-<p>partner-history works!</p>
+<div class="sho-list-header" style="display: flex; justify-content: space-between;">
+    <div class="title">
+        <p>Partner  details</p>
+    </div>
+    <div class="search">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
+    </div>
+</div>
+<div class="large-expand">
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="p_userid">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Partner ID</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_userid}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_name">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">F-Name</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_lname">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">L-Name</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_lname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_email">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Email</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_email}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_phone">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Phone</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_phone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_dob">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">DOB</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_dob | date:'medium'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_refferal_id">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Referral ID</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_refferal_id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_reffered_id">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Referred ID</th>
+                <td mat-cell *matCellDef="let partner">{{partner.p_reffered_id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_state">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">State</th>
+                <td mat-cell *matCellDef="let partner"> {{partner.p_state}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Actions </th>
+                <td mat-cell *matCellDef="let partner">
+                    <!-- Use a mat-menu for more options -->
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item >
+                            View
+                        </button>
+                        <button mat-menu-item [disabled]="partner.isVerify === 1" (click)="openMiningPartnerVerifyDialog(partner)" >
+                            Verify
+                        </button>
+                        <button mat-menu-item (click)="openIsBlockPartnerDialog(partner)">
+                            {{ partner.isBlocked === 0 ? 'Block' : 'Unblock' }}
+                        </button>
+                        <button mat-menu-item >
+                            Edit
+                        </button>
+                        <button mat-menu-item >
+                            Account
+                        </button>
+                        
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let partner; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
+    </div>
+</div>

@@ -69,11 +69,11 @@
                         <button mat-menu-item (click)="openViewMemberDialog(member)">
                             View
                         </button>
-                        <button mat-menu-item  >
+                        <button mat-menu-item [disabled]="member.isVerify === 1" (click)="openMemberVerifyDialog(member)" >
                             Verify
                         </button>
-                        <button mat-menu-item >
-                            Block
+                        <button mat-menu-item (click)="openIsBlockMemberDialog(member)">
+                            {{ member.isBlocked === 0 ? 'Block' : 'Unblock' }}
                         </button>
                         <button mat-menu-item >
                             Edit

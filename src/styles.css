@@ -95,6 +95,14 @@ body {
     height: 70%;
   }
 }
+.verifyMemberDialogClass{
+  width: 27%;
+  height: 30%;
+  .mat-dialog-container{
+    padding-top: 0;
+    border-radius: 20px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .myEditDialogClass{
@@ -133,7 +141,19 @@ body {
     height:70%;
     width: 99%;
     .mat-dialog-content{
-      height: 70%;
+      height: auto;
+    }
+  }
+
+  .verifyMemberDialogClass{
+    width: 90%;
+    height: 40%;
+    /* .mat-dialog-container{
+      padding-top: 0;
+      border-radius: 20px;
+    } */
+    .mat-dialog-content{
+      width: 90%;
     }
   }
   

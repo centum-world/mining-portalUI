@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { ViewMemberComponent } from '../dialog/view-member/view-member.component';
+import { VerifyMemberComponent } from '../dialog/verify-member/verify-member.component';
+import { BlockMemberComponent } from '../dialog/block-member/block-member.component';
 
 interface Member {
   m_userid: string,
@@ -48,9 +50,9 @@ export class MemberHistoryComponent implements OnInit {
   callApiToFetchAllMember() {
     this.userService.fetchMemberDetails().subscribe({
       next: (res: any) => {
-        console.log(res.data)
-         this.dataSource.data = res.data
-         console.log(this.dataSource.data)
+        // console.log(res.memberData)
+         this.dataSource.data = res.memberData
+        //  console.log(this.dataSource.data)
       },
       error: (err) => {
         console.log(err.message)
@@ -62,12 +64,76 @@ export class MemberHistoryComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  openViewMemberDialog(data:any){
+  openViewMemberDialog(memberData:any){
     let config: MatDialogConfig = {
       panelClass: 'myStateDialogClass',
-      data: data
+      data: memberData
     };
     const dialogRef = this.dialog.open(ViewMemberComponent, config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
+  }
+
+  openMemberVerifyDialog(memberData: any) {
+    let config: MatDialogConfig = {
+      panelClass: 'verifyMemberDialogClass',
+      data: memberData
+    };
+    const dialogRef = this.dialog.open(VerifyMemberComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("clicked")
+      let data = {
+        "isVerify": true,
+        "m_userid": memberData.m_userid
+      }
+      this.userService.adminVerifyMember(data).subscribe({
+        next: (res: any) => {
+          console.log(res)
+          this.callApiToFetchAllMember();
+          this.toastr.success(res.message)
+        },
+        error: (err) => {
+          console.log(err)
+        }
+
+      })
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
+  }
+
+  openIsBlockMemberDialog(memberData: any) {
+    console.log(memberData)
+
+    let config: MatDialogConfig = {
+      height: '26%',
+      width: '23%',
+      panelClass: 'myStateDialogClass',
+      data: memberData
+    };
+    const dialogRef = this.dialog.open(BlockMemberComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("clicked")
+      let data = {
+        "isBlocked": !memberData.isBlocked,
+        "m_userid": memberData.m_userid
+      }
+      this.userService.adminBlockOrUnblockMember(data).subscribe({
+        next: (res: any) => {
+          console.log(res)
+          this.callApiToFetchAllMember();
+          this.toastr.success(res.message)
+        },
+        error: (err) => {
+          console.log(err)
+        }
+
+      })
+    })
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("Closed");

@@ -98,6 +98,10 @@ import { VerifyFranchiseComponent } from './components/admin/dialog/verify-franc
 import { MemberHistoryComponent } from './components/admin/member-history/member-history.component';
 import { PartnerHistoryComponent } from './components/admin/partner-history/partner-history.component';
 import { ViewMemberComponent } from './components/admin/dialog/view-member/view-member.component';
+import { VerifyMemberComponent } from './components/admin/dialog/verify-member/verify-member.component';
+import { BlockMemberComponent } from './components/admin/dialog/block-member/block-member.component';
+import { VerifyPartnerComponent } from './components/admin/dialog/verify-partner/verify-partner.component';
+import { BlockMiningPartnerComponent } from './components/admin/dialog/block-mining-partner/block-mining-partner.component';
 
 
 
@@ -171,6 +175,10 @@ import { ViewMemberComponent } from './components/admin/dialog/view-member/view-
     MemberHistoryComponent,
     PartnerHistoryComponent,
     ViewMemberComponent,
+    VerifyMemberComponent,
+    BlockMemberComponent,
+    VerifyPartnerComponent,
+    BlockMiningPartnerComponent,
     
   ],
   imports: [
@@ -229,7 +237,11 @@ import { ViewMemberComponent } from './components/admin/dialog/view-member/view-
     ShoViewComponent,
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
-    ViewMemberComponent
+    ViewMemberComponent,
+    VerifyMemberComponent,
+    BlockMemberComponent,
+    VerifyPartnerComponent,
+    BlockMiningPartnerComponent
   ],
   providers: [
     {

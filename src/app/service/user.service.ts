@@ -893,6 +893,40 @@ export class UserService {
     });
   }
 
+  adminVerifyMember(data:any){
+    return this.http.post(this.url + "/admin/admin-verify-member",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+   //admin can block or unblock member
+   adminBlockOrUnblockMember(data:any){
+    return this.http.post(this.url + "/admin/admin-block-member",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  //admin fetch all mining partner
+  adminFetchAllMiningPartner(){
+    return this.http.get(this.url + "/admin/admin-fetch-all-mining-partner", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  // adminVerifyPartner
+  adminVerifyPartner(data:any){
+    return this.http.post(this.url + "/admin/admin-verify-partner",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  // adminBlockUnblockPartner
+  adminBlockUnblockPartner(data:any){
+    return this.http.post(this.url + "/admin/admin-block-unblock-partner",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
 
 
