@@ -1,28 +1,66 @@
+<div class="mining-wrapper">
+  <div class="mining-container">
+    <div class="mining-left-container">
+      <div class="main-left-container">
+        <div class="company-name">
+          <img src="../../../assets/image/clogo.png" alt="" height="50" width="50" />
+          <span>Centum World</span>
+        </div>
+        <h1 class="heading-mining">Start your mining journey today</h1>
+        <form action="" [formGroup]="partnerLoginForm">
+          <div class="mining-form-fields">
+          <mat-form-field appearance="outline" class="name-input">
+            <mat-label>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+              </svg>Partner id</mat-label>
+            <input matInput formControlName="partner_id" required />
+          </mat-form-field>
 
-<!--   
-<div class="box">
-    <div class="form">
-      <h2>Mining Partner</h2>
-      <div class="input-box">
-        <input type="email" required>
-        <span>UserId</span>
-        <i></i>
-      </div>
-  
-      <div class="input-box">
-        <input type="text" required>
-        <span>Password</span>
-        <i></i>
-      </div><br>
-      <a class="btn btn-primary" href="/miningdashboard">Login</a>
-      <br>
-      <div class="link">
-        <a href="https://centumworld.com">Centum World</a>
+          <mat-form-field appearance="outline" class="name-input">
+            <mat-label>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+              </svg>Password</mat-label>
+            <input matInput [type]="passwordFieldType" formControlName="partner_password" required />
+            <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="togglePasswordVisibility()"
+                >
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+          </mat-form-field>
+        </div>
+        <button class="start-btn" (click)="submit(partnerLoginForm)"> 
+          Start my journey
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+            <mask id="mask0_12_1944" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
+              <rect x="0.900391" y="0.841797" width="16" height="15.7193" fill="white"/>
+            </mask>
+            <g mask="url(#mask0_12_1944)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.54631 2.45877C5.64011 2.36638 5.76748 2.31445 5.90031 2.31445C6.03313 2.31445 6.1605 2.36638 6.25431 2.45877L12.2543 8.35351C12.3483 8.44567 12.4012 8.5708 12.4012 8.7013C12.4012 8.83179 12.3483 8.95693 12.2543 9.04909L6.25431 14.9438C6.05882 15.1359 5.74189 15.1359 5.54637 14.9439C5.35085 14.7519 5.35077 14.4405 5.54619 14.2484L11.1933 8.7013L5.54631 3.15435C5.45227 3.06219 5.39941 2.93706 5.39941 2.80656C5.39941 2.67606 5.45227 2.55093 5.54631 2.45877H5.54631Z" fill="#EEEEEE"/>
+            </g>
+          </svg>
+        </button>
+        </form>
+        <p class="already-partner-text">Are you newbie ?<a href="/partner-signup">SIGN UP</a></p>
       </div>
     </div>
-  </div> -->
+    <div class="mining-right-container">
+      <div class="right-side-img">
+        <img src="../../../assets/image/Group_785.svg" alt="" class="img-1" />
+        <img src="../../../assets/image/Group_784.svg" alt="" class="img-2"/>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div class="logo">
+<!-- <div class="logo">
     <img src="assets/image/clogo.png" alt="">
   </div>
   <div class="box">
@@ -57,7 +95,7 @@
               <a href="" class="btn btn-secondary" >Home</a>
             </div>
           </div>
-          <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+          <a class="btn btn-primary" href="/dashboard">Login</a>
           
           <br>
           <div class="link">
@@ -67,14 +105,14 @@
             <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">Forget Password</a>
           </div>
           <div class="signup">
-            <p>Haven't an account ?  <a href="javascript:void(0)" style="color: white;" (click)="SignUpPartner()">SignUp</a></p>
+            <p>Haven't an account ?  <a href="javascript:void(0)" style="color: white;"  (click)="SignUpPartner()">SignUp</a></p>
            
           </div>
         </form>  
     </div>
   </div>
 
-  <!-- reset password -->
+  reset password
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -113,4 +151,4 @@
       </div>
     </div>
   </div>
-  
+   -->
