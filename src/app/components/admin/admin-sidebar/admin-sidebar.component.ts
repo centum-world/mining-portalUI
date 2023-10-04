@@ -19,6 +19,10 @@ export class AdminSidebarComponent implements OnInit {
     this.router.navigate(['/dashboard/franchise-history'])
   }
 
+  memberViewList(){
+    this.router.navigate(['/dashboard/member-history'])
+  }
+
 
   logOut(){
     localStorage.clear();

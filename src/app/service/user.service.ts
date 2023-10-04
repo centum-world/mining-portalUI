@@ -24,9 +24,6 @@ export class UserService {
   }
 
   fetchMemberDetails() {
-    // let token1 = localStorage.getItem('token');
-    // let token = new HttpHeaders().set("Authorization","bearer"+token1)
-
     return this.http.get(this.url + "/admin/fetch-member", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
