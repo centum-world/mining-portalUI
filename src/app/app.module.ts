@@ -93,6 +93,8 @@ import { BlockShoComponent } from './components/admin/dialog/block-sho/block-sho
 import { VerifyShoComponent } from './components/admin/dialog/verify-sho/verify-sho.component';
 import { ShoViewComponent } from './components/admin/dialog/sho-view/sho-view.component';
 import { FranchiseHistoryComponentComponent } from './franchise-history-component/franchise-history-component.component';
+import { BlockFranchiseComponent } from './components/admin/dialog/block-franchise/block-franchise.component';
+import { VerifyFranchiseComponent } from './components/admin/dialog/verify-franchise/verify-franchise.component';
 
 
 
@@ -161,6 +163,8 @@ import { FranchiseHistoryComponentComponent } from './franchise-history-componen
     VerifyShoComponent,
     ShoViewComponent,
     FranchiseHistoryComponentComponent,
+    BlockFranchiseComponent,
+    VerifyFranchiseComponent,
     
   ],
   imports: [
@@ -216,7 +220,9 @@ import { FranchiseHistoryComponentComponent } from './franchise-history-componen
     FranchiseViewBankDetailsComponent,
     BlockShoComponent,
     VerifyShoComponent,
-    ShoViewComponent
+    ShoViewComponent,
+    BlockFranchiseComponent,
+    VerifyFranchiseComponent
   ],
   providers: [
     {

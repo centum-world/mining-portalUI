@@ -829,8 +829,9 @@ export class UserService {
       {
         headers: new HttpHeaders().set("Content-Type", "application/json"),
       }
-    );
-  }
+    )
+  };
+
   addFranchiseBankDetails(data) {
     return this.http.post(
       this.url + "/franchise/frenchise/franchise-add-bank-details",
@@ -838,8 +839,8 @@ export class UserService {
       {
         headers: new HttpHeaders().set("Content-Type", "application/json"),
       }
-    );
-  }
+    )
+  };
 
   fetchFranchiseBankDetails(data) {
     return this.http.post(
@@ -877,4 +878,24 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+
+
+  //admin block franchise;
+  adminBlockFranchise(data:any){
+    return this.http.post(this.url + "/admin/block-and-unblock-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  //admin verify franchise
+
+  adminVerifyFranchise(data:any){
+    return this.http.post(this.url + "/franchise/verify-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
+
+

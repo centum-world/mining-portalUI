@@ -1,37 +1,96 @@
-<table>
-  <thead>
-    <tr>
-      <ng-container *ngFor="let header of tableHeaders; let i = index">
-        <th>{{ header }}</th>
-      </ng-container>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of franchiseData">
-      <td>{{ item.franchiseId }}</td>
-      <td>{{ item.fname }}</td>
-      <td>{{ item.lname }}</td>
-      <td>{{ item.email }}</td>
-      <td>{{ item.phone }}</td>
-      <td>{{ item.gender }}</td>
-      <td>{{ item.referralId }}</td>
-      <td>{{ item.franchiseState }}</td>
-      <td>{{ item.franchiseCity }}</td>
-      <td>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="editItem(item)">View</button>
-          <button mat-menu-item (click)="deleteItem(item)">Edit</button>
-          <button mat-menu-item (click)="deleteItem(item)">Block</button>
-          <button mat-menu-item (click)="deleteItem(item)">Deelete</button>
-          <button mat-menu-item (click)="deleteItem(item)">Account</button>
-        </mat-menu>
-      </td>
-    </tr>
-  </tbody>
-</table>
+ <div class="franchise-list-header" style="display: flex; justify-content: space-between;">
+  <div class="title">
+      <p>Franchise details</p>
+  </div>
+  <div class="search">
+      <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+  </div>
+</div>
+<div class="large-expand">
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="franchiseId">
+              <th mat-header-cell *matHeaderCellDef>ID</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.franchiseId}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fname">
+              <th mat-header-cell *matHeaderCellDef>F-Name</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.fname}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="lname">
+              <th mat-header-cell *matHeaderCellDef>L-Name</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.lname}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef>Email</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.email}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+              <th mat-header-cell *matHeaderCellDef>Phone</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.phone}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="gender">
+              <th mat-header-cell *matHeaderCellDef>Gender</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.gender}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="referralId">
+              <th mat-header-cell *matHeaderCellDef>Referral ID</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.referralId}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="franchiseState">
+              <th mat-header-cell *matHeaderCellDef>State</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.franchiseState}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="franchiseCity">
+              <th mat-header-cell *matHeaderCellDef>City</th>
+              <td mat-cell *matCellDef="let franchise"> {{franchise.franchiseCity}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let franchise">
+                  <!-- Use a mat-menu for more options -->
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                      <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="openViewShoDialog(franchise)">
+                          View
+                      </button>
+                      <button mat-menu-item [disabled]="franchise.isVerify === 1" (click)="openVerifyDialog(franchise)">
+                          Verify
+                      </button>
+                      <button mat-menu-item (click)="openIsBlockDialog(franchise)">
+                          {{ franchise.isBlocked === 0 ? 'Block' : 'Unblock' }}
+                      </button>
+                      <button mat-menu-item (click)="openEditFranchiseDialog(franchise)">
+                          Edit
+                      </button>
+                      <button mat-menu-item (click)="gotoFranchiseAccount()">
+                          Account
+                      </button>
+                      <!-- Add more options as needed -->
+                  </mat-menu>
+              </td>
+          </ng-container>
 
 
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let franchise; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
+  </div>
+</div>
