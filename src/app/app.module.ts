@@ -103,6 +103,7 @@ import { BlockMemberComponent } from './components/admin/dialog/block-member/blo
 import { VerifyPartnerComponent } from './components/admin/dialog/verify-partner/verify-partner.component';
 import { BlockMiningPartnerComponent } from './components/admin/dialog/block-mining-partner/block-mining-partner.component';
 import { ViewFranchiseComponent } from './components/admin/dialog/view-franchise/view-franchise.component';
+import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.component';
 
 
 
@@ -181,7 +182,7 @@ import { ViewFranchiseComponent } from './components/admin/dialog/view-franchise
     VerifyPartnerComponent,
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
-    
+    EditShoComponent
   ],
   imports: [
     BrowserModule,
@@ -239,6 +240,7 @@ import { ViewFranchiseComponent } from './components/admin/dialog/view-franchise
     ShoViewComponent,
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
+    EditShoComponent,
     ViewMemberComponent,
     VerifyMemberComponent,
     BlockMemberComponent,

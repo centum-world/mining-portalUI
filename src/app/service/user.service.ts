@@ -926,7 +926,14 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  editShoByAdmin(data:any){
+    return this.http.put(this.url + "/state/update-sho",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 
 }
+  
+
 
 
