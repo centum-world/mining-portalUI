@@ -13,6 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class StatehandlerloginComponent implements OnInit {
 
+  passwordFieldType: string = "password"; // Initial type is 'password'
+  showPasswordIcon: string = "visibility"; // Initial icon is 'visibility'
+
   stateLoginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router:Router, private shareService: ShareService) {
@@ -56,5 +59,11 @@ export class StatehandlerloginComponent implements OnInit {
     window.open('/stateRegitration')
   }
 
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
+    this.showPasswordIcon =
+      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
+  }
 
 }
