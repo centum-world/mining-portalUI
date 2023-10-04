@@ -136,7 +136,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
-  }
+  }      
 
   viewFranchiseDocument(franchiseData: any) {
     let config: MatDialogConfig = {
