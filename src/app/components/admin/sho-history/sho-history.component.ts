@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { BlockShoComponent } from '../dialog/block-sho/block-sho.component';
 import { VerifyShoComponent } from '../dialog/verify-sho/verify-sho.component';
+import { ShoViewComponent } from '../dialog/sho-view/sho-view.component';
+import { EditShoComponent } from '../dialog/edit-sho/edit-sho.component';
 
 interface Sho {
   stateHandlerId: '',
@@ -129,14 +131,26 @@ export class ShoHistoryComponent implements OnInit {
 
   openViewShoDialog(shoData:any){
     let config: MatDialogConfig = {
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myStateViewDialogClass',
       data: shoData
     };
-    const dialogRef = this.dialog.open(VerifyShoComponent, config);
+    const dialogRef = this.dialog.open(ShoViewComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("Closed");
     });
+  }
+
+  openEditShoDialog(shoData:any){
+    let config: MatDialogConfig = {
+      panelClass: 'myStateEditDialogClass',
+      data: shoData
+    };
+    const dialogRef = this.dialog.open(EditShoComponent, config);
+
+    dialogRef.afterClosed().subscribe(result=>{
+      console.log("closed")
+    })
   }
 
 }

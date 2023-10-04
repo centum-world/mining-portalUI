@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-sho-view',
@@ -7,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data)
+   }
 
   ngOnInit() {
   }

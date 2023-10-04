@@ -70,10 +70,10 @@
                         <button mat-menu-item (click)="openIsBlockDialog(sho)">
                             {{ sho.isBlocked === 0 ? 'Block' : 'Unblock' }}
                         </button>
-                        <button mat-menu-item (click)="openEditFranchiseDialog(sho)">
+                        <button mat-menu-item (click)="openEditShoDialog(sho)" >
                             Edit
                         </button>
-                        <button mat-menu-item (click)="gotoFranchiseAccount()">
+                        <button mat-menu-item (click)="gotoAccountSection(sho)">
                             Account
                         </button>
                         <!-- Add more options as needed -->
