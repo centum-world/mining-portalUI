@@ -1,4 +1,64 @@
-<div class="logo">
+<div class="state-wrapper">
+    <div class="state-container">
+        <div class="state-left-wrapper">
+            <div class="state-header">
+                <div class="company-name">
+                    <img src="../../../assets/image/clogo.png" alt="" height="60" width="60" />
+                    <span>Centum World</span>
+                </div>
+                <div class="state-singup-btn">
+                    <span>No account yet ?</span>
+                    <button class="signup-btn">Signup</button>
+                </div>
+            </div>
+            <div class="state-left-container">
+                <div class="fields-container">
+                    <div>
+                        <h1>Account Login</h1>
+                        <p class="subtitle-text">PLEASE LOGIN TO CONTNUE TO YOUR ACCOUNT</p>
+                    </div>
+                    <div class="main-fields">
+                        <form [formGroup]="stateLoginForm" (ngSubmit)="onSubmit()">
+                            <div>
+                                <mat-form-field appearance="outline" class="name-input">
+                                    <mat-label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                        </svg>Username</mat-label>
+                                    <input matInput formControlName="stateId" required />
+                                </mat-form-field>
+                            </div>
+                            <div>
+
+                                <mat-form-field appearance="outline" class="password-input">
+                                    <mat-label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                                        </svg>Password</mat-label>
+                                    <input matInput [type]="passwordFieldType" formControlName="password" required />
+                                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                                        <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </div>
+                            <button class="state-login-btn" type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="state-right-wrapper">
+            <img src="../../../assets/image/right-bg.png" alt="" class="state-right-img" />
+            <img src="../../../assets/image/Laptop 1.png" alt="" class="state-laptop-img" />
+        </div>
+    </div>
+</div>
+
+<!-- <div class="logo">
     <img src="assets/image/clogo.png" alt="">
 </div>
 <div class="box">
@@ -34,7 +94,7 @@
                     <a href="" class="btn btn-secondary">Home</a>
                 </div>
             </div>
-            <!-- <a class="btn btn-primary" href="/dashboard">Login</a> -->
+            <a class="btn btn-primary" href="/dashboard">Login</a>
 
             <br>
             <div class="link">
@@ -50,4 +110,4 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
