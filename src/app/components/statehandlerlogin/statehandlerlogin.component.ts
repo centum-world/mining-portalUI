@@ -14,6 +14,9 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 })
 export class StatehandlerloginComponent implements OnInit {
 
+  passwordFieldType: string = "password"; // Initial type is 'password'
+  showPasswordIcon: string = "visibility"; // Initial icon is 'visibility'
+
   stateLoginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router:Router, private shareService: ShareService,private _snackBar:MatSnackBar) {
@@ -74,6 +77,12 @@ export class StatehandlerloginComponent implements OnInit {
     // localStorage.removeItem('')
     localStorage.clear();
 
+  }
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
+    this.showPasswordIcon =
+      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
 }

@@ -1,0 +1,14 @@
+<svg width="281" height="841" viewBox="0 0 281 841" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1 70C1 50.67 7.83417 34.1709 21.5025 20.5025C35.1709 6.83417 51.67 0 71 0C90.33 0 106.829 6.83417 120.497 20.5025C134.166 34.1709 141 50.67 141 70C141 89.33 134.166 105.829 120.497 119.497C106.829 133.166 90.33 140 71 140C51.67 140 35.1709 133.166 21.5025 119.497C7.83417 105.829 1 89.33 1 70Z" fill="#7D9CAB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1 491C1 471.67 7.83417 455.171 21.5025 441.503C35.1709 427.834 51.67 421 71 421C90.33 421 106.829 427.834 120.497 441.503C134.166 455.171 141 471.67 141 491C141 510.33 134.166 526.829 120.497 540.497C106.829 554.166 90.33 561 71 561C51.67 561 35.1709 554.166 21.5025 540.497C7.83417 526.829 1 510.33 1 491Z" fill="#7D9CAB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M211 0H281V140H141V70C141 31.3401 172.34 0 211 0Z" fill="#F8BA90"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M211 421H281V561H141V491C141 452.34 172.34 421 211 421Z" fill="#F8BA90"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M210 280C248.66 280 280 311.34 280 350V420H140V350C140 311.34 171.34 280 210 280Z" fill="#CEEAF7"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M210 701C248.66 701 280 732.34 280 771V841H140V771C140 732.34 171.34 701 210 701Z" fill="#CEEAF7"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 280H70C108.66 280 140 311.34 140 350V420H70C31.3401 420 0 388.66 0 350V280Z" fill="#F8BA90"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 701H70C108.66 701 140 732.34 140 771V841H70C31.3401 841 0 809.66 0 771V701Z" fill="#F8BA90"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M141 140H281V280H211C172.34 280 141 248.66 141 210V140Z" fill="#7D9CAB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M141 561H281V701H211C172.34 701 141 669.66 141 631V561Z" fill="#7D9CAB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1 140H141V210C141 248.66 109.66 280 71 280H1V140Z" fill="#CEEAF7"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1 561H141V631C141 669.66 109.66 701 71 701H1V561Z" fill="#CEEAF7"/>
+</svg>

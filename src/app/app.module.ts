@@ -102,6 +102,7 @@ import { VerifyMemberComponent } from './components/admin/dialog/verify-member/v
 import { BlockMemberComponent } from './components/admin/dialog/block-member/block-member.component';
 import { VerifyPartnerComponent } from './components/admin/dialog/verify-partner/verify-partner.component';
 import { BlockMiningPartnerComponent } from './components/admin/dialog/block-mining-partner/block-mining-partner.component';
+import { ViewFranchiseComponent } from './components/admin/dialog/view-franchise/view-franchise.component';
 
 
 
@@ -179,6 +180,7 @@ import { BlockMiningPartnerComponent } from './components/admin/dialog/block-min
     BlockMemberComponent,
     VerifyPartnerComponent,
     BlockMiningPartnerComponent,
+    ViewFranchiseComponent,
     
   ],
   imports: [
@@ -241,7 +243,8 @@ import { BlockMiningPartnerComponent } from './components/admin/dialog/block-min
     VerifyMemberComponent,
     BlockMemberComponent,
     VerifyPartnerComponent,
-    BlockMiningPartnerComponent
+    BlockMiningPartnerComponent,
+    ViewFranchiseComponent
   ],
   providers: [
     {
