@@ -1,1 +1,61 @@
-<p>edit-sho works!</p>
+<h1 class="custom-heading" mat-dialog-title>Edit SHO details</h1>
+<div mat-dialog-content>
+  <form [formGroup]="editForm" (ngSubmit)="editFormSubmit(editForm)">
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Enter your first name" formControlName="fname" required />
+        <mat-error *ngIf="editForm.get('fname').invalid">{{
+          getErrorFnameMessage()
+          }}</mat-error>
+      </mat-form-field>
+
+      <!-- Last Name -->
+      <mat-form-field>
+        <input matInput placeholder="Enter your last name" formControlName="lname" required />
+        <mat-error *ngIf="editForm.get('lname').invalid">{{
+          getErrorLnameMessage()
+          }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" formControlName="email" required>
+        <mat-error *ngIf="editForm.get('email').invalid">{{
+          getErrorMessage()
+          }}</mat-error>
+      </mat-form-field>
+      <!-- Phone Number -->
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phone" />
+        <mat-error *ngIf="editForm.get('phone').hasError('required')">Phone number is required</mat-error>
+        <mat-error *ngIf="editForm.get('phone').hasError('pattern')">Invalid Indian mobile number</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Select gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- State -->
+     <mat-form-field>
+      <mat-label>State</mat-label>
+      <mat-select formControlName="state" multiple>
+        <mat-option *ngFor="let state of states" [value]="state.state">{{state.state}}</mat-option>
+      </mat-select>
+     </mat-form-field>
+
+    </div>
+
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button mat-dialog-close type="submit">ok</button>
+    </div>
+  </form>
+
+
+</div>
+

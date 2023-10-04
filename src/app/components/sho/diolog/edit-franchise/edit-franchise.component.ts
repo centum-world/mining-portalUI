@@ -61,7 +61,7 @@ export class EditFranchiseComponent implements OnInit {
       ],
       gender: [this.franchiseData.gender],
       state: [this.franchiseData.state],
-      city: [[], Validators.required],
+      city: [[this.franchiseData.city], Validators.required],
     });
   }
 
