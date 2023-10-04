@@ -50,6 +50,9 @@
     height: auto; /* Maintain the image aspect ratio */
   }
   
+  /* Adjust other styles as needed */
+  
+  /* ---------------- */
   
   .myStateDialogClass {
     display: flex;

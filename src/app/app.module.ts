@@ -18,7 +18,6 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -96,7 +95,6 @@ import { ShoViewComponent } from './components/admin/dialog/sho-view/sho-view.co
 import { FranchiseHistoryComponentComponent } from './franchise-history-component/franchise-history-component.component';
 import { BlockFranchiseComponent } from './components/admin/dialog/block-franchise/block-franchise.component';
 import { VerifyFranchiseComponent } from './components/admin/dialog/verify-franchise/verify-franchise.component';
-import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.component';
 
 
 
@@ -167,7 +165,6 @@ import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.co
     FranchiseHistoryComponentComponent,
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
-    EditShoComponent,
     
   ],
   imports: [
@@ -198,7 +195,6 @@ import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.co
     MatPaginatorModule,
     MatSnackBarModule,
     ScrollingModule,
-    MatGridListModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -226,8 +222,7 @@ import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.co
     VerifyShoComponent,
     ShoViewComponent,
     BlockFranchiseComponent,
-    VerifyFranchiseComponent,
-    EditShoComponent
+    VerifyFranchiseComponent
   ],
   providers: [
     {
