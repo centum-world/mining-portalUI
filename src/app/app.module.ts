@@ -98,6 +98,7 @@ import { VerifyFranchiseComponent } from './components/admin/dialog/verify-franc
 import { MemberHistoryComponent } from './components/admin/member-history/member-history.component';
 import { PartnerHistoryComponent } from './components/admin/partner-history/partner-history.component';
 import { ViewMemberComponent } from './components/admin/dialog/view-member/view-member.component';
+import { ViewFranchiseComponent } from './components/admin/dialog/view-franchise/view-franchise.component';
 
 
 
@@ -171,6 +172,7 @@ import { ViewMemberComponent } from './components/admin/dialog/view-member/view-
     MemberHistoryComponent,
     PartnerHistoryComponent,
     ViewMemberComponent,
+    ViewFranchiseComponent,
     
   ],
   imports: [
@@ -229,7 +231,8 @@ import { ViewMemberComponent } from './components/admin/dialog/view-member/view-
     ShoViewComponent,
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
-    ViewMemberComponent
+    ViewMemberComponent,
+    ViewFranchiseComponent
   ],
   providers: [
     {

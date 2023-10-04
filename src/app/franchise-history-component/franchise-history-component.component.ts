@@ -6,8 +6,9 @@ import { ViewChild } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { MatDialog } from "@angular/material/dialog";
 import { BlockFranchiseComponent } from "../components/admin/dialog/block-franchise/block-franchise.component";
-import { MatDialogConfig } from '@angular/material/dialog';
+import { MatDialogConfig } from "@angular/material/dialog";
 import { VerifyFranchiseComponent } from "../components/admin/dialog/verify-franchise/verify-franchise.component";
+import { ViewFranchiseComponent } from "../components/admin/dialog/view-franchise/view-franchise.component";
 interface franchise {
   franchiseId: "";
   fname: string;
@@ -16,10 +17,8 @@ interface franchise {
   email: string;
   gender: string;
   referralId: string;
-  franchiseState
-: string;
-franchiseCity
-:string
+  franchiseState: string;
+  franchiseCity: string;
   actions: string;
 }
 
@@ -29,7 +28,6 @@ franchiseCity
   styleUrls: ["./franchise-history-component.component.css"],
 })
 export class FranchiseHistoryComponentComponent implements OnInit {
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   displayedColumns: string[] = [
@@ -46,7 +44,6 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   ];
 
   dataSource: MatTableDataSource<franchise>;
-
 
   constructor(
     private userService: UserService,
@@ -78,70 +75,78 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   }
 
   openIsBlockDialog(franchiseData: any) {
-    console.log(franchiseData)
+    console.log(franchiseData);
 
     let config: MatDialogConfig = {
-      height: '26%',
-      width: '23%',
-      panelClass: 'myStateDialogClass',
-      data: franchiseData
+      height: "26%",
+      width: "23%",
+      panelClass: "myStateDialogClass",
+      data: franchiseData,
     };
     const dialogRef = this.dialog.open(BlockFranchiseComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("clicked")
+      console.log("clicked");
       let data = {
-        "isBlocked": !franchiseData.isBlocked,
-        "franchiseId": franchiseData.franchiseId
-      }
+        isBlocked: !franchiseData.isBlocked,
+        franchiseId: franchiseData.franchiseId,
+      };
       this.userService.adminBlockFranchise(data).subscribe({
         next: (res: any) => {
-          console.log("------->",res)
+          console.log("------->", res);
           this.getAllFranchise();
-          this.toastr.success(res.message)
+          this.toastr.success(res.message);
         },
         error: (err) => {
-          console.log(err)
-        }
-
-      })
-    })
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("Closed");
+          console.log(err);
+        },
+      });
     });
-  };
 
-
-  openVerifyDialog(franchiseData: any) {
-    let config: MatDialogConfig = {
-      height: '26%',
-      width: '23%',
-      panelClass: 'myStateDialogClass',
-      data: franchiseData
-    };
-    const dialogRef = this.dialog.open(VerifyFranchiseComponent, config);
-    dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("clicked")
-      let data = {
-        "isVerify": true,
-        "franchiseId": franchiseData.franchiseId
-      }
-      this.userService.adminVerifyFranchise(data).subscribe({
-        next: (res: any) => {
-          console.log(res)
-          this.getAllFranchise();
-          this.toastr.success(res.message)
-        },
-        error: (err) => {
-          console.log(err)
-        }
-
-      })
-    })
-
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
   }
 
+  openVerifyDialog(franchiseData: any) {
+    let config: MatDialogConfig = {
+      height: "26%",
+      width: "23%",
+      panelClass: "myStateDialogClass",
+      data: franchiseData,
+    };
+    const dialogRef = this.dialog.open(VerifyFranchiseComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("clicked");
+      let data = {
+        isVerify: true,
+        franchiseId: franchiseData.franchiseId,
+      };
+      this.userService.adminVerifyFranchise(data).subscribe({
+        next: (res: any) => {
+          console.log(res);
+          this.getAllFranchise();
+          this.toastr.success(res.message);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("Closed");
+    });
+  }
+
+  viewFranchiseDocument(franchiseData: any) {
+    let config: MatDialogConfig = {
+      panelClass: "myFranchiseViewDialogClass",
+      data: franchiseData,
+    };
+    const dialogRef = this.dialog.open(ViewFranchiseComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("Closed");
+    });
+  }
 }
