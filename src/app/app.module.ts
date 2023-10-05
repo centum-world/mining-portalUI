@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -106,6 +107,10 @@ import { ViewFranchiseComponent } from './components/admin/dialog/view-franchise
 import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.component';
 import { EditMemberComponent } from './components/admin/dialog/edit-member/edit-member.component';
 import { EditPartnerComponent } from './components/admin/dialog/edit-partner/edit-partner.component';
+import { AccountShoComponent } from './components/admin/account-sho/account-sho.component';
+import { PaymentRequestComponent } from './components/sho/payment-request/payment-request.component';
+import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -186,7 +191,11 @@ import { EditPartnerComponent } from './components/admin/dialog/edit-partner/edi
     ViewFranchiseComponent,
     EditShoComponent,
     EditMemberComponent,
-    EditPartnerComponent
+    EditPartnerComponent,
+    EditShoComponent,
+    AccountShoComponent,
+    PaymentRequestComponent,
+    WithdrawDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -216,6 +225,8 @@ import { EditPartnerComponent } from './components/admin/dialog/edit-partner/edi
     MatPaginatorModule,
     MatSnackBarModule,
     ScrollingModule,
+    MatTabsModule,
+    MatRadioModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -245,6 +256,7 @@ import { EditPartnerComponent } from './components/admin/dialog/edit-partner/edi
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
     EditShoComponent,
+    WithdrawDialogComponent,
     ViewMemberComponent,
     VerifyMemberComponent,
     BlockMemberComponent,

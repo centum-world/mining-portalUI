@@ -19,7 +19,10 @@ interface BankDetails{
   styleUrls: ['./state-view-bank-details.component.css']
 })
 export class StateViewBankDetailsComponent implements OnInit {
-
+  bankDetails=[];
+  selectedBank={
+    bankName:null
+  };
   dataSource: MatTableDataSource<BankDetails>;
   displayStateHandlerId = localStorage.getItem('stateHandlerId')
   displayedColumns: string[] = ['holder_name', 'bank_name', 'branch_name', 'account_no', 'ifsc_code'];
@@ -28,9 +31,16 @@ export class StateViewBankDetailsComponent implements OnInit {
 
     this.dataSource = new MatTableDataSource([]);
     this.dataSource.data = data
+    console.log(data)
+    this.bankDetails = data;
+    this.selectedBank.bankName = "SBI"
    }
 
   ngOnInit() {
+  }
+
+  onRadioChange(){
+    console.log(this.selectedBank.bankName)
   }
 
   callApiToShowStateBankDetails() {

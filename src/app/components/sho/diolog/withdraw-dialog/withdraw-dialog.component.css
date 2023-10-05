@@ -1,0 +1,31 @@
+.mat-dialog-title {
+    background-color: #b63003;
+    color: #fefefe;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: -24px;
+    margin-right: -23px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.amount-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.amount-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    background: #f4f402;
+    border-radius: 5px;
+    margin-right: 5px;
+    color: #baa802;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}

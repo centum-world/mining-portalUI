@@ -10,6 +10,7 @@ import { BlockShoComponent } from '../dialog/block-sho/block-sho.component';
 import { VerifyShoComponent } from '../dialog/verify-sho/verify-sho.component';
 import { ShoViewComponent } from '../dialog/sho-view/sho-view.component';
 import { EditShoComponent } from '../dialog/edit-sho/edit-sho.component';
+import { Router } from '@angular/router';
 
 interface Sho {
   stateHandlerId: '',
@@ -37,6 +38,7 @@ export class ShoHistoryComponent implements OnInit {
     private userService: UserService,
     private toastr: ToastrService,
     private dialog: MatDialog,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -142,6 +144,7 @@ export class ShoHistoryComponent implements OnInit {
   }
 
   openEditShoDialog(shoData:any){
+    
     let config: MatDialogConfig = {
       panelClass: 'myStateEditDialogClass',
       data: shoData
@@ -149,8 +152,14 @@ export class ShoHistoryComponent implements OnInit {
     const dialogRef = this.dialog.open(EditShoComponent, config);
 
     dialogRef.afterClosed().subscribe(result=>{
+      this.callApiToFetchAllSho();
       console.log("closed")
     })
   }
 
+
+  gotoAccountSection(shoData:any){
+    console.log(shoData.stateHandlerId)
+    this.router.navigate(["dashboard/sho-account", shoData.stateHandlerId]);
+  }
 }

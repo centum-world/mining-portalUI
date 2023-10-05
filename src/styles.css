@@ -74,10 +74,11 @@ body {
   }
 }
 .franchiseProfileDetailsDialogClass ,.franchiseViewBankDetailsDialogClass , .stateViewBankDetailsDialogClass{
-  height: 70%;
+  height: auto;
   width: 50%;
-  .mat-dialog-content{
-    height: 70%;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0px;
   }
 }
 .franchiseDocumentsDialogClass ,.stateProfileDocumetsDialogClass {
@@ -116,6 +117,14 @@ body {
     padding-bottom: 0;
    }
 }
+.myStateWithdrawDialogClass{
+  width: 30%;
+  height: auto;
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .myEditDialogClass{
@@ -123,10 +132,10 @@ body {
   }
   .franchiseDocumentsDialogClass,.franchiseViewBankDetailsDialogClass, .stateProfileDocumetsDialogClass
   , .stateViewBankDetailsDialogClass{
-    height:80%;
+    height:auto;
     width: 90%;
-    .mat-dialog-content{
-      height: 80%;
+    .mat-dialog-container{
+      height: auto;
     }
   }
   .myStateViewDialogClass{
@@ -170,6 +179,13 @@ body {
     }
   }
   .myEditDialogClass{
+    width: 99%;
+    height: auto;
+    .mat-dialog-container{
+      height: auto;
+    }
+  }
+  .myStateWithdrawDialogClass{
     width: 99%;
     height: auto;
     .mat-dialog-container{

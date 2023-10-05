@@ -32,6 +32,8 @@ import { AdminDashboardComponent } from "./components/admin/admin-dashboard/admi
 import { FranchiseHistoryComponentComponent } from "./franchise-history-component/franchise-history-component.component";
 import { MemberHistoryComponent } from "./components/admin/member-history/member-history.component";
 import { PartnerHistoryComponent } from "./components/admin/partner-history/partner-history.component";
+import { AccountShoComponent } from "./components/admin/account-sho/account-sho.component";
+import { PaymentRequestComponent } from "./components/sho/payment-request/payment-request.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -51,6 +53,7 @@ const routes: Routes = [
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},
+      {path: "sho-account/:id", component : AccountShoComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },
@@ -70,6 +73,7 @@ const routes: Routes = [
       { path: "add-franchise", component: StateAddFranchiseComponent },
       { path: "franchise-list", component: FranchiseListComponent },
       { path: "franchise-account", component: AccountFranchiseComponent},
+      { path: "withdrawal-list", component: PaymentRequestComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
     ],
   },
