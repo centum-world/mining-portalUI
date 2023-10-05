@@ -28,6 +28,43 @@
   margin-left: 300px;
 }
 
-table {
+/* table {
   width: 100%;
+} */
+.franchise-history-header{
+  font-weight: bold;
+  color: black;
+}
+/* Add this CSS to your component's CSS file */
+.table-container {
+  overflow-x: auto; /* Enable horizontal scrolling for the container */
+}
+
+.mat-table {
+  width: 100%; /* Ensure the table takes up the full width of its container */
+  border-collapse: collapse; /* Remove default cell spacing */
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 8px; /* Adjust the padding as needed */
+  text-align: left; /* Left-align cell content */
+  border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+}
+
+/* Style the header row */
+.mat-header-row {
+  background-color: #f0f0f0; /* Add a background color to the header row */
+}
+
+/* Add a border to the last cell in each row */
+.mat-cell:last-child,
+.mat-header-cell:last-child {
+  border-right: 1px solid #ddd;
+}
+
+@media screen and (max-width: 768px ){
+  .franchise-list-header, .large-expand{
+   margin-left: 70px ;
+  } 
 }
