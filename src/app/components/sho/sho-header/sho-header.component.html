@@ -13,18 +13,18 @@
       </li>
       <!-- (click)="openDialog()" -->
       <li>
-        <a href="/statedashboard/add-franchise"><i class="fa fa-plus"></i>
+        <a href="javascript:void(0)" (click)="addFranchise()"><i class="fa fa-plus"></i>
           <span>Add franchise</span>
         </a>
       </li>
       <li>
-        <a href="/statedashboard/franchise-list"><i class="fa fa-list"></i>
+        <a href="javascript:void(0)" (click)="franchiseList()"><i class="fa fa-list"></i>
           <span>Franchise list</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-money"></i>
-          <span data-toggle="modal" data-target="#eachMonthWithdrawalHistory">Withdrawal</span>
+        <a href="javascript:void(0)" (click)="handleWithdrawalClick()"><i class="fa fa-money"></i>
+          <span>Withdrawal</span>
         </a>
       </li>
       <li>

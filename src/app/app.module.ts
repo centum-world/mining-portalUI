@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -96,6 +97,10 @@ import { FranchiseHistoryComponentComponent } from './franchise-history-componen
 import { BlockFranchiseComponent } from './components/admin/dialog/block-franchise/block-franchise.component';
 import { VerifyFranchiseComponent } from './components/admin/dialog/verify-franchise/verify-franchise.component';
 import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.component';
+import { AccountShoComponent } from './components/admin/account-sho/account-sho.component';
+import { PaymentRequestComponent } from './components/sho/payment-request/payment-request.component';
+import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -166,7 +171,10 @@ import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.co
     FranchiseHistoryComponentComponent,
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
-    EditShoComponent
+    EditShoComponent,
+    AccountShoComponent,
+    PaymentRequestComponent,
+    WithdrawDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -196,6 +204,8 @@ import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.co
     MatPaginatorModule,
     MatSnackBarModule,
     ScrollingModule,
+    MatTabsModule,
+    MatRadioModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -224,7 +234,8 @@ import { EditShoComponent } from './components/admin/dialog/edit-sho/edit-sho.co
     ShoViewComponent,
     BlockFranchiseComponent,
     VerifyFranchiseComponent,
-    EditShoComponent
+    EditShoComponent,
+    WithdrawDialogComponent
   ],
   providers: [
     {

@@ -1,0 +1,19 @@
+<h1 class="custom-heading" mat-dialog-title>Withdrawal</h1>
+<div mat-dialog-content>
+    <div class="amount-container">
+        <div class="amount-div" (click)="enterAmount(500)">₹ 500</div>
+        <div class="amount-div" (click)="enterAmount(1000)">₹ 1000</div>
+        <div class="amount-div" (click)="enterAmount(5000)">₹ 5000</div>
+    </div>
+    <div class="amount-input-field">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter amount" name="amount" [(ngModel)]="amount">
+            </mat-form-field>
+        </form>    
+    </div>
+
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button (click)="enterAmount(amount)">ok</button>
+</div>

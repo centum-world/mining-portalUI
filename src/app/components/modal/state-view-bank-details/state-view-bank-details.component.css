@@ -1,25 +1,21 @@
 .mat-dialog-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #e7e4df;
-    margin-left: -22px;
-    margin-right: -22px;
-    padding-left: 20px;
-    color: #ccc;
+    background-color: #b63003;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: -24px;
+    margin-right: -23px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
   
 .row {
     display: flex;
     justify-content: space-between;
   }
-  
-  /* .stateDetails {
-    display: flex;
-} */
 
-.custom-heading {
-    color:#EF2F88;
-}
+
 
 .stateDetails span {
     font-size: 18px;
@@ -52,16 +48,42 @@ td {
     font-size: 14px;
 }
 /* Add the following styles to enable horizontal scrolling */
-@media screen and (max-width: 768px) {
-    /* Add the following styles to enable horizontal scrolling */
+/* @media screen and (max-width: 768px) {
+  
 .table-viewport {
-    height: 300px; /* Set the desired height for the virtual scrolling container */
-    overflow: scroll; /* Enable scrollbars as needed */
+    height: 300px; 
+    overflow: scroll; 
   }
   
   .view-bank-modal-header {
-    font-weight: bold; /* Example: Make header cells bold */
+    font-weight: bold;
   }
   
+} */
+
+.example-card {
+    margin: 10px;
+    width: 300px;
 }
   
+.example-header-image{
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+}
+
+.bakk-div{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
+.bank-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}  
+.bank-details h2{
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
+}

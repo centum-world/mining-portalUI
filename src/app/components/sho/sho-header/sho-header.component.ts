@@ -74,6 +74,16 @@ export class ShoHeaderComponent implements OnInit {
     });
   }
 
+  addFranchise(){
+    this.router.navigate(['/statedashboard/add-franchise'])
+  }
+  franchiseList(){
+    this.router.navigate(['/statedashboard/franchise-list'])
+  }
+  handleWithdrawalClick(){
+    this.router.navigate(['/statedashboard/withdrawal-list'])
+  }
+
   logOut(){
     localStorage.clear();
     this.router.navigate(['/statelogin']);

@@ -83,7 +83,7 @@ export class EditShoComponent implements OnInit {
 
 
   editFormSubmit(editForm: any) {
-    console.log(editForm.value, this.shoDetails.id)
+    console.log(editForm.value.phone, this.shoDetails.id)
     let data = {
       fname: editForm.value.fname,
       lname: editForm.value.lname,
