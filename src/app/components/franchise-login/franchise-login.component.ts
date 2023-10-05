@@ -76,4 +76,8 @@ export class FranchiseLoginComponent implements OnInit {
     this.showPasswordIcon =
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
+
+  GoToHome(){
+    window.open("/", "_parent");
+  }
 }
