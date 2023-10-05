@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { VerifyPartnerComponent } from '../dialog/verify-partner/verify-partner.component';
 import { BlockMiningPartnerComponent } from '../dialog/block-mining-partner/block-mining-partner.component';
+import { EditPartnerComponent } from '../dialog/edit-partner/edit-partner.component';
 
 interface Partner {
   P_userid: string,
@@ -22,8 +23,11 @@ interface Partner {
   p_dob:Date,
   p_dop:string,
   p_liquidity:Number,
-  p_add:string,
+  p_address:string,
   p_aadhar:Number,
+  p_nominee_name:string,
+  p_nominee_phone:Number,
+  p_nominee_aadhar:Number,
   actions: string,
 }
 
@@ -36,7 +40,7 @@ export class PartnerHistoryComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['p_userid', 'p_name', 'p_lname', 'p_email', 'p_phone', 'p_dob',
-    'p_refferal_id','p_reffered_id','p_state', 'actions'];
+    'p_refferal_id','p_reffered_id','p_address','p_state', 'p_liquidity', 'p_aadhar', 'p_nominee_name', 'p_nominee_phone', 'p_nominee_aadhar', 'actions'];
   dataSource: MatTableDataSource<Partner>;
 
   constructor(
@@ -130,5 +134,18 @@ export class PartnerHistoryComponent implements OnInit {
       console.log("Closed");
     });
   }
+
+  openPartnerEditDialog(miningPartnerData:any){
+    let config: MatDialogConfig = {
+      panelClass: 'partnerEditDialogClass',
+      data: miningPartnerData
+    };
+    const dialogRef = this.dialog.open(EditPartnerComponent, config);
+
+    dialogRef.afterClosed().subscribe(result=>{
+      this.callApiToFetchAllPartner();
+      console.log("closed")
+    })
+  } 
 
 }

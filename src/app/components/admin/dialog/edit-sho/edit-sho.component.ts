@@ -26,11 +26,11 @@ export class EditShoComponent implements OnInit {
     phone: "",
     gender: "",
     state: [],
-    id:""
+    id: ""
   }
   states = allState.states;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private userService:UserService, private toastr:ToastrService) {
-     console.log(data.stateHandlerId)
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private userService: UserService, private toastr: ToastrService) {
+    console.log(data.stateHandlerId)
     this.shoDetails.fname = data.fname;
     this.shoDetails.lname = data.lname;
     this.shoDetails.email = data.email;
@@ -93,14 +93,14 @@ export class EditShoComponent implements OnInit {
       selectedState: editForm.value.state,
       stateHandlerId: this.shoDetails.id
     }
-  this.userService.editShoByAdmin(data).subscribe({
-    next:(res:any)=>{
-      this.toastr.success(res.message)
-    },
-    error:(err)=>{
-      this.toastr.error(err.error.message)
-    }
-  })
+    this.userService.editShoByAdmin(data).subscribe({
+      next: (res: any) => {
+        this.toastr.success(res.message)
+      },
+      error: (err) => {
+        this.toastr.error(err.error.message)
+      }
+    })
 
   }
 

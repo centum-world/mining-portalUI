@@ -9,6 +9,7 @@ import { MatDialogConfig } from '@angular/material/dialog';
 import { ViewMemberComponent } from '../dialog/view-member/view-member.component';
 import { VerifyMemberComponent } from '../dialog/verify-member/verify-member.component';
 import { BlockMemberComponent } from '../dialog/block-member/block-member.component';
+import { EditMemberComponent } from '../dialog/edit-member/edit-member.component';
 
 interface Member {
   m_userid: string,
@@ -139,5 +140,18 @@ export class MemberHistoryComponent implements OnInit {
       console.log("Closed");
     });
   }
+
+  openMemberEditDialog(memberData:any){
+    let config: MatDialogConfig = {
+      panelClass: 'myStateEditDialogClass',
+      data: memberData
+    };
+    const dialogRef = this.dialog.open(EditMemberComponent, config);
+
+    dialogRef.afterClosed().subscribe(result=>{
+      this.callApiToFetchAllMember();
+      console.log("closed")
+    })
+  }  
 
 }

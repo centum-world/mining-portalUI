@@ -1,0 +1,70 @@
+<h1 class="custom-heading" mat-dialog-title>Edit Member details</h1>
+<div mat-dialog-content>
+  <form [formGroup]="editForm" (ngSubmit)="editFormSubmit(editForm)">
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Enter your first name" formControlName="fname" required />
+        <mat-error *ngIf="editForm.get('fname').invalid">{{
+          getErrorFnameMessage()
+          }}</mat-error>
+      </mat-form-field>
+
+      <!-- Last Name -->
+      <mat-form-field>
+        <input matInput placeholder="Enter your last name" formControlName="lname" required />
+        <mat-error *ngIf="editForm.get('lname').invalid">{{
+          getErrorLnameMessage()
+          }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" formControlName="email" required>
+        <mat-error *ngIf="editForm.get('email').invalid">{{
+          getErrorMessage()
+          }}</mat-error>
+      </mat-form-field>
+      <!-- Phone Number -->
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phone" />
+        <mat-error *ngIf="editForm.get('phone').hasError('required')">Phone number is required</mat-error>
+        <mat-error *ngIf="editForm.get('phone').hasError('pattern')">Invalid Indian mobile number</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Enter your address" formControlName="add" required />
+        <mat-error *ngIf="editForm.get('add').invalid">{{getErrorAddressMessage()}}</mat-error>
+      </mat-form-field>
+     
+      <mat-form-field>
+        <input matInput placeholder="Enter your aadhar" formControlName="aadhar" required />
+        <mat-error *ngIf="editForm.get('aadhar').invalid">{{getErrorAddressMessage()}}</mat-error>
+      </mat-form-field>
+
+    </div>
+
+     <div class="form-row">
+        <mat-form-field>
+            <input matInput type="date" placeholder="Select a date" formControlName="dob" required />
+            <mat-error *ngIf="editForm.get('dob').invalid">Invalid date</mat-error>
+          </mat-form-field>
+       
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option *ngFor="let state of states" [value]="state.state">{{ state.state }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+      </div> 
+
+    <div mat-dialog-actions align="end">
+        <button mat-raised-button  mat-dialog-close >Cancel</button>
+        <button mat-raised-button  type="submit">OK</button>
+      </div>
+  </form>
+
+
+</div>
+
