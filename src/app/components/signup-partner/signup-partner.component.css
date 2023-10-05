@@ -1,154 +1,157 @@
+@import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-*,
-*:before,
-*:after{
-  padding: 0;
+*{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins",sans-serif;
-  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  transition: all ease-in-out 200ms;
 }
-body{
-    background-color: #0030b8 !important;
-  }
 
-  .container {
-    background-color: #ffffff;
-    width: 70%;
-    border-radius :10px;
-    box-shadow:20px 30px 25px rgba(0,0,0,0.15);
-    align-items: center;
-    justify-content: center;
-  }
-  h1{
-    padding-top: 25px;
-    font-size: 30px;
-    text-align: center;
-    color: #1c093c;
+.partner-signup-partner{
+  height: 100vh;
+  width: 100vw;
+}
 
-  }
-  .Gender{
-    display: flex;
-    margin-top:10px ;
-  }
-  .Qualification{
-    display: flex;
-  }
-  .Designation,.Experiance{
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.2px solid #c4cae0;
-  }
-
-  p{
-    
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    color: #606060;
-    font-size: 25px;
-    font-weight: 400;
-    font-weight: bold;
-
-
-  }
-  form{
-    width: 100%;
-    position: relative;
-    margin: 20px auto 0 auto;
-  }
-  .row{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    grid-gap: 20px 30px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    
-  }
-
-  label{
-    color: #1c093c;
-    font-size: 15px;
-
-  }
-  textarea, input{
+.partner-signup-container{
+  height: 100%;
   width: 100%;
-  font-weight: 400;
-   padding: 8px 10px;
-   border-radius: 5px;
-   border: 1.2px solid #c4cae0; 
-}
-
-textarea{
-  resize: none;
-}
-textarea:focus, input:focus{
-  outline: none;
-  border-color: #6f6df4;
-}
-
-.gender{
-  display: inline;
-}
-.footer{
   display: flex;
+}
 
+.signup-left-wrapper{
+  width: 30%;
+  height: 100%;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  background-color: #ABDFFD;
+}
+
+.signup-right-wrapper{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-right-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.signup-register{
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  padding-left: 1%;
+}
+
+.underline-box{
+  height: 5px;
+  width: 100%;
+  background-color: #ABDFFD;
+}
+
+.signup-fields-container{
+  width: 100%;
+}
+
+.first-half-input-fields{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 10px;
-}
-.footer button{
-  
-  background-color: #0030b8;
-  width: 80px;
-  border-radius: 5px;
-  height: 35px;
-  color:#ffffff;
-
-}
-.logo img{
-  width: 150px;
-    height: 150px;
-    /* margin-left: 250px;
-    margin-top: 20px; */
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 1%;
 }
 
-.account span{
-  color: rgb(7, 8, 8);
-}
-.account a{
-  color: red;
+.input-subtitle{
+  font-size: .8rem;
 }
 
-.container p{
-  color: tomato;
+.name-box{
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-@media only screen and (max-width : 480px){
-  .container h1{
-   font-size: 15px;
+.refferal-input, .reffer-box{
+  width: 100%;
+}
+
+.dob-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group{
+  width: 33%;
+}
+
+.partner-signup-btn{
+  margin-left: 1%;
+  border: none;
+  background-color: #6FC6FD;
+  color: #eee;
+  text-transform: uppercase;
+  width: 50%;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.signup-left-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.company-name{
+  display: flex;
+  align-items: center
+}
+
+.company-name span{
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px){
+  .partner-signup-container{
+    flex-direction: column;
   }
-  .container{
+  .signup-left-wrapper{
     width: 100%;
   }
- }
-@media only screen and (max-width : 768px) and (min-width: 481px){
- .container h1{
-  font-size: 20px;
-
-  /* display: block; */
- }
-
- .container{
-  width: 90%;
- }
+  .signup-first-half{
+    display: flex;
+    justify-content: space-around;
+  }
+  .first-half-input-fields {
+    width: 100%;
+  }
+  .signup-right-wrapper{
+    height: auto;
+  }
 }
-@media only screen and (max-width : 1024px){
- 
+
+@media only screen and(max-width: 475px){
+  .name-box{
+    flex-wrap: wrap;
+  }
 }

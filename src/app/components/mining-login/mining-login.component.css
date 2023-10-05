@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  transition: all ease-in-out 200ms;
 }
 
 .mining-wrapper{
@@ -38,10 +39,13 @@
 
 .mining-right-container{
   height: 100%;
-  flex: 1;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url(../../../assets/image/right-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .company-name{
@@ -89,15 +93,24 @@
   background-color: #2F3538;
 }
 
-@media only screen and (max-width: 1440px){
+@media only screen and (max-width: 1024px){
   .mining-container{
     flex-direction: column-reverse;
     align-items: center;
+  }
+  .mining-left-container{
+    padding: 2%;
   }
   .main-left-container{
     width: 100%;
   }
   .mining-right-container{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .mining-left-container{
     width: 100%;
   }
 }
