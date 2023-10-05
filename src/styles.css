@@ -104,6 +104,18 @@ body {
     border-radius: 20px;
   }
 }
+.partnerEditDialogClass{
+  width:45% ;
+  height: 80%;
+  .mat-dialog-content{
+    height: 70%;
+  }
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+   }
+}
 
 @media screen and (max-width: 768px) {
   .myEditDialogClass{

@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="large-expand">
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8 table-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!-- Position Column -->
@@ -75,7 +75,7 @@
                         <button mat-menu-item (click)="openIsBlockMemberDialog(member)">
                             {{ member.isBlocked === 0 ? 'Block' : 'Unblock' }}
                         </button>
-                        <button mat-menu-item >
+                        <button mat-menu-item (click)="openMemberEditDialog(member)" >
                             Edit
                         </button>
                         <button mat-menu-item >

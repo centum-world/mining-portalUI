@@ -932,6 +932,14 @@ export class UserService {
     });
   }
 
+  editMemberByAdmin(data:any){
+    return this.http.put(this.url + "/member/update-member",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+ 
+
 }
   
 
