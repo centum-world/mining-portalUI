@@ -1,4 +1,233 @@
-<div class="logo">
+<div class="partner-signup-partner">
+  <div class="partner-signup-container">
+    <div class="signup-left-wrapper">
+      <div class="signup-left-container">
+      <div class="company-name">
+        <img src="../../../assets/image/clogo.png" alt="" height="60">
+        <span>Centum World</span>
+      </div>
+      <img src="../../../assets/image/Data_security_05.jpg" alt="" width="100%"
+        style="border-bottom-right-radius: 10%; border-top-right-radius: 10%; mix-blend-mode: multiply;  opacity: 1;">
+      </div>
+    </div>
+    <div class="signup-right-wrapper">
+      <div class="signup-right-container">
+        <div class="signup-register">
+          <h1>Registration</h1>
+          <div class="underline-box"></div>
+        </div>
+        <div class="signup-fields-container">
+          <div class="signup-first-half">
+            <form action="" [formGroup]="partnerSignUpForm" (ngSubmit)="addPartnerData(partnerSignUpForm)">
+              <div class="mining-form-fields" class="first-half-input-fields">
+                <div class="reffer-box">
+                  <mat-form-field appearance="outline" class="refferal-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Reffered ID</mat-label>
+                    <input matInput formControlName="reffered_id" required />
+                    <span class="input-subtitle">If you don't have any refferal id , Enter admin@123</span>
+                  </mat-form-field>
+                </div>
+
+                <div class="name-box">
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>First Name</mat-label>
+                    <input matInput formControlName="name" required />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Last Name</mat-label>
+                    <input matInput formControlName="lname" required />
+                  </mat-form-field>
+                </div>
+
+                <div class="number-box name-box">
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Aadhar</mat-label>
+                    <input matInput formControlName="aadhar" required />
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Phone</mat-label>
+                    <input matInput formControlName="aadhar" required />
+                  </mat-form-field>
+                </div>
+
+                <div class="email-address-box name-box">
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Email</mat-label>
+                    <input matInput formControlName="aadhar" required />
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Enter address</mat-label>
+                    <input matInput formControlName="aadhar" required />
+                  </mat-form-field>
+                </div>
+
+                <div class="email-address-box name-box">
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>State</mat-label>
+                    <input matInput formControlName="aadhar" required />
+                  </mat-form-field>
+                  <div class="dob-box">
+                    <label for="dob">DOB</label>
+                    <input type="date" name="dob" formControlName="dob" id="dob">
+                  </div>
+                </div>
+
+                <div class="nominee-box name-box">
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Nominee Name</mat-label>
+                    <input matInput formControlName="nominee_name" required />
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Nominee aadhar</mat-label>
+                    <input matInput formControlName="nominee_aadhar" required />
+                  </mat-form-field>
+                </div>
+
+                <div class="email-address-box name-box">
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Nominee Phone</mat-label>
+                    <input matInput formControlName="nominee_phone" required />
+                  </mat-form-field>
+                  <div class="dob-box">
+                    <label for="dop">DOP</label>
+                    <input type="date" name="dob" formControlName="dop" id="dop">
+                  </div>
+                </div>
+
+                <div class="name-box">
+                  <div class="form-group">
+                    <label for="liquidity">Liquidity</label>
+                    <select name="liquidity" id="liquidity" formControlName="liquidity" class="form-control">
+                      <option value="">Select Liquidity</option>
+                      <option value="600000">6 Lakh</option>
+                      <option value="500000">5 Lakh</option>
+                      <option value="400000">4 Lakh</option>
+                      <option value="300000">3 Lakh</option>
+                      <option value="200000">2 Lakh</option>
+                      <option value="100000">1 Lakh</option>
+                    </select>
+                  </div>
+                  <mat-form-field appearance="outline" class="name-input">
+                    <mat-label>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>Terms</mat-label>
+                    <input matInput formControlName="nominee_name" required value="12 Months" />
+                  </mat-form-field>
+                </div>
+                <mat-form-field appearance="outline" class="name-input">
+                  <mat-label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-person" viewBox="0 0 16 16">
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                    </svg>User id</mat-label>
+                  <input matInput formControlName="user_id" required />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="name-input">
+                  <mat-label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-person" viewBox="0 0 16 16">
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                    </svg>Password</mat-label>
+                  <input matInput formControlName="password" required />
+                </mat-form-field>
+                <p>Already have an account? <a href="">LOG IN</a> </p>
+              </div>
+              <button class="partner-signup-btn" type="submit">Create Account</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="logo">
   <img src="assets/image/clogo.png" alt="" class="center">
 </div>
 <div class="container">
@@ -142,8 +371,8 @@
           <select name="liquidity" id="liquidity" formControlName="liquidity" class="form-control">
             <option value="">Select Liquidity</option>
             <option value="600000">6 Lakh</option>
-            <!-- <option value="500000">5 Lakh</option>
-                <option value="400000">4 Lakh</option> -->
+            <option value="500000">5 Lakh</option>
+                <option value="400000">4 Lakh</option>
             <option value="300000">3 Lakh</option>
             <option value="200000">2 Lakh</option>
             <option value="100000">1 Lakh</option>
@@ -188,7 +417,7 @@
         </div>
         <div>
           <button type="submit" class="save">Register</button>
-          <!-- [disabled]="!partnerSignUpForm.valid" -->
+          [disabled]="!partnerSignUpForm.valid"
         </div>
 
 
@@ -197,4 +426,4 @@
 
 
   </form>
-</div>
+</div> -->
