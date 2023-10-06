@@ -11,16 +11,23 @@
     color: #fff;
     font-family: Calibri;
 }
-.search{
+
+
+/* Background color when clicked */
+.mat-form-field.focused {
+  background-color: lightblue;
+ 
+}
+/* .search{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 20%;
     height: 40px;
-    background: antiquewhite;
+    background: rgb(215, 250, 232);
     border-radius: 8px;
 
-}
+} */
 .large-expand {
     overflow-x: auto;
     margin-top:5px;
@@ -67,5 +74,22 @@
     .sho-list-header, .large-expand{
      margin-left: 70px ;
     } 
- }
+    .mat-form-field-infix {
+      width: 100px;
+  }
   
+    
+ }
+
+ @media only screen and (min-width: 375px) and (max-width:767px) {
+  
+  .title p{
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+ .mat-form-field-infix {
+      width: 128px;
+  }
+
+}
