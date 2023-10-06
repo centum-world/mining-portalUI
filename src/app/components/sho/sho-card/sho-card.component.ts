@@ -57,7 +57,5 @@ export class ShoCardComponent implements OnInit {
       }
     })
     
-
-    
   }
 }

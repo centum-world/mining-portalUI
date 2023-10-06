@@ -13,4 +13,7 @@ export class ViewFranchiseComponent implements OnInit {
   }
 
   ngOnInit() {}
+  clickOk(){
+    
+  }
 }

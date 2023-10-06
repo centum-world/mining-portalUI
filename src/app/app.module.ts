@@ -111,6 +111,14 @@ import { AccountShoComponent } from './components/admin/account-sho/account-sho.
 import { PaymentRequestComponent } from './components/sho/payment-request/payment-request.component';
 import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-approved/confirm-approved.component';
+import { AdminEditFranchiseComponent } from './components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component';
+import { FranchiseAccountComponent } from './franchise-account/franchise-account.component';
+import { ActivePartnersHistoryComponent } from './components/admin/active-partners-history/active-partners-history.component';
+import { PartnerWalletHistoryComponent } from './components/admin/partner-wallet-history/partner-wallet-history.component';
+import { MemberWalletHistoryComponent } from './components/admin/member-wallet-history/member-wallet-history.component';
+import { MemberWithdrawalRequestComponent } from './components/admin/member-withdrawal-request/member-withdrawal-request.component';
+
 
 
 
@@ -190,12 +198,20 @@ import { MatRadioModule } from '@angular/material/radio';
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
     EditShoComponent,
+    AdminEditFranchiseComponent,
     EditMemberComponent,
     EditPartnerComponent,
     EditShoComponent,
     AccountShoComponent,
     PaymentRequestComponent,
     WithdrawDialogComponent,
+    ConfirmApprovedComponent,
+    FranchiseAccountComponent,
+    ActivePartnersHistoryComponent,
+    PartnerWalletHistoryComponent,
+    MemberWalletHistoryComponent,
+    MemberWithdrawalRequestComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -245,7 +261,6 @@ import { MatRadioModule } from '@angular/material/radio';
     StateAddBankComponent,
     StateViewBankDetailsComponent,
     BlockModalComponent,
-    EditFranchiseComponent,
     FranchiseProfileDocumentsComponent,
     FranchiseProfileDetailsComponent,
     FranchiseAddBankComponent,
@@ -264,7 +279,10 @@ import { MatRadioModule } from '@angular/material/radio';
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
     EditMemberComponent,
-    EditPartnerComponent
+    EditPartnerComponent,
+    ConfirmApprovedComponent,
+    EditFranchiseComponent,
+    AdminEditFranchiseComponent
   ],
   providers: [
     {

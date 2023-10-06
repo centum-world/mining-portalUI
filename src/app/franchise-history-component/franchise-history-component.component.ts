@@ -9,6 +9,8 @@ import { BlockFranchiseComponent } from "../components/admin/dialog/block-franch
 import { MatDialogConfig } from "@angular/material/dialog";
 import { VerifyFranchiseComponent } from "../components/admin/dialog/verify-franchise/verify-franchise.component";
 import { ViewFranchiseComponent } from "../components/admin/dialog/view-franchise/view-franchise.component";
+import { AdminEditFranchiseComponent } from "../components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component";
+import { Router } from "@angular/router";
 interface franchise {
   franchiseId: "";
   fname: string;
@@ -48,7 +50,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -136,7 +139,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
-  }      
+  }
 
   viewFranchiseDocument(franchiseData: any) {
     let config: MatDialogConfig = {
@@ -148,5 +151,29 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
+  }
+
+
+ 
+  openEditFranchiseDialog(franchiseData: any) {
+    let config: MatDialogConfig = {
+      panelClass: "myFranchiseViewDialogClass",
+      data: franchiseData,
+    };
+    const dialogRef = this.dialog.open(AdminEditFranchiseComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("heeeeeeeeeeeelo")
+      this.getAllFranchise();
+    })
+
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("closed");
+    });
+  }
+
+  gotoFranchiseAccount(franchiseData: any){
+    console.log( franchiseData.franchiseId)
+    this.router.navigate(['dashboard/franchise-account', franchiseData.franchiseId])
   }
 }

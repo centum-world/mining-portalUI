@@ -92,6 +92,9 @@ export class EditPartnerComponent implements OnInit {
     return this.editForm.get("lname").hasError("required") ? "You must enter last name" : "";
   }
 
+  getErrorAddressMessage(){
+    
+  }
   editFormSubmit(editForm: any) {
     let data = {
       p_name: editForm.value.fname,

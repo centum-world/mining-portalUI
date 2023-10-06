@@ -4,6 +4,7 @@ import { UserService } from 'src/app/service/user.service';
 import { ShareService } from 'src/app/shareService/share.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({
@@ -47,7 +48,8 @@ export class HrDashboardComponent implements OnInit {
   constructor(private userService: UserService,
     private shareService: ShareService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private dialog:MatDialog
   ) { }
 
   ngOnInit() {
@@ -402,5 +404,46 @@ export class HrDashboardComponent implements OnInit {
 
   }
 
+
+  activePartnerViewList(){
+    this.router.navigate(['/dashboard/active-partners'])
+  }
+  viewMemberHistoryList(){
+    this.router.navigate(['/dashboard/member-history'])
+  }
+
+  partnerWalletHistoryViewList(){
+    this.router.navigate(['/dashboard/partner-wallet-history']);
+  }
+
+  memberWalletHistoryViewList(){
+    this.router.navigate(['/dashboard/member-wallet-history']);
+  }
+
+  memberWithdrawalRequestViewList() {
+    this.router.navigate(['/dashboard/member-withdrawal-request']);
+  }
+  // partnerWalletHistoryDialog(){
+
+  //    this.userService.partnerWalletShownInAdminPanel().subscribe({
+  //     next: (response: any) => {
+  //       if (response) {
+  //           console.log(response.data)
+  //           let config:MatDialogConfig = {
+  //           panelClass:'stateViewBankDetailsDialogClass', data : response.data
+  //           };
+  //           const dialogRef = this.dialog.open(PartnerWalletHostoryComponent,config);
+  //           dialogRef.afterClosed().subscribe(result => {
+  //             console.log('The dialog was closed');
+  //             // Do something with the result if needed
+  //           })
+  //       }
+  //     },
+  //     error: error => {
+  //      console.log(error)
+  //     }
+  //   })
+    
+  // }
 
 }

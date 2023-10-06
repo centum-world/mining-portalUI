@@ -14,8 +14,12 @@
         </div>
 
         <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
-        <div class="icon" (click)="viewList('view_member')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('view_member')">
+         
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="viewMemberHistoryList()">
+         
           <span>view</span>
         </div>
       </div>
@@ -27,6 +31,7 @@
         </div>
 
         <div class="icon" (click)="viewList('view_mining_partner')">
+          
           <!-- <span><i class="fa fa-eye"></i></span> -->
           <span>view</span>
 
@@ -42,7 +47,7 @@
           </div>
 
           <div class=" icon col-sm-4" (click)="viewList('active_partner')">
-            <!-- <i class="fa fa-eye"></i> -->
+        
             <span>view</span>
           </div>
           <div>
@@ -54,7 +59,7 @@
 
       </div>
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Wallet</h6>
           <span>Partner History</span>
@@ -62,9 +67,19 @@
         <div class="icon">
           <span data-toggle="modal" data-target="#allPartnerWallet">view</span>
         </div>
-      </div>
+      </div> -->
 
       <div class="card-single">
+        <div>
+          <h6>Wallet</h6>
+          <span>Partner History</span>
+        </div>
+        <div class="icon">
+          <span (click)="partnerWalletHistoryViewList()" >view</span>
+        </div>
+      </div>
+
+      <!-- <div class="card-single">
         <div>
           <h6>Wallet</h6>
           <span>Member History</span>
@@ -72,15 +87,34 @@
         <div class="icon">
           <span data-toggle="modal" data-target="#allMemberWallet">view</span>
         </div>
+      </div> -->
+
+      <div class="card-single">
+        <div>
+          <h6>Wallet</h6>
+          <span>Member History</span>
+        </div>
+        <div class="icon">
+          <span (click)="memberWalletHistoryViewList()" >view</span>
+        </div>
       </div>
+
+      <!-- <div class="card-single">
+        <div class="col-sm-8">
+          <h6>Withdrawal Request</h6>
+          <span>Member</span>
+        </div>
+        <div class="icon col-sm-4" (click)="viewList('send_withdrawal_member')">
+          <span>view</span>
+        </div>
+      </div> -->
 
       <div class="card-single">
         <div class="col-sm-8">
           <h6>Withdrawal Request</h6>
           <span>Member</span>
         </div>
-        <div class="icon col-sm-4" (click)="viewList('send_withdrawal_member')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <div class="icon col-sm-4" (click)="memberWithdrawalRequestViewList()">
           <span>view</span>
         </div>
       </div>

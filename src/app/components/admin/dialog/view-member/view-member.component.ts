@@ -14,5 +14,7 @@ export class ViewMemberComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  clickOk(){
+    
+  }
 }
