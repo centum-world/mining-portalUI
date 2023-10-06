@@ -11,7 +11,7 @@
   color: #fff;
   font-family: Calibri;
 }
-.search{
+/* .search{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
   background: antiquewhite;
   border-radius: 8px;
 
-}
+} */
 .large-expand {
   overflow-x: auto;
   margin-top:5px;
@@ -67,4 +67,16 @@
   .franchise-list-header, .large-expand{
    margin-left: 70px ;
   } 
+}
+@media only screen and (min-width: 375px) and (max-width:767px) {
+  
+  .title p{
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+ .mat-form-field-infix {
+      width: 128px;
+  }
+
 }
