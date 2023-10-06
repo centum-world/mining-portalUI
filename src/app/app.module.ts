@@ -112,6 +112,8 @@ import { PaymentRequestComponent } from './components/sho/payment-request/paymen
 import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { AdminEditFranchiseComponent } from './components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component';
+import { FranchiseAccountComponent } from './franchise-account/franchise-account.component';
+
 
 
 @NgModule({
@@ -197,6 +199,7 @@ import { AdminEditFranchiseComponent } from './components/admin/dialog/admin-edi
     AccountShoComponent,
     PaymentRequestComponent,
     WithdrawDialogComponent,
+    FranchiseAccountComponent,
   ],
   imports: [
     BrowserModule,

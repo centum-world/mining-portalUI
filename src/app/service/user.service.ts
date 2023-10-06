@@ -812,6 +812,15 @@ export class UserService {
     );
   }
 
+  fetchParticularFranchiseBankDetails(data){
+    return this.http.post(
+      this.url + "/franchise/frenchise/fetch-bank-details",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
   // fetch particular franchise profile details inside franchise
   particularFranchise(data) {
     return this.http.post(this.url + "/franchise/verify-franchise", data, {
@@ -848,6 +857,7 @@ export class UserService {
       }
     );
   }
+
 
   callApiToFetchShoAllDetails() {
     return this.http.get(this.url + "/admin/fetch-all-sho", {

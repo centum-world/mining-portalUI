@@ -34,6 +34,7 @@ import { MemberHistoryComponent } from "./components/admin/member-history/member
 import { PartnerHistoryComponent } from "./components/admin/partner-history/partner-history.component";
 import { AccountShoComponent } from "./components/admin/account-sho/account-sho.component";
 import { PaymentRequestComponent } from "./components/sho/payment-request/payment-request.component";
+import { FranchiseAccountComponent } from "./franchise-account/franchise-account.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -55,6 +56,7 @@ const routes: Routes = [
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},
       {path: "sho-account/:id", component : AccountShoComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
+      {path: "franchise-account/:id", component: FranchiseAccountComponent}
     ]
   },
   { path: "frame", component: FrameComponent },
