@@ -9,6 +9,7 @@ import { BlockFranchiseComponent } from "../components/admin/dialog/block-franch
 import { MatDialogConfig } from "@angular/material/dialog";
 import { VerifyFranchiseComponent } from "../components/admin/dialog/verify-franchise/verify-franchise.component";
 import { ViewFranchiseComponent } from "../components/admin/dialog/view-franchise/view-franchise.component";
+import { Router } from "@angular/router";
 interface franchise {
   franchiseId: "";
   fname: string;
@@ -48,7 +49,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -149,4 +151,10 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       console.log("Closed");
     });
   }
+
+  gotoFranchiseAccount(franchiseData: any){
+    console.log( franchiseData.franchiseId)
+    this.router.navigate(['dashboard/franchise-account', franchiseData.franchiseId])
+  }
+
 }
