@@ -81,10 +81,22 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
       color: rgb(228, 86, 233);
+      border: 1px solid yellow;
       
   }
+
+  .selected-item {
+    border: 1px solid white;
+  }
   .sidebar-menu{
+    height: 100%;
       margin-top: 1rem;
+    }
+    
+    .sidebar-menu ul{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
   }
   
   #nav-toggle:checked ~ .main-content{
@@ -372,3 +384,15 @@
       font-size: small;
       color: red;
   }
+
+  .logout-btn{
+    border: 1px solid white;
+    padding: 10px;
+    display: flex;
+    gap: 1rem;
+    color: white;
+    align-items: center;
+    
+  }
+
+  

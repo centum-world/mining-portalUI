@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-sidebar.component.css']
 })
 export class AdminSidebarComponent implements OnInit {
+  selectedItem: string = '';
 
   constructor(private router:Router) { }
 
@@ -33,6 +34,10 @@ export class AdminSidebarComponent implements OnInit {
 
   viewPartnerWalletHistoryList(){
     this.router.navigate(['/dashboard/partner-wallet-history'])
+  }
+
+  selectItem(itemName: string) {
+    this.selectedItem = itemName;
   }
 
 
