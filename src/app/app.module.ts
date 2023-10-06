@@ -111,6 +111,11 @@ import { AccountShoComponent } from './components/admin/account-sho/account-sho.
 import { PaymentRequestComponent } from './components/sho/payment-request/payment-request.component';
 import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { ActivePartnersHistoryComponent } from './components/admin/active-partners-history/active-partners-history.component';
+import { PartnerWalletHistoryComponent } from './components/admin/partner-wallet-history/partner-wallet-history.component';
+import { MemberWalletHistoryComponent } from './components/admin/member-wallet-history/member-wallet-history.component';
+import { MemberWithdrawalRequestComponent } from './components/admin/member-withdrawal-request/member-withdrawal-request.component';
+
 
 
 
@@ -196,6 +201,11 @@ import { MatRadioModule } from '@angular/material/radio';
     AccountShoComponent,
     PaymentRequestComponent,
     WithdrawDialogComponent,
+    ActivePartnersHistoryComponent,
+    PartnerWalletHistoryComponent,
+    MemberWalletHistoryComponent,
+    MemberWithdrawalRequestComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -264,7 +274,9 @@ import { MatRadioModule } from '@angular/material/radio';
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
     EditMemberComponent,
-    EditPartnerComponent
+    EditPartnerComponent,
+   
+
   ],
   providers: [
     {

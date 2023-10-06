@@ -334,7 +334,7 @@ export class UserService {
   }
 
   // admin will approved member request
-  adminWillApprovedMemberRequest(data) {
+  adminWillApprovedMemberRequest(data:any) {
     return this.http.post(
       this.url + "/admin/approve-member-reffer-withdrawal-request",
       data,
