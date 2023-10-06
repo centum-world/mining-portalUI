@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-sidebar.component.css']
 })
 export class AdminSidebarComponent implements OnInit {
+  selectedItem: string = '';
 
   constructor(private router:Router) { }
 
@@ -29,6 +30,10 @@ export class AdminSidebarComponent implements OnInit {
 
   viewActivePartnerList(){
     this.router.navigate(['/dashboard/active-partners']);
+  }
+
+  selectItem(itemName: string) {
+    this.selectedItem = itemName;
   }
 
 
