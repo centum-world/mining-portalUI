@@ -1,35 +1,5 @@
 <h1 class="custom-heading" mat-dialog-title>Bank Details</h1>
 <div mat-dialog-content>
-  <!-- <cdk-virtual-scroll-viewport class="table-viewport" itemSize="50">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="holder_name">
-        <mat-header-cell class="view-bank-modal-header" *matHeaderCellDef> Holder Name </mat-header-cell>
-        <mat-cell *matCellDef="let bankDetails"> {{ bankDetails.holder_name }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="bank_name">
-        <mat-header-cell class="view-bank-modal-header" *matHeaderCellDef> Bank Name </mat-header-cell>
-        <mat-cell *matCellDef="let bankDetails"> {{ bankDetails.bank_name }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="branch_name">
-        <mat-header-cell class="view-bank-modal-header" *matHeaderCellDef> Branch Name </mat-header-cell>
-        <mat-cell *matCellDef="let bankDetails"> {{ bankDetails.branch_name }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="account_no">
-        <mat-header-cell class="view-bank-modal-header" *matHeaderCellDef> Account Number </mat-header-cell>
-        <mat-cell *matCellDef="let bankDetails"> {{ bankDetails.account_no }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="ifsc_code">
-        <mat-header-cell class="view-bank-modal-header" *matHeaderCellDef> IFSC Code </mat-header-cell>
-        <mat-cell *matCellDef="let bankDetails"> {{ bankDetails.ifsc_code }} </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let bankDetails; columns: displayedColumns"></mat-row>
-    </mat-table>
-  </cdk-virtual-scroll-viewport> -->
   <div class="bakk-div">
     <mat-card class="example-card" *ngFor="let data of bankDetails">
       <mat-card-header>

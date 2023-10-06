@@ -18,6 +18,10 @@ interface BankDetails{
   styleUrls: ['./franchise-view-bank-details.component.css']
 })
 export class FranchiseViewBankDetailsComponent implements OnInit {
+  bankDetails=[];
+  selectedBank={
+    bankName:null
+  };
 
   dataSource: MatTableDataSource<BankDetails>;
   displayFranchiseId = localStorage.getItem('franchiseId')
@@ -27,11 +31,23 @@ export class FranchiseViewBankDetailsComponent implements OnInit {
 
     this.dataSource = new MatTableDataSource([]);
     this.dataSource.data = data
+    this.dataSource.data = data
+    console.log(data)
+    this.bankDetails = data;
+    this.selectedBank.bankName = "SBI"
    }
 
  
 
   ngOnInit() {
+  }
+
+  onRadioChange(){
+    console.log(this.selectedBank.bankName)
+  }
+
+  callApiToShowFranchiseBankDetails() {
+   
   }
 
 }
