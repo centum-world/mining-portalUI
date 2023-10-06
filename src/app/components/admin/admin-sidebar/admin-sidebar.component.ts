@@ -31,6 +31,10 @@ export class AdminSidebarComponent implements OnInit {
     this.router.navigate(['/dashboard/active-partners']);
   }
 
+  viewPartnerWalletHistoryList(){
+    this.router.navigate(['/dashboard/partner-wallet-history'])
+  }
+
 
   logOut(){
     localStorage.clear();

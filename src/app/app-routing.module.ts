@@ -35,6 +35,10 @@ import { PartnerHistoryComponent } from "./components/admin/partner-history/part
 import { AccountShoComponent } from "./components/admin/account-sho/account-sho.component";
 import { PaymentRequestComponent } from "./components/sho/payment-request/payment-request.component";
 import { FranchiseAccountComponent } from "./franchise-account/franchise-account.component";
+import { ActivePartnersHistoryComponent } from "./components/admin/active-partners-history/active-partners-history.component";
+import { PartnerWalletHistoryComponent } from "./components/admin/partner-wallet-history/partner-wallet-history.component";
+import { MemberWalletHistoryComponent } from "./components/admin/member-wallet-history/member-wallet-history.component";
+import { MemberWithdrawalRequestComponent } from "./components/admin/member-withdrawal-request/member-withdrawal-request.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -54,7 +58,11 @@ const routes: Routes = [
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},
+      {path:"active-partners",component:ActivePartnersHistoryComponent},
       {path: "sho-account/:id", component : AccountShoComponent},
+      {path: "partner-wallet-history", component:PartnerWalletHistoryComponent},
+      {path:"member-wallet-history",component:MemberWalletHistoryComponent},
+      {path:"member-withdrawal-request", component:MemberWithdrawalRequestComponent },
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
       {path: "franchise-account/:id", component: FranchiseAccountComponent}
     ]

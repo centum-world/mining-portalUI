@@ -113,6 +113,11 @@ import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog
 import { MatRadioModule } from '@angular/material/radio';
 import { AdminEditFranchiseComponent } from './components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component';
 import { FranchiseAccountComponent } from './franchise-account/franchise-account.component';
+import { ActivePartnersHistoryComponent } from './components/admin/active-partners-history/active-partners-history.component';
+import { PartnerWalletHistoryComponent } from './components/admin/partner-wallet-history/partner-wallet-history.component';
+import { MemberWalletHistoryComponent } from './components/admin/member-wallet-history/member-wallet-history.component';
+import { MemberWithdrawalRequestComponent } from './components/admin/member-withdrawal-request/member-withdrawal-request.component';
+
 
 
 
@@ -200,6 +205,11 @@ import { FranchiseAccountComponent } from './franchise-account/franchise-account
     PaymentRequestComponent,
     WithdrawDialogComponent,
     FranchiseAccountComponent,
+    ActivePartnersHistoryComponent,
+    PartnerWalletHistoryComponent,
+    MemberWalletHistoryComponent,
+    MemberWithdrawalRequestComponent,
+  
   ],
   imports: [
     BrowserModule,
