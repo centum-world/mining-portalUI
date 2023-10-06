@@ -157,6 +157,11 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       data: franchiseData,
     };
     const dialogRef = this.dialog.open(AdminEditFranchiseComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("heeeeeeeeeeeelo")
+      this.getAllFranchise();
+    })
+
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("closed");

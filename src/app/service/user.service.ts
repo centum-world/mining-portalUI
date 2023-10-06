@@ -826,8 +826,8 @@ export class UserService {
       {
         headers: new HttpHeaders().set("Content-Type", "application/json"),
       }
-    )
-  };
+    );
+  }
 
   addFranchiseBankDetails(data) {
     return this.http.post(
@@ -836,8 +836,8 @@ export class UserService {
       {
         headers: new HttpHeaders().set("Content-Type", "application/json"),
       }
-    )
-  };
+    );
+  }
 
   fetchFranchiseBankDetails(data) {
     return this.http.post(
@@ -856,15 +856,15 @@ export class UserService {
   }
 
   //admin can block or unblock sho
-  callApiToBlockOrUnblockSho(data:any){
-    return this.http.post(this.url + "/admin/block-and-unblock-sho",data, {
+  callApiToBlockOrUnblockSho(data: any) {
+    return this.http.post(this.url + "/admin/block-and-unblock-sho", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //admin verify sho
-  callApiToAdminVerifySho(data:any){
-    return this.http.post(this.url + "/state/verify-sho",data, {
+  callApiToAdminVerifySho(data: any) {
+    return this.http.post(this.url + "/state/verify-sho", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
@@ -876,75 +876,77 @@ export class UserService {
     });
   }
 
-
-
   //admin block franchise;
-  adminBlockFranchise(data:any){
-    return this.http.post(this.url + "/admin/block-and-unblock-franchise",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  adminBlockFranchise(data: any) {
+    return this.http.post(
+      this.url + "/admin/block-and-unblock-franchise",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   //admin verify franchise
 
-  adminVerifyFranchise(data:any){
-    return this.http.post(this.url + "/franchise/verify-franchise",data, {
+  adminVerifyFranchise(data: any) {
+    return this.http.post(this.url + "/franchise/verify-franchise", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  adminVerifyMember(data:any){
-    return this.http.post(this.url + "/admin/admin-verify-member",data, {
+  adminVerifyMember(data: any) {
+    return this.http.post(this.url + "/admin/admin-verify-member", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-   //admin can block or unblock member
-   adminBlockOrUnblockMember(data:any){
-    return this.http.post(this.url + "/admin/admin-block-member",data, {
+  //admin can block or unblock member
+  adminBlockOrUnblockMember(data: any) {
+    return this.http.post(this.url + "/admin/admin-block-member", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //admin fetch all mining partner
-  adminFetchAllMiningPartner(){
+  adminFetchAllMiningPartner() {
     return this.http.get(this.url + "/admin/admin-fetch-all-mining-partner", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   // adminVerifyPartner
-  adminVerifyPartner(data:any){
-    return this.http.post(this.url + "/admin/admin-verify-partner",data, {
+  adminVerifyPartner(data: any) {
+    return this.http.post(this.url + "/admin/admin-verify-partner", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   // adminBlockUnblockPartner
-  adminBlockUnblockPartner(data:any){
-    return this.http.post(this.url + "/admin/admin-block-unblock-partner",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  adminBlockUnblockPartner(data: any) {
+    return this.http.post(
+      this.url + "/admin/admin-block-unblock-partner",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-  editShoByAdmin(data:any){
-    return this.http.put(this.url + "/state/update-sho",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
-  }
-  
-  editMemberByAdmin(data:any){
-    return this.http.put(this.url + "/member/update-member",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
-    //adminEditFranchise
-  editFranchiseByAdmin(data:any){
-    return this.http.put(this.url + "/franchise/update-franchise",data, {
+  editShoByAdmin(data: any) {
+    return this.http.put(this.url + "/state/update-sho", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
- }
-  
-
-
-
+  editMemberByAdmin(data: any) {
+    return this.http.put(this.url + "/member/update-member", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+  //adminEditFranchise
+  editFranchiseByAdmin(data: any) {
+    return this.http.put(this.url + "/franchise/update-franchise", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+}
