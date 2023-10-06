@@ -931,16 +931,19 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-
+  
   editMemberByAdmin(data:any){
     return this.http.put(this.url + "/member/update-member",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
+    //adminEditFranchise
+  editFranchiseByAdmin(data:any){
+    return this.http.put(this.url + "/franchise/update-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
- 
-
-}
+ }
   
 
 

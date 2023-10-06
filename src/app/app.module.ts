@@ -111,7 +111,7 @@ import { AccountShoComponent } from './components/admin/account-sho/account-sho.
 import { PaymentRequestComponent } from './components/sho/payment-request/payment-request.component';
 import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { AdminEditFranchiseComponent } from './components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component';
 
 
 @NgModule({
@@ -190,6 +190,7 @@ import { MatRadioModule } from '@angular/material/radio';
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
     EditShoComponent,
+    AdminEditFranchiseComponent,
     EditMemberComponent,
     EditPartnerComponent,
     EditShoComponent,
@@ -245,7 +246,6 @@ import { MatRadioModule } from '@angular/material/radio';
     StateAddBankComponent,
     StateViewBankDetailsComponent,
     BlockModalComponent,
-    EditFranchiseComponent,
     FranchiseProfileDocumentsComponent,
     FranchiseProfileDetailsComponent,
     FranchiseAddBankComponent,
@@ -264,7 +264,9 @@ import { MatRadioModule } from '@angular/material/radio';
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
     EditMemberComponent,
-    EditPartnerComponent
+    EditPartnerComponent,
+    EditFranchiseComponent,
+    AdminEditFranchiseComponent
   ],
   providers: [
     {

@@ -41,7 +41,8 @@ export class EditShoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.shoDetails.gender,)
+    console.log(this.shoDetails.gender)
+    console.log(this.shoDetails.state)
     this.editForm = this.fb.group({
       fname: [this.shoDetails.fname, Validators.required],
       lname: [this.shoDetails.lname, Validators.required],

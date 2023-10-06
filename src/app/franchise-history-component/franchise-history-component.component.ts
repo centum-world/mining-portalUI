@@ -9,6 +9,7 @@ import { BlockFranchiseComponent } from "../components/admin/dialog/block-franch
 import { MatDialogConfig } from "@angular/material/dialog";
 import { VerifyFranchiseComponent } from "../components/admin/dialog/verify-franchise/verify-franchise.component";
 import { ViewFranchiseComponent } from "../components/admin/dialog/view-franchise/view-franchise.component";
+import { AdminEditFranchiseComponent } from "../components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component";
 interface franchise {
   franchiseId: "";
   fname: string;
@@ -136,7 +137,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
-  }      
+  }
 
   viewFranchiseDocument(franchiseData: any) {
     let config: MatDialogConfig = {
@@ -147,6 +148,18 @@ export class FranchiseHistoryComponentComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
+    });
+  }
+
+  openEditFranchiseDialog(franchiseData: any) {
+    let config: MatDialogConfig = {
+      panelClass: "myFranchiseViewDialogClass",
+      data: franchiseData,
+    };
+    const dialogRef = this.dialog.open(AdminEditFranchiseComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("closed");
     });
   }
 }
