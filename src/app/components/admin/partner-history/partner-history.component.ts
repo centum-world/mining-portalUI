@@ -148,4 +148,8 @@ export class PartnerHistoryComponent implements OnInit {
     })
   } 
 
+  applyFilter(data:any){
+    
+  }
+
 }

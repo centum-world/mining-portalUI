@@ -111,6 +111,7 @@ import { AccountShoComponent } from './components/admin/account-sho/account-sho.
 import { PaymentRequestComponent } from './components/sho/payment-request/payment-request.component';
 import { WithdrawDialogComponent } from './components/sho/diolog/withdraw-dialog/withdraw-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-approved/confirm-approved.component';
 
 
 
@@ -196,6 +197,7 @@ import { MatRadioModule } from '@angular/material/radio';
     AccountShoComponent,
     PaymentRequestComponent,
     WithdrawDialogComponent,
+    ConfirmApprovedComponent,
   ],
   imports: [
     BrowserModule,
@@ -264,7 +266,8 @@ import { MatRadioModule } from '@angular/material/radio';
     BlockMiningPartnerComponent,
     ViewFranchiseComponent,
     EditMemberComponent,
-    EditPartnerComponent
+    EditPartnerComponent,
+    ConfirmApprovedComponent
   ],
   providers: [
     {

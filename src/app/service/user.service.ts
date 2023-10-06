@@ -938,7 +938,41 @@ export class UserService {
     });
   }
 
- 
+  shoChangePrimarybank(data:any){
+    return this.http.post(this.url + "/state/make-primary-bank",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToShoPrimaryAccount(data:any){
+    return this.http.post(this.url + "/state/state/fetch-primary-bank",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  shoWithdrawalRequest(data:any){
+    return this.http.post(this.url + "/state/create-sho-payment-request",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+  
+  paymentRequestForSho(data:any){
+    return this.http.post(this.url + "/admin/fetch-payment-request-for-all",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  paymentApprovedForSho(data:any){
+    return this.http.post(this.url + "/admin/approve-payment-request-of-sho",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  fetchPaymentApprovedForAll(data:any){
+    return this.http.post(this.url + "/admin/fetch-particular-payment-approve",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 
 }
   

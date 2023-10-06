@@ -1,45 +1,112 @@
 <div class="account-header">
-    <p>SHO Account details</p>
-    <div class="wallet-div">₹ 8000</div>
+   <p>SHO Account details</p>
+   <div class="wallet-div">₹ 8000</div>
 </div>
 <div class="account-content">
-    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
-        <mat-tab label="Requset withdral">Content 1</mat-tab>
-        <mat-tab label="Approved withdrawal"></mat-tab>
-        <mat-tab label="Bank details">
+   <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
+      <mat-tab label="Requset withdral">
+         <div class="bakk-div">
+            <mat-card class="example-card" *ngFor="let data of shoRequestHistory">
+               <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
 
-            <div class="bakk-div">
-                <mat-card class="example-card" *ngFor="let data of bankDetails">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      
-                      <mat-card-title>Bank details</mat-card-title>
-                    </mat-card-header>
-                    
-                    <mat-card-content class="single-line-content">
-                     <div class="bank-details">
-                        <h2>Holder name</h2><strong>{{data.holder_name}} </strong>
-                     </div>
-                     <div class="bank-details">
-                        <h2>Bank name</h2><strong>{{data.bank_name}}</strong>
-                     </div>
-                     <div class="bank-details">
-                        <h2>Branch name</h2><strong>{{data.branch_name}}</strong>
-                     </div>
-                     <div class="bank-details">
-                        <h2>Account name</h2><strong>{{data.account_no}} </strong>
-                     </div>
-                     <div class="bank-details">
-                        <h2>IDSC Code</h2><strong>{{data.ifsc_code}} </strong>
-                     </div>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <button mat-button>Bank</button>
-                      <button mat-button>UPI</button>
-                    </mat-card-actions>
-                  </mat-card>
-            </div>
-              
-        </mat-tab>
-      </mat-tab-group>
+                  <mat-card-title>Bank details</mat-card-title>
+
+               </mat-card-header>
+               <mat-divider></mat-divider>
+               <mat-card-content class="single-line-content">
+                  <div class="bank-details">
+                     <h2>Id</h2><strong>{{data.userId}} </strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Bank name</h2><strong>{{data.paymentBy }}</strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Request date</h2><strong>{{data.requestDate | date}} </strong>
+                  </div>
+               </mat-card-content>
+               <mat-divider></mat-divider>
+               <mat-card-actions>
+                  <button mat-button style="background: green;">Request</button>
+                  <button mat-button style="background: red;" (click)="approved(data.id)">Approve</button>
+               </mat-card-actions>
+            </mat-card>
+         </div>
+      </mat-tab>
+      <mat-tab label="Approved withdrawal">
+         <div class="bakk-div">
+            <mat-card class="example-card" *ngFor="let data of approvedRequest">
+               <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+
+                  <mat-card-title>Bank details</mat-card-title>
+
+               </mat-card-header>
+               <mat-divider></mat-divider>
+               <mat-card-content class="single-line-content">
+                  <div class="bank-details">
+                     <h2>Id</h2><strong>{{data.userId}} </strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Bank name</h2><strong>{{data.bankName}}</strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Request date</h2><strong>{{data.requestDate | date}} </strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Approved date</h2><strong>{{data.approveDate | date}} </strong>
+                  </div>
+
+               </mat-card-content>
+               <mat-divider></mat-divider>
+               <mat-card-actions>
+                  <button mat-button style="background: rgb(0, 255, 38);">Approved successful</button>
+               </mat-card-actions>
+            </mat-card>
+         </div>
+      </mat-tab>
+      <mat-tab label="Bank details">
+
+         <div class="bakk-div">
+            <mat-card class="example-card" *ngFor="let data of bankDetails">
+               <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+
+                  <mat-card-title>Bank details</mat-card-title>
+
+               </mat-card-header>
+               <mat-divider></mat-divider>
+               <mat-card-content class="single-line-content">
+                  <div class="bank-details">
+                     <h2>Holder name</h2><strong>{{data.holder_name}} </strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Bank name</h2><strong>{{data.bank_name}}</strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Branch name</h2><strong>{{data.branch_name}}</strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>Account name</h2><strong>{{data.account_no}} </strong>
+                  </div>
+                  <div class="bank-details">
+                     <h2>IDSC Code</h2><strong>{{data.ifsc_code}} </strong>
+                  </div>
+               </mat-card-content>
+               <mat-divider></mat-divider>
+               <mat-card-actions>
+                  <button mat-button>Active</button>
+                  <button mat-button>UPI</button>
+               </mat-card-actions>
+            </mat-card>
+         </div>
+
+      </mat-tab>
+   </mat-tab-group>
 </div>

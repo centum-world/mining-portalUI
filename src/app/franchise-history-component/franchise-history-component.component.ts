@@ -149,4 +149,12 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       console.log("Closed");
     });
   }
+
+  openEditFranchiseDialog(data:any){
+
+  }
+
+  gotoFranchiseAccount(){
+    
+  }
 }

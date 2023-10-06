@@ -118,9 +118,15 @@ body {
    }
 }
 .myStateWithdrawDialogClass{
-  width: 30%;
+  width: auto;
   height: auto;
   .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
+.requsetApprovedDialogClass{
+  .mat-dialog-container{
     border-radius: 20px;
     padding-top: 0px;
   }
@@ -192,6 +198,13 @@ body {
       height: auto;
     }
   }
+  /* .requsetApprovedDialogClass{
+    width: 99%;
+    .mat-dialog-container{
+      border-radius: 20px;
+      padding-top: 0px;
+    }
+  } */
   
 }
 

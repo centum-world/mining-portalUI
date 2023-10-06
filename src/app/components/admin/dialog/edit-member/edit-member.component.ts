@@ -75,6 +75,9 @@ export class EditMemberComponent implements OnInit {
   getErrorLnameMessage() {
     return this.editForm.get("lname").hasError("required") ? "You must enter last name" : "";
   }
+  getErrorAddressMessage(){
+    
+  }
 
   editFormSubmit(editForm: any) {
     console.log(editForm.value, this.memberDetails.id)
