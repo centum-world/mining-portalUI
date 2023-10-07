@@ -39,6 +39,10 @@ import { ActivePartnersHistoryComponent } from "./components/admin/active-partne
 import { PartnerWalletHistoryComponent } from "./components/admin/partner-wallet-history/partner-wallet-history.component";
 import { MemberWalletHistoryComponent } from "./components/admin/member-wallet-history/member-wallet-history.component";
 import { MemberWithdrawalRequestComponent } from "./components/admin/member-withdrawal-request/member-withdrawal-request.component";
+import { AddBusinessDeveloperComponent } from "./components/franchise/add-business-developer/add-business-developer.component";
+import { ListBusinessDeveloperComponent } from "./components/franchise/list-business-developer/list-business-developer.component";
+import { BdDashboardComponent } from "./components/bd/bd-dashboard/bd-dashboard.component";
+import { BdLoginComponent } from "./components/bd/bd-login/bd-login.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -48,6 +52,7 @@ const routes: Routes = [
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
   { path: "franchiselogin", component: FranchiseLoginComponent },
   { path: "franchiseSignUp", component: FranchiseSignUpComponent },
+  { path: "businesslogin", component: BdLoginComponent},
   {
     path: "dashboard",
     canActivate: [GuardGuard],
@@ -93,8 +98,13 @@ const routes: Routes = [
     component: FranchisedashboardComponent,
     children: [
       { path: "home", component: FranchiseCardComponent },
+      { path: "add-bd", component: AddBusinessDeveloperComponent},
+      { path: "bd-list", component: ListBusinessDeveloperComponent},
       { path: "", redirectTo: "/franchisedashboard/home", pathMatch: "full" },
     ],
+  },
+  {
+    path:"bd-dashboard", canActivate:[GuardGuard], component : BdDashboardComponent
   },
   { path: "mininglogin", component: MiningLoginComponent },
   {

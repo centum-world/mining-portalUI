@@ -118,6 +118,11 @@ import { PartnerWalletHistoryComponent } from './components/admin/partner-wallet
 import { MemberWalletHistoryComponent } from './components/admin/member-wallet-history/member-wallet-history.component';
 import { MemberWithdrawalRequestComponent } from './components/admin/member-withdrawal-request/member-withdrawal-request.component';
 import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-approved/confirm-approved.component';
+import { AddBusinessDeveloperComponent } from './components/franchise/add-business-developer/add-business-developer.component';
+import { ListBusinessDeveloperComponent } from './components/franchise/list-business-developer/list-business-developer.component';
+import { BdDashboardComponent } from './components/bd/bd-dashboard/bd-dashboard.component';
+import { BdHeaderComponent } from './components/bd/bd-header/bd-header.component';
+import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
 
 
 
@@ -218,6 +223,11 @@ import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-appr
     PartnerWalletHistoryComponent,
     MemberWalletHistoryComponent,
     MemberWithdrawalRequestComponent,
+    AddBusinessDeveloperComponent,
+    ListBusinessDeveloperComponent,
+    BdDashboardComponent,
+    BdHeaderComponent,
+    BdLoginComponent,
   
   ],
   imports: [

@@ -110,6 +110,13 @@ export class FranchiseHeaderComponent implements OnInit {
     });
   }
 
+  refresh(){
+    this.router.navigate(['/franchisedashboard/home'])
+  }
+  listBussinessDeveloper(){
+    this.router.navigate(['/franchisedashboard/bd-list']);
+  }
+
   logOut(){
     localStorage.clear();
     this.router.navigate(['/franchiselogin']);

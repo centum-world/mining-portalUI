@@ -1,0 +1,166 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Create business developer</mat-card-title>
+      <mat-card-subtitle>Welcome to miningrig</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="form-container">
+            <form [formGroup]="bdSignUpForm" (ngSubmit)="addBusiness(bdSignUpForm)">
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Referred Id" [formControl]="referralFormControl"
+                                [errorStateMatcher]="matcher">
+                            <mat-hint>Referred ID</mat-hint>
+                            <mat-error *ngIf="referralFormControl.hasError('required')">Referred id is
+                                <strong>required</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Mobile number" [formControl]="mobileFormControl"
+                                [errorStateMatcher]="matcher">
+                            <mat-hint>This is your mobile number</mat-hint>
+                            <mat-error *ngIf="mobileFormControl.hasError('required')">Mobile number is
+                                <strong>required</strong></mat-error>
+                            <mat-error *ngIf="mobileFormControl.hasError('invalidMobileNumber')">Mobile number must be 10
+                                digits</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="First name" [formControl]="nameFormControl"
+                                [errorStateMatcher]="matcher">
+                            <mat-hint>This is your first name</mat-hint>
+                            <mat-error *ngIf="nameFormControl.hasError('required')">First name is
+                                <strong>required</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Last name" [formControl]="lastNameFormControl"
+                                [errorStateMatcher]="matcher">
+                            <mat-hint>This is your last name</mat-hint>
+                            <mat-error *ngIf="lastNameFormControl.hasError('required')">Last name is
+                                <strong>required</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                            <mat-hint>Errors appear instantly!</mat-hint>
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Gender</mat-label>
+                            <mat-select placeholder="Select gender" [formControl]="genderFormControl">
+                                <mat-option value="male">Male</mat-option>
+                                <mat-option value="female">Female</mat-option>
+                                <mat-option value="other">Other</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>State</mat-label>
+                            <mat-select [formControl]="bdFormControl" (selectionChange)="onStateChange($event.value)">
+                                <mat-option *ngFor="let state of allStates" [value]="state.state">{{state.state}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>City</mat-label>
+                            <mat-select [formControl]="bdCityFormControl">
+                                <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Front aadhar image (JPG or PNG)" disabled>
+                            <input type="file" id="frontAadharImage" name="frontAadharImage" (change)="onFileSelected($event,'frontAadharImage')"
+                                accept=".jpg,.png">
+                        </mat-form-field>
+                        <mat-error *ngIf="fileTypeInvalid">
+                            Please upload a JPG or PNG file.
+                        </mat-error>
+                    </div>
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Back aadhar image (JPG or PNG)" disabled>
+                            <input type="file" id="backtAadharImage" name="backtAadharImage" (change)="onFileSelected($event,'backtAadharImage')"
+                                accept=".jpg,.png">
+                        </mat-form-field>
+                        <mat-error *ngIf="fileTypeInvalidBackAadhar">
+                            Please upload a JPG or PNG file.
+                        </mat-error>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="PAN Card (JPG or PNG)" disabled>
+                            <input type="file" id="panCard" name="pan" (change)="onFileSelected($event, 'panCard')"
+                                accept=".jpg,.png">
+                        </mat-form-field>
+                        <mat-error *ngIf="fileTypeInvalidPanCard">
+                            Please upload a JPG or PNG file.
+                        </mat-error>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Business ID" [formControl]="bdIdFormControl">
+                            <mat-hint>This is your business ID</mat-hint>
+                            <mat-error *ngIf="bdIdFormControl.hasError('required')">Business ID is
+                                <strong>required</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" type="password">
+                            <mat-hint>This is your password</mat-hint>
+                            <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="passwordFormControl.hasError('required')">Password is
+                                <strong>required</strong></mat-error>
+                            <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+                                Password must be at least 8 characters long
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-card-actions class="card-actions" align="end">
+                    <button mat-raised-button color="accent" (click)="resetForm()">Reset</button>
+                  <button mat-raised-button type="submit" color="primary">Sign Up</button>
+                </mat-card-actions>
+            </form>
+      </div>
+    </mat-card-content>
+    
+  </mat-card>
