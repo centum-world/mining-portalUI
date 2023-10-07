@@ -72,7 +72,7 @@
   justify-content: space-between;
 }
 
-.company-name{
+.c-company-name{
   display: flex;
   align-items: center;
 }

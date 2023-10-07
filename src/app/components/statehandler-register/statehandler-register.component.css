@@ -1,210 +1,150 @@
-*,
-*:before,
-*:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
+@import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all ease-in-out 200ms;
 }
 
-
-body {
-    background-color: #0030b8 !important;
+.state-signup-wrapper{
+    height: 100vh;
+    width: 100vw;
 }
 
-.container {
-    background-color: #ffffff;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.15);
+.state-signup-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.state-signup-left{
+    background: rgba(91, 134, 229, 0.51);
+    height: 100%;
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px ;  
+    box-shadow: rgba(0, 0, 0, 0.465) 1.95px 1.95px 2.6px;
+}
+
+.faadhar-input, .baadhar-input, .pan-input{
+    width: 30%;
+}
+
+.aadhar-box{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.s-company-name{
+    display: flex;
+    align-items: center;
+}
+
+.s-company-name span{
+    text-transform: uppercase;
+    color: #3a6fe2;
+    font-weight: 900;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.world-text{
+    color: white !important;
+}
+
+.signup-subtitle-text{
+    text-align: center;
+    font-weight: 600;
+}
+
+.state-signup-right{
+    width: 70%;
+    padding: 20px;
+}
+
+.state-signup-right-container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-h1 {
-    padding-top: 25px;
-    font-size: 26px;
-    text-align: center;
-    color: #1c093c;
-    font-weight: 600;
+.line{
+    width: 200px;
+    height: 5px;
+    background-color: rgb(58, 100, 216);
 }
 
-.Gender {
+.state-signup-form{
+    width: 55%;
     display: flex;
-    margin-top: 10px;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.Qualification {
+.name-input, .lname-input{
+    width: 50%;
+}
+
+.email-input, .phone-input{
+    width: 100%;
+}
+
+.name-box{
     display: flex;
+    /* gap: 1rem; */
 }
 
-.Designation,
-.Experiance {
+.aadharBackImage{
+    width: max-content;
+}
+
+.signup-btn{
+    border: none;
+    background-color: #3a6fe2;
     width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.2px solid #c4cae0;
-}
-
-p {
-
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    color: #606060;
-    font-size: 25px;
-    font-weight: 400;
-    font-weight: bold;
-
-
-}
-
-form {
-    width: 100%;
-    position: relative;
-    margin: 20px auto 0 auto;
-}
-
-.row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px 30px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-
-}
-
-label {
-    color: #1c093c;
-    font-size: 15px;
-
-}
-
-textarea,
-input {
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.2px solid #c4cae0;
-}
-
-textarea {
-    resize: none;
-}
-
-textarea:focus,
-input:focus {
-    outline: none;
-    border-color: #6f6df4;
-}
-
-.gender {
-    display: inline;
-}
-
-.footer {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-.footer button {
-
-    background-color: #0030b8;
-    width: 80px;
-    border-radius: 5px;
-    height: 35px;
-    color: #ffffff;
-
-}
-
-.logo img {
-    width: 150px;
-    height: 150px;
-    /* margin-left: 250px;
-    margin-top: 20px; */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.account span {
-    color: rgb(7, 8, 8);
-}
-
-.account a {
-    color: red;
-}
-
-.container p {
-    color: tomato;
-}
-
-
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-}
-.row {
-    display: flex;
-  }
-  
-  .column {
-    flex: 1; /* Adjust the flex property to control the width of each column */
-    margin-right: 10px; /* Adjust margin between the columns */
-  }
-
-.example-full-width {
-    width: 100%;
-}
-
-.custom-file-upload {
-    display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 12px;
+    color: white;
+    text-transform: uppercase;
     cursor: pointer;
-    background: #2196F3;
-    color: #fff;
-    border-radius: 5px;
-  }
-  
-  .custom-file-upload mat-icon {
-    vertical-align: middle;
-    margin-right: 5px;
-  }
-  
+    border-radius: 10px;
+}
 
+.have-account{
+    width: 100%;
+    font-weight: 700;
+}
 
-
-
-
-
-@media only screen and (max-width : 480px) {
-    .container h1 {
-        font-size: 15px;
+@media only screen and (max-width: 1024px){
+    .state-signup-container{
+        flex-direction: column;
     }
-
-    .container {
+    .state-signup-left{
+        width: 100%;
+        height: 30%;
+        border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px ; 
+    }
+    .men-img{
+        height: 150px;
+        width: 150px;
+    }
+    .state-signup-right{
         width: 100%;
     }
 }
 
-@media only screen and (max-width : 768px) and (min-width: 481px) {
-    .container h1 {
-        font-size: 20px;
-
-        /* display: block; */
-    }
-
-    .container {
-        width: 90%;
+@media only screen and (max-width: 768px){
+    .state-signup-form{
+        width: 100%;
     }
 }
-
-@media only screen and (max-width : 1024px) {}
