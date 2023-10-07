@@ -996,4 +996,23 @@ export class UserService {
     });
   }
 
+  //create business developer
+
+  createrBusinessDeveloper(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}/admin/create-bd`, formData);
+  }
+ 
+  //fetch bd details
+  callApiToBdDetails(data:any){
+    return this.http.post(this.url + "/franchise/frenchise/all-bd-details-referred-by-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  ///bd/login-bd
+  bdLogin(data:any){
+    return this.http.post(this.url + "/bd/login-bd",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

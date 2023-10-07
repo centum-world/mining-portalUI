@@ -44,6 +44,10 @@ setStateToken(response:any){
   localStorage.setItem('stateToken',response);
 }
 
+setBdToken(response:any){
+  localStorage.setItem('bdToken',response);
+}
+
 setFranchiseToken(response:any){
   localStorage.setItem("franchiseToken",response)
 }

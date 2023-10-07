@@ -125,6 +125,11 @@ import { PendingPartnersComponent } from './components/admin/pending-partners/pe
 import { PartnerReferralPayoutRequestComponent } from './components/admin/partner-referral-payout-request/partner-referral-payout-request.component';
 import { PartnerReferralPayoutApprovedComponent } from './components/admin/partner-referral-payout-approved/partner-referral-payout-approved.component';
 import { AddMemberComponent } from './components/admin/dialog/add-member/add-member.component';
+import { AddBusinessDeveloperComponent } from './components/franchise/add-business-developer/add-business-developer.component';
+import { ListBusinessDeveloperComponent } from './components/franchise/list-business-developer/list-business-developer.component';
+import { BdDashboardComponent } from './components/bd/bd-dashboard/bd-dashboard.component';
+import { BdHeaderComponent } from './components/bd/bd-header/bd-header.component';
+import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
 
 
 
@@ -232,6 +237,11 @@ import { AddMemberComponent } from './components/admin/dialog/add-member/add-mem
     PartnerReferralPayoutRequestComponent,
     PartnerReferralPayoutApprovedComponent,
     AddMemberComponent,
+    AddBusinessDeveloperComponent,
+    ListBusinessDeveloperComponent,
+    BdDashboardComponent,
+    BdHeaderComponent,
+    BdLoginComponent,
   
   ],
   imports: [

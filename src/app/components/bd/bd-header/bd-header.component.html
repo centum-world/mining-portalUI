@@ -1,0 +1,63 @@
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <h3><a class="fa fa-qrcode" href="/memberdashboard"></a></h3>
+    <h2><span class="fa fa-qrcode"></span><a  href="javascript:void(0)" (click)="refresh()" style="color: #fff;">Dashboard</a></h2>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-user" [matMenuTriggerFor]="menuProfile"></i>
+          <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
+        </a>
+        
+      </li>
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-user"></i>
+          <span (click)="listBussinessDeveloper()">BD List</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href=""><i class="fa fa-sign-out"></i>
+          <span (click)="logOut()">Log Out</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  <mat-menu #menuProfile="matMenu">
+    <button mat-menu-item (click)="openDialog()">Details</button>
+    <button mat-menu-item  (click)="openFranchiseDocumentsDialog()">Documents</button>
+  </mat-menu>
+</div> 
+<div class="main-content">
+  <header>
+    <h2>
+      <label for="nav-toggle">
+
+        <div class="d-flex justify-content-between">
+          <span class="fa fa-bars"></span>
+          <span>CENTUM WORLD</span>
+        </div>
+      </label>
+
+    </h2>
+
+    <div class="user-wrapper">
+      <button mat-button class="loin_button" [matMenuTriggerFor]="menu"><img src="assets/image/profile.png" alt=""
+          width="50px" height="50px"></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button>
+        <button mat-menu-item data-toggle="modal" data-target="#memberSummary">Summary</button>
+        <a href="" mat-menu-item (click)="logOut()">Log Out</a>
+      </mat-menu>
+      <div>
+
+        <small style="color: crimson;"></small>
+      </div>
+    </div>
+  </header>
+
+</div>

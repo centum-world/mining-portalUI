@@ -75,6 +75,9 @@ export class HeaderComponent implements OnInit {
   FranchisePage() {
     this.router.navigate(["/franchiselogin"]);
   }
+  BusinessPage(){
+    this.router.navigate(["/businesslogin"]);
+  }
   toggleMobileSidebar() {
     console.log("button pressed")
     this.isMobileSidebarVisible = !this.isMobileSidebarVisible;
