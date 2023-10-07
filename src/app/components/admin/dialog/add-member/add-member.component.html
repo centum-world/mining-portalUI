@@ -1,0 +1,132 @@
+<!-- add-member.component.html -->
+<h1 class="custom-heading" mat-dialog-title>Add Member</h1>
+<div mat-dialog-content>
+    <!-- Member Details Form -->
+    <form [formGroup]="userForm" (ngSubmit)="onSaveMemberDetails()">
+        <div class="row">
+            <!-- First Name -->
+            <mat-form-field class="col">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Enter First Name" formControlName="name">
+            </mat-form-field>
+
+            <!-- Last Name -->
+            <mat-form-field class="col">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Enter Last Name" formControlName="lname">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Enter Phone" formControlName="phone">
+
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Enter Address" formControlName="address"></textarea>
+        </mat-form-field>
+
+        <div class="row">
+            <!-- Refer ID -->
+            <mat-form-field class="col">
+                <mat-label>Refer ID</mat-label>
+                <input matInput placeholder="Enter Refer ID" formControlName="reffered_id" disabled>
+            </mat-form-field>
+
+            <!-- State -->
+            <mat-form-field class="col">
+                <mat-label>State</mat-label>
+                <input matInput placeholder="Enter State" formControlName="state">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Designation</mat-label>
+            <mat-select formControlName="designation">
+                <mat-option value="">Select</mat-option>
+                <mat-option value="software_engineer">Software engineer</mat-option>
+                <mat-option value="business_manager">Business Manager</mat-option>
+                <mat-option value="web_developer">Web Developer</mat-option>
+                <mat-option value="full_stack">Full stack developer</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="row">
+            <!-- Highest Qualification -->
+            <!-- add-member.component.html -->
+            <!-- ... (previous code) -->
+
+            <!-- Highest Qualification -->
+            <mat-form-field class="col">
+                <mat-label>Highest Qualification</mat-label>
+                <mat-radio-group formControlName="qualification">
+                    <mat-radio-button value="matric">10th</mat-radio-button>
+                    <mat-radio-button value="inter">10+2</mat-radio-button>
+                    <mat-radio-button value="graduation">Graduation</mat-radio-button>
+                </mat-radio-group>
+            </mat-form-field>
+
+            <!-- Gender -->
+            <mat-form-field class="col">
+                <mat-label>Gender</mat-label>
+                <mat-radio-group formControlName="gender">
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    <mat-radio-button value="other">Other</mat-radio-button>
+                </mat-radio-group>
+            </mat-form-field>
+
+            <!-- ... (rest of the code) -->
+
+        </div>
+
+        <mat-form-field>
+            <mat-label>Experience</mat-label>
+            <mat-select formControlName="experience">
+                <mat-option value="undefined">Select</mat-option>
+                <mat-option *ngFor="let data of userExperience" [value]="data.name">{{ data.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Salary</mat-label>
+            <input matInput placeholder="Enter Salary" formControlName="salary">
+        </mat-form-field>
+
+        <div class="row">
+            <!-- Date of Birth -->
+            <mat-form-field class="col">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput type="date" formControlName="dob">
+            </mat-form-field>
+
+            <!-- Date of Joining -->
+            <mat-form-field class="col">
+                <mat-label>Date of Joining</mat-label>
+                <input matInput type="date" formControlName="doj">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>User ID</mat-label>
+            <input matInput placeholder="Enter User ID" formControlName="user_id">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>User Password</mat-label>
+            <input matInput placeholder="Enter User Password" formControlName="user_password" type="password">
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button [disabled]="!userForm.valid" type="submit">Save</button>
+</div>

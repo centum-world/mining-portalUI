@@ -118,6 +118,13 @@ import { PartnerWalletHistoryComponent } from './components/admin/partner-wallet
 import { MemberWalletHistoryComponent } from './components/admin/member-wallet-history/member-wallet-history.component';
 import { MemberWithdrawalRequestComponent } from './components/admin/member-withdrawal-request/member-withdrawal-request.component';
 import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-approved/confirm-approved.component';
+import { MemberApprovedWithdrawalHistoryComponent } from './components/admin/member-approved-withdrawal-history/member-approved-withdrawal-history.component';
+import { PartnerWithdrawalRequestComponent } from './components/admin/partner-withdrawal-request/partner-withdrawal-request.component';
+import { PartnerApprovedWithdrawalHistoryComponent } from './components/admin/partner-approved-withdrawal-history/partner-approved-withdrawal-history.component';
+import { PendingPartnersComponent } from './components/admin/pending-partners/pending-partners.component';
+import { PartnerReferralPayoutRequestComponent } from './components/admin/partner-referral-payout-request/partner-referral-payout-request.component';
+import { PartnerReferralPayoutApprovedComponent } from './components/admin/partner-referral-payout-approved/partner-referral-payout-approved.component';
+import { AddMemberComponent } from './components/admin/dialog/add-member/add-member.component';
 
 
 
@@ -218,6 +225,13 @@ import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-appr
     PartnerWalletHistoryComponent,
     MemberWalletHistoryComponent,
     MemberWithdrawalRequestComponent,
+    MemberApprovedWithdrawalHistoryComponent,
+    PartnerWithdrawalRequestComponent,
+    PartnerApprovedWithdrawalHistoryComponent,
+    PendingPartnersComponent,
+    PartnerReferralPayoutRequestComponent,
+    PartnerReferralPayoutApprovedComponent,
+    AddMemberComponent,
   
   ],
   imports: [
@@ -291,7 +305,8 @@ import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-appr
     AdminEditFranchiseComponent,
     ConfirmApprovedComponent,
     EditFranchiseComponent,
-    AdminEditFranchiseComponent
+    AdminEditFranchiseComponent,
+    AddMemberComponent
   ],
   providers: [
     {

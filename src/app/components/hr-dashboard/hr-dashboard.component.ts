@@ -5,6 +5,7 @@ import { ShareService } from 'src/app/shareService/share.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AddMemberComponent } from '../admin/dialog/add-member/add-member.component';
 
 
 @Component({
@@ -423,27 +424,49 @@ export class HrDashboardComponent implements OnInit {
   memberWithdrawalRequestViewList() {
     this.router.navigate(['/dashboard/member-withdrawal-request']);
   }
-  // partnerWalletHistoryDialog(){
 
-  //    this.userService.partnerWalletShownInAdminPanel().subscribe({
-  //     next: (response: any) => {
-  //       if (response) {
-  //           console.log(response.data)
-  //           let config:MatDialogConfig = {
-  //           panelClass:'stateViewBankDetailsDialogClass', data : response.data
-  //           };
-  //           const dialogRef = this.dialog.open(PartnerWalletHostoryComponent,config);
-  //           dialogRef.afterClosed().subscribe(result => {
-  //             console.log('The dialog was closed');
-  //             // Do something with the result if needed
-  //           })
-  //       }
-  //     },
-  //     error: error => {
-  //      console.log(error)
-  //     }
-  //   })
-    
+  miningPartnerViewList(){
+    this.router.navigate(['/dashboard/partner-history'])
+  }
+
+  memberApprovedWithdrawalViewList(){
+    this.router.navigate(['/dashboard/member-approved-withdrawals'])
+  }
+
+  partnerWithdrawalRequestViewList(){
+    this.router.navigate(['/dashboard/partner-withdrawal-request']);
+  }
+
+  partnerApprovedWithdrawalHistoryViewList(){
+    this.router.navigate(['/dashboard/partner-approved-withdrawal']);
+  }
+
+  pendingPartnersViewList(){
+    this.router.navigate(['/dashboard/pending-partners']);
+  }
+
+  partnerReferralPayoutRequestViewList(){
+    this.router.navigate(['/dashboard/partner-referral-payout-request']);
+  }
+
+  partnerReferralPayoutApprovedViewList(){
+    this.router.navigate(['/dashboard/partner-referral-payout-approved'])
+  }
+
+
+  // -------------Add Member Dialog-------------------
+
+  // addMemberDialog(){
+
+  //   let config:MatDialogConfig = {
+  //      panelClass:'stateAddBankDialogClass'
+  //   };
+  //   const dialogRef = this.dialog.open(AddMemberComponent,config);
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     // Do something with the result if needed
+  //   });
   // }
 
 }

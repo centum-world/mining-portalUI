@@ -39,6 +39,12 @@ import { ActivePartnersHistoryComponent } from "./components/admin/active-partne
 import { PartnerWalletHistoryComponent } from "./components/admin/partner-wallet-history/partner-wallet-history.component";
 import { MemberWalletHistoryComponent } from "./components/admin/member-wallet-history/member-wallet-history.component";
 import { MemberWithdrawalRequestComponent } from "./components/admin/member-withdrawal-request/member-withdrawal-request.component";
+import { MemberApprovedWithdrawalHistoryComponent } from "./components/admin/member-approved-withdrawal-history/member-approved-withdrawal-history.component";
+import { PartnerWithdrawalRequestComponent } from "./components/admin/partner-withdrawal-request/partner-withdrawal-request.component";
+import { PartnerApprovedWithdrawalHistoryComponent } from "./components/admin/partner-approved-withdrawal-history/partner-approved-withdrawal-history.component";
+import { PendingPartnersComponent } from "./components/admin/pending-partners/pending-partners.component";
+import { PartnerReferralPayoutRequestComponent } from "./components/admin/partner-referral-payout-request/partner-referral-payout-request.component";
+import { PartnerReferralPayoutApprovedComponent } from "./components/admin/partner-referral-payout-approved/partner-referral-payout-approved.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -63,6 +69,12 @@ const routes: Routes = [
       {path: "partner-wallet-history", component:PartnerWalletHistoryComponent},
       {path:"member-wallet-history",component:MemberWalletHistoryComponent},
       {path:"member-withdrawal-request", component:MemberWithdrawalRequestComponent },
+      {path:"member-approved-withdrawals",component:MemberApprovedWithdrawalHistoryComponent},
+      {path:"partner-withdrawal-request",component:PartnerWithdrawalRequestComponent},
+      {path:"partner-approved-withdrawal",component:PartnerApprovedWithdrawalHistoryComponent},
+      {path:"partner-referral-payout-request",component:PartnerReferralPayoutRequestComponent},
+      {path:"pending-partners",component:PendingPartnersComponent},
+      {path:"partner-referral-payout-approved",component:PartnerReferralPayoutApprovedComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
       {path: "franchise-account/:id", component: FranchiseAccountComponent}
     ]

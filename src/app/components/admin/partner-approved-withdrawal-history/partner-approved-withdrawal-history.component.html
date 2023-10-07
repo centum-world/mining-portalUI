@@ -1,6 +1,6 @@
 <div class="sho-list-header" style="display: flex; justify-content: space-between;">
     <div class="title">
-        <p>Member Withdrawal Request</p>
+        <p>Partner Approved Withdrawal</p>
     </div>
     <div class="search">
         <mat-form-field>
@@ -19,49 +19,37 @@
             </ng-container>
 
             <!-- Other Columns -->
-            <ng-container matColumnDef="m_userid">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Member ID</th>
-                <td mat-cell *matCellDef="let walletAmount">{{ walletAmount.m_userid }} </td>
+            <ng-container matColumnDef="p_userid">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Partner ID</th>
+                <td mat-cell *matCellDef="let walletAmount">{{ walletAmount.p_userid }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="member_wallet">
+            <ng-container matColumnDef="partner_wallet">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Amount</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.member_wallet | currency:'INR' }} </td>
+                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.partner_wallet | currency:'INR' }} </td>
             </ng-container>
 
             <ng-container matColumnDef="serviceCharge">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Service Charge</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ (walletAmount.member_wallet*5)/100 | currency:'INR' }}
+                <td mat-cell *matCellDef="let walletAmount"> {{ (walletAmount.partner_wallet*5)/100 | currency:'INR' }}
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="paybleAmount">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Payble Amount</th>
                 <td mat-cell *matCellDef="let walletAmount" style="font-weight: bold;"> {{
-                    (walletAmount.member_wallet-(walletAmount.member_wallet*5)/100) | currency:'INR'}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="refferal">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Referral</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.reffer_p_userid }} </td>
+                    (walletAmount.partner_wallet-(walletAmount.partner_wallet*5)/100) | currency:'INR'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="request_date">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header"> Request Date</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.request_date | date:'medium' }} </td>
+                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.request_date | date }} </td>
             </ng-container>
 
-            <!-- Action Column -->
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Action </th>
-                <td mat-cell *matCellDef="let walletAmount">
-                    <!-- Add an Approve button with accent color -->
-                    <button mat-raised-button color="accent" (click) = "approveRequest(walletAmount.m_userid,walletAmount.id)">Approve</button>
-                </td>
+            <ng-container matColumnDef="approve_date">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Approve Date</th>
+                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.approve_date | date }} </td>
             </ng-container>
-
-
-            <!-- Define other columns as needed -->
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let walletAmount; columns: displayedColumns;"></tr>

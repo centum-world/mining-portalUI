@@ -1,4 +1,3 @@
-
 <div class="main-content">
   <main>
 
@@ -7,6 +6,7 @@
         <div>
           <h6>
             <div class=" fa fa-plus" data-toggle="modal" data-target="#teamMates"></div>
+            <!-- <div class=" fa fa-plus" (click)="addMemberDialog()" ></div> -->
           </h6>
 
 
@@ -19,7 +19,7 @@
           <span>view</span>
         </div> -->
         <div class="icon" (click)="viewMemberHistoryList()">
-         
+
           <span>view</span>
         </div>
       </div>
@@ -30,9 +30,13 @@
           <span>Add Partner</span>
         </div>
 
-        <div class="icon" (click)="viewList('view_mining_partner')">
-          
-          <!-- <span><i class="fa fa-eye"></i></span> -->
+        <!-- <div class="icon" (click)="viewList('view_mining_partner')">
+           
+          <span>view</span>
+
+        </div> -->
+
+        <div class="icon" (click)="miningPartnerViewList()">
           <span>view</span>
 
         </div>
@@ -46,8 +50,10 @@
             <h6>Total Liquidity :</h6>
           </div>
 
-          <div class=" icon col-sm-4" (click)="viewList('active_partner')">
-        
+          <!-- <div class=" icon col-sm-4" (click)="viewList('active_partner')">
+            <span>view</span>
+          </div> -->
+          <div class=" icon col-sm-4" (click)="activePartnerViewList()">
             <span>view</span>
           </div>
           <div>
@@ -75,7 +81,7 @@
           <span>Partner History</span>
         </div>
         <div class="icon">
-          <span (click)="partnerWalletHistoryViewList()" >view</span>
+          <span (click)="partnerWalletHistoryViewList()">view</span>
         </div>
       </div>
 
@@ -95,7 +101,7 @@
           <span>Member History</span>
         </div>
         <div class="icon">
-          <span (click)="memberWalletHistoryViewList()" >view</span>
+          <span (click)="memberWalletHistoryViewList()">view</span>
         </div>
       </div>
 
@@ -124,8 +130,10 @@
           <h6>Approved Withdrawal</h6>
           <span>Member</span>
         </div>
-        <div class="icon" (click)="viewList('approved-member-history')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('approved-member-history')">
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="memberApprovedWithdrawalViewList()">
           <span>view</span>
         </div>
       </div>
@@ -137,10 +145,13 @@
           <span>Partner</span>
 
         </div>
-        <div class="icon" (click)="viewList('send_withdrawal')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('send_withdrawal')">
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="partnerWithdrawalRequestViewList()">
           <span>view</span>
         </div>
+
       </div>
 
       <div class="card-single">
@@ -148,8 +159,10 @@
           <h6>Approved Withdrawal</h6>
           <span>Partner</span>
         </div>
-        <div class="icon" (click)="viewList('approved_withdrawal')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('approved_withdrawal')">
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="partnerApprovedWithdrawalHistoryViewList()">
           <span>view</span>
         </div>
       </div>
@@ -159,8 +172,10 @@
           <h6>Pending Partners</h6>
           <span>Payment</span>
         </div>
-        <div class="icon" (click)="viewList('pending_payment')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('pending_payment')">
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="pendingPartnersViewList()">
           <span>view</span>
         </div>
       </div>
@@ -170,8 +185,10 @@
           <h6>Refferal Request</h6>
           <span>Partner</span>
         </div>
-        <div class="icon" (click)="viewList('refferal_request')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('refferal_request')">
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="partnerReferralPayoutRequestViewList()">
           <span>view</span>
         </div>
       </div>
@@ -181,8 +198,10 @@
           <h6>Refferal Approved</h6>
           <span>Partner</span>
         </div>
-        <div class="icon" (click)="viewList('refferal_approved')">
-          <!-- <i class="fa fa-eye"></i> -->
+        <!-- <div class="icon" (click)="viewList('refferal_approved')">
+          <span>view</span>
+        </div> -->
+        <div class="icon" (click)="partnerReferralPayoutApprovedViewList()">
           <span>view</span>
         </div>
       </div>

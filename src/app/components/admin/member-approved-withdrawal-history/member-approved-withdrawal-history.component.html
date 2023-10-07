@@ -1,6 +1,6 @@
 <div class="sho-list-header" style="display: flex; justify-content: space-between;">
     <div class="title">
-        <p>Member Withdrawal Request</p>
+        <p>Member Approved Withdrawal</p>
     </div>
     <div class="search">
         <mat-form-field>
@@ -48,17 +48,22 @@
 
             <ng-container matColumnDef="request_date">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header"> Request Date</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.request_date | date:'medium' }} </td>
+                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.request_date | date }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="approve_date">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Approve Date</th>
+                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.approve_date | date }} </td>
             </ng-container>
 
             <!-- Action Column -->
-            <ng-container matColumnDef="action">
+            <!-- <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header"> Action </th>
                 <td mat-cell *matCellDef="let walletAmount">
-                    <!-- Add an Approve button with accent color -->
+                   
                     <button mat-raised-button color="accent" (click) = "approveRequest(walletAmount.m_userid,walletAmount.id)">Approve</button>
                 </td>
-            </ng-container>
+            </ng-container> -->
 
 
             <!-- Define other columns as needed -->

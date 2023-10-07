@@ -5,24 +5,24 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
-interface MemberWithdrawalRequest {
-  m_userid: string,
-  member_wallet: number,
+interface PartnerReferralPayoutRequest {
+  p_userid: string,
+  partner_wallet: number,
   reffer_p_userid: string,
   request_date:Date,
   action:string
 }
 
 @Component({
-  selector: 'app-member-withdrawal-request',
-  templateUrl: './member-withdrawal-request.component.html',
-  styleUrls: ['./member-withdrawal-request.component.css']
+  selector: 'app-partner-referral-payout-request',
+  templateUrl: './partner-referral-payout-request.component.html',
+  styleUrls: ['./partner-referral-payout-request.component.css']
 })
-export class MemberWithdrawalRequestComponent implements OnInit {
+export class PartnerReferralPayoutRequestComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  displayedColumns: string[] = ['serialNumber', 'm_userid', 'member_wallet','serviceCharge', 'paybleAmount','refferal','request_date','action'];
-  dataSource: MatTableDataSource<MemberWithdrawalRequest>;
+  displayedColumns: string[] = ['serialNumber', 'p_userid', 'partner_wallet','serviceCharge', 'paybleAmount','refferal','request_date','action'];
+  dataSource: MatTableDataSource<PartnerReferralPayoutRequest>;
 
   constructor(
     private userService: UserService,
@@ -32,12 +32,12 @@ export class MemberWithdrawalRequestComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.callApiToFetchMemberWithdrawalRequest();
+    this.callApiToFetchPartnerReferralPayoutRequest();
     this.dataSource.paginator = this.paginator;
   }
 
-  callApiToFetchMemberWithdrawalRequest() {
-    this.userService.memberWithdrawalRequest().subscribe({
+  callApiToFetchPartnerReferralPayoutRequest() {
+    this.userService.fetchPartnerRefferalAmountRequest().subscribe({
       next: (res: any) => {
         // console.log(res)
         const dataWithSerial = this.addSerialNumbers(res.data);
@@ -53,20 +53,20 @@ export class MemberWithdrawalRequestComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  addSerialNumbers(data: MemberWithdrawalRequest[]): MemberWithdrawalRequest[] {
+  addSerialNumbers(data: PartnerReferralPayoutRequest[]): PartnerReferralPayoutRequest[] {
     return data.map((item, index) => ({ ...item, serialNumber: index + 1 }));
   }
 
   approveRequest(value:any,id:any) {
     console.log(id,value);
     let data = {
-      m_userid: value,
+      p_userid: value,
       id:id
     }
-    this.userService.adminWillApprovedMemberRequest(data).subscribe({
+    this.userService.approvePartnerRefferalWithdrawalRequest(data).subscribe({
       next: (response: any) => {
         if (response) {
-          this.callApiToFetchMemberWithdrawalRequest();
+          this.callApiToFetchPartnerReferralPayoutRequest();
           this.toastr.success('Request Approved', 'Success');
         }
       },

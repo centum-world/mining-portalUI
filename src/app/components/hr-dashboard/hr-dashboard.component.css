@@ -187,7 +187,7 @@ header label span{
 }
 
 main{
-    margin-top: 85px;
+    margin-top: 10px;
     padding: 2rem 1.5rem; 
     /* background: #f0f0f0; */
     /* min-height: cals(100vh - 90px); */
@@ -318,6 +318,11 @@ table thead tr th, tbody tr td {
     }
     
 
+}
+@media screen and (max-width :768px) {
+    .modal-dialog, .modal-content{
+        width: 100%;
+    }
 }
 @media only screen and (max-width:1024px) and (min-width:769px){
     .cards{
