@@ -44,7 +44,10 @@ export class StatehandlerRegisterComponent implements OnInit {
   mobileFormControl = new FormControl('', [Validators.required, mobileNumberValidator()]);
   genderFormControl = new FormControl('', [Validators.required]);
   stateFormControl = new FormControl([], [Validators.required]);
-  profileImageControl = new FormControl(null, [
+  aadharFrontImageControl = new FormControl(null, [
+    Validators.required,// Custom file type validator
+  ]);
+  aadharBackImageControl = new FormControl(null, [
     Validators.required,// Custom file type validator
   ]);
   panControl = new FormControl(null, [
@@ -66,7 +69,8 @@ export class StatehandlerRegisterComponent implements OnInit {
       phone: this.mobileFormControl,
       gender: this.genderFormControl,
       state: this.stateFormControl,
-      aadhar: this.profileImageControl,
+      adhar_front_side: this.aadharFrontImageControl,
+      adhar_back_side: this.aadharBackImageControl,
       pan: this.panControl,
       stateHandlerId: this.stateIdFormControl,
       password: this.passwordFormControl
@@ -75,18 +79,21 @@ export class StatehandlerRegisterComponent implements OnInit {
 
   onFileSelected(event: any, fileType: string) {
     const file = event.target.files[0];
-    if (fileType === 'profileImage') {
-      this.profileImageControl.setValue(file);
+    if (fileType === 'aadharFrontImage') {
+      this.aadharFrontImageControl.setValue(file);
       this.fileTypeInvalid = !file.type.match('image/jpeg') && !file.type.match('image/png');
     } else if (fileType === 'panCard') {
       this.panControl.setValue(file);
       this.fileTypeInvalidPanCard = !file.type.match('image/jpeg') && !file.type.match('image/png');
+    }else if(fileType === "aadharBackImage"){
+      this.aadharBackImageControl.setValue(file);
+      this.fileTypeInvalid = !file.type.match('image/jpeg') && !file.type.match('image/png');
     }
   }
 
 
   addPartnerData(form: FormGroup) {
-    console.log('Form submitted:', form.value.fname, form.value.pan);
+    console.log('Form submitted:', form.value.fname, form.value.pan, "aadhar Image ==> ", form.value.adhar_back_side);
     const formData = new FormData();
     formData.append('fname', form.value.fname);
     formData.append('lname', form.value.lname);
@@ -94,11 +101,12 @@ export class StatehandlerRegisterComponent implements OnInit {
     formData.append('email', form.value.email);
     formData.append('gender', form.value.gender);
     formData.append('selectedState', form.value.state);
-    formData.append('adharCard', form.value.aadhar);
+    formData.append('adhar_front_side', form.value.adhar_front_side);
+    formData.append('adhar_back_side', form.value.adhar_back_side);
     formData.append('panCard', form.value.pan,);
     formData.append('stateHandlerId', form.value.stateHandlerId);
     formData.append('password', form.value.password);
-    formData.append('referredId',"admin@123");
+    formData.append('referredId',"admin123");
 
     this.userService.createSho(formData).subscribe({
       next: (response) => {
@@ -114,6 +122,10 @@ export class StatehandlerRegisterComponent implements OnInit {
       }
     })
     
+  }
+
+  gotoHome(){
+    window.open("/", "_parent")
   }
 
 
