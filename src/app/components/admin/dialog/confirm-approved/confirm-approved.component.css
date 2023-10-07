@@ -1,0 +1,36 @@
+.mat-dialog-title {
+    background-color: #b63003;
+    color: #fefefe;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: -24px;
+    margin-right: -23px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.custom-dialog-container {
+    margin-top: 0;
+    max-width: 100%; /* Set a maximum width */
+    width: 300px; /* Initial width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: white;
+    border-radius: 10px;
+}
+
+.custom-paragraph {
+    font-family: Calibri;
+    font-weight: 600;
+}
+
+.custom-ok-button {
+    background-color: greenyellow;
+    margin-left: 10px;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 767px) {
+    .custom-dialog-container {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+}

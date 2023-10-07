@@ -117,6 +117,8 @@ import { ActivePartnersHistoryComponent } from './components/admin/active-partne
 import { PartnerWalletHistoryComponent } from './components/admin/partner-wallet-history/partner-wallet-history.component';
 import { MemberWalletHistoryComponent } from './components/admin/member-wallet-history/member-wallet-history.component';
 import { MemberWithdrawalRequestComponent } from './components/admin/member-withdrawal-request/member-withdrawal-request.component';
+import { ConfirmApprovedComponent } from './components/admin/dialog/confirm-approved/confirm-approved.component';
+
 
 
 
@@ -210,6 +212,13 @@ import { MemberWithdrawalRequestComponent } from './components/admin/member-with
     MemberWalletHistoryComponent,
     MemberWithdrawalRequestComponent,
   
+    ConfirmApprovedComponent,
+    FranchiseAccountComponent,
+    ActivePartnersHistoryComponent,
+    PartnerWalletHistoryComponent,
+    MemberWalletHistoryComponent,
+    MemberWithdrawalRequestComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -278,6 +287,9 @@ import { MemberWithdrawalRequestComponent } from './components/admin/member-with
     ViewFranchiseComponent,
     EditMemberComponent,
     EditPartnerComponent,
+    EditFranchiseComponent,
+    AdminEditFranchiseComponent,
+    ConfirmApprovedComponent,
     EditFranchiseComponent,
     AdminEditFranchiseComponent
   ],

@@ -18,4 +18,7 @@ export class ShoViewComponent implements OnInit {
   ngOnInit() {
   }
 
+  clickOk(){
+    
+  }
 }
