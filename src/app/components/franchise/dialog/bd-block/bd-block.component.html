@@ -1,0 +1,9 @@
+<h1 class="custom-heading" mat-dialog-title>{{data.isBlocked === 1? 'Unblock' : 'Block'}} BD</h1>
+<div mat-dialog-content>
+    <p>Are you sure you want to {{data.isBlocked?'Unblock':'Block'}} this BD?</p>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button type="button" mat-dialog-close (click)="Block()">Ok</button>
+</div>

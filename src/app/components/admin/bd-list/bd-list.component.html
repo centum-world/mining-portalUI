@@ -1,25 +1,14 @@
-<div class="business-list-container">
+<div class="bd-list-header" style="display: flex; justify-content: space-between;">
     <div class="title">
-        <p>Business developer</p>
+        <p>State handler details</p>
     </div>
-    <div style="display: flex; justify-content: space-between;">
-        <div>
-            <mat-form-field  class="example-full-width" class="custom-form-field">
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-            </mat-form-field>
-        </div>
-        <div class="add-bd" (click)="createbd()">
-            <mat-icon>person_add</mat-icon>&nbsp;
-            <p style="display: flex; justify-content: center; align-items: center; padding-top: 15px;">
-                Create BD
-            </p>
-        </div>
+    <div class="search">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
     </div>
 </div>
-
-
 <div class="large-expand">
-
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="fname">

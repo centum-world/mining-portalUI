@@ -83,6 +83,9 @@ export class ShoHeaderComponent implements OnInit {
   handleWithdrawalClick(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
   }
+  dashboard(){
+    this.router.navigate(['/statedashboard'])
+  }
 
   logOut(){
     localStorage.clear();

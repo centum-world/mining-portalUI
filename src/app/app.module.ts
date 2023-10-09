@@ -133,6 +133,11 @@ import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
 import { PartnerAccountComponent } from './components/admin/partner-account/partner-account.component';
 import { MemberAccountComponent } from './components/admin/member-account/member-account.component';
 import { ActivateMiningPartnerComponent } from './components/admin/dialog/activate-mining-partner/activate-mining-partner.component';
+import { BdViewComponent } from './components/franchise/dialog/bd-view/bd-view.component';
+import { BdVerifyComponent } from './components/franchise/dialog/bd-verify/bd-verify.component';
+import { BdBlockComponent } from './components/franchise/dialog/bd-block/bd-block.component';
+import { BdEditComponent } from './components/franchise/dialog/bd-edit/bd-edit.component';
+import { BdListComponent } from './components/admin/bd-list/bd-list.component';
 
 
 
@@ -248,6 +253,11 @@ import { ActivateMiningPartnerComponent } from './components/admin/dialog/activa
     PartnerAccountComponent,
     MemberAccountComponent,
     ActivateMiningPartnerComponent,
+    BdViewComponent,
+    BdVerifyComponent,
+    BdBlockComponent,
+    BdEditComponent,
+    BdListComponent,
   
   ],
   imports: [
@@ -323,7 +333,11 @@ import { ActivateMiningPartnerComponent } from './components/admin/dialog/activa
     EditFranchiseComponent,
     AdminEditFranchiseComponent,
     AddMemberComponent,
-    ActivateMiningPartnerComponent
+    ActivateMiningPartnerComponent,
+    BdViewComponent,
+    BdVerifyComponent,
+    BdBlockComponent,
+    BdEditComponent
   ],
   providers: [
     {

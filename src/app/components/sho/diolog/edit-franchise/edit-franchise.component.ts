@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
 import {
   FormControl,
   FormBuilder,
@@ -27,12 +29,15 @@ export class EditFranchiseComponent implements OnInit {
     gender: "",
     state: "",
     city: [],
+    franchiseId: ''
   };
   gender: "";
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    @Inject(MAT_DIALOG_DATA,) public data: any,
+    private fb: FormBuilder, private userService: UserService,
+    private toastr: ToastrService
   ) {
+    this.franchiseData.franchiseId = data.franchiseId
     this.gender = data.gender;
     this.franchiseData.fname = data.fname;
     this.franchiseData.lname = data.lname;
@@ -41,7 +46,7 @@ export class EditFranchiseComponent implements OnInit {
     this.franchiseData.gender = data.gender;
     this.franchiseData.state = data.franchiseState;
     this.franchiseData.city = data.franchiseCity.split(",");
-    const districts =  allState.states.find((state)=>state.state === data.franchiseState)
+    const districts = allState.states.find((state) => state.state === data.franchiseState)
     this.distric = districts.districts;
     console.log(this.franchiseData.city)
   }
@@ -61,23 +66,24 @@ export class EditFranchiseComponent implements OnInit {
       ],
       gender: [this.franchiseData.gender],
       state: [this.franchiseData.state],
-      city: [[this.franchiseData.city], Validators.required],
+      city: [this.franchiseData.city, Validators.required],
     });
   }
 
-  onStateChange(selectedState: string){
-    this.distric=[];
+  onStateChange(selectedState: string) {
+    this.distric = [];
     console.log(selectedState)
-    const districts =  allState.states.find((state)=>state.state === selectedState)
+    const districts = allState.states.find((state) => state.state === selectedState)
     this.distric = districts.districts;
- }
+    console.log(this.distric)
+  }
 
   getErrorMessage() {
     return this.editForm.get("email").hasError("required")
       ? "You must enter a value"
       : this.editForm.get("email").hasError("email")
-      ? "Not a valid email"
-      : "";
+        ? "Not a valid email"
+        : "";
   }
 
   getErrorFnameMessage() {
@@ -91,9 +97,28 @@ export class EditFranchiseComponent implements OnInit {
       : "";
   }
 
-  editFormSubmit(form: FormGroup){
-    console.log(form.value)
-  }
+  editFormSubmit(form: FormGroup) {
+    console.log(form.value.city)
+    let data = {
+      fname: form.value.fname,
+      lname: form.value.lname,
+      email: form.value.email,
+      phone: form.value.phone,
+      gender: form.value.gender,
+      franchiseState: form.value.state,
+      franchiseCity: form.value.city,
+      franchiseId: this.franchiseData.franchiseId
+    }
+    console.log(data)
+    this.userService.editFranchiseByAdmin(data).subscribe({
+      next: (res: any) => {
+        this.toastr.success(res.message)
+      },
+      error: (err => {
+        this.toastr.warning(err.error.message)
+      })
 
-  
+    })
+
+  }
 }

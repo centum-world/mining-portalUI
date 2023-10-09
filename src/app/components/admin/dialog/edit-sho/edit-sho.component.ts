@@ -36,7 +36,7 @@ export class EditShoComponent implements OnInit {
     this.shoDetails.email = data.email;
     this.shoDetails.phone = data.phone;
     this.shoDetails.gender = data.gender;
-    this.shoDetails.state = data.selectedState || []
+    this.shoDetails.state = data.selectedState.split(",");
     this.shoDetails.id = data.stateHandlerId;
   }
 
@@ -55,7 +55,7 @@ export class EditShoComponent implements OnInit {
         [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
       ],
       gender: [this.shoDetails.gender],
-      state: [[this.shoDetails.state]]
+      state: [this.shoDetails.state]
     })
 
   }

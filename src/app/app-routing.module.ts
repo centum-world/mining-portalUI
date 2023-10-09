@@ -51,6 +51,7 @@ import { BdDashboardComponent } from "./components/bd/bd-dashboard/bd-dashboard.
 import { BdLoginComponent } from "./components/bd/bd-login/bd-login.component";
 import { PartnerAccountComponent } from "./components/admin/partner-account/partner-account.component";
 import { MemberAccountComponent } from "./components/admin/member-account/member-account.component";
+import { BdListComponent } from "./components/admin/bd-list/bd-list.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -71,6 +72,7 @@ const routes: Routes = [
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},
+      {path: "bd-history", component: BdListComponent},
       {path:"active-partners",component:ActivePartnersHistoryComponent},
       {path: "sho-account/:id", component : AccountShoComponent},
       {path: "partner-wallet-history", component:PartnerWalletHistoryComponent},

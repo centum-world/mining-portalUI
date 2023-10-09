@@ -35,6 +35,13 @@ export class AdminSidebarComponent implements OnInit {
   viewPartnerWalletHistoryList(){
     this.router.navigate(['/dashboard/partner-wallet-history'])
   }
+  BdHistory(){
+    this.router.navigate(['/dashboard/bd-history'])
+  }
+
+  gotoDahashboard(){
+    this.router.navigate(['/dashboard'])
+  }
 
   selectItem(itemName: string) {
     this.selectedItem = itemName;
