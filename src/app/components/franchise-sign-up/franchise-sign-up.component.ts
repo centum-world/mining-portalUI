@@ -45,11 +45,20 @@ function mobileNumberValidator(): ValidatorFn {
   encapsulation: ViewEncapsulation.None,
 })
 export class FranchiseSignUpComponent implements OnInit {
+  passwordFieldType: string = "password"; // Initial type is 'password'
+  showPasswordIcon: string = "visibility"; 
   states = allState.states.map((item) => item.state);
   cities = [];
 
   ngOnInit() {
     console.log(allState.states);
+  }
+
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
+    this.showPasswordIcon =
+      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
   stateSignUpForm: FormGroup;

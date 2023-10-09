@@ -1,210 +1,123 @@
-*,
-*:before,
-*:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
+@import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all ease-in-out 200ms;
 }
 
-
-body {
-    background-color: #0030b8 !important;
+::-webkit-scrollbar{
+    display: none;
 }
 
-.container {
-    background-color: #ffffff;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.15);
-    align-items: center;
-    justify-content: center;
+.franchise-singup-wrapper {
+  height: 100vh;
+  width: 100vw;
 }
 
-h1 {
-    padding-top: 25px;
-    font-size: 26px;
-    text-align: center;
-    color: #1c093c;
-    font-weight: 600;
+.franchise-signup-container {
+  height: 100%;
+  width: 100%;
+  background-image: url(../../../assets/image/Rectangle.png);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
 }
 
-.Gender {
-    display: flex;
-    margin-top: 10px;
+.franchise-signup-form {
+  height: max-content;
+  width: 60%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-y: scroll;
 }
 
-.Qualification {
-    display: flex;
+.f-singup-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.Designation,
-.Experiance {
+.f-form {
+  height: 100%;
+  width: 100%;
+}
+
+.name-input {
+  width: 100%;
+}
+
+.name-box {
     width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.2px solid #c4cae0;
+  display: flex;
+  gap: 1rem;
 }
 
-p {
-
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    color: #606060;
-    font-size: 25px;
-    font-weight: 400;
-    font-weight: bold;
-
-
-}
-
-form {
-    width: 100%;
-    position: relative;
-    margin: 20px auto 0 auto;
-}
-
-.row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px 30px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-
-}
-
-label {
-    color: #1c093c;
-    font-size: 15px;
-
-}
-
-textarea,
-input {
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.2px solid #c4cae0;
-}
-
-textarea {
-    resize: none;
-}
-
-textarea:focus,
-input:focus {
-    outline: none;
-    border-color: #6f6df4;
-}
-
-.gender {
-    display: inline;
-}
-
-.footer {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-.footer button {
-
-    background-color: #0030b8;
-    width: 80px;
-    border-radius: 5px;
-    height: 35px;
-    color: #ffffff;
-
-}
-
-.logo img {
-    width: 150px;
-    height: 150px;
-    /* margin-left: 250px;
-    margin-top: 20px; */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.account span {
-    color: rgb(7, 8, 8);
-}
-
-.account a {
-    color: red;
-}
-
-.container p {
-    color: tomato;
-}
-
-
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
+.fname-input, .lname-input, .email-input, .phone-input, .gender-input, .state-input, .district-input{
     width: 100%;
 }
-.row {
-    display: flex;
+
+.email-phone-box {
+  display: flex;
+  gap: 1rem;
+}
+
+.gender-state-box {
+  display: flex;
+  gap: 1rem;
+}
+
+.aadhar-pan-box,
+.user-id-password-box {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.user-input,
+.password-input {
+  width: 100%;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.regsiter-btn {
+  background: #212121;
+  color: white;
+  width: 100%;
+  padding: 12px 0px 12px;
+  border: none;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .franchise-signup-form {
+    width: 90%;
   }
-  
-  .column {
-    flex: 1; /* Adjust the flex property to control the width of each column */
-    margin-right: 10px; /* Adjust margin between the columns */
-  }
-
-.example-full-width {
+  .name-box, .gender-state-box, .aadhar-pan-box, .email-phone-box{
     width: 100%;
-}
-
-.custom-file-upload {
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: #2196F3;
-    color: #fff;
-    border-radius: 5px;
+    flex-wrap: wrap;
   }
-  
-  .custom-file-upload mat-icon {
-    vertical-align: middle;
-    margin-right: 5px;
+  .gender-state-box {
+    flex-wrap: wrap;
+}
+.f-form {
+    width: 100%;
   }
-  
-
-
-
-
-
-
-@media only screen and (max-width : 480px) {
-    .container h1 {
-        font-size: 15px;
-    }
-
-    .container {
-        width: 100%;
-    }
 }
-
-@media only screen and (max-width : 768px) and (min-width: 481px) {
-    .container h1 {
-        font-size: 20px;
-
-        /* display: block; */
-    }
-
-    .container {
-        width: 90%;
-    }
-}
-
-@media only screen and (max-width : 1024px) {}
