@@ -79,6 +79,25 @@ export class BdEditComponent implements OnInit {
     console.log(this.distric)
   }
 
+  getErrorMessage() {
+    return this.editForm.get("email").hasError("required")
+      ? "You must enter a value"
+      : this.editForm.get("email").hasError("email")
+        ? "Not a valid email"
+        : "";
+  }
+
+  getErrorFnameMessage() {
+    return this.editForm.get("fname").hasError("required")
+      ? "You must enter first name"
+      : "";
+  }
+  getErrorLnameMessage() {
+    return this.editForm.get("lname").hasError("required")
+      ? "You must enter last name"
+      : "";
+  }
+
   editFormSubmit(editForm:any){
     console.log(editForm.value.phone)
     let data = {

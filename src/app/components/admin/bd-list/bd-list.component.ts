@@ -124,6 +124,10 @@ export class BdListComponent implements OnInit {
       console.log("Closed");
     });
   }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   openEditBDDialog(data:any){
     let config: MatDialogConfig = {
       panelClass: 'myBdEditDialogClass',
