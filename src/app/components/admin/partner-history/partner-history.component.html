@@ -88,6 +88,16 @@
                 <td mat-cell *matCellDef="let partner"> {{partner.p_nominee_aadhar}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Status</th>
+                <td mat-cell *matCellDef="let partner">
+                    <ng-container *ngIf="partner.partner_status === '1'; else closedStatus">
+                        Active
+                    </ng-container>
+                </td>
+            </ng-container>
+
+
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header"> Actions </th>
                 <td mat-cell *matCellDef="let partner">
@@ -108,7 +118,10 @@
                         <button mat-menu-item (click)="openPartnerEditDialog(partner)" >
                             Edit
                         </button>
-                        <button mat-menu-item >
+                        <button mat-menu-item [disabled]="partner.partner_status === 1" (click)="openPartnerDoActivateDialog(partner)" >
+                            Do Activate
+                        </button>
+                        <button mat-menu-item (click)="gotoPartnerAccountSection(partner)">
                             Account
                         </button>
                         

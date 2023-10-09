@@ -130,6 +130,9 @@ import { ListBusinessDeveloperComponent } from './components/franchise/list-busi
 import { BdDashboardComponent } from './components/bd/bd-dashboard/bd-dashboard.component';
 import { BdHeaderComponent } from './components/bd/bd-header/bd-header.component';
 import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
+import { PartnerAccountComponent } from './components/admin/partner-account/partner-account.component';
+import { MemberAccountComponent } from './components/admin/member-account/member-account.component';
+import { ActivateMiningPartnerComponent } from './components/admin/dialog/activate-mining-partner/activate-mining-partner.component';
 
 
 
@@ -242,6 +245,9 @@ import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
     BdDashboardComponent,
     BdHeaderComponent,
     BdLoginComponent,
+    PartnerAccountComponent,
+    MemberAccountComponent,
+    ActivateMiningPartnerComponent,
   
   ],
   imports: [
@@ -316,7 +322,8 @@ import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
     ConfirmApprovedComponent,
     EditFranchiseComponent,
     AdminEditFranchiseComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    ActivateMiningPartnerComponent
   ],
   providers: [
     {

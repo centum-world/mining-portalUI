@@ -1,0 +1,149 @@
+<div class="account-header">
+    <p>Partner Account details</p>
+    <div class="wallet-div">₹ 8000</div>
+</div>
+<div class="account-content">
+    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
+        <mat-tab label="Request withdrawal">
+            <div class="bakk-div">
+                <!-- Check if memberRequestHistory is empty -->
+                <ng-container *ngIf="memberRequestHistory.length === 0; else requestList">
+                    <mat-card class="example-card">
+                        <mat-card-content>
+                            <p>No request found.</p>
+                        </mat-card-content>
+                    </mat-card>
+                </ng-container>
+
+                <!-- Display the list of requests if memberRequestHistory is not empty -->
+                <ng-template #requestList>
+                    <mat-card *ngFor="let data of memberRequestHistory" class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Request details</mat-card-title>
+                        </mat-card-header>
+                        <mat-divider></mat-divider>
+                        <mat-card-content class="single-line-content">
+                            <div class="bank-details">
+                                <h2>Member ID</h2><strong>{{data.m_userid}} </strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Referral</h2><strong>{{data.reffer_p_userid }}</strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Amount</h2><strong>{{data.member_wallet | currency:'INR':'symbol':'1.2-2'}}</strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Request date</h2><strong>{{data.request_date | date}} </strong>
+                            </div>
+                        </mat-card-content>
+                        <mat-divider></mat-divider>
+                        <mat-card-actions>
+                            <button mat-button style="background: green;">Request</button>
+                            <button mat-button style="background: red;"
+                                (click)="approved(data.id,data.m_userid)">Approve</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </ng-template>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Approved withdrawal">
+            <div class="bakk-div">
+                <!-- Check if approvedRequest is empty -->
+                <ng-container *ngIf="approvedRequest.length === 0; else approvedList">
+                    <mat-card class="example-card">
+                        <mat-card-content>
+                            <p>No approved withdrawals found.</p>
+                        </mat-card-content>
+                    </mat-card>
+                </ng-container>
+
+                <!-- Display the list of approved withdrawals if approvedRequest is not empty -->
+                <ng-template #approvedList>
+                    <mat-card *ngFor="let data of approvedRequest" class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Withdrawal details</mat-card-title>
+                        </mat-card-header>
+                        <mat-divider></mat-divider>
+                        <mat-card-content class="single-line-content">
+                            <div class="bank-details">
+                                <h2>Member ID</h2><strong>{{data.m_userid}} </strong>
+                            </div>
+                            <!-- Uncomment this section if you want to display bank name -->
+                            <!--
+                        <div class="bank-details">
+                           <h2>Bank name</h2><strong>{{data.bankName}}</strong>
+                        </div>
+                        -->
+                            <div class="bank-details">
+                                <h2>Amount</h2><strong>{{data.member_wallet | currency:'INR':'symbol':'1.2-2'}}</strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Referral</h2><strong>{{data.reffer_p_userid}}</strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Request date</h2><strong>{{data.request_date | date}} </strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Approved date</h2><strong>{{data.approve_date | date}} </strong>
+                            </div>
+                        </mat-card-content>
+                        <mat-divider></mat-divider>
+                        <mat-card-actions>
+                            <button mat-button style="background: rgb(0, 255, 38);">Approved successful</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </ng-template>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Bank details">
+            <div class="bakk-div">
+                <!-- Check if bankDetails is empty -->
+                <ng-container *ngIf="bankDetails.length === 0; else bankDetailsList">
+                    <mat-card class="example-card">
+                        <mat-card-content>
+                            <p>No bank details found.</p>
+                        </mat-card-content>
+                    </mat-card>
+                </ng-container>
+
+                <!-- Display the list of bank details if bankDetails is not empty -->
+                <ng-template #bankDetailsList>
+                    <mat-card *ngFor="let data of bankDetails" class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>Bank details</mat-card-title>
+                        </mat-card-header>
+                        <mat-divider></mat-divider>
+                        <mat-card-content class="single-line-content">
+                            <div class="bank-details">
+                                <h2>Holder name</h2><strong>{{data.holder_name}} </strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Bank name</h2><strong>{{data.bank_name}}</strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Branch name</h2><strong>{{data.branch_name}}</strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>Account name</h2><strong>{{data.account_no}} </strong>
+                            </div>
+                            <div class="bank-details">
+                                <h2>IDSC Code</h2><strong>{{data.ifsc_code}} </strong>
+                            </div>
+                        </mat-card-content>
+                        <mat-divider></mat-divider>
+                        <mat-card-actions>
+                            <button mat-button>Active</button>
+                            <button mat-button>UPI</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </ng-template>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

@@ -10,6 +10,7 @@ import { ViewMemberComponent } from '../dialog/view-member/view-member.component
 import { VerifyMemberComponent } from '../dialog/verify-member/verify-member.component';
 import { BlockMemberComponent } from '../dialog/block-member/block-member.component';
 import { EditMemberComponent } from '../dialog/edit-member/edit-member.component';
+import { Router } from '@angular/router';
 
 interface Member {
   m_userid: string,
@@ -39,6 +40,7 @@ export class MemberHistoryComponent implements OnInit {
     private userService: UserService,
     private toastr: ToastrService,
     private dialog: MatDialog,
+    private router:Router,
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -152,6 +154,11 @@ export class MemberHistoryComponent implements OnInit {
       this.callApiToFetchAllMember();
       console.log("closed")
     })
-  }  
+  } 
+  
+  gotoMemberAccountSection(memberData:any){
+    console.log(memberData.m_userid)
+    this.router.navigate(["dashboard/member-account", memberData.m_userid]);
+  }
 
 }
