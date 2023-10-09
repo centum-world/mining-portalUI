@@ -2,7 +2,7 @@
 <div class="sidebar">
   <div class="sidebar-brand">
     <h3><a class="fa fa-qrcode" href="/dashboard"></a></h3>
-    <h2><a style="color: #fff;" href="/dashboard"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a></h2>
+    <h2><a style="color: #fff;" href="javascript:void(0)" (click)="gotoDahashboard()"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a></h2>
 
   </div>
   <div class="sidebar-menu">
@@ -30,7 +30,7 @@
 
       <li>
         <div class="partner_history " (click)="viewList()">
-          <a href="javascript:void(0)" data-toggle="modal"><i class="fa fa-book"></i>
+          <a href="javascript:void(0)"><i class="fa fa-book"></i>
             <span>State Handler History(SHO)</span>
           </a>
         </div>
@@ -38,8 +38,16 @@
 
       <li>
         <div class="partner_history " (click)="FranchiseList()">
-          <a href="javascript:void(0)" data-toggle="modal"><i class="fa fa-book"></i>
+          <a href="javascript:void(0)"><i class="fa fa-book"></i>
             <span>Franchise History</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="partner_history " (click)="BdHistory()">
+          <a href="javascript:void(0)"><i class="fa fa-book"></i>
+            <span>BD History</span>
           </a>
         </div>
       </li>

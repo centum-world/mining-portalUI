@@ -49,6 +49,7 @@ import { AddBusinessDeveloperComponent } from "./components/franchise/add-busine
 import { ListBusinessDeveloperComponent } from "./components/franchise/list-business-developer/list-business-developer.component";
 import { BdDashboardComponent } from "./components/bd/bd-dashboard/bd-dashboard.component";
 import { BdLoginComponent } from "./components/bd/bd-login/bd-login.component";
+import { BdListComponent } from "./components/admin/bd-list/bd-list.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -69,6 +70,7 @@ const routes: Routes = [
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},
+      {path: "bd-history", component: BdListComponent},
       {path:"active-partners",component:ActivePartnersHistoryComponent},
       {path: "sho-account/:id", component : AccountShoComponent},
       {path: "partner-wallet-history", component:PartnerWalletHistoryComponent},

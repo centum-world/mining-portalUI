@@ -90,8 +90,8 @@ body {
 }
 
 .myStateEditDialogClass{
-  width: 45%;
-  height: 50%;
+  width: auto;
+  height:auto;
   .mat-dialog-container{
    border-radius: 20px;
    padding-top: 0;
@@ -129,6 +129,30 @@ body {
   .mat-dialog-container{
     border-radius: 20px;
     padding-top: 0px;
+  }
+}
+.myBdVieewDialogClass{
+  width: auto;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+  }
+}
+.myBdVerifyDialogClass{
+  width: auto;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+  }
+}
+.myBdEditDialogClass{
+  width: auto;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
   }
 }
 
@@ -192,6 +216,13 @@ body {
     }
   }
   .myStateWithdrawDialogClass{
+    width: 99%;
+    height: auto;
+    .mat-dialog-container{
+      height: auto;
+    }
+  }
+  .myBdEditDialogClass{
     width: 99%;
     height: auto;
     .mat-dialog-container{

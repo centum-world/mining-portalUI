@@ -130,6 +130,11 @@ import { ListBusinessDeveloperComponent } from './components/franchise/list-busi
 import { BdDashboardComponent } from './components/bd/bd-dashboard/bd-dashboard.component';
 import { BdHeaderComponent } from './components/bd/bd-header/bd-header.component';
 import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
+import { BdViewComponent } from './components/franchise/dialog/bd-view/bd-view.component';
+import { BdVerifyComponent } from './components/franchise/dialog/bd-verify/bd-verify.component';
+import { BdBlockComponent } from './components/franchise/dialog/bd-block/bd-block.component';
+import { BdEditComponent } from './components/franchise/dialog/bd-edit/bd-edit.component';
+import { BdListComponent } from './components/admin/bd-list/bd-list.component';
 
 
 
@@ -242,6 +247,11 @@ import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
     BdDashboardComponent,
     BdHeaderComponent,
     BdLoginComponent,
+    BdViewComponent,
+    BdVerifyComponent,
+    BdBlockComponent,
+    BdEditComponent,
+    BdListComponent,
   
   ],
   imports: [
@@ -316,7 +326,11 @@ import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
     ConfirmApprovedComponent,
     EditFranchiseComponent,
     AdminEditFranchiseComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    BdViewComponent,
+    BdVerifyComponent,
+    BdBlockComponent,
+    BdEditComponent
   ],
   providers: [
     {

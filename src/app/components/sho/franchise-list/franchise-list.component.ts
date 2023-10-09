@@ -163,6 +163,10 @@ export class FranchiseListComponent implements OnInit {
       data:id
     };
     const dialogRef = this.dialog.open(EditFranchiseComponent, config)
+    
+    dialogRef.afterClosed().subscribe(result => {
+      this.callApiToGetAllFranchiseList();
+    });
   }
 
 

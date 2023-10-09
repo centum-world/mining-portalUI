@@ -68,9 +68,9 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Gender</mat-label>
                             <mat-select placeholder="Select gender" [formControl]="genderFormControl">
-                                <mat-option value="male">Male</mat-option>
-                                <mat-option value="female">Female</mat-option>
-                                <mat-option value="other">Other</mat-option>
+                                <mat-option value="Male">Male</mat-option>
+                                <mat-option value="Female">Female</mat-option>
+                                <mat-option value="Other">Other</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 <mat-card-actions class="card-actions" align="end">
-                    <button mat-raised-button color="accent" (click)="resetForm()">Reset</button>
+                    <button mat-raised-button color="accent" type="button" (click)="resetForm()">Reset</button>
                   <button mat-raised-button type="submit" color="primary">Sign Up</button>
                 </mat-card-actions>
             </form>

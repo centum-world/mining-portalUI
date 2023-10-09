@@ -1015,4 +1015,29 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  //bd block unblock
+  bdBlockOrUnblock(data:any){
+    return this.http.post(this.url + "/bd/block-and-unblock-bd",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+  //bd verify
+  bdVerify(data:any){
+    return this.http.post(this.url + "/bd/verify-bd",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+  //edit bd
+  editAndUpdate(data:any){
+    return this.http.put(this.url + "/bd/update-bd",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+  //call bd list 
+  bdListAdminSide(){
+    return this.http.get(this.url + "/admin/fetch-all-bd", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

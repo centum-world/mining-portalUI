@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
-import { BdViewComponent } from '../dialog/bd-view/bd-view.component';
-import { BdVerifyComponent } from '../dialog/bd-verify/bd-verify.component';
-import { BdBlockComponent } from '../dialog/bd-block/bd-block.component';
-import { BdEditComponent } from '../dialog/bd-edit/bd-edit.component';
+import { BdViewComponent } from '../../franchise/dialog/bd-view/bd-view.component';
+import { BdVerifyComponent } from '../../franchise/dialog/bd-verify/bd-verify.component';
+import { BdBlockComponent } from '../../franchise/dialog/bd-block/bd-block.component';
+import { BdEditComponent } from '../../franchise/dialog/bd-edit/bd-edit.component';
 
 
 interface Bd {
@@ -27,53 +26,41 @@ interface Bd {
   verify: string;
   actions: string
 }
-
 @Component({
-  selector: 'app-list-business-developer',
-  templateUrl: './list-business-developer.component.html',
-  styleUrls: ['./list-business-developer.component.css']
+  selector: 'app-bd-list',
+  templateUrl: './bd-list.component.html',
+  styleUrls: ['./bd-list.component.css']
 })
-export class ListBusinessDeveloperComponent implements OnInit {
+export class BdListComponent implements OnInit {
   isBlock:boolean;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['businessDeveloperId', 'fname', 'lname', 'email', 'phone', 'gender',
     'businessCity', 'state',
     'referralId', 'referredId', 'isVerify', 'actions'
   ];
+
+
   dataSource: MatTableDataSource<Bd>;
-  constructor(private router: Router, private userService: UserService,
-     private dialog: MatDialog,
-     private toastr: ToastrService) {
+  constructor(private userService : UserService, private dialog: MatDialog, private toastr:ToastrService) { 
+
     this.dataSource = new MatTableDataSource([]);
   }
 
   ngOnInit() {
-    this.callApiToAllFranchise();
-    this.dataSource.paginator = this.paginator;
-  }
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.callApiToBDList();
   }
 
-  callApiToAllFranchise() {
-    let data = {
-      referralId: localStorage.getItem('franchiseReferralId')
-    }
-    this.userService.callApiToBdDetails(data).subscribe({
-      next: (res: any) => {
+  callApiToBDList(){
+    this.userService.bdListAdminSide().subscribe({
+      next:(res:any)=>{
         console.log(res.results)
         this.dataSource.data = res.results
       },
-      error: (err => {
-        console.log(err.error.message)
+      error:(error=>{
+        console.log(error.error.message)
       })
     })
   }
-
-  createbd() {
-    this.router.navigate(['/franchisedashboard/add-bd']);
-  }
-
 
   openViewBDDialog(data:any){
     let config: MatDialogConfig = {
@@ -98,7 +85,7 @@ export class ListBusinessDeveloperComponent implements OnInit {
       this.userService.bdVerify(data1).subscribe({
         next:(res:any)=>{
           this.toastr.success(res.message)
-          this.callApiToAllFranchise();
+          this.callApiToBDList();
         },
         error:(error=>{
           this.toastr.warning(error.error.message)
@@ -108,8 +95,8 @@ export class ListBusinessDeveloperComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("Closed");
     });
-  }
 
+  }
   openIsBlockDialog(data:any){
     let config: MatDialogConfig = {
       panelClass: 'myBdVerifyDialogClass',
@@ -126,7 +113,7 @@ export class ListBusinessDeveloperComponent implements OnInit {
       this.userService.bdBlockOrUnblock(data1).subscribe({
         next:(res:any)=>{
           this.toastr.success(res.message)
-          this.callApiToAllFranchise();
+          this.callApiToBDList();
         },
         error:(err=>{
           console.log(err.error.message)
@@ -144,7 +131,8 @@ export class ListBusinessDeveloperComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(BdEditComponent, config);
     dialogRef.afterClosed().subscribe(result => {
-      this.callApiToAllFranchise();
+      this.callApiToBDList();
     });
   }
+
 }
