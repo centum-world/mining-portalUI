@@ -64,11 +64,12 @@
                   mat-icon-button
                   matSuffix
                   (click)="togglePasswordVisibility()"
+                  type="button"
                 >
                   <mat-icon>{{ showPasswordIcon }}</mat-icon>
                 </button>
               </mat-form-field>
-              <button class="admin-login-btn" (click)="submit(loginForm)">
+              <button class="admin-login-btn" (click)="submit(loginForm)" type="submit">
                 <p class="btn-text">Proceed to my account</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
