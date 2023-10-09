@@ -30,7 +30,7 @@ export class AddMemberComponent implements OnInit {
     password:''
   }
   memberDetailsForm: FormGroup;
-
+  userExperience = []
   constructor(private userService:UserService,private formBuilder: FormBuilder, 
     private _snackBar:MatSnackBar,
     public dialogRef: MatDialogRef<AddMemberComponent>) {

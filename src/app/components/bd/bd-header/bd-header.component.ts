@@ -18,4 +18,16 @@ export class BdHeaderComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/statelogin']);
   }
+  refresh(){
+
+  }
+  listBussinessDeveloper(){
+
+  }
+  openDialog(){
+
+  }
+  openFranchiseDocumentsDialog(){
+    
+  }
 }
