@@ -34,12 +34,12 @@
 }
 
 .faadhar-input, .baadhar-input, .pan-input{
-    width: 30%;
+    width: 100%;
 }
 
 .aadhar-box{
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -75,7 +75,6 @@
     height: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .line{
@@ -89,6 +88,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 !important;
 }
 
 .name-input, .lname-input{
@@ -130,7 +133,6 @@
     }
     .state-signup-left{
         width: 100%;
-        height: 30%;
         border-top-right-radius: 0px;
     border-bottom-right-radius: 0px ; 
     }
@@ -140,11 +142,18 @@
     }
     .state-signup-right{
         width: 100%;
+        padding: 20px;
     }
 }
 
 @media only screen and (max-width: 768px){
     .state-signup-form{
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .s-company-name span{
+        font-size: 1rem;
     }
 }

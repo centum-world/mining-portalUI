@@ -28,6 +28,7 @@
               </svg>Password</mat-label>
             <input matInput [type]="passwordFieldType" formControlName="partner_password" required />
             <button
+            type="button"
                   mat-icon-button
                   matSuffix
                   (click)="togglePasswordVisibility()"
@@ -36,7 +37,7 @@
                 </button>
           </mat-form-field>
         </div>
-        <button class="start-btn" (click)="submit(partnerLoginForm)"> 
+        <button class="start-btn" (click)="submit(partnerLoginForm)" type="submit"> 
           Start my journey
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
             <mask id="mask0_12_1944" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
