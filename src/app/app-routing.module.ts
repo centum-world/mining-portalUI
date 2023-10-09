@@ -49,6 +49,7 @@ import { AddBusinessDeveloperComponent } from "./components/franchise/add-busine
 import { ListBusinessDeveloperComponent } from "./components/franchise/list-business-developer/list-business-developer.component";
 import { BdDashboardComponent } from "./components/bd/bd-dashboard/bd-dashboard.component";
 import { BdLoginComponent } from "./components/bd/bd-login/bd-login.component";
+import { WithdrawlFranchiseComponent } from "./components/franchise/withdrawl-franchise/withdrawl-franchise.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -113,6 +114,7 @@ const routes: Routes = [
       { path: "add-bd", component: AddBusinessDeveloperComponent},
       { path: "bd-list", component: ListBusinessDeveloperComponent},
       { path: "", redirectTo: "/franchisedashboard/home", pathMatch: "full" },
+      {path: "withdrawal-list", component: WithdrawlFranchiseComponent}
     ],
   },
   {

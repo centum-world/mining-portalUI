@@ -11,6 +11,8 @@ import { ToastrService } from "ngx-toastr";
 export class FranchiseAccountComponent implements OnInit {
   franchiseID: string
   bankDetails: []
+  franchiseHistory = []
+  approvedRequest = [];
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -41,6 +43,32 @@ export class FranchiseAccountComponent implements OnInit {
         },
       });
     } else if (event === 0) {
+      let data = {
+        userId: this.franchiseID
+      }
+      this.userService.paymentRequestForSho(data).subscribe({
+        next: (res: any) => {
+          console.log(res.paymentRequests)
+          this.franchiseHistory = res.paymentRequests;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
+    }
+    else if(event === 1){
+      let data = {
+        userId: this.franchiseID
+      }
+      this.userService.fetchPaymentApprovedForAll(data).subscribe({
+        next: (res: any) => {
+          console.log(res)
+          this.approvedRequest = res.paymentApprovals;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
     }
   }
 

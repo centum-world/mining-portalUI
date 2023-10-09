@@ -130,6 +130,7 @@ import { ListBusinessDeveloperComponent } from './components/franchise/list-busi
 import { BdDashboardComponent } from './components/bd/bd-dashboard/bd-dashboard.component';
 import { BdHeaderComponent } from './components/bd/bd-header/bd-header.component';
 import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
+import { WithdrawlFranchiseComponent } from './components/franchise/withdrawl-franchise/withdrawl-franchise.component';
 
 
 
@@ -242,6 +243,7 @@ import { BdLoginComponent } from './components/bd/bd-login/bd-login.component';
     BdDashboardComponent,
     BdHeaderComponent,
     BdLoginComponent,
+    WithdrawlFranchiseComponent,
   
   ],
   imports: [
