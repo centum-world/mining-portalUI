@@ -45,6 +45,8 @@ import { PartnerApprovedWithdrawalHistoryComponent } from "./components/admin/pa
 import { PendingPartnersComponent } from "./components/admin/pending-partners/pending-partners.component";
 import { PartnerReferralPayoutRequestComponent } from "./components/admin/partner-referral-payout-request/partner-referral-payout-request.component";
 import { PartnerReferralPayoutApprovedComponent } from "./components/admin/partner-referral-payout-approved/partner-referral-payout-approved.component";
+import { PartnerAccountComponent } from "./components/admin/partner-account/partner-account.component";
+import { MemberAccountComponent } from "./components/admin/member-account/member-account.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -75,6 +77,8 @@ const routes: Routes = [
       {path:"partner-referral-payout-request",component:PartnerReferralPayoutRequestComponent},
       {path:"pending-partners",component:PendingPartnersComponent},
       {path:"partner-referral-payout-approved",component:PartnerReferralPayoutApprovedComponent},
+      {path:"partner-account/:id",component:PartnerAccountComponent},
+      {path:"member-account/:id",component:MemberAccountComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
       {path: "franchise-account/:id", component: FranchiseAccountComponent}
     ]

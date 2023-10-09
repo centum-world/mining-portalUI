@@ -125,6 +125,9 @@ import { PendingPartnersComponent } from './components/admin/pending-partners/pe
 import { PartnerReferralPayoutRequestComponent } from './components/admin/partner-referral-payout-request/partner-referral-payout-request.component';
 import { PartnerReferralPayoutApprovedComponent } from './components/admin/partner-referral-payout-approved/partner-referral-payout-approved.component';
 import { AddMemberComponent } from './components/admin/dialog/add-member/add-member.component';
+import { PartnerAccountComponent } from './components/admin/partner-account/partner-account.component';
+import { MemberAccountComponent } from './components/admin/member-account/member-account.component';
+import { ActivateMiningPartnerComponent } from './components/admin/dialog/activate-mining-partner/activate-mining-partner.component';
 
 
 
@@ -232,6 +235,9 @@ import { AddMemberComponent } from './components/admin/dialog/add-member/add-mem
     PartnerReferralPayoutRequestComponent,
     PartnerReferralPayoutApprovedComponent,
     AddMemberComponent,
+    PartnerAccountComponent,
+    MemberAccountComponent,
+    ActivateMiningPartnerComponent,
   
   ],
   imports: [
@@ -306,7 +312,8 @@ import { AddMemberComponent } from './components/admin/dialog/add-member/add-mem
     ConfirmApprovedComponent,
     EditFranchiseComponent,
     AdminEditFranchiseComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    ActivateMiningPartnerComponent
   ],
   providers: [
     {

@@ -1,13 +1,13 @@
 <div class="account-header">
-   <p>SHO Account details</p>
+   <p>Partner Account details</p>
    <div class="wallet-div">₹ 8000</div>
 </div>
 <div class="account-content">
    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
       <mat-tab label="Request withdrawal">
          <div class="bakk-div">
-            <!-- Check if shoRequestHistory is empty -->
-            <ng-container *ngIf="shoRequestHistory.length === 0; else shoRequestList">
+            <!-- Check if partnerRequestHistory is empty -->
+            <ng-container *ngIf="partnerRequestHistory.length === 0; else partnerRequestList">
                <mat-card class="example-card">
                   <mat-card-content>
                      <p>No request withdrawals found.</p>
@@ -15,9 +15,9 @@
                </mat-card>
             </ng-container>
 
-            <!-- Display the list of request withdrawals if shoRequestHistory is not empty -->
-            <ng-template #shoRequestList>
-               <mat-card class="example-card" *ngFor="let data of shoRequestHistory">
+            <!-- Display the list of request withdrawals if partnerRequestHistory is not empty -->
+            <ng-template #partnerRequestList>
+               <mat-card class="example-card" *ngFor="let data of partnerRequestHistory">
                   <mat-card-header>
                      <div mat-card-avatar class="example-header-image"></div>
                      <mat-card-title>Bank details</mat-card-title>
@@ -25,16 +25,13 @@
                   <mat-divider></mat-divider>
                   <mat-card-content class="single-line-content">
                      <div class="bank-details">
-                        <h2>Id</h2><strong>{{data.userId}} </strong>
+                        <h2>Id</h2><strong>{{data.p_userid}} </strong>
                      </div>
                      <div class="bank-details">
-                        <h2>Bank name</h2><strong>{{data.paymentBy }}</strong>
+                        <h2>Amount</h2><strong>{{data.partner_wallet | currency:'INR':'symbol':'1.2-2'}}</strong>
                      </div>
                      <div class="bank-details">
-                        <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
-                     </div>
-                     <div class="bank-details">
-                        <h2>Request date</h2><strong>{{data.requestDate | date}} </strong>
+                        <h2>Request date</h2><strong>{{data.request_date | date}} </strong>
                      </div>
                   </mat-card-content>
                   <mat-divider></mat-divider>
@@ -67,19 +64,16 @@
                   <mat-divider></mat-divider>
                   <mat-card-content class="single-line-content">
                      <div class="bank-details">
-                        <h2>Id</h2><strong>{{data.userId}} </strong>
+                        <h2>Id</h2><strong>{{data.p_userid}} </strong>
                      </div>
                      <div class="bank-details">
-                        <h2>Bank name</h2><strong>{{data.bankName}}</strong>
+                        <h2>Amount</h2><strong>{{data.partner_wallet | currency:'INR':'symbol':'1.2-2'}}</strong>
                      </div>
                      <div class="bank-details">
-                        <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
+                        <h2>Request date</h2><strong>{{data.request_date | date}} </strong>
                      </div>
                      <div class="bank-details">
-                        <h2>Request date</h2><strong>{{data.requestDate | date}} </strong>
-                     </div>
-                     <div class="bank-details">
-                        <h2>Approved date</h2><strong>{{data.approveDate | date}} </strong>
+                        <h2>Approved date</h2><strong>{{data.approve_date | date}} </strong>
                      </div>
                   </mat-card-content>
                   <mat-divider></mat-divider>

@@ -9,6 +9,8 @@ import { MatDialogConfig } from '@angular/material/dialog';
 import { VerifyPartnerComponent } from '../dialog/verify-partner/verify-partner.component';
 import { BlockMiningPartnerComponent } from '../dialog/block-mining-partner/block-mining-partner.component';
 import { EditPartnerComponent } from '../dialog/edit-partner/edit-partner.component';
+import { Router } from '@angular/router';
+import { ActivateMiningPartnerComponent } from '../dialog/activate-mining-partner/activate-mining-partner.component';
 
 interface Partner {
   P_userid: string,
@@ -28,6 +30,7 @@ interface Partner {
   p_nominee_name:string,
   p_nominee_phone:Number,
   p_nominee_aadhar:Number,
+  status:string,
   actions: string,
 }
 
@@ -40,13 +43,14 @@ export class PartnerHistoryComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['p_userid', 'p_name', 'p_lname', 'p_email', 'p_phone', 'p_dob',
-    'p_refferal_id','p_reffered_id','p_address','p_state', 'p_liquidity', 'p_aadhar', 'p_nominee_name', 'p_nominee_phone', 'p_nominee_aadhar', 'actions'];
+    'p_refferal_id','p_reffered_id','p_address','p_state', 'p_liquidity', 'p_aadhar', 'p_nominee_name', 'p_nominee_phone', 'p_nominee_aadhar','status', 'actions'];
   dataSource: MatTableDataSource<Partner>;
 
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
     private dialog: MatDialog,
+    private router:Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -147,9 +151,47 @@ export class PartnerHistoryComponent implements OnInit {
       console.log("closed")
     })
   } 
-
-  applyFilter(data:any){
+  // applyFilter(data:any){
     
+  // }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  gotoPartnerAccountSection(miningPartnerData:any){
+    console.log(miningPartnerData.p_userid)
+    this.router.navigate(["dashboard/partner-account", miningPartnerData.p_userid]);
+  }
+
+  // ------------------
+
+  openPartnerDoActivateDialog(miningPartnerData: any) {
+    let config: MatDialogConfig = {
+      panelClass: 'verifyMemberDialogClass',
+      data: miningPartnerData
+    };
+    const dialogRef = this.dialog.open(ActivateMiningPartnerComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      console.log("clicked")
+      let data = {
+        // "partner_status": true,
+        "p_userid": miningPartnerData.p_userid
+      }
+      this.userService.doactivatePartnerManualFromAdmin(data).subscribe({
+        next: (res: any) => {
+          console.log(res)
+          this.callApiToFetchAllPartner();
+          this.toastr.success(res.message)
+        },
+        error: (err) => {
+          console.log(err)
+        }
+
+      })
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
   }
 
 }

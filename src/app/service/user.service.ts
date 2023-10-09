@@ -996,4 +996,17 @@ export class UserService {
     });
   }
 
+  fetchParticularMemberWithdrawalRequest(data:any){
+    return this.http.post(this.url + "/admin/fetch-particular-member-withdrawal-request",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  // fetchParticularMemberApprovedWithdrawalHistory
+  fetchParticularMemberApprovedWithdrawalHistory(data:any){
+    return this.http.post(this.url + "/admin/fetch-particular-member-approved-withdrawal-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
