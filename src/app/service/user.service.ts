@@ -1010,6 +1010,12 @@ export class UserService {
     });
   }
 
+  paymentApprovedForFranchise(data:any){
+    return this.http.post(this.url + "/admin/approve-payment-request-of-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
   fetchPaymentApprovedForAll(data:any){
     return this.http.post(this.url + "/admin/fetch-particular-payment-approve",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),

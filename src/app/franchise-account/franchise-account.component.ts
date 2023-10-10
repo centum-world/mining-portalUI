@@ -1,7 +1,9 @@
 import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from "ngx-toastr";
+import { ConfirmApprovedComponent } from '../components/admin/dialog/confirm-approved/confirm-approved.component';
 
 @Component({
   selector: 'app-franchise-account',
@@ -16,7 +18,8 @@ export class FranchiseAccountComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private dialog: MatDialog
   ) {
     this.route.params.subscribe(params => {
       this.franchiseID = params['id'];
@@ -70,6 +73,37 @@ export class FranchiseAccountComponent implements OnInit {
         }
       })
     }
+  }
+
+  approved(id: any) {
+
+    let config: MatDialogConfig = {
+       panelClass: 'requsetApprovedDialogClass'
+    };
+    const dialogRef = this.dialog.open(ConfirmApprovedComponent, config);
+
+
+      dialogRef.componentInstance.okClicked.subscribe(() => {
+        let data = {
+          id:id
+        }
+          this.userService.paymentApprovedForFranchise(data).subscribe({
+            next:(res:any)=>{
+              this.toastr.success(res.message)
+              this.tabChanged(0)
+            },
+            error:(err=>{
+              this.toastr.warning(err.error.message)
+            })
+          })
+
+        
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
+
   }
 
 }
