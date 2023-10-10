@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 interface BankDetails{
   holder_name:string;
@@ -23,18 +24,24 @@ export class FranchiseViewBankDetailsComponent implements OnInit {
     bankName:null
   };
 
+  franchiseId="";
   dataSource: MatTableDataSource<BankDetails>;
   displayFranchiseId = localStorage.getItem('franchiseId')
   displayedColumns: string[] = ['holder_name', 'bank_name', 'branch_name', 'account_no', 'ifsc_code'];
 
-  constructor(private userService:UserService, @Inject(MAT_DIALOG_DATA) public data:any) {
+  constructor(private userService:UserService,private toastr:ToastrService, @Inject(MAT_DIALOG_DATA) public data:any) {
 
     this.dataSource = new MatTableDataSource([]);
     this.dataSource.data = data
-    this.dataSource.data = data
-    console.log(data)
     this.bankDetails = data;
-    this.selectedBank.bankName = "SBI"
+
+    for (const entry of data) {
+      if (entry.isPrimary === 1) {
+        this.selectedBank.bankName = entry.bank_name;
+        this.franchiseId = entry.user_id;
+      }
+    }
+
    }
 
  
@@ -43,7 +50,20 @@ export class FranchiseViewBankDetailsComponent implements OnInit {
   }
 
   onRadioChange(){
-    console.log(this.selectedBank.bankName)
+    console.log(this.selectedBank.bankName, this.franchiseId);
+    let data = {
+      user_id: localStorage.getItem("franchiseId"),
+      bank_name: this.selectedBank.bankName
+    }
+
+    this.userService.franchieChangePrimarybank(data).subscribe({
+      next:(res:any)=>{
+        this.toastr.success(res.message)
+      },
+      error:(err=>{
+        this.toastr.warning(err.error.message)
+      })
+    })
   }
 
   callApiToShowFranchiseBankDetails() {

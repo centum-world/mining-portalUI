@@ -1,7 +1,9 @@
 import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from "ngx-toastr";
+import { ConfirmApprovedComponent } from '../components/admin/dialog/confirm-approved/confirm-approved.component';
 
 @Component({
   selector: 'app-franchise-account',
@@ -11,10 +13,13 @@ import { ToastrService } from "ngx-toastr";
 export class FranchiseAccountComponent implements OnInit {
   franchiseID: string
   bankDetails: []
+  franchiseHistory = []
+  approvedRequest = [];
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private dialog: MatDialog
   ) {
     this.route.params.subscribe(params => {
       this.franchiseID = params['id'];
@@ -41,7 +46,64 @@ export class FranchiseAccountComponent implements OnInit {
         },
       });
     } else if (event === 0) {
+      let data = {
+        userId: this.franchiseID
+      }
+      this.userService.paymentRequestForSho(data).subscribe({
+        next: (res: any) => {
+          console.log(res.paymentRequests)
+          this.franchiseHistory = res.paymentRequests;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
     }
+    else if(event === 1){
+      let data = {
+        userId: this.franchiseID
+      }
+      this.userService.fetchPaymentApprovedForAll(data).subscribe({
+        next: (res: any) => {
+          console.log(res)
+          this.approvedRequest = res.paymentApprovals;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
+    }
+  }
+
+  approved(id: any) {
+
+    let config: MatDialogConfig = {
+       panelClass: 'requsetApprovedDialogClass'
+    };
+    const dialogRef = this.dialog.open(ConfirmApprovedComponent, config);
+
+
+      dialogRef.componentInstance.okClicked.subscribe(() => {
+        let data = {
+          id:id
+        }
+          this.userService.paymentApprovedForFranchise(data).subscribe({
+            next:(res:any)=>{
+              this.toastr.success(res.message)
+              this.tabChanged(0)
+            },
+            error:(err=>{
+              this.toastr.warning(err.error.message)
+            })
+          })
+
+        
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
+
   }
 
 }

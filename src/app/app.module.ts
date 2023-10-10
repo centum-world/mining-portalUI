@@ -138,6 +138,7 @@ import { BdVerifyComponent } from './components/franchise/dialog/bd-verify/bd-ve
 import { BdBlockComponent } from './components/franchise/dialog/bd-block/bd-block.component';
 import { BdEditComponent } from './components/franchise/dialog/bd-edit/bd-edit.component';
 import { BdListComponent } from './components/admin/bd-list/bd-list.component';
+import { WithdrawlFranchiseComponent } from './components/franchise/withdrawl-franchise/withdrawl-franchise.component';
 
 
 
@@ -258,6 +259,7 @@ import { BdListComponent } from './components/admin/bd-list/bd-list.component';
     BdBlockComponent,
     BdEditComponent,
     BdListComponent,
+    WithdrawlFranchiseComponent,
   
   ],
   imports: [

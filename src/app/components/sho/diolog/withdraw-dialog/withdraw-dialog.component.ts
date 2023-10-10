@@ -25,17 +25,33 @@ export class WithdrawDialogComponent implements OnInit {
   }
 
   callApiToPrimaryAccount(){
-    let data = {
-      user_id:localStorage.getItem('stateHandlerId')
-    }
-    this.userService.callApiToShoPrimaryAccount(data).subscribe({
-      next:(res:any)=>{
-        this.primaryAccount = res.primaryBank.bank_name;
-      },
-      error:(err)=>{
-        console.log(err.error.message)
+    const stateHandlerId =  localStorage.getItem('stateHandlerId')
+    const franchiseId = localStorage.getItem('franchiseId');
+    if(stateHandlerId){
+      let data = {
+        user_id:stateHandlerId
       }
-    })
+      this.userService.callApiToShoPrimaryAccount(data).subscribe({
+        next:(res:any)=>{
+          this.primaryAccount = res.primaryBank.bank_name;
+        },
+        error:(err)=>{
+          console.log(err.error.message)
+        }
+      })
+    }else if(franchiseId){
+      let data = {
+        user_id:franchiseId
+      }
+      this.userService.callApiToShoPrimaryAccount(data).subscribe({
+        next:(res:any)=>{
+          this.primaryAccount = res.primaryBank.bank_name;
+        },
+        error:(err)=>{
+          console.log(err.error.message)
+        }
+      })
+    }
   }
 
   enterAmount(value:any){
@@ -43,18 +59,37 @@ export class WithdrawDialogComponent implements OnInit {
   }
 
   requestWithdraw(){
-    let data = {
-      userId: localStorage.getItem('stateHandlerId'),
-      amount: this.amount,
-    paymentBy: this.primaryAccount
-    }
-    this.userService.shoWithdrawalRequest(data).subscribe({
-      next:(res:any)=>{
-        this.tostr.success(res.message)
-      },
-      error:(err=>{
-        this.tostr.warning(err.error.message)
+
+    const stateHandlerId = localStorage.getItem('stateHandlerId')
+    const franchiseId = localStorage.getItem("franchiseId");
+    if(stateHandlerId){
+      let data = {
+        userId: stateHandlerId,
+        amount: this.amount,
+      paymentBy: this.primaryAccount
+      }
+      this.userService.shoWithdrawalRequest(data).subscribe({
+        next:(res:any)=>{
+          this.tostr.success(res.message)
+        },
+        error:(err=>{
+          this.tostr.warning(err.error.message)
+        })
       })
-    })
+    }else if(franchiseId){
+      let data = {
+        userId: franchiseId,
+        amount: this.amount,
+        paymentBy: this.primaryAccount
+      }
+      this.userService.franchiseWithdrawalRequest(data).subscribe({
+        next:(res:any)=>{
+          this.tostr.success(res.message)
+        },
+        error:(err=>{
+          this.tostr.warning(err.error.message)
+        })
+      })
+    }
   }
 }

@@ -122,4 +122,12 @@ export class FranchiseHeaderComponent implements OnInit {
     this.router.navigate(['/franchiselogin']);
   }
 
+  addBussinessDeveloper(){
+    this.router.navigate(['/franchisedashboard/add-bd'])
+  }
+
+
+  handleWithdrawalClick(){
+    this.router.navigate(['/franchisedashboard/withdrawal-list'])
+  }
 }
