@@ -52,11 +52,11 @@ export class FranchiseViewBankDetailsComponent implements OnInit {
   onRadioChange(){
     console.log(this.selectedBank.bankName, this.franchiseId);
     let data = {
-      user_id: this.franchiseId,
+      user_id: localStorage.getItem("franchiseId"),
       bank_name: this.selectedBank.bankName
     }
 
-    this.userService.shoChangePrimarybank(data).subscribe({
+    this.userService.franchieChangePrimarybank(data).subscribe({
       next:(res:any)=>{
         this.toastr.success(res.message)
       },

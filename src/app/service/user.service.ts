@@ -966,14 +966,34 @@ export class UserService {
     });
   }
 
+  franchieChangePrimarybank(data: any){
+    return this.http.post(this.url + "/state/make-primary-bank", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
   callApiToShoPrimaryAccount(data:any){
     return this.http.post(this.url + "/state/state/fetch-primary-bank",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
+  callApiToFranchisePrimaryAccount(data:any){
+    return this.http.post(this.url + "/state/fetch-own-bank-details",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  
+
   shoWithdrawalRequest(data:any){
     return this.http.post(this.url + "/state/create-sho-payment-request",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  franchiseWithdrawalRequest(data:any){
+    return this.http.post(this.url + "/franchise/frenchise/create-franchise-payment-request",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
