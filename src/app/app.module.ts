@@ -19,7 +19,8 @@ import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -292,6 +293,8 @@ import { WithdrawlFranchiseComponent } from './components/franchise/withdrawl-fr
     ScrollingModule,
     MatTabsModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",

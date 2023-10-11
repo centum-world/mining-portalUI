@@ -17,6 +17,16 @@ export class PartnerAccountComponent implements OnInit {
   bankDetails = [];
   partnerRequestHistory = [];
   approvedRequest = [];
+  perDayAmountDropDown = 0;
+  februaryAmount = 0;
+  refferalAmount = 0;
+  paymentDate = null;
+  perDayAmounReal = 0;
+  partnerDetails = {
+    dop:"",
+    liquidity:0,
+
+  }
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -35,7 +45,7 @@ export class PartnerAccountComponent implements OnInit {
   }
 
   tabChanged(event: any) {
-    if (event === 2) {
+    if (event === 3) {
       console.log("event call 2");
       let data = {
         user_id: this.partnerID
@@ -50,7 +60,7 @@ export class PartnerAccountComponent implements OnInit {
         }
       })
 
-    } else if (event === 0) {
+    } else if (event === 1) {
       let data = {
         p_userid: this.partnerID
       }
@@ -63,7 +73,7 @@ export class PartnerAccountComponent implements OnInit {
           console.log(error.error.message)
         }
       })
-    }else if(event === 1){
+    }else if(event === 2){
       let data = {
         p_userid: this.partnerID
       }
@@ -76,7 +86,56 @@ export class PartnerAccountComponent implements OnInit {
           console.log(error.error.message)
         }
       })
+    }else if(event === 0){
+      let data = {
+        userId: this.partnerID
+      }
+      this.userService.callApiToUniqepartnerDetails(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.result[0])
+          this.partnerDetails.dop = res.result[0].p_dop;
+          this.partnerDetails.liquidity = res.result[0].p_liquidity;
+          if(res.result[0].p_liquidity === 600000){
+            this.perDayAmountDropDown = 67500;
+            this.februaryAmount = 63000;
+            this.refferalAmount = 11000;
+          }else if(res.result[0].p_liquidity === 300000){
+            this.perDayAmountDropDown = 40500;
+            this.februaryAmount = 37800;
+            this.refferalAmount = 5500
+          }else if(res.result[0].p_liquidity === 200000){
+            this.perDayAmountDropDown = 27000;
+            this.februaryAmount = 25200;
+            this.refferalAmount = 3700;
+          }else if(res.result[0].p_liquidity === 100000){
+            this.perDayAmountDropDown = 13500;
+            this.februaryAmount = 12600;
+            this.refferalAmount = 1850;
+          }
+
+        },
+        error:(err=>{
+          console.log(err.error.message)
+        })
+      })
     }
+  }
+
+  onDateSelected(event:any){
+    console.log(event.value)
+    const formattedDate = this.formatDate(event.value);
+    this.paymentDate = formattedDate
+
+  }
+  private formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Month is zero-based
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  }
+  onSelectChange(event:any){
+    console.log(event.value)
+    this.perDayAmounReal = event.value;
   }
 
   approved(id: any) {
@@ -94,8 +153,9 @@ export class PartnerAccountComponent implements OnInit {
         }
           this.userService.approvedWithdrawalHistory(data).subscribe({
             next:(res:any)=>{
+
               this.toastr.success(res.message)
-              this.tabChanged(0)
+              this.tabChanged(1)
             },
             error:(err=>{
               this.toastr.warning(err.error.message)
@@ -109,6 +169,31 @@ export class PartnerAccountComponent implements OnInit {
       console.log("Closed");
     });
 
+  }
+
+  payNow(){
+    console.log(this.paymentDate, this.perDayAmounReal, this.refferalAmount)
+    let data = {
+      p_userid: this.partnerID,
+      partnerdate: this.paymentDate,
+      perDayAmounReal: this.perDayAmounReal,
+      refferal_Amount:this.refferalAmount
+    }
+    this.userService.partnerPerDayAmountPaymentManually(data).subscribe({
+      next: (result:any) => {
+       this.toastr.success(result.message)
+      },
+      error: error => {
+        if (error.error.status === 409) {
+          this.toastr.warning("Aready paid to this date!", 'Warning')
+        }
+        if (error.error.status === 422) {
+          this.toastr.warning(error.error.message, 'Warning')
+        }
+
+
+      }
+    })
   }
 
 }

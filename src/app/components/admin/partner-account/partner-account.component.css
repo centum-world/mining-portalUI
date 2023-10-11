@@ -38,6 +38,10 @@
     margin: 10px;
     width: 300px;
 }
+.payment-card{
+    margin-top: 5%;
+    width: 40%;
+}
   
 .bank-details{
     display: flex;
@@ -54,3 +58,38 @@
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
+.partner-history-card{
+    width: 60%;
+    margin-top: 5%;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    position: relative; /* Position relative for pseudo-element positioning */
+  }
+  
+  /* Style for the divider between columns */
+  .column:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px; /* Adjust this value to control the width of the divider */
+    height: 100%;
+    width: 1px; /* Width of the divider */
+    background-color: #ccc; /* Divider color */
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+  

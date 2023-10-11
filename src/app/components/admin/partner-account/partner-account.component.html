@@ -1,9 +1,48 @@
 <div class="account-header">
    <p>Partner Account details</p>
-   <div class="wallet-div">₹ 8000</div>
+   <!-- <div class="wallet-div">₹ 8000</div> -->
 </div>
 <div class="account-content">
    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
+      <mat-tab label="Pay">
+         <div style="display: flex; justify-content: center; align-items: center;">
+            <mat-card class="payment-card">
+               <mat-card-header>
+                 <div mat-card-avatar class="example-header-image"></div>
+                 <mat-card-title>Monthly payout</mat-card-title>
+                 <mat-card-subtitle>{{partnerID}}</mat-card-subtitle>
+               </mat-card-header>
+               
+               <mat-card-content>
+                 <form>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                     <mat-form-field>
+                        <mat-label>Select amount</mat-label>
+                        <mat-select (selectionChange)="onSelectChange($event)">
+                          <mat-option [value]="perDayAmountDropDown">
+                           {{perDayAmountDropDown | currency:'INR'}}
+                          </mat-option>
+                          <mat-option [value]="februaryAmount">
+                           {{februaryAmount | currency:'INR'}}
+                         </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="onDateSelected($event)">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                  </div>
+                 
+                 </form>
+               </mat-card-content>
+               <mat-card-actions align="end">
+                  <button mat-raised-button type="button">Cancel</button>
+                  <button mat-raised-button type="submit" (click)="payNow()" color="primary">Pay now</button>
+               </mat-card-actions>
+             </mat-card>
+         </div>
+      </mat-tab>
       <mat-tab label="Request withdrawal">
          <div class="bakk-div">
             <!-- Check if partnerRequestHistory is empty -->
@@ -25,7 +64,7 @@
                   <mat-divider></mat-divider>
                   <mat-card-content class="single-line-content">
                      <div class="bank-details">
-                        <h2>Id</h2><strong>{{data.p_userid}} </strong>
+                        <h2>Id</h2><strong>{{partnerID}} </strong>
                      </div>
                      <div class="bank-details">
                         <h2>Amount</h2><strong>{{data.partner_wallet | currency:'INR':'symbol':'1.2-2'}}</strong>
@@ -127,6 +166,39 @@
                   </mat-card-actions>
                </mat-card>
             </ng-template>
+         </div>
+      </mat-tab>
+      <mat-tab label="Payout History">
+         <div style="display: flex; justify-content: center; align-items: center;">
+            <mat-card class="partner-history-card">
+               <mat-card-header>
+                 <div mat-card-avatar class="example-header-image"></div>
+                 <mat-card-title>Payment history</mat-card-title>
+                 <mat-card-subtitle>{{partnerID}}</mat-card-subtitle>
+               </mat-card-header>
+               <mat-card-content>
+                  <div class="container">
+                     <div class="column">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Date of Payment</span> <strong>{{partnerDetails.dop | date}}</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Total liquidity</span> <strong>{{partnerDetails.liquidity | currency:'INR'}}</strong>
+                        </div>
+                     </div>
+                     <div class="column">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Date of Payment</span> <strong>{{partnerDetails.dop | date}}</strong>
+                        </div>
+                     </div>
+                   </div>
+                   
+               </mat-card-content>
+               <mat-card-actions>
+                 <button mat-button>LIKE</button>
+                 <button mat-button>SHARE</button>
+               </mat-card-actions>
+             </mat-card>
          </div>
       </mat-tab>
    </mat-tab-group>

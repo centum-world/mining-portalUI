@@ -551,7 +551,7 @@ export class UserService {
   }
 
   ///admin/perday-amount-transfer-to-partner-manaul
-  partnerPerDayAmountPaymentManually(data) {
+  partnerPerDayAmountPaymentManually(data:any) {
     return this.http.post(
       this.url + "/admin/perday-amount-transfer-to-partner-manaul",
       data,
@@ -1076,6 +1076,12 @@ export class UserService {
   //call bd list 
   bdListAdminSide(){
     return this.http.get(this.url + "/admin/fetch-all-bd", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToUniqepartnerDetails(data:any){
+    return this.http.post(this.url + "/mining/fetch-particular-partner", data,{
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
