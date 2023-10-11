@@ -185,18 +185,34 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                            <span>Total liquidity</span> <strong>{{partnerDetails.liquidity | currency:'INR'}}</strong>
                         </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Payout Tenure</span> <strong>12 TN</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Paid Tenure</span> <strong>{{partnerDetails.monthComplete}} TN</strong>
+                        </div>
                      </div>
                      <div class="column">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                           <span>Date of Payment</span> <strong>{{partnerDetails.dop | date}}</strong>
+                           <span>Remaining Tenure</span> <strong>{{12 - partnerDetails.monthComplete}}&nbsp;TN</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Last Payout</span> <strong>{{partnerDetails.lastPaymentDate | date}}</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Next Payout</span> <strong>15 to 22nd (Of every month)</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                           <span>Status</span> <strong>{{partnerDetails.status?'Active':'Close'}}</strong>
                         </div>
                      </div>
                    </div>
                    
                </mat-card-content>
                <mat-card-actions>
-                 <button mat-button>LIKE</button>
-                 <button mat-button>SHARE</button>
+                  <button mat-button type="button" [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'" mat-raised-button>
+                     {{ partnerDetails.status ? 'ACTIVE' : 'CLOSE' }}
+                   </button>
                </mat-card-actions>
              </mat-card>
          </div>

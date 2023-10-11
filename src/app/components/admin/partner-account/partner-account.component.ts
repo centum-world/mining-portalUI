@@ -25,7 +25,9 @@ export class PartnerAccountComponent implements OnInit {
   partnerDetails = {
     dop:"",
     liquidity:0,
-
+    monthComplete:0,
+    lastPaymentDate:"",
+    status: false
   }
   constructor(
     private route: ActivatedRoute,
@@ -95,6 +97,9 @@ export class PartnerAccountComponent implements OnInit {
           console.log(res.result[0])
           this.partnerDetails.dop = res.result[0].p_dop;
           this.partnerDetails.liquidity = res.result[0].p_liquidity;
+          this.partnerDetails.monthComplete = res.result[0].month_count;
+          this.partnerDetails.status = res.result[0].partner_status
+
           if(res.result[0].p_liquidity === 600000){
             this.perDayAmountDropDown = 67500;
             this.februaryAmount = 63000;
@@ -118,6 +123,8 @@ export class PartnerAccountComponent implements OnInit {
           console.log(err.error.message)
         })
       })
+    }else if(event === 4){
+      this.lastApproveDate();
     }
   }
 
@@ -190,8 +197,21 @@ export class PartnerAccountComponent implements OnInit {
         if (error.error.status === 422) {
           this.toastr.warning(error.error.message, 'Warning')
         }
+      }
+    })
+  }
 
-
+  lastApproveDate() {
+    let approveArray = [];
+    let data = {
+      p_userid: this.partnerID
+    }
+    this.userService.partnerLastApproveDate(data).subscribe({
+      next: (result: any) => {
+        approveArray = Object.values(result.data);
+        let lastPaymentOfIndex = approveArray.length;
+        this.partnerDetails.lastPaymentDate = approveArray[lastPaymentOfIndex - 1].approve_date;
+        console.log(this.partnerDetails.lastPaymentDate);
       }
     })
   }
