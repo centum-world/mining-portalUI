@@ -42,10 +42,14 @@ body {
   }
 }
 .franchiseAddBankDialogClass , .stateAddBankDialogClass{
-  height: 70%;
-  width: 50%;
-  .mat-dialog-content{
-    height: 70%;
+  width: auto;
+  height:auto;
+  .mat-dialog-container {
+    border: 1px solid black !important;
+    height: auto;
+      border-radius: 20px;
+      padding-top: 0px;
+      
   }
 }
 

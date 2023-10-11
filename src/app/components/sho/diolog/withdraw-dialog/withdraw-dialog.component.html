@@ -11,12 +11,15 @@
                 <input matInput placeholder="Enter amount" name="amount" [(ngModel)]="amount" pattern="[0-9]*">
                 <mat-error *ngIf="!isAmountValid()">Only numbers are allowed.</mat-error>
             </mat-form-field>
-            <div mat-dialog-actions align="end">
-                <button mat-raised-button mat-dialog-close>Cancel</button>
-                <button mat-raised-button (click)="requestWithdraw()">Withdraw</button>
-
+            <div class="content">
+                <small>Available balance : {{myWallet | currency:"INR"}}</small>
+                <div mat-dialog-actions align="end">
+                    <button mat-raised-button mat-dialog-close>Cancel</button>
+                    <button mat-raised-button (click)="requestWithdraw()">Withdraw</button>
+                </div>
             </div>
-        </form>    
+
+        </form>
     </div>
 
 </div>

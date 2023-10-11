@@ -11,10 +11,12 @@ export class WithdrawDialogComponent implements OnInit {
 
   amount:number;
   primaryAccount="";
+  myWallet:0;
   constructor(private userService: UserService, private tostr: ToastrService) { }
 
   ngOnInit() {
     this.callApiToPrimaryAccount();
+    this.callApiToMyDetails();
   }
 
   isAmountValid(): boolean {
@@ -71,6 +73,7 @@ export class WithdrawDialogComponent implements OnInit {
       this.userService.shoWithdrawalRequest(data).subscribe({
         next:(res:any)=>{
           this.tostr.success(res.message)
+          this.callApiToMyDetails()
         },
         error:(err=>{
           this.tostr.warning(err.error.message)
@@ -85,9 +88,42 @@ export class WithdrawDialogComponent implements OnInit {
       this.userService.franchiseWithdrawalRequest(data).subscribe({
         next:(res:any)=>{
           this.tostr.success(res.message)
+          this.callApiToMyDetails()
         },
         error:(err=>{
           this.tostr.warning(err.error.message)
+        })
+      })
+    }
+  }
+
+  callApiToMyDetails(){
+    const stateHandlerId = localStorage.getItem('stateHandlerId');
+    const franchiseId = localStorage.getItem("franchiseId");
+    if(stateHandlerId){
+      let data = {
+        stateHandlerId : stateHandlerId
+      }
+      this.userService.shoDetails(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.sho.stateHandlerWallet)
+          this.myWallet = res.sho.stateHandlerWallet
+        },
+        error:(err=>{
+          console.log(err.error.message)
+        })
+      })
+    }else if(franchiseId){
+      let data = {
+        franchiseId : franchiseId
+      }
+      this.userService.fetchParticularFranchiseDetails(data).subscribe({
+        next:(res:any)=>{
+          console.log(res)
+          this.myWallet = res.franchise.franchiseWallet;
+        },
+        error:(err=>{
+          console.log(err.error.message)
         })
       })
     }

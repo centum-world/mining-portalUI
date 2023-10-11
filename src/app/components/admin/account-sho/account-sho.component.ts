@@ -16,6 +16,7 @@ export class AccountShoComponent implements OnInit {
   bankDetails = [];
   shoRequestHistory = [];
   approvedRequest = [];
+  myWallet = 0;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -31,6 +32,7 @@ export class AccountShoComponent implements OnInit {
   ngOnInit() {
     console.log(this.shoID)
     this.tabChanged(0);
+    this.callApiToShoDetails();
   }
 
   tabChanged(event: any) {
@@ -107,6 +109,21 @@ export class AccountShoComponent implements OnInit {
       console.log("Closed");
     });
 
+  }
+
+  callApiToShoDetails(){
+    let data ={
+      stateHandlerId : this.shoID
+    }
+    this.userService.shoDetails(data).subscribe({
+      next:(res:any)=>{
+        console.log(res.sho.stateHandlerWallet)
+        this.myWallet = res.sho.stateHandlerWallet;
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
   }
 
 }

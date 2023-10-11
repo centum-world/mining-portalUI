@@ -17,6 +17,7 @@ export class MemberAccountComponent implements OnInit {
   bankDetails = [];
   memberRequestHistory = [];
   approvedRequest = [];
+  memberWallet=0;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -32,6 +33,22 @@ export class MemberAccountComponent implements OnInit {
   ngOnInit() {
     console.log(this.memberID)
     this.tabChanged(0);
+    this.getMemberDetails()
+
+  }
+  getMemberDetails(){
+    let data ={
+      m_userid: this.memberID
+    }
+    this.userService.fetchMemberPortalDetails(data).subscribe({
+      next:(res:any)=>{
+        console.log(res.data[0].member_wallet)
+        this.memberWallet = res.data[0].member_wallet
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
   }
 
   tabChanged(event: any) {
@@ -77,6 +94,8 @@ export class MemberAccountComponent implements OnInit {
         }
       })
     }
+
+
   }
 
   approved(id: any, m_userid:any) {
@@ -97,6 +116,7 @@ export class MemberAccountComponent implements OnInit {
             next:(res:any)=>{
               this.toastr.success(res.message)
               this.tabChanged(0)
+              this.getMemberDetails();
             },
             error:(err=>{
               this.toastr.warning(err.error.message)
