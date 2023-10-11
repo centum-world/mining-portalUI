@@ -140,6 +140,9 @@ import { BdBlockComponent } from './components/franchise/dialog/bd-block/bd-bloc
 import { BdEditComponent } from './components/franchise/dialog/bd-edit/bd-edit.component';
 import { BdListComponent } from './components/admin/bd-list/bd-list.component';
 import { WithdrawlFranchiseComponent } from './components/franchise/withdrawl-franchise/withdrawl-franchise.component';
+import { BdCardsComponent } from './components/bd/bd-cards/bd-cards.component';
+import { BusinessAddBankComponent } from './components/bd/modal/business-add-bank/business-add-bank.component';
+import { BusinessViewBankComponent } from './components/bd/modal/business-view-bank/business-view-bank.component';
 
 
 
@@ -261,6 +264,9 @@ import { WithdrawlFranchiseComponent } from './components/franchise/withdrawl-fr
     BdEditComponent,
     BdListComponent,
     WithdrawlFranchiseComponent,
+    BdCardsComponent,
+    BusinessAddBankComponent,
+    BusinessViewBankComponent,
   
   ],
   imports: [
@@ -342,7 +348,8 @@ import { WithdrawlFranchiseComponent } from './components/franchise/withdrawl-fr
     BdViewComponent,
     BdVerifyComponent,
     BdBlockComponent,
-    BdEditComponent
+    BdEditComponent,
+    BusinessAddBankComponent
   ],
   providers: [
     {

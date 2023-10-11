@@ -41,6 +41,7 @@ export class BdLoginComponent implements OnInit {
           
            localStorage.setItem('bdHandlerID',res.user.businessDeveloperId)
            localStorage.setItem('bdRefferalId',res.user.referralId)
+           localStorage.setItem("bdToken", res.token);
           this.shareService.setBdToken(res.token)
           this.router.navigate(['bd-dashboard']);
           setTimeout(function () {

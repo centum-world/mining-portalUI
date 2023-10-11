@@ -41,7 +41,7 @@ body {
     height: 70%;
   }
 }
-.franchiseAddBankDialogClass , .stateAddBankDialogClass{
+.franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
   height: 70%;
   width: 50%;
   .mat-dialog-content{
@@ -189,7 +189,7 @@ body {
       height: auto;
     }
   }
-  .stateAddBankDialogClass, .franchiseAddBankDialogClass {
+  .stateAddBankDialogClass, .franchiseAddBankDialogClass, .businessAddBankDialogClass {
     height:70%;
     width: 99%;
     .mat-dialog-content{

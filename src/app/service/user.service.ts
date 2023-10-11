@@ -801,6 +801,16 @@ export class UserService {
     );
   }
 
+  saveBankDetailsForBusiness(data){
+    return this.http.post(
+      this.url + "/bd/bd-add-bank-details",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
+
   // fetchStateBankDetails
   fetchStateBankDetails(data) {
     return this.http.post(
