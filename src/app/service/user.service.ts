@@ -61,7 +61,7 @@ export class UserService {
 
   // Fetch Member Details
 
-  fetchMemberPortalDetails(data) {
+  fetchMemberPortalDetails(data:any) {
     return this.http.post(this.url + "/member/member-profile-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -751,7 +751,7 @@ export class UserService {
     });
   }
 
-  shoDetails(data) {
+  shoDetails(data:any) {
     return this.http.post(this.url + "/state/fetch-particular-sho", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -838,7 +838,7 @@ export class UserService {
     });
   }
 
-  fetchParticularFranchiseDetails(data) {
+  fetchParticularFranchiseDetails(data:any) {
     return this.http.post(
       this.url + "/franchise/fetch-particular-franchise",
       data,

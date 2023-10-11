@@ -1,6 +1,6 @@
 <div class="account-header">
    <p>Franchise Account details</p>
-   <div class="wallet-div">₹ 8001</div>
+   <div class="wallet-div">{{myWallet | currency:"INR"}}</div>
 </div>
 <div class="account-content">
    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">

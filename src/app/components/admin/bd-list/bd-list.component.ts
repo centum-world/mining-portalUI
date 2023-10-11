@@ -10,6 +10,7 @@ import { BdViewComponent } from '../../franchise/dialog/bd-view/bd-view.componen
 import { BdVerifyComponent } from '../../franchise/dialog/bd-verify/bd-verify.component';
 import { BdBlockComponent } from '../../franchise/dialog/bd-block/bd-block.component';
 import { BdEditComponent } from '../../franchise/dialog/bd-edit/bd-edit.component';
+import { Router } from '@angular/router';
 
 
 interface Bd {
@@ -41,7 +42,7 @@ export class BdListComponent implements OnInit {
 
 
   dataSource: MatTableDataSource<Bd>;
-  constructor(private userService : UserService, private dialog: MatDialog, private toastr:ToastrService) { 
+  constructor(private userService : UserService, private dialog: MatDialog, private toastr:ToastrService, private router: Router) { 
 
     this.dataSource = new MatTableDataSource([]);
   }
@@ -137,6 +138,10 @@ export class BdListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.callApiToBDList();
     });
+  }
+
+  gotoAccountsection(bdData:any){
+    this.router.navigate(["dashboard/bd-account", bdData.businessDeveloperId]);
   }
 
 }

@@ -15,6 +15,7 @@ export class FranchiseAccountComponent implements OnInit {
   bankDetails: []
   franchiseHistory = []
   approvedRequest = [];
+  myWallet=0;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -28,6 +29,8 @@ export class FranchiseAccountComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.franchiseID)
+    this.tabChanged(0)
+    this.callApiToMyDetails();
   }
 
   tabChanged(event: any){
@@ -104,6 +107,21 @@ export class FranchiseAccountComponent implements OnInit {
       console.log("Closed");
     });
 
+  }
+
+  callApiToMyDetails(){
+    let data = {
+      franchiseId : this.franchiseID
+    }
+    this.userService.fetchParticularFranchiseDetails(data).subscribe({
+      next:(res:any)=>{
+        console.log(res.franchise.franchiseWallet)
+        this.myWallet = res.franchise.franchiseWallet;
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
   }
 
 }

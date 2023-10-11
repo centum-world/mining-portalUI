@@ -54,6 +54,7 @@ import { MemberAccountComponent } from "./components/admin/member-account/member
 import { BdListComponent } from "./components/admin/bd-list/bd-list.component";
 import { WithdrawlFranchiseComponent } from "./components/franchise/withdrawl-franchise/withdrawl-franchise.component";
 import { BdCardsComponent } from "./components/bd/bd-cards/bd-cards.component";
+import { BdAccountComponent } from "./components/admin/bd-account/bd-account.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -88,8 +89,9 @@ const routes: Routes = [
       {path:"partner-referral-payout-approved",component:PartnerReferralPayoutApprovedComponent},
       {path:"partner-account/:id",component:PartnerAccountComponent},
       {path:"member-account/:id",component:MemberAccountComponent},
+      {path: "franchise-account/:id", component: FranchiseAccountComponent},
+      {path:"bd-account/:id", component: BdAccountComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
-      {path: "franchise-account/:id", component: FranchiseAccountComponent}
     ]
   },
   { path: "frame", component: FrameComponent },
