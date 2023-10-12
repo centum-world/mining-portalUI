@@ -44,13 +44,9 @@ body {
     height: 70%;
   }
 }
-
-.franchiseAddBankDialogClass,
-.stateAddBankDialogClass,
-.businessAddBankDialogClass {
-  width: auto;
-  height: auto;
-
+.franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
+  width: 60%;
+  height:auto;
   .mat-dialog-container {
     border: 1px solid black !important;
     height: auto;
@@ -108,6 +104,10 @@ body {
   .mat-dialog-content {
     height: 70%;
   }
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0px;
+  }
 }
 
 .myStateEditDialogClass {
@@ -119,8 +119,7 @@ body {
     padding-top: 0;
   }
 }
-
-.verifyMemberDialogClass {
+.verifyMemberDialogClass,.franchiseVerifyDialogClass{
   width: 27%;
   height: 30%;
 
@@ -236,11 +235,8 @@ body {
       height: auto;
     }
   }
-
-  .stateAddBankDialogClass,
-  .franchiseAddBankDialogClass,
-  .businessAddBankDialogClass {
-    height: 70%;
+  .stateAddBankDialogClass, .franchiseAddBankDialogClass, .businessAddBankDialogClass {
+    height:80%;
     width: 99%;
 
     .mat-dialog-content {
@@ -248,8 +244,8 @@ body {
     }
   }
 
-  .verifyMemberDialogClass {
-    width: 90%;
+  .verifyMemberDialogClass,.franchiseVerifyDialogClass{
+    width: 95%;
     height: 40%;
 
     /* .mat-dialog-container{
