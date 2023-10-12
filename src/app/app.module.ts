@@ -144,6 +144,7 @@ import { BdCardsComponent } from './components/bd/bd-cards/bd-cards.component';
 import { BusinessAddBankComponent } from './components/bd/modal/business-add-bank/business-add-bank.component';
 import { BusinessViewBankComponent } from './components/bd/modal/business-view-bank/business-view-bank.component';
 import { BdAccountComponent } from './components/admin/bd-account/bd-account.component';
+import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdpayment-request.component';
 
 
 
@@ -269,6 +270,7 @@ import { BdAccountComponent } from './components/admin/bd-account/bd-account.com
     BusinessAddBankComponent,
     BusinessViewBankComponent,
     BdAccountComponent,
+    BDpaymentRequestComponent,
   
   ],
   imports: [

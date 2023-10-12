@@ -55,6 +55,7 @@ import { BdListComponent } from "./components/admin/bd-list/bd-list.component";
 import { WithdrawlFranchiseComponent } from "./components/franchise/withdrawl-franchise/withdrawl-franchise.component";
 import { BdCardsComponent } from "./components/bd/bd-cards/bd-cards.component";
 import { BdAccountComponent } from "./components/admin/bd-account/bd-account.component";
+import { BDpaymentRequestComponent } from "./components/bd/bdpayment-request/bdpayment-request.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -130,6 +131,7 @@ const routes: Routes = [
     path:"bd-dashboard", canActivate:[GuardGuard], component : BdDashboardComponent,
     children:[
       { path: "home", component: BdCardsComponent },
+      {path: "withdrawal-list", component: BDpaymentRequestComponent},
       { path: "", redirectTo: "/bd-dashboard/home", pathMatch: "full" },
     ]
   },
