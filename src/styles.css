@@ -17,9 +17,10 @@ body {
   overflow-x: scroll;
 }
 
-.modal dialog{
+.modal dialog {
   overflow-y: scroll;
 }
+
 /* .modal-dialog {
   overflow-x: scroll;
 } */
@@ -31,25 +32,31 @@ body {
 
 
 .myStateDialogClass {
-  height:70% ;
+  height: 70%;
   width: 60%;
+
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
   }
-  .mat-dialog-content{
+
+  .mat-dialog-content {
     height: 70%;
   }
 }
-.franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
+
+.franchiseAddBankDialogClass,
+.stateAddBankDialogClass,
+.businessAddBankDialogClass {
   width: auto;
-  height:auto;
+  height: auto;
+
   .mat-dialog-container {
     border: 1px solid black !important;
     height: auto;
-      border-radius: 20px;
-      padding-top: 0px;
-      
+    border-radius: 20px;
+    padding-top: 0px;
+
   }
 }
 
@@ -60,179 +67,227 @@ body {
 .myEditDialogClass {
   width: 50%;
   height: auto;
+
   .mat-dialog-container {
     border: 1px solid black !important;
     height: auto;
-      border-radius: 20px;
-      padding-top: 0px;
-      
+    border-radius: 20px;
+    padding-top: 0px;
+
   }
 }
-.myStateViewDialogClass{
+
+.myStateViewDialogClass {
   width: 60%;
   height: 50%;
-  .mat-dialog-container{
-    border:1px solid black;
+
+  .mat-dialog-container {
+    border: 1px solid black;
     border-radius: 20px;
     padding-top: 0px;
   }
 }
-.franchiseProfileDetailsDialogClass ,.franchiseViewBankDetailsDialogClass , .stateViewBankDetailsDialogClass{
+
+.franchiseProfileDetailsDialogClass,
+.franchiseViewBankDetailsDialogClass,
+.stateViewBankDetailsDialogClass {
   height: auto;
   width: 50%;
-  .mat-dialog-container{
+
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
   }
 }
-.franchiseDocumentsDialogClass ,.stateProfileDocumetsDialogClass {
+
+.franchiseDocumentsDialogClass,
+.stateProfileDocumetsDialogClass {
   height: 80%;
   width: 60%;
-  .mat-dialog-content{
+
+  .mat-dialog-content {
     height: 70%;
   }
 }
 
-.myStateEditDialogClass{
+.myStateEditDialogClass {
   width: auto;
-  height:auto;
-  .mat-dialog-container{
-   border-radius: 20px;
-   padding-top: 0;
+  height: auto;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0;
   }
 }
-.verifyMemberDialogClass{
+
+.verifyMemberDialogClass {
   width: 27%;
   height: 30%;
-  .mat-dialog-container{
+
+  .mat-dialog-container {
     padding-top: 0;
     border-radius: 20px;
   }
 }
-.partnerEditDialogClass{
-  width:45% ;
+
+.partnerEditDialogClass {
+  width: 45%;
   height: 80%;
-  .mat-dialog-content{
+
+  .mat-dialog-content {
     height: 70%;
   }
-  .mat-dialog-container{
+
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
     padding-bottom: 0;
-   }
+  }
 }
-.myStateWithdrawDialogClass{
+
+.myStateWithdrawDialogClass {
   width: auto;
   height: auto;
+
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
   }
 }
-.requsetApprovedDialogClass{
-  .mat-dialog-container{
+
+.requsetApprovedDialogClass {
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
   }
 }
-.myBdVieewDialogClass{
+
+.myBdVieewDialogClass {
   width: auto;
   height: auto;
-  .mat-dialog-container{
+
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
 }
-.myBdVerifyDialogClass{
+
+.myBdVerifyDialogClass {
   width: auto;
   height: auto;
-  .mat-dialog-container{
+
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
 }
-.myBdEditDialogClass{
+
+.myBdEditDialogClass {
   width: auto;
   height: auto;
-  .mat-dialog-container{
+
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .myEditDialogClass{
+  .myEditDialogClass {
     width: 100%;
   }
-  .franchiseDocumentsDialogClass,.franchiseViewBankDetailsDialogClass, .stateProfileDocumetsDialogClass
-  , .stateViewBankDetailsDialogClass{
-    height:auto;
+
+  .franchiseDocumentsDialogClass,
+  .franchiseViewBankDetailsDialogClass,
+  .stateProfileDocumetsDialogClass,
+  .stateViewBankDetailsDialogClass {
+    height: auto;
     width: 90%;
-    .mat-dialog-container{
-      height: auto;
-    }
-  }
-  .myStateViewDialogClass{
-    width: 90%;
-    height: 80%;
-    .mat-dialog-content{
-      height: auto;
-    }
-  }
-  .myStateEditDialogClass{
-    width: 99%;
-    height: 80%;
-    .mat-dialog-content{
-      height: auto;
-  }
-}
-  .franchiseProfileDetailsDialogClass,.myStateDialogClass {
-    height: 70%;
-    width: 99%;
-    .mat-dialog-content{
-      height: auto;
-    }
-  }
-  .stateAddBankDialogClass, .franchiseAddBankDialogClass, .businessAddBankDialogClass {
-    height:70%;
-    width: 99%;
-    .mat-dialog-content{
+
+    .mat-dialog-container {
       height: auto;
     }
   }
 
-  .verifyMemberDialogClass{
+  .myStateViewDialogClass {
+    width: 90%;
+    height: 80%;
+
+    .mat-dialog-content {
+      height: auto;
+    }
+  }
+
+  .myStateEditDialogClass {
+    width: 99%;
+    height: 80%;
+
+    .mat-dialog-content {
+      height: auto;
+    }
+  }
+
+  .franchiseProfileDetailsDialogClass,
+  .myStateDialogClass {
+    height: 70%;
+    width: 99%;
+
+    .mat-dialog-content {
+      height: auto;
+    }
+  }
+
+  .stateAddBankDialogClass,
+  .franchiseAddBankDialogClass,
+  .businessAddBankDialogClass {
+    height: 70%;
+    width: 99%;
+
+    .mat-dialog-content {
+      height: auto;
+    }
+  }
+
+  .verifyMemberDialogClass {
     width: 90%;
     height: 40%;
+
     /* .mat-dialog-container{
       padding-top: 0;
       border-radius: 20px;
     } */
-    .mat-dialog-content{
+    .mat-dialog-content {
       width: 90%;
     }
   }
-  .myEditDialogClass{
+
+  .myEditDialogClass {
     width: 99%;
     height: auto;
-    .mat-dialog-container{
+
+    .mat-dialog-container {
       height: auto;
     }
   }
-  .myStateWithdrawDialogClass{
+
+  .myStateWithdrawDialogClass {
     width: 99%;
     height: auto;
-    .mat-dialog-container{
+
+    .mat-dialog-container {
       height: auto;
     }
   }
-  .myBdEditDialogClass{
+
+  .myBdEditDialogClass {
     width: 99%;
     height: auto;
-    .mat-dialog-container{
+
+    .mat-dialog-container {
       height: auto;
     }
   }
+
   /* .requsetApprovedDialogClass{
     width: 99%;
     .mat-dialog-container{
@@ -240,7 +295,17 @@ body {
       padding-top: 0px;
     }
   } */
-  
+
+  .popupSidebarDialogClass {
+    width: 300px;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    .mat-dialog-container {
+      height: auto;
+      padding-top: 0px;
+      margin-left: 0px;
+    }
+  }
+
 }
-
-
