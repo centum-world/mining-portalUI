@@ -351,7 +351,8 @@ import { BdAccountComponent } from './components/admin/bd-account/bd-account.com
     BdVerifyComponent,
     BdBlockComponent,
     BdEditComponent,
-    BusinessAddBankComponent
+    BusinessAddBankComponent,
+    BusinessViewBankComponent
   ],
   providers: [
     {

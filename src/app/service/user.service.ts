@@ -812,7 +812,7 @@ export class UserService {
   }
 
   // fetchStateBankDetails
-  fetchStateBankDetails(data) {
+  fetchStateBankDetails(data:any) {
     return this.http.post(
       this.url + "/state/state/fetch-own-bank-details",
       data,
@@ -971,6 +971,12 @@ export class UserService {
   }
 
   shoChangePrimarybank(data: any) {
+    return this.http.post(this.url + "/state/make-primary-bank", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  businessChangePrimaryBank(data: any){
     return this.http.post(this.url + "/state/make-primary-bank", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });

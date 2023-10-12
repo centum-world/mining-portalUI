@@ -60,14 +60,14 @@ export class BdLoginComponent implements OnInit {
 
 
   SignUpBd(){
-    window.open('/stateRegitration')
+    window.open('/business-developer-regitration')
   }
 
   // logout
   logOut() {
-    localStorage.removeItem('stateToken');
-    localStorage.removeItem('stateHandlerId');
-    localStorage.removeItem('stateRefferalId');
+    localStorage.removeItem('bdToken');
+    localStorage.removeItem('bdHandlerId');
+    localStorage.removeItem('bdRefferalId');
     // localStorage.removeItem('')
     localStorage.clear();
 
@@ -76,7 +76,7 @@ export class BdLoginComponent implements OnInit {
     this.passwordFieldType =
       this.passwordFieldType === "password" ? "text" : "password";
     this.showPasswordIcon =
-      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
+      this.showPasswordIcon === "visibility" ? "Hide Password" : "Hide Password";
   }
 
   
