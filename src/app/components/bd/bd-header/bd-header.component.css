@@ -48,6 +48,13 @@ body{
     padding-right: 1rem;
 }
 
+.sidebar-menu ul{
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap:10%;
+}
+
 .sidebar-menu li{
     width: 100%;
     margin-bottom: 1rem;
