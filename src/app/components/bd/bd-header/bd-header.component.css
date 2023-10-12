@@ -49,7 +49,6 @@ body{
 }
 
 .sidebar-menu ul{
-    border: 1px solid white;
     display: flex;
     flex-direction: column;
     gap:10%;

@@ -25,7 +25,7 @@ export class BdHeaderComponent implements OnInit {
 
   }
   handleWithdrawalClick(){
-    
+    this.router.navigate(['/bd-dashboard/withdrawal-list'])
   }
   openDialog(){
 
