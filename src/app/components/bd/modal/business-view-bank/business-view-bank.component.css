@@ -87,3 +87,10 @@ td {
     color: #9d9a9a;
     font-size: small;
 }
+
+@media only screen and (max-width: 1024px){
+    .example-card {
+        margin: 10px;
+        width: 100% !important;
+    }
+}

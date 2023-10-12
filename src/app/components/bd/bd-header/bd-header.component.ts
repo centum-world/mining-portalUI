@@ -24,6 +24,9 @@ export class BdHeaderComponent implements OnInit {
   listBussinessDeveloper(){
 
   }
+  handleWithdrawalClick(){
+    
+  }
   openDialog(){
 
   }
