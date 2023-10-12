@@ -61,7 +61,7 @@ export class UserService {
 
   // Fetch Member Details
 
-  fetchMemberPortalDetails(data:any) {
+  fetchMemberPortalDetails(data: any) {
     return this.http.post(this.url + "/member/member-profile-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -334,7 +334,7 @@ export class UserService {
   }
 
   // admin will approved member request
-  adminWillApprovedMemberRequest(data:any) {
+  adminWillApprovedMemberRequest(data: any) {
     return this.http.post(
       this.url + "/admin/approve-member-reffer-withdrawal-request",
       data,
@@ -551,7 +551,7 @@ export class UserService {
   }
 
   ///admin/perday-amount-transfer-to-partner-manaul
-  partnerPerDayAmountPaymentManually(data:any) {
+  partnerPerDayAmountPaymentManually(data: any) {
     return this.http.post(
       this.url + "/admin/perday-amount-transfer-to-partner-manaul",
       data,
@@ -751,7 +751,7 @@ export class UserService {
     });
   }
 
-  shoDetails(data:any) {
+  shoDetails(data: any) {
     return this.http.post(this.url + "/state/fetch-particular-sho", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -801,18 +801,14 @@ export class UserService {
     );
   }
 
-  saveBankDetailsForBusiness(data){
-    return this.http.post(
-      this.url + "/bd/bd-add-bank-details",
-      data,
-      {
-        headers: new HttpHeaders().set("Content-Type", "application/json"),
-      }
-    );
+  saveBankDetailsForBusiness(data) {
+    return this.http.post(this.url + "/bd/bd-add-bank-details", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
   // fetchStateBankDetails
-  fetchStateBankDetails(data:any) {
+  fetchStateBankDetails(data: any) {
     return this.http.post(
       this.url + "/state/state/fetch-own-bank-details",
       data,
@@ -822,7 +818,7 @@ export class UserService {
     );
   }
 
-  fetchParticularFranchiseBankDetails(data){
+  fetchParticularFranchiseBankDetails(data) {
     return this.http.post(
       this.url + "/franchise/frenchise/fetch-bank-details",
       data,
@@ -838,7 +834,7 @@ export class UserService {
     });
   }
 
-  fetchParticularFranchiseDetails(data:any) {
+  fetchParticularFranchiseDetails(data: any) {
     return this.http.post(
       this.url + "/franchise/fetch-particular-franchise",
       data,
@@ -867,7 +863,6 @@ export class UserService {
       }
     );
   }
-
 
   callApiToFetchShoAllDetails() {
     return this.http.get(this.url + "/admin/fetch-all-sho", {
@@ -976,66 +971,88 @@ export class UserService {
     });
   }
 
-  businessChangePrimaryBank(data: any){
+  businessChangePrimaryBank(data: any) {
     return this.http.post(this.url + "/state/make-primary-bank", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  franchieChangePrimarybank(data: any){
+  franchieChangePrimarybank(data: any) {
     return this.http.post(this.url + "/state/make-primary-bank", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  callApiToShoPrimaryAccount(data:any){
-    return this.http.post(this.url + "/state/state/fetch-primary-bank",data, {
+  callApiToShoPrimaryAccount(data: any) {
+    return this.http.post(this.url + "/state/state/fetch-primary-bank", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  callApiToFranchisePrimaryAccount(data:any){
-    return this.http.post(this.url + "/state/fetch-own-bank-details",data, {
+  callApiToFranchisePrimaryAccount(data: any) {
+    return this.http.post(this.url + "/state/fetch-own-bank-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  
-
-  shoWithdrawalRequest(data:any){
-    return this.http.post(this.url + "/state/create-sho-payment-request",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  shoWithdrawalRequest(data: any) {
+    return this.http.post(
+      this.url + "/state/create-sho-payment-request",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  franchiseWithdrawalRequest(data:any){
-    return this.http.post(this.url + "/franchise/frenchise/create-franchise-payment-request",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
-  }
-  
-  paymentRequestForSho(data:any){
-    return this.http.post(this.url + "/admin/fetch-payment-request-for-all",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  franchiseWithdrawalRequest(data: any) {
+    return this.http.post(
+      this.url + "/franchise/frenchise/create-franchise-payment-request",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  paymentApprovedForSho(data:any){
-    return this.http.post(this.url + "/admin/approve-payment-request-of-sho",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  paymentRequestForSho(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-payment-request-for-all",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  paymentApprovedForFranchise(data:any){
-    return this.http.post(this.url + "/admin/approve-payment-request-of-franchise",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  paymentApprovedForSho(data: any) {
+    return this.http.post(
+      this.url + "/admin/approve-payment-request-of-sho",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  fetchPaymentApprovedForAll(data:any){
-    return this.http.post(this.url + "/admin/fetch-particular-payment-approve",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  paymentApprovedForFranchise(data: any) {
+    return this.http.post(
+      this.url + "/admin/approve-payment-request-of-franchise",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
+
+  fetchPaymentApprovedForAll(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-particular-payment-approve",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   //create business developer
@@ -1043,62 +1060,89 @@ export class UserService {
   createrBusinessDeveloper(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}/admin/create-bd`, formData);
   }
- 
+
   //fetch bd details
-  callApiToBdDetails(data:any){
-    return this.http.post(this.url + "/franchise/frenchise/all-bd-details-referred-by-franchise",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  callApiToBdDetails(data: any) {
+    return this.http.post(
+      this.url + "/franchise/frenchise/all-bd-details-referred-by-franchise",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   ///bd/login-bd
-  bdLogin(data:any){
-    return this.http.post(this.url + "/bd/login-bd",data, {
+  bdLogin(data: any) {
+    return this.http.post(this.url + "/bd/login-bd", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-  fetchParticularMemberWithdrawalRequest(data:any){
-    return this.http.post(this.url + "/admin/fetch-particular-member-withdrawal-request",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  fetchParticularMemberWithdrawalRequest(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-particular-member-withdrawal-request",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   // fetchParticularMemberApprovedWithdrawalHistory
-  fetchParticularMemberApprovedWithdrawalHistory(data:any){
-    return this.http.post(this.url + "/admin/fetch-particular-member-approved-withdrawal-history",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  fetchParticularMemberApprovedWithdrawalHistory(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-particular-member-approved-withdrawal-history",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-
   //bd block unblock
-  bdBlockOrUnblock(data:any){
-    return this.http.post(this.url + "/bd/block-and-unblock-bd",data, {
+  bdBlockOrUnblock(data: any) {
+    return this.http.post(this.url + "/bd/block-and-unblock-bd", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
   //bd verify
-  bdVerify(data:any){
-    return this.http.post(this.url + "/bd/verify-bd",data, {
+  bdVerify(data: any) {
+    return this.http.post(this.url + "/bd/verify-bd", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
   //edit bd
-  editAndUpdate(data:any){
-    return this.http.put(this.url + "/bd/update-bd",data, {
+  editAndUpdate(data: any) {
+    return this.http.put(this.url + "/bd/update-bd", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-  //call bd list 
-  bdListAdminSide(){
+  //call bd list
+  bdListAdminSide() {
     return this.http.get(this.url + "/admin/fetch-all-bd", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  callApiToUniqepartnerDetails(data:any){
-    return this.http.post(this.url + "/mining/fetch-particular-partner", data,{
+  callApiToUniqepartnerDetails(data: any) {
+    return this.http.post(this.url + "/mining/fetch-particular-partner", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  fetchParticularBdDetails(data: any) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post(this.url + '/bd/fetch-particular-bd', data, { headers });
+  }
+
+  // fetchParticularBdDetails(data: any) {
+  //   const headers = new HttpHeaders({ "Content-Type": "application/json" });
+
+  //   return this.http.post(this.url + "bd/fetch-particular-bd", data, {
+  //     headers,
+  //   });
+  // }
+  
+  
 }

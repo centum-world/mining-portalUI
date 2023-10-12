@@ -75,6 +75,8 @@ export class FranchiseHeaderComponent implements OnInit {
       console.log('The dialog was closed');
       // Do something with the result if needed
     });
+
+    
   }
 
   openFranchiseDocumentsDialog() {
