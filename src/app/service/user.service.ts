@@ -1013,6 +1013,12 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  BusinessWithdrawalRequest(data:any){
+    return this.http.post(this.url + "/bd/bd/create-bd-payment-request",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
   
   paymentRequestForSho(data:any){
     return this.http.post(this.url + "/admin/fetch-payment-request-for-all",data, {

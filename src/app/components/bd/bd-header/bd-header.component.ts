@@ -16,10 +16,10 @@ export class BdHeaderComponent implements OnInit {
 
   logOut(){
     localStorage.clear();
-    this.router.navigate(['/statelogin']);
+    this.router.navigate(['/']);
   }
   refresh(){
-
+    this.router.navigate(['/bd-dashboard/home']);
   }
   listBussinessDeveloper(){
 
