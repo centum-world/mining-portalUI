@@ -144,6 +144,7 @@ import { BdCardsComponent } from './components/bd/bd-cards/bd-cards.component';
 import { BusinessAddBankComponent } from './components/bd/modal/business-add-bank/business-add-bank.component';
 import { BusinessViewBankComponent } from './components/bd/modal/business-view-bank/business-view-bank.component';
 import { BdAccountComponent } from './components/admin/bd-account/bd-account.component';
+import { PopupSidebarComponent } from './components/admin/popup-sidebar/popup-sidebar.component';
 
 
 
@@ -269,6 +270,7 @@ import { BdAccountComponent } from './components/admin/bd-account/bd-account.com
     BusinessAddBankComponent,
     BusinessViewBankComponent,
     BdAccountComponent,
+    PopupSidebarComponent,
   
   ],
   imports: [
@@ -351,7 +353,8 @@ import { BdAccountComponent } from './components/admin/bd-account/bd-account.com
     BdVerifyComponent,
     BdBlockComponent,
     BdEditComponent,
-    BusinessAddBankComponent
+    BusinessAddBankComponent,
+    PopupSidebarComponent
   ],
   providers: [
     {

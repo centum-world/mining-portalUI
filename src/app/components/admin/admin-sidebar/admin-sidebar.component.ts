@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { MatDialogConfig } from '@angular/material';
+import { PopupSidebarComponent } from '../popup-sidebar/popup-sidebar.component';
+
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -9,7 +13,7 @@ import { Router } from '@angular/router';
 export class AdminSidebarComponent implements OnInit {
   selectedItem: string = '';
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -45,6 +49,16 @@ export class AdminSidebarComponent implements OnInit {
 
   selectItem(itemName: string) {
     this.selectedItem = itemName;
+  }
+
+  openSideBar(){
+
+    let config: MatDialogConfig = {
+      position: { left: '0' }, 
+      panelClass: 'popupSidebarDialogClass'
+   };
+   const dialogRef = this.dialog.open(PopupSidebarComponent, config);
+    console.log("hiii")
   }
 
 

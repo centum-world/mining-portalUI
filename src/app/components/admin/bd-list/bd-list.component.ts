@@ -49,6 +49,7 @@ export class BdListComponent implements OnInit {
 
   ngOnInit() {
     this.callApiToBDList();
+    this.dataSource.paginator = this.paginator;
   }
 
   callApiToBDList(){

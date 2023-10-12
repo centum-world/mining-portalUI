@@ -68,7 +68,7 @@ table {
 /* media query */
 @media screen and (max-width: 768px ){
    .bd-list-header, .large-expand{
-    margin-left: 70px ;
+    margin-left: 0px ;
    } 
 }
 
