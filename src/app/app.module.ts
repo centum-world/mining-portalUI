@@ -144,6 +144,7 @@ import { BdCardsComponent } from './components/bd/bd-cards/bd-cards.component';
 import { BusinessAddBankComponent } from './components/bd/modal/business-add-bank/business-add-bank.component';
 import { BusinessViewBankComponent } from './components/bd/modal/business-view-bank/business-view-bank.component';
 import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdpayment-request.component';
+import { BusinessWithdrawDialogComponent } from './components/bd/modal/business-withdraw-dialog/business-withdraw-dialog.component';
 
 
 
@@ -269,6 +270,7 @@ import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdp
     BusinessAddBankComponent,
     BusinessViewBankComponent,
     BDpaymentRequestComponent,
+    BusinessWithdrawDialogComponent,
   
   ],
   imports: [
@@ -352,7 +354,8 @@ import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdp
     BdBlockComponent,
     BdEditComponent,
     BusinessAddBankComponent,
-    BusinessViewBankComponent
+    BusinessViewBankComponent,
+    BusinessWithdrawDialogComponent
   ],
   providers: [
     {

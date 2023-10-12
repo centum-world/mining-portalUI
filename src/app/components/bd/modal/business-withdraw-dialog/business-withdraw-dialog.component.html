@@ -1,0 +1,22 @@
+<h1 class="custom-heading" mat-dialog-title>Withdrawal</h1>
+<div mat-dialog-content>
+    <div class="amount-container">
+        <div class="amount-div" (click)="enterAmount(500)">₹ 500</div>
+        <div class="amount-div" (click)="enterAmount(1000)">₹ 1000</div>
+        <div class="amount-div" (click)="enterAmount(5000)">₹ 5000</div>
+    </div>
+    <div class="amount-input-field">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter amount" name="amount" [(ngModel)]="amount" pattern="[0-9]*">
+                <mat-error *ngIf="!isAmountValid()">Only numbers are allowed.</mat-error>
+            </mat-form-field>
+            <div mat-dialog-actions align="end">
+                <button mat-raised-button mat-dialog-close>Cancel</button>
+                <button mat-raised-button (click)="requestWithdraw()">Withdraw</button>
+
+            </div>
+        </form>    
+    </div>
+
+</div>
