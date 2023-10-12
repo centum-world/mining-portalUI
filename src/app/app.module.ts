@@ -349,7 +349,8 @@ import { BusinessViewBankComponent } from './components/bd/modal/business-view-b
     BdVerifyComponent,
     BdBlockComponent,
     BdEditComponent,
-    BusinessAddBankComponent
+    BusinessAddBankComponent,
+    BusinessViewBankComponent
   ],
   providers: [
     {
