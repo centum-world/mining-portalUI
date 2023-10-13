@@ -151,6 +151,7 @@ import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd
 import { BdProfileDocumentsComponent } from './components/bd/bd-profile-documents/bd-profile-documents.component';
 import { MemberListComponent } from './components/bd/member-list/member-list.component';
 import { AccountsPaidWithdrawalComponent } from './components/admin/dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
+import { BdSignupPageComponent } from './components/bd/bd-signup-page/bd-signup-page.component';
 
 
 
@@ -280,6 +281,7 @@ import { AccountsPaidWithdrawalComponent } from './components/admin/dialog/accou
     BusinessWithdrawDialogComponent,
     PopupSidebarComponent,
     BdProfileDetailsComponent,
+    BdSignupPageComponent,
     BdProfileDocumentsComponent,
     MemberListComponent,
     AccountsPaidWithdrawalComponent,
