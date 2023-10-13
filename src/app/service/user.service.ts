@@ -1107,4 +1107,18 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  //callApitoFetchPerticularBdDetails
+  fetchBdPerticularDetials(data:any){
+    return this.http.post(this.url + "/bd/fetch-particular-bd", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  bdApproved(data:any){
+    return this.http.post(this.url + "/admin/approve-payment-request-of-bd", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+ 
 }
