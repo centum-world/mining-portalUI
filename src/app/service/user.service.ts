@@ -1137,14 +1137,6 @@ export class UserService {
 
     return this.http.post(this.url + '/bd/fetch-particular-bd', data, { headers });
   }
-
-  // fetchParticularBdDetails(data: any) {
-  //   const headers = new HttpHeaders({ "Content-Type": "application/json" });
-
-  //   return this.http.post(this.url + "bd/fetch-particular-bd", data, {
-  //     headers,
-  //   });
-  // }
   
   
 }
