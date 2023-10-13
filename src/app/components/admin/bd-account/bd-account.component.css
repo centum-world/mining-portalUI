@@ -1,4 +1,4 @@
-.bd-header{
+/* .bd-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,17 +7,19 @@
     background: #b63003;
     margin-top: 2px;
     border-radius: 8px;
-    margin-left: 300px;
+    margin-left:300px;
     padding: 20px;
 }
-.bd-header p{
+
+.bd-header p {
     color: #fff;
     font-size: 18px;
     font-weight: 400;
     padding: 10px;
     font-family: Calibri;
 }
-.wallet-div{
+
+.wallet-div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +29,93 @@
     background: #fbf703;
     border-radius: 10px;
 }
+
+
+
 .history-div{
     margin-left: 300px;
 }
+.bakk-div {
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
 
+.bakk-div .example-card {
+    flex: 1;
+    max-width: 300px;
+    margin: 10px;
+  }
 
+.payment-card {
+    margin-top: 5%;
+    width: 40%;
+}
+
+.bank-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.bank-details h2 {
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
+}
+
+.example-header-image {
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+}
+
+@media (max-width: 767px) {
+    .bakk-div .example-card {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+    }
+    .bd-header{
+        margin-left: 0;
+        width: 100%;
+    }
+    .history-div{
+        margin-left: 0;
+    }
+} */
+
+.account-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: #b63003;
+    border-radius: 5px;
+    margin-left: 300px;
+    padding: 10px;
+}
+.account-header p{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Calibri;
+}
+.wallet-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background: #f8fc02;
+    color: #b63003;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.account-content{
+    margin-left: 300px;
+}
 .bakk-div{
     display: flex;
     height: auto;
@@ -40,10 +124,6 @@
 .example-card {
     margin: 10px;
     width: 300px;
-}
-.payment-card{
-    margin-top: 5%;
-    width: 40%;
 }
   
 .bank-details{
@@ -61,38 +141,3 @@
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
-.partner-history-card{
-    width: 60%;
-    margin-top: 5%;
-}
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 5px;
-    margin: 10px;
-    box-sizing: border-box;
-    position: relative; /* Position relative for pseudo-element positioning */
-  }
-  
-  /* Style for the divider between columns */
-  .column:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -5px; /* Adjust this value to control the width of the divider */
-    height: 100%;
-    width: 1px; /* Width of the divider */
-    background-color: #ccc; /* Divider color */
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  }
-  
