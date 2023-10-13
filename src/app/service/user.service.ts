@@ -1141,4 +1141,12 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  
+  getAllMemberDetails(data: any){
+    return this.http.post(this.url + "/bd/fetch-members-referred-by-bd",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    })
+  }
+
 }

@@ -4,6 +4,7 @@ import { MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 
 import { BdProfileDetailsComponent } from "../bd-profile-details/bd-profile-details.component";
+import { BdProfileDocumentsComponent } from "../bd-profile-documents/bd-profile-documents.component";
 
 import { UserService } from "src/app/service/user.service";
 
@@ -21,6 +22,13 @@ export class BdHeaderComponent implements OnInit {
 
   bdDetails: any = {};
 
+    // 
+    bdDocuments = {
+      aadharFrontSide :"",
+       aadharBackSide:"",
+       panCard:""
+    }
+
   ngOnInit() {}
 
   logOut() {
@@ -33,7 +41,8 @@ export class BdHeaderComponent implements OnInit {
   }
 
   listBusinessDeveloper() {
-    // Implement your logic here
+    
+    this.router.navigate(['/bd-dashboard/member-list'])
   }
 
   handleWithdrawalClick() {
@@ -79,7 +88,61 @@ export class BdHeaderComponent implements OnInit {
     });
   }
 
-  openFranchiseDocumentsDialog() {
-    // Implement your logic here
+  
+  openBdDocumentsDialog() {
+
+    let data = {
+      businessDeveloperId:localStorage.getItem('bdHandlerID')
+    }
+
+    this.userService.fetchParticularBdDetails(data).subscribe({
+      next: (response: any) => {
+
+        console.log(response)
+        if (response) {
+          console.log(response)
+          this.bdDocuments.aadharFrontSide = response.bdDetails.adhar_front_side          ,
+          this.bdDocuments.aadharBackSide= response.bdDetails.adhar_back_side,
+          this.bdDocuments.panCard = response.bdDetails.panCard
+          let config: MatDialogConfig = {
+            panelClass:'franchiseDocumentsDialogClass',data:this.bdDocuments
+         };
+         const dialogRef = this.dialog.open(BdProfileDocumentsComponent,config);
+     
+         dialogRef.afterClosed().subscribe(result => {
+           console.log('The dialog was closed');
+           // Do something with the result if needed
+         });
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+
+
+    
   }
+
+  // refresh(){
+  //   this.router.navigate(['/franchisedashboard/home'])
+  // }
+
+  // listBussinessDeveloper(){
+  //   this.router.navigate(['/franchisedashboard/bd-list']);
+  // }
+
+  // logOut(){
+  //   localStorage.clear();
+  //   this.router.navigate(['/franchiselogin']);
+  // }
+
+  // addBussinessDeveloper(){
+  //   this.router.navigate(['/franchisedashboard/add-bd'])
+  // }
+
+
+  // handleWithdrawalClick(){
+  //   this.router.navigate(['/franchisedashboard/withdrawal-list'])
+  // }
 }

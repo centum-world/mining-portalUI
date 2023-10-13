@@ -1,0 +1,99 @@
+
+<div class="large-expand">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="m_name">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header"> F-Name </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{ businessDeveloper.m_name }}  </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="m_lname">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header"> L-Name </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_lname}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="m_userid">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header">Id </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_userid}}  </td>
+            </ng-container>
+
+            <ng-container matColumnDef="m_email">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header">Email </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_email}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="m_phone">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header"> Phone </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_phone}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="m_refferid">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header"> Referred ID </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_refferid}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reffer_id">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header"> Referral ID </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.reffer_id}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="m_gender">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header">Gender </th>
+                <td mat-cell *matCellDef="let businessDeveloper"> {{businessDeveloper.m_gender}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="m_state">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header">State</th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_state}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="m_add">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header">Address </th>
+                <td mat-cell *matCellDef="let businessDeveloper">{{businessDeveloper.m_add}} </td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="isVerify">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header">Verify</th>
+                <td mat-cell *matCellDef="let franchise" [ngStyle]="{'color': franchise.isVerify === 1 ? 'green' : 'red'}">{{franchise.isVerify === 1? 'Yes':'No'}}</td>
+            </ng-container> -->
+
+             <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="franchise-list-header"> Actions </th>
+                <td mat-cell *matCellDef="let businessDeveloper">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openViewFranchiseDialog(franchise)">
+                            View
+                        </button>
+                        <button mat-menu-item [disabled]="franchise.isVerify === 1" (click)="openVerifyDialog(franchise)">
+                            Verify
+                        </button>
+                        <button mat-menu-item (click)="openIsBlockDialog(franchise)">
+                            {{ franchise.isBlocked === 0 ? 'Block' : 'Unblock' }}
+                        </button>
+                        <button mat-menu-item (click)="openEditFranchiseDialog(franchise)">
+                            Edit
+                        </button>
+                        <button mat-menu-item (click)="gotoFranchiseAccount()">
+                            Account
+                        </button>
+                        Add more options as needed
+                    </mat-menu>
+                </td>
+            </ng-container> 
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let businessDeveloper; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]="true">
+        </mat-paginator>
+    </div>
+</div>

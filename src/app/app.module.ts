@@ -148,6 +148,8 @@ import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdp
 import { BusinessWithdrawDialogComponent } from './components/bd/modal/business-withdraw-dialog/business-withdraw-dialog.component';
 import { PopupSidebarComponent } from './components/admin/popup-sidebar/popup-sidebar.component';
 import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details.component';
+import { BdProfileDocumentsComponent } from './components/bd/bd-profile-documents/bd-profile-documents.component';
+import { MemberListComponent } from './components/bd/member-list/member-list.component';
 
 
 
@@ -277,6 +279,8 @@ import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd
     BusinessWithdrawDialogComponent,
     PopupSidebarComponent,
     BdProfileDetailsComponent,
+    BdProfileDocumentsComponent,
+    MemberListComponent,
   
   ],
   imports: [
@@ -363,7 +367,8 @@ import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd
     BusinessViewBankComponent,
     BusinessWithdrawDialogComponent,
     PopupSidebarComponent,
-    BdProfileDetailsComponent
+    BdProfileDetailsComponent,
+    BdProfileDocumentsComponent
   ],
   providers: [
     {
