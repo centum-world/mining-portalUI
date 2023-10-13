@@ -1,4 +1,4 @@
-.bd-header {
+/* .bd-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,7 +7,7 @@
     background: #b63003;
     margin-top: 2px;
     border-radius: 8px;
-    margin-left: 300px;
+    margin-left:300px;
     padding: 20px;
 }
 
@@ -30,13 +30,14 @@
     border-radius: 10px;
 }
 
-.history-div {
+
+
+.history-div{
     margin-left: 300px;
 }
-
-
 .bakk-div {
     display: flex;
+    height: auto;
     flex-wrap: wrap;
 }
 
@@ -44,7 +45,7 @@
     flex: 1;
     max-width: 300px;
     margin: 10px;
-}
+  }
 
 .payment-card {
     margin-top: 5%;
@@ -75,4 +76,68 @@
         max-width: none;
         margin: 10px 0;
     }
+    .bd-header{
+        margin-left: 0;
+        width: 100%;
+    }
+    .history-div{
+        margin-left: 0;
+    }
+} */
+
+.account-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: #b63003;
+    border-radius: 5px;
+    margin-left: 300px;
+    padding: 10px;
+}
+.account-header p{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Calibri;
+}
+.wallet-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background: #f8fc02;
+    color: #b63003;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.account-content{
+    margin-left: 300px;
+}
+.bakk-div{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
+.example-card {
+    margin: 10px;
+    width: 300px;
+}
+  
+.bank-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+.bank-details h2{
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
+}
+.example-header-image{
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
 }
