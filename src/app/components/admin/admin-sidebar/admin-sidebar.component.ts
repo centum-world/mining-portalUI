@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MatDialogConfig } from '@angular/material';
 import { PopupSidebarComponent } from '../popup-sidebar/popup-sidebar.component';
+import { AccountsPaidWithdrawalComponent } from '../dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { PopupSidebarComponent } from '../popup-sidebar/popup-sidebar.component'
 export class AdminSidebarComponent implements OnInit {
   selectedItem: string = '';
 
-  constructor(private router:Router,private dialog: MatDialog) { }
+  constructor(private router:Router,private dialog: MatDialog,private userService:UserService) { }
 
   ngOnInit() {
   }
@@ -59,6 +61,43 @@ export class AdminSidebarComponent implements OnInit {
    };
    const dialogRef = this.dialog.open(PopupSidebarComponent, config);
     console.log("hiii")
+  }
+  // ------------------
+  accountsPaidWithdrawal={
+    partner:"",
+    member:"",
+    refferalPartner:"",
+    totalwithdrawal:""
+  }
+  accountsPaidWithdrawalDialog(){
+
+    this.userService.acountTotalPayout().subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log(response)
+          this.accountsPaidWithdrawal.partner = response.partner,
+          this.accountsPaidWithdrawal.member = response.refferalMember,
+          this.accountsPaidWithdrawal.refferalPartner = response.reffrePartner,
+          this.accountsPaidWithdrawal.totalwithdrawal = response.totalWithdrawal
+          
+          let config: MatDialogConfig = {
+            panelClass:'franchiseProfileDetailsDialogClass',data:this.accountsPaidWithdrawal
+         };
+         const dialogRef = this.dialog.open(AccountsPaidWithdrawalComponent,config);
+     
+         dialogRef.afterClosed().subscribe(result => {
+           console.log('The dialog was closed');
+           // Do something with the result if needed
+         });
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+
+
+    
   }
 
 

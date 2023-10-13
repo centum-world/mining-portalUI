@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddMemberComponent } from '../admin/dialog/add-member/add-member.component';
+import { AccountsPaidWithdrawalComponent } from '../admin/dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
 
 
 @Component({
@@ -397,6 +398,8 @@ export class HrDashboardComponent implements OnInit {
       }
     })
   }
+
+ 
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('userdetail');
