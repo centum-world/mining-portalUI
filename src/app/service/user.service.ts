@@ -1015,16 +1015,20 @@ export class UserService {
     );
   }
 
-  BusinessWithdrawalRequest(data:any){
-    return this.http.post(this.url + "/bd/bd/create-bd-payment-request",data, {
+  BusinessWithdrawalRequest(data: any) {
+    return this.http.post(this.url + "/bd/bd/create-bd-payment-request", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-  
-  paymentRequestForSho(data:any){
-    return this.http.post(this.url + "/admin/fetch-payment-request-for-all",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+
+  paymentRequestForSho(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-payment-request-for-all",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   paymentApprovedForSho(data: any) {
@@ -1133,10 +1137,8 @@ export class UserService {
   }
 
   fetchParticularBdDetails(data: any) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-    return this.http.post(this.url + '/bd/fetch-particular-bd', data, { headers });
+    return this.http.post(this.url + "/bd/fetch-particular-bd", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
-  
-  
 }

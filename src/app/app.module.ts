@@ -147,7 +147,7 @@ import { BdAccountComponent } from './components/admin/bd-account/bd-account.com
 import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdpayment-request.component';
 import { BusinessWithdrawDialogComponent } from './components/bd/modal/business-withdraw-dialog/business-withdraw-dialog.component';
 import { PopupSidebarComponent } from './components/admin/popup-sidebar/popup-sidebar.component';
-import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details/bd-profile-details.component';
+import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details.component';
 
 
 
