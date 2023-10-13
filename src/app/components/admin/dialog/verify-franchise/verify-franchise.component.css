@@ -4,8 +4,11 @@
     font-size: 18px;
     font-weight: 600;
     margin-left: -24px;
-    margin-right: -27px;
+    margin-right: -24px;
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.mat-dialog-actions {
+    margin-bottom: 15px;
 }

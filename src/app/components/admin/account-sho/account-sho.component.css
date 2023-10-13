@@ -54,3 +54,12 @@
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
+
+@media (max-width: 768px) {
+    .account-header{
+        margin-left:0;
+    }
+    .account-content{
+        margin-left: 0;
+    }
+}
