@@ -56,6 +56,16 @@ body {
   }
 }
 
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.6em 0 1em 0;
+}
+
+
+
+.mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
 .myStateDialogClass .mat-dialog-content {
   overflow: hidden !important;
 }
