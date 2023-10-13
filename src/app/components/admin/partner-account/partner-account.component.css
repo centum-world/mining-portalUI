@@ -36,11 +36,11 @@
 }
 .example-card {
     margin: 10px;
-    width: 300px;
+    width: 350px;
 }
 .payment-card{
     margin-top: 5%;
-    width: 40%;
+    width: 60%;
 }
   
 .bank-details{
@@ -59,7 +59,7 @@
     background-size: cover;
 }
 .partner-history-card{
-    width: 60%;
+    width: 70%;
     margin-top: 5%;
 }
 .container {
@@ -91,5 +91,30 @@
     .container {
       flex-direction: column;
     }
+    .payment-card{
+        width: 90%;
+    }
+    .partner-history-card{
+        width: 98%;
+    }
+    .account-header{
+        margin-left: 0;
+    }
+    .account-content{
+        margin-left: 0;
+    }
   }
-  
+  @media (max-width: 576px) {
+    .transaction {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .mat-form-field {
+        width: 100%;
+        margin-bottom: 10px; 
+      }
+      .example-card{
+        width: 400px;
+      }
+  }

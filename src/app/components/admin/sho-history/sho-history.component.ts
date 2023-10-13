@@ -69,9 +69,7 @@ export class ShoHistoryComponent implements OnInit {
     console.log(shoData)
 
     let config: MatDialogConfig = {
-      height: '26%',
-      width: '23%',
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myStateVerifyDialogClass',
       data: shoData
     };
     const dialogRef = this.dialog.open(BlockShoComponent, config);
@@ -101,9 +99,7 @@ export class ShoHistoryComponent implements OnInit {
 
   openVerifyDialog(shoData: any) {
     let config: MatDialogConfig = {
-      height: '26%',
-      width: '23%',
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myStateVerifyDialogClass',
       data: shoData
     };
     const dialogRef = this.dialog.open(VerifyShoComponent, config);
