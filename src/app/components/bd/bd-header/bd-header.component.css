@@ -103,9 +103,6 @@ body{
 .sidebar-menu{
     margin-top: 1rem;
 }
-.main-content{
-    margin-bottom: 10%;
-}
 
 #nav-toggle:checked ~ .main-content{
     margin-left: 70px;

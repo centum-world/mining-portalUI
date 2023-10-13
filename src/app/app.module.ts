@@ -145,6 +145,7 @@ import { BusinessAddBankComponent } from './components/bd/modal/business-add-ban
 import { BusinessViewBankComponent } from './components/bd/modal/business-view-bank/business-view-bank.component';
 import { BdAccountComponent } from './components/admin/bd-account/bd-account.component';
 import { BDpaymentRequestComponent } from './components/bd/bdpayment-request/bdpayment-request.component';
+import { BusinessWithdrawDialogComponent } from './components/bd/modal/business-withdraw-dialog/business-withdraw-dialog.component';
 import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details/bd-profile-details.component';
 
 
@@ -272,6 +273,7 @@ import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd
     BusinessViewBankComponent,
     BdAccountComponent,
     BDpaymentRequestComponent,
+    BusinessWithdrawDialogComponent,
     BdProfileDetailsComponent,
   
   ],
@@ -357,6 +359,7 @@ import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd
     BdEditComponent,
     BusinessAddBankComponent,
     BusinessViewBankComponent,
+    BusinessWithdrawDialogComponent,
     BdProfileDetailsComponent
   ],
   providers: [
