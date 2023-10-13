@@ -44,6 +44,14 @@ body {
     height: 70%;
   }
 }
+.myStateVerifyDialogClass{
+  width: 24%;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+  }
+}
 .franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
   width: 60%;
   height:auto;
@@ -130,11 +138,12 @@ body {
 }
 
 .partnerEditDialogClass {
-  width: 45%;
-  height: 80%;
+  width: 60%;
+  height: auto;
 
-  .mat-dialog-content {
-    height: 70%;
+  .mat-dialog-container {
+    height: auto;
+    margin-bottom: 20px;
   }
 
   .mat-dialog-container {
@@ -190,8 +199,32 @@ body {
     padding-top: 0;
   }
 }
+.myFranchiseViewDialogClass{
+  width: 60%;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+  }
+}
+.VerifyFranchiseDialogClass{
+  width: 26%;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+  }
+}
+.blockFranchiseDialogClass{
+  width: 26%;
+  height: auto;
+  .mat-dialog-container{
+    border-radius: 20px;
+    padding-top: 0;
+  }
+}
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .myEditDialogClass {
     width: 100%;
   }
@@ -303,5 +336,33 @@ body {
       margin-left: 0px;
     }
   }
+  
+  .partnerEditDialogClass {
+    width: 100%;
+    height: auto;
+  
+    .mat-dialog-container {
+      height: auto;
+      margin-bottom: 20px;
+    }
+  }
 
+  .myStateVerifyDialogClass{
+    width: 90%;
+    height: auto;
+    .mat-dialog-container{
+      border-radius: 20px;
+      padding-top: 0;
+    }
+  }
+  .myFranchiseViewDialogClass{
+    width: 99%;
+    
+  }
+  .VerifyFranchiseDialogClass{
+    width: 90%;
+  }
+  .blockFranchiseDialogClass{
+    width: 90%;
+  }
 }

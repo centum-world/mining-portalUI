@@ -4,7 +4,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-left: -24px;
-    margin-right: -24px;
+    margin-right: -23px;
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -38,4 +38,6 @@
     height: 150px;
     margin-right: 10px; /* Add some margin between images */
   }
-  
+  .mat-dialog-actions {
+    margin-bottom: 15px;
+  }

@@ -81,9 +81,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     console.log(franchiseData);
 
     let config: MatDialogConfig = {
-      height: "26%",
-      width: "23%",
-      panelClass: "myStateDialogClass",
+      panelClass: "blockFranchiseDialogClass",
       data: franchiseData,
     };
     const dialogRef = this.dialog.open(BlockFranchiseComponent, config);
@@ -112,9 +110,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
 
   openVerifyDialog(franchiseData: any) {
     let config: MatDialogConfig = {
-      height: "26%",
-      width: "23%",
-      panelClass: "myStateDialogClass",
+      panelClass: "VerifyFranchiseDialogClass",
       data: franchiseData,
     };
     const dialogRef = this.dialog.open(VerifyFranchiseComponent, config);
