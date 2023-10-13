@@ -3,11 +3,11 @@
 .mat-dialog-title {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #e7e4df;
+    background: #b63003;
     margin-left: -22px;
     margin-right: -22px;
     padding-left: 20px;
-    color: #ccc;
+    color: #fff;
 }
   
 .row {
@@ -19,9 +19,9 @@
     display: flex;
 }
 
-.custom-heading {
+/* .custom-heading {
     color:#EF2F88;
-}
+} */
 
 .stateDetails span {
     font-size: 18px;

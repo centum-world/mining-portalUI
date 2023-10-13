@@ -93,7 +93,7 @@ export class FranchiseListComponent implements OnInit {
   openVerifyDialog(id: any) {
     this.franchiseReferralId = id.franchiseId
     let config: MatDialogConfig = {
-      height: '26%', width: '23%', panelClass: 'myStateDialogClass'
+       panelClass: 'franchiseVerifyDialogClass'
     };
     const dialogRef = this.dialog.open(VerifyModalComponent, config);
 
