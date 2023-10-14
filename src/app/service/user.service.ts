@@ -1163,4 +1163,11 @@ export class UserService {
     })
   }
 
+  bdVerifyMember(data: any){
+    return this.http.post(this.url + "/admin/admin-verify-member",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
 }

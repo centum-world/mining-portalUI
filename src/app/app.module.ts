@@ -150,6 +150,7 @@ import { PopupSidebarComponent } from './components/admin/popup-sidebar/popup-si
 import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details.component';
 import { BdProfileDocumentsComponent } from './components/bd/bd-profile-documents/bd-profile-documents.component';
 import { MemberListComponent } from './components/bd/member-list/member-list.component';
+import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
 
 
 
@@ -281,6 +282,7 @@ import { MemberListComponent } from './components/bd/member-list/member-list.com
     BdProfileDetailsComponent,
     BdProfileDocumentsComponent,
     MemberListComponent,
+    MemberVerifyModelComponent,
   
   ],
   imports: [
