@@ -60,6 +60,43 @@ export class AdminSidebarComponent implements OnInit {
    const dialogRef = this.dialog.open(PopupSidebarComponent, config);
     console.log("hiii")
   }
+  // ------------------
+  accountsPaidWithdrawal={
+    partner:"",
+    member:"",
+    refferalPartner:"",
+    totalwithdrawal:""
+  }
+  accountsPaidWithdrawalDialog(){
+
+    this.userService.acountTotalPayout().subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log(response)
+          this.accountsPaidWithdrawal.partner = response.partner,
+          this.accountsPaidWithdrawal.member = response.refferalMember,
+          this.accountsPaidWithdrawal.refferalPartner = response.reffrePartner,
+          this.accountsPaidWithdrawal.totalwithdrawal = response.totalWithdrawal
+          
+          let config: MatDialogConfig = {
+            panelClass:'accountsPaidWithdrawalDialogClass',data:this.accountsPaidWithdrawal
+         };
+         const dialogRef = this.dialog.open(AccountsPaidWithdrawalComponent,config);
+     
+         dialogRef.afterClosed().subscribe(result => {
+           console.log('The dialog was closed');
+           // Do something with the result if needed
+         });
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+
+
+    
+  }
 
 
   logOut(){

@@ -234,6 +234,16 @@ body {
   }
 }
 
+.accountsPaidWithdrawalDialogClass{
+  height: auto;
+  width: 40%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
+
 @media (max-width: 768px) {
   .myEditDialogClass {
     width: 100%;
@@ -300,7 +310,7 @@ body {
     }
   }
 
-  .myEditDialogClass {
+  .myEditDialogClass,.accountsPaidWithdrawalDialogClass {
     width: 99%;
     height: auto;
 

@@ -31,3 +31,7 @@
     color: darkviolet;
     font-weight: 500;
 }
+.mat-warn{
+  background: #dd4e4e;
+  color: #fefefe;
+}
