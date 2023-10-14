@@ -79,7 +79,6 @@ export class FranchiseHeaderComponent implements OnInit {
     
   }
 
-  
   openFranchiseDocumentsDialog() {
 
     let data = {

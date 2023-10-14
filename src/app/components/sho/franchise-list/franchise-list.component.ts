@@ -13,7 +13,6 @@ import { EditFranchiseComponent } from '../diolog/edit-franchise/edit-franchise.
 import { Router } from '@angular/router';
 
 
-
 interface Franchise {
   fname: string;
   lname: string;

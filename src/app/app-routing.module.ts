@@ -56,8 +56,7 @@ import { WithdrawlFranchiseComponent } from "./components/franchise/withdrawl-fr
 import { BdCardsComponent } from "./components/bd/bd-cards/bd-cards.component";
 import { BdAccountComponent } from "./components/admin/bd-account/bd-account.component";
 import { BDpaymentRequestComponent } from "./components/bd/bdpayment-request/bdpayment-request.component";
-import { MemberDetailsListComponent } from "./components/member-details-list/member-details-list.component";
-import { MemberListComponent } from "./components/bd/member-list/member-list.component";
+import { BdSignupPageComponent } from "./components/bd/bd-signup-page/bd-signup-page.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -68,6 +67,7 @@ const routes: Routes = [
   { path: "franchiselogin", component: FranchiseLoginComponent },
   { path: "franchiseSignUp", component: FranchiseSignUpComponent },
   { path: "businesslogin", component: BdLoginComponent},
+  { path: "business-developer-regitration", component: BdSignupPageComponent},
   {
     path: "dashboard",
     canActivate: [GuardGuard],
@@ -134,7 +134,6 @@ const routes: Routes = [
     children:[
       { path: "home", component: BdCardsComponent },
       {path: "withdrawal-list", component: BDpaymentRequestComponent},
-      {path: "member-list", component: MemberListComponent},
       { path: "", redirectTo: "/bd-dashboard/home", pathMatch: "full" },
     ]
   },

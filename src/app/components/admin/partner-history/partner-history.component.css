@@ -72,7 +72,7 @@
 
   @media screen and (max-width: 768px ){
     .sho-list-header, .large-expand{
-     margin-left: 70px ;
+     margin-left: 0px ;
     } 
     .mat-form-field-infix {
       width: 100px;
