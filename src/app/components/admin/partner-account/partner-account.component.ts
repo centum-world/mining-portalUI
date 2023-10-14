@@ -116,6 +116,10 @@ export class PartnerAccountComponent implements OnInit {
             this.perDayAmountDropDown = 13500;
             this.februaryAmount = 12600;
             this.refferalAmount = 1850;
+          }else if(res.result[0].p_liquidity === 1200000){
+            this.perDayAmountDropDown = 135000;
+            this.februaryAmount = 124000;
+            this.refferalAmount = 22000;
           }
 
         },
