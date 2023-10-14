@@ -1169,6 +1169,14 @@ export class UserService {
       
     }) 
   }
+  // business-fetch-withdrawal-request
+
+  businessDevFetchwithdrawalRequest(data: any){
+    return this.http.post(this.url + "/bd/bd/fetch-withdrawal-request",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
 
   blockAndUnblockMember(data: any){
     return this.http.post(this.url + "/admin/admin-block-member",data, {

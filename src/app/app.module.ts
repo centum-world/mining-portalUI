@@ -162,6 +162,7 @@ import { MemberBlockModelComponent } from './components/bd/member-block-model/me
 
 
 
+import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-request-history/withdrawal-request-history.component';
 
 
 
@@ -294,6 +295,7 @@ import { MemberBlockModelComponent } from './components/bd/member-block-model/me
     BdSignupPageComponent,
     MemberVerifyModelComponent,
     AccountsPaidWithdrawalComponent,
+    WithdrawalRequestHistoryComponent,
     MemberListComponent,
     BdProfileDocumentsComponent,
     MemberViewModelComponent,

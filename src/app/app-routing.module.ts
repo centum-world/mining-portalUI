@@ -58,6 +58,7 @@ import { BdAccountComponent } from "./components/admin/bd-account/bd-account.com
 import { BDpaymentRequestComponent } from "./components/bd/bdpayment-request/bdpayment-request.component";
 import { BdSignupPageComponent } from "./components/bd/bd-signup-page/bd-signup-page.component";
 import { MemberListComponent } from "./components/bd/member-list/member-list.component";
+import { WithdrawalRequestHistoryComponent } from "./components/bd/withdrawal-request-history/withdrawal-request-history.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -135,6 +136,7 @@ const routes: Routes = [
     children:[
       { path: "home", component: BdCardsComponent },
       {path: "withdrawal-list", component: BDpaymentRequestComponent},
+      {path:"withdrawal-request-history",component:WithdrawalRequestHistoryComponent},
       { path: "", redirectTo: "/bd-dashboard/home", pathMatch: "full" },
       {path: "member-list", component: MemberListComponent}
     ]
