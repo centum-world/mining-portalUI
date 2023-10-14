@@ -52,7 +52,8 @@ export class SignupPartnerComponent implements OnInit {
     password: new FormControl("", [Validators.required])
   });
 
-  addPartnerData(partnerSignUpForm) {
+  addPartnerData(form : FormGroup) {
+    console.log(form.value)
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
     //console.log(this.b);
     let a = '';
@@ -94,7 +95,7 @@ export class SignupPartnerComponent implements OnInit {
             // submit form data here
         
             // clear form data after submission
-            partnerSignUpForm.reset();
+            form.reset();
           
         }
       },
