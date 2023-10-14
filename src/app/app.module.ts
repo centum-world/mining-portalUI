@@ -150,6 +150,7 @@ import { PopupSidebarComponent } from './components/admin/popup-sidebar/popup-si
 import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details.component';
 import { BdSignupPageComponent } from './components/bd/bd-signup-page/bd-signup-page.component';
 import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
+import { AccountsPaidWithdrawalComponent } from './components/admin/dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
 
 
 
@@ -281,6 +282,7 @@ import { MemberVerifyModelComponent } from './components/bd/member-verify-model/
     BdProfileDetailsComponent,
     BdSignupPageComponent,
     MemberVerifyModelComponent,
+    AccountsPaidWithdrawalComponent
   
   ],
   imports: [
@@ -367,7 +369,8 @@ import { MemberVerifyModelComponent } from './components/bd/member-verify-model/
     BusinessViewBankComponent,
     BusinessWithdrawDialogComponent,
     PopupSidebarComponent,
-    BdProfileDetailsComponent
+    BdProfileDetailsComponent,
+    AccountsPaidWithdrawalComponent
   ],
   providers: [
     {

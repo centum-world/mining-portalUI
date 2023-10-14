@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MatDialogConfig } from '@angular/material';
 import { PopupSidebarComponent } from '../popup-sidebar/popup-sidebar.component';
+import { UserService } from 'src/app/service/user.service';
+import { AccountsPaidWithdrawalComponent } from '../dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { PopupSidebarComponent } from '../popup-sidebar/popup-sidebar.component'
 export class AdminSidebarComponent implements OnInit {
   selectedItem: string = '';
 
-  constructor(private router:Router,private dialog: MatDialog) { }
+  constructor(private router:Router,private dialog: MatDialog,private userService:UserService) { }
 
   ngOnInit() {
   }
