@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { BusinessAddBankComponent } from '../modal/business-add-bank/business-add-bank.component';
 import { BusinessViewBankComponent } from '../modal/business-view-bank/business-view-bank.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bd-cards',
@@ -15,9 +16,14 @@ export class BdCardsComponent implements OnInit {
   displayBusinessHandlerId = localStorage.getItem('bdHandlerID');
   displayBusinessHandlerReferralId = localStorage.getItem('bdRefferalId')
 
-  constructor(private dialog:MatDialog,private userService:UserService) { }
+  constructor(private dialog:MatDialog,private userService:UserService,
+    private router:Router) { }
 
   ngOnInit() {
+  }
+
+  businessWithdrawalRequestViewList(){
+    this.router.navigate(['/bd-dashboard/withdrawal-request-history'])
   }
 
   businessAddBankDialog(){

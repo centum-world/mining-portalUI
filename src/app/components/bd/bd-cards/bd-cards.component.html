@@ -31,7 +31,7 @@
 
       <div class="card-single">
         <div>
-          <h6>Business Handler ID :- {{displayBusinessHandlerId}}</h6>
+          <h6>BusinessDev ID :- {{displayBusinessHandlerId}}</h6>
           <span>Referral ID &nbsp;<a href="/bd-dashboard/add-member?refferId={{displayBusinessHandlerReferralId}}"
               >{{displayBusinessHandlerReferralId}}</a></span>
     
@@ -73,7 +73,7 @@
           <h6>Withdrawal Request</h6>
 
         </div>
-        <div data-toggle="modal" data-target="#memberWithdrawalRequest">
+        <div data-toggle="modal" (click)="businessWithdrawalRequestViewList()">
           <div class="icon">
             <span>View</span>
           </div>
