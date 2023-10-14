@@ -42,4 +42,8 @@ export class PopupSidebarComponent implements OnInit {
       this.router.navigate(['/login'])
     }
   }
+
+  goToDashboard(){
+    this.router.navigate(['/dashboard/home'])
+  }
 }

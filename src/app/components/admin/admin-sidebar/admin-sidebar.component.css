@@ -124,7 +124,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
     left: 300px;
@@ -134,6 +134,7 @@ header {
     background: #fff;
     transition: left 300ms;
     height: 90px;
+    align-items: center;
 }
 
 #nav-toggle {
@@ -319,7 +320,7 @@ tbody tr td {
     }
 
     header h2 {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .logo-centum span{
         display: block;
@@ -332,7 +333,7 @@ tbody tr td {
     }
 
     header h2 span {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
 }
@@ -425,4 +426,5 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
