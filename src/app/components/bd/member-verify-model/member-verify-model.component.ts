@@ -1,4 +1,4 @@
-import { Component, OnInit  , Output,EventEmitter} from '@angular/core';
+import { Component, OnInit , Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-member-verify-model',
@@ -13,10 +13,9 @@ export class MemberVerifyModelComponent implements OnInit {
   ngOnInit() {
   }
 
-  verifyMember(){
+  verifyBd(){
     this.okClicked.emit();
   }
-
 
 }
 

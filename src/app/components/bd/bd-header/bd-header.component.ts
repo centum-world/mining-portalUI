@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import { BdProfileDetailsComponent } from "../bd-profile-details/bd-profile-details.component";
 
 import { UserService } from "src/app/service/user.service";
+import { BdProfileDocumentsComponent } from "../bd-profile-documents/bd-profile-documents.component";
 
 @Component({
   selector: "app-bd-header",
@@ -20,6 +21,7 @@ export class BdHeaderComponent implements OnInit {
   ) {}
 
   bdDetails: any = {};
+  bdDocuments: any = {}
 
   ngOnInit() {}
 
@@ -32,8 +34,9 @@ export class BdHeaderComponent implements OnInit {
     this.router.navigate(['/bd-dashboard/home']);
   }
 
-  listBusinessDeveloper() {
-    // Implement your logic here
+  listMember() {
+    // Implement your logic here\
+    this.router.navigate(['/bd-dashboard/member-list'])
   }
 
   handleWithdrawalClick() {
@@ -79,7 +82,37 @@ export class BdHeaderComponent implements OnInit {
     });
   }
 
-  openFranchiseDocumentsDialog() {
-    // Implement your logic here
+  openBdDocumentsDialog() {
+
+    let data = {
+      businessDeveloperId:localStorage.getItem('bdHandlerID')
+    }
+
+    this.userService.fetchParticularBdDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log(response)
+          this.bdDocuments.aadharFrontSide = response.bdDetails
+        .adhar_back_side          ,
+          this.bdDocuments.aadharBackSide= response.bdDetails.adhar_back_side,
+          this.bdDocuments.panCard = response.bdDetails.panCard
+
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+
+
+    let config: MatDialogConfig = {
+       panelClass:'franchiseDocumentsDialogClass',data:this.bdDocuments
+    };
+    const dialogRef = this.dialog.open(BdProfileDocumentsComponent,config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Do something with the result if needed
+    });
   }
 }

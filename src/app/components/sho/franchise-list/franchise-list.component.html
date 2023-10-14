@@ -73,9 +73,11 @@
                         <button mat-menu-item (click)="openViewFranchiseDialog(franchise)">
                             View
                         </button>
+                        
                         <button mat-menu-item [disabled]="franchise.isVerify === 1" (click)="openVerifyDialog(franchise)">
                             Verify
                         </button>
+
                         <button mat-menu-item (click)="openIsBlockDialog(franchise)">
                             {{ franchise.isBlocked === 0 ? 'Block' : 'Unblock' }}
                         </button>

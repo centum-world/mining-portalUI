@@ -149,9 +149,19 @@ import { BusinessWithdrawDialogComponent } from './components/bd/modal/business-
 import { PopupSidebarComponent } from './components/admin/popup-sidebar/popup-sidebar.component';
 import { BdProfileDetailsComponent } from './components/bd/bd-profile-details/bd-profile-details.component';
 import { BdSignupPageComponent } from './components/bd/bd-signup-page/bd-signup-page.component';
-import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
+
+
 import { AccountsPaidWithdrawalComponent } from './components/admin/dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
 import { PartnerPaymentDetailsComponent } from './components/modal/partner-payment-details/partner-payment-details.component';
+import { MemberListComponent } from './components/bd/member-list/member-list.component';
+import { BdProfileDocumentsComponent } from './components/bd/bd-profile-documents/bd-profile-documents.component';
+import { MemberViewModelComponent } from './components/bd/member-view-model/member-view-model.component';
+
+import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
+import { MemberBlockModelComponent } from './components/bd/member-block-model/member-block-model.component'; 
+
+
+
 
 
 
@@ -283,7 +293,11 @@ import { PartnerPaymentDetailsComponent } from './components/modal/partner-payme
     BdProfileDetailsComponent,
     BdSignupPageComponent,
     MemberVerifyModelComponent,
-    AccountsPaidWithdrawalComponent
+    AccountsPaidWithdrawalComponent,
+    MemberListComponent,
+    BdProfileDocumentsComponent,
+    MemberViewModelComponent,
+    MemberBlockModelComponent
   
   ],
   imports: [
@@ -371,7 +385,11 @@ import { PartnerPaymentDetailsComponent } from './components/modal/partner-payme
     BusinessWithdrawDialogComponent,
     PopupSidebarComponent,
     BdProfileDetailsComponent,
-    AccountsPaidWithdrawalComponent
+    AccountsPaidWithdrawalComponent,
+    BdProfileDocumentsComponent,
+    MemberViewModelComponent,
+    MemberVerifyModelComponent,
+    MemberBlockModelComponent
   ],
   providers: [
     {

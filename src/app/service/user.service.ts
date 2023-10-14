@@ -1170,4 +1170,11 @@ export class UserService {
     }) 
   }
 
+  blockAndUnblockMember(data: any){
+    return this.http.post(this.url + "/admin/admin-block-member",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
 }
