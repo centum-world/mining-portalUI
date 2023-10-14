@@ -77,6 +77,9 @@ table {
   .sho-list-header{
     margin-left: 0;
   }
+  .large-expand{
+    margin-left: 0;
+  }
 }
 
 @media only screen and (min-width: 375px) and (max-width:767px) {
