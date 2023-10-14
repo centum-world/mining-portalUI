@@ -346,7 +346,7 @@ body {
   } */
 
   .popupSidebarDialogClass {
-    width: 500px;
+    width: 100vw !important;
     height: 100vh;
     left: 0;
     top: 0;

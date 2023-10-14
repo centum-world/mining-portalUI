@@ -1,7 +1,12 @@
 <div class="custom-heading" mat-dialog-title>
-    <h3>MINING RIG</h3><h3><mat-icon mat-dialog-close>close</mat-icon></h3>
+    <div class="mobile-sidebar-heading">
+    <h3 (click)="goToDashboard()">MINING RIG</h3>
+    <span>
+        <mat-icon mat-dialog-close>close</mat-icon>
+    </span>
+    </div>
 </div>
-<div class="sidebar">
+<div class="mobile-sidebar">
     <ul>
         <li [class.active]="isActive('member')" (click)="setActive('member')"><mat-icon>person</mat-icon>Member History</li>
         <li [class.active]="isActive('partner')" (click)="setActive('partner')"><mat-icon>person</mat-icon>Partner History</li>
@@ -13,7 +18,7 @@
         <li [class.active]="isActive('partnerBond')" (click)="setActive('partnerBond')"><mat-icon>picture_as_pdf</mat-icon>Partnership Bond</li>
         <li [class.active]="isActive('help')" (click)="setActive('help')"><mat-icon>help</mat-icon>Help & Support</li>
         <li [class.active]="isActive('accounts')" (click)="setActive('accounts')"><mat-icon>help</mat-icon>Accounts</li>
-        <li [class.active]="isActive('logout')" (click)="setActive('logout')"><mat-icon>help</mat-icon>Logout</li>
+        <li [class.active]="isActive('logout')" (click)="setActive('logout')"><mat-icon>logout</mat-icon>Logout</li>
     </ul>
 </div>
 
