@@ -1,1 +1,22 @@
-<h1 class="custom-heading" mat-dialog-title>Verify SHO</h1>
+<div class="custom-heading" mat-dialog-title>
+    <h3>MINING RIG</h3><h3><mat-icon mat-dialog-close>close</mat-icon></h3>
+</div>
+<div class="sidebar">
+    <ul>
+        <li [class.active]="isActive('member')" (click)="setActive('member')"><mat-icon>person</mat-icon>Member History</li>
+        <li [class.active]="isActive('partner')" (click)="setActive('partner')"><mat-icon>person</mat-icon>Partner History</li>
+        <li [class.active]="isActive('sho')" (click)="setActive('sho')"><mat-icon>person</mat-icon>State Handler(SHO)</li>
+        <li [class.active]="isActive('franchise')" (click)="setActive('franchise')"><mat-icon>person</mat-icon>Franchise History</li>
+        <li [class.active]="isActive('bd')" (click)="setActive('bd')"><mat-icon>person</mat-icon>Business Dev History</li>
+        <li [class.active]="isActive('totalLiquidity')" (click)="setActive('totalLiquidity')"><mat-icon>attach_money</mat-icon>Total Liquidity</li>
+        <li [class.active]="isActive('partnerWallet')" (click)="setActive('partnerWallet')"><mat-icon>account_balance_wallet</mat-icon>Partner Wallet</li>
+        <li [class.active]="isActive('partnerBond')" (click)="setActive('partnerBond')"><mat-icon>picture_as_pdf</mat-icon>Partnership Bond</li>
+        <li [class.active]="isActive('help')" (click)="setActive('help')"><mat-icon>help</mat-icon>Help & Support</li>
+        <li [class.active]="isActive('accounts')" (click)="setActive('accounts')"><mat-icon>help</mat-icon>Accounts</li>
+        <li [class.active]="isActive('logout')" (click)="setActive('logout')"><mat-icon>help</mat-icon>Logout</li>
+    </ul>
+</div>
+
+
+
+  

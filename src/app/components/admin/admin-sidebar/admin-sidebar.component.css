@@ -285,6 +285,9 @@ tbody tr td {
 .modal-dialog::-webkit-scrollbar {
     display: none;
 }
+.logo-centum span{
+    display: none;
+}
 
 @media only screen and (max-width:1024px) and (min-width:769px) {
     .header {
@@ -318,6 +321,9 @@ tbody tr td {
     header h2 {
         font-size: 1rem;
     }
+    .logo-centum span{
+        display: block;
+    }
 }
 
 @media only screen and (max-width:560px) {
@@ -337,6 +343,7 @@ tbody tr td {
         /* width: 70px; */
         display: none;
     }
+    
 
     .header {
         /* left: 261px; */
@@ -413,4 +420,9 @@ textarea {
     color: white;
     align-items: center;
 
+}
+.logo-centum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
