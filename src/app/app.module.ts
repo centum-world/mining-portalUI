@@ -163,6 +163,8 @@ import { MemberBlockModelComponent } from './components/bd/member-block-model/me
 
 
 import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-request-history/withdrawal-request-history.component';
+import { WithdrawalSuccessHistoryComponent } from './components/bd/withdrawal-success-history/withdrawal-success-history.component';
+import { BusinessDevPartnerTeamComponent } from './components/bd/business-dev-partner-team/business-dev-partner-team.component';
 
 
 
@@ -299,7 +301,9 @@ import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-re
     MemberListComponent,
     BdProfileDocumentsComponent,
     MemberViewModelComponent,
-    MemberBlockModelComponent
+    MemberBlockModelComponent,
+    WithdrawalSuccessHistoryComponent,
+    BusinessDevPartnerTeamComponent
   
   ],
   imports: [

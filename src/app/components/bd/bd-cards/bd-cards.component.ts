@@ -4,6 +4,7 @@ import { UserService } from 'src/app/service/user.service';
 import { BusinessAddBankComponent } from '../modal/business-add-bank/business-add-bank.component';
 import { BusinessViewBankComponent } from '../modal/business-view-bank/business-view-bank.component';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-bd-cards',
@@ -12,18 +13,30 @@ import { Router } from '@angular/router';
 })
 export class BdCardsComponent implements OnInit {
 
+  totalWithdrawalOfBusinessDev: any;
+
   bankDetails=[];
   displayBusinessHandlerId = localStorage.getItem('bdHandlerID');
   displayBusinessHandlerReferralId = localStorage.getItem('bdRefferalId')
 
   constructor(private dialog:MatDialog,private userService:UserService,
-    private router:Router) { }
+    private router:Router,
+    private toastr:ToastrService) { }
 
   ngOnInit() {
+    this.totalWithdrawalAmount();
   }
 
   businessWithdrawalRequestViewList(){
     this.router.navigate(['/bd-dashboard/withdrawal-request-history'])
+  }
+
+  businessWithdrawalSuccessViewList(){
+    this.router.navigate(['/bd-dashboard/withdrawal-success-history'])
+  }
+
+  businessPartnerMyTeamViewList(){
+    this.router.navigate(['/bd-dashboard/businessDev-partner-team'])
   }
 
   businessAddBankDialog(){
@@ -64,5 +77,26 @@ export class BdCardsComponent implements OnInit {
     })
     
   }
+
+  totalWithdrawalAmount(){
+    let data = {
+      userId:localStorage.getItem('bdHandlerID')
+    }
+    this.userService.fetchBusinessDevTotalWithdrawal(data).subscribe({
+      next: (result: any) => {
+        if (result) {
+          console.log(typeof(result.data))
+          
+          this.totalWithdrawalOfBusinessDev = result.data;
+        }
+
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
+    })
+  }
+  
+  
 
 }

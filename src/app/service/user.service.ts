@@ -1184,5 +1184,25 @@ export class UserService {
       
     }) 
   }
+  businessDevFetchwithdrawalSuccessHistory(data: any){
+    return this.http.post(this.url + "/bd/bd/fetch-withdrawal-sucess-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
+  fetchBusinessDevTotalWithdrawal(data: any){
+    return this.http.post(this.url + "/bd/bd/business-dev-total-withdrawal",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
+  fetchBusinessDevPartnerTeam(data: any){
+    return this.http.post(this.url + "/bd/bd/businessDev-fetch-partner-team",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
 
 }
