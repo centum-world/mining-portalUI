@@ -2,21 +2,10 @@
   <div class="member-container">
     <div class="signup-left-container">
       <div class="company-name">
-        <img
-          src="../../../assets/image/clogo.png"
-          alt=""
-          height="90"
-          width="90"
-        />
+        <img src="../../../assets/image/clogo.png" alt="" height="90" width="90" />
         <p>Centum World</p>
       </div>
-      <img
-        src="../../../assets/image/Illustration.png"
-        class="left-side-image"
-        height="340"
-        width="340"
-        alt=""
-      />
+      <img src="../../../assets/image/Illustration.png" class="left-side-image" height="340" width="340" alt="" />
       <p class="subtitle">
         Register Now !!
       </p>
@@ -25,18 +14,12 @@
       <div class="right-input-container">
         <h1>Join & Connect the Fastest Growing Trading Community</h1>
         <div class="member-signup-form">
-          <form
-            [formGroup]="signForm"
-            (ngSubmit)="addMemberData(signForm)"
-            class="signUpForm"
-          >
+          <form [formGroup]="signForm" (ngSubmit)="addMemberData(signForm)" class="signUpForm">
             <div>
               <mat-form-field appearance="outline" class="reffer-input">
                 <mat-label>Reffer Id</mat-label>
                 <input matInput formControlName="reffered_id" />
-                <span class="reffer-sub"
-                  >If you don't have any reffer id, Enter admin@123</span
-                >
+                <span class="reffer-sub">If you don't have any reffer id, Enter admin@123</span>
               </mat-form-field>
             </div>
             <div class="username-box">
@@ -56,40 +39,20 @@
             <mat-form-field appearance="outline" class="phone-input">
               <mat-label>(+91) Phone</mat-label>
               <input matInput formControlName="phone" required />
-              <span class="phone-sub"
-                >Please enter phone number starting with (+91)</span
-              >
+              <span class="phone-sub">Please enter phone number starting with (+91)</span>
             </mat-form-field>
             <div class="gender-box">
               <label for="gender">Gender: </label>
               <div>
-                <input
-                  type="radio"
-                  name="gender"
-                  formControlName="gender"
-                  value="male"
-                  id="gender1"
-                />
+                <input type="radio" name="gender" formControlName="gender" value="male" id="gender1" />
                 <label for="gender1"> &nbsp; Male</label>
               </div>
               <div>
-                <input
-                  type="radio"
-                  name="gender"
-                  formControlName="gender"
-                  value="female"
-                  id="gender2"
-                />
+                <input type="radio" name="gender" formControlName="gender" value="female" id="gender2" />
                 <label for="gender2"> &nbsp; Female</label>
               </div>
               <div>
-                <input
-                  type="radio"
-                  formControlName="gender"
-                  name="gender"
-                  value="other"
-                  id="gender3"
-                />
+                <input type="radio" formControlName="gender" name="gender" value="other" id="gender3" />
                 <label for="gender3"> &nbsp; Other</label>
               </div>
             </div>
@@ -103,12 +66,7 @@
             <div class="profession-box">
               <div class="designation">
                 <label for="designation">Designation</label>
-                <select
-                  class="Designation"
-                  name="designation"
-                  id="designation"
-                  formControlName="designation"
-                >
+                <select class="Designation" name="designation" id="designation" formControlName="designation">
                   <option value="">Select</option>
                   <option value="software engineer">Software engineer</option>
                   <option value="bussiness manager">Bussiness Manager</option>
@@ -118,17 +76,9 @@
               </div>
               <div class="experiance">
                 <label for="experience">Experience</label>
-                <select
-                  class="Experiance"
-                  name="experiance"
-                  id="experiance"
-                  formControlName="experiance"
-                >
+                <select class="Experiance" name="experiance" id="experiance" formControlName="experiance">
                   <option value="">Select</option>
-                  <option
-                    *ngFor="let data of userExperience"
-                    [value]="data.name"
-                  >
+                  <option *ngFor="let data of userExperience" [value]="data.name">
                     {{ data.name }}
                   </option>
                 </select>
@@ -143,33 +93,18 @@
               <div class="form-group-Qualification">
                 <label for="ten">Qualification</label>
                 <div>
-                  <input
-                    type="radio"
-                    formControlName="qualification"
-                    value="ten"
-                    name="qualification"
-                    id="qualification1"
-                  />
+                  <input type="radio" formControlName="qualification" value="ten" name="qualification"
+                    id="qualification1" />
                   <label for="ten">10th</label>
                 </div>
                 <div>
-                  <input
-                    type="radio"
-                    formControlName="qualification"
-                    value="twelve"
-                    name="qualification"
-                    id="qualification2"
-                  />
+                  <input type="radio" formControlName="qualification" value="twelve" name="qualification"
+                    id="qualification2" />
                   <label for="twelve">10+2</label>
                 </div>
                 <div>
-                  <input
-                    type="radio"
-                    formControlName="qualification"
-                    value="graduation"
-                    name="qualification"
-                    id="qualification2"
-                  />
+                  <input type="radio" formControlName="qualification" value="graduation" name="qualification"
+                    id="qualification2" />
                   <label for="graduation">Graduation</label>
                 </div>
               </div>
@@ -177,25 +112,12 @@
             <div class="date-box">
               <div class="dob-box">
                 <label for="dob"> DOB </label>
-                <input
-                  class="DOB"
-                  type="date"
-                  id="dob"
-                  name="dob"
-                  formControlName="dob"
-                  placeholder="Enter DOB"
-                />
+                <input class="DOB" type="date" id="dob" name="dob" formControlName="dob" placeholder="Enter DOB" />
               </div>
               <div class="doj-box">
                 <label for="doj">DOJ</label>
-                <input
-                  class="DOJ"
-                  type="date"
-                  id="doj"
-                  name="doj"
-                  formControlName="doj"
-                  placeholder="Date of Joining"
-                />
+                <input class="DOJ" type="date" id="doj" name="doj" formControlName="doj"
+                  placeholder="Date of Joining" />
               </div>
               <div class="state-box">
                 <label for="experience">State</label>
@@ -205,6 +127,29 @@
                 </mat-form-field>
               </div>
             </div>
+            <div class="custom-file-input">
+              <mat-form-field appearance="outline">
+                <mat-label>Front Aadhar Card</mat-label>
+                <input matInput type="text" [value]="aadharImageName" placeholder="Choose a file" readonly />
+                <input type="file" id="aadharImage" (change)="onAadharImageChange($event,'front')" accept="image/*" class="input" />
+              </mat-form-field>
+            </div>
+            <div class="custom-file-input">
+              <mat-form-field appearance="outline">
+                <mat-label>Back Aadhar Card</mat-label>
+                <input matInput type="text" [value]="backAadharImageName" placeholder="Choose a file" readonly />
+                <input type="file" id="aadharImage" (change)="onAadharImageChange($event,'back')" accept="image/*" class="input" />
+              </mat-form-field>
+            </div>
+            <div class="custom-file-input">
+              <mat-form-field appearance="outline">
+                <mat-label>Pan Card</mat-label>
+                <input matInput type="text" [value]="panImageName" placeholder="Choose a file" readonly />
+                <input type="file" id="aadharImage" (change)="onAadharImageChange($event,'pan')" accept="image/*" class="input" />
+              </mat-form-field>
+            </div>
+            
+            
             <mat-form-field appearance="outline" class="user-input">
               <mat-label>User id</mat-label>
               <input matInput formControlName="user_id" required />
@@ -215,18 +160,10 @@
             </mat-form-field>
             <button class="admin-login-btn">
               <p class="btn-text">Proceed to my account</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="#eee"
-                class="bi bi-arrow-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#eee" class="bi bi-arrow-right"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
               </svg>
             </button>
           </form>
@@ -236,186 +173,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="logo">
-  <img src="assets/image/clogo.png" alt="" class="center">
-</div>
-<div class="container">
-  <h1> CENTUM WORLD MINING PARTNER ECCOSYSTEM </h1>
-  <p>Member Sign Up </p>
-
-  <form [formGroup]="signForm" (ngSubmit)="addMemberData(signForm)">
-    <div class="row">
-      <div class="column">
-        <div class="form-group">
-          <label for="name">First Name </label>
-          <input type="text" id="name" name="name" formControlName="name" placeholder="Enter first Name">
-          <span style="color: red;" *ngIf="signForm.get('name').invalid && signForm.get('name').touched">
-            Name is required
-          </span>
-        </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="lname">Last Name </label>
-          <input type="text" id="name" name="lname" formControlName="lname" placeholder="Enter last Name">
-          <span style="color: red;" *ngIf="signForm.get('lname').invalid && signForm.get('lname').touched">
-            Name is required
-          </span>
-        </div>
-      </div>
-    </div>
-
-  
-    <div class="row">
-      <div class="column">
-        <div class="form-group">
-          <label for="Address">Enter Address</label>
-          <textarea type="text" name="address" formControlName="address" placeholder="Enter Address"
-            id="address"> </textarea>
-        </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="designation">Phone</label>
-          <input type="text" id="designation" name="phone" formControlName="phone" placeholder="Enter Phone">
-          <span style="color: red;" *ngIf="signForm.get('phone').invalid && signForm.get('phone').touched">
-            <small>(*Must start with +91)</small>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="form-group">
-          <label for="refferid"> RefferID </label>
-          <input type="text" id="refferid" name="refferid" [value]="b===undefined?'':b" formControlName="reffered_id"
-            placeholder="Enter RefferId">
-          <small style="font-size: 12px;">*If don't have refferal id, use (admin123)</small>
-        </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="state">State</label>
-          <input type="text" id="state" name="state" formControlName="state" placeholder="Enter Your State">
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="column">
-
-        <div class="form-group">
-          <label for="email"> Email </label>
-          <input type="email" id="email" formControlName="email" placeholder="Enter Email">
-        </div>
-      </div>
-      <div class="column">
-
-        <div class="form-group ">
-          <label for="designation">Designation</label>
-          <select class="Designation" name="designation" id="designation" formControlName="designation">
-            <option value="">Select</option>
-            <option value="software engineer">Software engineer</option>
-            <option value="bussiness manager">Bussiness Manager</option>
-            <option value="web developer">Web Developer</option>
-            <option value="full stack">Full stack developer</option>
-          </select>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group Gender">
-          <label for="gender">Gender</label>
-          <input type="radio" name="gender" formControlName="gender" value="male" id="gender1">
-          <label for="gender1">Male</label>
-          <input type="radio" name="gender" formControlName="gender" value="female" id="gender2">
-          <label for="gender2">Female</label>
-          <input type="radio" formControlName="gender" name="gender" value="other" id="gender3">
-          <label for="gender3">Other</label>
-        </div>
-      </div>
-      <div class="col">
-        <div class=" form-group Qualification">
-          <label for="ten">Qualification</label>
-          <input type="radio" formControlName="qualification" value="ten" name="qualification" id="qualification1">
-          <label for="ten">10th</label>
-          <input type="radio" formControlName="qualification" value="twelve" name="qualification" id="qualification2">
-          <label for="twelve">10+2</label>
-          <input type="radio" formControlName="qualification" value="graduation" name="qualification"
-            id="qualification2">
-          <label for="graduation">Graduation</label>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label for="experience">Experience</label>
-          <select class="Experiance" name="experiance" id="experiance" formControlName="experiance">
-            <option value="undefined">Select</option>
-            <option *ngFor="let data of userExperience" [value]="data.name">{{data.name}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="salary">Salary</label>
-          <input type="text" name="salary" formControlName="salary" id="salary" placeholder="Enter salary">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="form-group">
-          <label for="dob"> DOB </label>
-          <input type="date" id="dob" name="dob" formControlName="dob" placeholder="Enter DOB">
-        </div>
-
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="doj">DOJ</label>
-          <input type="date" id="doj" name="doj" formControlName="doj" placeholder="Date of Joining">
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="form-group">
-          <label for="user_id"> User Id </label>
-          <input type="text" id="userid" name="user_id" formControlName="user_id" placeholder="User ID">
-        </div>
-
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="user_password">Password</label>
-          <input type="text" id="user_password" formControlName="user_password" placeholder="Password">
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="footer">
-        <div class="account">
-          <span>Have an account?</span><a href="/memberlogin">Login</a>
-        </div>
-        <div>
-          <button type="submit" class="save" [disabled]="!signForm.valid" data-toggle="dismiss">Register</button>
-
-        </div>
-
-
-      </div>
-    </div>
-
-
-  </form>
-</div> -->

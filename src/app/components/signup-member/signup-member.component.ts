@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-signup-member',
   templateUrl: './signup-member.component.html',
@@ -10,8 +11,17 @@ import { ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupMemberComponent implements OnInit {
-
-  constructor(private userService: UserService, private toastr: ToastrService, private activeRoute: ActivatedRoute) { }
+  aadharImage: null;
+  aadharBackImage:null;
+  panImage:null;
+  aadharImageName: string=''; 
+  backAadharImageName:string='';
+  panImageName:string='';
+  constructor(private userService: UserService,
+     private toastr: ToastrService,
+      private activeRoute: ActivatedRoute,
+      private sanitizer: DomSanitizer
+      ) { }
 
 
   public userExperience = [
@@ -46,34 +56,37 @@ export class SignupMemberComponent implements OnInit {
     salary: new FormControl("", [Validators.required]),
     dob: new FormControl("", [Validators.required]),
     doj: new FormControl("", [Validators.required]),
+    aadhar: new FormControl(['', Validators.required]),
     user_id: new FormControl("", [Validators.required]),
     user_password: new FormControl("", [Validators.required])
 
   });
 
-  addMemberData(userForm) {
+  addMemberData(userForm:any) {
+    console.log(this.aadharImage, this.aadharBackImage, this.panImage)
     this.createMember.refferal_id = this.signForm.value.user_id + Math.floor(Math.random() * 100000);
-    var data = {
-      m_name: this.signForm.value.name,
-      m_lname: this.signForm.value.lname,
-      m_phone: this.signForm.value.phone,
-      m_add: this.signForm.value.address,
-      m_refferid: this.signForm.value.reffered_id,
-      m_state: this.signForm.value.state,
-      m_email: this.signForm.value.email,
-      m_designation: this.signForm.value.designation,
-      m_quali: this.signForm.value.qualification,
-      m_gender: this.signForm.value.gender,
-      m_exp: this.signForm.value.experiance,
-      m_salary: this.signForm.value.salary,
-      m_dob: this.signForm.value.dob,
-      m_doj: this.signForm.value.doj,
-      m_userid: this.signForm.value.user_id,
-      m_password: this.signForm.value.user_password,
-      reffer_id: this.createMember.refferal_id
-    }
-
-    this.userService.signUpMember(data).subscribe({
+    const form = new FormData();
+    form.append('m_name', this.signForm.value.name);
+    form.append('m_lname', this.signForm.value.lname);
+    form.append('m_phone', this.signForm.value.phone);
+    form.append('m_add', this.signForm.value.address);
+    form.append('m_refferid', this.signForm.value.reffered_id);
+    form.append('m_state',this.signForm.value.state);
+    form.append('m_email',this.signForm.value.email);
+    form.append('m_designation', this.signForm.value.designation);
+    form.append('m_quali', this.signForm.value.qualification);
+    form.append('m_gender', this.signForm.value.gender);
+    form.append('m_exp', this.signForm.value.experiance)
+    form.append('m_salary', this.signForm.value.salary);
+    form.append('m_dob',this.signForm.value.dob);
+    form.append('m_doj', this.signForm.value.doj);
+    form.append('m_userid', this.signForm.value.user_id);
+    form.append('m_password', this.signForm.value.user_password);
+    form.append('reffer_id', this.createMember.refferal_id);
+    form.append('adhar_front_side', this.aadharImage);
+    form.append('adhar_back_side', this.aadharBackImage);
+    form.append('panCard',this.panImage);
+    this.userService.signUpMember(form).subscribe({
       next: result => {
         if (result) {
           this.toastr.success('Member Created Successfully!', 'Success');
@@ -86,4 +99,24 @@ export class SignupMemberComponent implements OnInit {
 
     })
   }
+
+  
+  onAadharImageChange(event: any, imageType:any) {
+    if(imageType === 'front'){
+      const file = event.target.files[0];
+      this.aadharImageName = file.name;
+      this.aadharImage = file;
+    }else if(imageType === 'back'){
+      const file = event.target.files[0];
+      this.aadharBackImage = file.name;
+      this.aadharBackImage = file;
+    }else if(imageType === 'pan'){
+      const file = event.target.files[0];
+      this.panImageName = file.name;
+      this.panImage = file;
+    }
+    
+    
+  }
+
 }

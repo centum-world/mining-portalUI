@@ -170,5 +170,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     console.log( franchiseData.franchiseId)
     this.router.navigate(['dashboard/franchise-account', franchiseData.franchiseId])
   }
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
+  }
 
 }

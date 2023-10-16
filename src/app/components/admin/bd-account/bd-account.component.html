@@ -106,7 +106,7 @@
 </div> -->
 
 <div class="account-header">
-   <p>SHO Account details</p>
+   <p style="display: flex; justify-content: center; align-items: center;"><mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp;BD Account details</p>
    <div class="wallet-div">{{bdWallet | currency:"INR"}}</div>
 </div>
 <div class="account-content">
@@ -147,7 +147,7 @@
                   <mat-divider></mat-divider>
                   <mat-card-actions>
                      <button mat-button style="background: green;">Request</button>
-                     <button mat-button style="background: red;" (click)="approved(data.id)">Approve</button>
+                     <button mat-button style="background: red;" (click)="bdApproved(data.id)">Approve</button>
                   </mat-card-actions>
                </mat-card>
             </ng-template>

@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from "ngx-toastr";
 import { ConfirmApprovedComponent } from '../components/admin/dialog/confirm-approved/confirm-approved.component';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-franchise-account',
@@ -20,7 +21,8 @@ export class FranchiseAccountComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private toastr: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router : Router
   ) {
     this.route.params.subscribe(params => {
       this.franchiseID = params['id'];
@@ -122,6 +124,10 @@ export class FranchiseAccountComponent implements OnInit {
         console.log(err.error.message)
       })
     })
+  }
+
+  goBack(){
+    this.router.navigate(['/dashboard/franchise-history'])
   }
 
 }

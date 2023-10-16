@@ -152,7 +152,6 @@ import { BdSignupPageComponent } from './components/bd/bd-signup-page/bd-signup-
 
 
 import { AccountsPaidWithdrawalComponent } from './components/admin/dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
-import { PartnerPaymentDetailsComponent } from './components/modal/partner-payment-details/partner-payment-details.component';
 import { MemberListComponent } from './components/bd/member-list/member-list.component';
 import { BdProfileDocumentsComponent } from './components/bd/bd-profile-documents/bd-profile-documents.component';
 import { MemberViewModelComponent } from './components/bd/member-view-model/member-view-model.component';
@@ -160,9 +159,6 @@ import { MemberViewModelComponent } from './components/bd/member-view-model/memb
 import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
 import { MemberBlockModelComponent } from './components/bd/member-block-model/member-block-model.component';
 import { MemberEditModelComponent } from './components/bd/member-edit-model/member-edit-model.component'; 
-
-
-
 import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-request-history/withdrawal-request-history.component';
 
 

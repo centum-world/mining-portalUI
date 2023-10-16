@@ -176,4 +176,10 @@ export class MemberListComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  openEditFranchiseDialog(data:any){
+
+  }
+  gotoFranchiseAccount(){
+    
+  }
 }

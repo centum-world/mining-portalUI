@@ -409,7 +409,7 @@ export class UserService {
     );
   }
 
-  fetchPartnerDetailsForAdminUsingPartnerId(data) {
+  fetchPartnerDetailsForAdminUsingPartnerId(data:any) {
     return this.http.post(
       this.url + "/admin/fetch-mining-partner-profile-details-from-admin",
       data,
@@ -430,17 +430,13 @@ export class UserService {
   }
 
   //member Sign up
-  signUpMember(data) {
-    return this.http.post(this.url + "/signup/member-signup", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  signUpMember(formData:FormData) : Observable<any>{
+    return this.http.post(`${this.url}/signup/member-signup`, formData)
   }
 
   //signUp partner
-  signUpPartner(data) {
-    return this.http.post(this.url + "/signup/partner-signup", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  signUpPartner(formData:FormData): Observable<any> {
+    return this.http.post(`${this.url}/signup/partner-signup`, formData)
   }
 
   // pendingPayemntPartner

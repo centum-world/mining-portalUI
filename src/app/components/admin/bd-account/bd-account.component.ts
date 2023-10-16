@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 import { MatDialogConfig } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-bd-account',
   templateUrl: './bd-account.component.html',
@@ -17,7 +17,7 @@ export class BdAccountComponent implements OnInit {
   bdApprovedHistory = [];
   bdBankDetails = [];
   bdWallet=0;
-  constructor(private route: ActivatedRoute, private dialog: MatDialog, private userService : UserService, private toastr: ToastrService) { 
+  constructor(private route: ActivatedRoute, private dialog: MatDialog, private userService : UserService, private toastr: ToastrService, private router: Router) { 
     this.route.params.subscribe(params => {
       this.bdID = params['id']; // Retrieve parameter 1
       console.log(this.bdID);
@@ -117,5 +117,9 @@ export class BdAccountComponent implements OnInit {
    dialogRef.afterClosed().subscribe(result => {
      console.log("Closed");
    });
+  }
+  
+  goBack(){
+    this.router.navigate(['/dashboard/bd-history'])
   }
 }

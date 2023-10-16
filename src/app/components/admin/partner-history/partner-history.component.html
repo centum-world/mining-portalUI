@@ -1,6 +1,6 @@
 <div class="sho-list-header" style="display: flex; justify-content: space-between;">
     <div class="title">
-        <p>Partner  details</p>
+        <p style="display: flex; justify-content: center; align-items: center;"><mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp;Partner  details</p>
     </div>
     <div class="search">
         <mat-form-field>
@@ -106,7 +106,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item >
+                        <button mat-menu-item  (click)="openViewPartnerDialog(partner)">
                             View
                         </button>
                         <button mat-menu-item [disabled]="partner.isVerify === 1" (click)="openMiningPartnerVerifyDialog(partner)" >
