@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 import { MemberVerifyModelComponent } from "../member-verify-model/member-verify-model.component";
 import { MemberViewModelComponent } from "../member-view-model/member-view-model.component";
 import { MemberBlockModelComponent } from "../member-block-model/member-block-model.component";
+import { MemberEditModelComponent } from "../member-edit-model/member-edit-model.component";
 
 interface BusinessDeveloper {
   m_name: string;
@@ -84,7 +85,7 @@ export class MemberListComponent implements OnInit {
   }
 
   openViewMemberDialog(data: any) {
-    console.log(data);
+    console.log(data , "data is coming");
     let config: MatDialogConfig = {
       height: "45%",
       width: "55%",
@@ -157,6 +158,20 @@ export class MemberListComponent implements OnInit {
       console.log("Closed");
     });
   }
+
+  openEditMemberDialog(id:any){
+    let config: MatDialogConfig = {
+      panelClass: 'myEditDialogClass',
+      data:id
+    };
+    const dialogRef = this.dialog.open(MemberEditModelComponent, config)
+    
+    dialogRef.afterClosed().subscribe(result => {
+      this.callApiToGetAllMembersList();
+    });
+  }
+
+  
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

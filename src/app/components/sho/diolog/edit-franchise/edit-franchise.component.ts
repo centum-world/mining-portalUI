@@ -11,6 +11,7 @@ import {
   AbstractControl,
   ValidatorFn,
 } from "@angular/forms";
+
 import { allState } from "src/app/components/common/states";
 
 @Component({
@@ -18,7 +19,10 @@ import { allState } from "src/app/components/common/states";
   templateUrl: "./edit-franchise.component.html",
   styleUrls: ["./edit-franchise.component.css"],
 })
+
+
 export class EditFranchiseComponent implements OnInit {
+  
   states = allState.states;
   distric = []
   franchiseData = {

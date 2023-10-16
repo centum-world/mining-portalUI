@@ -75,7 +75,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="openViewMemberDialog(bd)">
+                        <button mat-menu-item (click)="openViewMemberDialog(member)">
                             View
                         </button>
 
@@ -91,12 +91,12 @@
                             {{ member.isBlocked === 0 ? 'Block' : 'Unblock' }}
                         </button> 
                         
-                        <button mat-menu-item (click)="openEditFranchiseDialog(member)">
+                        <button mat-menu-item (click)="openEditMemberDialog(member)">
                             Edit
                         </button>
-                        <button mat-menu-item (click)="gotoFranchiseAccount()">
+                        <!-- <button mat-menu-item (click)="gotoFranchiseAccount()">
                             Account
-                        </button>
+                        </button> -->
                     </mat-menu>
                 </td>
             </ng-container> 
