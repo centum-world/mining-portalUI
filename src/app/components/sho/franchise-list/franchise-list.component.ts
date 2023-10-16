@@ -76,7 +76,7 @@ export class FranchiseListComponent implements OnInit {
     })
   }
 
-  openViewFranchiseDialog(data: any) {
+ openViewFranchiseDialog (data: any) {
     console.log(data)
     let config: MatDialogConfig = {
       height: '45%',

@@ -1,0 +1,70 @@
+.mat-dialog-title {
+    background-color: #b63003;
+    color: #fefefe;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: -3%;
+    margin-right: -3%;
+    padding: 2% 8%;
+}
+
+
+
+.mat-dialog-container{
+    padding: 0px !important;
+    height: 100%; /* Set the container height to 100% of its parent */
+    max-height: calc(100vh - 56px); /* Adjust as needed based on your header/footer heights */
+    overflow-y: auto;
+}
+
+.edit-frnch-form{
+    height: 100%;
+}
+
+.mat-dialog-actions{
+    margin-bottom: 0 !important;
+}
+
+.mat-dialog-actions .mat-button-base+.mat-button-base {
+    margin-left: 0;
+}
+
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-row mat-form-field {
+    width: 48%; /* Adjust as needed, leaving some space for margins */
+  }
+
+@media (max-width: 600px) {
+
+    .form-row {
+        flex-direction: column;
+    }
+    .form-row mat-form-field {
+        width: 100%; /* Full width on smaller screens */
+        margin-bottom: 10px; /* Add margin for separation */
+    }
+
+    /* Apply styles for smaller screens */
+    .mat-dialog-content p {
+        font-size: 14px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .mat-dialog-actions {
+        flex-direction: column;
+        /* Stack buttons in a column for smaller screens */
+    }
+
+    .mat-dialog-actions button {
+        width: 100%;
+        /* Make buttons full width for smaller screens */
+        margin-bottom: 10px;
+        /* Add some spacing between buttons */
+    }
+}

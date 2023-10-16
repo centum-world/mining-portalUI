@@ -158,7 +158,8 @@ import { BdProfileDocumentsComponent } from './components/bd/bd-profile-document
 import { MemberViewModelComponent } from './components/bd/member-view-model/member-view-model.component';
 
 import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
-import { MemberBlockModelComponent } from './components/bd/member-block-model/member-block-model.component'; 
+import { MemberBlockModelComponent } from './components/bd/member-block-model/member-block-model.component';
+import { MemberEditModelComponent } from './components/bd/member-edit-model/member-edit-model.component'; 
 
 
 
@@ -299,7 +300,8 @@ import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-re
     MemberListComponent,
     BdProfileDocumentsComponent,
     MemberViewModelComponent,
-    MemberBlockModelComponent
+    MemberBlockModelComponent,
+    MemberEditModelComponent
   
   ],
   imports: [
@@ -391,7 +393,8 @@ import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-re
     BdProfileDocumentsComponent,
     MemberViewModelComponent,
     MemberVerifyModelComponent,
-    MemberBlockModelComponent
+    MemberBlockModelComponent,
+    MemberEditModelComponent
   ],
   providers: [
     {
