@@ -19,7 +19,7 @@ body {
     left: 0;
     top: 0;
     height: 100%;
-    background: #15161B;
+    background: #0F172A;
     z-index: 100%;
     transition: width 300ms;
 }
@@ -28,7 +28,7 @@ body {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
     color: #fff;
-    background: #15161B;
+    background: #0F172A;
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -64,7 +64,7 @@ body {
 .sidebar-menu a:hover {
     padding-left: 1rem;
     display: block;
-    background-color: #333333;
+    background-color: #3661EB;
     transition: all ease-in-out 100ms;
     color: #fff;
     font-size: 1rem;
@@ -150,7 +150,7 @@ header {
     /* width: calc(100% - 300px); */
     top: 0;
     z-index: 10;
-    background: #15161B;
+    /* background: ; */
     transition: left 300ms;
     height: 90px;
     align-items: center;
@@ -162,7 +162,7 @@ header {
 
 
 header h2 {
-    color: #555;
+    color: #000;
 }
 
 header label span {
