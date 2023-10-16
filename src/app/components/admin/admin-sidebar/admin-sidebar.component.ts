@@ -13,7 +13,6 @@ import { AccountsPaidWithdrawalComponent } from '../dialog/accounts-paid-withdra
   styleUrls: ['./admin-sidebar.component.css']
 })
 export class AdminSidebarComponent implements OnInit {
-  selectedItem: string = '';
 
   constructor(private router:Router,private dialog: MatDialog,private userService:UserService) { }
 
@@ -47,10 +46,6 @@ export class AdminSidebarComponent implements OnInit {
 
   gotoDahashboard(){
     this.router.navigate(['/dashboard'])
-  }
-
-  selectItem(itemName: string) {
-    this.selectedItem = itemName;
   }
 
   openSideBar(){
