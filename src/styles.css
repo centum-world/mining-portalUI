@@ -246,6 +246,24 @@ body {
     padding-top: 0px;
   }
 }
+.myMemberBLockStateDialogClass{
+  height: auto;
+  width: 40%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
+.myPartnerBlockStateDialogClass{
+  height: auto;
+  width: 40%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
 
 @media (max-width: 768px) {
   .myEditDialogClass {
@@ -302,7 +320,7 @@ body {
 
   .verifyMemberDialogClass,.franchiseVerifyDialogClass{
     width: 95%;
-    height: 40%;
+    height: 30%;
 
     /* .mat-dialog-container{
       padding-top: 0;
@@ -386,6 +404,14 @@ body {
     width: 90%;
   }
   .blockFranchiseDialogClass{
+    width: 90%;
+  }
+  .myMemberBLockStateDialogClass{
+    height: auto;
+    width: 90%;
+  }
+  .myPartnerBlockStateDialogClass{
+    height: auto;
     width: 90%;
   }
 }

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material';
 import { MatDialogConfig } from '@angular/material';
 import { ConfirmApprovedComponent } from '../dialog/confirm-approved/confirm-approved.component';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-partner-account',
@@ -12,7 +13,7 @@ import { ConfirmApprovedComponent } from '../dialog/confirm-approved/confirm-app
   styleUrls: ['./partner-account.component.css']
 })
 export class PartnerAccountComponent implements OnInit {
-
+  status:boolean;
   partnerID: string;
   bankDetails = [];
   partnerRequestHistory = [];
@@ -33,7 +34,8 @@ export class PartnerAccountComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private toastr: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {
     this.route.params.subscribe(params => {
       this.partnerID = params['id']; // Retrieve parameter 1
@@ -44,6 +46,7 @@ export class PartnerAccountComponent implements OnInit {
   ngOnInit() {
     console.log(this.partnerID)
     this.tabChanged(0);
+    this.callApiToUserDetails();
   }
 
   tabChanged(event: any) {
@@ -132,6 +135,20 @@ export class PartnerAccountComponent implements OnInit {
     }
   }
 
+  callApiToUserDetails(){
+    let data = {
+      p_userid : this.partnerID
+    }
+    this.userService.fetchPartnerDetailsForAdminUsingPartnerId(data).subscribe({
+      next:(res:any)=>{
+        this.status = res.data[0].partner_status;
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
+  }
+
   onDateSelected(event:any){
     console.log(event.value)
     const formattedDate = this.formatDate(event.value);
@@ -218,6 +235,9 @@ export class PartnerAccountComponent implements OnInit {
         console.log(this.partnerDetails.lastPaymentDate);
       }
     })
+  }
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
 }

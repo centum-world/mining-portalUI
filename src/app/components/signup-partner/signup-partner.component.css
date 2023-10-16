@@ -131,6 +131,8 @@
   color: #fff;
 }
 
+
+
 @media only screen and (max-width: 768px){
   .partner-signup-container{
     flex-direction: column;

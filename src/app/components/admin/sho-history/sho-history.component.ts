@@ -158,4 +158,8 @@ export class ShoHistoryComponent implements OnInit {
     console.log(shoData.stateHandlerId)
     this.router.navigate(["dashboard/sho-account", shoData.stateHandlerId]);
   }
+  
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
+  }
 }

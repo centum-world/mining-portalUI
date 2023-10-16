@@ -145,4 +145,8 @@ export class BdListComponent implements OnInit {
     this.router.navigate(["dashboard/bd-account", bdData.businessDeveloperId]);
   }
 
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
+  }
+
 }

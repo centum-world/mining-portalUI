@@ -14,6 +14,12 @@ import { NgForm } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPartnerComponent implements OnInit {
+  aadharImage: null;
+  aadharBackImage:null;
+  panImage:null;
+  aadharImageName: string=''; 
+  backAadharImageName:string='';
+  panImageName:string='';
   createMiningPartner = {
     refferal_id: ''
   }
@@ -53,6 +59,7 @@ export class SignupPartnerComponent implements OnInit {
   });
 
   addPartnerData(form : FormGroup) {
+    console.log(this.aadharImage, this.aadharBackImage, this.panImage)
     console.log(form.value)
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
     //console.log(this.b);
@@ -65,36 +72,33 @@ export class SignupPartnerComponent implements OnInit {
       a = this.b
     }
 
-    var data = {
-
-      p_reffered_id: a,
-      p_name: this.partnerSignUpForm.value.name,
-      p_lname: this.partnerSignUpForm.value.lname,
-      p_aadhar: this.partnerSignUpForm.value.aadhar,
-      p_phone: this.partnerSignUpForm.value.phone,
-      p_email: this.partnerSignUpForm.value.email,
-      p_address: this.partnerSignUpForm.value.address,
-      p_state: this.partnerSignUpForm.value.state,
-      p_dob: this.partnerSignUpForm.value.dob,
-      p_nominee_name: this.partnerSignUpForm.value.nominee_name,
-      p_nominee_aadhar: this.partnerSignUpForm.value.nominee_aadhar,
-      p_nominee_phone: this.partnerSignUpForm.value.nominee_phone,
-      p_dop: this.partnerSignUpForm.value.dop,
-      p_liquidity: this.partnerSignUpForm.value.liquidity,
-      terms: this.partnerSignUpForm.value.terms,
-      p_userid: this.partnerSignUpForm.value.user_id,
-      p_password: this.partnerSignUpForm.value.password,
-      p_refferal_id: this.createMiningPartner.refferal_id
-    }
-
-    this.userService.signUpPartner(data).subscribe({
+     const formData = new FormData();
+    formData.append('p_reffered_id', a);
+    formData.append('p_name', this.partnerSignUpForm.value.name);
+    formData.append('p_lname', this.partnerSignUpForm.value.lname);
+    formData.append('p_aadhar', this.partnerSignUpForm.value.aadhar);
+    formData.append('p_phone',this.partnerSignUpForm.value.phone);
+    formData.append('p_email',  this.partnerSignUpForm.value.email);
+    formData.append('p_address', this.partnerSignUpForm.value.address);
+    formData.append('p_state',this.partnerSignUpForm.value.state);
+    formData.append('p_dob',this.partnerSignUpForm.value.dob);
+    formData.append('p_nominee_name', this.partnerSignUpForm.value.nominee_name);
+    formData.append('p_nominee_aadhar', this.partnerSignUpForm.value.nominee_aadhar);
+    formData.append('p_nominee_phone', this.partnerSignUpForm.value.nominee_phone);
+    formData.append('p_dop',this.partnerSignUpForm.value.dop);
+    formData.append('p_liquidity',this.partnerSignUpForm.value.liquidity);
+    formData.append('terms', this.partnerSignUpForm.value.terms);
+    formData.append('p_userid', this.partnerSignUpForm.value.user_id);
+    formData.append('p_password', this.partnerSignUpForm.value.password);
+    formData.append('p_refferal_id', this.createMiningPartner.refferal_id)
+    formData.append('adhar_front_side', this.aadharImage);
+    formData.append('adhar_back_side', this.aadharBackImage);
+    formData.append('panCard',this.panImage);
+  
+    this.userService.signUpPartner(formData).subscribe({
       next: response => {
         if (response) {
           this.toastr.success('Data submitted successfully', 'Success');
-        
-            // submit form data here
-        
-            // clear form data after submission
             form.reset();
           
         }
@@ -103,5 +107,24 @@ export class SignupPartnerComponent implements OnInit {
         this.toastr.error(error.error.message);
       }
     })
+    
+  }
+
+  onAadharImageChange(event: any, imageType:any) {
+    if(imageType === 'front'){
+      const file = event.target.files[0];
+      this.aadharImageName = file.name;
+      this.aadharImage = file;
+    }else if(imageType === 'back'){
+      const file = event.target.files[0];
+      this.aadharBackImage = file.name;
+      this.aadharBackImage = file;
+    }else if(imageType === 'pan'){
+      const file = event.target.files[0];
+      this.panImageName = file.name;
+      this.panImage = file;
+    }
+    
+    
   }
 }

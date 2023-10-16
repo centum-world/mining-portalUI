@@ -96,6 +96,7 @@ export class EditPartnerComponent implements OnInit {
     
   }
   editFormSubmit(editForm: any) {
+    console.log(editForm.value)
     let data = {
       p_name: editForm.value.fname,
       p_lname: editForm.value.lname,

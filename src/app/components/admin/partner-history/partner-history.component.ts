@@ -11,7 +11,7 @@ import { BlockMiningPartnerComponent } from '../dialog/block-mining-partner/bloc
 import { EditPartnerComponent } from '../dialog/edit-partner/edit-partner.component';
 import { Router } from '@angular/router';
 import { ActivateMiningPartnerComponent } from '../dialog/activate-mining-partner/activate-mining-partner.component';
-
+import { ViewMemberComponent } from '../dialog/view-member/view-member.component';
 interface Partner {
   P_userid: string,
   p_name: string,
@@ -105,13 +105,22 @@ export class PartnerHistoryComponent implements OnInit {
 
   // -----------------
 
+  openViewPartnerDialog(partner:any){
+    let config: MatDialogConfig = {
+      panelClass: 'myStateDialogClass',
+      data: partner
+    };
+    const dialogRef = this.dialog.open(ViewMemberComponent, config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
+  }
   openIsBlockPartnerDialog(miningPartnerData: any) {
     console.log(miningPartnerData)
 
     let config: MatDialogConfig = {
-      height: '26%',
-      width: '26%',
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myPartnerBlockStateDialogClass',
       data: miningPartnerData
     };
     const dialogRef = this.dialog.open(BlockMiningPartnerComponent, config);
@@ -192,6 +201,10 @@ export class PartnerHistoryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("Closed");
     });
+  }
+
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
 }

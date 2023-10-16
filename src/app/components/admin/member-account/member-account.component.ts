@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material';
 import { MatDialogConfig } from '@angular/material';
 import { ConfirmApprovedComponent } from '../dialog/confirm-approved/confirm-approved.component';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-member-account',
   templateUrl: './member-account.component.html',
@@ -22,7 +22,8 @@ export class MemberAccountComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private toastr: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router : Router
   ) {
     this.route.params.subscribe(params => {
       this.memberID = params['id']; // Retrieve parameter 1
@@ -128,6 +129,9 @@ export class MemberAccountComponent implements OnInit {
       console.log("Closed");
     });
 
+  }
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
 }

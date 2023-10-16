@@ -134,4 +134,7 @@ export class BdSignupPageComponent implements OnInit {
     this.bdSignUpForm.reset();
   }
 
+  gotoHome(){
+    
+  }
 }

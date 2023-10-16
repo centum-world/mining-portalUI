@@ -113,9 +113,7 @@ export class MemberHistoryComponent implements OnInit {
     console.log(memberData)
 
     let config: MatDialogConfig = {
-      height: '26%',
-      width: '23%',
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myMemberBLockStateDialogClass',
       data: memberData
     };
     const dialogRef = this.dialog.open(BlockMemberComponent, config);
@@ -159,6 +157,10 @@ export class MemberHistoryComponent implements OnInit {
   gotoMemberAccountSection(memberData:any){
     console.log(memberData.m_userid)
     this.router.navigate(["dashboard/member-account", memberData.m_userid]);
+  }
+
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
 }

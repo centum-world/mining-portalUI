@@ -6,7 +6,7 @@ import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
-
+import { Router } from '@angular/router';
 interface ActivePartner {
   p_userid: string,
   p_name: string,
@@ -37,6 +37,7 @@ export class ActivePartnersHistoryComponent implements OnInit {
     private userService: UserService,
     private toastr: ToastrService,
     private dialog: MatDialog,
+    private router : Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -61,6 +62,10 @@ export class ActivePartnersHistoryComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
 }
