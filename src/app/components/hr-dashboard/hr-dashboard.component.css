@@ -98,7 +98,7 @@ body{
 
 .main-content{
     transition: margin-left 300ms;
-    margin-left: 300px;
+    margin-left: 330px;
 
 }
 
@@ -226,11 +226,6 @@ main{
 .icon span {
    color: blue;
    text-decoration: none;
-}
-.member_history span{
-    color:#ffff;
-    cursor: pointer;
-
 }
 
 table thead tr th, tbody tr td {
