@@ -14,12 +14,12 @@ body {
 }
 
 .sidebar {
-    width: 300px;
+    width: 330px;
     position: fixed;
     left: 0;
     top: 0;
     height: 100%;
-    background: #19052c;
+    background: #15161B;
     z-index: 100%;
     transition: width 300ms;
 }
@@ -28,7 +28,10 @@ body {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
     color: #fff;
-    background: #ee5411;
+    background: #15161B;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .sidebar-brand span {
@@ -53,6 +56,22 @@ body {
     color: #fff;
     font-size: 1rem;
     text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.sidebar-menu a:hover {
+    padding-left: 1rem;
+    display: block;
+    background-color: #333333;
+    transition: all ease-in-out 100ms;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
 }
 
 .sidebar-menu a span:first-child {
@@ -86,7 +105,7 @@ body {
 }
 
 .sidebar-menu a.active {
-    background: #fff;
+    background: #000;
     border-radius: 30px 0px 0px 30px;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -117,7 +136,7 @@ body {
 
 .main-content {
     transition: margin-left 300ms;
-    margin-left: 300px;
+    margin-left: 330px;
 
 }
 
@@ -127,11 +146,11 @@ header {
     padding: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
-    left: 300px;
+    left: 330px;
     /* width: calc(100% - 300px); */
     top: 0;
     z-index: 10;
-    background: #fff;
+    background: #15161B;
     transition: left 300ms;
     height: 90px;
     align-items: center;
@@ -210,7 +229,7 @@ main {
 .card-single {
     display: flex;
     justify-content: space-between;
-    background: #fff;
+    background: #e3e3e3;
     padding: 2rem;
     border-radius: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
@@ -239,12 +258,6 @@ main {
 .icon span {
     color: blue;
     text-decoration: none;
-}
-
-.member_history span {
-    color: #ffff;
-    cursor: pointer;
-
 }
 
 table thead tr th,
