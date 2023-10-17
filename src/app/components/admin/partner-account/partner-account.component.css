@@ -3,14 +3,11 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    background: #b63003;
-    border-radius: 5px;
-    margin-left: 300px;
+    margin-left: 340px;
     padding: 10px;
 }
-.account-header p{
-    color: #fff;
-    font-size: 18px;
+.account-header h5{
+    color: #000;
     font-weight: 600;
     font-family: Calibri;
 }
@@ -27,7 +24,7 @@
     font-weight: 600;
 }
 .account-content{
-    margin-left: 300px;
+    margin-left: 330px;
 }
 .bakk-div{
     display: flex;
@@ -40,7 +37,8 @@
 }
 .payment-card{
     margin-top: 5%;
-    width: 60%;
+    margin-bottom: 5%;
+    width: 50%;
 }
   
 .bank-details{

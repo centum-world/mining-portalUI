@@ -6,8 +6,7 @@
     padding: 20px;
 }
 
-.title p{
-    font-size: 2rem;
+.title h5{
     color: #000;
     font-weight: 800;
     font-family: Calibri;
@@ -72,8 +71,8 @@ table {
  }
  @media only screen and (min-width: 375px) and (max-width:767px) {
   
-  .title p{
-    font-size: 16px;
+  .title h5{
+    font-size: auto;
     font-weight: 700;
     
 }

@@ -5,8 +5,7 @@
   margin-left: 330px;
   padding: 20px;
 }
-.title p{
-  font-size:2rem;
+.title h5{
   font-weight: 800;
   color: #000;
   font-family: Calibri;
@@ -69,12 +68,6 @@
   } 
 }
 @media only screen and (min-width: 375px) and (max-width:767px) {
-  
-  .title p{
-    font-size: 16px;
-    font-weight: 700;
-    
-}
  .mat-form-field-infix {
       width: 128px;
   }

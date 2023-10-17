@@ -1,6 +1,6 @@
 .mat-dialog-title {
-    background-color: #b63003;
-    color: #fefefe;
+    background-color: #f0f0f0;
+    color: #000;
     font-size: 18px;
     font-weight: 600;
     margin-left: -24px;
@@ -17,7 +17,7 @@
     align-items: center;
 }
 .form-row mat-form-field {
-    width: 48%; /* Adjust as needed, leaving some space for margins */
+    width: 100%; /* Adjust as needed, leaving some space for margins */
 }
 
 .mat-dialog-actions {

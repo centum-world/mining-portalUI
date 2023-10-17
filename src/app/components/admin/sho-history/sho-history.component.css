@@ -1,12 +1,10 @@
 .sho-list-header{
     width: calc(100%-300px);
     height: 70px;
-    border-radius: 8px;
     margin-left: 330px;
     padding: 20px;
 }
-.title p{
-    font-size: 2rem;
+.title h5{
     font-weight: 800;
     color: #000;
     font-family: Calibri;
@@ -73,10 +71,8 @@ table {
 
 @media only screen and (min-width: 375px) and (max-width:767px) {
   
-  .title p{
-    font-size: 16px;
+  .title h5{
     font-weight: 700;
-    
 }
  .mat-form-field-infix {
       width: 128px;
