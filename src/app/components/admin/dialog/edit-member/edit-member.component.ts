@@ -26,6 +26,7 @@ export class EditMemberComponent implements OnInit {
     phone: "",
     gender: "",
     add: "",
+    state:"",
     id: ""
   }
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private dialogRef: MatDialogRef<EditMemberComponent>) {
@@ -37,6 +38,7 @@ export class EditMemberComponent implements OnInit {
     this.memberDetails.gender = data.m_gender;
     this.memberDetails.add = data.m_add
     this.memberDetails.id = data.m_userid;
+    this.memberDetails.state = data.m_state
   }
 
   ngOnInit() {
@@ -53,7 +55,8 @@ export class EditMemberComponent implements OnInit {
         [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
       ],
       gender: [this.memberDetails.gender],
-      add: [this.memberDetails.add]
+      add: [this.memberDetails.add],
+      state:[this.memberDetails.state]
     })
   }
 
@@ -88,6 +91,7 @@ export class EditMemberComponent implements OnInit {
       m_phone: editForm.value.phone,
       m_gender: editForm.value.gender,
       m_add: editForm.value.add,
+      m_state: editForm.value.state,
       m_userid: this.memberDetails.id
     }
     this.userService.editMemberByAdmin(data).subscribe({

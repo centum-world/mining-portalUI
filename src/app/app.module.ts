@@ -74,7 +74,6 @@ import { ShoCardComponent } from './components/sho/sho-card/sho-card.component';
 import { StateAddFranchiseComponent } from './components/sho/state-add-franchise/state-add-franchise.component';
 import { FranchiseListComponent } from './components/sho/franchise-list/franchise-list.component';
 import { VerifyModalComponent } from './components/sho/diolog/verify-modal/verify-modal.component';
-import { ViewModalComponent } from './components/sho/diolog/view-modal/view-modal.component';
 import { FranchisedashboardComponent } from './franchisedashboard/franchisedashboard.component';
 import { FranchiseCardComponent } from './franchise-card/franchise-card.component';
 import { StateProfileDocumentsComponent } from './components/modal/state-profile-documents/state-profile-documents.component';
@@ -154,7 +153,7 @@ import { BdSignupPageComponent } from './components/bd/bd-signup-page/bd-signup-
 import { AccountsPaidWithdrawalComponent } from './components/admin/dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
 import { MemberListComponent } from './components/bd/member-list/member-list.component';
 import { BdProfileDocumentsComponent } from './components/bd/bd-profile-documents/bd-profile-documents.component';
-import { MemberViewModelComponent } from './components/bd/member-view-model/member-view-model.component';
+
 
 import { MemberVerifyModelComponent } from './components/bd/member-verify-model/member-verify-model.component';
 import { MemberBlockModelComponent } from './components/bd/member-block-model/member-block-model.component';
@@ -166,6 +165,7 @@ import { FranchiseWithdrawalRequestComponent } from './franchise-withdrawal-requ
 import { FranchiseWithdrawalSuccessHistoryComponent } from './franchise-withdrawal-success-history/franchise-withdrawal-success-history.component';
 import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/franchise-partner-my-team.component';
 
+import { PartnerViewComponent } from './components/admin/dialog/partner-view/partner-view.component';
 
 
 
@@ -215,7 +215,6 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
     StateAddFranchiseComponent,
     FranchiseListComponent,
     VerifyModalComponent,
-    ViewModalComponent,
     FranchisedashboardComponent,
     FranchiseCardComponent,
     FranchiseHeaderComponent,
@@ -301,7 +300,6 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
     WithdrawalRequestHistoryComponent,
     MemberListComponent,
     BdProfileDocumentsComponent,
-    MemberViewModelComponent,
     MemberBlockModelComponent,
     MemberEditModelComponent,
     MemberBlockModelComponent,
@@ -311,6 +309,7 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
     FranchiseWithdrawalRequestComponent,
     FranchiseWithdrawalSuccessHistoryComponent,
     FranchisePartnerMyTeamComponent,
+    PartnerViewComponent
   
   ],
   imports: [
@@ -358,7 +357,6 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
   entryComponents: [
     StateProfileModalComponent,
     VerifyModalComponent,
-    ViewModalComponent,
     StateProfileDocumentsComponent,
     StateAddBankComponent,
     StateViewBankDetailsComponent,
@@ -400,10 +398,10 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
     BdProfileDetailsComponent,
     AccountsPaidWithdrawalComponent,
     BdProfileDocumentsComponent,
-    MemberViewModelComponent,
     MemberVerifyModelComponent,
     MemberBlockModelComponent,
-    MemberEditModelComponent
+    MemberEditModelComponent,
+    PartnerViewComponent
   ],
   providers: [
     {

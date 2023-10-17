@@ -1,12 +1,28 @@
+
 <h1 class="custom-heading" mat-dialog-title>Profile details</h1>
 <div mat-dialog-content>
     <div class="image-block">
-      <img class="image" [src]="data.adhar_front_side" alt="Front Aadhar">
-      <img class="image" [src]="data.adhar_back_side" alt="Back Aadhar">
-      <img class="image" [src]="data.panCard" alt="Pan">
+        <div class="image-button">
+            <input type="file" accept="image/*" (change)="frontAadharSelected($event, 'adhar_front_side')" #frontInput style="display: none;">
+            <img class="image" [src]="data.adhar_front_side" alt="Front Aadhar"  (click)="frontInput.click()">
+            <button mat-raised-button color="primary" (click)="downloadImage(data.adhar_front_side, 'adhar_front_image.jpg')"><mat-icon>cloud_download</mat-icon>&nbsp;Download</button>
+            <button mat-raised-button color="accent" (click)="uploadFrontImage(data.businessDeveloperId)"><mat-icon>cloud_upload</mat-icon>&nbsp;Upload</button>
+        </div>
+        <div class="image-button">
+            <input type="file" accept="image/*" (change)="backAadharSelected($event, 'adhar_back_side')" #backInput style="display: none;">
+            <img class="image" [src]="data.adhar_back_side" alt="Back Aadhar"  (click)="backInput.click()">
+            <button mat-raised-button color="primary" (click)="downloadImage(data.adhar_back_side, 'adhar_back_side.jpg')"><mat-icon>cloud_download</mat-icon>&nbsp;Download</button>
+            <button mat-raised-button color="accent" (click)="uploadBackImage(data.businessDeveloperId)"><mat-icon>cloud_upload</mat-icon>&nbsp;Upload</button>
+        </div>
+        <div class="image-button">
+            <input type="file" accept="image/*" (change)="panSelected($event, 'panCard')" #panInput style="display: none;">
+            <img class="image" [src]="data.panCard" alt="Pan" (click)="panInput.click()">
+            <button mat-raised-button color="primary" (click)="downloadImage(data.panCard, 'panCard.jpg')"><mat-icon>cloud_download</mat-icon>&nbsp;Download</button>
+            <button mat-raised-button color="accent" (click)="uploadPankImage(data.businessDeveloperId)"><mat-icon>cloud_upload</mat-icon>&nbsp;Upload</button>
+        </div>
     </div>
 </div>
 
 <div mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>ok</button>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
 </div>

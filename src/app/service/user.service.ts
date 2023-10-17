@@ -1215,6 +1215,79 @@ export class UserService {
     }) 
   }
 
+  //member profile document update
+  uploadMemberFrontAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-member `, formData);
+  }
+ 
+
+  uploadMemberBackAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-member`, formData);
+  }
+
+  
+  uploadPanImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-pan-card-member`, formData);
+  }
 
 
+  //bd profile document update
+  uploadBdFrontAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-bd`, formData);
+  }
+ 
+
+  uploadBdBackAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-bd`, formData);
+  }
+
+  
+  uploadBdPanImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-pan-card-bd`, formData);
+  }
+
+  //franchise profile document update
+  uploadFranchiseFrontAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-franchise`, formData);
+  }
+ 
+
+  uploalFranchiseBackAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-franchise`, formData);
+  }
+
+  
+  uploadFranchisePanImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-pan-card-franchise`, formData);
+  }
+
+  //sho profile document update
+  uploadShoFrontAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-sho`, formData);
+  }
+ 
+
+  uploalShoBackAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-sho`, formData);
+  }
+
+  
+  uploadShoPanImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-pan-card-sho`, formData);
+  }
+
+  //partner profile document update
+  uploadPartnerFrontAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-partner`, formData);
+  }
+ 
+
+  uploalPartnerBackAdharImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-partner`, formData);
+  }
+
+  
+  uploadPartnerPanImage(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-pan-card-partner`, formData);
+  }
 }
