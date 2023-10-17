@@ -17,50 +17,52 @@ interface BankDetails {
   styleUrls: ['./business-view-bank.component.css']
 })
 
-
 export class BusinessViewBankComponent implements OnInit {
-  bankDetails = [];
+  bankDetails: BankDetails[] = [];
   selectedBank = {
     bankName: null
   };
-  businessID= localStorage.getItem("bdHandlerID");
+  businessID = localStorage.getItem("bdHandlerID");
   dataSource: MatTableDataSource<BankDetails>;
-  displayStateHandlerId = localStorage.getItem('bdHandlerID')
+  displayStateHandlerId = localStorage.getItem('bdHandlerID');
   displayedColumns: string[] = ['holder_name', 'bank_name', 'branch_name', 'account_no', 'ifsc_code'];
+  noBankDetailsFound = false;
 
-  constructor(private userService: UserService, private toastr:ToastrService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private userService: UserService, private toastr: ToastrService, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.dataSource = new MatTableDataSource([]);
-    this.dataSource.data = data
-    console.log(data)
-    this.bankDetails = data;
-    for (const entry of data) {
-      if (entry.isPrimary === 1) {
-        this.selectedBank.bankName = entry.bank_name;
-        this.businessID = entry.user_id;
+    if (data && data.length > 0) {
+      this.dataSource.data = data;
+      this.bankDetails = data;
+      for (const entry of data) {
+        if (entry.isPrimary === 1) {
+          this.selectedBank.bankName = entry.bank_name;
+          this.businessID = entry.user_id;
+        }
       }
+    } else {
+      this.noBankDetailsFound = true;
     }
+  }
 
-   }
-
-   onRadioChange() {
-    console.log(this.selectedBank.bankName, this.businessID);
+  onRadioChange() {
+    if (!this.selectedBank.bankName) {
+      return;
+    }
     let data = {
       user_id: this.businessID,
       bank_name: this.selectedBank.bankName
-    }
+    };
 
     this.userService.businessChangePrimaryBank(data).subscribe({
-      next:(res:any)=>{
-        this.toastr.success(res.message)
+      next: (res: any) => {
+        this.toastr.success(res.message);
       },
-      error:(err=>{
-        this.toastr.warning(err.error.message)
-      })
-    })
-
+      error: (err) => {
+        this.toastr.warning(err.error.message);
+      }
+    });
   }
 
   ngOnInit() {
   }
-
 }

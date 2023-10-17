@@ -61,6 +61,9 @@ import { MemberListComponent } from "./components/bd/member-list/member-list.com
 import { WithdrawalRequestHistoryComponent } from "./components/bd/withdrawal-request-history/withdrawal-request-history.component";
 import { WithdrawalSuccessHistoryComponent } from "./components/bd/withdrawal-success-history/withdrawal-success-history.component";
 import { BusinessDevPartnerTeamComponent } from "./components/bd/business-dev-partner-team/business-dev-partner-team.component";
+import { FranchiseWithdrawalRequestComponent } from "./franchise-withdrawal-request/franchise-withdrawal-request.component";
+import { FranchiseWithdrawalSuccessHistoryComponent } from "./franchise-withdrawal-success-history/franchise-withdrawal-success-history.component";
+import { FranchisePartnerMyTeamComponent } from "./franchise-partner-my-team/franchise-partner-my-team.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -130,6 +133,9 @@ const routes: Routes = [
       { path: "add-bd", component: AddBusinessDeveloperComponent},
       { path: "bd-list", component: ListBusinessDeveloperComponent},
       {path: "withdrawal-list", component: WithdrawlFranchiseComponent},
+      {path:"withdrawal-request-history",component:FranchiseWithdrawalRequestComponent},
+      {path:"withdrawal-history",component:FranchiseWithdrawalSuccessHistoryComponent},
+      {path:"partner-my-team",component:FranchisePartnerMyTeamComponent},
       { path: "", redirectTo: "/franchisedashboard/home", pathMatch: "full" },
     ],
   },
