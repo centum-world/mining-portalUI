@@ -70,14 +70,33 @@ export class MemberEditModelComponent implements OnInit {
     });
   }
 
-  getErrorMessage(control: AbstractControl) {
-    if (control.hasError("required")) {
+  getErrorMessage() {
+    const emailControl = this.editForm.get("email");
+    if (emailControl.hasError("required")) {
       return "You must enter a value";
-    } else if (control.hasError("email")) {
+    }
+    if (emailControl.hasError("email")) {
       return "Not a valid email";
     }
     return "";
   }
+
+  getErrorFnameMessage() {
+    return this.editForm.get("fname").hasError("required") ? "You must enter first name" : "";
+  }
+
+  getErrorLnameMessage() {
+    return this.editForm.get("lname").hasError("required") ? "You must enter last name" : "";
+  }
+
+  // getErrorMessage(control: AbstractControl) {
+  //   if (control.hasError("required")) {
+  //     return "You must enter a value";
+  //   } else if (control.hasError("email")) {
+  //     return "Not a valid email";
+  //   }
+  //   return "";
+  // }
 
   editFormSubmit() {
     if (this.editForm.valid) {

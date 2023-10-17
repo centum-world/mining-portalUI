@@ -1,5 +1,5 @@
 .mat-dialog-title {
-    background-color: #b63003;
+    background-color: #5476f2;
     color: #fefefe;
     font-size: 18px;
     font-weight: 600;
@@ -21,8 +21,10 @@
   
   .image {
     width: 250px; /* Set the width and height of the images */
-    height: 250px;
-    margin-right: 10px; /* Add some margin between images */
+    height: 150px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    cursor: pointer; /* Add some margin between images */
   }
 
 
@@ -59,6 +61,28 @@
     flex-direction: column;
     align-items: center;
   }
+  .image-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.image-button button{
+  width: 250px;
+  margin-bottom: 5px !important;
+}
+
+
+.image-container {
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px; 
+}
+.mat-dialog-actions {
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
   
   /* Adjust the height and width based on screen size */
   @media (max-width: 600px) {

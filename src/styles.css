@@ -95,11 +95,10 @@ body {
 }
 
 .myStateViewDialogClass {
-  width: 60%;
-  height: 50%;
+  height: auto;
+  width: 70%;
 
   .mat-dialog-container {
-    border: 1px solid black;
     border-radius: 20px;
     padding-top: 0px;
   }
@@ -264,6 +263,24 @@ body {
     padding-top: 0px;
   }
 }
+.myMemberViewDialogClass{
+  height: auto;
+  width: 70%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
+.myPartnerViewDialogClass{
+  height: auto;
+  width: 70%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
 
 @media (max-width: 768px) {
   .myEditDialogClass {
@@ -411,6 +428,14 @@ body {
     width: 90%;
   }
   .myPartnerBlockStateDialogClass{
+    height: auto;
+    width: 90%;
+  }
+  .myMemberViewDialogClass{
+    height: auto;
+    width: 90%;
+  }
+  .myPartnerViewDialogClass{
     height: auto;
     width: 90%;
   }

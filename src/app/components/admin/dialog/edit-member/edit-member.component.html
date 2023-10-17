@@ -46,6 +46,11 @@
         <input matInput placeholder="Enter your address" formControlName="add" required />
         <mat-error *ngIf="editForm.get('add').invalid">{{getErrorAddressMessage()}}</mat-error>
       </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Enter your state" formControlName="state" required />
+        <mat-error *ngIf="editForm.get('add').invalid">{{getErrorAddressMessage()}}</mat-error>
+      </mat-form-field>
      
 
     </div>

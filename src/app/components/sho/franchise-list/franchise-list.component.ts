@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BlockModalComponent } from '../diolog/block-modal/block-modal.component';
 import { EditFranchiseComponent } from '../diolog/edit-franchise/edit-franchise.component';
 import { Router } from '@angular/router';
+import { ViewFranchiseComponent } from '../../admin/dialog/view-franchise/view-franchise.component';
 
 
 interface Franchise {
@@ -79,15 +80,16 @@ export class FranchiseListComponent implements OnInit {
  openViewFranchiseDialog (data: any) {
     console.log(data)
     let config: MatDialogConfig = {
-      height: '45%',
-      width: '55%',
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myFranchiseViewDialogClass',
       data: data
     };
-    const dialogRef = this.dialog.open(ViewModalComponent, config);
-    dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("clicked")
-    })
+    const dialogRef = this.dialog.open(ViewFranchiseComponent, config);
+    // dialogRef.componentInstance.okClicked.subscribe(() => {
+    //   console.log("clicked")
+    // })
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Closed");
+    });
   }
 
   openVerifyDialog(id: any) {
