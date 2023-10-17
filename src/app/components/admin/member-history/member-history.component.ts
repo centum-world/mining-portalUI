@@ -69,7 +69,7 @@ export class MemberHistoryComponent implements OnInit {
 
   openViewMemberDialog(memberData:any){
     let config: MatDialogConfig = {
-      panelClass: 'myStateDialogClass',
+      panelClass: 'myMemberViewDialogClass',
       data: memberData
     };
     const dialogRef = this.dialog.open(ViewMemberComponent, config);

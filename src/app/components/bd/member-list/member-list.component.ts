@@ -8,7 +8,8 @@ import { MatDialogConfig } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { MemberVerifyModelComponent } from "../member-verify-model/member-verify-model.component";
-import { MemberViewModelComponent } from "../member-view-model/member-view-model.component";
+// import { MemberViewModelComponent } from "../member-view-model/member-view-model.component";
+import { ViewMemberComponent } from "../../admin/dialog/view-member/view-member.component";
 import { MemberBlockModelComponent } from "../member-block-model/member-block-model.component";
 import { MemberEditModelComponent } from "../member-edit-model/member-edit-model.component";
 
@@ -87,14 +88,16 @@ export class MemberListComponent implements OnInit {
   openViewMemberDialog(data: any) {
     console.log(data , "data is coming");
     let config: MatDialogConfig = {
-      height: "45%",
-      width: "55%",
-      panelClass: "myStateDialogClass",
+      panelClass: "myMemberViewDialogClass",
       data: data,
     };
-    const dialogRef = this.dialog.open(MemberViewModelComponent, config);
-    dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("clicked");
+    const dialogRef = this.dialog.open(ViewMemberComponent, config);
+    // dialogRef.componentInstance.okClicked.subscribe(() => {
+    //   console.log("clicked");
+    // });
+    
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("Closed");
     });
   }
 

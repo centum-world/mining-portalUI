@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Inject } from "@angular/core";
 import { UserService  } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
+
+
 @Component({
-  selector: 'app-view-member',
-  templateUrl: './view-member.component.html',
-  styleUrls: ['./view-member.component.css']
+  selector: 'app-partner-view',
+  templateUrl: './partner-view.component.html',
+  styleUrls: ['./partner-view.component.css']
 })
-export class ViewMemberComponent implements OnInit {
+export class PartnerViewComponent implements OnInit {
+
   selectedImage: string = '';
   forntAdhar = false;
   uploadImage = {
@@ -16,16 +19,14 @@ export class ViewMemberComponent implements OnInit {
     back_adhar_imgae: "",
     panImage:""
   }
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private userService : UserService, private toastr : ToastrService) {
-    console.log(data)
-    this.uploadImage.front_adhar_image = data.front_adhar_image;
-    this.uploadImage.back_adhar_imgae = data.back_adhar_imgae;
-    this.uploadImage.panImage = data.panImage;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private userService : UserService, private toastr : ToastrService) {
+    console.log(data);
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  clickOk(){
+    
   }
- 
   frontAadharSelected(event: any, imageType: string) {
     const file = event.target.files[0];
     this.uploadImage.front_adhar_image = file;
@@ -70,7 +71,7 @@ export class ViewMemberComponent implements OnInit {
     form.append('userId',id);
     form.append('adhar_front_side', this.uploadImage.front_adhar_image);
 
-    this.userService.uploadMemberFrontAdharImage(form).subscribe({
+    this.userService.uploadPartnerFrontAdharImage(form).subscribe({
       next:(res:any)=>{
         this.toastr.success(res.message)
       },
@@ -84,7 +85,7 @@ export class ViewMemberComponent implements OnInit {
     form.append('userId',id);
     form.append('adhar_back_side', this.uploadImage.back_adhar_imgae);
 
-    this.userService.uploadMemberBackAdharImage(form).subscribe({
+    this.userService.uploalPartnerBackAdharImage(form).subscribe({
       next:(res:any)=>{
         this.toastr.success(res.message)
       },
@@ -98,7 +99,7 @@ export class ViewMemberComponent implements OnInit {
     form.append('userId',id);
     form.append('panCard', this.uploadImage.panImage);
 
-    this.userService.uploadPanImage(form).subscribe({
+    this.userService.uploadPartnerPanImage(form).subscribe({
       next:(res:any)=>{
         this.toastr.success(res.message)
       },

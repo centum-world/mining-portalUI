@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MemberViewModelComponent } from './member-view-model.component';
+import { PartnerViewComponent } from './partner-view.component';
 
-describe('MemberViewModelComponent', () => {
-  let component: MemberViewModelComponent;
-  let fixture: ComponentFixture<MemberViewModelComponent>;
+describe('PartnerViewComponent', () => {
+  let component: PartnerViewComponent;
+  let fixture: ComponentFixture<PartnerViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MemberViewModelComponent ]
+      declarations: [ PartnerViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MemberViewModelComponent);
+    fixture = TestBed.createComponent(PartnerViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

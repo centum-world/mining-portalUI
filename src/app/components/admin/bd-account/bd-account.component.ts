@@ -91,7 +91,7 @@ export class BdAccountComponent implements OnInit {
   }
 
 
-  approved(id:any){
+  bdApproved(id:any){
     console.log(id)
     let config: MatDialogConfig = {
       panelClass: 'requsetApprovedDialogClass'
