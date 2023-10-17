@@ -15,36 +15,36 @@ export class BdCardsComponent implements OnInit {
 
   totalWithdrawalOfBusinessDev: any;
 
-  bankDetails=[];
+  bankDetails = [];
   displayBusinessHandlerId = localStorage.getItem('bdHandlerID');
   displayBusinessHandlerReferralId = localStorage.getItem('bdRefferalId')
 
-  constructor(private dialog:MatDialog,private userService:UserService,
-    private router:Router,
-    private toastr:ToastrService) { }
+  constructor(private dialog: MatDialog, private userService: UserService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.totalWithdrawalAmount();
   }
 
-  businessWithdrawalRequestViewList(){
+  businessWithdrawalRequestViewList() {
     this.router.navigate(['/bd-dashboard/withdrawal-request-history'])
   }
 
-  businessWithdrawalSuccessViewList(){
+  businessWithdrawalSuccessViewList() {
     this.router.navigate(['/bd-dashboard/withdrawal-success-history'])
   }
 
-  businessPartnerMyTeamViewList(){
+  businessPartnerMyTeamViewList() {
     this.router.navigate(['/bd-dashboard/businessDev-partner-team'])
   }
 
-  businessAddBankDialog(){
+  businessAddBankDialog() {
 
-    let config:MatDialogConfig = {
-       panelClass:'businessAddBankDialogClass'
+    let config: MatDialogConfig = {
+      panelClass: 'businessAddBankDialogClass'
     };
-    const dialogRef = this.dialog.open(BusinessAddBankComponent,config);
+    const dialogRef = this.dialog.open(BusinessAddBankComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -52,42 +52,43 @@ export class BdCardsComponent implements OnInit {
     });
   }
 
-  stateViewBankDetailsDialog(){
+  stateViewBankDetailsDialog() {
 
     let data = {
-      userId :localStorage.getItem('bdHandlerID')
-     }
-     this.userService.fetchStateBankDetails(data).subscribe({
+      userId: localStorage.getItem('bdHandlerID')
+    }
+    this.userService.fetchStateBankDetails(data).subscribe({
       next: (response: any) => {
         if (response) {
-            console.log(response.result)
-            let config:MatDialogConfig = {
-            panelClass:'stateViewBankDetailsDialogClass', data:response.result
-            };
-            const dialogRef = this.dialog.open(BusinessViewBankComponent,config);
-            dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
-              // Do something with the result if needed
-            })
+          console.log(response.result)
+          this.bankDetails = response.result;
         }
       },
       error: error => {
-       console.log(error)
+        console.log(error)
       }
     })
-    
+    let config: MatDialogConfig = {
+      panelClass: 'stateViewBankDetailsDialogClass', data: this.bankDetails
+    };
+    const dialogRef = this.dialog.open(BusinessViewBankComponent, config);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Do something with the result if needed
+    })
+
   }
 
-  totalWithdrawalAmount(){
+  totalWithdrawalAmount() {
     let data = {
-      userId:localStorage.getItem('bdHandlerID')
+      userId: localStorage.getItem('bdHandlerID')
     }
     this.userService.fetchBusinessDevTotalWithdrawal(data).subscribe({
       next: (result: any) => {
         if (result) {
-          console.log(typeof(result.data))
-          
-          this.totalWithdrawalOfBusinessDev = result.data;
+          console.log(typeof (result.data))
+
+          this.totalWithdrawalOfBusinessDev = result.data || 0;
         }
 
       },
@@ -96,7 +97,7 @@ export class BdCardsComponent implements OnInit {
       }
     })
   }
-  
-  
+
+
 
 }

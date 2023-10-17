@@ -3,6 +3,8 @@ import { UserService } from '../service/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FranchiseAddBankComponent } from '../components/modal/franchise-add-bank/franchise-add-bank.component';
 import { FranchiseViewBankDetailsComponent } from '../components/modal/franchise-view-bank-details/franchise-view-bank-details.component';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,15 +13,33 @@ import { FranchiseViewBankDetailsComponent } from '../components/modal/franchise
   styleUrls: ['./franchise-card.component.css']
 })
 export class FranchiseCardComponent implements OnInit {
+
+  totalWithdrawalOfFranchise :any;
+  bankDetails = [];
   displayFranchiseId = localStorage.getItem('franchiseId');
   displayFranchiseReferralId = localStorage.getItem('franchiseReferralId')
   
 
-  constructor(private userService:UserService,private dialog:MatDialog) { }
+  constructor(private userService:UserService,private dialog:MatDialog,
+    private toastr :ToastrService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
+    this.callApiTOFetchTotalWithdrawal()
   }
   
+  franchiseWithdrawalRequestViewList() {
+    this.router.navigate(['/franchisedashboard/withdrawal-request-history'])
+  }
+
+  franchiseWithdrawalSuccessViewList(){
+    this.router.navigate(['/franchisedashboard/withdrawal-history'])
+  }
+
+  franchisePartnerMyTeamViewList(){
+    this.router.navigate(['/franchisedashboard/partner-my-team'])
+  }
   franchiseAddBankDialog(){
 
     let config:MatDialogConfig = {
@@ -42,20 +62,40 @@ export class FranchiseCardComponent implements OnInit {
       next: (response: any) => {
         if (response) {
             console.log(response.result)
-            let config:MatDialogConfig = {
-             panelClass:'franchiseViewBankDetailsDialogClass', data:response.result
-            };
-            const dialogRef = this.dialog.open(FranchiseViewBankDetailsComponent,config);
-            dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
-              // Do something with the result if needed
-            })
+            this.bankDetails = response.result;
+            
         }
       },
       error: error => {
        console.log(error)
       }
     })
+    let config:MatDialogConfig = {
+      panelClass:'franchiseViewBankDetailsDialogClass', data:this.bankDetails
+     };
+     const dialogRef = this.dialog.open(FranchiseViewBankDetailsComponent,config);
+     dialogRef.afterClosed().subscribe(result => {
+       console.log('The dialog was closed');
+       // Do something with the result if needed
+     })
   }
 
+  callApiTOFetchTotalWithdrawal(){
+    let data = {
+      userId:localStorage.getItem('franchiseId')
+    }
+    this.userService.fetchFranchiseTotalWithdrawal(data).subscribe({
+      next: (result: any) => {
+        if (result) {
+           console.log(result)
+
+          this.totalWithdrawalOfFranchise = result.data || 0;
+        }
+
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
+    })
+  }
 }

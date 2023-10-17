@@ -162,6 +162,10 @@ import { MemberEditModelComponent } from './components/bd/member-edit-model/memb
 import { WithdrawalRequestHistoryComponent } from './components/bd/withdrawal-request-history/withdrawal-request-history.component';
 import { WithdrawalSuccessHistoryComponent } from './components/bd/withdrawal-success-history/withdrawal-success-history.component';
 import { BusinessDevPartnerTeamComponent } from './components/bd/business-dev-partner-team/business-dev-partner-team.component';
+import { FranchiseWithdrawalRequestComponent } from './franchise-withdrawal-request/franchise-withdrawal-request.component';
+import { FranchiseWithdrawalSuccessHistoryComponent } from './franchise-withdrawal-success-history/franchise-withdrawal-success-history.component';
+import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/franchise-partner-my-team.component';
+
 
 
 
@@ -303,7 +307,10 @@ import { BusinessDevPartnerTeamComponent } from './components/bd/business-dev-pa
     MemberBlockModelComponent,
     WithdrawalSuccessHistoryComponent,
     BusinessDevPartnerTeamComponent,
-    MemberEditModelComponent
+    MemberEditModelComponent,
+    FranchiseWithdrawalRequestComponent,
+    FranchiseWithdrawalSuccessHistoryComponent,
+    FranchisePartnerMyTeamComponent,
   
   ],
   imports: [

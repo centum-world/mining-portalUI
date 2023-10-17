@@ -1201,6 +1201,20 @@ export class UserService {
     }) 
   }
 
+  fetchFranchiseTotalWithdrawal(data: any){
+    return this.http.post(this.url + "/franchise/frenchise/fetch-total-withdrawal",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
+  fetchFranchisePartnerMyTeam(data: any){
+    return this.http.post(this.url + "/franchise/frenchise/fetch-partner-my-team",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
 
 
 }

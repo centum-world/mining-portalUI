@@ -44,6 +44,9 @@ export class FranchiseLoginComponent implements OnInit {
           localStorage.setItem("franchiseReferralId",res.user.referralId);
           this.shareService.setFranchiseToken(res.token);
           this.router.navigate(["franchisedashboard"]);
+          setTimeout(function () {
+            window.location.reload();
+          }, 100);
         }
       },
       error: error => {
