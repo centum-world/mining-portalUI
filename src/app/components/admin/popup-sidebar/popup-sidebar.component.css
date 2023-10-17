@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background:  #8AAAE5;
+  background:  #0F172A;
   margin-left: -24px;
   margin-right: -24px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -27,11 +27,12 @@
   font-weight: 600;
 }
 .mobile-sidebar {
-    height: 90%;
+    height: 85%;
   overflow-y: hidden;
   margin-left: -24px;
   margin-right: -24px;
   padding: 10px;
+  background-color: #0F172A;
 }
 
 .mobile-sidebar ul{

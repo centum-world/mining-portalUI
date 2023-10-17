@@ -372,7 +372,7 @@ tbody tr td {
 
     .sidebar .sidebar-brand h2:last-child,
     .sidebar li a span:last-child {
-        display: none;
+        /* display: none; */
     }
 
     .sidebar .sidebar-brand,
