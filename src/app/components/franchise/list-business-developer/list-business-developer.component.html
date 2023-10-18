@@ -2,7 +2,7 @@
     <div class="title">
         <h5>Business developer</h5>
     </div>
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
         <div>
             <mat-form-field  class="example-full-width" class="custom-form-field">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
@@ -10,9 +10,9 @@
         </div>
         <div class="add-bd" (click)="createbd()">
             <mat-icon>person_add</mat-icon>&nbsp;
-            <p style="display: flex; justify-content: center; align-items: center; padding-top: 15px;">
+            <span style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
                 Create BD
-            </p>
+            </span>
         </div>
     </div>
 </div>
