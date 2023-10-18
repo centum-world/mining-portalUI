@@ -40,20 +40,10 @@
 
       <div class="card-single">
         <div>
-          <h6>Wallet</h6>
-          <span>Each day transaction!</span>
-        </div>
-        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite">
-          <div class="icon"><span>View</span></div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Partner Team</h6>
+          <h6>Add Franchise</h6>
           <span></span>
         </div>
-        <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner">
+        <div (click)="addFanchise()">
           <div class="icon">
             <span>View</span>
           </div>
@@ -61,44 +51,14 @@
       </div>
 
       <div class="card-single">
-        <div>
+        <div (click)="transaction()">
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
         <div style="font-weight: bold; font-size:medium;"></div>
       </div>
 
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal Request</h6>
-
-        </div>
-        <div data-toggle="modal" data-target="#memberWithdrawalRequest">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal success</h6>
-
-        </div>
-        <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Withdrawal</span>
-        </div>
-        <div style="font-size:medium; font-weight: bold;"></div>
-      </div>
+  
     </div>
   </main>
 

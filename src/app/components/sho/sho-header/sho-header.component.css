@@ -25,12 +25,12 @@ body{
       background: #cacdd1 !important;
 }
 .sidebar{
-    width: 300px;
+    width: 330px;
     position: fixed;
     left: 0;
-    top:0;
+    top: 0;
     height: 100%;
-    background: #19052c;
+    background: #0F172A;
     z-index: 100%;
     transition: width 300ms;
 }
@@ -38,7 +38,6 @@ body{
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
     color:#fff;
-    background: red;
 }
 .sidebar-brand h2 a{
     text-decoration: none;
@@ -65,23 +64,6 @@ body{
     font-size: 1.5rem;
     padding-right: 1rem;
 }
-#nav-toggle:checked + .sidebar{
-    width: 70px;
-}
-#nav-toggle:checked + .sidebar .sidebar-brand,
-#nav-toggle:checked + .sidebar li a
-{
-    padding: .5rem;
-}
-#nav-toggle:checked + .sidebar  .sidebar-brand h2:last-child,
-#nav-toggle:checked + .sidebar li a span:last-child{
-    display: none;
-}
-#nav-togle:checked + .sidebar .sidebar-brand,
-#nav-toggle:checked + .sidebar li{
-    padding-left: 1px;
-    text-align: center;
-}
 
 .sidebar-menu a i{
     margin-right: 1rem;
@@ -97,9 +79,6 @@ body{
 .sidebar-menu{
     margin-top: 1rem;
 }
-.main-content{
-    margin-bottom: 10%;
-}
 
 #nav-toggle:checked ~ .main-content{
     margin-left: 70px;
@@ -112,8 +91,8 @@ body{
 
 .main-content{
     transition: margin-left 300ms;
-    margin-left: 300px;
-
+    margin-left: 330px;
+    margin-bottom: 10%;
 }
 
 header{
@@ -122,7 +101,7 @@ header{
     padding: 1rem 1.5rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     position: fixed;
-    left: 300px;
+    left: 330px;
     width: calc(100% - 300px);
     top: 0;
     z-index: 100;
@@ -141,6 +120,20 @@ header h2{
 header label span{
     font-size: 1.7rem;
     padding-left: 1rem;
+}
+.toggle{
+    display: flex;
+    align-items: center;
+}
+.toggle p{
+    margin-top: 11px;
+    margin-bottom: 1rem;
+    font-size: 24px;
+    font-family: Calibri;
+    font-weight: 600;
+}
+.toggle span{
+    display: none;
 }
 /* .search-wrapper{
     border: 1px solid #ccc;
@@ -288,9 +281,44 @@ td{
     text-decoration: none;
 }
 
+.mobile-sidebar {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0f172a;
+    z-index: 100;
+    animation: slide-in-left 700ms linear 0s 1 normal none;
+  }
+  .mobile-header {
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 1.5rem;
+    align-items: center;
+    padding: 10px;
+  }
+  .centum-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .centum-header span {
+    font-size: 1rem;
+  }
 
-
-
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 
 
 /* close */
@@ -301,31 +329,17 @@ td{
 }
 
 @media only screen and (max-width :768px){
+    .toggle span{
+        display: block;
+    }
 
     .sidebar{
-        width: 70px;
-    }
-    .sidebar .sidebar-brand,
-    .sidebar li a
-    {
-        padding: .5rem;
-    }
-     .sidebar  .sidebar-brand h2:last-child,
-    .sidebar li a span:last-child{
-        display: none; 
-    } 
-    .sidebar .sidebar-brand,
-    .sidebar li{
-        padding-left: 1rem;
-        text-align: center;
-    }
-    .main-content{
-        margin-left: 70px;
+        display: none;
     }
     
     .main-content header{
-        width: calc(100% - 70px);
-        left: 70px;
+        width: calc(100% - 0px);
+        left: 0;
     }
     .sidebar-menu ul{
         padding:initial;

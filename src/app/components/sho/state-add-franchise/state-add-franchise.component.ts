@@ -151,4 +151,7 @@ export class StateAddFranchiseComponent implements OnInit {
   gotoList(){
     this.router.navigate(['/statedashboard/franchise-list']);
   }
+  gotoDashboard(){
+    this.router.navigate(['/statedashboard']);
+  }
 }
