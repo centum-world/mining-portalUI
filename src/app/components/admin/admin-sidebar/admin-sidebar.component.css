@@ -120,6 +120,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden
 }
 
 /* #nav-toggle:checked~.main-content {
