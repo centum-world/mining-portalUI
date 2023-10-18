@@ -30,16 +30,19 @@ body{
     left: 0;
     top:0;
     height: 100%;
-    background: #19052c;
+    background: #0f172a;
     z-index: 100%;
     transition: width 300ms;
 }
-.sidebar-brand{
+.sidebar-brand {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
-    color:#fff;
-    background: red;
-}
+    color: #fff;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
 .sidebar-brand h2 a{
     text-decoration: none;
 }
@@ -54,13 +57,66 @@ body{
     padding-left: 1rem;
     display: block;
 }
-.sidebar-menu a{
+.sidebar-menu a {
     padding-left: 1rem;
     display: block;
-    color:#fff;
+    color: #fff;
     font-size: 1rem;
     text-decoration: none;
-}
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+
+  .mobile-bars {
+    display: none;
+  }
+
+  .mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0f172a;
+    z-index: 100;
+    animation: slide-in-left 700ms linear 0s 1 normal none;
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .mobile-header {
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 1.5rem;
+    align-items: center;
+    padding: 10px;
+  }
+
+.sidebar-menu a:hover {
+    padding-left: 1rem;
+    display: block;
+    background-color: #3661eb;
+    transition: all ease-in-out 100ms;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
 .sidebar-menu a span:first-child{
     font-size: 1.5rem;
     padding-right: 1rem;
@@ -316,18 +372,37 @@ td{
         text-align: center;
     }
     .main-content{
-        margin-left: 70px;
+        margin-left: 0px;
     }
     
     .main-content header{
-        width: calc(100% - 70px);
-        left: 70px;
+        width: 100%;
+        left: 0px;
     }
     .sidebar-menu ul{
         padding:initial;
     }
-    
 
+    .mobile-sidebar {
+        display: flex;
+        flex-direction: column;
+      }
+      .sidebar-menu{
+        height: auto;
+      }
+}
+
+@media only screen and (max-width: 768px){
+    .sidebar{
+        display: none;
+    }
+    .main-content{
+        margin-left: 0px;
+    }
+    .mobile-bars {
+        display: block;
+        font-size: 1.5rem;
+      }
 }
 @media only screen and (max-width:960px){
     .cards{
