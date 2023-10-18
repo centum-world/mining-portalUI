@@ -5,6 +5,7 @@
     width: 100%;
     height: 70px;
     margin-top: 90px;
+    border-radius: 8px;
     padding: 10px;
     margin-left: 10px;
 }
@@ -30,7 +31,7 @@
     margin-right: 2px; /* Add your desired background color */
   }
   
-.title h5{
+.title{
     font-family: Calibri;
     font-weight: 600;
 }

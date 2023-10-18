@@ -30,14 +30,15 @@ body{
     left: 0;
     top:0;
     height: 100%;
-    background: #19052c;
+    background: #0f172a;
     z-index: 100%;
     transition: width 300ms;
 }
 .sidebar-brand {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
-    background: #19052c;
+    color: #fff;
+    background: #0f172a;
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
