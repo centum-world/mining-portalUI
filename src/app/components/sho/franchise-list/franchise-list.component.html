@@ -1,8 +1,14 @@
 
 <div class="large-expand">
-    <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-    </mat-form-field>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center;">
+            <mat-icon (click)="gotoDashboard()" style="cursor: pointer;">arrow_back</mat-icon><span style="font-weight: 600; font-family: Calibri; font-size: 24px;">Franchise details</span>
+        </div>
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
+    </div>
+    
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="fname">
@@ -83,9 +89,6 @@
                         </button>
                         <button mat-menu-item (click)="openEditFranchiseDialog(franchise)">
                             Edit
-                        </button>
-                        <button mat-menu-item (click)="gotoFranchiseAccount()">
-                            Account
                         </button>
                         <!-- Add more options as needed -->
                     </mat-menu>

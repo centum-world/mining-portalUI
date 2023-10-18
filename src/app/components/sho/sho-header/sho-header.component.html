@@ -11,7 +11,7 @@
           <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>
-      <!-- (click)="openDialog()" -->
+      
       <li>
         <a href="javascript:void(0)" (click)="addFranchise()"><i class="fa fa-plus"></i>
           <span>Add franchise</span>
@@ -42,9 +42,10 @@
   <button mat-menu-item (click)="openStateDocumentsDialog()">Documents</button>
 </mat-menu>
 
+
 <div class="main-content">
   <header>
-    <h2>
+    <!-- <h2>
       <label for="nav-toggle">
 
         <div class="d-flex justify-content-between">
@@ -52,8 +53,11 @@
           <span>CENTUM WORLD</span>
         </div>
       </label>
-
-    </h2>
+    </h2> -->
+    <div class="toggle">
+      <span class="fa fa-bars" (click)="toggleSidebar()">&nbsp;</span>
+      <p>CENTUM WORLD</p>
+    </div>
 
     <div class="user-wrapper">
       <button mat-button class="loin_button" [matMenuTriggerFor]="menu"><img src="assets/image/profile.png" alt=""
@@ -69,104 +73,48 @@
       </div>
     </div>
   </header>
+</div>
 
-  <!-- <main>
 
-    <div *ngIf="!profileDetails" class="cards">
-      <div class="card-single">
-        <div>
-          <h6>Profile</h6>
-          <span>See your profile!</span>
-
-        </div>
-
-        
-        <div class="icon" (click)="memberDetails()">
-          <span>View</span>
-        </div>
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
-          <i class="fa fa-bank"></i>
+<div class="mobile-sidebar" [ngStyle]="{'display': isVisible ? 'block' : 'none'}">
+  <div class="mobile-sidebar-heading">
+    <div class="mobile-header">
+      <div class="centum-header">
+      <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60">
+      <span>CENTUM MINING RIG</span>
+    </div>
+      <span class="fa fa-close" (click)="closeSidebar()"></span>
+      </div>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li> 
+        <a href="javascript:void(0)"><i class="fa fa-user"  [matMenuTriggerFor]="menuProfile"></i>
+          <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
-      </div>
+      </li>
+      
+      <li>
+        <a href="javascript:void(0)" (click)="addFranchise()"><i class="fa fa-plus"></i>
+          <span>Add franchise</span>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" (click)="franchiseList()"><i class="fa fa-list"></i>
+          <span>Franchise list</span>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" (click)="handleWithdrawalClick()"><i class="fa fa-money"></i>
+          <span>Withdrawal</span>
+        </a>
+      </li>
+      <li>
+        <a href=""><i class="fa fa-sign-out"></i>
+          <span (click)="logOut()">Log Out</span>
+        </a>
+      </li>
 
-      <div class="card-single">
-        <div>
-          <h6>User ID {{displayUserId}}</h6>
-          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{displayMemberRefferalId}}"
-              target="_blank">{{displayMemberRefferalId}}</a></span>
-    
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Wallet</h6>
-          <span>Each day transaction!</span>
-        </div>
-        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite">
-          <div class="icon"><span>View</span></div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Partner Team</h6>
-          <span></span>
-        </div>
-        <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Wallet</span>
-        </div>
-        <div style="font-weight: bold; font-size:medium;">{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal Request</h6>
-
-        </div>
-        <div data-toggle="modal" data-target="#memberWithdrawalRequest">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal success</h6>
-
-        </div>
-        <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Withdrawal</span>
-        </div>
-        <div style="font-size:medium; font-weight: bold;">{{paidAmount | currency:'INR'}}</div>
-      </div>
-
-
-    </div>
-
-    <div *ngIf="profileDetails">
-      <app-member-portal-details></app-member-portal-details>
-    </div>
-
-
-  </main> -->
+    </ul>
+  </div>
 </div>

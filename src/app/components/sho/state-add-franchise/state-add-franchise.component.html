@@ -1,14 +1,11 @@
 <div class="add-franchise-container">
-    <div class="franchise-title">
-        <!-- <p>Add Franchise Here</p> -->
-    </div>
-    <div class="franchise-body">
+    <div class="container">
         <mat-card class="large-card">
-            <p style="display: flex; justify-content: center; align-items: center; font-weight: 600; font-size: large;">Create Franchise Here</p>
+            <p style="display: flex; justify-content: center; align-items: center; font-weight: 600; font-size: large;"><mat-icon (click)="gotoDashboard()" style="cursor: pointer;">arrow_back</mat-icon>Create Franchise Here</p>
             <form [formGroup]="form" (ngSubmit)="submitForm()">
                 <mat-card-content>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Referral ID" formControlName="referalId">
                             <mat-hint>Put your referral ID</mat-hint>
                             <mat-error *ngIf="form.get('referalId').hasError('required')">Referral id is
@@ -16,14 +13,14 @@
                         </mat-form-field>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="First name" formControlName="firstName">
                             <mat-hint>This is your first name</mat-hint>
                             <mat-error *ngIf="form.get('firstName').hasError('required')">First name is
                                 required</mat-error>
                         </mat-form-field>
 
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Last name" formControlName="lastName">
                             <mat-hint>This is your last name</mat-hint>
                             <mat-error *ngIf="form.get('lastName').hasError('required')">Last name is
@@ -31,7 +28,7 @@
                         </mat-form-field>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Email" formControlName="email">
                             <mat-hint>Enter email id</mat-hint>
                             <mat-error *ngIf="form.get('email').hasError('required')">First name is
@@ -39,7 +36,7 @@
                             <mat-error *ngIf="form.get('email').hasError('email')">Invalid email</mat-error>
                         </mat-form-field>
 
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Mobile Number" formControlName="mobileNumber" type="tel">
                             <mat-hint>This is your mobile number</mat-hint>
                             <mat-error *ngIf="form.get('mobileNumber').hasError('pattern')">Enter a valid Indian mobile
@@ -49,7 +46,7 @@
                         </mat-form-field>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <mat-label>State</mat-label>
                             <mat-select formControlName="state" placeholder="Select a state"
                                 (selectionChange)="onStateChange()">
@@ -58,7 +55,7 @@
                             <mat-error *ngIf="form.get('state').hasError('required')">State is required</mat-error>
                         </mat-form-field>
 
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <mat-label>City</mat-label>
                             <mat-select formControlName="city" placeholder="Select city" multiple>
                                 <mat-option *ngFor="let district of cities" [value]="district">
@@ -69,7 +66,7 @@
                         </mat-form-field>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Aadhar front image (JPG or PNG)" disabled>
                             <input type="file" id="frontAadharImage" name="frontAadharImage"
                                 (change)="onFileSelected($event,'frontAadharImage')" accept=".jpg,.png">
@@ -78,7 +75,7 @@
                             Please upload a JPG or PNG file.
                         </mat-error>
 
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Aadhar back image (JPG or PNG)" disabled>
                             <input type="file" id="backAadharImage" name="backAadharImage"
                                 (change)="onFileSelected($event,'backAadharImage')" accept=".jpg,.png">
@@ -88,7 +85,7 @@
                         </mat-error>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Pan image (JPG or PNG)" disabled>
                             <input type="file" id="panImage" name="panImage"
                                 (change)="onFileSelected($event,'panImage')" accept=".jpg,.png">
@@ -98,7 +95,7 @@
                         </mat-error>
 
 
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <mat-label>Gender</mat-label>
                             <mat-select placeholder="Select gender" [formControl]="genderFormControl">
                                 <mat-option value="Male">Male</mat-option>
@@ -109,14 +106,14 @@
                         </mat-form-field>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Franchise Id" formControlName="franchiseId">
                             <mat-hint>This is your first name</mat-hint>
                             <mat-error *ngIf="form.get('franchiseId').hasError('required')">Franchise Id is
                                 required</mat-error>
                         </mat-form-field>
 
-                        <mat-form-field style="width: 45%;">
+                        <mat-form-field>
                             <input matInput placeholder="Password" formControlName="password">
                             <mat-hint>This is your password</mat-hint>
                             <mat-error *ngIf="passwordControl.hasError('required')">Password is
@@ -136,3 +133,6 @@
         </mat-card>
     </div>
 </div>
+
+
+  

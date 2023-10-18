@@ -4,6 +4,7 @@ import { MatDialogConfig } from '@angular/material/dialog';
 import { WithdrawDialogComponent } from '../diolog/withdraw-dialog/withdraw-dialog.component';
 import { UserService } from 'src/app/service/user.service';
 import { ConfirmApprovedComponent } from '../../admin/dialog/confirm-approved/confirm-approved.component';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-payment-request',
@@ -13,7 +14,7 @@ import { ConfirmApprovedComponent } from '../../admin/dialog/confirm-approved/co
 export class PaymentRequestComponent implements OnInit {
   requestHistroy = [];
   approvedHistory = [];
-  constructor(private dialog:MatDialog, private userService:UserService) { }
+  constructor(private dialog:MatDialog, private userService:UserService, private router:Router) { }
 
   ngOnInit() {
     this.tabChanged(0);
@@ -55,6 +56,10 @@ export class PaymentRequestComponent implements OnInit {
         }
       })
     }
+  }
+
+  gotoDashboard(){
+    this.router.navigate(['/statedashboard'])
   }
 
 }
