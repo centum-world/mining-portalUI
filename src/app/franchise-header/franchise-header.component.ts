@@ -12,7 +12,15 @@ import { FranchiseProfileDocumentsComponent } from '../components/modal/franchis
   styleUrls: ["./franchise-header.component.css"],
 })
 export class FranchiseHeaderComponent implements OnInit {
+  isVisible: boolean = false;
   constructor(private dialog: MatDialog, private router  : Router,private userService:UserService) { }
+
+  toggleSidebar() {
+    this.isVisible = !this.isVisible;
+  }
+  closeSidebar() {
+    this.isVisible = false;
+  }
 
   franchiseDetails={
     fname:"",
