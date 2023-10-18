@@ -13,49 +13,54 @@ import { AccountsPaidWithdrawalComponent } from '../dialog/accounts-paid-withdra
   styleUrls: ['./admin-sidebar.component.css']
 })
 export class AdminSidebarComponent implements OnInit {
+  isVisible: boolean = false;
 
   constructor(private router:Router,private dialog: MatDialog,private userService:UserService) { }
 
   ngOnInit() {
   }
+
+  toggleSidebar() {
+    this.isVisible = !this.isVisible;
+  }
+  closeSidebar() {
+    this.isVisible = false;
+  }
   viewList(){
     this.router.navigate(['/dashboard/sho-history'])
+    this.isVisible = false;
   }
   FranchiseList(){
     this.router.navigate(['/dashboard/franchise-history'])
+    this.isVisible = false;
   }
 
   memberViewList(){
     this.router.navigate(['/dashboard/member-history'])
+    this.isVisible = false;
   }
 
   partnerViewList(){
     this.router.navigate(['dashboard/partner-history'])
+    this.isVisible = false;
   }
 
   viewActivePartnerList(){
     this.router.navigate(['/dashboard/active-partners']);
+    this.isVisible = false;
   }
 
   viewPartnerWalletHistoryList(){
     this.router.navigate(['/dashboard/partner-wallet-history'])
+    this.isVisible = false;
   }
   BdHistory(){
     this.router.navigate(['/dashboard/bd-history'])
+    this.isVisible = false;
   }
 
   gotoDahashboard(){
     this.router.navigate(['/dashboard'])
-  }
-
-  openSideBar(){
-
-    let config: MatDialogConfig = {
-      position: { left: '0' }, 
-      panelClass: 'popupSidebarDialogClass'
-   };
-   const dialogRef = this.dialog.open(PopupSidebarComponent, config);
-    console.log("hiii")
   }
   // ------------------
   accountsPaidWithdrawal={
@@ -99,6 +104,5 @@ export class AdminSidebarComponent implements OnInit {
   logOut(){
     localStorage.clear();
     this.router.navigate(['/login'])
-
   }
 }
