@@ -166,6 +166,7 @@ import { FranchiseWithdrawalSuccessHistoryComponent } from './franchise-withdraw
 import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/franchise-partner-my-team.component';
 
 import { PartnerViewComponent } from './components/admin/dialog/partner-view/partner-view.component';
+import { CreateMemberComponent } from './components/create-member/create-member.component';
 
 
 
@@ -309,7 +310,8 @@ import { PartnerViewComponent } from './components/admin/dialog/partner-view/par
     FranchiseWithdrawalRequestComponent,
     FranchiseWithdrawalSuccessHistoryComponent,
     FranchisePartnerMyTeamComponent,
-    PartnerViewComponent
+    PartnerViewComponent,
+    CreateMemberComponent
   
   ],
   imports: [

@@ -1,0 +1,28 @@
+.modal-body {
+    width: auto;
+    margin-left: 25%;
+    margin-right: 5%;
+  }
+ 
+  @media (max-width: 768px) {
+    .modal-body {
+      margin-left: 5%;
+      margin-right: 8%;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .modal-body {
+      margin-left: 44%;
+    }
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1324px) {
+    .modal-body {
+      margin-left: 35%;
+    }
+  }
+  

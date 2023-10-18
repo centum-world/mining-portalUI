@@ -64,6 +64,7 @@ import { BusinessDevPartnerTeamComponent } from "./components/bd/business-dev-pa
 import { FranchiseWithdrawalRequestComponent } from "./franchise-withdrawal-request/franchise-withdrawal-request.component";
 import { FranchiseWithdrawalSuccessHistoryComponent } from "./franchise-withdrawal-success-history/franchise-withdrawal-success-history.component";
 import { FranchisePartnerMyTeamComponent } from "./franchise-partner-my-team/franchise-partner-my-team.component";
+import { CreateMemberComponent } from "./components/create-member/create-member.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -81,6 +82,7 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children:[
       {path: "home" , component : HrDashboardComponent},
+      {path: "addmember" , component : CreateMemberComponent},
       {path: "member-history", component : MemberHistoryComponent},
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
