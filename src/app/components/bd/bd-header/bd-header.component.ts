@@ -39,6 +39,11 @@ export class BdHeaderComponent implements OnInit {
     this.router.navigate(['/bd-dashboard/member-list'])
   }
 
+  addMember(){
+    this.router.navigate(['/bd-dashboard/add-member'])
+
+  }
+
   handleWithdrawalClick() {
     this.router.navigate(['/bd-dashboard/withdrawal-list']);
   }
@@ -115,7 +120,5 @@ export class BdHeaderComponent implements OnInit {
       // Do something with the result if needed
     });
   }
-  listBussinessDeveloper(){
-    
-  }
+
 }

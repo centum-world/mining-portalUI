@@ -65,6 +65,9 @@ import { FranchiseWithdrawalRequestComponent } from "./franchise-withdrawal-requ
 import { FranchiseWithdrawalSuccessHistoryComponent } from "./franchise-withdrawal-success-history/franchise-withdrawal-success-history.component";
 import { FranchisePartnerMyTeamComponent } from "./franchise-partner-my-team/franchise-partner-my-team.component";
 import { CreateMemberComponent } from "./components/create-member/create-member.component";
+import { AddMemberComponent } from "./components/admin/dialog/add-member/add-member.component";
+
+
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -150,7 +153,8 @@ const routes: Routes = [
       {path:"withdrawal-success-history",component:WithdrawalSuccessHistoryComponent},
       {path:"businessDev-partner-team",component:BusinessDevPartnerTeamComponent},
       { path: "", redirectTo: "/bd-dashboard/home", pathMatch: "full" },
-      {path: "member-list", component: MemberListComponent}
+      {path: "member-list", component: MemberListComponent},
+      {path: "add-member", component: CreateMemberComponent},
     ]
   },
   { path: "mininglogin", component: MiningLoginComponent },
