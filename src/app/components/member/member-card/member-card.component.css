@@ -24,12 +24,6 @@ body{
       align-items: center;
       background: #cacdd1 !important;
 }
-
-.state-dashboard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .sidebar{
     width: 300px;
     position: fixed;
@@ -382,4 +376,3 @@ td{
     margin: 10px;
     color: red;
 }
-

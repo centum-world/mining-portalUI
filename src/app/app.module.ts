@@ -169,6 +169,10 @@ import { PartnerViewComponent } from './components/admin/dialog/partner-view/par
 import { CreateMemberComponent } from './components/create-member/create-member.component';
 import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
 
+import { MemberCardComponent } from './components/member/member-card/member-card.component';
+import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/withdrawal-success.component'
+import { MemberHeaderComponent } from './components/member/member-header/member-header.component';
+import { WithdrawalRequestComponent } from './components/member/withdrawal-request/withdrawal-request.component';
 
 
 
@@ -313,8 +317,14 @@ import { CreatePartnerComponent } from './components/create-partner/create-partn
     FranchiseWithdrawalSuccessHistoryComponent,
     FranchisePartnerMyTeamComponent,
     PartnerViewComponent,
+    MemberCardComponent,
+    WithdrawalSuccessComponent,
+    MemberHeaderComponent,
+    WithdrawalRequestComponent,
     CreateMemberComponent,
     CreatePartnerComponent
+    
+
   
   ],
   imports: [

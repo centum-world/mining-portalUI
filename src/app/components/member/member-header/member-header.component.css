@@ -24,12 +24,6 @@ body{
       align-items: center;
       background: #cacdd1 !important;
 }
-
-.state-dashboard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .sidebar{
     width: 300px;
     position: fixed;
@@ -52,6 +46,12 @@ body{
 .sidebar-brand span{
     display: inline-block;
     padding-right: 1rem;
+}
+
+.sidebar-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap:10%;
 }
 
 .sidebar-menu li{
@@ -128,9 +128,10 @@ header{
     left: 300px;
     width: calc(100% - 300px);
     top: 0;
-    z-index: 100%;
+    z-index: 100;
     background: #fff;
     transition: left 300ms;
+    margin-bottom: 100px;
 }
 
 #nav-toggle{
@@ -291,10 +292,6 @@ td{
 }
 
 
-
-
-
-
 /* close */
 @media only screen and (min-width : 769px){
     .sidebar-brand h3{
@@ -382,4 +379,3 @@ td{
     margin: 10px;
     color: red;
 }
-
