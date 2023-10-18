@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "src/app/service/user.service";
 
@@ -22,7 +23,8 @@ export class CreateMemberComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router :Router
   ) {}
 
   //  Add member
@@ -83,6 +85,10 @@ export class CreateMemberComponent implements OnInit {
         this.toastr.error(error.error.message);
       },
     });
+  }
+
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
   ngOnInit() {}

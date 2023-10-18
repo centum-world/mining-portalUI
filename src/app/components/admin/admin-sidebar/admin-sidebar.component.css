@@ -116,7 +116,7 @@ body {
 }
 
 .sidebar-menu ul {
-  height: 80%;
+  height: 87vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
