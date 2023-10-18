@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { StateAddBankComponent } from '../../modal/state-add-bank/state-add-bank.component';
 import { UserService } from 'src/app/service/user.service';
 import { StateViewBankDetailsComponent } from '../../modal/state-view-bank-details/state-view-bank-details.component';
-
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-sho-card',
@@ -15,7 +15,7 @@ export class ShoCardComponent implements OnInit {
   bankDetails=[];
   displayStateHandlerId = localStorage.getItem('stateHandlerId');
   displayStateHandlerReferralId = localStorage.getItem('stateRefferalId')
-  constructor(private dialog:MatDialog,private userService:UserService) { }
+  constructor(private dialog:MatDialog,private userService:UserService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -57,5 +57,11 @@ export class ShoCardComponent implements OnInit {
       }
     })
     
+  }
+  addFanchise(){
+    this.router.navigate(['/statedashboard/add-franchise'])
+  }
+  transaction(){
+    this.router.navigate(['/statedashboard/withdrawal-list'])
   }
 }

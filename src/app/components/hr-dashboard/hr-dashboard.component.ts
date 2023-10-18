@@ -454,8 +454,12 @@ export class HrDashboardComponent implements OnInit {
     this.router.navigate(['/dashboard/partner-referral-payout-approved'])
   }
   
-  redirectToNewPage() {
+  redirectToCreateMember() {
     this.router.navigate(['/dashboard/addmember'])
+  }
+
+  redirectToCreatePartner(){
+    this.router.navigate(['/dashboard/addpartner'])
   }
 
 }
