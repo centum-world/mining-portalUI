@@ -64,6 +64,9 @@ import { BusinessDevPartnerTeamComponent } from "./components/bd/business-dev-pa
 import { FranchiseWithdrawalRequestComponent } from "./franchise-withdrawal-request/franchise-withdrawal-request.component";
 import { FranchiseWithdrawalSuccessHistoryComponent } from "./franchise-withdrawal-success-history/franchise-withdrawal-success-history.component";
 import { FranchisePartnerMyTeamComponent } from "./franchise-partner-my-team/franchise-partner-my-team.component";
+import { MemberCardComponent } from "./components/member/member-card/member-card.component";
+import { WithdrawalSuccessComponent } from "./components/member/withdrawal-success/withdrawal-success.component";
+import { WithdrawalRequestComponent } from "./components/member/withdrawal-request/withdrawal-request.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -73,6 +76,8 @@ const routes: Routes = [
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
   { path: "franchiselogin", component: FranchiseLoginComponent },
   { path: "franchiseSignUp", component: FranchiseSignUpComponent },
+  { path: "frame", component: FrameComponent },
+  { path: "memberlogin", component: UserLoginComponent },
   { path: "businesslogin", component: BdLoginComponent},
   { path: "business-developer-regitration", component: BdSignupPageComponent},
   {
@@ -104,12 +109,17 @@ const routes: Routes = [
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },
-  { path: "frame", component: FrameComponent },
-  { path: "memberlogin", component: UserLoginComponent },
+  
   {
     path: "memberdashboard",
     canActivate: [GuardGuard],
     component: MemberDashboardComponent,
+    children:[
+      { path: "home", component: MemberCardComponent },
+      {path:"withdrawal-success",component:WithdrawalSuccessComponent},
+      {path:"withdrawal-request",component:WithdrawalRequestComponent},
+      { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
+    ]
   },
   {
     path: "statedashboard",

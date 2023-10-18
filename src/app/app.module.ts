@@ -166,6 +166,10 @@ import { FranchiseWithdrawalSuccessHistoryComponent } from './franchise-withdraw
 import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/franchise-partner-my-team.component';
 
 import { PartnerViewComponent } from './components/admin/dialog/partner-view/partner-view.component';
+import { MemberCardComponent } from './components/member/member-card/member-card.component';
+import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/withdrawal-success.component'
+import { MemberHeaderComponent } from './components/member/member-header/member-header.component';
+import { WithdrawalRequestComponent } from './components/member/withdrawal-request/withdrawal-request.component';
 
 
 
@@ -309,7 +313,13 @@ import { PartnerViewComponent } from './components/admin/dialog/partner-view/par
     FranchiseWithdrawalRequestComponent,
     FranchiseWithdrawalSuccessHistoryComponent,
     FranchisePartnerMyTeamComponent,
-    PartnerViewComponent
+    PartnerViewComponent,
+    MemberCardComponent,
+    WithdrawalSuccessComponent,
+    MemberHeaderComponent,
+    WithdrawalRequestComponent
+    
+
   
   ],
   imports: [
