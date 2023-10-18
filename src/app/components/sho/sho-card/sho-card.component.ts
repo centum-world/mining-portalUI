@@ -4,6 +4,7 @@ import { StateAddBankComponent } from '../../modal/state-add-bank/state-add-bank
 import { UserService } from 'src/app/service/user.service';
 import { StateViewBankDetailsComponent } from '../../modal/state-view-bank-details/state-view-bank-details.component';
 import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sho-card',
@@ -11,13 +12,17 @@ import { Router } from '@angular/router'
   styleUrls: ['./sho-card.component.css']
 })
 export class ShoCardComponent implements OnInit {
-
+  totalWithdrawalOfState:any;
   bankDetails=[];
   displayStateHandlerId = localStorage.getItem('stateHandlerId');
   displayStateHandlerReferralId = localStorage.getItem('stateRefferalId')
-  constructor(private dialog:MatDialog,private userService:UserService, private router:Router) { }
+  constructor(private dialog:MatDialog,private userService:UserService,
+     private router:Router,
+     private toastr:ToastrService
+     ) { }
 
   ngOnInit() {
+    this.callApiToFetchStateTotalWithdrawal()
   }
 
   stateAddBankDialog(){
@@ -58,10 +63,36 @@ export class ShoCardComponent implements OnInit {
     })
     
   }
+
+  callApiToFetchStateTotalWithdrawal(){
+    let data = {
+      userId:localStorage.getItem('stateHandlerId')
+    }
+    this.userService.fetchFranchiseTotalWithdrawal(data).subscribe({
+      next: (result: any) => {
+        if (result) {
+           console.log(result)
+
+          this.totalWithdrawalOfState= result.data || 0;
+        }
+
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
+    })
+  }
+
   addFanchise(){
     this.router.navigate(['/statedashboard/add-franchise'])
   }
   transaction(){
+    this.router.navigate(['/statedashboard/withdrawal-list'])
+  }
+  viewWithdrawalRequestList(){
+    this.router.navigate(['/statedashboard/withdrawal-list'])
+  }
+  viewWithdrawalSuccessList(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
   }
 }
