@@ -41,15 +41,18 @@ export class BdHeaderComponent implements OnInit {
 
   refresh() {
     this.router.navigate(['/bd-dashboard/home']);
+    this.isVisible = false;
   }
 
   listMember() {
     // Implement your logic here\
     this.router.navigate(['/bd-dashboard/member-list'])
+    this.isVisible = false;
   }
 
   handleWithdrawalClick() {
     this.router.navigate(['/bd-dashboard/withdrawal-list']);
+    this.isVisible = false;
   }
 
   openBusinessDevDetailsDialog() {
