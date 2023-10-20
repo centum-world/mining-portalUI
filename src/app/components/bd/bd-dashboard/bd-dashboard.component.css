@@ -1,0 +1,8 @@
+.state-dashboard{
+    margin-left: 330px;
+}
+@media (max-width: 767px) {
+    .state-dashboard{
+        margin-left:0px;
+    }
+}
