@@ -14,6 +14,7 @@ import { BdProfileDocumentsComponent } from "../bd-profile-documents/bd-profile-
   styleUrls: ["./bd-header.component.css"],
 })
 export class BdHeaderComponent implements OnInit {
+  isVisible: boolean = false;
   constructor(
     private dialog: MatDialog,
     private router: Router,
@@ -24,6 +25,14 @@ export class BdHeaderComponent implements OnInit {
   bdDocuments: any = {}
 
   ngOnInit() {}
+
+  toggleSidebar() {
+    this.isVisible = !this.isVisible;
+  }
+  closeSidebar() {
+    this.isVisible = false;
+  }
+  
 
   logOut() {
     localStorage.clear();
