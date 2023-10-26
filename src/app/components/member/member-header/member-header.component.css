@@ -30,7 +30,7 @@ body{
     left: 0;
     top:0;
     height: 100%;
-    background: #19052c;
+    background: #0f172a;
     z-index: 100%;
     transition: width 300ms;
 }
@@ -38,7 +38,7 @@ body{
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
     color:#fff;
-    background: red;
+      background: #0f172a;
 }
 .sidebar-brand h2 a{
     text-decoration: none;
@@ -67,6 +67,22 @@ body{
     font-size: 1rem;
     text-decoration: none;
 }
+
+.sidebar-menu a:hover {
+    padding-left: 1rem;
+    display: block;
+    background-color: #3661eb;
+    transition: all ease-in-out 100ms;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+
+
+
 .sidebar-menu a span:first-child{
     font-size: 1.5rem;
     padding-right: 1rem;
