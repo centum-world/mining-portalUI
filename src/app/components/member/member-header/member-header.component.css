@@ -249,6 +249,12 @@ main{
 .card-single span{
     font-size: 1rem;
 }
+
+.mobile-bars {
+    display: none;
+  }
+
+  
 .sidebar-brand h3 a{
     color: #fff;
     margin-top: 25px;
@@ -307,6 +313,39 @@ td{
     text-decoration: none;
 }
 
+  .mobile-header {
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 1.5rem;
+    align-items: center;
+    padding: 10px;
+  }
+
+.mobile-sidebar {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0f172a;
+    z-index: 100;
+    animation: slide-in-left 700ms linear 0s 1 normal none;
+  }
+  
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+
 
 /* close */
 @media only screen and (min-width : 769px){
@@ -316,6 +355,11 @@ td{
 }
 
 @media only screen and (max-width :768px){
+
+    .mobile-bars {
+        display: block;
+        font-size: 1.5rem;
+      }
 
     .sidebar{
         width: 70px;

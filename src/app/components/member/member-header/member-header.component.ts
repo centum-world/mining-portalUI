@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./member-header.component.css']
 })
 export class MemberHeaderComponent implements OnInit {
+  isVisible: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  toggleSidebar() {
+    this.isVisible = !this.isVisible;
+  }
+
+  closeSidebar() {
+    this.isVisible = false;
+  }
+  
+  
 
 }
