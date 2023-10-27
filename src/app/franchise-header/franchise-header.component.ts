@@ -122,9 +122,11 @@ export class FranchiseHeaderComponent implements OnInit {
 
   refresh(){
     this.router.navigate(['/franchisedashboard/home'])
+    this.isVisible = false;
   }
   listBussinessDeveloper(){
     this.router.navigate(['/franchisedashboard/bd-list']);
+    this.isVisible = false;
   }
 
   logOut(){
@@ -134,10 +136,12 @@ export class FranchiseHeaderComponent implements OnInit {
 
   addBussinessDeveloper(){
     this.router.navigate(['/franchisedashboard/add-bd'])
+    this.isVisible = false;
   }
 
 
   handleWithdrawalClick(){
     this.router.navigate(['/franchisedashboard/withdrawal-list'])
+    this.isVisible = false;
   }
 }
