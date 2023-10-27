@@ -72,9 +72,14 @@ import { AddMemberComponent } from "./components/admin/dialog/add-member/add-mem
 import { MemberCardComponent } from "./components/member/member-card/member-card.component";
 import { WithdrawalSuccessComponent } from "./components/member/withdrawal-success/withdrawal-success.component";
 import { WithdrawalRequestComponent } from "./components/member/withdrawal-request/withdrawal-request.component";
+import { DashboardMiningComponent } from "./components/mining/dashboard-mining/dashboard-mining.component";
+import { MiningCardsComponent } from "./components/mining/mining-cards/mining-cards.component";
+import { MiningDetailsComponent } from "./components/mining/mining-details/mining-details.component";
+import { MiningAccountComponent } from "./components/mining/mining-account/mining-account.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
+  { path: "mininglogin", component: MiningLoginComponent },
   { path: "member-signup", component: SignupMemberComponent },
   { path: "partner-signup", component: SignupPartnerComponent },
   { path: "statelogin", component: StatehandlerloginComponent },
@@ -115,6 +120,22 @@ const routes: Routes = [
       {path:"bd-account/:id", component: BdAccountComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
+  },
+  // {
+  //   path: "miningdashboard",
+  //   canActivate: [GuardGuard],
+  //   component: MiningDashboardComponent,
+  // },
+  {
+    path: "miningdashboard",
+    canActivate : [GuardGuard],
+    component : DashboardMiningComponent,
+    children:[
+      {path: "home" , component : MiningCardsComponent},
+      {path: "partner-details", component : MiningDetailsComponent},
+      {path: "account", component: MiningAccountComponent},
+      { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
+    ] 
   },
   
   {
@@ -168,12 +189,6 @@ const routes: Routes = [
       {path: "member-list", component: MemberListComponent},
       {path: "add-member", component: CreateMemberComponent},
     ]
-  },
-  { path: "mininglogin", component: MiningLoginComponent },
-  {
-    path: "miningdashboard",
-    canActivate: [GuardGuard],
-    component: MiningDashboardComponent,
   },
   {
     path: "dashboard/sendwithdrawal",
