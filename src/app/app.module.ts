@@ -173,6 +173,7 @@ import { MemberCardComponent } from './components/member/member-card/member-card
 import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/withdrawal-success.component'
 import { MemberHeaderComponent } from './components/member/member-header/member-header.component';
 import { WithdrawalRequestComponent } from './components/member/withdrawal-request/withdrawal-request.component';
+import { MemberProfileDetailsComponent } from './components/member/modal/member-profile-details/member-profile-details.component';
 
 
 
@@ -322,7 +323,8 @@ import { WithdrawalRequestComponent } from './components/member/withdrawal-reque
     MemberHeaderComponent,
     WithdrawalRequestComponent,
     CreateMemberComponent,
-    CreatePartnerComponent
+    CreatePartnerComponent,
+    MemberProfileDetailsComponent
     
 
   
@@ -416,7 +418,8 @@ import { WithdrawalRequestComponent } from './components/member/withdrawal-reque
     MemberVerifyModelComponent,
     MemberBlockModelComponent,
     MemberEditModelComponent,
-    PartnerViewComponent
+    PartnerViewComponent,
+    MemberProfileDetailsComponent
   ],
   providers: [
     {

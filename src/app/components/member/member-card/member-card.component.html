@@ -15,7 +15,8 @@
       <button mat-button class="loin_button" [matMenuTriggerFor]="menu"><img src="assets/image/profile.png" alt=""
           width="50px" height="50px"></button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button>
+        <!-- <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button> -->
+        <button mat-menu-item (click)="myProfileDialog()" >Profile</button>
         <button mat-menu-item data-toggle="modal" data-target="#memberSummary">Summary</button>
         <a href="" mat-menu-item (click)="logOut()">Log Out</a>
       </mat-menu>

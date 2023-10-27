@@ -3,7 +3,8 @@ import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
 @Component({
   selector: 'app-member-card',
   templateUrl: './member-card.component.html',
@@ -76,7 +77,9 @@ export class MemberCardComponent implements OnInit {
 
   constructor(private userService: UserService, private toastr: ToastrService,
     private datePipe: DatePipe,
-    private router: Router) { }
+    private router: Router,
+    private dialog:MatDialog
+    ) { }
 
   ngOnInit() {
 
@@ -376,6 +379,30 @@ export class MemberCardComponent implements OnInit {
       },
       error: error => {
         this.toastr.error("Something went wrong", 'Error');
+      }
+    })
+  }
+
+  myProfileDialog(){
+    let data = {
+      userId :localStorage.getItem('stateHandlerId')
+     }
+     this.userService.fetchStateBankDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+            console.log(response.result)
+            let config:MatDialogConfig = {
+            panelClass:'stateViewBankDetailsDialogClass', data:response.result
+            };
+            const dialogRef = this.dialog.open(MemberProfileDetailsComponent,config);
+            dialogRef.afterClosed().subscribe(result => {
+              console.log('The dialog was closed');
+              // Do something with the result if needed
+            })
+        }
+      },
+      error: error => {
+       console.log(error)
       }
     })
   }

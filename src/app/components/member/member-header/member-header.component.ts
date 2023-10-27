@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { UserService } from 'src/app/service/user.service';
+import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
 
 @Component({
   selector: 'app-member-header',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberHeaderComponent implements OnInit {
   isVisible: boolean = false;
-
-  constructor() { }
-
+  
+  constructor(private userService:UserService , private dialog:MatDialog) { }
+  memberDetails: any = {};
   ngOnInit() {
   }
 
@@ -21,6 +24,41 @@ export class MemberHeaderComponent implements OnInit {
     this.isVisible = false;
   }
   
-  
+  myProfileDialog(){
+    let data = {
+      m_userid :localStorage.getItem('userdetail')
+     }
+     this.userService.fetchMemberPortalDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+            // console.log(response.data)
+            this.memberDetails.fname= response.data[0].m_name;
+            this.memberDetails.lname= response.data[0].m_lname;
+            this.memberDetails.phone= response.data[0].m_phone;
+            this.memberDetails.email= response.data[0].m_email;
+            this.memberDetails.address= response.data[0].m_add;
+            this.memberDetails.dob= response.data[0].m_dob;
+            this.memberDetails.gender= response.data[0].m_gender;
+            this.memberDetails.referredId= response.data[0].m_refferid;
+            this.memberDetails.referralId= response.data[0].reffer_id;
+            this.memberDetails.memberId= response.data[0].m_userid;
+            this.memberDetails.state= response.data[0].m_state;
+            this.memberDetails.designation= response.data[0].m_designation;
+            // console.log(this.memberDetails.fname)
+            let config:MatDialogConfig = {
+            panelClass:'stateViewBankDetailsDialogClass', data:this.memberDetails
+            };
+            const dialogRef = this.dialog.open(MemberProfileDetailsComponent,config);
+            dialogRef.afterClosed().subscribe(result => {
+              console.log('The dialog was closed');
+              // Do something with the result if needed
+            })
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+  }
 
 }
