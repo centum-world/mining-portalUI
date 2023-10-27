@@ -80,21 +80,6 @@
   <main>
 
     <div class="cards" *ngIf="!view_detail">
-      <!-- <div class="card-single">
-        <div>
-          <h6>Profile</h6>
-          <span>Add Bank details</span>
-        </div>
-
-      
-        <div class="icon" (click)="mining_profile_details('profile_detail')">
-        
-          <span>view</span>
-        </div>
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
-          <i class="fa fa-bank"></i>
-        </a>
-      </div> -->
       <div class="card-single">
         <div>
           <h6>Account Details</h6>
@@ -131,44 +116,9 @@
         <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
         <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
       </div>
-
-      <!-- <div class="card-single">
-        <div class="col-md-6">
-
-          <span>Monthly Payout</span>
-      
-        </div>
-        <div class="col-md-6">
-          <div class="card-view" data-toggle="modal" data-target="#perDayWalletHistory">
-            <span>view</span>
-          </div>
-      
-        </div>
-      </div> -->
-
-      <!-- <div class="card-single">
-        <div class="col-md-8">
-          <h6>Refferal</h6>
-          <span>Monthly Payout</span>
-        </div>
-        <div class="col-md-4">
-          <div class="card-view" data-toggle="modal" data-target="#perDayRefferWalletHistory">
-            <span>view</span>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Wallet</span>
-        </div>
-        <span style="font-weight: bold;">{{totalPartnerWalletAmount | currency:'INR'}}</span>
-      </div> -->
       <div class="card-single">
         <div>
           <h6>My Team</h6>
-
         </div>
         <div class="card-view" data-toggle="modal" data-target="#myTeamUsingMyRefferalID">
           <!-- <i class="fa fa-eye"></i> -->
@@ -226,25 +176,6 @@
         </div>
         <span style="font-weight: bold;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
       </div>
-
-      <!-- <div class="card-single">
-        <div>
-          <h6>Profile</h6>
-          <span>Add Bank details</span>
-        </div>
-
-      
-        <div class="icon" (click)="mining_profile_details('profile_detail')">
-        
-          <span>view</span>
-        </div>
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
-          <i class="fa fa-bank"></i>
-        </a>
-      </div> -->
-
-
-
     </div>
 
     <div *ngIf="view_detail">

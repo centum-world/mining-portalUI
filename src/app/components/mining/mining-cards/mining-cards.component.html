@@ -1,0 +1,106 @@
+<main>
+
+    <div class="cards" *ngIf="!view_detail">
+      <div class="card-single">
+        <div>
+          <h6>Account Details</h6>
+          <span>
+            <div class="dop1" *ngIf="userStatus">
+              <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
+            </div>
+            <div class="dop1" *ngIf="month_count === 12 ">
+              <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
+            </div>
+            <div class="dop1" *ngIf="!userStatus && month_count === 0">
+              <span style="font-weight: 600;">Status</span>: <p style="color:red;">Not Active</p>
+            </div>
+          </span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerPaymentDetails">
+
+          <span>view</span>
+        </div>
+      </div>
+      <div class="card-single">
+        <div class="partner-refferal-id">
+          <h6>User ID:- {{partnerId}}</h6>
+          <span>Refferal ID &nbsp;<a href="/partner-signup?refferId={{refferID}}"
+              target="_blank">{{refferID}}</a></span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Liquidity</h6>
+          <!-- <span>History</span> -->
+        </div>
+        <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
+        <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
+      </div>
+      <div class="card-single">
+        <div>
+          <h6>My Team</h6>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#myTeamUsingMyRefferalID">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal</h6>
+          <span>Pending History</span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerWithdrawalRequest">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Withdrawal</h6>
+          <span>Success History</span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#partnerSuccessWithdrawalHistroy">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Refferal</h6>
+          <span>Pending History</span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#refferalWithdrawal">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+      <div class="card-single">
+        <div>
+          <h6>Refferal</h6>
+          <span>Success History</span>
+        </div>
+        <div class="card-view" data-toggle="modal" data-target="#refferalSuccess">
+          <!-- <i class="fa fa-eye"></i> -->
+          <span>view</span>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>Transaction</h6>
+          <span>Total Withdrawal</span>
+        </div>
+        <span style="font-weight: bold;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="view_detail">
+      <app-mining-profile-details></app-mining-profile-details>
+    </div>
+
+  </main>

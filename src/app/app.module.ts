@@ -174,6 +174,11 @@ import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/
 import { MemberHeaderComponent } from './components/member/member-header/member-header.component';
 import { WithdrawalRequestComponent } from './components/member/withdrawal-request/withdrawal-request.component';
 import { MemberProfileDetailsComponent } from './components/member/modal/member-profile-details/member-profile-details.component';
+import { MiningSidebarComponent } from './components/mining/mining-sidebar/mining-sidebar.component';
+import { DashboardMiningComponent } from './components/mining/dashboard-mining/dashboard-mining.component';
+import { MiningCardsComponent } from './components/mining/mining-cards/mining-cards.component';
+import { MiningDetailsComponent } from './components/mining/mining-details/mining-details.component';
+import { MiningAccountComponent } from './components/mining/mining-account/mining-account.component';
 
 
 
@@ -324,6 +329,11 @@ import { MemberProfileDetailsComponent } from './components/member/modal/member-
     WithdrawalRequestComponent,
     CreateMemberComponent,
     CreatePartnerComponent,
+    MiningSidebarComponent,
+    DashboardMiningComponent,
+    MiningCardsComponent,
+    MiningDetailsComponent,
+    MiningAccountComponent,
     MemberProfileDetailsComponent
     
 
