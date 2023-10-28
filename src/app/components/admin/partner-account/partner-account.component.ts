@@ -51,7 +51,6 @@ export class PartnerAccountComponent implements OnInit {
 
   tabChanged(event: any) {
     if (event === 3) {
-      console.log("event call 2");
       let data = {
         user_id: this.partnerID
       }
@@ -64,7 +63,7 @@ export class PartnerAccountComponent implements OnInit {
           this.toastr.warning(error.error.message)
         }
       })
-
+      
     } else if (event === 1) {
       let data = {
         p_userid: this.partnerID

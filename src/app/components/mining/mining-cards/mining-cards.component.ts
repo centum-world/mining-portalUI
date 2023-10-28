@@ -559,5 +559,7 @@ export class MiningCardsComponent implements OnInit {
       }
     })
   }
-
+  gotoAccount(){
+    this.router.navigate(['/miningdashboard/account'])
+  }
 }

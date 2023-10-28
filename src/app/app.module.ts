@@ -180,6 +180,11 @@ import { MiningCardsComponent } from './components/mining/mining-cards/mining-ca
 import { MiningDetailsComponent } from './components/mining/mining-details/mining-details.component';
 import { MiningAccountComponent } from './components/mining/mining-account/mining-account.component';
 import { MemberDocumentsDetailsComponent } from './components/member/modal/member-documents-details/member-documents-details.component';
+import { MyTeamComponent } from './components/member/my-team/my-team.component';
+import { PartnerPayoutDetailsComponent } from './components/member/modal/partner-payout-details/partner-payout-details.component';
+import { MiningAddBankComponent } from './components/mining/dialog/mining-add-bank/mining-add-bank.component';
+import { MiningViewBankComponent } from './components/mining/dialog/mining-view-bank/mining-view-bank.component';
+import { MiningWithdrawDetailsComponent } from './components/mining/mining-withdraw-details/mining-withdraw-details.component';
 
 
 
@@ -336,10 +341,12 @@ import { MemberDocumentsDetailsComponent } from './components/member/modal/membe
     MiningDetailsComponent,
     MiningAccountComponent,
     MemberProfileDetailsComponent,
-    MemberDocumentsDetailsComponent
-    
-
-  
+    MemberDocumentsDetailsComponent,
+    MyTeamComponent,
+    PartnerPayoutDetailsComponent,
+    MiningWithdrawDetailsComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent
   ],
   imports: [
     BrowserModule,
@@ -431,8 +438,12 @@ import { MemberDocumentsDetailsComponent } from './components/member/modal/membe
     MemberBlockModelComponent,
     MemberEditModelComponent,
     PartnerViewComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent,
     MemberProfileDetailsComponent,
-    MemberDocumentsDetailsComponent
+    MemberDocumentsDetailsComponent,
+    PartnerPayoutDetailsComponent,
+    
   ],
   providers: [
     {

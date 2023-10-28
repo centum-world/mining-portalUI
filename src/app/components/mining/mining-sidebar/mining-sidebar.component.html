@@ -3,7 +3,7 @@
     <div class="sidebar-brand" (click)="gotoDahashboard()">
         <h3><a class="fa fa-qrcode" href="javascript:void(0)"></a></h3>
         <h2><a href="javascript:void(0)"><span class="fa fa-qrcode"></span>&nbsp;
-        Dashboard</a></h2>
+                Dashboard</a></h2>
     </div>
     <div class="sidebar-menu">
         <ul>
@@ -17,15 +17,21 @@
             </li>
 
             <li>
-                <div class="partner_history " (click)="partnerViewList()">
+                <div class="partner_history">
                     <a href="javascript:void(0)"><mat-icon class="bank-icon">account_balance</mat-icon>
-                        <span>Bank Details</span>
+                        <!-- <span>Bank Details</span> -->
+                        <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="addBankDetails()">Add bank</button>
+                            <button mat-menu-item (click)="viewBankDetails()">View bank</button>
+                        </mat-menu>
+
                     </a>
                 </div>
             </li>
 
             <li>
-                <div class="partner_history " (click)="viewList()">
+                <div class="partner_history " (click)="partnerWithdraw()">
                     <a href="javascript:void(0)"><mat-icon class="bank-icon">money_off</mat-icon>
                         <span>Withdrawal</span>
                     </a>
@@ -39,6 +45,15 @@
                     </a>
                 </div>
             </li>
+            <li>
+                <div class="partner_history " (click)="myteam()">
+                    <a href="javascript:void(0)"><mat-icon class="bank-icon">group</mat-icon>
+                        <span>My team</span>
+                    </a>
+                </div>
+            </li>
+            
+
             <li>
                 <div class="partner_history " (click)="logOut()">
                     <a href="javascript:void(0)">
