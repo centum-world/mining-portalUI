@@ -38,7 +38,7 @@ export class CreateMemberComponent implements OnInit {
       Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
     ]),
     address: new FormControl("", [Validators.required]),
-    reffered_id: new FormControl("admin123", [Validators.required]),
+    reffered_id: new FormControl("", [Validators.required]),
     state: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
     designation: new FormControl("", Validators.required),
