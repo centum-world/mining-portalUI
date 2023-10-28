@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserService } from 'src/app/service/user.service';
 import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
+import { MemberDocumentsDetailsComponent } from '../modal/member-documents-details/member-documents-details.component';
 
 @Component({
   selector: 'app-member-header',
@@ -13,6 +14,12 @@ export class MemberHeaderComponent implements OnInit {
   
   constructor(private userService:UserService , private dialog:MatDialog) { }
   memberDetails: any = {};
+  memberDocuments={
+    aadharFrontSide:"",
+    aadharBackSide:"",
+    panCard:""
+
+  }
   ngOnInit() {
   }
 
@@ -59,6 +66,41 @@ export class MemberHeaderComponent implements OnInit {
        console.log(error)
       }
     })
+  }
+
+  myDocumentsDialog(){
+    let data = {
+      m_userid:localStorage.getItem('userdetail')
+    }
+
+    this.userService.fetchMemberPortalDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log(response.data)
+           this.memberDocuments.aadharFrontSide = response.data[0].adhar_front_side,
+           this.memberDocuments.aadharBackSide= response.data[0].adhar_back_side,
+           this.memberDocuments.panCard = response.data[0].panCard
+
+        }
+         console.log(this.memberDocuments)
+        let config: MatDialogConfig = {
+          panelClass:'stateProfileDocumetsDialogClass',data:this.memberDocuments
+       
+         };
+         const dialogRef = this.dialog.open(MemberDocumentsDetailsComponent,config);
+       
+         dialogRef.afterClosed().subscribe(result => {
+           console.log('The dialog was closed');
+           // Do something with the result if needed
+         });
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+
+    // console.log(this.memberDocuments)
+ 
   }
 
 }

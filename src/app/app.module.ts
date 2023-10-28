@@ -179,6 +179,7 @@ import { DashboardMiningComponent } from './components/mining/dashboard-mining/d
 import { MiningCardsComponent } from './components/mining/mining-cards/mining-cards.component';
 import { MiningDetailsComponent } from './components/mining/mining-details/mining-details.component';
 import { MiningAccountComponent } from './components/mining/mining-account/mining-account.component';
+import { MemberDocumentsDetailsComponent } from './components/member/modal/member-documents-details/member-documents-details.component';
 
 
 
@@ -334,7 +335,8 @@ import { MiningAccountComponent } from './components/mining/mining-account/minin
     MiningCardsComponent,
     MiningDetailsComponent,
     MiningAccountComponent,
-    MemberProfileDetailsComponent
+    MemberProfileDetailsComponent,
+    MemberDocumentsDetailsComponent
     
 
   
@@ -429,7 +431,8 @@ import { MiningAccountComponent } from './components/mining/mining-account/minin
     MemberBlockModelComponent,
     MemberEditModelComponent,
     PartnerViewComponent,
-    MemberProfileDetailsComponent
+    MemberProfileDetailsComponent,
+    MemberDocumentsDetailsComponent
   ],
   providers: [
     {
