@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserService } from 'src/app/service/user.service';
+import { Router } from '@angular/router';
 import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
 import { MemberDocumentsDetailsComponent } from '../modal/member-documents-details/member-documents-details.component';
 
@@ -12,7 +13,7 @@ import { MemberDocumentsDetailsComponent } from '../modal/member-documents-detai
 export class MemberHeaderComponent implements OnInit {
   isVisible: boolean = false;
   
-  constructor(private userService:UserService , private dialog:MatDialog) { }
+  constructor(private userService:UserService , private dialog:MatDialog,private router:Router) { }
   memberDetails: any = {};
   memberDocuments={
     aadharFrontSide:"",
@@ -101,6 +102,18 @@ export class MemberHeaderComponent implements OnInit {
 
     // console.log(this.memberDocuments)
  
+  }
+
+  memberWithdrawalRequest(){
+    this.router.navigate(['/memberdashboard/withdrawal-request'])
+  }
+
+  memberWithdrawalSuccess(){
+    this.router.navigate(['/memberdashboard/withdrawal-success'])
+  }
+
+  myTeam(){
+    this.router.navigate(['/memberdashboard/my-team'])
   }
 
 }

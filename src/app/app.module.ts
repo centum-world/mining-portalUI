@@ -180,6 +180,8 @@ import { MiningCardsComponent } from './components/mining/mining-cards/mining-ca
 import { MiningDetailsComponent } from './components/mining/mining-details/mining-details.component';
 import { MiningAccountComponent } from './components/mining/mining-account/mining-account.component';
 import { MemberDocumentsDetailsComponent } from './components/member/modal/member-documents-details/member-documents-details.component';
+import { MyTeamComponent } from './components/member/my-team/my-team.component';
+import { PartnerPayoutDetailsComponent } from './components/member/modal/partner-payout-details/partner-payout-details.component';
 
 
 
@@ -336,7 +338,10 @@ import { MemberDocumentsDetailsComponent } from './components/member/modal/membe
     MiningDetailsComponent,
     MiningAccountComponent,
     MemberProfileDetailsComponent,
-    MemberDocumentsDetailsComponent
+    MemberDocumentsDetailsComponent,
+    MyTeamComponent,
+    PartnerPayoutDetailsComponent,
+
     
 
   
@@ -432,7 +437,9 @@ import { MemberDocumentsDetailsComponent } from './components/member/modal/membe
     MemberEditModelComponent,
     PartnerViewComponent,
     MemberProfileDetailsComponent,
-    MemberDocumentsDetailsComponent
+    MemberDocumentsDetailsComponent,
+    PartnerPayoutDetailsComponent,
+    
   ],
   providers: [
     {

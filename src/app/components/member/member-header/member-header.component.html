@@ -11,36 +11,36 @@
   <div class="sidebar-menu">
     <ul>
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-user"  [matMenuTriggerFor]="menuProfile"></i>
-          <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
+        <a href="javascript:void(0"><i class="fa fa-user" [matMenuTriggerFor]="menuProfile"></i>
+          <span [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>
 
       <li>
-        <a href="javascript:void(0)"
-          ><i class="fa fa-money"></i>
-          <span data-toggle="modal" data-target="#eachMonthWithdrawalHistory"
-            >Withdrawal</span
-          >
+        <a href="javascript:void(0)"><i class="fa fa-money" [matMenuTriggerFor]="menuBank"></i>
+          <span [matMenuTriggerFor]="menuBank">Withdrawal</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-users" ></i>
+          <span (click)="myTeam()" >Team</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)"
-          ><i class="fa fa-users"></i>
-          <span
-            data-toggle="modal"
-            data-target="#myTeamUseMyRefferalIdForPartner"
-            >Team</span
-          >
-        </a>
-      </li>
-      <li>
-        <a href=""
-          ><i class="fa fa-sign-out"></i>
+        <a href=""><i class="fa fa-sign-out"></i>
           <span (click)="logOut()">Log Out</span>
         </a>
       </li>
     </ul>
+    <mat-menu #menuBank="matMenu">
+      <button mat-menu-item (click)="memberWithdrawalRequest()" >Request</button>
+      <button mat-menu-item  (click)="memberWithdrawalSuccess()">Approved</button>
+    </mat-menu>
+    <!-- <mat-menu #menuBank="matMenu">
+      <button mat-menu-item>Request</button>
+      <button mat-menu-item>Approved</button>
+    </mat-menu> -->
   </div>
 </div>
 
@@ -55,19 +55,12 @@
     </h2>
 
     <div class="user-wrapper">
-      <button mat-button class="loin_button" [matMenuTriggerFor]="menu">
+      <button mat-button class="loin_button" [matMenuTriggerFor]="menuUser">
         <img src="assets/image/profile.png" alt="" width="50px" height="50px" />
       </button>
       <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
-      <mat-menu #menu="matMenu">
-        <!-- <button
-          mat-menu-item
-          data-toggle="modal"
-          data-target="#myProfileDetails"
-        >
-          Profile
-        </button> -->
-        <button mat-menu-item (click)="myProfileDialog()" >
+      <mat-menu #menuUser="matMenu">
+        <button mat-menu-item (click)="myProfileDialog()">
           Profile
         </button>
         <button mat-menu-item data-toggle="modal" data-target="#memberSummary">
@@ -95,18 +88,17 @@
   <div class="sidebar-menu">
     <ul>
       <li>
-        <a href="javascript:void(0)">
-          <button [matMenuTriggerFor]="menuProfile">
-            <i class="fa fa-user">My profile</i>
+        <a href="javascript:void(0)" [matMenuTriggerFor]="menuProfile">
+          <button>
+            <i class="fa fa-user"></i>
+            <span>My profile</span>
           </button>
-          
         </a>
       </li>
 
       <li>
         <a href="javascript:void(0)">
           <i class="fa fa-plus"></i>
-          <!-- <span (click)="listBussinessDeveloper()">Add Member</span> -->
           <span>Add Partner</span>
         </a>
       </li>
@@ -114,7 +106,6 @@
       <li>
         <a href="javascript:void(0)">
           <i class="fa fa-user"></i>
-          <!-- <span (click)="listMember()">Member List</span> -->
           <span>Partner List</span>
         </a>
       </li>
@@ -122,7 +113,6 @@
       <li>
         <a href="javascript:void(0)">
           <i class="fa fa-money"></i>
-          <!-- <span (click)="handleWithdrawalClick()">Withdraw</span> -->
           <span>Withdraw</span>
         </a>
       </li>
@@ -130,7 +120,6 @@
       <li>
         <a href="">
           <i class="fa fa-sign-out"></i>
-          <!-- <span (click)="logOut()">Log Out</span> -->
           <span>Log Out</span>
         </a>
       </li>
