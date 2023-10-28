@@ -87,7 +87,6 @@ export class AdminSidebarComponent implements OnInit {
      
          dialogRef.afterClosed().subscribe(result => {
            console.log('The dialog was closed');
-           // Do something with the result if needed
          });
         }
       },
