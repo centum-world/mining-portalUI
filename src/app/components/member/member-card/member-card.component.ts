@@ -295,6 +295,7 @@ export class MemberCardComponent implements OnInit {
     let lastPayout = {
       m_userid: id
     }
+    
     this.userService.memberLastPayout(lastPayout).subscribe({
       next: (resposne: any) => {
         if (resposne) {
@@ -309,9 +310,6 @@ export class MemberCardComponent implements OnInit {
             this.lastPayOutAmount = null;
             this.lastPayOutMonth = null;
           }
-
-
-
         }
       }
     })
