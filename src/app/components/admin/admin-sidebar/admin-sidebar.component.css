@@ -318,7 +318,7 @@ tbody tr td {
   align-items: center;
   padding: 10px;
 }
-/* 
+
 .mobile-sidebar {
   position: fixed;
   top: 0;
@@ -327,7 +327,7 @@ tbody tr td {
   background-color: #0f172a;
   z-index: 100;
   animation: slide-in-left 700ms linear 0s 1 normal none;
-} */
+}
 
 @keyframes slide-in-left {
   0% {
