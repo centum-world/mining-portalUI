@@ -44,7 +44,7 @@ body {
 
 .sidebar-menu li {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   padding-left: 1rem;
 }
 
@@ -109,10 +109,6 @@ body {
   padding-bottom: 1rem;
   color: rgb(228, 86, 233);
   border: 1px solid yellow;
-}
-
-.sidebar-menu {
-  height: 100%;
 }
 
 .sidebar-menu ul {
