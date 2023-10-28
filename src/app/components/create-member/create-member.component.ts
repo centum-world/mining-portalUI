@@ -88,7 +88,7 @@ export class CreateMemberComponent implements OnInit {
   }
 
   goBack(){
-    this.router.navigate(['/dashboard/home'])
+    this.router.navigate(['/bd-dashboard/home'])
   }
 
   ngOnInit() {}

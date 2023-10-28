@@ -1,4 +1,4 @@
-<div class="modal-body">
+<div class="modal-body" style="margin-top: 6rem">
   <h5
     style="
       display: flex;
@@ -11,7 +11,7 @@
   >
     <mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp; Create Member
   </h5>
-  <form [formGroup]="userForm" (ngSubmit)="addMemberData(userForm)">
+  <form [formGroup]="userForm" (ngSubmit)="addMemberData(userForm)" >
     <div class="row">
       <div class="col">
         <div class="form-group">
