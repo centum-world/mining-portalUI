@@ -77,6 +77,7 @@ import { MiningCardsComponent } from "./components/mining/mining-cards/mining-ca
 import { MiningDetailsComponent } from "./components/mining/mining-details/mining-details.component";
 import { MiningAccountComponent } from "./components/mining/mining-account/mining-account.component";
 import { MyTeamComponent } from "./components/member/my-team/my-team.component";
+import { MiningWithdrawDetailsComponent } from "./components/mining/mining-withdraw-details/mining-withdraw-details.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -135,6 +136,7 @@ const routes: Routes = [
       {path: "home" , component : MiningCardsComponent},
       {path: "partner-details", component : MiningDetailsComponent},
       {path: "account", component: MiningAccountComponent},
+      {path: "withdraw", component: MiningWithdrawDetailsComponent},
       { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
     ] 
   },

@@ -34,6 +34,11 @@ body{
     z-index: 100%;
     transition: width 300ms;
 }
+.mat-button{
+    margin-top: -6px;
+    margin-left: -5px;
+    padding: 3px;
+}
 .sidebar-brand{
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
