@@ -344,10 +344,9 @@ import { MiningWithdrawDetailsComponent } from './components/mining/mining-withd
     MemberDocumentsDetailsComponent,
     MyTeamComponent,
     PartnerPayoutDetailsComponent,
-
-    
-
-  
+    MiningWithdrawDetailsComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent
   ],
   imports: [
     BrowserModule,
