@@ -281,6 +281,15 @@ body {
     padding-top: 0px;
   }
 }
+.partnerBankDialogClass{
+  height: auto;
+  width: auto;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
 
 @media (max-width: 768px) {
   .myEditDialogClass {

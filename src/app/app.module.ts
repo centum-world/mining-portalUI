@@ -178,6 +178,10 @@ import { DashboardMiningComponent } from './components/mining/dashboard-mining/d
 import { MiningCardsComponent } from './components/mining/mining-cards/mining-cards.component';
 import { MiningDetailsComponent } from './components/mining/mining-details/mining-details.component';
 import { MiningAccountComponent } from './components/mining/mining-account/mining-account.component';
+import { MiningAddBankComponent } from './components/mining/dialog/mining-add-bank/mining-add-bank.component';
+import { MiningViewBankComponent } from './components/mining/dialog/mining-view-bank/mining-view-bank.component';
+import { MiningWithdrawDetailsComponent } from './components/mining/mining-withdraw-details/mining-withdraw-details.component';
+import { MyTeamComponent } from './components/mining/my-team/my-team.component';
 
 
 
@@ -332,7 +336,11 @@ import { MiningAccountComponent } from './components/mining/mining-account/minin
     DashboardMiningComponent,
     MiningCardsComponent,
     MiningDetailsComponent,
-    MiningAccountComponent
+    MiningAccountComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent,
+    MiningWithdrawDetailsComponent,
+    MyTeamComponent
     
 
   
@@ -426,7 +434,9 @@ import { MiningAccountComponent } from './components/mining/mining-account/minin
     MemberVerifyModelComponent,
     MemberBlockModelComponent,
     MemberEditModelComponent,
-    PartnerViewComponent
+    PartnerViewComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent
   ],
   providers: [
     {

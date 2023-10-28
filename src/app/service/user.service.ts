@@ -80,7 +80,7 @@ export class UserService {
 
   // Add Mining Partner  Bnak Details
 
-  addMiningPartnerBankDetails(data) {
+  addMiningPartnerBankDetails(data:any) {
     return this.http.post(this.url + "/mining/partner-bank-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -88,7 +88,7 @@ export class UserService {
 
   // Fetch Mining Partner Bank Details
 
-  fetchMiningPartnerBankDetails(data) {
+  fetchMiningPartnerBankDetails(data:any) {
     return this.http.post(
       this.url + "/mining/fetch-partner-bank-details",
       data,
