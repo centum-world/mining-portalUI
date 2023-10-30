@@ -11,7 +11,7 @@
   <div class="sidebar-menu">
     <ul>
       <li>
-        <a href="javascript:void(0"><i class="fa fa-user" [matMenuTriggerFor]="menuProfile"></i>
+        <a href="javascript:void(0)"><i class="fa fa-user" [matMenuTriggerFor]="menuProfile"></i>
           <span [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>
@@ -24,7 +24,7 @@
 
       <li>
         <a href="javascript:void(0)"><i class="fa fa-users" ></i>
-          <span (click)="myTeam()" >Team</span>
+          <span (click)="myTeam()" >My Team</span>
         </a>
       </li>
       <li>
@@ -88,32 +88,27 @@
   <div class="sidebar-menu">
     <ul>
       <li>
-        <a href="javascript:void(0)" [matMenuTriggerFor]="menuProfile">
-          <button>
-            <i class="fa fa-user"></i>
-            <span>My profile</span>
-          </button>
+        <a href="javascript:void(0)"><i class="fa fa-user" [matMenuTriggerFor]="menuProfile"></i>
+          <span [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="javascript:void(0)">
           <i class="fa fa-plus"></i>
           <span>Add Partner</span>
         </a>
-      </li>
+      </li> -->
 
       <li>
-        <a href="javascript:void(0)">
-          <i class="fa fa-user"></i>
-          <span>Partner List</span>
+        <a href="javascript:void(0)"><i class="fa fa-users" ></i>
+          <span (click)="myTeam()" >My Team</span>
         </a>
       </li>
 
       <li>
-        <a href="javascript:void(0)">
-          <i class="fa fa-money"></i>
-          <span>Withdraw</span>
+        <a href="javascript:void(0)"><i class="fa fa-money" [matMenuTriggerFor]="menuBank"></i>
+          <span [matMenuTriggerFor]="menuBank">Withdrawal</span>
         </a>
       </li>
 
