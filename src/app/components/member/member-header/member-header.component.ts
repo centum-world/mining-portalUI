@@ -116,4 +116,7 @@ export class MemberHeaderComponent implements OnInit {
     this.router.navigate(['/memberdashboard/my-team'])
   }
 
+  logOut(){
+    localStorage.clear();
+  }
 }

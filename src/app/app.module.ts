@@ -167,7 +167,6 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
 
 import { PartnerViewComponent } from './components/admin/dialog/partner-view/partner-view.component';
 import { CreateMemberComponent } from './components/create-member/create-member.component';
-import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
 
 import { MemberCardComponent } from './components/member/member-card/member-card.component';
 import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/withdrawal-success.component'
@@ -185,10 +184,9 @@ import { PartnerPayoutDetailsComponent } from './components/member/modal/partner
 import { MiningAddBankComponent } from './components/mining/dialog/mining-add-bank/mining-add-bank.component';
 import { MiningViewBankComponent } from './components/mining/dialog/mining-view-bank/mining-view-bank.component';
 import { MiningWithdrawDetailsComponent } from './components/mining/mining-withdraw-details/mining-withdraw-details.component';
-
-
-
-
+import { MyteamPartnerComponent } from './components/mining/myteam-partner/myteam-partner.component';
+import { PartnerMyteamAccountComponent } from './components/mining/dialog/partner-myteam-account/partner-myteam-account.component';
+import { ReferralPayoutComponent } from './components/mining/referral-payout/referral-payout.component';
 
 @NgModule({
   declarations: [
@@ -334,7 +332,6 @@ import { MiningWithdrawDetailsComponent } from './components/mining/mining-withd
     MemberHeaderComponent,
     WithdrawalRequestComponent,
     CreateMemberComponent,
-    CreatePartnerComponent,
     MiningSidebarComponent,
     DashboardMiningComponent,
     MiningCardsComponent,
@@ -342,11 +339,14 @@ import { MiningWithdrawDetailsComponent } from './components/mining/mining-withd
     MiningAccountComponent,
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
-    MyTeamComponent,
     PartnerPayoutDetailsComponent,
     MiningWithdrawDetailsComponent,
     MiningAddBankComponent,
-    MiningViewBankComponent
+    MiningViewBankComponent,
+    MyTeamComponent,
+    MyteamPartnerComponent,
+    PartnerMyteamAccountComponent,
+    ReferralPayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -443,7 +443,7 @@ import { MiningWithdrawDetailsComponent } from './components/mining/mining-withd
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
     PartnerPayoutDetailsComponent,
-    
+    PartnerMyteamAccountComponent 
   ],
   providers: [
     {

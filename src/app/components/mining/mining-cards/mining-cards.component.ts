@@ -562,4 +562,14 @@ export class MiningCardsComponent implements OnInit {
   gotoAccount(){
     this.router.navigate(['/miningdashboard/account'])
   }
+
+  myteam(){
+    this.router.navigate(['/miningdashboard/my-team'])
+  }
+  withdrwalPage(){
+    this.router.navigate(['/miningdashboard/withdraw'])
+  }
+  referralPayout(){
+    this.router.navigate(['/miningdashboard/referral-payout'])
+  }
 }

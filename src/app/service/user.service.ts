@@ -1290,4 +1290,20 @@ export class UserService {
   uploadPartnerPanImage(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-pan-card-partner`, formData);
   }
+
+  //partnermy team
+  partnerMyTeam(data: any){
+    return this.http.post(this.url + "/mining/fetch-partner-by-referral-id-of-partner",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
+  //partner referral request
+  partnerReferalRequst(data:any){
+    return this.http.post(this.url + "/mining/fetch-partner-refer-withdral",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
 }
