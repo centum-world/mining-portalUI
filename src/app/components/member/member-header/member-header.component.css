@@ -183,7 +183,6 @@ header{
     z-index: 100;
     background: #fff;
     transition: left 300ms;
-    margin-bottom: 100px;
 }
 
 #nav-toggle{
