@@ -448,7 +448,7 @@ import { ReferralPayoutComponent } from './components/mining/referral-payout/ref
     MemberDocumentsDetailsComponent,
     PartnerPayoutDetailsComponent,
     MemberAddBankComponent,
-    MemberViewBankComponent
+    MemberViewBankComponent,
     PartnerMyteamAccountComponent 
   ],
   providers: [
