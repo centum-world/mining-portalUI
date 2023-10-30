@@ -1,17 +1,19 @@
 .sho-list-header{
   height: 70px;
-  background: #6610f2;
+  background: white;
   border-radius: 8px;
   margin-left: 320px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
   margin-top: -50px;
 }
 .title p{
   font-size: 20px;
-  color: white;
+  color: black;
+  font-weight: 800;
   font-family: Calibri;
 }
 
@@ -62,7 +64,7 @@ table {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .sho-list-header{
     height: 70px;
-    background: #6610f2;
+    background: white;
     border-radius: 8px;
     margin-left: 318px;
     padding: 20px;
@@ -96,7 +98,8 @@ table {
   
   .title p{
     font-size: 16px;
-    color: white;
+    color: black;
+    font-weight: 800;
     font-family: Calibri;
     margin: -7px;
   }

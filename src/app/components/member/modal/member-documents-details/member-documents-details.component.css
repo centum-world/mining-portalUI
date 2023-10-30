@@ -1,17 +1,16 @@
 .mat-dialog-title {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #b63003;
+    background-color: #F0F0F0;
     margin-left: -22px;
     margin-right: -22px;
     padding-left: 20px;
     color: #ccc;
 }
 .custom-heading {
-    color:#fefefe;
+    color:black;
 }
 
 .franchise-documets-modal-ok{
-    background: lightgreen;
-    color: red;
+    background: #0d6efd;
 }
