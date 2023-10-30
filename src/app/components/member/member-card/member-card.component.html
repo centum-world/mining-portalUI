@@ -30,20 +30,43 @@
   <main>
 
     <div *ngIf="!profileDetails" class="cards">
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Profile</h6>
           <span>See your profile!</span>
 
         </div>
 
-        <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
         <div class="icon" (click)="memberDetails()">
           <span>View</span>
         </div>
         <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
           <i class="fa fa-bank"></i>
         </a>
+      </div> -->
+
+      <div class="card-single">
+        <div>
+          <h6>Profile</h6>
+          <span>See your profile!</span>
+        </div>
+        <div class="icon" [matMenuTriggerFor]="menuProfile">
+          <span>View</span>
+        </div>
+        <!-- Add a Material Design bank icon -->
+        <button mat-icon-button [matMenuTriggerFor]="menuBank">
+          <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
+        </button>
+        <mat-menu #menuBank="matMenu">
+          <button mat-menu-item (click)="memberAddBankDialog()">Add Bank</button>
+          <button mat-menu-item (click)="memberViewBankDetailsDialog()">View Bank Details</button>
+        </mat-menu>
+        <mat-menu #menuProfile="matMenu">
+          <!-- Define your menu items here -->
+          <!-- <button mat-menu-item (click)="openDialog()">Details</button>
+          <button mat-menu-item (click)="stateAddBankDialog()">Documents</button> -->
+          <!-- Add more menu items as needed -->
+        </mat-menu>
       </div>
 
       <div class="card-single">

@@ -182,6 +182,8 @@ import { MiningAccountComponent } from './components/mining/mining-account/minin
 import { MemberDocumentsDetailsComponent } from './components/member/modal/member-documents-details/member-documents-details.component';
 import { MyTeamComponent } from './components/member/my-team/my-team.component';
 import { PartnerPayoutDetailsComponent } from './components/member/modal/partner-payout-details/partner-payout-details.component';
+import { MemberAddBankComponent } from './components/member/modal/member-add-bank/member-add-bank.component';
+import { MemberViewBankComponent } from './components/member/modal/member-view-bank/member-view-bank.component';
 
 
 
@@ -341,6 +343,8 @@ import { PartnerPayoutDetailsComponent } from './components/member/modal/partner
     MemberDocumentsDetailsComponent,
     MyTeamComponent,
     PartnerPayoutDetailsComponent,
+    MemberAddBankComponent,
+    MemberViewBankComponent,
 
     
 
@@ -439,6 +443,7 @@ import { PartnerPayoutDetailsComponent } from './components/member/modal/partner
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
     PartnerPayoutDetailsComponent,
+    MemberAddBankComponent
     
   ],
   providers: [
