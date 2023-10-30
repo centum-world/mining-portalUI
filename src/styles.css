@@ -29,6 +29,9 @@ body {
   display: none;
 }
 
+.mat-dialog-content{
+  overflow: visible !important;
+}
 
 
 .myStateDialogClass {
@@ -56,15 +59,12 @@ body {
 }
 .franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
   width: 50%;
-  height: max-content;
+  
   .mat-dialog-container {
     height: max-content;
     border-radius: 20px;
     padding-top: 0px;
 
-  }
-  .mat-dialog-content{
-    height :63%
   }
 }
 
@@ -442,4 +442,4 @@ body {
     height: auto;
     width: 90%;
   }
-}
+} 

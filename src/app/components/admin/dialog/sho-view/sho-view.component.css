@@ -31,6 +31,7 @@ background: #b63003;
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap to the next line */
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .image {
