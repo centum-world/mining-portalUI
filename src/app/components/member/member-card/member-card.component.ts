@@ -5,6 +5,8 @@ import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
+import { MemberAddBankComponent } from '../modal/member-add-bank/member-add-bank.component';
+import { MemberViewBankComponent } from '../modal/member-view-bank/member-view-bank.component';
 @Component({
   selector: 'app-member-card',
   templateUrl: './member-card.component.html',
@@ -175,6 +177,30 @@ export class MemberCardComponent implements OnInit {
         this.toastr.error('Something Went Wrong', 'Error');
       }
 
+    })
+  }
+
+  memberViewBankDetailsDialog(){
+    let data = {
+      userId :localStorage.getItem('userdetail')
+     }
+     this.userService.fetchMemberBankDetails(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+            console.log(response.result)
+            let config:MatDialogConfig = {
+            panelClass:'stateViewBankDetailsDialogClass', data:response.result
+            };
+            const dialogRef = this.dialog.open(MemberViewBankComponent,config);
+            dialogRef.afterClosed().subscribe(result => {
+              console.log('The dialog was closed');
+              // Do something with the result if needed
+            })
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
     })
   }
 
@@ -403,6 +429,19 @@ export class MemberCardComponent implements OnInit {
        console.log(error)
       }
     })
+  }
+
+  // -----------------------------------------------------//
+  memberAddBankDialog(){
+    let config:MatDialogConfig = {
+      panelClass:'stateAddBankDialogClass'
+   };
+   const dialogRef = this.dialog.open(MemberAddBankComponent,config);
+
+   dialogRef.afterClosed().subscribe(result => {
+     console.log('The dialog was closed');
+     // Do something with the result if needed
+   });
   }
 
   logOut() {

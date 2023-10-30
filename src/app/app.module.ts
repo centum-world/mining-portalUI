@@ -185,6 +185,8 @@ import { PartnerPayoutDetailsComponent } from './components/member/modal/partner
 import { MiningAddBankComponent } from './components/mining/dialog/mining-add-bank/mining-add-bank.component';
 import { MiningViewBankComponent } from './components/mining/dialog/mining-view-bank/mining-view-bank.component';
 import { MiningWithdrawDetailsComponent } from './components/mining/mining-withdraw-details/mining-withdraw-details.component';
+import { MemberAddBankComponent } from './components/member/modal/member-add-bank/member-add-bank.component';
+import { MemberViewBankComponent } from './components/member/modal/member-view-bank/member-view-bank.component';
 
 
 
@@ -344,7 +346,9 @@ import { MiningWithdrawDetailsComponent } from './components/mining/mining-withd
     MemberDocumentsDetailsComponent,
     MyTeamComponent,
     PartnerPayoutDetailsComponent,
-    MiningWithdrawDetailsComponent,
+    MiningWithdrawDetailsComponent,    MemberAddBankComponent,
+    MemberViewBankComponent,
+
     MiningAddBankComponent,
     MiningViewBankComponent
   ],
@@ -443,6 +447,7 @@ import { MiningWithdrawDetailsComponent } from './components/mining/mining-withd
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
     PartnerPayoutDetailsComponent,
+    MemberAddBankComponent
     
   ],
   providers: [
