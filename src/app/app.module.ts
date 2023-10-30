@@ -167,7 +167,6 @@ import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/fra
 
 import { PartnerViewComponent } from './components/admin/dialog/partner-view/partner-view.component';
 import { CreateMemberComponent } from './components/create-member/create-member.component';
-import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
 
 import { MemberCardComponent } from './components/member/member-card/member-card.component';
 import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/withdrawal-success.component'
@@ -187,10 +186,9 @@ import { MiningViewBankComponent } from './components/mining/dialog/mining-view-
 import { MiningWithdrawDetailsComponent } from './components/mining/mining-withdraw-details/mining-withdraw-details.component';
 import { MemberAddBankComponent } from './components/member/modal/member-add-bank/member-add-bank.component';
 import { MemberViewBankComponent } from './components/member/modal/member-view-bank/member-view-bank.component';
-
-
-
-
+import { MyteamPartnerComponent } from './components/mining/myteam-partner/myteam-partner.component';
+import { PartnerMyteamAccountComponent } from './components/mining/dialog/partner-myteam-account/partner-myteam-account.component';
+import { ReferralPayoutComponent } from './components/mining/referral-payout/referral-payout.component';
 
 @NgModule({
   declarations: [
@@ -336,7 +334,6 @@ import { MemberViewBankComponent } from './components/member/modal/member-view-b
     MemberHeaderComponent,
     WithdrawalRequestComponent,
     CreateMemberComponent,
-    CreatePartnerComponent,
     MiningSidebarComponent,
     DashboardMiningComponent,
     MiningCardsComponent,
@@ -344,13 +341,16 @@ import { MemberViewBankComponent } from './components/member/modal/member-view-b
     MiningAccountComponent,
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
-    MyTeamComponent,
     PartnerPayoutDetailsComponent,
     MiningWithdrawDetailsComponent,    MemberAddBankComponent,
     MemberViewBankComponent,
 
     MiningAddBankComponent,
-    MiningViewBankComponent
+    MiningViewBankComponent,
+    MyTeamComponent,
+    MyteamPartnerComponent,
+    PartnerMyteamAccountComponent,
+    ReferralPayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -449,7 +449,7 @@ import { MemberViewBankComponent } from './components/member/modal/member-view-b
     PartnerPayoutDetailsComponent,
     MemberAddBankComponent,
     MemberViewBankComponent
-    
+    PartnerMyteamAccountComponent 
   ],
   providers: [
     {

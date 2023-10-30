@@ -84,6 +84,10 @@
     width: 1px; /* Width of the divider */
     background-color: #ccc; /* Divider color */
   }
+
+  .refferal-div{
+    margin-left: 330px;
+  }
   
   @media (max-width: 768px) {
     .container {
@@ -95,7 +99,7 @@
     .partner-history-card{
         width: 98%;
     }
-    .account-header{
+    .account-header,.refferal-div{
         margin-left: 0;
     }
     .account-content{

@@ -65,7 +65,6 @@ import { FranchiseWithdrawalRequestComponent } from "./franchise-withdrawal-requ
 import { FranchiseWithdrawalSuccessHistoryComponent } from "./franchise-withdrawal-success-history/franchise-withdrawal-success-history.component";
 import { FranchisePartnerMyTeamComponent } from "./franchise-partner-my-team/franchise-partner-my-team.component";
 import { CreateMemberComponent } from "./components/create-member/create-member.component";
-import { CreatePartnerComponent } from "./components/create-partner/create-partner.component";
 import { AddMemberComponent } from "./components/admin/dialog/add-member/add-member.component";
 
 
@@ -78,6 +77,8 @@ import { MiningDetailsComponent } from "./components/mining/mining-details/minin
 import { MiningAccountComponent } from "./components/mining/mining-account/mining-account.component";
 import { MyTeamComponent } from "./components/member/my-team/my-team.component";
 import { MiningWithdrawDetailsComponent } from "./components/mining/mining-withdraw-details/mining-withdraw-details.component";
+import { MyteamPartnerComponent } from "./components/mining/myteam-partner/myteam-partner.component";
+import { ReferralPayoutComponent } from "./components/mining/referral-payout/referral-payout.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -99,7 +100,6 @@ const routes: Routes = [
     children:[
       {path: "home" , component : HrDashboardComponent},
       {path: "addmember" , component : CreateMemberComponent},
-      {path: "addpartner" , component : CreatePartnerComponent},
       {path: "member-history", component : MemberHistoryComponent},
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
@@ -137,6 +137,8 @@ const routes: Routes = [
       {path: "partner-details", component : MiningDetailsComponent},
       {path: "account", component: MiningAccountComponent},
       {path: "withdraw", component: MiningWithdrawDetailsComponent},
+      {path: "my-team", component: MyteamPartnerComponent},
+      {path: "referral-payout", component: ReferralPayoutComponent},
       { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
     ] 
   },

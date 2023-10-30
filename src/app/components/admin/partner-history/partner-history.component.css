@@ -69,6 +69,13 @@
     border-right: 1px solid #ddd;
   }
 
+  .active-status{
+    color: #03f507;
+  }
+  .inactive-status{
+    color: red;
+  }
+
   @media screen and (max-width: 768px ){
     .sho-list-header, .large-expand{
      margin-left: 0px ;

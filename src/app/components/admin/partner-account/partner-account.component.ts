@@ -18,6 +18,7 @@ export class PartnerAccountComponent implements OnInit {
   bankDetails = [];
   partnerRequestHistory = [];
   approvedRequest = [];
+  referralRequestHistory = [];
   perDayAmountDropDown = 0;
   februaryAmount = 0;
   refferalAmount = 0;
@@ -30,6 +31,9 @@ export class PartnerAccountComponent implements OnInit {
     lastPaymentDate:"",
     status: false
   }
+  color = 'accent';
+  checked = false;
+  disabled = false;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -46,7 +50,14 @@ export class PartnerAccountComponent implements OnInit {
   ngOnInit() {
     console.log(this.partnerID)
     this.tabChanged(0);
+    this.referralTabChange(0);
     this.callApiToUserDetails();
+  }
+  onSlideToggleChange() {
+  
+      this.checked = !this.checked; // Toggle the checked state
+      console.log('Slide toggle changed:', this.checked);
+   
   }
 
   tabChanged(event: any) {
@@ -235,8 +246,28 @@ export class PartnerAccountComponent implements OnInit {
       }
     })
   }
+
+  referralTabChange(event:any){
+    console.log(event)
+    let data ={
+      userId: this.partnerID
+    }
+    if(event === 0){
+      this.userService.partnerReferalRequst(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.result)
+          this.referralRequestHistory = res.result;
+        },
+        error:(err=>{
+          console.log(err.error.message)
+        })
+      })
+    }
+  }
   goBack(){
     this.router.navigate(['/dashboard/home'])
   }
+
+
 
 }

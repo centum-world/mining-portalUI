@@ -16,7 +16,7 @@ export class MiningAccountComponent implements OnInit {
     partnerID:'',
     dop:'',
     liquidity:'',
-    monthComplete:'',
+    monthComplete:0,
     lastPaymentDate:'',
     status:Boolean
   }

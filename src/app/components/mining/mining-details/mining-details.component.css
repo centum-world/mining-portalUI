@@ -5,9 +5,6 @@
     margin-left: 330px;
     margin-top: -46px;
 }
-.large-expand{
-    margin-left: 330px;
-}
 table {
     width: 100%;
 }
@@ -19,9 +16,54 @@ table {
     font-weight: 700;
     font-family: Calibri;
 }
+.large-expand {
+    overflow-x: auto;
+    margin-top:5px;
+    padding: 20px;
+    margin-left: 330px;
+}
+
+/* table {
+    width: 100%;
+} */
+.member-history-header{
+    font-weight: bold;
+    color: black;
+}
+/* Add this CSS to your component's CSS file */
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling for the container */
+  }
+  
+  .mat-table {
+    width: 100%; /* Ensure the table takes up the full width of its container */
+    border-collapse: collapse; /* Remove default cell spacing */
+  }
+  
+  .mat-cell,
+  .mat-header-cell {
+    padding: 8px; /* Adjust the padding as needed */
+    text-align: left; /* Left-align cell content */
+    border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+  }
+  
+  /* Style the header row */
+  .mat-header-row {
+    background-color: #f0f0f0; /* Add a background color to the header row */
+  }
+  
+  /* Add a border to the last cell in each row */
+  .mat-cell:last-child,
+  .mat-header-cell:last-child {
+    border-right: 1px solid #ddd;
+  }
  
 @media (max-width:768px){
-    .detail-heading, .large-expand{
+    .large-expand{
         margin-left: 0;
+    }
+    .detail-heading{
+        margin-left: 0;
+        margin-top: 100px;
     }
 }

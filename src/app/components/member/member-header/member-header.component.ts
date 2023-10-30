@@ -119,4 +119,7 @@ export class MemberHeaderComponent implements OnInit {
     this.isVisible = false;
   }
 
+  logOut(){
+    localStorage.clear();
+  }
 }

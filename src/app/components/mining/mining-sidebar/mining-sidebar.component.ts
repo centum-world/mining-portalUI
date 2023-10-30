@@ -61,9 +61,19 @@ export class MiningSidebarComponent implements OnInit {
   }
 
   myteam(){
-    this.router.navigate(['/miningdashboard/myteam'])
+    this.router.navigate(['/miningdashboard/my-team'])
   }
 
+  FranchiseList(){
+
+  }
+  memberViewList(){
+
+  }
+  viewList(){
+
+  }
+  
 
   logOut(){
     localStorage.clear();

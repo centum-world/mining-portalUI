@@ -1,0 +1,136 @@
+.mat-dialog-title {
+    background-color: #b63003;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: -24px;
+    margin-right: -23px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.custom-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.account-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin-left: 340px;
+    padding: 10px;
+}
+.account-header h5{
+    color: #000;
+    font-weight: 600;
+    font-family: Calibri;
+}
+.wallet-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background: #f8fc02;
+    color: #b63003;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.account-content{
+    margin-left: 330px;
+}
+.bakk-div{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
+.example-card {
+    margin: 10px;
+    width: 350px;
+}
+.payment-card{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+}
+  
+.bank-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+.bank-details h2{
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
+}
+.example-header-image{
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+}
+.partner-history-card{
+    width: 70%;
+    margin-top: 5%;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    position: relative; /* Position relative for pseudo-element positioning */
+  }
+  
+  /* Style for the divider between columns */
+  .column:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px; /* Adjust this value to control the width of the divider */
+    height: 100%;
+    width: 1px; /* Width of the divider */
+    background-color: #ccc; /* Divider color */
+  }
+
+  
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .payment-card{
+        width: 90%;
+    }
+    .partner-history-card{
+        width: 98%;
+    }
+    .account-header{
+        margin-left: 0;
+    }
+    .account-content{
+        margin-left: 0;
+    }
+  }
+  @media (max-width: 576px) {
+    .transaction {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .mat-form-field {
+        width: 100%;
+        margin-bottom: 10px; 
+      }
+      .example-card{
+        width: 400px;
+      }
+  }

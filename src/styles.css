@@ -284,6 +284,15 @@ body {
     padding-top: 0px;
   }
 }
+.myteamPartnerDialogClass{
+  height: auto;
+  width: 60%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
 
 @media (max-width: 768px) {
   .myEditDialogClass {
@@ -293,7 +302,7 @@ body {
   .franchiseDocumentsDialogClass,
   .franchiseViewBankDetailsDialogClass,
   .stateProfileDocumetsDialogClass,
-  .stateViewBankDetailsDialogClass {
+  .stateViewBankDetailsDialogClass{
     height: auto;
     width: 90%;
 
@@ -442,4 +451,7 @@ body {
     height: auto;
     width: 90%;
   }
-} 
+  .myteamPartnerDialogClass{
+    width: 99%;
+  }
+}
