@@ -181,27 +181,14 @@ export class MemberCardComponent implements OnInit {
   }
 
   memberViewBankDetailsDialog(){
-    let data = {
-      userId :localStorage.getItem('userdetail')
-     }
-     this.userService.fetchMemberBankDetails(data).subscribe({
-      next: (response: any) => {
-        if (response) {
-            console.log(response.result)
-            let config:MatDialogConfig = {
-            panelClass:'stateViewBankDetailsDialogClass', data:response.result
-            };
-            const dialogRef = this.dialog.open(MemberViewBankComponent,config);
-            dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
-              // Do something with the result if needed
-            })
-        }
-      },
-      error: error => {
-       console.log(error)
-      }
-    })
+    let config: MatDialogConfig = {
+      panelClass: 'stateViewBankDetailsDialogClass',
+    };
+    const dialogRef = this.dialog.open(MemberViewBankComponent,config)
+    
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
   }
 
   callApiMemberWalletDepositeDaily() {
