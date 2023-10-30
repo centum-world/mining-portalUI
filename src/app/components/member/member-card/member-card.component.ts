@@ -191,6 +191,7 @@ export class MemberCardComponent implements OnInit {
     });
   }
 
+
   callApiMemberWalletDepositeDaily() {
     let data = {
       m_userid: localStorage.getItem('userdetail')
