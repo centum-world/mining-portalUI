@@ -34,14 +34,15 @@ body {
 .myStateDialogClass {
   height: 70%;
   width: 60%;
-
+  
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
+    height: max-content;
   }
 
   .mat-dialog-content {
-    height: 70%;
+    height: max-content;
   }
 }
 .myStateVerifyDialogClass{
@@ -50,14 +51,14 @@ body {
   .mat-dialog-container{
     border-radius: 20px;
     padding-top: 0;
+    height: max-content;
   }
 }
 .franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
   width: 50%;
-  height:65%;
+  height: max-content;
   .mat-dialog-container {
-    /* border: 1px solid black !important; */
-    height: auto;
+    height: max-content;
     border-radius: 20px;
     padding-top: 0px;
 
@@ -83,14 +84,11 @@ body {
 
 .myEditDialogClass {
   width: 50%;
-  height: auto;
 
   .mat-dialog-container {
-    border: 1px solid black !important;
-    height: auto;
+    height: max-content;
     border-radius: 20px;
     padding-top: 0px;
-
   }
 }
 
@@ -107,26 +105,22 @@ body {
 .franchiseProfileDetailsDialogClass,
 .franchiseViewBankDetailsDialogClass,
 .stateViewBankDetailsDialogClass {
-  height: auto;
   width: 50%;
 
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
+    height: max-content;
   }
 }
 
 .franchiseDocumentsDialogClass,
 .stateProfileDocumetsDialogClass {
-  height: 80%;
   width: 60%;
-
-  .mat-dialog-content {
-    height: 70%;
-  }
   .mat-dialog-container{
     border-radius: 20px;
     padding-top: 0px;
+    height: max-content;
   }
 }
 
@@ -141,11 +135,11 @@ body {
 }
 .verifyMemberDialogClass,.franchiseVerifyDialogClass{
   width: 27%;
-  height: 30%;
 
   .mat-dialog-container {
     padding-top: 0;
     border-radius: 20px;
+    height: max-content;
   }
 }
 
