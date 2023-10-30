@@ -1,10 +1,11 @@
 .sho-list-header{
-    width: calc(100%-300px);
     height: 70px;
-    background: #ee5411;
+    background: #6610f2;
     border-radius: 8px;
-    margin-left: 300px;
+    margin-left: 320px;
     padding: 20px;
+    margin-top: -50px;
+    width: 80%;
   }
   .title p{
     font-size: 20px;
@@ -26,6 +27,7 @@
     margin-top:5px;
     padding: 20px;
     margin-left: 300px;
+    width: 83%;
   }
   
   table {
@@ -64,7 +66,7 @@
   }
 
   .viewbutton{
-    background-color: #007bff; /* Primary color */
+    background-color: #0d6efd; /* Primary color */
     color: #fff; /* Text color */
     border: none;
     border-radius: 4px;
@@ -73,22 +75,58 @@
     cursor: pointer;
   }
   
-  @media screen and (max-width: 768px ){
-    .sho-list-header, .large-expand{
-     margin-left: 70px ;
-    } 
-   
-  }
-  @media only screen and (min-width: 375px) and (max-width:767px) {
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .sho-list-header{
+      height: 70px;
+      background: #6610f2;
+      border-radius: 8px;
+      margin-left: 318px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 71%;
+      margin-top: 100px;
   
-  .title p{
-    font-size: 16px;
-    font-weight: 700;
+    }
+    .large-expand {
+      overflow-x: auto;
+      padding: 20px;
+      margin-left: 300px;
+     width: 75%;
+    }
+  }
+
+  @media screen and (max-width: 768px ){
+    .sho-list-header {
+     margin-left: 5px ;
+     margin-top: 100px;
+     width: 106%;
+    } 
+    .large-expand {
+      margin-left: -12px ;
+      padding: 20px;
+     width: 112%;
+    }
+    
+    .title p{
+      font-size: 16px;
+      color: white;
+      font-family: Calibri;
+      margin: -7px;
+    }
+  
     
   }
-  .mat-form-field-infix {
-      width: 128px;
+  
+  
+  @media only screen and (max-width: 480px) {
+    .large-expand {
+     width: 114%;
+    }
+    .search{
+      width: 80%;
+      margin-left: 20px;
+    }
   }
   
-  }
   
