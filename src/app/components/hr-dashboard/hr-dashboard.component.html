@@ -1,32 +1,23 @@
 <div class="main-content">
   <main>
-
     <div *ngIf="!viewMemberList" class="cards">
       <div class="card-single">
         <div>
           <h6>
-            <div class=" fa fa-plus" data-toggle="modal" data-target="#teamMates"></div>
-            <!-- <div class=" fa fa-plus" (click)="addMemberDialog()" ></div> -->
+            <div class="fa fa-plus" (click)="redirectToCreateMember()"></div>
           </h6>
-
-
           <span>Add Member</span>
         </div>
-
-        <!-- <div class="fa fa-eye" (click)=viewList()></div> -->
-        <!-- <div class="icon" (click)="viewList('view_member')">
-         
-          <span>view</span>
-        </div> -->
         <div class="icon" (click)="viewMemberHistoryList()">
-
           <span>view</span>
         </div>
       </div>
 
       <div class="card-single">
         <div>
-          <h6><span class="fa fa-plus" data-toggle="modal" data-target="#miningPartner"></span></h6>
+          <h6>
+            <div class="fa fa-plus" (click)="redirectToCreatePartner()"></div>
+          </h6>
           <span>Add Partner</span>
         </div>
 
@@ -42,8 +33,6 @@
         </div>
       </div>
 
-
-
       <div class="card-single">
         <div class="row">
           <div class="col-sm-8">
@@ -53,16 +42,13 @@
           <!-- <div class=" icon col-sm-4" (click)="viewList('active_partner')">
             <span>view</span>
           </div> -->
-          <div class=" icon col-sm-4" (click)="activePartnerViewList()">
+          <div class="icon col-sm-4" (click)="activePartnerViewList()">
             <span>view</span>
           </div>
           <div>
-            <b>{{totalLiquidityOfPartner | currency:'INR'}}</b>
+            <b>{{ totalLiquidityOfPartner | currency : "INR" }}</b>
           </div>
         </div>
-
-
-
       </div>
 
       <!-- <div class="card-single">
@@ -138,12 +124,10 @@
         </div>
       </div>
 
-
       <div class="card-single">
         <div>
           <h6>Withdrawal Request</h6>
           <span>Partner</span>
-
         </div>
         <!-- <div class="icon" (click)="viewList('send_withdrawal')">
           <span>view</span>
@@ -151,7 +135,6 @@
         <div class="icon" (click)="partnerWithdrawalRequestViewList()">
           <span>view</span>
         </div>
-
       </div>
 
       <div class="card-single">
@@ -207,32 +190,42 @@
       </div>
     </div>
 
-    <div *ngIf="viewMemberList && (show_detail_list === 'view_member')">
+    <div *ngIf="viewMemberList && show_detail_list === 'view_member'">
       <app-member-details-list></app-member-details-list>
     </div>
     <div *ngIf="viewMemberList && show_detail_list === 'view_mining_partner'">
-      <app-mining-partner-details (partnerView)="receivePartnerView($event)"></app-mining-partner-details>
+      <app-mining-partner-details
+        (partnerView)="receivePartnerView($event)"
+      ></app-mining-partner-details>
     </div>
     <div *ngIf="viewMemberList && show_detail_list === 'active_partner'">
       <app-active-partner></app-active-partner>
     </div>
     <div *ngIf="viewMemberList && show_detail_list === 'send_withdrawal'">
-      <app-send-withdrawal-amount (uderid)="getUserId($event)"></app-send-withdrawal-amount>
+      <app-send-withdrawal-amount
+        (uderid)="getUserId($event)"
+      ></app-send-withdrawal-amount>
     </div>
     <div *ngIf="viewMemberList && show_detail_list === 'approved_withdrawal'">
       <app-approved-withdrawal-history></app-approved-withdrawal-history>
     </div>
-    <div *ngIf="viewMemberList && show_detail_list === 'send_withdrawal_member'">
+    <div
+      *ngIf="viewMemberList && show_detail_list === 'send_withdrawal_member'"
+    >
       <app-member-request-history></app-member-request-history>
     </div>
-    <div *ngIf="viewMemberList && show_detail_list === 'approved-member-history'">
+    <div
+      *ngIf="viewMemberList && show_detail_list === 'approved-member-history'"
+    >
       <app-approved-member-withdrawal-history></app-approved-member-withdrawal-history>
     </div>
     <div *ngIf="viewMemberList && show_detail_list === 'pending_payment'">
       <app-pending-partner-payment></app-pending-partner-payment>
     </div>
     <div *ngIf="partnerView">
-      <app-mining-partner-view [userid]="receiveFromPartnerView"></app-mining-partner-view>
+      <app-mining-partner-view
+        [userid]="receiveFromPartnerView"
+      ></app-mining-partner-view>
     </div>
     <div *ngIf="viewMemberList && show_detail_list === 'refferal_request'">
       <app-partner-refferal-withdrawal-request></app-partner-refferal-withdrawal-request>
@@ -240,20 +233,31 @@
     <div *ngIf="viewMemberList && show_detail_list === 'refferal_approved'">
       <app-partner-refferal-withdrawal-approved></app-partner-refferal-withdrawal-approved>
     </div>
-
   </main>
 </div>
 
-
 <!-- Add partner total wallet-->
 
-<div class="modal fade" id="allPartnerWallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div
+  class="modal fade"
+  id="allPartnerWallet"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Partner Wallet Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Partner Wallet Details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -265,40 +269,49 @@
               <th scope="col">Partner ID</th>
               <th scope="col">Wallet Amount</th>
               <th scope="col">Date</th>
-
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let data of partnerTotalWallet; let i = index">
-
-              <td>{{i+1}}</td>
-              <td>{{data.p_userid}}</td>
-              <td>{{data.walletAmount | currency:'INR'}}</td>
-              <td>{{data.wallet_update_date | date}}</td>
+              <td>{{ i + 1 }}</td>
+              <td>{{ data.p_userid }}</td>
+              <td>{{ data.walletAmount | currency : "INR" }}</td>
+              <td>{{ data.wallet_update_date | date }}</td>
             </tr>
-
           </tbody>
         </table>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-
 <!-- Add member total wallet----------------------------------------------------------------------->
 
-<div class="modal fade" id="allMemberWallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div
+  class="modal fade"
+  id="allMemberWallet"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Member Wallet Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Member Wallet Details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -310,399 +323,86 @@
               <th scope="col">Member ID</th>
               <th scope="col">Wallet Amount</th>
               <th scope="col">Date</th>
-
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let data of memberWalletEachMonth; let i = index">
-
-              <td>{{i+1}}</td>
-              <td>{{data.m_userid}}</td>
-              <td>{{data.walletAmount | currency:'INR'}}</td>
-              <td>{{data.wallet_update_date | date}}</td>
+              <td>{{ i + 1 }}</td>
+              <td>{{ data.m_userid }}</td>
+              <td>{{ data.walletAmount | currency : "INR" }}</td>
+              <td>{{ data.wallet_update_date | date }}</td>
             </tr>
-
           </tbody>
         </table>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!--Add member------------------------------------------------------------------------>
-<div class="modal fade" id="teamMates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Member Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
         </button>
       </div>
-      <div class="modal-body">
-        <form [formGroup]="userForm" (ngSubmit)="addMemberData(userForm)">
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="name">First Name</label>
-                <input type="text" class="form-control" name="name" formControlName='name' id="name">
-                <span style="color: red;" *ngIf="userForm.get('name').invalid && userForm.get('name').touched">
-                  First Name is required
-                </span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" name="lname" formControlName='lname' id="lname">
-                <span style="color: red;" *ngIf="userForm.get('lname').invalid && userForm.get('lname').touched">
-                  Last Name is required
-                </span>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="text" class="form-control" formControlName="phone" id="phone">
-              <span style="color: red;" *ngIf="userForm.get('phone').invalid && userForm.get('phone').touched">
-                <small>(*Must start with +91)</small>
-              </span>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <label for="address">Address</label>
-              <textarea id="address" class="form-control" formControlName="address"></textarea>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="referId">Refer ID</label>
-                <input type="text" class="form-control" name="reffered_id" formControlName="reffered_id" id="referId"
-                  disabled>
-              </div>
-
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" class="form-control" name="state" formControlName="state" id="state">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" formControlName="email" id="email">
-              </div>
-
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="designation">Designation</label>
-                <select name="designation" id="userDesignation" formControlName="designation" class="form-control">
-                  <option value="">Select</option>
-                  <option value="software_engineer">Software engineer</option>
-                  <option value="bussiness_manager">Bussiness Manager</option>
-                  <option value="web_developer">Web Developer</option>
-                  <option value="full_stack">Full stack developer</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label for="">Highest Qualification</label><br>
-              <input type="radio" name="qualification" formControlName="qualification" id="qualification1"
-                value="matric">
-              <label for="qualification1">10th</label>&nbsp;
-              <input type="radio" name="qualification" formControlName="qualification" id="qualification2"
-                value="inter">
-              <label for="qualification2">10+2</label>&nbsp;
-              <input type="radio" name="qualification" formControlName="qualification" id="qualification3"
-                value="graduation">
-              <label for="qualification3">Graduation</label>&nbsp;
-
-            </div>
-            <div class="form-group col-md-6">
-              <label for="gender">Gender</label><br>
-              <input type="radio" name="gender" formControlName="gender" id="male" value="male">
-              <label for="male">Male</label>&nbsp;
-              <input type="radio" name="gender" formControlName="gender" id="female" value="female">
-              <label for="male">Female</label>&nbsp;
-              <input type="radio" name="gender" formControlName="gender" id="other" value="other">
-              <label for="male">Other</label>&nbsp;
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label for="experiance">Experience</label>
-
-              <select id="experiance" formControlName="experiance" class="form-control">
-                <option value="undefined">Select</option>
-                <option *ngFor="let data of userExperience">{{data.name}}</option>
-              </select>
-
-            </div>
-
-            <div class="form-group col-md-6">
-              <label for="salary">Salary</label>
-              <input type="text" formControlName="salary" class="form-control" placeholder="Enter Salary">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label for="dob">DOB</label>
-              <input type="date" formControlName="dob" id="dob" class="form-control">
-            </div>
-
-            <div class="form-group col-md-6">
-              <label for="doj">DOJ</label>
-              <input type="date" formControlName="doj" id="doj" class="form-control">
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label for="userId">UserId</label>
-              <input type="text" class="form-control" formControlName="user_id" id="userid" placeholder="Enter userId">
-            </div>
-
-            <div class="form-group col-md-6">
-              <label for="upassword">User Password</label>
-              <input type="text" class="form-control" placeholder="Enter Password" formControlName="user_password"
-                id="upassword">
-            </div>
-
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Save</button>
-          </div>
-        </form>
-      </div>
-
     </div>
   </div>
 </div>
 
-
-<!-- Add mining partner -->
-<div class="modal fade" id="miningPartner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Partner Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="partnerForm" (ngSubmit)="addMiningData(partnerForm)">
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="refid">Ref ID</label>
-                <input type="text" class="form-control" formControlName="reffered_id" id="refid">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="name">First Name</label>
-                <input type="text" class="form-control" placeholder="First Name" formControlName="name" id="name1">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name" formControlName="lname" id="lname1">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="aadhar">Aadhar</label>
-                <input type="text" class="form-control" formControlName="aadhar" id="aadhar1">
-                <span style="color: red;"
-                  *ngIf="partnerForm.get('aadhar').invalid && partnerForm.get('aadhar').touched">
-                  <small>(*Only 12digit numbers allowed)</small>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" class="form-control" formControlName="phone" id="phone1">
-                <span style="color: red;" *ngIf="partnerForm.get('phone').invalid && partnerForm.get('phone').touched">
-                  <small>(*Must start with +91)</small>
-                </span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" formControlName="email" id="email1">
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="address">Address</label>
-              <textarea type="text" class="form-control" formControlName="address" id="address1"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" class="form-control" formControlName="state" id="state1">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="dob">DOB</label>
-                <input type="date" class="form-control" formControlName="dob" id="dob1">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="nominee_name">Nominee Name</label>
-                <input type="text" class="form-control" formControlName="nominee_name" id="nominee_name1">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="nominee_aadhar">Nominee Aadhar</label>
-                <input type="text" class="form-control" formControlName="nominee_aadhar" id="nominee_aadhar1">
-                <span style="color: red;"
-                  *ngIf="partnerForm.get('nominee_aadhar').invalid && partnerForm.get('nominee_aadhar').touched">
-                  <small>(*Only 12digit numbers allowed)</small>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="nominee_phone">Nominee Phone</label>
-                <input type="text" class="form-control" formControlName="nominee_phone" id="nominee_phone1">
-                <span style="color: red;"
-                  *ngIf="partnerForm.get('nominee_phone').invalid && partnerForm.get('nominee_phone').touched">
-                  <small>(*Must start with +91)</small>
-                </span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="dop">DOP</label>
-                <input type="date" class="form-control" formControlName="dop" id="dop1">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="liquidity">Liquidity</label>
-                <select name="liquidity" id="liquidity" formControlName="liquidity" class="form-control">
-                  <option value="">Select Liquidity</option>
-                  <option value="600000">6 Lakh</option>
-                  <!-- <option value="500000">5 Lakh</option>
-                  <option value="400000">4 Lakh</option> -->
-                  <option value="300000">3 Lakh</option>
-                  <option value="200000">2 Lakh</option>
-                  <option value="100000">1 Lakh</option>
-                </select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="terms">Terms</label>
-                <input type="text" class="form-control" formControlName="terms" id="terms">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="userid">User ID</label>
-                <input type="text" class="form-control" formControlName="user_id" id="userid1">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" class="form-control" formControlName="password" id="password1">
-              </div>
-            </div>
-          </div>
-
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" [disabled]="!partnerForm.valid">Save</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <!-- partnership bond upload -->
 
-<div class="modal fade" id="partnershipBond" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div
+  class="modal fade"
+  id="partnershipBond"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Upload Partnership Bond</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div>
           <label for="file">Upload a file:</label>&nbsp;
-          <input type="file" id="file" name="file" (change)="onFileSelected($event)" required>
-        </div><br>
+          <input
+            type="file"
+            id="file"
+            name="file"
+            (change)="onFileSelected($event)"
+            required
+          />
+        </div>
+        <br />
         <div>
           <label for="userid">User ID:</label>&nbsp;
-          <input type="text" placeholder="User Id" id="userid" name="userid" [(ngModel)]="userid" required>
+          <input
+            type="text"
+            placeholder="User Id"
+            id="userid"
+            name="userid"
+            [(ngModel)]="userid"
+            required
+          />
         </div>
-
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="submit"
+          (click)="onSubmit()"
+          mat-raised-button
+          color="primary"
+        >
+          Submit
+        </button>
       </div>
     </div>
   </div>
@@ -710,12 +410,23 @@
 
 <!-- Help and Support -->
 
-<div class="modal fade" id="helpAndSupport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div
+  class="modal fade"
+  id="helpAndSupport"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Help And Support</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -727,25 +438,31 @@
               <th scope="col">Partner ID</th>
               <th scope="col">Query Date</th>
               <th scope="col">Action</th>
-
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let data of helpAndSupportQuery; let i = index">
-
-              <td>{{i+1}}</td>
-              <td>{{data.p_userid}}</td>
-              <td>{{data.query_date | date}}</td>
-              <td><button class="btn btn-primary" (click)="helpAndSupportQueries(data.p_userid,data.id)"
-                  data-toggle="modal" data-target="#helpAndSupportQueries">view</button></td>
+              <td>{{ i + 1 }}</td>
+              <td>{{ data.p_userid }}</td>
+              <td>{{ data.query_date | date }}</td>
+              <td>
+                <button
+                  class="btn btn-primary"
+                  (click)="helpAndSupportQueries(data.p_userid, data.id)"
+                  data-toggle="modal"
+                  data-target="#helpAndSupportQueries"
+                >
+                  view
+                </button>
+              </td>
             </tr>
-
           </tbody>
         </table>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
         <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button> -->
       </div>
     </div>
@@ -753,21 +470,35 @@
 </div>
 
 <!-- Help AND Support Queries -->
-<div class="modal fade" id="helpAndSupportQueries" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div
+  class="modal fade"
+  id="helpAndSupportQueries"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel" style="font-family: Calibri;">Help And Support Queries</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title" id="myModalLabel" style="font-family: Calibri">
+          Help And Support Queries
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
-        <p style="font-family:Calibri;">{{partnerHelpQuery}}</p>
+        <p style="font-family: Calibri">{{ partnerHelpQuery }}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
         <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button> -->
       </div>
     </div>
@@ -776,32 +507,50 @@
 
 <!-- Accounts Paid Withdrawal -->
 
-<div class="modal fade" id="accountsPaidWithdrawal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div
+  class="modal fade"
+  id="accountsPaidWithdrawal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel" style="font-family: Calibri;">Accounts(Paid Withdrawal)</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title" id="myModalLabel" style="font-family: Calibri">
+          Accounts(Paid Withdrawal)
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="account_paid_withdrawal">
-          <p>Partner withdrawal</p>:<span>{{partnerTotalPayout | currency:'INR'}}</span>
+          <p>Partner withdrawal</p>
+          :<span>{{ partnerTotalPayout | currency : "INR" }}</span>
         </div>
         <div class="account_paid_withdrawal">
-          <p>Refferal partner</p>:<span>{{refferalPartner | currency:'INR'}}</span>
+          <p>Refferal partner</p>
+          :<span>{{ refferalPartner | currency : "INR" }}</span>
         </div>
         <div class="account_paid_withdrawal">
-          <p>Refferal member</p>:<span>{{refferalMember | currency:'INR'}}</span>
+          <p>Refferal member</p>
+          :<span>{{ refferalMember | currency : "INR" }}</span>
         </div>
         <div class="account_paid_withdrawal">
-          <p>Total Withdrawal</p>:<span>{{totalWithdrawal | currency:'INR'}}</span>
+          <p>Total Withdrawal</p>
+          :<span>{{ totalWithdrawal | currency : "INR" }}</span>
         </div>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
         <!-- <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button> -->
       </div>
     </div>

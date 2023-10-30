@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewModalComponent } from './view-modal.component';
+import { MiningAccountComponent } from './mining-account.component';
 
-describe('ViewModalComponent', () => {
-  let component: ViewModalComponent;
-  let fixture: ComponentFixture<ViewModalComponent>;
+describe('MiningAccountComponent', () => {
+  let component: MiningAccountComponent;
+  let fixture: ComponentFixture<MiningAccountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewModalComponent ]
+      declarations: [ MiningAccountComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewModalComponent);
+    fixture = TestBed.createComponent(MiningAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

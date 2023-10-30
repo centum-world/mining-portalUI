@@ -64,15 +64,32 @@ import { BusinessDevPartnerTeamComponent } from "./components/bd/business-dev-pa
 import { FranchiseWithdrawalRequestComponent } from "./franchise-withdrawal-request/franchise-withdrawal-request.component";
 import { FranchiseWithdrawalSuccessHistoryComponent } from "./franchise-withdrawal-success-history/franchise-withdrawal-success-history.component";
 import { FranchisePartnerMyTeamComponent } from "./franchise-partner-my-team/franchise-partner-my-team.component";
+import { CreateMemberComponent } from "./components/create-member/create-member.component";
+import { CreatePartnerComponent } from "./components/create-partner/create-partner.component";
+import { AddMemberComponent } from "./components/admin/dialog/add-member/add-member.component";
+
+
+import { MemberCardComponent } from "./components/member/member-card/member-card.component";
+import { WithdrawalSuccessComponent } from "./components/member/withdrawal-success/withdrawal-success.component";
+import { WithdrawalRequestComponent } from "./components/member/withdrawal-request/withdrawal-request.component";
+import { DashboardMiningComponent } from "./components/mining/dashboard-mining/dashboard-mining.component";
+import { MiningCardsComponent } from "./components/mining/mining-cards/mining-cards.component";
+import { MiningDetailsComponent } from "./components/mining/mining-details/mining-details.component";
+import { MiningAccountComponent } from "./components/mining/mining-account/mining-account.component";
+import { MyTeamComponent } from "./components/member/my-team/my-team.component";
+import { MiningWithdrawDetailsComponent } from "./components/mining/mining-withdraw-details/mining-withdraw-details.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
+  { path: "mininglogin", component: MiningLoginComponent },
   { path: "member-signup", component: SignupMemberComponent },
   { path: "partner-signup", component: SignupPartnerComponent },
   { path: "statelogin", component: StatehandlerloginComponent },
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
   { path: "franchiselogin", component: FranchiseLoginComponent },
   { path: "franchiseSignUp", component: FranchiseSignUpComponent },
+  { path: "frame", component: FrameComponent },
+  { path: "memberlogin", component: UserLoginComponent },
   { path: "businesslogin", component: BdLoginComponent},
   { path: "business-developer-regitration", component: BdSignupPageComponent},
   {
@@ -81,6 +98,8 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children:[
       {path: "home" , component : HrDashboardComponent},
+      {path: "addmember" , component : CreateMemberComponent},
+      {path: "addpartner" , component : CreatePartnerComponent},
       {path: "member-history", component : MemberHistoryComponent},
       {path: "partner-history", component: PartnerHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
@@ -104,12 +123,35 @@ const routes: Routes = [
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },
-  { path: "frame", component: FrameComponent },
-  { path: "memberlogin", component: UserLoginComponent },
+  // {
+  //   path: "miningdashboard",
+  //   canActivate: [GuardGuard],
+  //   component: MiningDashboardComponent,
+  // },
+  {
+    path: "miningdashboard",
+    canActivate : [GuardGuard],
+    component : DashboardMiningComponent,
+    children:[
+      {path: "home" , component : MiningCardsComponent},
+      {path: "partner-details", component : MiningDetailsComponent},
+      {path: "account", component: MiningAccountComponent},
+      {path: "withdraw", component: MiningWithdrawDetailsComponent},
+      { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
+    ] 
+  },
+  
   {
     path: "memberdashboard",
     canActivate: [GuardGuard],
     component: MemberDashboardComponent,
+    children:[
+      { path: "home", component: MemberCardComponent },
+      {path:"withdrawal-success",component:WithdrawalSuccessComponent},
+      {path:"withdrawal-request",component:WithdrawalRequestComponent},
+      {path:"my-team",component:MyTeamComponent},
+      { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
+    ]
   },
   {
     path: "statedashboard",
@@ -148,14 +190,9 @@ const routes: Routes = [
       {path:"withdrawal-success-history",component:WithdrawalSuccessHistoryComponent},
       {path:"businessDev-partner-team",component:BusinessDevPartnerTeamComponent},
       { path: "", redirectTo: "/bd-dashboard/home", pathMatch: "full" },
-      {path: "member-list", component: MemberListComponent}
+      {path: "member-list", component: MemberListComponent},
+      {path: "add-member", component: CreateMemberComponent},
     ]
-  },
-  { path: "mininglogin", component: MiningLoginComponent },
-  {
-    path: "miningdashboard",
-    canActivate: [GuardGuard],
-    component: MiningDashboardComponent,
   },
   {
     path: "dashboard/sendwithdrawal",

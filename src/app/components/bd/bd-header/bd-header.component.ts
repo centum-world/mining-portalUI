@@ -14,6 +14,7 @@ import { BdProfileDocumentsComponent } from "../bd-profile-documents/bd-profile-
   styleUrls: ["./bd-header.component.css"],
 })
 export class BdHeaderComponent implements OnInit {
+  isVisible: boolean = false;
   constructor(
     private dialog: MatDialog,
     private router: Router,
@@ -25,6 +26,14 @@ export class BdHeaderComponent implements OnInit {
 
   ngOnInit() {}
 
+  toggleSidebar() {
+    this.isVisible = !this.isVisible;
+  }
+  closeSidebar() {
+    this.isVisible = false;
+  }
+  
+
   logOut() {
     localStorage.clear();
     this.router.navigate(["/"]);
@@ -32,15 +41,23 @@ export class BdHeaderComponent implements OnInit {
 
   refresh() {
     this.router.navigate(['/bd-dashboard/home']);
+    this.isVisible = false;
   }
 
   listMember() {
     // Implement your logic here\
     this.router.navigate(['/bd-dashboard/member-list'])
+    this.isVisible = false;
+  }
+
+  addMember(){
+    this.router.navigate(['/bd-dashboard/add-member'])
+
   }
 
   handleWithdrawalClick() {
     this.router.navigate(['/bd-dashboard/withdrawal-list']);
+    this.isVisible = false;
   }
 
   openBusinessDevDetailsDialog() {
@@ -115,7 +132,5 @@ export class BdHeaderComponent implements OnInit {
       // Do something with the result if needed
     });
   }
-  listBussinessDeveloper(){
-    
-  }
+
 }

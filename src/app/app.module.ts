@@ -166,6 +166,25 @@ import { FranchiseWithdrawalSuccessHistoryComponent } from './franchise-withdraw
 import { FranchisePartnerMyTeamComponent } from './franchise-partner-my-team/franchise-partner-my-team.component';
 
 import { PartnerViewComponent } from './components/admin/dialog/partner-view/partner-view.component';
+import { CreateMemberComponent } from './components/create-member/create-member.component';
+import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
+
+import { MemberCardComponent } from './components/member/member-card/member-card.component';
+import{WithdrawalSuccessComponent} from './components/member/withdrawal-success/withdrawal-success.component'
+import { MemberHeaderComponent } from './components/member/member-header/member-header.component';
+import { WithdrawalRequestComponent } from './components/member/withdrawal-request/withdrawal-request.component';
+import { MemberProfileDetailsComponent } from './components/member/modal/member-profile-details/member-profile-details.component';
+import { MiningSidebarComponent } from './components/mining/mining-sidebar/mining-sidebar.component';
+import { DashboardMiningComponent } from './components/mining/dashboard-mining/dashboard-mining.component';
+import { MiningCardsComponent } from './components/mining/mining-cards/mining-cards.component';
+import { MiningDetailsComponent } from './components/mining/mining-details/mining-details.component';
+import { MiningAccountComponent } from './components/mining/mining-account/mining-account.component';
+import { MemberDocumentsDetailsComponent } from './components/member/modal/member-documents-details/member-documents-details.component';
+import { MyTeamComponent } from './components/member/my-team/my-team.component';
+import { PartnerPayoutDetailsComponent } from './components/member/modal/partner-payout-details/partner-payout-details.component';
+import { MiningAddBankComponent } from './components/mining/dialog/mining-add-bank/mining-add-bank.component';
+import { MiningViewBankComponent } from './components/mining/dialog/mining-view-bank/mining-view-bank.component';
+import { MiningWithdrawDetailsComponent } from './components/mining/mining-withdraw-details/mining-withdraw-details.component';
 
 
 
@@ -309,8 +328,25 @@ import { PartnerViewComponent } from './components/admin/dialog/partner-view/par
     FranchiseWithdrawalRequestComponent,
     FranchiseWithdrawalSuccessHistoryComponent,
     FranchisePartnerMyTeamComponent,
-    PartnerViewComponent
-  
+    PartnerViewComponent,
+    MemberCardComponent,
+    WithdrawalSuccessComponent,
+    MemberHeaderComponent,
+    WithdrawalRequestComponent,
+    CreateMemberComponent,
+    CreatePartnerComponent,
+    MiningSidebarComponent,
+    DashboardMiningComponent,
+    MiningCardsComponent,
+    MiningDetailsComponent,
+    MiningAccountComponent,
+    MemberProfileDetailsComponent,
+    MemberDocumentsDetailsComponent,
+    MyTeamComponent,
+    PartnerPayoutDetailsComponent,
+    MiningWithdrawDetailsComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent
   ],
   imports: [
     BrowserModule,
@@ -401,7 +437,13 @@ import { PartnerViewComponent } from './components/admin/dialog/partner-view/par
     MemberVerifyModelComponent,
     MemberBlockModelComponent,
     MemberEditModelComponent,
-    PartnerViewComponent
+    PartnerViewComponent,
+    MiningAddBankComponent,
+    MiningViewBankComponent,
+    MemberProfileDetailsComponent,
+    MemberDocumentsDetailsComponent,
+    PartnerPayoutDetailsComponent,
+    
   ],
   providers: [
     {

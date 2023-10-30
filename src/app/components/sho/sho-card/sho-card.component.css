@@ -1,20 +1,8 @@
- /* @import url('https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-:root {
-    --main-color:#DD2F6E;
-    --color-dark:#1D2231;
-    --text-grey:#8390A2;
-}  */
+
 
 
 body{
-    /* padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box;
-    list-style-type: none;
-    text-decoration: none;
-   
-    align-items: center;
-    background: #cacdd1 !important; */
+    
     padding: 0 !important;
     margin: 0 !important;
     box-sizing: border-box;
@@ -65,7 +53,7 @@ body{
     font-size: 1.5rem;
     padding-right: 1rem;
 }
-#nav-toggle:checked + .sidebar{
+/* #nav-toggle:checked + .sidebar{
     width: 70px;
 }
 #nav-toggle:checked + .sidebar .sidebar-brand,
@@ -81,7 +69,7 @@ body{
 #nav-toggle:checked + .sidebar li{
     padding-left: 1px;
     text-align: center;
-}
+} */
 
 .sidebar-menu a i{
     margin-right: 1rem;
@@ -98,14 +86,14 @@ body{
     margin-top: 1rem;
 }
 
-#nav-toggle:checked ~ .main-content{
+/* #nav-toggle:checked ~ .main-content{
     margin-left: 70px;
 }
 
 #nav-toggle:checked ~ .main-content header{
     width: calc(100% - 70px);
     left: 70px;
-}
+} */
 
 .main-content{
     transition: margin-left 300ms;
@@ -198,8 +186,7 @@ header label span{
 main{
     margin-top: 85px;
     padding: 2rem 1.5rem; 
-    /* background: #f0f0f0; */
-    /* min-height: cals(100vh - 90px); */
+    margin-right: -49px;
 }
 .cards{
     display: grid;
@@ -288,7 +275,6 @@ td{
 
 
 
-
 /* close */
 @media only screen and (min-width : 769px){
     .sidebar-brand h3{
@@ -298,35 +284,10 @@ td{
 
 @media only screen and (max-width :768px){
 
-    .sidebar{
-        width: 70px;
-    }
-    .sidebar .sidebar-brand,
-    .sidebar li a
-    {
-        padding: .5rem;
-    }
-     .sidebar  .sidebar-brand h2:last-child,
-    .sidebar li a span:last-child{
-        display: none; 
-    } 
-    .sidebar .sidebar-brand,
-    .sidebar li{
-        padding-left: 1rem;
-        text-align: center;
-    }
-    .main-content{
-        margin-left: 70px;
-    }
     
-    .main-content header{
-        width: calc(100% - 70px);
-        left: 70px;
+    .cards{
+        margin-left: 0;
     }
-    .sidebar-menu ul{
-        padding:initial;
-    }
-    
 
 }
 @media only screen and (max-width:960px){
@@ -351,28 +312,4 @@ td{
     }
 }
 
-.modal{
-    margin-top: 10px;
-    margin-left: 30%;
-    width: 50%;
-    height: 90%;
-    justify-content: center;
-    align-items: center;
-    
-}
-.form{
-    margin: 1rem;
-}
-.form input ,textarea{
-    margin-bottom: 10px;
-}
-.modal-footer button{
-    margin: 10px;
-}
-.modal-title{
-    margin: 10px;
-}
-.modal-header button{
-    margin: 10px;
-    color: red;
-}
+

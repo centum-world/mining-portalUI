@@ -1,0 +1,27 @@
+.detail-heading{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 330px;
+    margin-top: -46px;
+}
+.large-expand{
+    margin-left: 330px;
+}
+table {
+    width: 100%;
+}
+.detail-heading p{
+    margin-top: 0;
+    margin-bottom: 11px;
+    margin-left: 11px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Calibri;
+}
+ 
+@media (max-width:768px){
+    .detail-heading, .large-expand{
+        margin-left: 0;
+    }
+}

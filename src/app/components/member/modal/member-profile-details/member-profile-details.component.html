@@ -1,0 +1,55 @@
+
+
+<h1 class="custom-heading" mat-dialog-title >Profile details</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <!-- First Column -->
+    <div class="col-md-6">
+      <div class="payment-details">
+        <div class="left">
+          <div class="stateDetails">
+            <span>Name</span>: <p>{{data.fname + ' ' + data.lname}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Member ID</span>: <p>{{data.memberId}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Phone</span>: <p>{{data.phone}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Email</span>: <p>{{data.email}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Gender</span>: <p>{{data.gender}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Referred ID</span>: <p>{{data.referredId}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6">
+      <div class="stateDetails">
+        <span>Referral ID</span>: <p>{{data.referralId}}</p>
+      </div>
+
+      <!-- <div class="stateDetails">
+        <span>Referral ID</span>: <p></p>
+      </div> -->
+      <div class="stateDetails">
+        <span>Address</span>: <p>{{data.address}}</p>
+      </div>
+      <div class="stateDetails">
+        <span>DOB</span>: <p>{{data.dob | date}}</p>
+      </div>
+      <div class="stateDetails">
+        <span>State</span>: <p>{{data.state}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button class="franchise-profile-modal-ok" mat-raised-button mat-dialog-close>Ok</button>
+</div>

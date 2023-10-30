@@ -6,7 +6,6 @@ import { ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { VerifyModalComponent } from '../diolog/verify-modal/verify-modal.component';
-import { ViewModalComponent } from '../diolog/view-modal/view-modal.component';
 import { ToastrService } from 'ngx-toastr';
 import { BlockModalComponent } from '../diolog/block-modal/block-modal.component';
 import { EditFranchiseComponent } from '../diolog/edit-franchise/edit-franchise.component';
@@ -171,9 +170,8 @@ export class FranchiseListComponent implements OnInit {
     });
   }
 
-
-  gotoFranchiseAccount(){
-    this.router.navigate(['/statedashboard/franchise-account']);
+  gotoDashboard(){
+    this.router.navigate(['/statedashboard'])
   }
 
 

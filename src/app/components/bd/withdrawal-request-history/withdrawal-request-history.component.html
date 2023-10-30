@@ -16,7 +16,7 @@
              </ng-container>
  
              <!-- Display the list of request withdrawals if shoRequestHistory is not empty -->
-             <ng-template #bdRequestlist>
+             <ng-template #bdRequestlist style="display: flex; flex-wrap: wrap;">
                 <mat-card class="example-card" *ngFor="let data of bdRequestHistory">
                    <mat-card-header>
                       <div mat-card-avatar class="example-header-image"></div>

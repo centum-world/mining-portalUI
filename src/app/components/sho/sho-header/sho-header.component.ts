@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sho-header.component.css']
 })
 export class ShoHeaderComponent implements OnInit {
-
+  isVisible : boolean = false;
   constructor(
     private dialog: MatDialog,
     private userService:UserService,
@@ -27,7 +27,12 @@ export class ShoHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  toggleSidebar() {
+    this.isVisible = !this.isVisible;
+  }
+  closeSidebar() {
+    this.isVisible = false;
+  }
   openDialog() {
     let config: MatDialogConfig = {
      panelClass:'myStateDialogClass'
@@ -76,15 +81,22 @@ export class ShoHeaderComponent implements OnInit {
 
   addFranchise(){
     this.router.navigate(['/statedashboard/add-franchise'])
+    this.isVisible = false;
   }
   franchiseList(){
     this.router.navigate(['/statedashboard/franchise-list'])
+    this.isVisible = false;
   }
   handleWithdrawalClick(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
+    this.isVisible = false;
+  }
+  gotoDahashboard(){
+    this.router.navigate(['/statedashboard'])
   }
   dashboard(){
     this.router.navigate(['/statedashboard'])
+    this.isVisible = false;
   }
 
   logOut(){

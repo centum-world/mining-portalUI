@@ -1,0 +1,132 @@
+<input type="checkbox" id="nav-toggle" />
+
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <h3><a class="fa fa-qrcode" href="/memberdashboard"></a></h3>
+    <h2>
+      <span class="fa fa-qrcode"></span
+      ><a style="color: #fff" href="/memberdashboard">Dashboard</a>
+    </h2>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="javascript:void(0"><i class="fa fa-user" [matMenuTriggerFor]="menuProfile"></i>
+          <span [matMenuTriggerFor]="menuProfile">My Profile</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-money" [matMenuTriggerFor]="menuBank"></i>
+          <span [matMenuTriggerFor]="menuBank">Withdrawal</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-users" ></i>
+          <span (click)="myTeam()" >Team</span>
+        </a>
+      </li>
+      <li>
+        <a href=""><i class="fa fa-sign-out"></i>
+          <span (click)="logOut()">Log Out</span>
+        </a>
+      </li>
+    </ul>
+    <mat-menu #menuBank="matMenu">
+      <button mat-menu-item (click)="memberWithdrawalRequest()" >Request</button>
+      <button mat-menu-item  (click)="memberWithdrawalSuccess()">Approved</button>
+    </mat-menu>
+    <!-- <mat-menu #menuBank="matMenu">
+      <button mat-menu-item>Request</button>
+      <button mat-menu-item>Approved</button>
+    </mat-menu> -->
+  </div>
+</div>
+
+<div class="main-content">
+  <header>
+    <h2>
+      <label for="nav-toggle">
+        <div class="d-flex justify-content-between">
+          <span>CENTUM WORLD</span>
+        </div>
+      </label>
+    </h2>
+
+    <div class="user-wrapper">
+      <button mat-button class="loin_button" [matMenuTriggerFor]="menuUser">
+        <img src="assets/image/profile.png" alt="" width="50px" height="50px" />
+      </button>
+      <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
+      <mat-menu #menuUser="matMenu">
+        <button mat-menu-item (click)="myProfileDialog()">
+          Profile
+        </button>
+        <button mat-menu-item data-toggle="modal" data-target="#memberSummary">
+          Summary
+        </button>
+        <a href="" mat-menu-item (click)="logOut()">Log Out</a>
+      </mat-menu>
+      <div>
+        <small style="color: crimson"></small>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="mobile-sidebar" [ngStyle]="{'display': isVisible ? 'block' : 'none'}">
+  <div class="mobile-sidebar-heading">
+    <div class="mobile-header">
+      <div class="centum-header">
+        <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60">
+        <span>CENTUM MINING RIG</span>
+      </div>
+      <span class="fa fa-close" (click)="closeSidebar()"></span>
+    </div>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="javascript:void(0)" [matMenuTriggerFor]="menuProfile">
+          <button>
+            <i class="fa fa-user"></i>
+            <span>My profile</span>
+          </button>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)">
+          <i class="fa fa-plus"></i>
+          <span>Add Partner</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)">
+          <i class="fa fa-user"></i>
+          <span>Partner List</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)">
+          <i class="fa fa-money"></i>
+          <span>Withdraw</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <i class="fa fa-sign-out"></i>
+          <span>Log Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <mat-menu #menuProfile="matMenu">
+    <button mat-menu-item (click)="myProfileDialog()">Profile</button>
+    <button mat-menu-item (click)="myDocumentsDialog()">Documents</button>
+  </mat-menu>
+</div>

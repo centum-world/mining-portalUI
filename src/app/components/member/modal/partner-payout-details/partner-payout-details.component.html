@@ -1,0 +1,55 @@
+
+
+<h1 class="custom-heading" mat-dialog-title >Partner Payment details</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <!-- First Column -->
+    <div class="col-md-6">
+      <div class="payment-details">
+        <div class="left">
+          <div class="stateDetails">
+            <span>Partner ID</span>: <p>{{this.partnerDetails.userid }}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Name</span>: <p>{{data.name}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Date of Partner</span>: <p>{{data.dop | date}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Total Liquidity</span>: <p>{{data.liquidity | currency : 'INR'}}</p>
+          </div>
+          <div class="stateDetails">
+            <span>Monthly Payout</span>: <p></p>
+          </div>
+          <div class="stateDetails">
+            <span>Payout Tenure</span>: <p>12TN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6">
+      <div class="stateDetails">
+        <span>Paid Tenure</span>: <p>{{data.month_count}} TN</p>
+      </div>
+
+      <!-- <div class="stateDetails">
+        <span>Referral ID</span>: <p></p>
+      </div> -->
+      <div class="stateDetails">
+        <span>Remaining Tenure</span>: <p>{{12-data.month_count}}</p>
+      </div>
+      <div class="stateDetails">
+        <span>Last Payout</span>: <p>{{partnerDetails.lastPaymentDate | date}}</p>
+      </div>
+      <div class="stateDetails">
+        <span>Next Payout</span>: <p>15 to 22nd (of Every Month)</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button class="franchise-profile-modal-ok" mat-raised-button mat-dialog-close>Ok</button>
+</div>

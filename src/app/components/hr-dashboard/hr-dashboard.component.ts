@@ -8,6 +8,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddMemberComponent } from '../admin/dialog/add-member/add-member.component';
 
 
+
 @Component({
   selector: 'app-hr-dashboard',
   templateUrl: './hr-dashboard.component.html',
@@ -452,21 +453,13 @@ export class HrDashboardComponent implements OnInit {
   partnerReferralPayoutApprovedViewList(){
     this.router.navigate(['/dashboard/partner-referral-payout-approved'])
   }
+  
+  redirectToCreateMember() {
+    this.router.navigate(['/dashboard/addmember'])
+  }
 
-
-  // -------------Add Member Dialog-------------------
-
-  // addMemberDialog(){
-
-  //   let config:MatDialogConfig = {
-  //      panelClass:'stateAddBankDialogClass'
-  //   };
-  //   const dialogRef = this.dialog.open(AddMemberComponent,config);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     // Do something with the result if needed
-  //   });
-  // }
+  redirectToCreatePartner(){
+    this.router.navigate(['/dashboard/addpartner'])
+  }
 
 }

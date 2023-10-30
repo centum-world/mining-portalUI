@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute } from '@angular/router';
@@ -24,39 +24,41 @@ export class SignupPartnerComponent implements OnInit {
     refferal_id: ''
   }
   b: string = '';
-  constructor(private userService: UserService, private toastr: ToastrService, private activeRoute: ActivatedRoute) {
-
-  }
-
-  ngOnInit() {
+  partnerSignUpForm: FormGroup;
+  constructor(private userService: UserService,private formBuilder: FormBuilder, private toastr: ToastrService, private activeRoute: ActivatedRoute,private router: Router) {
     this.activeRoute.queryParams.subscribe(data => {
       this.b = data['refferId'];
       console.log(this.b);
     })
+    this.partnerSignUpForm = this.formBuilder.group({
+      reffered_id: new FormControl(this.b, [Validators.required]),
+      name: new FormControl("", [Validators.required]),
+      lname: new FormControl("", [Validators.required]),
+      aadhar: new FormControl("", [Validators.required, Validators.maxLength(12),
+      Validators.minLength(12)]),
+      phone: new FormControl("", [Validators.required, Validators.maxLength(13),
+      Validators.minLength(13), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      address: new FormControl("", [Validators.required]),
+      state: new FormControl("", [Validators.required]),
+      dob: new FormControl("", [Validators.required]),
+      nominee_name: new FormControl("", [Validators.required]),
+      nominee_aadhar: new FormControl("", [Validators.required,
+      Validators.maxLength(12), Validators.minLength(12)]),
+      nominee_phone: new FormControl("", [Validators.required, Validators.maxLength(13),
+      Validators.minLength(13), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      dop: new FormControl("", [Validators.required]),
+      liquidity: new FormControl("", [Validators.required]),
+      terms: new FormControl("12 Months", [Validators.required]),
+      user_id: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required])
+    });
   }
-  partnerSignUpForm = new FormGroup({
-    reffered_id: new FormControl("", [Validators.required]),
-    name: new FormControl("", [Validators.required]),
-    lname: new FormControl("", [Validators.required]),
-    aadhar: new FormControl("", [Validators.required, Validators.maxLength(12),
-    Validators.minLength(12)]),
-    phone: new FormControl("", [Validators.required, Validators.maxLength(13),
-    Validators.minLength(13), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    email: new FormControl("", [Validators.required, Validators.email]),
-    address: new FormControl("", [Validators.required]),
-    state: new FormControl("", [Validators.required]),
-    dob: new FormControl("", [Validators.required]),
-    nominee_name: new FormControl("", [Validators.required]),
-    nominee_aadhar: new FormControl("", [Validators.required,
-    Validators.maxLength(12), Validators.minLength(12)]),
-    nominee_phone: new FormControl("", [Validators.required, Validators.maxLength(13),
-    Validators.minLength(13), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    dop: new FormControl("", [Validators.required]),
-    liquidity: new FormControl("", [Validators.required]),
-    terms: new FormControl("12 Months", [Validators.required]),
-    user_id: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required])
-  });
+
+  ngOnInit() {
+    
+  }
+  
 
   addPartnerData(form : FormGroup) {
     console.log(this.aadharImage, this.aadharBackImage, this.panImage)
@@ -123,8 +125,10 @@ export class SignupPartnerComponent implements OnInit {
       const file = event.target.files[0];
       this.panImageName = file.name;
       this.panImage = file;
-    }
-    
-    
+    } 
+  }
+
+  gotoLogin(){
+    this.router.navigate(['/mininglogin'])
   }
 }

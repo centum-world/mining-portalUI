@@ -1,0 +1,285 @@
+<div class="modal-body">
+  <h5
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: max-content;
+      cursor: pointer;
+      margin-top: 12%;
+    "
+  >
+    <mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp; Create Member
+  </h5>
+  <form [formGroup]="userForm" (ngSubmit)="addMemberData(userForm)" >
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            formControlName="name"
+            id="name"
+          />
+          <span
+            style="color: red"
+            *ngIf="userForm.get('name').invalid && userForm.get('name').touched"
+          >
+            First Name is required
+          </span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lname"
+            formControlName="lname"
+            id="lname"
+          />
+          <span
+            style="color: red"
+            *ngIf="
+              userForm.get('lname').invalid && userForm.get('lname').touched
+            "
+          >
+            Last Name is required
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="phone"
+          id="phone"
+        />
+        <span
+          style="color: red"
+          *ngIf="userForm.get('phone').invalid && userForm.get('phone').touched"
+        >
+          <small>(*Must start with +91)</small>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea
+          id="address"
+          class="form-control"
+          formControlName="address"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="referId">Referred ID</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reffered_id"
+            formControlName="reffered_id"
+            id="referId"
+            
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="state">State</label>
+          <input
+            type="text"
+            class="form-control"
+            name="state"
+            formControlName="state"
+            id="state"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            formControlName="email"
+            id="email"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="designation">Designation</label>
+          <select
+            name="designation"
+            id="userDesignation"
+            formControlName="designation"
+            class="form-control"
+          >
+            <option value="">Select</option>
+            <option value="software_engineer">Software engineer</option>
+            <option value="bussiness_manager">Bussiness Manager</option>
+            <option value="web_developer">Web Developer</option>
+            <option value="full_stack">Full stack developer</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 5px">
+      <div class="form-group col-md-6">
+        <label for="">Highest Qualification</label><br />
+        <input
+          type="radio"
+          name="qualification"
+          formControlName="qualification"
+          id="qualification1"
+          value="matric"
+        />
+        <label for="qualification1">10th</label>&nbsp;
+        <input
+          type="radio"
+          name="qualification"
+          formControlName="qualification"
+          id="qualification2"
+          value="inter"
+        />
+        <label for="qualification2">10+2</label>&nbsp;
+        <input
+          type="radio"
+          name="qualification"
+          formControlName="qualification"
+          id="qualification3"
+          value="graduation"
+        />
+        <label for="qualification3">Graduation</label>&nbsp;
+      </div>
+      <div class="form-group col-md-6">
+        <label for="gender">Gender</label><br />
+        <input
+          type="radio"
+          name="gender"
+          formControlName="gender"
+          id="male"
+          value="male"
+        />
+        <label for="male">Male</label>&nbsp;
+        <input
+          type="radio"
+          name="gender"
+          formControlName="gender"
+          id="female"
+          value="female"
+        />
+        <label for="male">Female</label>&nbsp;
+        <input
+          type="radio"
+          name="gender"
+          formControlName="gender"
+          id="other"
+          value="other"
+        />
+        <label for="male">Other</label>&nbsp;
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 5px">
+      <div class="form-group col-md-6">
+        <label for="experiance">Experience</label>
+
+        <select
+          id="experiance"
+          formControlName="experiance"
+          class="form-control"
+        >
+          <option value="undefined">Select</option>
+          <option *ngFor="let data of userExperience">
+            {{ data.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="salary">Salary</label>
+        <input
+          type="text"
+          formControlName="salary"
+          class="form-control"
+          placeholder="Enter Salary"
+        />
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 5px">
+      <div class="form-group col-md-6">
+        <label for="dob">DOB</label>
+        <input
+          type="date"
+          formControlName="dob"
+          id="dob"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="doj">DOJ</label>
+        <input
+          type="date"
+          formControlName="doj"
+          id="doj"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 5px">
+      <div class="form-group col-md-6">
+        <label for="userId">UserId</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="user_id"
+          id="userid"
+          placeholder="Enter userId"
+        />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="upassword">User Password</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Password"
+          formControlName="user_password"
+          id="upassword"
+        />
+      </div>
+    </div>
+
+    <div class="modal-footer" style="margin: 20px">
+      <button
+        type="submit"
+        [disabled]="!userForm.valid"
+        class="btn btn-primary"
+      >
+        Signup
+      </button>
+    </div>
+  </form>
+</div>
