@@ -28,17 +28,20 @@ body{
     width: 330px;
     position: fixed;
     left: 0;
-    top: 0;
+    top:0;
     height: 100%;
-    background: #0F172A;
+    background: #19052c;
     z-index: 100%;
     transition: width 300ms;
 }
-.sidebar-brand{
+.sidebar-brand {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
-    color:#fff;
-}
+    background: #19052c;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
 .sidebar-brand h2 a{
     text-decoration: none;
 }
@@ -53,13 +56,29 @@ body{
     padding-left: 1rem;
     display: block;
 }
-.sidebar-menu a{
+.sidebar-menu a {
     padding-left: 1rem;
     display: block;
-    color:#fff;
+    color: #fff;
     font-size: 1rem;
     text-decoration: none;
-}
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+
+  .sidebar-menu a:hover {
+    padding-left: 1rem;
+    display: block;
+    background-color: #3661eb;
+    transition: all ease-in-out 100ms;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
 .sidebar-menu a span:first-child{
     font-size: 1.5rem;
     padding-right: 1rem;
@@ -175,6 +194,10 @@ header label span{
     outline: none;
 
 }
+
+.mobile-bars {
+    display: none;
+  }
 .user-wrapper{
     display: flex;
     align-items: center;
@@ -224,10 +247,9 @@ main{
     font-size: 1rem;
 }
 .sidebar-brand h3 a{
-    color: #fff;
     margin-top: 25px;
-
 }
+
 .icon span{
     color: blue;
     cursor: pointer;
@@ -332,6 +354,10 @@ td{
     .toggle span{
         display: block;
     }
+    .mobile-bars {
+        display: block;
+        font-size: 1.5rem;
+      }
 
     .sidebar{
         display: none;

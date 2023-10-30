@@ -3,11 +3,15 @@
 .mat-dialog-title {
     padding-top: 20px;
     padding-bottom: 20px;
-    background: #b63003;
-    margin-left: -22px;
-    margin-right: -22px;
+    background: #0D6EFD;
+    margin-left: -24px;
+    margin-right: -24px;
     padding-left: 20px;
     color: #fff;
+}
+
+.mat-dialog-title-1{
+    height: max-content;
 }
   
 .row {

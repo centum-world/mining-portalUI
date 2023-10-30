@@ -91,6 +91,9 @@ export class ShoHeaderComponent implements OnInit {
     this.router.navigate(['/statedashboard/withdrawal-list'])
     this.isVisible = false;
   }
+  gotoDahashboard(){
+    this.router.navigate(['/statedashboard'])
+  }
   dashboard(){
     this.router.navigate(['/statedashboard'])
     this.isVisible = false;
