@@ -31,7 +31,7 @@
 .image-block {
   display: flex;
   flex-wrap: wrap;
-  /* Allow items to wrap to the next line */
+  align-items: flex-end;
   justify-content: space-between;
 }
 

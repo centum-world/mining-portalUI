@@ -1,21 +1,22 @@
 .mat-dialog-title {
-    background-color: #F0F0F0;
-    color: black;
+    background-color:  #0D6EFD;
+    color: #fefefe;
     font-size: 18px;
     font-weight: 600;
     margin-left: -24px;
-    margin-right: -23px;
+    margin-right: -24px;
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
   
-  .image-block {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: space-between;
-  }
+.image-block {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between;
+  align-items: flex-end;
+}
   
 .modal-container {
     display: flex;
