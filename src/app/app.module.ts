@@ -447,7 +447,8 @@ import { MemberViewBankComponent } from './components/member/modal/member-view-b
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
     PartnerPayoutDetailsComponent,
-    MemberAddBankComponent
+    MemberAddBankComponent,
+    MemberViewBankComponent
     
   ],
   providers: [
