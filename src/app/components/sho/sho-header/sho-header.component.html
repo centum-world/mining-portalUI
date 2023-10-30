@@ -1,8 +1,8 @@
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
   <div class="sidebar-brand">
-    <h3><a class="fa fa-qrcode" href="/statedashboard"></a></h3>
-    <h2><span class="fa fa-qrcode"></span><a style="color: #fff;" href="javascript:void(0)" (click)="dashboard()">Dashboard</a></h2>
+    <h3><a class="fa fa-qrcode" href="/dashboard"></a></h3>
+    <h2><a href="javascript:void(0)" (click)="gotoDahashboard()"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a></h2>
   </div>
   <div class="sidebar-menu">
     <ul>
@@ -45,32 +45,21 @@
 
 <div class="main-content">
   <header>
-    <!-- <h2>
-      <label for="nav-toggle">
-
-        <div class="d-flex justify-content-between">
-          <span class="fa fa-bars"></span>
-          <span>CENTUM WORLD</span>
-        </div>
-      </label>
-    </h2> -->
-    <div class="toggle">
-      <span class="fa fa-bars" (click)="toggleSidebar()">&nbsp;</span>
-      <p>CENTUM WORLD</p>
-    </div>
+    <h2>
+      <div class="logo-centum">
+        <h3 style="color: #000;">CENTUM WORLD</h3>
+      </div>
+    </h2>
 
     <div class="user-wrapper">
       <button mat-button class="loin_button" [matMenuTriggerFor]="menu"><img src="assets/image/profile.png" alt=""
           width="50px" height="50px"></button>
+          <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
       <mat-menu #menu="matMenu">
         <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button>
         <button mat-menu-item data-toggle="modal" data-target="#memberSummary">Summary</button>
         <a href="" mat-menu-item (click)="logOut()">Log Out</a>
       </mat-menu>
-      <div>
-
-        <small style="color: crimson;"></small>
-      </div>
     </div>
   </header>
 </div>
