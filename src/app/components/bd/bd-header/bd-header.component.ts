@@ -61,6 +61,7 @@ export class BdHeaderComponent implements OnInit {
   }
 
   openBusinessDevDetailsDialog() {
+    this.isVisible = false;
     let data = {
       businessDeveloperId: localStorage.getItem('bdHandlerID')
     };
@@ -100,7 +101,7 @@ export class BdHeaderComponent implements OnInit {
   }
 
   openBdDocumentsDialog() {
-
+    this.isVisible = false;
     let data = {
       businessDeveloperId:localStorage.getItem('bdHandlerID')
     }

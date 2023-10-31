@@ -46,7 +46,7 @@ export class FranchiseHeaderComponent implements OnInit {
 
   
   openDialog() {
-
+    this.isVisible = false;
     let data = {
       franchiseId:localStorage.getItem('franchiseId')
     }
@@ -88,7 +88,7 @@ export class FranchiseHeaderComponent implements OnInit {
   }
 
   openFranchiseDocumentsDialog() {
-
+    this.isVisible = false;
     let data = {
       franchiseId:localStorage.getItem('franchiseId')
     }

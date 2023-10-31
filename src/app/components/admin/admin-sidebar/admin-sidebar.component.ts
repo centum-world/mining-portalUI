@@ -100,6 +100,7 @@ export class AdminSidebarComponent implements OnInit {
   }
 
   uploadBond(){
+    this.isVisible = false;
     let config: MatDialogConfig = {
       panelClass: 'parnershipbond'
    };

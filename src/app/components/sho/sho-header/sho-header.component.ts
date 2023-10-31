@@ -34,6 +34,7 @@ export class ShoHeaderComponent implements OnInit {
     this.isVisible = false;
   }
   openDialog() {
+    this.isVisible = !this.isVisible;
     let config: MatDialogConfig = {
      panelClass:'myStateDialogClass'
     };
@@ -46,7 +47,7 @@ export class ShoHeaderComponent implements OnInit {
   }
 
   openStateDocumentsDialog() {
-
+    this.isVisible = !this.isVisible;
       let data = {
         stateHandlerId:localStorage.getItem('stateHandlerId')
       }

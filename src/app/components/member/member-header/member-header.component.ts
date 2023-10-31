@@ -33,6 +33,7 @@ export class MemberHeaderComponent implements OnInit {
   }
   
   myProfileDialog(){
+    this.isVisible = false;
     let data = {
       m_userid :localStorage.getItem('userdetail')
      }
@@ -70,6 +71,7 @@ export class MemberHeaderComponent implements OnInit {
   }
 
   myDocumentsDialog(){
+    this.isVisible = false;
     let data = {
       m_userid:localStorage.getItem('userdetail')
     }
