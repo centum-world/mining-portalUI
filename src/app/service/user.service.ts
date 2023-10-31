@@ -1325,5 +1325,13 @@ export class UserService {
   bondUpload(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}/admin/upload-bond`, formData);
   }
+
+  // PartnerMyTeam
+  statePartnerMyTeam(data:any){
+    return this.http.post(this.url + "/state/state/my-partner-team",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
  
 }

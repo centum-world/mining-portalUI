@@ -95,4 +95,7 @@ export class ShoCardComponent implements OnInit {
   viewWithdrawalSuccessList(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
   }
+  partnerMyTeam(){
+    this.router.navigate(['/statedashboard/partner-team'])
+  }
 }
