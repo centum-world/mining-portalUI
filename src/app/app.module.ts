@@ -190,6 +190,7 @@ import { MyteamPartnerComponent } from './components/mining/myteam-partner/mytea
 import { PartnerMyteamAccountComponent } from './components/mining/dialog/partner-myteam-account/partner-myteam-account.component';
 import { ReferralPayoutComponent } from './components/mining/referral-payout/referral-payout.component';
 import { PartnerBondComponent } from './components/admin/dialog/partner-bond/partner-bond.component';
+import { StatePartnerMyTeamComponent } from './components/sho/state-partner-my-team/state-partner-my-team.component';
 
 @NgModule({
   declarations: [
@@ -352,7 +353,8 @@ import { PartnerBondComponent } from './components/admin/dialog/partner-bond/par
     MyteamPartnerComponent,
     PartnerMyteamAccountComponent,
     ReferralPayoutComponent,
-    PartnerBondComponent
+    PartnerBondComponent,
+    StatePartnerMyTeamComponent
   ],
   imports: [
     BrowserModule,
