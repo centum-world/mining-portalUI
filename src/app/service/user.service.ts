@@ -1306,4 +1306,24 @@ export class UserService {
       
     }) 
   }
+  //partner refferal approved
+  partnerReferralApproved(data:any){
+    return this.http.post(this.url + "/admin/transfer-Partner-Withdrawl-To-Withdrawl-History",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+  //fetch partner referral payout 
+  fetchPartnerReferralPayout(data:any){
+    return this.http.post(this.url + "/admin/fetch-partner-referral-withdrawl-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+  // bond upload 
+  
+  bondUpload(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}/admin/upload-bond`, formData);
+  }
+ 
 }

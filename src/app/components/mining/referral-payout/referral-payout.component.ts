@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-referral-payout',
@@ -9,9 +10,11 @@ import { Router } from '@angular/router'
 })
 export class ReferralPayoutComponent implements OnInit {
   referralRequestHistory = [];
+  apprvedHistory = [];
   constructor(
     private userService: UserService,
-    private router : Router
+    private router : Router,
+    private toastr : ToastrService
     ) { }
 
   ngOnInit() {
@@ -33,10 +36,21 @@ export class ReferralPayoutComponent implements OnInit {
           })
         })
       }
+    }else{
+      let data ={
+        userId: localStorage.getItem('partnerdetails')
+      }
+      this.userService.fetchPartnerReferralPayout(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.result)
+          this.apprvedHistory = res.result
+        },
+        error:(err=>{
+          console.log(err.error.message)
+        })
+      })
     }
   }
-  
-
 
   goBack(){
     this.router.navigate(['/miningdashboard/my-team'])

@@ -102,7 +102,7 @@ export class SignupPartnerComponent implements OnInit {
         if (response) {
           this.toastr.success('Data submitted successfully', 'Success');
             form.reset();
-          
+          this.router.navigate(['/mininglogin']);
         }
       },
       error: error => {

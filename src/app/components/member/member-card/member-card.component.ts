@@ -432,6 +432,13 @@ export class MemberCardComponent implements OnInit {
    });
   }
 
+  openMemberDetailsDialog(){
+
+  }
+  memberDocumentsDialog(){
+    
+  }
+
   logOut() {
     localStorage.removeItem('token');
   }

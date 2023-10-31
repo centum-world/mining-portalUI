@@ -19,6 +19,7 @@ export class PartnerAccountComponent implements OnInit {
   partnerRequestHistory = [];
   approvedRequest = [];
   referralRequestHistory = [];
+  apprvedHistory = [];
   perDayAmountDropDown = 0;
   februaryAmount = 0;
   refferalAmount = 0;
@@ -249,14 +250,29 @@ export class PartnerAccountComponent implements OnInit {
 
   referralTabChange(event:any){
     console.log(event)
-    let data ={
-      userId: this.partnerID
-    }
+   
     if(event === 0){
+      let data ={
+        userId: this.partnerID
+      }
       this.userService.partnerReferalRequst(data).subscribe({
         next:(res:any)=>{
           console.log(res.result)
           this.referralRequestHistory = res.result;
+        },
+        error:(err=>{
+          console.log(err.error.message)
+        })
+      })
+    }
+    if(event === 1){
+      let data ={
+        userId: this.partnerID
+      }
+      this.userService.fetchPartnerReferralPayout(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.result)
+          this.apprvedHistory = res.result
         },
         error:(err=>{
           console.log(err.error.message)
@@ -268,6 +284,20 @@ export class PartnerAccountComponent implements OnInit {
     this.router.navigate(['/dashboard/home'])
   }
 
-
+  referralPayoutApproved(id:any){
+    let data = {
+      id:id
+    }
+    this.userService.partnerReferralApproved(data).subscribe({
+      next:(res:any)=>{
+        this.toastr.success(res.message)
+        this.referralTabChange(0);
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
+    
+  }
 
 }

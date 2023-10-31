@@ -189,6 +189,7 @@ import { MemberViewBankComponent } from './components/member/modal/member-view-b
 import { MyteamPartnerComponent } from './components/mining/myteam-partner/myteam-partner.component';
 import { PartnerMyteamAccountComponent } from './components/mining/dialog/partner-myteam-account/partner-myteam-account.component';
 import { ReferralPayoutComponent } from './components/mining/referral-payout/referral-payout.component';
+import { PartnerBondComponent } from './components/admin/dialog/partner-bond/partner-bond.component';
 
 @NgModule({
   declarations: [
@@ -350,7 +351,8 @@ import { ReferralPayoutComponent } from './components/mining/referral-payout/ref
     MyTeamComponent,
     MyteamPartnerComponent,
     PartnerMyteamAccountComponent,
-    ReferralPayoutComponent
+    ReferralPayoutComponent,
+    PartnerBondComponent
   ],
   imports: [
     BrowserModule,
@@ -449,7 +451,8 @@ import { ReferralPayoutComponent } from './components/mining/referral-payout/ref
     PartnerPayoutDetailsComponent,
     MemberAddBankComponent,
     MemberViewBankComponent,
-    PartnerMyteamAccountComponent 
+    PartnerMyteamAccountComponent,
+    PartnerBondComponent 
   ],
   providers: [
     {

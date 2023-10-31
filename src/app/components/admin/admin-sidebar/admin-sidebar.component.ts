@@ -5,7 +5,7 @@ import { MatDialogConfig } from '@angular/material';
 import { PopupSidebarComponent } from '../popup-sidebar/popup-sidebar.component';
 import { UserService } from 'src/app/service/user.service';
 import { AccountsPaidWithdrawalComponent } from '../dialog/accounts-paid-withdrawal/accounts-paid-withdrawal.component';
-
+import { PartnerBondComponent } from '../dialog/partner-bond/partner-bond.component';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -97,6 +97,19 @@ export class AdminSidebarComponent implements OnInit {
 
 
     
+  }
+
+  uploadBond(){
+    let config: MatDialogConfig = {
+      panelClass: 'parnershipbond'
+   };
+   const dialogRef = this.dialog.open(PartnerBondComponent, config);
+
+
+  
+   dialogRef.afterClosed().subscribe(result => {
+     console.log("Closed");
+   });
   }
 
 
