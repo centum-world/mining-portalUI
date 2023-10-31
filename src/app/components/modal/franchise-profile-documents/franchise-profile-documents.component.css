@@ -1,11 +1,11 @@
 .mat-dialog-title {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #b63003;
+    background-color: #F0F0F0;
     margin-left: -24px;
     margin-right: -23px;
     padding-left: 20px;
-    color: #ccc;
+    color: black;
 }
 .custom-heading {
     color:#fefefe;
