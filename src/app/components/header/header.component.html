@@ -7,11 +7,10 @@
     <div class="navlinks">
       <a href="/">Home</a>
       <a href="#intro">About</a>
-      <a
+      <p
         href=""
         class="seriv"
-        (mouseenter)="onMouseOver()"
-        (mouseleave)="onMouseOut()"
+        (click)="onMouseOver()"
         >Services
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,9 +25,9 @@
             d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
           />
         </svg>
-      </a>
+      </p>
       <a href="#contact">Contact</a>
-      <a href="/whitepaper">White Paper</a>
+      <!-- <a href="/whitepaper">White Paper</a> -->
     </div>
     <div class="btn-container">
       <!-- admin login button -->
@@ -104,7 +103,7 @@
         <a href="#intro" (click)="toggleMobileSidebar()">About</a>
         <a href="#services" (click)="toggleMobileSidebar()">Services</a>
         <a href="#contact" (click)="toggleMobileSidebar()">Contact</a>
-        <a href="/whitepaper" (click)="toggleMobileSidebar()">White Paper</a>
+        <!-- <a href="/whitepaper" (click)="toggleMobileSidebar()">White Paper</a> -->
         <!-- admin login button -->
          <button class="login-btn" (click)="adminLogin()">
           Login
@@ -222,7 +221,7 @@
 
   <div class="main-container" id="intro">
     <div class="about-container">
-      <h1 class="about-title">- About</h1>
+      <h1 class="about-title">About</h1>
       <ul>
         <li>
           <h2 class="about-subtitle">
@@ -297,9 +296,7 @@
   <!-- services container -->
   <div
     class="service-container"
-    [class.visible]="isHovered"
-    (mouseenter)="onMouseOver()"
-    (mouseleave)="onMouseOut()"
+    [class.visible]="isClicked"
   >
     <div class="services">
       <h3 class="service-title">JetTrade FX</h3>

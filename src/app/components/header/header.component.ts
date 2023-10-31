@@ -23,15 +23,15 @@ import {
 export class HeaderComponent implements OnInit {
   typedText = ""; // Text that gets typed
   animationState = "start";
-  isHovered = false;
+  isClicked = false;
   isMobileSidebarVisible = false;
 
   onMouseOver() {
-    this.isHovered = true;
-  }
-
-  onMouseOut() {
-    this.isHovered = false;
+    this.isClicked = true;
+    console.log("clicked");
+    setTimeout(() => {
+      this.isClicked = false
+    }, 2000)
   }
 
   constructor(private router: Router) {}
