@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr'
+import { Router } from '@angular/router';
 
 interface PartnerMyTeam {
   p_userid: string,
@@ -28,12 +29,17 @@ export class StatePartnerMyTeamComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
+    private router : Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
   ngOnInit() {
     this.callApiToMyTeam();
     this.dataSource.paginator = this.paginator;
+  }
+
+  goBack(){
+    this.router.navigate(['/statedashboard/home'])
   }
 
   callApiToMyTeam(){
