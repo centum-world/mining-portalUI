@@ -79,6 +79,7 @@ import { MyTeamComponent } from "./components/member/my-team/my-team.component";
 import { MiningWithdrawDetailsComponent } from "./components/mining/mining-withdraw-details/mining-withdraw-details.component";
 import { MyteamPartnerComponent } from "./components/mining/myteam-partner/myteam-partner.component";
 import { ReferralPayoutComponent } from "./components/mining/referral-payout/referral-payout.component";
+import { StatePartnerMyTeamComponent } from "./components/sho/state-partner-my-team/state-partner-my-team.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -165,6 +166,7 @@ const routes: Routes = [
       { path: "franchise-list", component: FranchiseListComponent },
       { path: "franchise-account", component: AccountFranchiseComponent},
       { path: "withdrawal-list", component: PaymentRequestComponent},
+      {path:"partner-team",component:StatePartnerMyTeamComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
     ],
   },

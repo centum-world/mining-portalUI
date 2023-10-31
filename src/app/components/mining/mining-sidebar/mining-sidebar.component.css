@@ -58,13 +58,31 @@ body{
     padding-left: 1rem;
     display: block;
 }
-.sidebar-menu a{
+.sidebar-menu a {
     padding-left: 1rem;
     display: flex;
-    color:#fff;
+    align-items: center;
+    color: #fff;
     font-size: 1rem;
     text-decoration: none;
-}
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-menu a:hover {
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #3661eb;
+    transition: all ease-in-out 100ms;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
 
 .bank-icon {
     margin-right: 10px; /* Adjust the margin to create the desired gap */
