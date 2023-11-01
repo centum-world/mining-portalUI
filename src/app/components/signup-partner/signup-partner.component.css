@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   transition: all ease-in-out 200ms;
+  overflow-x: hidden;
 }
 
 .partner-signup-partner{
@@ -15,7 +16,6 @@
 
 .partner-signup-container{
   height: 100%;
-  width: 100%;
   display: flex;
 }
 
@@ -37,7 +37,6 @@
 }
 
 .signup-right-container{
-  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -54,7 +53,7 @@
   display: flex;
   flex-direction: column;
   width: max-content;
-  padding-left: 1%;
+  padding: 20px;
 }
 
 .underline-box{
@@ -65,7 +64,7 @@
 
 .signup-fields-container{
   width: 100%;
-  margin-top: 300px;
+  padding: 20px;
 }
 
 .first-half-input-fields{

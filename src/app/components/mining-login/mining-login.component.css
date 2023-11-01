@@ -48,7 +48,7 @@
   background-size: cover;
 }
 
-.company-name{
+.m-company-name{
   display: flex;
   align-items: center;
 }
@@ -57,7 +57,7 @@
   display: flex;
 }
 
-.company-name span{
+.m-company-name span{
   font-weight: 900;
   text-transform: uppercase;
 }
