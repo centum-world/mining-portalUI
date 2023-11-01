@@ -1,0 +1,15 @@
+<div class="custom-heading" mat-dialog-title>
+    <div>Hepl & Support</div>
+    <div class="close-button"><mat-icon mat-dialog-close >close</mat-icon></div>
+</div>
+<form [formGroup]="myForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Ask your query." formControlName="myQuery"></textarea>
+    </mat-form-field>
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button (click)="reset()">Reset</button>
+      <button mat-raised-button type="submit" (click)="submitQuery()">Send query</button>
+    </div>
+  </form>
+  
+  

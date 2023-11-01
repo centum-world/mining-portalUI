@@ -5,6 +5,7 @@ import { MatDialogConfig } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { MiningAddBankComponent } from '../dialog/mining-add-bank/mining-add-bank.component';
 import { MiningViewBankComponent } from '../dialog/mining-view-bank/mining-view-bank.component';
+import { HelpSupportComponent } from '../dialog/help-support/help-support.component';
 
 @Component({
   selector: 'app-mining-sidebar',
@@ -61,6 +62,7 @@ export class MiningSidebarComponent implements OnInit {
   }
 
   myteam(){
+    this.isVisible = false;
     this.router.navigate(['/miningdashboard/my-team'])
   }
 
@@ -72,6 +74,19 @@ export class MiningSidebarComponent implements OnInit {
   }
   viewList(){
 
+  }
+
+  helpAndSupport(){
+    this.isVisible = false;
+    let config: MatDialogConfig = {
+      panelClass: 'helpAndSupportClass',
+    };
+    const dialogRef = this.dialog.open(HelpSupportComponent,config)
+    
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
+    
   }
   
 
