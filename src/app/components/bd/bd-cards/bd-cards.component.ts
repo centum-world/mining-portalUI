@@ -14,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class BdCardsComponent implements OnInit {
 
   totalWithdrawalOfBusinessDev: any;
+  totalWalletOfBusinessDev:any;
 
   bankDetails = [];
   displayBusinessHandlerId = localStorage.getItem('bdHandlerID');
@@ -25,6 +26,7 @@ export class BdCardsComponent implements OnInit {
 
   ngOnInit() {
     this.totalWithdrawalAmount();
+    this.apiToFetchTotalWallet();
   }
 
   businessWithdrawalRequestViewList() {
@@ -98,6 +100,23 @@ export class BdCardsComponent implements OnInit {
     })
   }
 
+  apiToFetchTotalWallet() {
+    let data = {
+      businessDeveloperId: localStorage.getItem('bdHandlerID')
+    }
+    this.userService.fetchParticularBdDetails(data).subscribe({
+      next: (result: any) => {
+        if (result) {
+          // console.log(typeof (result.data))
 
+          this.totalWalletOfBusinessDev = result.bdDetails.bdWallet || 0;
+        }
+
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
+    })
+  }
 
 }

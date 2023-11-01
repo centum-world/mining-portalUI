@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ShoCardComponent implements OnInit {
   totalWithdrawalOfState:any;
+  totalWalletOfState:any;
   bankDetails=[];
   displayStateHandlerId = localStorage.getItem('stateHandlerId');
   displayStateHandlerReferralId = localStorage.getItem('stateRefferalId')
@@ -23,6 +24,7 @@ export class ShoCardComponent implements OnInit {
 
   ngOnInit() {
     this.callApiToFetchStateTotalWithdrawal()
+    this.callApiToFetchStateTotalWallet()
   }
 
   stateAddBankDialog(){
@@ -74,6 +76,25 @@ export class ShoCardComponent implements OnInit {
            console.log(result)
 
           this.totalWithdrawalOfState= result.data || 0;
+        }
+
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
+    })
+  }
+
+  callApiToFetchStateTotalWallet(){
+    let data = {
+      stateHandlerId:localStorage.getItem('stateHandlerId')
+    }
+    this.userService.shoDetails(data).subscribe({
+      next: (result: any) => {
+        if (result) {
+          //  console.log(result.sho.stateHandlerWallet)
+
+          this.totalWalletOfState= result.data || 0;
         }
 
       },

@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class FranchiseCardComponent implements OnInit {
 
   totalWithdrawalOfFranchise :any;
+  totalWalletOfFranchise:any;
   bankDetails = [];
   displayFranchiseId = localStorage.getItem('franchiseId');
   displayFranchiseReferralId = localStorage.getItem('franchiseReferralId')
@@ -27,6 +28,7 @@ export class FranchiseCardComponent implements OnInit {
 
   ngOnInit() {
     this.callApiTOFetchTotalWithdrawal()
+    this.callApiTOFetchTotalWiallet()
   }
   
   franchiseWithdrawalRequestViewList() {
@@ -98,4 +100,24 @@ export class FranchiseCardComponent implements OnInit {
       }
     })
   }
+
+  callApiTOFetchTotalWiallet(){
+    let data = {
+      franchiseId:localStorage.getItem('franchiseId')
+    }
+    this.userService.fetchParticularFranchiseDetails(data).subscribe({
+      next: (result: any) => {
+        if (result) {
+          //  console.log(result.franchise.franchiseWallet)
+
+           this.totalWalletOfFranchise = result.franchise.franchiseWallet || 0;
+        }
+
+      },
+      error: error => {
+        this.toastr.error('Something went wrong', 'Error');
+      }
+    })
+  }
+
 }
