@@ -1333,5 +1333,12 @@ export class UserService {
       
     }) 
   }
+  //fetch partner bond
+  fetchPartnerBond(){
+    return this.http.get(this.url + "/admin/fetch-bond", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
  
 }

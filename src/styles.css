@@ -302,6 +302,15 @@ body {
     padding-top: 0px;
   }
 }
+.helpAndSupportClass{
+  height: auto;
+  width: 40%;
+
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding-top: 0px;
+  }
+}
 
 @media (max-width: 768px) {
   .myEditDialogClass {
@@ -464,6 +473,9 @@ body {
     width: 99%;
   }
   .parnershipbond{
+    width: 99%;
+  }
+  .helpAndSupportClass{
     width: 99%;
   }
 }

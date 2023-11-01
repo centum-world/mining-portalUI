@@ -60,10 +60,13 @@
                     </button>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item (click)="openViewPartnerDialog(partner)">
-                            View
+                            <mat-icon>visibility</mat-icon> View
                         </button>
                         <button mat-menu-item (click)="gotoAccountsection()">
-                            Account
+                            <mat-icon>account_circle</mat-icon> Account
+                        </button>
+                        <button mat-menu-item (click)="downLoadPartnershipBond()">
+                            <mat-icon>cloud_download</mat-icon> Partner Bond
                         </button>
                     
                     </mat-menu>

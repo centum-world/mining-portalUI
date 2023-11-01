@@ -6,6 +6,7 @@ import { UserService } from 'src/app/service/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { PartnerViewComponent } from '../../admin/dialog/partner-view/partner-view.component';
 
+
 interface Partner {
   p_userid: string;
   p_name:string;
@@ -75,5 +76,21 @@ export class MiningDetailsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("Closed");
     });
+  }
+
+  downLoadPartnershipBond(){
+    this.userService.fetchPartnerBond().subscribe({
+      next:(res:any)=>{
+       console.log(res.data[0].bond);
+      const bondData = res.data[0].bond;
+      const pdfUrl = bondData;
+
+      // Open the PDF link in a new tab
+      window.open(pdfUrl, '_blank');
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
   }
 }

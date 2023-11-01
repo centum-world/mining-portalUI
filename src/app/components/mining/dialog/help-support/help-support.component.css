@@ -1,0 +1,35 @@
+.mat-dialog-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #0D6EFD;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 20px;
+    color: #ccc;
+}
+
+.custom-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fefefe;
+}
+
+.mat-dialog-actions {
+    margin-bottom: 0;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+.close-button .mat-icon{
+    margin-right: 13px;
+    background: red;
+    border-radius: 15px;
+}
