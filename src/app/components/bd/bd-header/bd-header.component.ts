@@ -60,6 +60,11 @@ export class BdHeaderComponent implements OnInit {
     this.isVisible = false;
   }
 
+  partnerMyTeam(){
+    this.router.navigate(['/bd-dashboard/businessDev-partner-team'])
+    this.isVisible = false
+  }
+
   openBusinessDevDetailsDialog() {
     this.isVisible = false;
     let data = {

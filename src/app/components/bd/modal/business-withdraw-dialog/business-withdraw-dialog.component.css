@@ -1,6 +1,6 @@
 .mat-dialog-title {
-    background-color: #F0F0F0;
-    color: black;
+    background-color: #104af6;
+    color:#fbf9f9;
     font-size: 18px;
     font-weight: 600;
     margin-left: -24px;
@@ -32,3 +32,14 @@
 .mat-dialog-actions{
     margin-bottom: 10px;
 }
+.custom-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.close-icon mat-icon{
+    background: red;
+    color: #fbf9f9;
+    border-radius: 13px;
+}
+
+  

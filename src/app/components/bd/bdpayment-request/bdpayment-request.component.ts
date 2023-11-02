@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { BusinessWithdrawDialogComponent } from '../modal/business-withdraw-dialog/business-withdraw-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bdpayment-request',
@@ -11,14 +12,17 @@ import { BusinessWithdrawDialogComponent } from '../modal/business-withdraw-dial
 export class BDpaymentRequestComponent implements OnInit {
   requestHistroy = [];
   approvedHistory = [];
-  constructor(private dialog:MatDialog, private userService:UserService) { }
+  constructor(private dialog:MatDialog, 
+    private userService:UserService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.tabChanged(0);
   }
 
 
-  withdrawDiolog(){
+  withdrawDialog(){
     let config: MatDialogConfig = {
       panelClass: 'myStateWithdrawDialogClass',
     };
@@ -53,6 +57,10 @@ export class BDpaymentRequestComponent implements OnInit {
         }
       })
     }
+  }
+
+  goBack(){
+    this.router.navigate(['/bd-dashboard/home'])
   }
 
 }

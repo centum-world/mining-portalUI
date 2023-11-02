@@ -60,4 +60,8 @@ export class BusinessDevPartnerTeamComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  goBack(){
+    this.router.navigate(['/bd-dashboard/home'])
+  }
 }
