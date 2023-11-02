@@ -1342,8 +1342,15 @@ export class UserService {
   }
 
   //fetch query
-  fetchQueery(){
-    return this.http.get(this.url + "/admin/fetch-query", {
+  fetchQueery(data:any){
+    return this.http.post(this.url + "/admin/fetch-query", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+  //change query status
+  changeQueryStatus(data:any){
+    return this.http.post(this.url + "/admin/query-resolve", data,{
       headers: new HttpHeaders().set("Content-Type", "application/json"),
       
     }) 

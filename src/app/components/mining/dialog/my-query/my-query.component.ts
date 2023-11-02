@@ -5,11 +5,12 @@ import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-partner-query',
-  templateUrl: './partner-query.component.html',
-  styleUrls: ['./partner-query.component.css']
+  selector: 'app-my-query',
+  templateUrl: './my-query.component.html',
+  styleUrls: ['./my-query.component.css']
 })
-export class PartnerQueryComponent implements OnInit {
+export class MyQueryComponent implements OnInit {
+
   query = [];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private userService : UserService, private toastr: ToastrService) {
     console.log(data)
@@ -21,7 +22,7 @@ export class PartnerQueryComponent implements OnInit {
 
   callApiToQuery(){
     let data ={
-      p_userid: this.data.p_userid
+      p_userid: this.data
     }
     this.userService.fetchQueery(data).subscribe({
       next:(res:any)=>{
@@ -30,23 +31,6 @@ export class PartnerQueryComponent implements OnInit {
       },
       error:(err=>{
         console.log(err.error.message)
-      })
-    })
-  }
-
-  onCheckboxChange(id:any, status:any){
-    console.log(id, status)
-    let data = {
-      id: id,
-      status: status
-    }
-    this.userService.changeQueryStatus(data).subscribe({
-      next:(res:any)=>{
-        this.toastr.success(res.message)
-        this.callApiToQuery();
-      },
-      error:(err=>{
-        this.toastr.warning(err.error.message)
       })
     })
   }

@@ -5,6 +5,7 @@ import { MatDialogConfig } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { PartnerViewComponent } from '../../admin/dialog/partner-view/partner-view.component';
+import { MyQueryComponent } from '../dialog/my-query/my-query.component';
 
 
 interface Partner {
@@ -27,7 +28,7 @@ interface Partner {
   styleUrls: ['./mining-details.component.css']
 })
 export class MiningDetailsComponent implements OnInit {
-
+  query=[];
   displayedColumns: string[] = ['p_userid','p_name','p_lname','p_email',
   'p_phone','p_address','p_liquidity','p_refferal_id','p_reffered_id',
   'isBlocked', 'isVerify','actions'
@@ -92,5 +93,25 @@ export class MiningDetailsComponent implements OnInit {
         console.log(err.error.message)
       })
     })
+  }
+
+  queryDetails(){
+    let config: MatDialogConfig = {
+      panelClass: 'partnerQueryDialogClass',
+      data: localStorage.getItem('partnerdetails')
+    };
+    const dialogRef = this.dialog.open(MyQueryComponent, config);
+    // let data ={
+    //   p_userid: localStorage.getItem('partnerdetails')
+    // }
+    // this.userService.fetchQueery(data).subscribe({
+    //   next:(res:any)=>{
+    //     console.log(res.data)
+    //     this.query = res.data
+    //   },
+    //   error:(err=>{
+    //     console.log(err.error.message)
+    //   })
+    // })
   }
 }
