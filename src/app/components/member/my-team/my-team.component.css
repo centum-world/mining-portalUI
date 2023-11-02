@@ -1,6 +1,6 @@
 .sho-list-header{
     height: 70px;
-    background: white;
+    /* background: white; */
     border-radius: 8px;
     margin-left: 320px;
     padding: 20px;
@@ -142,7 +142,7 @@
      width: 114%;
     }
     .search{
-      width: 80%;
+      width: 50%;
       margin-left: 20px;
     }
     .viewbutton{

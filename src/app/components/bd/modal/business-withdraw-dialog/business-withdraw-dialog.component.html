@@ -1,9 +1,9 @@
 <h1 class="custom-heading" mat-dialog-title>
-   <div> Withdrawal</div>
+    <div> Withdrawal</div>
     <div class="close-icon"><button mat-icon-button mat-dialog-close class="close-button">
-        <mat-icon >close</mat-icon>
-      </button></div>
-  </h1>
+            <mat-icon>close</mat-icon>
+        </button></div>
+</h1>
 <div mat-dialog-content>
     <div class="amount-container">
         <div class="amount-div" (click)="enterAmount(500)">₹ 500</div>
@@ -14,12 +14,22 @@
         <form class="example-form">
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Enter amount" name="amount" [(ngModel)]="amount" pattern="[0-9]*">
+                <span matPrefix>&#8377;</span>
                 <mat-error *ngIf="!isAmountValid()">Only numbers are allowed.</mat-error>
             </mat-form-field>
+            
+            <div class="content">
+                <div>
+                    <small>Available balance : </small> <span style="font-weight: bold;" >{{myWallet | currency:"INR"}}</span>
+                </div>
+                <div mat-dialog-actions align="end">
+
+
+                    <button mat-raised-button mat-dialog-close>Cancel</button>
+                    <button mat-raised-button (click)="requestWithdraw()">Withdraw</button>
+
+                </div>
+            </div>
         </form>
     </div>
-</div>
-<div mat-dialog-actions align="end">
-    <button mat-raised-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button (click)="requestWithdraw()">Withdraw</button>
 </div>

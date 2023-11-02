@@ -420,6 +420,11 @@ export class MemberCardComponent implements OnInit {
   }
 
   // -----------------------------------------------------//
+
+  viewListPartnerTeam(){
+    this.router.navigate(['/memberdashboard/my-team'])
+  }
+
   memberAddBankDialog(){
     let config:MatDialogConfig = {
       panelClass:'stateAddBankDialogClass'

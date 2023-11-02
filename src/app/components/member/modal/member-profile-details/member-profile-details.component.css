@@ -1,7 +1,7 @@
 .mat-dialog-title {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color:#F0F0F0;
+    background-color:#104af6;
     margin-left: -22px;
     margin-right: -22px;
     padding-left: 20px;
@@ -17,7 +17,7 @@
 }
 
 .custom-heading {
-    color:black;
+    color:#fbf9f9;
 }
 
 .stateDetails span {
@@ -46,5 +46,6 @@ td {
 }
 .franchise-profile-modal-ok {
     background: #0d6efd;
+    color: #fbf9f9;
 }
   

@@ -6,6 +6,7 @@ import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PartnerPayoutDetailsComponent } from '../modal/partner-payout-details/partner-payout-details.component';
+import { Router } from '@angular/router';
 
 interface MemberMyTeam {
   p_userid: string,
@@ -33,7 +34,8 @@ export class MyTeamComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private router:Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -108,5 +110,9 @@ export class MyTeamComponent implements OnInit {
 
   addSerialNumbers(data: MemberMyTeam[]): MemberMyTeam[] {
     return data.map((item, index) => ({ ...item, serialNumber: index + 1 }));
+  }
+
+  goBack(){
+    this.router.navigate(['/memberdashboard/home'])
   }
 }

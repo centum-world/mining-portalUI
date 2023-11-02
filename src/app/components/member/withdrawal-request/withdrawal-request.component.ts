@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 interface MemberWithdrawalRequest {
   m_userid: string,
@@ -26,6 +27,7 @@ export class WithdrawalRequestComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
+    private router:Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -57,6 +59,10 @@ export class WithdrawalRequestComponent implements OnInit {
 
   addSerialNumbers(data: MemberWithdrawalRequest[]): MemberWithdrawalRequest[] {
     return data.map((item, index) => ({ ...item, serialNumber: index + 1 }));
+  }
+
+  goBack(){
+    this.router.navigate(['/memberdashboard/home'])
   }
 
 }

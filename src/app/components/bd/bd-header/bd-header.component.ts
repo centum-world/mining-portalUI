@@ -34,10 +34,7 @@ export class BdHeaderComponent implements OnInit {
   }
   
 
-  logOut() {
-    localStorage.clear();
-    this.router.navigate(["/"]);
-  }
+  
 
   refresh() {
     this.router.navigate(['/bd-dashboard/home']);
@@ -141,6 +138,10 @@ export class BdHeaderComponent implements OnInit {
 
   listBussinessDeveloper(){
     
+  }
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(["/businesslogin"]);
   }
 
 }
