@@ -1340,5 +1340,13 @@ export class UserService {
       
     }) 
   }
+
+  //fetch query
+  fetchQueery(){
+    return this.http.get(this.url + "/admin/fetch-query", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
  
 }

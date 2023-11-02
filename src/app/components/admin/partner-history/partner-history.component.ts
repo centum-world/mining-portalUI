@@ -12,6 +12,7 @@ import { EditPartnerComponent } from '../dialog/edit-partner/edit-partner.compon
 import { Router } from '@angular/router';
 import { ActivateMiningPartnerComponent } from '../dialog/activate-mining-partner/activate-mining-partner.component';
 import { PartnerViewComponent } from '../dialog/partner-view/partner-view.component';
+import { PartnerQueryComponent } from '../dialog/partner-query/partner-query.component';
 interface Partner {
   P_userid: string,
   p_name: string,
@@ -205,6 +206,14 @@ export class PartnerHistoryComponent implements OnInit {
 
   goBack(){
     this.router.navigate(['/dashboard/home'])
+  }
+
+  queryPartner(partner: any){
+    let config: MatDialogConfig = {
+      panelClass: 'partnerQueryDialogClass',
+      data: partner
+    };
+    const dialogRef = this.dialog.open(PartnerQueryComponent, config);
   }
 
 }

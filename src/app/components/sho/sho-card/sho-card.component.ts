@@ -92,9 +92,9 @@ export class ShoCardComponent implements OnInit {
     this.userService.shoDetails(data).subscribe({
       next: (result: any) => {
         if (result) {
-          //  console.log(result.sho.stateHandlerWallet)
+           console.log(result.sho.stateHandlerWallet)
 
-          this.totalWalletOfState= result.data || 0;
+          this.totalWalletOfState= result.sho.stateHandlerWallet || 0;
         }
 
       },

@@ -107,22 +107,28 @@
                     </button>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item  (click)="openViewPartnerDialog(partner)">
-                            View
+                            <mat-icon>visibility</mat-icon> View
                         </button>
                         <button mat-menu-item [disabled]="partner.isVerify === 1" (click)="openMiningPartnerVerifyDialog(partner)" >
-                            Verify
+                            <mat-icon>check_circle</mat-icon> Verify
                         </button>
                         <button mat-menu-item (click)="openIsBlockPartnerDialog(partner)">
+                            <mat-icon>{{ partner.isBlocked === 0 ? 'block' : 'cancel' }}</mat-icon>
+
                             {{ partner.isBlocked === 0 ? 'Block' : 'Unblock' }}
                         </button>
                         <button mat-menu-item (click)="openPartnerEditDialog(partner)" >
-                            Edit
+                            <mat-icon>edit</mat-icon>Edit
                         </button>
                         <button mat-menu-item [disabled]="partner.partner_status === 1" (click)="openPartnerDoActivateDialog(partner)" >
-                            Do Activate
+                            <mat-icon>check</mat-icon> Do Activate
                         </button>
                         <button mat-menu-item (click)="gotoPartnerAccountSection(partner)">
-                            Account
+                            <mat-icon>person</mat-icon> Account
+                        </button>
+                        
+                        <button mat-menu-item (click)="queryPartner(partner)">
+                            <mat-icon>search</mat-icon>Query
                         </button>
                         
                     </mat-menu>
