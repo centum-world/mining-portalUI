@@ -80,6 +80,7 @@ import { MiningWithdrawDetailsComponent } from "./components/mining/mining-withd
 import { MyteamPartnerComponent } from "./components/mining/myteam-partner/myteam-partner.component";
 import { ReferralPayoutComponent } from "./components/mining/referral-payout/referral-payout.component";
 import { StatePartnerMyTeamComponent } from "./components/sho/state-partner-my-team/state-partner-my-team.component";
+import { WhitePaperComponent } from "./components/white-paper/white-paper.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -94,6 +95,7 @@ const routes: Routes = [
   { path: "memberlogin", component: UserLoginComponent },
   { path: "businesslogin", component: BdLoginComponent},
   { path: "business-developer-regitration", component: BdSignupPageComponent},
+  {path: "whitepaper", component: WhitePaperComponent},
   {
     path: "dashboard",
     canActivate: [GuardGuard],
