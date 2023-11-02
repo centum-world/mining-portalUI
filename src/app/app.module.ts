@@ -21,6 +21,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -193,6 +194,7 @@ import { PartnerBondComponent } from './components/admin/dialog/partner-bond/par
 import { StatePartnerMyTeamComponent } from './components/sho/state-partner-my-team/state-partner-my-team.component';
 import { HelpSupportComponent } from './components/mining/dialog/help-support/help-support.component';
 import { PartnerQueryComponent } from './components/admin/dialog/partner-query/partner-query.component';
+import { MyQueryComponent } from './components/mining/dialog/my-query/my-query.component';
 
 @NgModule({
   declarations: [
@@ -358,7 +360,8 @@ import { PartnerQueryComponent } from './components/admin/dialog/partner-query/p
     PartnerBondComponent,
     StatePartnerMyTeamComponent,
     HelpSupportComponent,
-    PartnerQueryComponent
+    PartnerQueryComponent,
+    MyQueryComponent
   ],
   imports: [
     BrowserModule,
@@ -392,6 +395,7 @@ import { PartnerQueryComponent } from './components/admin/dialog/partner-query/p
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",
@@ -460,7 +464,8 @@ import { PartnerQueryComponent } from './components/admin/dialog/partner-query/p
     PartnerMyteamAccountComponent,
     PartnerBondComponent,
     HelpSupportComponent,
-    PartnerQueryComponent
+    PartnerQueryComponent,
+    MyQueryComponent
   ],
   providers: [
     {
