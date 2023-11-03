@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~ngx-toastr/toastr.css';
+@import "~ngx-toastr/toastr.css";
 
 html,
 /* body {
@@ -29,15 +29,14 @@ body {
   display: none;
 }
 
-.mat-dialog-content{
+.mat-dialog-content {
   overflow: visible !important;
 }
-
 
 .myStateDialogClass {
   height: 70%;
   width: 60%;
-  
+
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
@@ -48,31 +47,30 @@ body {
     height: max-content;
   }
 }
-.myStateVerifyDialogClass{
+.myStateVerifyDialogClass {
   width: 24%;
   height: auto;
-  .mat-dialog-container{
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
     height: max-content;
   }
 }
-.franchiseAddBankDialogClass , .stateAddBankDialogClass, .businessAddBankDialogClass{
+.franchiseAddBankDialogClass,
+.stateAddBankDialogClass,
+.businessAddBankDialogClass {
   width: 50%;
-  
+
   .mat-dialog-container {
     height: max-content;
     border-radius: 20px;
     padding-top: 0px;
-
   }
 }
 
 .mat-form-field-appearance-outline .mat-form-field-infix {
   padding: 0.6em 0 1em 0;
 }
-
-
 
 /* .mat-form-field-wrapper {
   padding-bottom: 0 !important;
@@ -94,11 +92,19 @@ body {
 
 .myStateViewDialogClass {
   height: auto;
-  width: 70%;
+  /* width: 70%; */
 
   .mat-dialog-container {
-    border-radius: 20px;
+    border-radius: 30px;
     padding-top: 0px;
+    height: 49vh;
+    width: 80vw;
+    margin-left: 25%;
+    overflow-x: hidden;
+    margin-top: -90px;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -117,7 +123,7 @@ body {
 .franchiseDocumentsDialogClass,
 .stateProfileDocumetsDialogClass {
   width: 60%;
-  .mat-dialog-container{
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0px;
     height: max-content;
@@ -133,7 +139,8 @@ body {
     padding-top: 0;
   }
 }
-.verifyMemberDialogClass,.franchiseVerifyDialogClass{
+.verifyMemberDialogClass,
+.franchiseVerifyDialogClass {
   width: 27%;
 
   .mat-dialog-container {
@@ -205,32 +212,32 @@ body {
     padding-top: 0;
   }
 }
-.myFranchiseViewDialogClass{
+.myFranchiseViewDialogClass {
   width: 60%;
   height: auto;
-  .mat-dialog-container{
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
 }
-.VerifyFranchiseDialogClass{
+.VerifyFranchiseDialogClass {
   width: 26%;
   height: auto;
-  .mat-dialog-container{
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
 }
-.blockFranchiseDialogClass{
+.blockFranchiseDialogClass {
   width: 26%;
   height: auto;
-  .mat-dialog-container{
+  .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
 }
 
-.accountsPaidWithdrawalDialogClass{
+.accountsPaidWithdrawalDialogClass {
   height: auto;
   width: 40%;
 
@@ -239,7 +246,7 @@ body {
     padding-top: 0px;
   }
 }
-.myMemberBLockStateDialogClass{
+.myMemberBLockStateDialogClass {
   height: auto;
   width: 40%;
 
@@ -248,7 +255,7 @@ body {
     padding-top: 0px;
   }
 }
-.myPartnerBlockStateDialogClass{
+.myPartnerBlockStateDialogClass {
   height: auto;
   width: 40%;
 
@@ -257,7 +264,7 @@ body {
     padding-top: 0px;
   }
 }
-.myMemberViewDialogClass{
+.myMemberViewDialogClass {
   height: auto;
   width: 70%;
 
@@ -266,7 +273,7 @@ body {
     padding-top: 0px;
   }
 }
-.myPartnerViewDialogClass{
+.myPartnerViewDialogClass {
   height: auto;
   width: 70%;
 
@@ -275,7 +282,7 @@ body {
     padding-top: 0px;
   }
 }
-.partnerBankDialogClass{
+.partnerBankDialogClass {
   height: auto;
   width: auto;
 
@@ -284,7 +291,7 @@ body {
     padding-top: 0px;
   }
 }
-.myteamPartnerDialogClass{
+.myteamPartnerDialogClass {
   height: auto;
   width: 60%;
 
@@ -293,7 +300,7 @@ body {
     padding-top: 0px;
   }
 }
-.parnershipbond{
+.parnershipbond {
   height: auto;
   width: 40%;
 
@@ -302,7 +309,7 @@ body {
     padding-top: 0px;
   }
 }
-.helpAndSupportClass{
+.helpAndSupportClass {
   height: auto;
   width: 40%;
 
@@ -311,7 +318,7 @@ body {
     padding-top: 0px;
   }
 }
-.partnerQueryDialogClass{
+.partnerQueryDialogClass {
   height: 60%;
   width: 40%;
 
@@ -329,7 +336,7 @@ body {
   .franchiseDocumentsDialogClass,
   .franchiseViewBankDetailsDialogClass,
   .stateProfileDocumetsDialogClass,
-  .stateViewBankDetailsDialogClass{
+  .stateViewBankDetailsDialogClass {
     height: auto;
     width: 90%;
 
@@ -365,8 +372,10 @@ body {
       height: auto;
     }
   }
-  .stateAddBankDialogClass, .franchiseAddBankDialogClass, .businessAddBankDialogClass {
-    height:80%;
+  .stateAddBankDialogClass,
+  .franchiseAddBankDialogClass,
+  .businessAddBankDialogClass {
+    height: 80%;
     width: 99%;
 
     .mat-dialog-content {
@@ -374,7 +383,8 @@ body {
     }
   }
 
-  .verifyMemberDialogClass,.franchiseVerifyDialogClass{
+  .verifyMemberDialogClass,
+  .franchiseVerifyDialogClass {
     width: 95%;
     height: 30%;
 
@@ -387,7 +397,8 @@ body {
     }
   }
 
-  .myEditDialogClass,.accountsPaidWithdrawalDialogClass {
+  .myEditDialogClass,
+  .accountsPaidWithdrawalDialogClass {
     width: 99%;
     height: auto;
 
@@ -433,61 +444,81 @@ body {
       margin-left: 0px;
     }
   }
-  
+
   .partnerEditDialogClass {
     width: 100%;
     height: auto;
-  
+
     .mat-dialog-container {
       height: auto;
       margin-bottom: 20px;
     }
   }
 
-  .myStateVerifyDialogClass{
+  .myStateVerifyDialogClass {
     width: 90%;
     height: auto;
-    .mat-dialog-container{
+    .mat-dialog-container {
       border-radius: 20px;
       padding-top: 0;
     }
   }
-  .myFranchiseViewDialogClass{
+  .myFranchiseViewDialogClass {
     width: 99%;
-    
   }
-  .VerifyFranchiseDialogClass{
+  .VerifyFranchiseDialogClass {
     width: 90%;
   }
-  .blockFranchiseDialogClass{
+  .blockFranchiseDialogClass {
     width: 90%;
   }
-  .myMemberBLockStateDialogClass{
+  .myMemberBLockStateDialogClass {
     height: auto;
     width: 90%;
   }
-  .myPartnerBlockStateDialogClass{
+  .myPartnerBlockStateDialogClass {
     height: auto;
     width: 90%;
   }
-  .myMemberViewDialogClass{
+  .myMemberViewDialogClass {
     height: auto;
     width: 90%;
   }
-  .myPartnerViewDialogClass{
+  .myPartnerViewDialogClass {
     height: auto;
     width: 90%;
   }
-  .myteamPartnerDialogClass{
+  .myteamPartnerDialogClass {
     width: 99%;
   }
-  .parnershipbond{
+  .parnershipbond {
     width: 99%;
   }
-  .helpAndSupportClass{
+  .helpAndSupportClass {
     width: 99%;
   }
-  .partnerQueryDialogClass{
+  .partnerQueryDialogClass {
     width: 99%;
+  }
+}
+
+
+/* Styles for screens with a maximum width of 768 pixels (typical for mobile devices) */
+@media (max-width: 768px) {
+  .myStateViewDialogClass {
+    height: auto;
+  
+    .mat-dialog-container {
+      border-radius: 30px;
+      padding-top: -1px;
+      height: 63vh;
+      width: 83vw;
+      margin-left: 0%;
+      overflow-x: hidden;
+      margin-top: 50px;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
