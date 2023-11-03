@@ -195,6 +195,8 @@ import { StatePartnerMyTeamComponent } from './components/sho/state-partner-my-t
 import { HelpSupportComponent } from './components/mining/dialog/help-support/help-support.component';
 import { PartnerQueryComponent } from './components/admin/dialog/partner-query/partner-query.component';
 import { MyQueryComponent } from './components/mining/dialog/my-query/my-query.component';
+import { WhitePaperComponent } from './components/white-paper/white-paper.component';
+import { TechTeamComponent } from './components/tech-team/tech-team.component';
 
 @NgModule({
   declarations: [
@@ -361,7 +363,9 @@ import { MyQueryComponent } from './components/mining/dialog/my-query/my-query.c
     StatePartnerMyTeamComponent,
     HelpSupportComponent,
     PartnerQueryComponent,
-    MyQueryComponent
+    MyQueryComponent,
+    WhitePaperComponent,
+    TechTeamComponent
   ],
   imports: [
     BrowserModule,
