@@ -41,6 +41,7 @@ body {
     border-radius: 20px;
     padding-top: 0px;
     height: max-content;
+    border: 1px solid black;
   }
 
   .mat-dialog-content {
@@ -48,12 +49,14 @@ body {
   }
 }
 .myStateVerifyDialogClass {
-  width: 24%;
+  /* width: 24%; */
   height: auto;
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
-    height: max-content;
+    height: -moz-max-content;
+    height: 30vh;
+    width: 40vw;
   }
 }
 .franchiseAddBankDialogClass,
@@ -461,6 +464,9 @@ body {
     .mat-dialog-container {
       border-radius: 20px;
       padding-top: 0;
+      border-radius: 20px;
+      padding-top: 0;
+      width: 100%;
     }
   }
   .myFranchiseViewDialogClass {
@@ -502,12 +508,11 @@ body {
   }
 }
 
-
 /* Styles for screens with a maximum width of 768 pixels (typical for mobile devices) */
 @media (max-width: 768px) {
   .myStateViewDialogClass {
     height: auto;
-  
+
     .mat-dialog-container {
       border-radius: 30px;
       padding-top: -1px;
