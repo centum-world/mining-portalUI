@@ -197,6 +197,8 @@ import { PartnerQueryComponent } from './components/admin/dialog/partner-query/p
 import { MyQueryComponent } from './components/mining/dialog/my-query/my-query.component';
 import { WhitePaperComponent } from './components/white-paper/white-paper.component';
 import { TechTeamComponent } from './components/tech-team/tech-team.component';
+import { ShoTeamComponent } from './components/white-paper/sho-team/sho-team.component';
+import { FranchiseTeamComponent } from './components/white-paper/franchise-team/franchise-team.component';
 
 @NgModule({
   declarations: [
@@ -365,7 +367,9 @@ import { TechTeamComponent } from './components/tech-team/tech-team.component';
     PartnerQueryComponent,
     MyQueryComponent,
     WhitePaperComponent,
-    TechTeamComponent
+    TechTeamComponent,
+    ShoTeamComponent,
+    FranchiseTeamComponent
   ],
   imports: [
     BrowserModule,
