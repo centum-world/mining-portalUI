@@ -196,9 +196,11 @@ import { HelpSupportComponent } from './components/mining/dialog/help-support/he
 import { PartnerQueryComponent } from './components/admin/dialog/partner-query/partner-query.component';
 import { MyQueryComponent } from './components/mining/dialog/my-query/my-query.component';
 import { WhitePaperComponent } from './components/white-paper/white-paper.component';
-import { TechTeamComponent } from './components/tech-team/tech-team.component';
 import { ShoTeamComponent } from './components/white-paper/sho-team/sho-team.component';
 import { FranchiseTeamComponent } from './components/white-paper/franchise-team/franchise-team.component';
+import { TechTeamComponent } from './components/white-paper/tech-team/tech-team.component';
+import { ManagementTeamComponent } from './components/white-paper/management-team/management-team.component';
+import { FounderTeamComponent } from './components/white-paper/founder-team/founder-team.component';
 
 @NgModule({
   declarations: [
@@ -369,7 +371,9 @@ import { FranchiseTeamComponent } from './components/white-paper/franchise-team/
     WhitePaperComponent,
     TechTeamComponent,
     ShoTeamComponent,
-    FranchiseTeamComponent
+    FranchiseTeamComponent,
+    ManagementTeamComponent,
+    FounderTeamComponent
   ],
   imports: [
     BrowserModule,
