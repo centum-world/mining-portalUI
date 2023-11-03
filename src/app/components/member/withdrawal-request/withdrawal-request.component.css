@@ -1,119 +1,88 @@
-.sho-list-header{
-  height: 70px;
-  border-radius: 8px;
-  margin-left: 320px;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  margin-top: -50px;
-}
-.title p{
-  font-size: 20px;
-  color: black;
-  font-weight: 800;
-  font-family: Calibri;
-  font-weight: 700;
-}
 
-.large-expand {
-  overflow-x: auto;
-  padding: 20px;
-  margin-left: 300px;
- width: 83%;
-}
-
-table {
-  width: 100%;
-}
-.member-history-header{
-  font-weight: bold;
-  color: black;
-}
-
-.table-container {
-  overflow-x: auto; /* Enable horizontal scrolling for the container */
-}
-
-.mat-table {
-  width: 100%; /* Ensure the table takes up the full width of its container */
-  border-collapse: collapse; /* Remove default cell spacing */
-}
-
-.mat-cell,
-.mat-header-cell {
-  padding: 8px; /* Adjust the padding as needed */
-  text-align: left; /* Left-align cell content */
-  border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
-}
-
-/* Style the header row */
-.mat-header-row {
-  background-color: #f0f0f0; /* Add a background color to the header row */
-}
-
-/* Add a border to the last cell in each row */
-.mat-cell:last-child,
-.mat-header-cell:last-child {
-  border-right: 1px solid #ddd;
-}
-
-
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .sho-list-header{
-    height: 70px;
-    background: white;
-    border-radius: 8px;
-    margin-left: 318px;
-    padding: 20px;
+  /* ---------------------------- */
+  .bakk-div{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 330px;
+  }
+  .example-card {
+    margin: 10px;
+    width: 250px;
+  }
+  .payment-card{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+  }
+  
+  .bank-details{
     display: flex;
     justify-content: space-between;
-    width: 71%;
-    margin-top: 100px;
-
+    align-items: center;
   }
-  .large-expand {
-    overflow-x: auto;
-    padding: 20px;
-    margin-left: 300px;
-   width: 75%;
+  .bank-details h2{
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
   }
-}
-
-
-
-@media screen and (max-width: 768px ){
-  .sho-list-header {
-   margin-left: 5px ;
-   margin-top: 100px;
-   width: 106%;
-  } 
-  .large-expand {
-    margin-left: -12px ;
-    padding: 20px;
-   width: 112%;
+  .example-header-image{
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+  }
+  .partner-history-card{
+    width: 70%;
+    margin-top: 5%;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
-  .title p{
-    font-size: 16px;
-    color: black;
-    font-weight: 800;
-    font-family: Calibri;
-    margin: -7px;
+  .column {
+    flex: 1;
+    padding: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    position: relative; /* Position relative for pseudo-element positioning */
   }
-
   
-}
-
-
-@media only screen and (max-width: 480px) {
-  .large-expand {
-   width: 119%;
+  /* Style for the divider between columns */
+  .column:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px; /* Adjust this value to control the width of the divider */
+    height: 100%;
+    width: 1px; /* Width of the divider */
+    background-color: #ccc; /* Divider color */
   }
-  .search{
-    width: 80%;
-    margin-left: 20px;
+
+  @media (max-width: 768px) {
+    .example-card{
+      width: 100%;
+      margin-right: 0;
+    }
+    .bakk-div{
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
-}
+  @media (max-width: 576px) {
+    .bakk-div{
+      width: 99%;
+      margin-top: 100px;
+      margin-left: 0;
+      margin-right: 0;
+
+    }
+      .example-card{
+        width: 100%;
+        margin-right: 0;
+      }
+      .single-line-content{
+        width: 95%px;
+      }
+  }

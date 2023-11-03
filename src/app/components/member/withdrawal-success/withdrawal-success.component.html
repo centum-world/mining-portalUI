@@ -1,78 +1,36 @@
-<div class="sho-list-header" style="display: flex; justify-content: space-between; align-items: center;">
-    <div class="title" style="display: flex; cursor: pointer;">
-        <mat-icon (click)="goBack()">arrow_back</mat-icon>
-        <p>Withdrawal details</p>
-     </div>
-    <div class="search">
-        <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-        </mat-form-field>
-    </div>
-</div>
-<div class="large-expand">
-    <div class="mat-elevation-z8 table-container">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!-- Serial Number Column -->
-            <ng-container matColumnDef="serialNumber">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">SL No.</th>
-                <td mat-cell *matCellDef="let row">{{ row.serialNumber }}</td>
-            </ng-container>
-
-            <!-- Other Columns -->
-            <ng-container matColumnDef="m_userid">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Member ID</th>
-                <td mat-cell *matCellDef="let walletAmount">{{ walletAmount.m_userid }} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="member_wallet">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Amount</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.member_wallet | currency:'INR' }} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="serviceCharge">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Service Charge</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ (walletAmount.member_wallet*5)/100 | currency:'INR' }}
-                </td>
-            </ng-container>
-
-            <ng-container matColumnDef="paybleAmount">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Payble Amount</th>
-                <td mat-cell *matCellDef="let walletAmount" style="font-weight: bold;"> {{
-                    (walletAmount.member_wallet-(walletAmount.member_wallet*5)/100) | currency:'INR'}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="refferal">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header">Referral</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.reffer_p_userid }} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="request_date">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Request Date</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.request_date | date }} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="approve_date">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Approve Date</th>
-                <td mat-cell *matCellDef="let walletAmount"> {{ walletAmount.approve_date | date }} </td>
-            </ng-container>
-
-            <!-- Action Column -->
-            <!-- <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef class="member-history-header"> Action </th>
-                <td mat-cell *matCellDef="let walletAmount">
-                   
-                    <button mat-raised-button color="accent" (click) = "approveRequest(walletAmount.m_userid,walletAmount.id)">Approve</button>
-                </td>
-            </ng-container> -->
-
-
-            <!-- Define other columns as needed -->
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let walletAmount; columns: displayedColumns;"></tr>
-        </table>
-
-        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
-    </div>
+<div class="bakk-div">
+    <mat-card class="example-card" *ngFor="let data of approvedRequest">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Approved details</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="single-line-content">
+            <div class="bank-details">
+                <h2>Id</h2>{{ data.m_userid }}
+            </div>
+            <div class="bank-details">
+                <h2>Amount</h2>{{ data.member_wallet | currency:'INR':'symbol':'1.2-2' }}
+            </div>
+            <div class="bank-details">
+                <h2>Service Charge</h2>{{ ((data.member_wallet * 5) / 100) | currency:'INR':'symbol':'1.2-2' }}
+            </div>
+            <div class="bank-details">
+                <h2>Payable Amount</h2> <strong>{{ (data.member_wallet - (data.member_wallet * 5) / 100) | currency:'INR':'symbol':'1.2-2' }}</strong>
+            </div>
+            <div class="bank-details">
+                <h2>Referral</h2> <strong>{{ data.reffer_p_userid }}</strong>
+            </div>
+            <div class="bank-details">
+                <h2>Request date</h2>{{ data.request_date | date }}
+            </div>
+            <div class="bank-details">
+                <h2>Approved date</h2>{{ data.approve_date | date }}
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <button mat-button style="background: rgb(0, 255, 38);">Approved successful</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
