@@ -21,7 +21,7 @@ interface MemberApprovedWithdrawal {
 })
 export class WithdrawalSuccessComponent implements OnInit {
 
-  
+  approvedRequest = []
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['serialNumber', 'm_userid', 'member_wallet','serviceCharge', 'paybleAmount','refferal','request_date','approve_date'];
   dataSource: MatTableDataSource<MemberApprovedWithdrawal>;
@@ -46,6 +46,7 @@ export class WithdrawalSuccessComponent implements OnInit {
     this.userService.memberWithdrawalApproved(data).subscribe({
       next: (res: any) => {
          console.log(res.data)
+         this.approvedRequest = res.data
          const dataWithSerial = this.addSerialNumbers(res.data);
          this.dataSource.data = dataWithSerial;
       },

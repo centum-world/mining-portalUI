@@ -20,6 +20,8 @@ interface MemberWithdrawalRequest {
 })
 export class WithdrawalRequestComponent implements OnInit {
 
+  partnerRequestHistory = [];
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['serialNumber', 'm_userid', 'member_wallet','serviceCharge', 'paybleAmount','refferal','request_date'];
   dataSource: MatTableDataSource<MemberWithdrawalRequest>;
@@ -44,6 +46,7 @@ export class WithdrawalRequestComponent implements OnInit {
     this.userService.memberWithdrawalRequstInMemberPortal(data).subscribe({
       next: (res: any) => {
          console.log(res)
+         this.partnerRequestHistory = res.data
         const dataWithSerial = this.addSerialNumbers(res.data);
         this.dataSource.data = dataWithSerial;
       },
