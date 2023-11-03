@@ -192,6 +192,7 @@ import { ReferralPayoutComponent } from './components/mining/referral-payout/ref
 import { PartnerBondComponent } from './components/admin/dialog/partner-bond/partner-bond.component';
 import { StatePartnerMyTeamComponent } from './components/sho/state-partner-my-team/state-partner-my-team.component';
 import { WhitePaperComponent } from './components/white-paper/white-paper.component';
+import { TechTeamComponent } from './components/tech-team/tech-team.component';
 
 @NgModule({
   declarations: [
@@ -356,7 +357,8 @@ import { WhitePaperComponent } from './components/white-paper/white-paper.compon
     ReferralPayoutComponent,
     PartnerBondComponent,
     StatePartnerMyTeamComponent,
-    WhitePaperComponent
+    WhitePaperComponent,
+    TechTeamComponent
   ],
   imports: [
     BrowserModule,
