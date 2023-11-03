@@ -15,6 +15,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
 }
 .form-row mat-form-field {
     width: 48%; /* Adjust as needed, leaving some space for margins */

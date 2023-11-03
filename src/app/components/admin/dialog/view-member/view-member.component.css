@@ -70,7 +70,21 @@
 }
 .mat-dialog-actions {
   margin-bottom: 0px;
-  margin-top: 15px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .mat-dialog-actions {
+    margin-bottom: 0px;
+    margin-top: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mat-dialog-actions {
+    margin-bottom: 0px;
+    margin-top: 300px;
+  }
 }
 
 

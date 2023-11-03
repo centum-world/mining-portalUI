@@ -1,11 +1,27 @@
 .mat-dialog-title {
-    background-color: #f0f0f0;
-    color: #000;
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  background-color: #f0f0f0;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.upload-button{
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff; 
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 5px;
 }

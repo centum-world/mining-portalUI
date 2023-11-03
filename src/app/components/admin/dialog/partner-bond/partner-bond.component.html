@@ -4,7 +4,7 @@
     <mat-card-content>
       <form #fileUploadForm>
         <input type="file" (change)="selectFile($event)" accept=".pdf">
-        <button mat-raised-button color="primary" (click)="uploadFile()">Upload</button>
+        <button class="upload-button" color="primary" (click)="uploadFile()">Upload</button>
       </form>
     </mat-card-content>
   </mat-card>
