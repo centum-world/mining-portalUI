@@ -354,7 +354,8 @@ import { FounderTeamComponent } from './components/white-paper/founder-team/foun
     MemberProfileDetailsComponent,
     MemberDocumentsDetailsComponent,
     PartnerPayoutDetailsComponent,
-    MiningWithdrawDetailsComponent,    MemberAddBankComponent,
+    MiningWithdrawDetailsComponent,  
+    MemberAddBankComponent,
     MemberViewBankComponent,
 
     MiningAddBankComponent,

@@ -1,5 +1,5 @@
 <div class="account-header">
-   <h5 style="display: flex; justify-content: center; align-items: center;"><mat-icon (click)="goBack()" style="cursor: pointer;">arrow_back</mat-icon>&nbsp;SHO Account details</h5>
+   <h5 style="display: flex; justify-content: center; align-items: center;"><mat-icon (click)="goBack()" style="cursor: pointer;">arrow_back</mat-icon>&nbsp;BMM Account details</h5>
    <div class="wallet-div">{{myWallet | currency:"INR"}}</div>
 </div>
 <div class="account-content">
@@ -20,7 +20,7 @@
                <mat-card class="example-card" *ngFor="let data of shoRequestHistory">
                   <mat-card-header>
                      <div mat-card-avatar class="example-header-image"></div>
-                     <mat-card-title>Bank details</mat-card-title>
+                     <mat-card-title>Request details</mat-card-title>
                   </mat-card-header>
                   <mat-divider></mat-divider>
                   <mat-card-content class="single-line-content">
@@ -62,7 +62,7 @@
                <mat-card class="example-card" *ngFor="let data of approvedRequest">
                   <mat-card-header>
                      <div mat-card-avatar class="example-header-image"></div>
-                     <mat-card-title>Bank details</mat-card-title>
+                     <mat-card-title>Approved details</mat-card-title>
                   </mat-card-header>
                   <mat-divider></mat-divider>
                   <mat-card-content class="single-line-content">
