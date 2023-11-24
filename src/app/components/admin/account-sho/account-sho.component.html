@@ -90,6 +90,44 @@
             </ng-template>
          </div>
       </mat-tab>
+      <mat-tab label="Referral Payout">
+         <div class="bakk-div">
+            <!-- Check if approvedRequest is empty -->
+            <ng-container *ngIf="bmmReferralPayout.length === 0; else referralPayout">
+               <mat-card class="example-card">
+                  <mat-card-content>
+                     <p>No Referral payout found.</p>
+                  </mat-card-content>
+               </mat-card>
+            </ng-container>
+
+            <!-- Display the list of approved withdrawals if approvedRequest is not empty -->
+            <ng-template #referralPayout>
+               <mat-card class="example-card" *ngFor="let data of bmmReferralPayout">
+                  <mat-card-header>
+                     <div mat-card-avatar class="example-header-image"></div>
+                     <mat-card-title>Payout</mat-card-title>
+                  </mat-card-header>
+                  <mat-divider></mat-divider>
+                  <mat-card-content class="single-line-content">
+                     <div class="bank-details">
+                        <h2>BMM ID</h2><strong>{{data.userid}} </strong>
+                     </div>
+                     <div class="bank-details">
+                        <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
+                     </div>
+                     <div class="bank-details">
+                        <h2>Partner ID</h2><strong>{{data.partnerid }} </strong>
+                     </div>
+                     <div class="bank-details">
+                        <h2>Credit date</h2><strong>{{data.credit_date | date}} </strong>
+                     </div>
+                  </mat-card-content>
+                 
+               </mat-card>
+            </ng-template>
+         </div>
+      </mat-tab>
       <mat-tab label="Bank details">
          <div class="bakk-div">
             <!-- Check if bankDetails is empty -->
@@ -135,5 +173,6 @@
             </ng-template>
          </div>
       </mat-tab>
+
    </mat-tab-group>
 </div>

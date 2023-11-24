@@ -17,6 +17,7 @@ export class AccountShoComponent implements OnInit {
   bankDetails = [];
   shoRequestHistory = [];
   approvedRequest = [];
+  bmmReferralPayout = [];
   myWallet = 0;
   constructor(
     private route: ActivatedRoute,
@@ -38,14 +39,14 @@ export class AccountShoComponent implements OnInit {
   }
 
   tabChanged(event: any) {
-    if (event === 2) {
+    if (event === 3) {
       console.log("event call 2");
       let data = {
         userId: this.shoID
       }
       this.userService.fetchStateBankDetails(data).subscribe({
         next: (res: any) => {
-          console.log(res.result);
+
           this.bankDetails = res.result;
         },
         error: (error) => {
@@ -59,7 +60,6 @@ export class AccountShoComponent implements OnInit {
       }
       this.userService.paymentRequestForSho(data).subscribe({
         next: (res: any) => {
-          console.log(res.paymentRequests)
           this.shoRequestHistory = res.paymentRequests;
         },
         error: (error) => {
@@ -72,8 +72,19 @@ export class AccountShoComponent implements OnInit {
       }
       this.userService.fetchPaymentApprovedForAll(data).subscribe({
         next: (res: any) => {
-          console.log(res)
           this.approvedRequest = res.paymentApprovals;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
+    }else if(event === 2){
+      let data = {
+        userid: this.shoID
+      }
+      this.userService.memberReferralPayoutHistory(data).subscribe({
+        next: (res: any) => {
+          this.bmmReferralPayout = res.data;
         },
         error: (error) => {
           console.log(error.error.message)
@@ -119,7 +130,6 @@ export class AccountShoComponent implements OnInit {
     }
     this.userService.shoDetails(data).subscribe({
       next:(res:any)=>{
-        console.log(res.sho.stateHandlerWallet)
         this.myWallet = res.sho.stateHandlerWallet;
       },
       error:(err=>{

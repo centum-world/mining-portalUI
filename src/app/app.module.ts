@@ -202,6 +202,7 @@ import { TechTeamComponent } from './components/white-paper/tech-team/tech-team.
 import { ManagementTeamComponent } from './components/white-paper/management-team/management-team.component';
 import { FounderTeamComponent } from './components/white-paper/founder-team/founder-team.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -374,7 +375,7 @@ import { FounderTeamComponent } from './components/white-paper/founder-team/foun
     ShoTeamComponent,
     FranchiseTeamComponent,
     ManagementTeamComponent,
-    FounderTeamComponent
+    FounderTeamComponent,
   ],
   imports: [
     BrowserModule,

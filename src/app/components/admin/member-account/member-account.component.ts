@@ -18,6 +18,7 @@ export class MemberAccountComponent implements OnInit {
   memberRequestHistory = [];
   approvedRequest = [];
   memberWallet=0;
+  memberReferralPayout = [];
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -43,7 +44,6 @@ export class MemberAccountComponent implements OnInit {
     }
     this.userService.fetchMemberPortalDetails(data).subscribe({
       next:(res:any)=>{
-        console.log(res.data[0].member_wallet)
         this.memberWallet = res.data[0].member_wallet
       },
       error:(err=>{
@@ -60,7 +60,6 @@ export class MemberAccountComponent implements OnInit {
       }
       this.userService.fetchMemberBankDetails(data).subscribe({
         next: (res: any) => {
-           console.log(res.data);
            this.bankDetails = res.data;
         },
         error: (error) => {
@@ -70,11 +69,10 @@ export class MemberAccountComponent implements OnInit {
 
     } else if (event === 0) {
       let data = {
-        m_userid: this.memberID
+        memberId: this.memberID
       }
       this.userService.fetchParticularMemberWithdrawalRequest(data).subscribe({
         next: (res: any) => {
-          console.log(res.data)
           this.memberRequestHistory = res.data;
         },
         error: (error) => {
@@ -83,12 +81,25 @@ export class MemberAccountComponent implements OnInit {
       })
     }else if(event === 1){
       let data = {
-        m_userid: this.memberID
+        memberId: this.memberID
+      
       }
       this.userService.fetchParticularMemberApprovedWithdrawalHistory(data).subscribe({
         next: (res: any) => {
-          console.log(res.memberWithdrawalHistory)
            this.approvedRequest = res.memberWithdrawalHistory;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
+    }
+    else if(event === 3){
+      let data = {
+        userid: this.memberID
+      }
+      this.userService.memberReferralPayoutHistory(data).subscribe({
+        next: (res: any) => {
+           this.memberReferralPayout = res.data;
         },
         error: (error) => {
           console.log(error.error.message)
@@ -99,7 +110,7 @@ export class MemberAccountComponent implements OnInit {
 
   }
 
-  approved(id: any, m_userid:any) {
+  approved(id: any, userId:any) {
 
     let config: MatDialogConfig = {
        panelClass: 'requsetApprovedDialogClass'
@@ -109,7 +120,7 @@ export class MemberAccountComponent implements OnInit {
 
       dialogRef.componentInstance.okClicked.subscribe(() => {
         let data = {
-          m_userid:m_userid,
+          userId:userId,
           id:id
         }
 

@@ -88,6 +88,10 @@ export class ShoHeaderComponent implements OnInit {
     this.router.navigate(['/statedashboard/franchise-list'])
     this.isVisible = false;
   }
+  partnerList(){
+    this.router.navigate(['/statedashboard/partner-list'])
+    this.isVisible = false;
+  }
   handleWithdrawalClick(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
     this.isVisible = false;

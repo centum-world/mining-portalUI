@@ -1355,5 +1355,13 @@ export class UserService {
       
     }) 
   }
+
+  // memberReferralPayoutHistory
+  memberReferralPayoutHistory(data:any){
+    return this.http.post(this.url + "/admin/member-referral-payout-history", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    })
+  }
  
 }
