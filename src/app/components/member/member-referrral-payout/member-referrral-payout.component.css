@@ -1,0 +1,15 @@
+.referral-payout{
+    display: flex;
+    justify-content: start;
+    margin-left: 330px;
+}
+.arow-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.arow-title p{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8px;
+}

@@ -5,6 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogConfig } from '@angular/material/dialog';
+import { WithdrawDialogComponent } from '../../sho/diolog/withdraw-dialog/withdraw-dialog.component';
 
 interface MemberWithdrawalRequest {
   m_userid: string,
@@ -21,6 +24,8 @@ interface MemberWithdrawalRequest {
 export class WithdrawalRequestComponent implements OnInit {
 
   partnerRequestHistory = [];
+  requestHistroy = [];
+  approvedHistory = [];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['serialNumber', 'm_userid', 'member_wallet','serviceCharge', 'paybleAmount','refferal','request_date'];
@@ -29,7 +34,8 @@ export class WithdrawalRequestComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
-    private router:Router
+    private router:Router,
+    private dialog:MatDialog, 
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -68,4 +74,42 @@ export class WithdrawalRequestComponent implements OnInit {
     this.router.navigate(['/memberdashboard/home'])
   }
 
+  openWithdrawalRequest(){
+    let config: MatDialogConfig = {
+      panelClass: 'myStateWithdrawDialogClass',
+    };
+    const dialogRef = this.dialog.open(WithdrawDialogComponent, config);
+  }
+
+  tabChanged(tab:any){
+    if(tab === 0){
+      let data = {
+        memberId:localStorage.getItem('userdetail')
+      }
+      this.userService.paymentRequestForMember(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.data)
+          this.requestHistroy = res.data
+
+        },
+        error:(error)=>{
+          console.log(error.error.message)
+        }
+      })
+    }else if(tab === 1){
+      let data = {
+        memberId:localStorage.getItem('userdetail')
+      }
+      this.userService.paymentApprovedForMember(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.memberWithdrawalHistory)
+          this.approvedHistory = res.memberWithdrawalHistory
+        },
+        error:(error)=>{
+          console.log(error.error.message)
+        }
+
+      })
+    }
+  }
 }
