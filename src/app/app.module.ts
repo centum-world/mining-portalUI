@@ -201,6 +201,7 @@ import { FranchiseTeamComponent } from './components/white-paper/franchise-team/
 import { TechTeamComponent } from './components/white-paper/tech-team/tech-team.component';
 import { ManagementTeamComponent } from './components/white-paper/management-team/management-team.component';
 import { FounderTeamComponent } from './components/white-paper/founder-team/founder-team.component';
+import { ShoReferralPayoutComponent } from './components/sho/sho-referral-payout/sho-referral-payout.component';
 
 
 @NgModule({
@@ -376,6 +377,7 @@ import { FounderTeamComponent } from './components/white-paper/founder-team/foun
     FranchiseTeamComponent,
     ManagementTeamComponent,
     FounderTeamComponent,
+    ShoReferralPayoutComponent,
   ],
   imports: [
     BrowserModule,
