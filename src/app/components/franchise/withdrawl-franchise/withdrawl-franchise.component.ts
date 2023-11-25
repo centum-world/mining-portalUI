@@ -18,7 +18,7 @@ export class WithdrawlFranchiseComponent implements OnInit {
     this.tabChanged(0);
   }
 
-  withdrawDiolog(){
+  withdrawDialog(){
     let config: MatDialogConfig = {
       panelClass: 'myFranchiseWithdrawDialogClass',
     };
@@ -33,8 +33,9 @@ export class WithdrawlFranchiseComponent implements OnInit {
       }
       this.userService.paymentRequestForSho(data).subscribe({
         next:(res:any)=>{
-          console.log(res.paymentRequests)
+          console.log(res)
           this.requestHistroy = res.paymentRequests
+          console.log(this.requestHistroy)
         },
         error:(error)=>{
           console.log(error.error.message)

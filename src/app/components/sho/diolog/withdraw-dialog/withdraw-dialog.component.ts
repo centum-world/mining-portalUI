@@ -29,6 +29,7 @@ export class WithdrawDialogComponent implements OnInit {
   callApiToPrimaryAccount(){
     const stateHandlerId =  localStorage.getItem('stateHandlerId')
     const franchiseId = localStorage.getItem('franchiseId');
+    const memberID = localStorage.getItem('userdetail');
     if(stateHandlerId){
       let data = {
         user_id:stateHandlerId
@@ -53,6 +54,19 @@ export class WithdrawDialogComponent implements OnInit {
           console.log(err.error.message)
         }
       })
+    }else if(memberID){
+      let data = {
+        user_id:memberID
+      }
+      this.userService.callApiToShoPrimaryAccount(data).subscribe({
+        next:(res:any)=>{
+          this.primaryAccount = res.primaryBank.bank_name;
+          console.log(this.primaryAccount)
+        },
+        error:(err)=>{
+          console.log(err.error.message)
+        }
+      })
     }
   }
 
@@ -64,6 +78,8 @@ export class WithdrawDialogComponent implements OnInit {
 
     const stateHandlerId = localStorage.getItem('stateHandlerId')
     const franchiseId = localStorage.getItem("franchiseId");
+    const memberId = localStorage.getItem('userdetail');
+
     if(stateHandlerId){
       let data = {
         userId: stateHandlerId,
@@ -94,12 +110,28 @@ export class WithdrawDialogComponent implements OnInit {
           this.tostr.warning(err.error.message)
         })
       })
+    }else if(memberId){
+      let data = {
+        memberId: memberId,
+        amount: this.amount,
+        bank: this.primaryAccount
+      }
+      this.userService.createRequsetWithdrawal(data).subscribe({
+        next:(res:any)=>{
+          this.tostr.success(res.message)
+          this.callApiToMyDetails()
+        },
+        error:(err=>{
+          this.tostr.warning(err.error.message)
+        })
+      })
     }
   }
 
   callApiToMyDetails(){
     const stateHandlerId = localStorage.getItem('stateHandlerId');
     const franchiseId = localStorage.getItem("franchiseId");
+    const memberId = localStorage.getItem('userdetail');
     if(stateHandlerId){
       let data = {
         stateHandlerId : stateHandlerId
@@ -121,6 +153,19 @@ export class WithdrawDialogComponent implements OnInit {
         next:(res:any)=>{
           console.log(res)
           this.myWallet = res.franchise.franchiseWallet;
+        },
+        error:(err=>{
+          console.log(err.error.message)
+        })
+      })
+    }else if(memberId){
+      let data = {
+        m_userid : memberId
+      }
+      this.userService.fetchMemberPortalDetails(data).subscribe({
+        next:(res:any)=>{
+          console.log(res.data[0].member_wallet)
+          this.myWallet = res.data[0].member_wallet;
         },
         error:(err=>{
           console.log(err.error.message)

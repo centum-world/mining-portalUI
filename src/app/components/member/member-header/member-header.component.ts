@@ -106,19 +106,24 @@ export class MemberHeaderComponent implements OnInit {
  
   }
 
-  memberWithdrawalRequest(){
+  withdrawal(){
     this.router.navigate(['/memberdashboard/withdrawal-request']);
     this.isVisible = false;
   }
 
-  memberWithdrawalSuccess(){
-    this.router.navigate(['/memberdashboard/withdrawal-success']);
-    this.isVisible = false;
-  }
 
   myTeam(){
     this.router.navigate(['/memberdashboard/my-team']);
     this.isVisible = false;
+  }
+
+  referralPayout(){
+    this.router.navigate(['/memberdashboard/referral-payout']);
+    this.isVisible = false;
+  }
+
+  dashboard(){
+    this.router.navigate(['/memberdashboard']);
   }
 
   logOut(){

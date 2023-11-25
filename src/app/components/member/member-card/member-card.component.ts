@@ -130,7 +130,7 @@ export class MemberCardComponent implements OnInit {
     this.router.navigate(['/memberdashboard/withdrawal-request']);
   }
   viewWithdrawalSuccessList(){
-    this.router.navigate(['/memberdashboard/withdrawal-success']);
+    this.router.navigate(['/memberdashboard/withdrawal-request']);
   }
   myTeamDetailsInPopup() {
 

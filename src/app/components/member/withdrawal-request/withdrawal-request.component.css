@@ -1,88 +1,83 @@
+.withdrawal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 330px;
+}
+.withdrawal-header {
+  font-size: 24px;
+  font-weight: 600;
+}
+.arrow span {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 2px;
+}
 
-  /* ---------------------------- */
-  .bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 330px;
-  }
-  .example-card {
-    margin: 10px;
-    width: 250px;
-  }
-  .payment-card{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 50%;
-  }
-  
-  .bank-details{
-    display: flex;
-    justify-content: space-between;
+.withdrawal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  background: yellow;
+  cursor: pointer;
+}
+.withdrawal-btn p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.account-section {
+  margin-left: 330px;
+}
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+}
+.example-card {
+  margin: 10px;
+  width: 320px;
+}
+
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
+}
+.example-header-image {
+  background-image: url("/assets/image/bank.jpg");
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .bakk-div {
+    flex-direction: column;
     align-items: center;
   }
-  .bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+  .withdrawal-header{
+    margin-top: 100px;
   }
-  .example-header-image{
-    background-image: url("/assets/image/bank.jpg");
-    background-size: cover;
-  }
-  .partner-history-card{
-    width: 70%;
-    margin-top: 5%;
-  }
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 5px;
-    margin: 10px;
-    box-sizing: border-box;
-    position: relative; /* Position relative for pseudo-element positioning */
-  }
-  
-  /* Style for the divider between columns */
-  .column:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -5px; /* Adjust this value to control the width of the divider */
-    height: 100%;
-    width: 1px; /* Width of the divider */
-    background-color: #ccc; /* Divider color */
+  .withdrawal-header,.account-section{
+    margin-left: 0;
   }
 
-  @media (max-width: 768px) {
-    .example-card{
-      width: 100%;
-      margin-right: 0;
-    }
-    .bakk-div{
-      margin-left: 0;
-      margin-right: 0;
-    }
+  .example-card {
+    width: 90%;
   }
-  @media (max-width: 576px) {
-    .bakk-div{
-      width: 99%;
-      margin-top: 100px;
-      margin-left: 0;
-      margin-right: 0;
-
-    }
-      .example-card{
-        width: 100%;
-        margin-right: 0;
-      }
-      .single-line-content{
-        width: 95%px;
-      }
+  .withdrwal-button {
+    width: 113px;
+    font-size: 12px;
   }
+  .sho-withdrawal-header p {
+    font-size: 15px;
+  }
+}

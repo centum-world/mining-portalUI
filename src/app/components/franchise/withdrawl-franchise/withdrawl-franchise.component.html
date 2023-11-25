@@ -5,11 +5,11 @@
 <div class="account-section">
    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
        <mat-tab label="Request withdrawal">
-           <div *ngIf="requestHistory.length === 0; else requestContent">
+           <div *ngIf="requestHistroy.length === 0; else requestContent">
                <p>No requests found</p>
            </div>
            <ng-template #requestContent>
-               <div class="bakk-div" *ngFor="let data of requestHistory">
+               <div class="bakk-div" *ngFor="let data of requestHistroy">
                    <mat-card class="example-card">
                        <mat-card-header>
                            <div mat-card-avatar class="example-header-image"></div>
