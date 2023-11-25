@@ -1355,5 +1355,27 @@ export class UserService {
       
     }) 
   }
+
+  //create request withdrawal for member
+  createRequsetWithdrawal(data:any){
+    return this.http.post(this.url + "/member/member/member-withdrawal-request", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
+
+  //fetch request withdrawal for member
+  paymentRequestForMember(data:any){
+    return this.http.post(this.url + "/member/fetch-member-withdrawal-request", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    }) 
+  }
  
+  //fetch approved withdrawa for member
+  paymentApprovedForMember(data:any){
+    return this.http.post(this.url + "/admin/fetch-particular-member-approved-withdrawal-history", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    }) 
+  }
 }

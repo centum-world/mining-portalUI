@@ -17,8 +17,8 @@
       </li>
 
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-money" [matMenuTriggerFor]="menuBank"></i>
-          <span [matMenuTriggerFor]="menuBank">Withdrawal</span>
+        <a href="javascript:void(0)"><i class="fa fa-money"></i>
+          <span (click)="withdrawal()">Withdrawal</span>
         </a>
       </li>
 
@@ -28,19 +28,21 @@
         </a>
       </li>
       <li>
+        <a href="javascript:void(0)"><i class="fa fa-share"></i>
+          <span (click)="referralPayout()" >Referral payout</span>
+        </a>
+      </li>
+      <li>
         <a href=""><i class="fa fa-sign-out"></i>
           <span (click)="logOut()">Log Out</span>
         </a>
       </li>
     </ul>
-    <mat-menu #menuBank="matMenu">
+    <!-- <mat-menu #menuBank="matMenu">
       <button mat-menu-item (click)="memberWithdrawalRequest()" >Request</button>
       <button mat-menu-item  (click)="memberWithdrawalSuccess()">Approved</button>
-    </mat-menu>
-    <!-- <mat-menu #menuBank="matMenu">
-      <button mat-menu-item>Request</button>
-      <button mat-menu-item>Approved</button>
     </mat-menu> -->
+    
   </div>
 </div>
 

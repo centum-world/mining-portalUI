@@ -1,37 +1,76 @@
-<div class="bakk-div">
-    <ng-container *ngIf="partnerRequestHistory && partnerRequestHistory.length > 0; else noRequests">
-        <mat-card class="example-card" *ngFor="let data of partnerRequestHistory">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Request details</mat-card-title>
-            </mat-card-header>
-            <mat-divider></mat-divider>
-            <mat-card-content class="single-line-content">
-                <div class="bank-details">
-                    <h2>Id</h2>{{ data.m_userid }}
-                </div>
-                <div class="bank-details">
-                    <h2>Amount</h2><strong>{{ data.member_wallet | currency:'INR':'symbol':'1.2-2' }}</strong>
-                </div>
-                <div class="bank-details">
-                    <h2>Referral</h2>{{ data.reffer_p_userid }}
-                </div>
-                <div class="bank-details">
-                    <h2>Request date</h2>{{ data.request_date | date }}
-                </div>
-            </mat-card-content>
-            <mat-divider></mat-divider>
-            <mat-card-actions>
-                <button mat-button style="background: rgb(87, 251, 87);">Request</button>
-                <button mat-button style="background: red;">Approve</button>
-            </mat-card-actions>
-        </mat-card>
-    </ng-container>
-    <ng-template #noRequests>
-        <mat-card class="example-card">
-            <mat-card-content>
-                <p>No withdrawal request</p>
-            </mat-card-content>
-        </mat-card>
-    </ng-template>
+<div class="withdrawal-header">
+    <div class="arrow"><mat-icon (click)="goBack()" style="cursor: pointer;">arrow_back</mat-icon><span>Withdrawal</span></div>
+    <div class="withdrawal-btn" (click)="openWithdrawalRequest()">
+        <p>Withdraw now</p>
+    </div>
+</div>
+
+<div class="account-section">
+    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
+        <mat-tab label="Requset withdral">
+            <div class="bakk-div" *ngFor="let data of requestHistroy">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>Request</mat-card-title>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-card-content class="single-line-content">
+                        <div class="bank-details">
+                          <h2>Id</h2><strong>{{data.userId}}</strong>
+                        </div>
+                        <div class="bank-details">
+                          <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2' }}</strong>
+                        </div>
+                        <div class="bank-details">
+                          <h2>Bank</h2><strong>{{data.paymentBy}}</strong>
+                        </div>
+                        <div class="bank-details">
+                          <h2>Request Date</h2><strong>{{data.requestDate | date}}</strong>
+                        </div>
+                      </mat-card-content>
+                      <mat-divider></mat-divider>
+                    <mat-card-actions>
+                      <button mat-button style="background: rgb(0, 255, 38);;">Request successful</button>
+                     
+                    </mat-card-actions>
+                  </mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Approved withdrawal">
+            <div class="bakk-div">
+                <mat-card class="example-card" *ngFor="let data of approvedHistory">
+                   <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+    
+                      <mat-card-title>Approved</mat-card-title>
+    
+                   </mat-card-header>
+                   <mat-divider></mat-divider>
+                   <mat-card-content class="single-line-content">
+                      <div class="bank-details">
+                         <h2>Id</h2><strong>{{data.userId}} </strong>
+                      </div>
+                      <div class="bank-details">
+                         <h2>Bank name</h2><strong>{{data.bankName}}</strong>
+                      </div>
+                      <div class="bank-details">
+                         <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
+                      </div>
+                      <div class="bank-details">
+                         <h2>Request date</h2><strong>{{data.requestDate | date}} </strong>
+                      </div>
+                      <div class="bank-details">
+                         <h2>Approved date</h2><strong>{{data.approveDate | date}} </strong>
+                      </div>
+    
+                   </mat-card-content>
+                   <mat-divider></mat-divider>
+                   <mat-card-actions>
+                      <button mat-button style="background: rgb(0, 255, 38);">Approved successful</button>
+                   </mat-card-actions>
+                </mat-card>
+             </div> 
+        </mat-tab>
+    </mat-tab-group>    
 </div>

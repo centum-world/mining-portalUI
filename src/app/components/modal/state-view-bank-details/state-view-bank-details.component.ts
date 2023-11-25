@@ -38,9 +38,10 @@ export class StateViewBankDetailsComponent implements OnInit {
       this.dataSource.data = data;
       this.bankDetails = data;
       for (const entry of data) {
+        this.shoID = entry.user_id;
         if (entry.isPrimary === 1) {
           this.selectedBank.bankName = entry.bank_name;
-          this.shoID = entry.user_id;
+          // this.shoID = entry.user_id;
         }
       }
     } else {

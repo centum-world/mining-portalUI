@@ -201,6 +201,7 @@ import { FranchiseTeamComponent } from './components/white-paper/franchise-team/
 import { TechTeamComponent } from './components/white-paper/tech-team/tech-team.component';
 import { ManagementTeamComponent } from './components/white-paper/management-team/management-team.component';
 import { FounderTeamComponent } from './components/white-paper/founder-team/founder-team.component';
+import { MemberReferrralPayoutComponent } from './components/member/member-referrral-payout/member-referrral-payout.component';
 
 @NgModule({
   declarations: [
@@ -374,7 +375,8 @@ import { FounderTeamComponent } from './components/white-paper/founder-team/foun
     ShoTeamComponent,
     FranchiseTeamComponent,
     ManagementTeamComponent,
-    FounderTeamComponent
+    FounderTeamComponent,
+    MemberReferrralPayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -478,7 +480,7 @@ import { FounderTeamComponent } from './components/white-paper/founder-team/foun
     PartnerBondComponent,
     HelpSupportComponent,
     PartnerQueryComponent,
-    MyQueryComponent
+    MyQueryComponent,
   ],
   providers: [
     {
