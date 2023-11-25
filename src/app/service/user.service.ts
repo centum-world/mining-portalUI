@@ -1363,6 +1363,12 @@ export class UserService {
       
     }) 
   }
+  memberReferralPayoutHistory(data:any){
+    return this.http.post(this.url + "/admin/member-referral-payout-history", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+      
+    })
+  }
 
   //fetch request withdrawal for member
   paymentRequestForMember(data:any){
