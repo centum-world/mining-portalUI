@@ -376,7 +376,7 @@ import { MemberReferrralPayoutComponent } from './components/member/member-refer
     ShoTeamComponent,
     FranchiseTeamComponent,
     ManagementTeamComponent,
-    FounderTeamComponent,,
+    FounderTeamComponent,
     MemberReferrralPayoutComponent
   ],
   imports: [

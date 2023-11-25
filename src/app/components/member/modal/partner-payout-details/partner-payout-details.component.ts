@@ -33,6 +33,9 @@ export class PartnerPayoutDetailsComponent implements OnInit {
         let lastPaymentOfIndex = approveArray.length;
         this.partnerDetails.lastPaymentDate = approveArray[lastPaymentOfIndex - 1].approve_date;
         console.log(this.partnerDetails.lastPaymentDate);
+      },
+      error: (error) => {
+        console.log(error.error.message)
       }
     })
   }

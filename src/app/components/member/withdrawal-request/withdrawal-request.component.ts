@@ -43,6 +43,7 @@ export class WithdrawalRequestComponent implements OnInit {
   ngOnInit() {
     this.callApiToFetchMemberWithdrawalRequest();
     this.dataSource.paginator = this.paginator;
+    this.tabChanged(0)
   }
 
   callApiToFetchMemberWithdrawalRequest() {

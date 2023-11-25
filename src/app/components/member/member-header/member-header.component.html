@@ -2,10 +2,10 @@
 
 <div class="sidebar">
   <div class="sidebar-brand">
-    <h3><a class="fa fa-qrcode" href="/memberdashboard"></a></h3>
+    <h3><a class="fa fa-qrcode" href="javascript:void(0)" (click)="dashboard()"></a></h3>
     <h2>
       <span class="fa fa-qrcode"></span
-      ><a style="color: #fff" href="/memberdashboard">Dashboard</a>
+      ><a style="color: #fff" href="javascript:void(0)" (click)="dashboard()">Dashboard</a>
     </h2>
   </div>
   <div class="sidebar-menu">
@@ -95,13 +95,6 @@
         </a>
       </li>
 
-      <!-- <li>
-        <a href="javascript:void(0)">
-          <i class="fa fa-plus"></i>
-          <span>Add Partner</span>
-        </a>
-      </li> -->
-
       <li>
         <a href="javascript:void(0)"><i class="fa fa-users" ></i>
           <span (click)="myTeam()" >My Team</span>
@@ -109,10 +102,15 @@
       </li>
 
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-money" [matMenuTriggerFor]="menuBank"></i>
-          <span [matMenuTriggerFor]="menuBank">Withdrawal</span>
+        <a href="javascript:void(0)"><i class="fa fa-money"></i>
+          <span (click)="withdrawal()">Withdrawal</span>
+        </a>
+      </li><li>
+        <a href="javascript:void(0)"><i class="fa fa-share"></i>
+          <span (click)="referralPayout()" >Referral payout</span>
         </a>
       </li>
+
 
       <li>
         <a href="">

@@ -1,80 +1,83 @@
-
-  .withdrawal-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 330px;
-  }
-  .withdrawal-header{
-    font-size: 24px;
-    font-weight: 600;
-  }
-  .arrow span{
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .withdrawal-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    border-radius: 8px;
-    background: yellow;
-    cursor: pointer;
-  }
-  .withdrawal-btn p{
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-
-  .account-section{
-    margin-left: 300px;
+.withdrawal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 330px;
 }
-.bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
+.withdrawal-header {
+  font-size: 24px;
+  font-weight: 600;
+}
+.arrow span {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.withdrawal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  background: yellow;
+  cursor: pointer;
+}
+.withdrawal-btn p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.account-section {
+  margin-left: 330px;
+}
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
 }
 .example-card {
-    margin: 10px;
-    width: 330px;
+  margin: 10px;
+  width: 320px;
 }
-  
-.bank-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
+
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 }
-.bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
 }
-.example-header-image{
-    background-image: url("/assets/image/bank.jpg");
-    background-size: cover;
+.example-header-image {
+  background-image: url("/assets/image/bank.jpg");
+  background-size: cover;
 }
 
 @media (max-width: 767px) {
-    .bakk-div {
-        flex-direction: column;
-        align-items: center;
-    }
+  .bakk-div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .withdrawal-header{
+    margin-top: 100px;
+  }
+  .withdrawal-header,.account-section{
+    margin-left: 0;
+  }
 
-    .example-card {
-        width: 90%;
-    }
-    .withdrwal-button {
-        width: 113px;
-        font-size: 12px;
-    }
-    .sho-withdrawal-header p{
-        font-size: 15px;
-    }
-    
-
+  .example-card {
+    width: 90%;
+  }
+  .withdrwal-button {
+    width: 113px;
+    font-size: 12px;
+  }
+  .sho-withdrawal-header p {
+    font-size: 15px;
+  }
 }

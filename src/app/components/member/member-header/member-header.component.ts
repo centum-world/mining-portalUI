@@ -108,17 +108,9 @@ export class MemberHeaderComponent implements OnInit {
 
   withdrawal(){
     this.router.navigate(['/memberdashboard/withdrawal-request']);
+    this.isVisible = false;
   }
 
-  // memberWithdrawalRequest(){
-  //   this.router.navigate(['/memberdashboard/withdrawal-request']);
-  //   this.isVisible = false;
-  // }
-
-  // memberWithdrawalSuccess(){
-  //   this.router.navigate(['/memberdashboard/withdrawal-success']);
-  //   this.isVisible = false;
-  // }
 
   myTeam(){
     this.router.navigate(['/memberdashboard/my-team']);
@@ -127,7 +119,11 @@ export class MemberHeaderComponent implements OnInit {
 
   referralPayout(){
     this.router.navigate(['/memberdashboard/referral-payout']);
+    this.isVisible = false;
+  }
 
+  dashboard(){
+    this.router.navigate(['/memberdashboard']);
   }
 
   logOut(){
