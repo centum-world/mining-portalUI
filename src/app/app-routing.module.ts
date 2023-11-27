@@ -82,6 +82,7 @@ import { ReferralPayoutComponent } from "./components/mining/referral-payout/ref
 import { StatePartnerMyTeamComponent } from "./components/sho/state-partner-my-team/state-partner-my-team.component";
 import { WhitePaperComponent } from "./components/white-paper/white-paper.component";
 import { MemberReferrralPayoutComponent } from "./components/member/member-referrral-payout/member-referrral-payout.component";
+import { FranchiseReferralComponent } from "./components/franchise/franchise-referral/franchise-referral.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -186,6 +187,7 @@ const routes: Routes = [
       {path:"withdrawal-request-history",component:FranchiseWithdrawalRequestComponent},
       {path:"withdrawal-history",component:FranchiseWithdrawalSuccessHistoryComponent},
       {path:"partner-my-team",component:FranchisePartnerMyTeamComponent},
+      {path:"referral-payout", component: FranchiseReferralComponent},
       { path: "", redirectTo: "/franchisedashboard/home", pathMatch: "full" },
     ],
   },

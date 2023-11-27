@@ -144,4 +144,9 @@ export class FranchiseHeaderComponent implements OnInit {
     this.router.navigate(['/franchisedashboard/withdrawal-list'])
     this.isVisible = false;
   }
+
+  handleReferralClick(){
+    this.router.navigate(['/franchisedashboard/referral-payout'])
+    this.isVisible = false;
+  }
 }
