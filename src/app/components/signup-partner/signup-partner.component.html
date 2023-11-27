@@ -22,6 +22,16 @@
             <form action="" [formGroup]="partnerSignUpForm" (ngSubmit)="addPartnerData(partnerSignUpForm)">
               <div class="mining-form-fields" class="first-half-input-fields">
                 <div class="reffer-box">
+                  <mat-form-field>
+                    <mat-label>Select referral type</mat-label>
+                    <mat-select [(value)]="role">
+                      <mat-option>Select one</mat-option>
+                      <mat-option value="MEMBER">Member</mat-option>
+                      <mat-option value="FRANCHISE">Franchise</mat-option>
+                      <mat-option value="BMM">BMM</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
                   <mat-form-field appearance="outline" class="refferal-input">
                     <mat-label>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -30,7 +40,7 @@
                           d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                       </svg>Reffered ID</mat-label>
                     <input matInput formControlName="reffered_id" required/>
-                    <span class="input-subtitle">If you don't have any refferal id , Enter admin@123</span>
+                    
                   </mat-form-field>
                 </div>
 

@@ -84,6 +84,9 @@ import { WhitePaperComponent } from "./components/white-paper/white-paper.compon
 import { ShoReferralPayoutComponent } from "./components/sho/sho-referral-payout/sho-referral-payout.component";
 import { MemberReferrralPayoutComponent } from "./components/member/member-referrral-payout/member-referrral-payout.component";
 import { FranchiseReferralComponent } from "./components/franchise/franchise-referral/franchise-referral.component";
+import { ReferralListComponent } from "./components/franchise/referral-list/referral-list.component";
+import { MyPartnerlistComponent } from "./components/member/my-partnerlist/my-partnerlist.component";
+import { BmmPartnerlistComponent } from "./components/sho/bmm-partnerlist/bmm-partnerlist.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -158,6 +161,7 @@ const routes: Routes = [
       {path:"withdrawal-success",component:WithdrawalSuccessComponent},
       {path:"withdrawal-request",component:WithdrawalRequestComponent},
       {path:"my-team",component:MyTeamComponent},
+      {path:"partner-list", component:MyPartnerlistComponent},
       {path:"referral-payout", component:MemberReferrralPayoutComponent},
       { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
     ]
@@ -172,6 +176,7 @@ const routes: Routes = [
       { path: "franchise-list", component: FranchiseListComponent },
       { path: "franchise-account", component: AccountFranchiseComponent},
       { path: "withdrawal-list", component: PaymentRequestComponent},
+      {path: "partner-list", component: BmmPartnerlistComponent},
       {path:"partner-team",component:StatePartnerMyTeamComponent},
       {path:"referral-payout",component:ShoReferralPayoutComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
@@ -184,7 +189,8 @@ const routes: Routes = [
     children: [
       { path: "home", component: FranchiseCardComponent },
       { path: "add-bd", component: AddBusinessDeveloperComponent},
-      { path: "bd-list", component: ListBusinessDeveloperComponent},
+      { path: "partner-list", component: ListBusinessDeveloperComponent},
+      { path: "member-list", component: ReferralListComponent},
       {path: "withdrawal-list", component: WithdrawlFranchiseComponent},
       {path:"withdrawal-request-history",component:FranchiseWithdrawalRequestComponent},
       {path:"withdrawal-history",component:FranchiseWithdrawalSuccessHistoryComponent},

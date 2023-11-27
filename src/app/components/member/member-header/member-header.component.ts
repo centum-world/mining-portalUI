@@ -116,6 +116,11 @@ export class MemberHeaderComponent implements OnInit {
     this.router.navigate(['/memberdashboard/my-team']);
     this.isVisible = false;
   }
+  
+  partnerList(){
+    this.router.navigate(['/memberdashboard/partner-list']);
+    this.isVisible = false;
+  }
 
   referralPayout(){
     this.router.navigate(['/memberdashboard/referral-payout']);

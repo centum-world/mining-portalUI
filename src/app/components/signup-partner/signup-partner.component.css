@@ -65,6 +65,7 @@
 .signup-fields-container{
   width: 100%;
   padding: 20px;
+  margin-top: 30%;
 }
 
 .first-half-input-fields{
@@ -150,10 +151,14 @@
   .signup-right-wrapper{
     height: auto;
   }
+  .signup-fields-container{
+    margin-top: 120%;
+  }
 }
 
 @media only screen and(max-width: 475px){
   .name-box{
     flex-wrap: wrap;
   }
+  
 }

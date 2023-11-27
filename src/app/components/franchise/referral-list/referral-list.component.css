@@ -1,0 +1,64 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    padding: 10px;
+
+}
+.heading{
+    display: flex;
+}
+.heading p{
+    font-size: 20px;
+    font-weight: 600;
+    margin: -4px 0 0 5px;   
+}
+
+.large-expand {
+    overflow-x: auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+}
+.franchise-list-header{
+    font-weight: bold;
+    color: black;
+}
+.mat-cell,
+.mat-header-cell {
+  padding: 8px; /* Adjust the padding as needed */
+  text-align: left; /* Left-align cell content */
+  border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+}
+
+/* Style the header row */
+.mat-header-row {
+  background-color: #f0f0f0; /* Add a background color to the header row */
+}
+
+/* Add a border to the last cell in each row */
+.mat-cell:last-child,
+.mat-header-cell:last-child {
+  border-right: 1px solid #ddd;
+}
+
+/* Optional: Adjust scrollbar style */
+.large-expand::-webkit-scrollbar {
+    width: 12px;
+}
+
+.large-expand::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.large-expand::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

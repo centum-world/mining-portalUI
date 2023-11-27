@@ -7,11 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { VerifyPartnerComponent } from '../../admin/dialog/verify-partner/verify-partner.component';
 import { PartnerViewComponent } from '../../admin/dialog/partner-view/partner-view.component';
+import { VerifyPartnerComponent } from '../../admin/dialog/verify-partner/verify-partner.component';
 
-
-interface Bd {
+interface Partner {
   fname: string;
   lname: string;
   businessDeveloperId: string;
@@ -24,20 +23,19 @@ interface Bd {
   verify: string;
   actions: string
 }
-
 @Component({
-  selector: 'app-list-business-developer',
-  templateUrl: './list-business-developer.component.html',
-  styleUrls: ['./list-business-developer.component.css']
+  selector: 'app-bmm-partnerlist',
+  templateUrl: './bmm-partnerlist.component.html',
+  styleUrls: ['./bmm-partnerlist.component.css']
 })
-export class ListBusinessDeveloperComponent implements OnInit {
+export class BmmPartnerlistComponent implements OnInit {
   isBlock:boolean;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['businessDeveloperId', 'fname', 'lname', 'email', 'phone',
     'liquidity', 'state',
     'referralId', 'referredId', 'isVerify', 'actions'
   ];
-  dataSource: MatTableDataSource<Bd>;
+  dataSource: MatTableDataSource<Partner>;
   constructor(private router: Router, private userService: UserService,
      private dialog: MatDialog,
      private toastr: ToastrService) {
@@ -54,7 +52,7 @@ export class ListBusinessDeveloperComponent implements OnInit {
 
   callApiToAllPartner() {
     let data = {
-      referralId: localStorage.getItem('franchiseReferralId')
+      referralId: localStorage.getItem('stateRefferalId')
     }
     this.userService.callApiToPartnerDetails(data).subscribe({
       next: (res: any) => {
@@ -66,11 +64,6 @@ export class ListBusinessDeveloperComponent implements OnInit {
       })
     })
   }
-
-  createbd() {
-    this.router.navigate(['/franchisedashboard/add-bd']);
-  }
-
 
   openViewBDDialog(partner:any){
     let config: MatDialogConfig = {
@@ -113,8 +106,4 @@ export class ListBusinessDeveloperComponent implements OnInit {
     });
   }
 
-
-  goBack(){
-    this.router.navigate(['/franchisedashboard'])
-  }
 }

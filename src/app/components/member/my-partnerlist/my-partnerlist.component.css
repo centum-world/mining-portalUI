@@ -1,0 +1,54 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 330px;
+    margin-top: -50px;
+}
+.heading{
+    display: flex;
+}
+.heading p{
+    font-size: 20px;
+    font-weight: 600;
+    margin: -4px 0 0 5px;   
+}
+
+.large-expand {
+    overflow-x: auto;
+    padding: 1px;
+    margin-left: 330px;
+}
+
+table {
+    width: 100%;
+}
+
+/* Optional: Adjust scrollbar style */
+.large-expand::-webkit-scrollbar {
+    width: 12px;
+}
+
+.large-expand::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.large-expand::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 768px){
+    .large-expand{
+        padding: 0px;
+        margin-left: 0px;
+    }
+    .header{
+        margin-left: 0px;
+        margin-top: 100px;
+    }
+  }

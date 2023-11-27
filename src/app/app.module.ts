@@ -204,6 +204,9 @@ import { FounderTeamComponent } from './components/white-paper/founder-team/foun
 import { MemberReferrralPayoutComponent } from './components/member/member-referrral-payout/member-referrral-payout.component';
 import { FranchiseReferralComponent } from './components/franchise/franchise-referral/franchise-referral.component';
 import { ShoReferralPayoutComponent } from './components/sho/sho-referral-payout/sho-referral-payout.component';
+import { ReferralListComponent } from './components/franchise/referral-list/referral-list.component';
+import { MyPartnerlistComponent } from './components/member/my-partnerlist/my-partnerlist.component';
+import { BmmPartnerlistComponent } from './components/sho/bmm-partnerlist/bmm-partnerlist.component';
 
 
 @NgModule({
@@ -381,7 +384,10 @@ import { ShoReferralPayoutComponent } from './components/sho/sho-referral-payout
     FounderTeamComponent,
     ShoReferralPayoutComponent,
     MemberReferrralPayoutComponent,
-    FranchiseReferralComponent
+    FranchiseReferralComponent,
+    ReferralListComponent,
+    MyPartnerlistComponent,
+    BmmPartnerlistComponent
   ],
   imports: [
     BrowserModule,

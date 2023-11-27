@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
 import { WithdrawDialogComponent } from '../../sho/diolog/withdraw-dialog/withdraw-dialog.component';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-withdrawl-franchise',
@@ -12,7 +13,7 @@ export class WithdrawlFranchiseComponent implements OnInit {
 
   requestHistroy = [];
   approvedHistory = [];
-  constructor(private dialog:MatDialog, private userService:UserService) { }
+  constructor(private dialog:MatDialog, private userService:UserService, private router : Router) { }
 
   ngOnInit() {
     this.tabChanged(0);
@@ -55,6 +56,10 @@ export class WithdrawlFranchiseComponent implements OnInit {
         }
       })
     }
+  }
+
+  goBack(){
+    this.router.navigate(['/franchisedashboard'])
   }
 
 }

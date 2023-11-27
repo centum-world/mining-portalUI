@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPartnerComponent implements OnInit {
+  role:"";
   aadharImage: null;
   aadharBackImage:null;
   panImage:null;
@@ -96,6 +97,7 @@ export class SignupPartnerComponent implements OnInit {
     formData.append('adhar_front_side', this.aadharImage);
     formData.append('adhar_back_side', this.aadharBackImage);
     formData.append('panCard',this.panImage);
+    formData.append('role',this.role);
   
     this.userService.signUpPartner(formData).subscribe({
       next: response => {

@@ -80,7 +80,7 @@ export class UserService {
 
   // Add Mining Partner  Bnak Details
 
-  addMiningPartnerBankDetails(data:any) {
+  addMiningPartnerBankDetails(data: any) {
     return this.http.post(this.url + "/mining/partner-bank-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -88,7 +88,7 @@ export class UserService {
 
   // Fetch Mining Partner Bank Details
 
-  fetchMiningPartnerBankDetails(data:any) {
+  fetchMiningPartnerBankDetails(data: any) {
     return this.http.post(
       this.url + "/mining/fetch-partner-bank-details",
       data,
@@ -409,7 +409,7 @@ export class UserService {
     );
   }
 
-  fetchPartnerDetailsForAdminUsingPartnerId(data:any) {
+  fetchPartnerDetailsForAdminUsingPartnerId(data: any) {
     return this.http.post(
       this.url + "/admin/fetch-mining-partner-profile-details-from-admin",
       data,
@@ -430,13 +430,13 @@ export class UserService {
   }
 
   //member Sign up
-  signUpMember(formData:FormData) : Observable<any>{
-    return this.http.post(`${this.url}/signup/member-signup`, formData)
+  signUpMember(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}/signup/member-signup`, formData);
   }
 
   //signUp partner
-  signUpPartner(formData:FormData): Observable<any> {
-    return this.http.post(`${this.url}/signup/partner-signup`, formData)
+  signUpPartner(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}/signup/partner-signup`, formData);
   }
 
   // pendingPayemntPartner
@@ -1138,250 +1138,317 @@ export class UserService {
     });
   }
   //callApitoFetchPerticularBdDetails
-  fetchBdPerticularDetials(data:any){
-    return this.http.post(this.url + "/bd/fetch-particular-bd", data,{
+  fetchBdPerticularDetials(data: any) {
+    return this.http.post(this.url + "/bd/fetch-particular-bd", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  bdApproved(data:any){
-    return this.http.post(this.url + "/admin/approve-payment-request-of-bd", data,{
+  bdApproved(data: any) {
+    return this.http.post(
+      this.url + "/admin/approve-payment-request-of-bd",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
+
+  getAllMemberDetails(data: any) {
+    return this.http.post(this.url + "/bd/fetch-members-referred-by-bd", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
- 
-  
-  getAllMemberDetails(data: any){
-    return this.http.post(this.url + "/bd/fetch-members-referred-by-bd",data, {
+  bdVerifyMember(data: any) {
+    return this.http.post(this.url + "/admin/admin-verify-member", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    })
-  }
-
-  bdVerifyMember(data: any){
-    return this.http.post(this.url + "/admin/admin-verify-member",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
   // business-fetch-withdrawal-request
 
-  businessDevFetchwithdrawalRequest(data: any){
-    return this.http.post(this.url + "/bd/bd/fetch-withdrawal-request",data, {
+  businessDevFetchwithdrawalRequest(data: any) {
+    return this.http.post(this.url + "/bd/bd/fetch-withdrawal-request", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
 
-  blockAndUnblockMember(data: any){
-    return this.http.post(this.url + "/admin/admin-block-member",data, {
+  blockAndUnblockMember(data: any) {
+    return this.http.post(this.url + "/admin/admin-block-member", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
-  businessDevFetchwithdrawalSuccessHistory(data: any){
-    return this.http.post(this.url + "/bd/bd/fetch-withdrawal-sucess-history",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
-  }
-
-  fetchBusinessDevTotalWithdrawal(data: any){
-    return this.http.post(this.url + "/bd/bd/business-dev-total-withdrawal",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  businessDevFetchwithdrawalSuccessHistory(data: any) {
+    return this.http.post(
+      this.url + "/bd/bd/fetch-withdrawal-sucess-history",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  fetchBusinessDevPartnerTeam(data: any){
-    return this.http.post(this.url + "/bd/bd/businessDev-fetch-partner-team",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  fetchBusinessDevTotalWithdrawal(data: any) {
+    return this.http.post(
+      this.url + "/bd/bd/business-dev-total-withdrawal",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  fetchFranchiseTotalWithdrawal(data: any){
-    return this.http.post(this.url + "/franchise/frenchise/fetch-total-withdrawal",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  fetchBusinessDevPartnerTeam(data: any) {
+    return this.http.post(
+      this.url + "/bd/bd/businessDev-fetch-partner-team",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-  fetchFranchisePartnerMyTeam(data: any){
-    return this.http.post(this.url + "/franchise/frenchise/fetch-partner-my-team",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  fetchFranchiseTotalWithdrawal(data: any) {
+    return this.http.post(
+      this.url + "/franchise/frenchise/fetch-total-withdrawal",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
+
+  fetchFranchisePartnerMyTeam(data: any) {
+    return this.http.post(
+      this.url + "/franchise/frenchise/fetch-partner-my-team",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   //member profile document update
   uploadMemberFrontAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-member `, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-front-side-member `,
+      formData
+    );
   }
- 
 
   uploadMemberBackAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-member`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-back-side-member`,
+      formData
+    );
   }
 
-  
   uploadPanImage(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-pan-card-member`, formData);
   }
 
-
   //bd profile document update
   uploadBdFrontAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-bd`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-front-side-bd`,
+      formData
+    );
   }
- 
 
   uploadBdBackAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-bd`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-back-side-bd`,
+      formData
+    );
   }
 
-  
   uploadBdPanImage(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-pan-card-bd`, formData);
   }
 
   //franchise profile document update
   uploadFranchiseFrontAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-franchise`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-front-side-franchise`,
+      formData
+    );
   }
- 
 
   uploalFranchiseBackAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-franchise`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-back-side-franchise`,
+      formData
+    );
   }
 
-  
   uploadFranchisePanImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-pan-card-franchise`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-pan-card-franchise`,
+      formData
+    );
   }
 
   //sho profile document update
   uploadShoFrontAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-sho`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-front-side-sho`,
+      formData
+    );
   }
- 
 
   uploalShoBackAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-sho`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-back-side-sho`,
+      formData
+    );
   }
 
-  
   uploadShoPanImage(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-pan-card-sho`, formData);
   }
 
   //partner profile document update
   uploadPartnerFrontAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-front-side-partner`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-front-side-partner`,
+      formData
+    );
   }
- 
 
   uploalPartnerBackAdharImage(formData: FormData): Observable<any> {
-    return this.http.put(`${this.url}/admin/upload-adhar-card-back-side-partner`, formData);
+    return this.http.put(
+      `${this.url}/admin/upload-adhar-card-back-side-partner`,
+      formData
+    );
   }
 
-  
   uploadPartnerPanImage(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-pan-card-partner`, formData);
   }
 
   //partnermy team
-  partnerMyTeam(data: any){
-    return this.http.post(this.url + "/mining/fetch-partner-by-referral-id-of-partner",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  partnerMyTeam(data: any) {
+    return this.http.post(
+      this.url + "/mining/fetch-partner-by-referral-id-of-partner",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   //partner referral request
-  partnerReferalRequst(data:any){
-    return this.http.post(this.url + "/mining/fetch-partner-refer-withdral",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  partnerReferalRequst(data: any) {
+    return this.http.post(
+      this.url + "/mining/fetch-partner-refer-withdral",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
   //partner refferal approved
-  partnerReferralApproved(data:any){
-    return this.http.post(this.url + "/admin/transfer-Partner-Withdrawl-To-Withdrawl-History",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  partnerReferralApproved(data: any) {
+    return this.http.post(
+      this.url + "/admin/transfer-Partner-Withdrawl-To-Withdrawl-History",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-  //fetch partner referral payout 
-  fetchPartnerReferralPayout(data:any){
-    return this.http.post(this.url + "/admin/fetch-partner-referral-withdrawl-history",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  //fetch partner referral payout
+  fetchPartnerReferralPayout(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-partner-referral-withdrawl-history",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-  // bond upload 
-  
+  // bond upload
+
   bondUpload(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}/admin/upload-bond`, formData);
   }
 
   // PartnerMyTeam
-  statePartnerMyTeam(data:any){
-    return this.http.post(this.url + "/state/state/my-partner-team",data, {
+  statePartnerMyTeam(data: any) {
+    return this.http.post(this.url + "/state/state/my-partner-team", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
   //fetch partner bond
-  fetchPartnerBond(){
+  fetchPartnerBond() {
     return this.http.get(this.url + "/admin/fetch-bond", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
 
   //fetch query
-  fetchQueery(data:any){
-    return this.http.post(this.url + "/admin/fetch-query", data,{
+  fetchQueery(data: any) {
+    return this.http.post(this.url + "/admin/fetch-query", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
   //change query status
-  changeQueryStatus(data:any){
-    return this.http.post(this.url + "/admin/query-resolve", data,{
+  changeQueryStatus(data: any) {
+    return this.http.post(this.url + "/admin/query-resolve", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+    });
   }
 
   //create request withdrawal for member
-  createRequsetWithdrawal(data:any){
-    return this.http.post(this.url + "/member/member/member-withdrawal-request", data,{
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  createRequsetWithdrawal(data: any) {
+    return this.http.post(
+      this.url + "/member/member/member-withdrawal-request",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
-  memberReferralPayoutHistory(data:any){
-    return this.http.post(this.url + "/admin/member-referral-payout-history", data,{
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    })
+  memberReferralPayoutHistory(data: any) {
+    return this.http.post(
+      this.url + "/admin/member-referral-payout-history",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
   //fetch request withdrawal for member
-  paymentRequestForMember(data:any){
-    return this.http.post(this.url + "/member/fetch-member-withdrawal-request", data,{
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      
-    }) 
+  paymentRequestForMember(data: any) {
+    return this.http.post(
+      this.url + "/member/fetch-member-withdrawal-request",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
- 
+
   //fetch approved withdrawa for member
-  paymentApprovedForMember(data:any){
-    return this.http.post(this.url + "/admin/fetch-particular-member-approved-withdrawal-history", data,{
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    }) 
+  paymentApprovedForMember(data: any) {
+    return this.http.post(
+      this.url + "/admin/fetch-particular-member-approved-withdrawal-history",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
+
+  // call partner details in member franchise BMM
+  callApiToPartnerDetails(data: any) {
+    return this.http.post(
+      this.url + "/state/state/fetch-partner-by-referral-id",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 }

@@ -7,12 +7,10 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatDialogConfig } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
-import { MemberVerifyModelComponent } from "../member-verify-model/member-verify-model.component";
 import { ViewMemberComponent } from "../../admin/dialog/view-member/view-member.component";
-import { MemberBlockModelComponent } from "../member-block-model/member-block-model.component";
-import { MemberEditModelComponent } from "../member-edit-model/member-edit-model.component";
+import { MemberVerifyModelComponent } from "../../bd/member-verify-model/member-verify-model.component";
 
-interface BusinessDeveloper {
+interface MemberData {
   m_name: string;
   m_lname: string;
   m_userid: string;
@@ -28,11 +26,11 @@ interface BusinessDeveloper {
 }
 
 @Component({
-  selector: "app-member-list",
-  templateUrl: "./member-list.component.html",
-  styleUrls: ["./member-list.component.css"],
+  selector: "app-referral-list",
+  templateUrl: "./referral-list.component.html",
+  styleUrls: ["./referral-list.component.css"],
 })
-export class MemberListComponent implements OnInit {
+export class ReferralListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   displayedColumns: string[] = [
@@ -53,8 +51,7 @@ export class MemberListComponent implements OnInit {
   memberId: string = "";
   isBlock: boolean;
 
-  dataSource: MatTableDataSource<BusinessDeveloper>;
-
+  dataSource: MatTableDataSource<MemberData>;
   constructor(
     private userService: UserService,
     private dialog: MatDialog,
@@ -71,11 +68,12 @@ export class MemberListComponent implements OnInit {
 
   callApiToGetAllMembersList() {
     let data = {
-      referralId: localStorage.getItem("bdRefferalId"),
+      referralId: localStorage.getItem("franchiseReferralId"),
     };
 
     this.userService.getAllMemberDetails(data).subscribe({
       next: (res: any) => {
+        console.log(res.results)
         this.dataSource.data = res.results;
       },
       error: (err) => {
@@ -91,13 +89,11 @@ export class MemberListComponent implements OnInit {
       data: data,
     };
     const dialogRef = this.dialog.open(ViewMemberComponent, config);
-    // dialogRef.componentInstance.okClicked.subscribe(() => {
-    //   console.log("clicked");
-    // });
     
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
+
   }
 
   openVerifyMemberDialog(id: any) {
@@ -128,60 +124,8 @@ export class MemberListComponent implements OnInit {
     });
   }
 
-  openIsBlockMemberDialog(id: any) {
-    this.memberId = id.m_userid;
-    this.isBlock = id.isBlocked;
-    let config: MatDialogConfig = {
-      height: "26%",
-      width: "23%",
-      panelClass: "myStateDialogClass",
-      data: id,
-    };
-    const dialogRef = this.dialog.open(MemberBlockModelComponent, config);
-    console.log(id);
 
-    dialogRef.componentInstance.okClicked.subscribe(() => {
-      let data = {
-        m_userid: this.memberId,
-        isBlocked: !this.isBlock,
-      };
-      this.userService.blockAndUnblockMember(data).subscribe({
-        next: (res: any) => {
-          this.toastr.success(res.message);
-          this.callApiToGetAllMembersList();
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("Closed");
-    });
-  }
-
-  openEditMemberDialog(id:any){
-    let config: MatDialogConfig = {
-      panelClass: 'myEditDialogClass',
-      data:id
-    };
-    const dialogRef = this.dialog.open(MemberEditModelComponent, config)
-    
-    dialogRef.afterClosed().subscribe(result => {
-      this.callApiToGetAllMembersList();
-    });
-  }
-
-  
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  openEditFranchiseDialog(data:any){
-
-  }
-  gotoFranchiseAccount(){
-    
+  goBack(){
+    this.router.navigate(['/franchisedashboard'])
   }
 }

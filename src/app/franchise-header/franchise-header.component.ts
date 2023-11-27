@@ -124,8 +124,8 @@ export class FranchiseHeaderComponent implements OnInit {
     this.router.navigate(['/franchisedashboard/home'])
     this.isVisible = false;
   }
-  listBussinessDeveloper(){
-    this.router.navigate(['/franchisedashboard/bd-list']);
+  PartnerList(){
+    this.router.navigate(['/franchisedashboard/partner-list']);
     this.isVisible = false;
   }
 
@@ -145,12 +145,13 @@ export class FranchiseHeaderComponent implements OnInit {
     this.isVisible = false;
   }
 
-  handleReferralClick(){
+  referralPayout(){
     this.router.navigate(['/franchisedashboard/referral-payout'])
     this.isVisible = false;
   }
-  referralPayout(){
-    this.router.navigate(['/franchisedashboard/referral-payout'])
+
+  MemberList(){
+    this.router.navigate(['/franchisedashboard/member-list'])
     this.isVisible = false;
   }
 }
