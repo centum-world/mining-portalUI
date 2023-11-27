@@ -81,6 +81,7 @@ import { MyteamPartnerComponent } from "./components/mining/myteam-partner/mytea
 import { ReferralPayoutComponent } from "./components/mining/referral-payout/referral-payout.component";
 import { StatePartnerMyTeamComponent } from "./components/sho/state-partner-my-team/state-partner-my-team.component";
 import { WhitePaperComponent } from "./components/white-paper/white-paper.component";
+import { ShoReferralPayoutComponent } from "./components/sho/sho-referral-payout/sho-referral-payout.component";
 import { MemberReferrralPayoutComponent } from "./components/member/member-referrral-payout/member-referrral-payout.component";
 import { FranchiseReferralComponent } from "./components/franchise/franchise-referral/franchise-referral.component";
 
@@ -172,6 +173,7 @@ const routes: Routes = [
       { path: "franchise-account", component: AccountFranchiseComponent},
       { path: "withdrawal-list", component: PaymentRequestComponent},
       {path:"partner-team",component:StatePartnerMyTeamComponent},
+      {path:"referral-payout",component:ShoReferralPayoutComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
     ],
   },

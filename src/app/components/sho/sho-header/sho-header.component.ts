@@ -92,6 +92,10 @@ export class ShoHeaderComponent implements OnInit {
     this.router.navigate(['/statedashboard/partner-list'])
     this.isVisible = false;
   }
+  referralPayout(){
+    this.router.navigate(['/statedashboard/referral-payout'])
+    this.isVisible = false;
+  }
   handleWithdrawalClick(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
     this.isVisible = false;

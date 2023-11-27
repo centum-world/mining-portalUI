@@ -16,6 +16,7 @@ export class FranchiseAccountComponent implements OnInit {
   bankDetails: []
   franchiseHistory = []
   approvedRequest = [];
+  franchiseReferralPayout = [];
   myWallet=0;
   constructor(
     private route: ActivatedRoute,
@@ -36,7 +37,7 @@ export class FranchiseAccountComponent implements OnInit {
   }
 
   tabChanged(event: any){
-    if (event === 2) {
+    if (event === 3) {
       console.log("event call 2");
       let data = {
         franchiseId: this.franchiseID,
@@ -72,6 +73,19 @@ export class FranchiseAccountComponent implements OnInit {
         next: (res: any) => {
           console.log(res)
           this.approvedRequest = res.paymentApprovals;
+        },
+        error: (error) => {
+          console.log(error.error.message)
+        }
+      })
+    } else if(event === 2){
+      let data = {
+        userid: this.franchiseID
+      }
+      this.userService.memberReferralPayoutHistory(data).subscribe({
+        next: (res: any) => {
+          console.log(res)
+          this.franchiseReferralPayout = res.data;
         },
         error: (error) => {
           console.log(error.error.message)
