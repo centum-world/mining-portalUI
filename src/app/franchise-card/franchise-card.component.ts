@@ -120,4 +120,8 @@ export class FranchiseCardComponent implements OnInit {
     })
   }
 
+  udgrade(){
+    this.router.navigate(['/franchisedashboard/promotion'])
+  }
+
 }

@@ -87,6 +87,9 @@ import { FranchiseReferralComponent } from "./components/franchise/franchise-ref
 import { ReferralListComponent } from "./components/franchise/referral-list/referral-list.component";
 import { MyPartnerlistComponent } from "./components/member/my-partnerlist/my-partnerlist.component";
 import { BmmPartnerlistComponent } from "./components/sho/bmm-partnerlist/bmm-partnerlist.component";
+import { MemberPromotionComponent } from "./components/member/member-promotion/member-promotion.component";
+import { FranchisePromotionComponent } from "./components/franchise/franchise-promotion/franchise-promotion.component";
+import { BmmPromotionComponent } from "./components/sho/bmm-promotion/bmm-promotion.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -162,6 +165,7 @@ const routes: Routes = [
       {path:"withdrawal-request",component:WithdrawalRequestComponent},
       {path:"my-team",component:MyTeamComponent},
       {path:"partner-list", component:MyPartnerlistComponent},
+      {path:"promotion", component:MemberPromotionComponent},
       {path:"referral-payout", component:MemberReferrralPayoutComponent},
       { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
     ]
@@ -179,6 +183,7 @@ const routes: Routes = [
       {path: "partner-list", component: BmmPartnerlistComponent},
       {path:"partner-team",component:StatePartnerMyTeamComponent},
       {path:"referral-payout",component:ShoReferralPayoutComponent},
+      {path: "promotion", component: BmmPromotionComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
     ],
   },
@@ -196,6 +201,7 @@ const routes: Routes = [
       {path:"withdrawal-history",component:FranchiseWithdrawalSuccessHistoryComponent},
       {path:"partner-my-team",component:FranchisePartnerMyTeamComponent},
       {path:"referral-payout", component: FranchiseReferralComponent},
+      {path:"promotion", component: FranchisePromotionComponent},
       { path: "", redirectTo: "/franchisedashboard/home", pathMatch: "full" },
     ],
   },

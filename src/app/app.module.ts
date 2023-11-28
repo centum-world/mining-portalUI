@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
@@ -207,6 +208,9 @@ import { ShoReferralPayoutComponent } from './components/sho/sho-referral-payout
 import { ReferralListComponent } from './components/franchise/referral-list/referral-list.component';
 import { MyPartnerlistComponent } from './components/member/my-partnerlist/my-partnerlist.component';
 import { BmmPartnerlistComponent } from './components/sho/bmm-partnerlist/bmm-partnerlist.component';
+import { MemberPromotionComponent } from './components/member/member-promotion/member-promotion.component';
+import { FranchisePromotionComponent } from './components/franchise/franchise-promotion/franchise-promotion.component';
+import { BmmPromotionComponent } from './components/sho/bmm-promotion/bmm-promotion.component';
 
 
 @NgModule({
@@ -387,7 +391,10 @@ import { BmmPartnerlistComponent } from './components/sho/bmm-partnerlist/bmm-pa
     FranchiseReferralComponent,
     ReferralListComponent,
     MyPartnerlistComponent,
-    BmmPartnerlistComponent
+    BmmPartnerlistComponent,
+    MemberPromotionComponent,
+    FranchisePromotionComponent,
+    BmmPromotionComponent
   ],
   imports: [
     BrowserModule,
@@ -396,6 +403,7 @@ import { BmmPartnerlistComponent } from './components/sho/bmm-partnerlist/bmm-pa
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatToolbarModule,
+    MatExpansionModule,
     MatIconModule,
     MatDividerModule,
     MatMenuModule,

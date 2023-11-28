@@ -108,6 +108,11 @@ export class ShoHeaderComponent implements OnInit {
     this.isVisible = false;
   }
 
+  promotion(){
+    this.router.navigate(['/statedashboard/promotion'])
+    this.isVisible = false;
+  }
+
   logOut(){
     localStorage.clear();
     this.router.navigate(['/statelogin']);

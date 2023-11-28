@@ -120,4 +120,8 @@ export class ShoCardComponent implements OnInit {
   partnerMyTeam(){
     this.router.navigate(['/statedashboard/partner-team'])
   }
+
+  udgrade(){
+    this.router.navigate(['/statedashboard/promotion'])
+  }
 }

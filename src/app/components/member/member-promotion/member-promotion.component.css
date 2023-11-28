@@ -1,0 +1,72 @@
+.promotion-container {
+  display: flex;
+  margin-left: 330px;
+  margin-top: -40px;
+}
+.promotion-arrow {
+  display: flex;
+}
+.promotion-arrow p {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Calibri";
+  margin-top: -3px;
+  margin-left: 6px;
+}
+.referral-earning-container {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Calibri";
+  margin-top: 10px;
+}
+
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+}
+.example-card {
+  margin: 10px;
+  width: 320px;
+}
+.mat-card-header {
+  display: flex;
+  align-items: center;
+}
+.mat-card-avatar {
+    margin-bottom: 12px;
+}
+.mat-card-title{
+    font-size: 18px;
+    font-family: 'Calibri';
+    font-weight: 600;
+}
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
+}
+.example-header-image {
+  background-image: url("/assets/image/referral.jpg");
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .promotion-container {
+    margin-left: 0px;
+    margin-top: 100px;
+  }
+  .bakk-div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .example-card {
+    width: 90%;
+  }
+}

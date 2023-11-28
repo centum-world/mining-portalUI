@@ -1,0 +1,62 @@
+<div class="promotion-container">
+    <div><mat-icon style="cursor: pointer;" (click)="gotohome()">arrow_back</mat-icon></div>
+    <div>
+        <div class="promotion-arrow">
+            <p>Promotion</p>
+            <mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon>
+        </div>
+        <div>
+            <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Read more
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+              
+                  <mat-panel-description>
+                    Congratulation 👏, Now you are franchise. Share more and achive your target <mark>(20 lakh)</mark> in one month and become a BMM (Business Marketing Management).
+                  </mat-panel-description>
+                </mat-expansion-panel>
+              </mat-accordion>
+               
+        </div>
+        <div class="referral-earning-container">
+            <p>Referral & Earning details</p>
+            <div>
+                <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs">
+                    <mat-tab label="Referral">
+                        <div class="bakk-div">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image"></div>
+                                  <mat-card-title>Referral</mat-card-title>
+                                </mat-card-header>
+                                <mat-divider></mat-divider>
+                                <mat-card-content class="single-line-content">
+                                    <div class="bank-details">
+                                      <h2>Id</h2><strong>Mohit</strong>
+                                    </div>
+                                    <div class="bank-details">
+                                      <h2>Amount</h2><strong>{{60000 | currency:'INR':'symbol':'1.2-2' }}</strong>
+                                    </div>
+                                    <div class="bank-details">
+                                      <h2>Date</h2><strong>12/12/2023</strong>
+                                    </div>
+                                  </mat-card-content>
+                                  <mat-divider></mat-divider>
+                                <mat-card-actions>
+                                  <button mat-button style="background: rgb(0, 255, 38);;">Share & Earn more</button>
+                                </mat-card-actions>
+                              </mat-card>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Earning">
+                        <div>Earning</div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div> 
+    
+</div>

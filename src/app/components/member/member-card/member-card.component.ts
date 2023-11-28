@@ -444,6 +444,10 @@ export class MemberCardComponent implements OnInit {
     
   }
 
+  udgrade(){
+    this.router.navigate(['/memberdashboard/promotion'])
+  }
+
   logOut() {
     localStorage.removeItem('token');
   }
