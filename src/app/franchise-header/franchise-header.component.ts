@@ -154,4 +154,9 @@ export class FranchiseHeaderComponent implements OnInit {
     this.router.navigate(['/franchisedashboard/member-list'])
     this.isVisible = false;
   }
+
+  promotion(){
+    this.router.navigate(['/franchisedashboard/promotion'])
+    this.isVisible = false;
+  }
 }

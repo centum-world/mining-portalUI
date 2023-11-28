@@ -131,6 +131,10 @@ export class MemberHeaderComponent implements OnInit {
     this.router.navigate(['/memberdashboard']);
   }
 
+  promotion(){
+    this.router.navigate(['/memberdashboard/promotion']);
+  }
+
   logOut(){
     localStorage.clear();
   }

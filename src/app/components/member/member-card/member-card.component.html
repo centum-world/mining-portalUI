@@ -44,7 +44,13 @@
           <i class="fa fa-bank"></i>
         </a>
       </div> -->
-
+      <div class="card-single">
+        <div>
+          <h6 style="display: flex;">Promotion <mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></h6>
+          <span>See your upgrade or downgrade</span>
+        </div>
+        <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+      </div>
       <div class="card-single">
         <div>
           <h6>Profile</h6>
@@ -68,7 +74,6 @@
          
         </mat-menu>
       </div>
-
       <div class="card-single">
         <div>
           <h6>User ID {{displayUserId}}</h6>
@@ -78,40 +83,13 @@
         </div>
       </div>
 
-      <!-- <div class="card-single">
-        <div>
-          <h6>Wallet</h6>
-          <span>Each day transaction!</span>
-        </div>
-        <div data-toggle="modal" data-target="#memberEachDayWalletDeposite">
-          <div class="icon"><span>View</span></div>
-        </div>
-      </div> -->
-
-
-
-      <!-- <div class="card-single">
-        <div>
-          <h6>Member Team</h6>
-          <span></span>
-        </div>
-        <div data-toggle="modal" data-target="#myTeamUseMyRefferalId">
-          <div class="icon">
-           <span>View</span>
-          </div>
-        </div>
-      </div> -->
 
       <div class="card-single">
         <div>
           <h6>Partner Team</h6>
           <span></span>
         </div>
-        <!-- <div data-toggle="modal" data-target="#myTeamUseMyRefferalIdForPartner">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div> -->
+        
         <div data-toggle="modal" (click)="viewListPartnerTeam()" >
           <div class="icon">
             <span>View</span>
@@ -132,11 +110,7 @@
           <h6>Withdrawal Request</h6>
 
         </div>
-        <!-- <div data-toggle="modal" data-target="#memberWithdrawalRequest">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div> -->
+        
         <div (click)="viewWithdrawalRequestList()">
           <div class="icon">
             <span>View</span>
@@ -147,13 +121,7 @@
       <div class="card-single">
         <div>
           <h6>Withdrawal success</h6>
-
         </div>
-        <!-- <div data-toggle="modal" data-target="#eachMonthWithdrawalHistory">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div> -->
         <div data-toggle="modal" (click)="viewWithdrawalSuccessList()">
           <div class="icon">
             <span>View</span>
