@@ -40,7 +40,7 @@
 
             <ng-container matColumnDef="p_dob">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">DOB</th>
-                <td mat-cell *matCellDef="let partner">{{partner.p_dob | date:'medium'}}</td>
+                <td mat-cell *matCellDef="let partner">{{partner.p_dob | date}}</td>
             </ng-container>
 
             <ng-container matColumnDef="p_aadhar">
@@ -70,8 +70,13 @@
 
             <ng-container matColumnDef="p_liquidity">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Liquidity</th>
-                <td mat-cell *matCellDef="let partner"> {{partner.p_liquidity}} </td>
-            </ng-container>
+                <td mat-cell *matCellDef="let partner">
+                  <span style="font-weight: bold">
+                    {{ partner.p_liquidity | currency : 'INR' }}
+                  </span>
+                </td>
+              </ng-container>
+              
 
             <ng-container matColumnDef="p_nominee_name">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Nominee Name</th>
