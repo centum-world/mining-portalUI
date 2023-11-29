@@ -44,16 +44,39 @@ export class ShoHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tabChanged(0);
     this.callApiToFetchAllSho();
     this.dataSource.paginator = this.paginator;
   }
 
-
+  tabChanged(event: any){
+    if(event === 0 ){
+      this.userService.CallApifetchVerifiedBmm().subscribe({
+        next: (res: any) => {
+          console.log(res.data)
+          this.dataSource.data = res.data
+        },
+        error: (err) => {
+          console.log(err.message)
+        }
+      })
+    }else if(event === 1){
+      this.userService.CallApifetchUnVerifiedBmm().subscribe({
+        next: (res: any) => {
+          console.log(res.data)
+          this.dataSource.data = res.data
+        },
+        error: (err) => {
+          console.log(err.message)
+        }
+      })
+    }
+  }
   callApiToFetchAllSho() {
-    this.userService.callApiToFetchShoAllDetails().subscribe({
+    this.userService.CallApifetchUnVerifiedBmm().subscribe({
       next: (res: any) => {
-        console.log(res.shoData)
-        this.dataSource.data = res.shoData
+        console.log(res.data)
+        this.dataSource.data = res.data
       },
       error: (err) => {
         console.log(err.message)

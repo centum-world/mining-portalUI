@@ -46,8 +46,34 @@ export class MemberHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.callApiToFetchAllMember();
+    this.tabChanged(0);
+    // this.callApiToFetchAllMember();
     this.dataSource.paginator = this.paginator;
+  }
+
+  tabChanged(event : any){
+    if(event === 0){
+      this.userService.CallApifetchVerifiedMember().subscribe({
+        next: (res: any) => {
+          // console.log(res.memberData)
+           this.dataSource.data = res.data
+          //  console.log(this.dataSource.data)
+        },
+        error: (err) => {
+          console.log(err.message)
+        }
+      })
+    }else if(event === 1 ){
+      this.userService.CallApifetchUnVerifiedMember().subscribe({
+        next:(res: any) => {
+          console.log(res)
+          this.dataSource.data = res.data
+        },
+        error: (err) => {
+          console.log('error')
+        }
+      })
+    }
   }
 
   callApiToFetchAllMember() {

@@ -1451,4 +1451,46 @@ export class UserService {
       }
     );
   }
+
+  // fetchUnVerifiedMember
+  CallApifetchUnVerifiedMember(){
+    return this.http.get(this.url + "/admin/fetch-unVerified-member", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  // fetchVerifiedMember
+  CallApifetchVerifiedMember(){
+    return this.http.get(this.url + "/admin/fetch-verified-member", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  //fetchVerifiedBmm
+  CallApifetchVerifiedBmm(){
+    return this.http.get(this.url + "/admin/fetch-verified-bmm", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  } 
+
+  // fetchUnVerifiedBmm
+  CallApifetchUnVerifiedBmm(){
+    return this.http.get(this.url + "/admin/fetch-unVerified-Bmm", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  // fetchUnVerifiedFranchise
+  CallApifetchUnVerifiedFranchise(){
+    return this.http.get(this.url + "/admin/fetch-unVerified-franchise", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  // fetchVerifiedFranchise
+  CallApifetchVerifiedFranchise(){
+    return this.http.get(this.url + "/admin/fetch-verified-franchise", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

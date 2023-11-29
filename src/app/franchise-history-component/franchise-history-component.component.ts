@@ -57,15 +57,40 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tabChanged(0);
     this.getAllFranchise();
     this.dataSource.paginator = this.paginator;
   }
 
+  tabChanged(event : any){
+    if(event === 0){
+      this.userService.CallApifetchVerifiedFranchise().subscribe({
+        next: (res: any) => {
+          console.log(res.data);
+          this.dataSource.data = res.data;
+        },
+        error: (err) => {
+          console.log(err.message);
+        },
+      });
+    }else if(event === 1){
+      this.userService.CallApifetchUnVerifiedFranchise().subscribe({
+        next: (res: any) => {
+          console.log(res.data);
+          this.dataSource.data = res.data;
+        },
+        error: (err) => {
+          console.log(err.message);
+        },
+      });
+    }
+  }
+
   getAllFranchise() {
-    this.userService.fetchAllFranchise().subscribe({
+    this.userService.CallApifetchUnVerifiedFranchise().subscribe({
       next: (res: any) => {
-        console.log(res.franchiseData);
-        this.dataSource.data = res.franchiseData;
+        console.log(res.data);
+        this.dataSource.data = res.data;
       },
       error: (err) => {
         console.log(err.message);
