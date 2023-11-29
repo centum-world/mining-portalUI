@@ -2,7 +2,11 @@
   <div  class="cards">
     <div class="card-single">
       <div>
-        <h6 style="display: flex;">Promotion <mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></h6>
+        <h6 style="display: flex;">Promotion 
+          <span *ngIf="usertype === 'BMM'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
+          <span *ngIf="usertype === 'FRANCHISE'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
+          <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
+        </h6>
         <span>See your upgrade or downgrade</span>
       </div>
       <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>

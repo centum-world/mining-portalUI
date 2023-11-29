@@ -42,6 +42,7 @@ export class FranchiseLoginComponent implements OnInit {
           console.log(res);
           localStorage.setItem("franchiseId",res.user.franchiseId);
           localStorage.setItem("franchiseReferralId",res.user.referralId);
+          localStorage.setItem('userType', res.user.userType);
           this.shareService.setFranchiseToken(res.token);
           this.router.navigate(["franchisedashboard"]);
           setTimeout(function () {

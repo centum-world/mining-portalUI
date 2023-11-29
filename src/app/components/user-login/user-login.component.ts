@@ -49,9 +49,11 @@ export class UserLoginComponent implements OnInit {
     this.userService.memberLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
+          console.log(response)
           this.shareService.setToken(response.token);
           this.shareService.setUserId(response.data[0].m_userid);
           this.shareService.setRefferID(response.data[0].reffer_id);
+          localStorage.setItem('userType',response.data[0].userType);
           this.router.navigate(["memberdashboard"]);
           this.toastr.success("Logged in Successfully", "Success");
           setTimeout(function () {

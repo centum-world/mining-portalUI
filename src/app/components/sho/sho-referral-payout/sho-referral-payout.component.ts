@@ -32,7 +32,8 @@ export class ShoReferralPayoutComponent implements OnInit {
 
   callApiToReferralPayout(){
     let data = {
-      userid: this.shoID
+      userid: this.shoID,
+      userType : localStorage.getItem('userType')
     }
     this.userService.memberReferralPayoutHistory(data).subscribe({
       next: (res: any) => {

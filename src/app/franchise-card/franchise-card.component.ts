@@ -19,7 +19,7 @@ export class FranchiseCardComponent implements OnInit {
   bankDetails = [];
   displayFranchiseId = localStorage.getItem('franchiseId');
   displayFranchiseReferralId = localStorage.getItem('franchiseReferralId')
-  
+  usertype = localStorage.getItem('userType');
 
   constructor(private userService:UserService,private dialog:MatDialog,
     private toastr :ToastrService,

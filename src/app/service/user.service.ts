@@ -1493,4 +1493,15 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  //CALL API TO REFERRAL AND ERN
+  callApiToReferralAndEarn(data: any) {
+    return this.http.post(
+      this.url + "/admin/member-referral-payout-history",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
 }

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./sho-card.component.css']
 })
 export class ShoCardComponent implements OnInit {
+  usertype = localStorage.getItem('userType');
   totalWithdrawalOfState:any;
   totalWalletOfState:any;
   bankDetails=[];

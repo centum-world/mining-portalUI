@@ -75,6 +75,7 @@ export class MemberCardComponent implements OnInit {
     refferal_id: ''
 
   };
+  usertype = localStorage.getItem('userType');
 
 
   constructor(private userService: UserService, private toastr: ToastrService,
