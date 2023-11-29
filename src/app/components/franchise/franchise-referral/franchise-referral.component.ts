@@ -16,7 +16,8 @@ export class FranchiseReferralComponent implements OnInit {
 
   fetchReferralPayout(){
     let data = {
-      userid : localStorage.getItem('franchiseId')
+      userid : localStorage.getItem('franchiseId'),
+      userType : localStorage.getItem('userType')
     }
 
     this.userService.memberReferralPayoutHistory(data).subscribe({

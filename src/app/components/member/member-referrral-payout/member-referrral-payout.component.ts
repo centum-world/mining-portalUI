@@ -17,7 +17,8 @@ export class MemberReferrralPayoutComponent implements OnInit {
 
   myReferralPayout(){
     let data = {
-      userid : localStorage.getItem('userdetail')
+      userid : localStorage.getItem('userdetail'),
+      userType : localStorage.getItem('userType')
     }
 
     this.userService.memberReferralPayoutHistory(data).subscribe({
