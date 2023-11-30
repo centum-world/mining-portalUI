@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-signup-member',
   templateUrl: './signup-member.component.html',
@@ -17,10 +18,14 @@ export class SignupMemberComponent implements OnInit {
   aadharImageName: string=''; 
   backAadharImageName:string='';
   panImageName:string='';
+  spin = false;
+  passwordFieldType: string = "password"; // Initial type is 'password'
+  showPasswordIcon: string = "visibility"; 
   constructor(private userService: UserService,
      private toastr: ToastrService,
       private activeRoute: ActivatedRoute,
-      private sanitizer: DomSanitizer
+      private sanitizer: DomSanitizer,
+      private router : Router
       ) { }
 
 
@@ -38,6 +43,13 @@ export class SignupMemberComponent implements OnInit {
     this.activeRoute.queryParams.subscribe(data => {
       this.b = data['refferId'];
     })
+  }
+
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
+    this.showPasswordIcon =
+      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
   signForm = new FormGroup({
@@ -63,6 +75,7 @@ export class SignupMemberComponent implements OnInit {
   });
 
   addMemberData(userForm:any) {
+    this.spin = true;
     console.log(this.aadharImage, this.aadharBackImage, this.panImage)
     this.createMember.refferal_id = this.signForm.value.user_id + Math.floor(Math.random() * 100000);
     const form = new FormData();
@@ -91,9 +104,12 @@ export class SignupMemberComponent implements OnInit {
         if (result) {
           this.toastr.success('Member Created Successfully!', 'Success');
           userForm.reset();
+          this.spin = false;
+          this.router.navigate(['/memberlogin'])
         }
       },
       error: error => {
+        this.spin = false;
         this.toastr.error(error.error.message);
       }
 
@@ -108,7 +124,7 @@ export class SignupMemberComponent implements OnInit {
       this.aadharImage = file;
     }else if(imageType === 'back'){
       const file = event.target.files[0];
-      this.aadharBackImage = file.name;
+      this.backAadharImageName = file.name;
       this.aadharBackImage = file;
     }else if(imageType === 'pan'){
       const file = event.target.files[0];
@@ -117,6 +133,13 @@ export class SignupMemberComponent implements OnInit {
     }
     
     
+  }
+
+  login(){
+    this.router.navigate(['/memberlogin'])
+  }
+  home(){
+    this.router.navigate(['/'])
   }
 
 }

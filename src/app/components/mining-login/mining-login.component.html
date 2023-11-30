@@ -6,7 +6,7 @@
           <img src="../../../assets/image/clogo.png" alt="" height="50" width="50" />
           <span>Centum World</span>
         </div>
-        <h1 class="heading-mining">Start your mining journey today</h1>
+        <h2 class="heading-mining">Start your mining journey today</h2>
         <form action="" [formGroup]="partnerLoginForm">
           <div class="mining-form-fields">
           <mat-form-field appearance="outline" class="name-input">
@@ -37,8 +37,12 @@
                 </button>
           </mat-form-field>
         </div>
-        <button class="start-btn" (click)="submit(partnerLoginForm)" type="submit"> 
-          Start my journey
+        <button class="start-btn" (click)="submit(partnerLoginForm)" type="submit">
+          <ng-container *ngIf="spin; else registerText">
+            <mat-spinner diameter="40"></mat-spinner>
+          </ng-container>
+          <ng-template #registerText>
+            Start my journey
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
             <mask id="mask0_12_1944" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
               <rect x="0.900391" y="0.841797" width="16" height="15.7193" fill="white"/>
@@ -47,9 +51,11 @@
               <path fill-rule="evenodd" clip-rule="evenodd" d="M5.54631 2.45877C5.64011 2.36638 5.76748 2.31445 5.90031 2.31445C6.03313 2.31445 6.1605 2.36638 6.25431 2.45877L12.2543 8.35351C12.3483 8.44567 12.4012 8.5708 12.4012 8.7013C12.4012 8.83179 12.3483 8.95693 12.2543 9.04909L6.25431 14.9438C6.05882 15.1359 5.74189 15.1359 5.54637 14.9439C5.35085 14.7519 5.35077 14.4405 5.54619 14.2484L11.1933 8.7013L5.54631 3.15435C5.45227 3.06219 5.39941 2.93706 5.39941 2.80656C5.39941 2.67606 5.45227 2.55093 5.54631 2.45877H5.54631Z" fill="#EEEEEE"/>
             </g>
           </svg>
+          </ng-template> 
+          
         </button>
         </form>
-        <p class="already-partner-text">Are you newbie ?<a href="/partner-signup">SIGN UP</a></p>
+        <p class="already-partner-text">Are you newbie ?<a href="javascript:void(0)" (click)="signup()">SIGN UP</a> &nbsp; <a href="">HOME</a></p>
       </div>
     </div>
     <div class="mining-right-container">
@@ -58,95 +64,3 @@
   </div>
 </div>
 
-<!-- <div class="logo">
-    <img src="assets/image/clogo.png" alt="">
-  </div>
-  <div class="box">
-    <div class="form">
-          <h2>Mining Partner</h2>
-        <form [formGroup]="partnerLoginForm">  
-          <div class="input-box">
-  
-            <div class="form-group">
-              <input type="text" formControlName="partner_id" required>
-              <span>UserId</span>
-              <i></i>
-            </div>
-            
-          </div>
-  
-          <div class="input-box">
-  
-            <div class="form-group">
-              <input type="password" formControlName="partner_password" required>
-              <span>Password</span>
-              <i></i>
-            </div>
-            
-          </div><br>
-          <div class="login-header">
-            <div class="login">
-              <button class="btn btn-primary" [disabled]="!(partnerLoginForm.valid && partnerLoginForm.dirty)" (click)="submit(partnerLoginForm)">Login</button>
-            </div>
-
-            <div class="home">
-              <a href="" class="btn btn-secondary" >Home</a>
-            </div>
-          </div>
-          <a class="btn btn-primary" href="/dashboard">Login</a>
-          
-          <br>
-          <div class="link">
-            <a href="https://centumworld.com">Centum World</a>
-          </div>
-          <div class="forget_password">
-            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">Forget Password</a>
-          </div>
-          <div class="signup">
-            <p>Haven't an account ?  <a href="javascript:void(0)" style="color: white;"  (click)="SignUpPartner()">SignUp</a></p>
-           
-          </div>
-        </form>  
-    </div>
-  </div>
-
-  reset password
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="color: red;">Forget Password</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div *ngIf="userid_field" class="input-mobile-no">
-            <label for="userid">User ID</label>
-            <input type="text" placeholder="Enter your User ID" name="userid" [(ngModel)]="partner_userid" class="form-control">
-          </div>
-          <div *ngIf="otp_field" class="verify">
-            <label for="verify">Enter OTP</label>
-            <input type="text" placeholder="Enter OTP" name="otp" [(ngModel)]="otp" class="form-control">
-          </div>
-          <div *ngIf="new_password" class="verify">
-            <label for="new_password">Enter New Password</label>
-            <input type="text" placeholder="Enter new password" name="new_password" [(ngModel)]="partner_password" class="form-control">
-          </div>
-        </div>
-        <div *ngIf="userid_field" class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="sendOtp()">Send OTP</button>
-        </div>
-        <div *ngIf="otp_field" class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success" (click)="verifyOtp()">Verify</button>
-        </div>
-        <div *ngIf="new_password" class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success" (click)="setPassword()">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div>
-   -->

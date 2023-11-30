@@ -12,6 +12,7 @@ import { ToastrService } from "ngx-toastr";
   encapsulation: ViewEncapsulation.None,
 })
 export class MiningLoginComponent implements OnInit {
+  spin = false;
   passwordFieldType: string = "password"; // Initial type is 'password'
   showPasswordIcon: string = "visibility"; // Initial icon is 'visibility'
 
@@ -39,6 +40,7 @@ export class MiningLoginComponent implements OnInit {
   ngOnInit() {}
 
   submit(partnerLoginForm) {
+    this.spin = true;
     this.partner_userid = partnerLoginForm.controls.partner_id.value;
     this.partner_password = partnerLoginForm.controls.partner_password.value;
     let data = {
@@ -49,6 +51,7 @@ export class MiningLoginComponent implements OnInit {
     this.userService.partnerLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
+          this.spin = false;
           this.shareService.setPartnerId(response.data[0].p_userid);
           this.shareService.setMiningPartnerRefferId(
             response.data[0].p_refferal_id
@@ -65,6 +68,7 @@ export class MiningLoginComponent implements OnInit {
         }
       },
       error: (error) => {
+        this.spin = false;
         this.toastr.error("Invalid User ID Or Password ", "Error");
       },
     });
@@ -134,5 +138,9 @@ export class MiningLoginComponent implements OnInit {
       this.passwordFieldType === "password" ? "text" : "password";
     this.showPasswordIcon =
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
+  }
+  
+  signup(){
+    this.router.navigate(['/partner-signup'])
   }
 }

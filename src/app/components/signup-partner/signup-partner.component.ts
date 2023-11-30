@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPartnerComponent implements OnInit {
+  spin = false;
   role:"";
   aadharImage: null;
   aadharBackImage:null;
@@ -62,6 +63,7 @@ export class SignupPartnerComponent implements OnInit {
   
 
   addPartnerData(form : FormGroup) {
+    this.spin = true;
     console.log(this.aadharImage, this.aadharBackImage, this.panImage)
     console.log(form.value)
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
@@ -104,10 +106,12 @@ export class SignupPartnerComponent implements OnInit {
         if (response) {
           this.toastr.success('Data submitted successfully', 'Success');
             form.reset();
+            this.spin = false;
           this.router.navigate(['/mininglogin']);
         }
       },
       error: error => {
+        this.spin = false;
         this.toastr.error(error.error.message);
       }
     })
@@ -133,4 +137,5 @@ export class SignupPartnerComponent implements OnInit {
   gotoLogin(){
     this.router.navigate(['/mininglogin'])
   }
+
 }

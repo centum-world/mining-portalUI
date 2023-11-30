@@ -23,7 +23,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -415,6 +416,7 @@ import { BmmPromotionComponent } from './components/sho/bmm-promotion/bmm-promot
     NgxPaginationModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -430,6 +432,7 @@ import { BmmPromotionComponent } from './components/sho/bmm-promotion/bmm-promot
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot([]),
     ToastrModule.forRoot({
       positionClass: "toast-top-right",

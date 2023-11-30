@@ -6,6 +6,7 @@ import { ShareService } from 'src/app/shareService/share.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatSnackBar } from '@angular/material/snack-bar'
 
+
 @Component({
   selector: 'app-statehandlerlogin',
   templateUrl: './statehandlerlogin.component.html',
@@ -13,7 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
   encapsulation: ViewEncapsulation.None
 })
 export class StatehandlerloginComponent implements OnInit {
-
+  spin = false;
   passwordFieldType: string = "password"; // Initial type is 'password'
   showPasswordIcon: string = "visibility"; // Initial icon is 'visibility'
 
@@ -30,6 +31,7 @@ export class StatehandlerloginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spin = true;
     console.log('Form submitted:', this.stateLoginForm.value);
     let data = {
       userid: this.stateLoginForm.value.stateId,
@@ -40,6 +42,7 @@ export class StatehandlerloginComponent implements OnInit {
       next: (res: any) => {
         if (res) {
           console.log(res)
+          this.spin = false;
           localStorage.setItem('stateHandlerId',res.user.stateHandlerId)
           localStorage.setItem('stateRefferalId',res.user.referralId)
           localStorage.setItem('userType', res.user.userType)
@@ -52,6 +55,7 @@ export class StatehandlerloginComponent implements OnInit {
         }
       },
       error: error => {
+        this.spin = false;
         console.log(error.error.message)
         // this.toastr.error(error.error.message);
         this._snackBar.open(error.error.message, 'Close', {
@@ -84,6 +88,10 @@ export class StatehandlerloginComponent implements OnInit {
       this.passwordFieldType === "password" ? "text" : "password";
     this.showPasswordIcon =
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
+  }
+
+  home(){
+    this.router.navigate([''])
   }
 
 }

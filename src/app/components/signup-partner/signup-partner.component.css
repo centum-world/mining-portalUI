@@ -111,6 +111,9 @@
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-left-container{

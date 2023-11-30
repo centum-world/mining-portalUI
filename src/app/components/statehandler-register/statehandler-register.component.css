@@ -112,6 +112,9 @@
 }
 
 .signup-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     background-color: #3a6fe2;
     width: 100%;
