@@ -124,6 +124,9 @@ export class ReferralListComponent implements OnInit {
     });
   }
 
+  applyFilter(value: any){
+
+  }
 
   goBack(){
     this.router.navigate(['/franchisedashboard'])

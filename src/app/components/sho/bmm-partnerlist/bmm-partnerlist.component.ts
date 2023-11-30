@@ -106,4 +106,8 @@ export class BmmPartnerlistComponent implements OnInit {
     });
   }
 
+  gotoDashboard(){
+    this.router.navigate(['/statedashboard/home']);
+  }
+
 }

@@ -17,4 +17,23 @@ export class WhitePaperComponent implements OnInit {
     this.isMobileSidebarVisible = !this.isMobileSidebarVisible;
   }
 
+  onMouseOver(){
+
+  }
+  memberPage(){
+
+  }
+  stateLogin(){
+
+  }
+  partnerPage(){
+
+  }
+  FranchisePage(){
+
+  }
+  adminLogin(){
+    
+  }
+
 }
