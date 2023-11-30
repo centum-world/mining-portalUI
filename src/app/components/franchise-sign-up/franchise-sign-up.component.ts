@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { allState } from "../common/states";
+import { Router } from '@angular/router'
 
 import {
   FormGroup,
@@ -49,6 +50,9 @@ export class FranchiseSignUpComponent implements OnInit {
   showPasswordIcon: string = "visibility"; 
   states = allState.states.map((item) => item.state);
   cities = [];
+  spin = false;
+
+  
 
   ngOnInit() {
     console.log(allState.states);
@@ -98,7 +102,8 @@ export class FranchiseSignUpComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router : Router
   ) {
     this.stateSignUpForm = this.fb.group({
       referralId: this.referralFormControl,
@@ -145,6 +150,7 @@ export class FranchiseSignUpComponent implements OnInit {
   }
 
   addPartnerData(form: FormGroup) {
+    this.spin = true;
     console.log("Form submitted:", form.value.referralId);
     console.log("fname:", form.value.fname);
     console.log("lname:", form.value.lname);
@@ -177,15 +183,25 @@ export class FranchiseSignUpComponent implements OnInit {
     this.userService.createFranchise(formData).subscribe({
       next: (response) => {
         if (response) {
+          this.spin = false;
           console.log(response);
           form.reset();
           this.toastr.success(response.message);
+          this.router.navigate(['/franchiselogin'])
         }
       },
       error: (error) => {
         console.log(error);
         this.toastr.error(error.error.message);
+        this.spin = false;
       },
     });
+  }
+
+  login(){
+    this.router.navigate(['/franchiselogin'])
+  }
+  home(){
+    this.router.navigate(['/'])
   }
 }

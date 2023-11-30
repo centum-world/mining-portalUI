@@ -58,6 +58,9 @@
 
 
 .state-login-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #4067EC;
   color: #fff;
   text-transform: uppercase;

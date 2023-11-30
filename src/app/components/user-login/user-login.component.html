@@ -81,7 +81,11 @@
                 <label for="remeber-me">Remeber me</label>
               </div>
               <button class="admin-login-btn" (click)="submit(memberLoginForm)">
-                <p class="btn-text">Proceed to my account</p>
+                <ng-container *ngIf="spin; else registerText">
+                  <mat-spinner diameter="30"></mat-spinner>
+                </ng-container>
+                <ng-template #registerText>
+                  <p class="btn-text">Proceed to my account</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -95,6 +99,8 @@
                     d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                   />
                 </svg>
+                </ng-template>
+                
               </button>
             </div>
           </form>
@@ -102,7 +108,7 @@
         <div class="line"></div>
         <p>
           No account yet?
-          <a href="/member-signup" class="singup-text" (click)="SignUpMember()"
+          <a href="javascript:void(0)" class="singup-text" (click)="SignUpMember()"
             >SIGN UP</a>
         </p>
         <p class="password-text">
@@ -115,216 +121,4 @@
             >Forgot Password</a>
         </p>
       </div>
-      <!-- <div class="user-right-container">
-        <h2>Welcome back, Member to the Centumo Mining Rig</h2>
-        <div class="login-input">
-          <form [formGroup]="memberLoginForm">
-            <mat-form-field appearance="outline" class="name-input">
-              <mat-label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                </svg>Username</mat-label>
-              <input matInput formControlName="member_id" required />
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="name-input">
-              <mat-label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-lock-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
-                </svg>Password</mat-label>
-              <input matInput [type]="passwordFieldType" formControlName="member_password" required />
-              <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
-                <mat-icon>{{ showPasswordIcon }}</mat-icon>
-              </button>
-            </mat-form-field>
-            <div class="btn-container">
-              <div>
-                <input type="checkbox" id="remeber-me" />
-                <label for="remeber-me">Remeber me</label>
-              </div>
-              <button class="admin-login-btn" (click)="submit(memberLoginForm)">
-                <p class="btn-text">Proceed to my account</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#eee" class="bi bi-arrow-right"
-                  viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                </svg>
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="line"></div>
-        <p>No account yet? <a href="/member-signup" class="singup-text" (click)="SignUpMember()">SIGN UP</a></p>
-        <p> Having issue with passsword? <a href="javascript:void(0)" class="singup-text"  data-toggle="modal" data-target="#exampleModal">Forgot Password</a> </p>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-<!-- <div class="logo">
-  <img src="assets/image/clogo.png" alt="">
-</div>
-<div class="box">
-  <div class="form">
-        <h2>Admin</h2>
-      <form [formGroup]="loginForm">  
-        <div class="input-box">
-
-          <div class="form-group">
-            <input type="text" formControlName="admin_id" required>
-            <span>UserId</span>
-            <i></i>
-          </div>
-          
-        </div>
-
-        <div class="input-box">
-
-          <div class="form-group">
-            <input type="password" formControlName="admin_password" required>
-            <span>Password</span>
-            <i></i>
-          </div>
-          
-        </div><br>
-        <div class="login-header">
-          <div class="login">
-            <button class="btn btn-primary" [disabled]="!(loginForm.valid && loginForm.dirty)" (click)="submit(loginForm)">Login</button>
-          </div>
-          <div class="home">
-            <a href="" class="btn btn-secondary">Home</a>
-          </div>
-
-        </div>
-        <a class="btn btn-primary" href="/dashboard">Login</a>
-        
-        <br>
-        <div class="link">
-          <a href="https://centumworld.com">Centum World</a>
-        </div>
-      </form>  
-  </div>
-</div> -->
-
-<!-- <div class="box">
-    <div class="form">
-      <h2>Member</h2>
-      <div class="input-box">
-        <input type="text" required>
-        <span>UserId</span>
-        <i></i>
-      </div>
-  
-      <div class="input-box">
-        <input type="text" required>
-        <span>Password</span>
-        <i></i>
-      </div><br>
-      <a class="btn btn-primary" href="/memberdashboard">Login</a>
-      <br>
-      <div class="link">
-        <a href="https://centumworld.com">Centum World</a>
-      </div>
-    </div>
-  </div> 
- 
-   -->
-
-<!-- <div class="logo">
-    <img src="assets/image/clogo.png" alt="">
-  </div>
-  <div class="box">
-    <div class="form">
-          <h2>Member</h2>
-        <form [formGroup]="memberLoginForm">  
-          <div class="input-box">
-  
-            <div class="form-group">
-              <input type="text" formControlName="member_id" required>
-              <span>UserId</span>
-              <i></i>
-            </div>
-            
-          </div>
-  
-          <div class="input-box">
-  
-            <div class="form-group">
-              <input type="password" formControlName="member_password" required>
-              <span>Password</span>
-              <i></i>
-            </div>
-            
-          </div><br>
-          <div class="login-header">
-            <div class="login">
-              <button class="btn btn-primary" [disabled]="!(memberLoginForm.valid && memberLoginForm.dirty)" (click)="submit(memberLoginForm)">Login</button>
-            </div>
-
-            <div class="home">
-              <a href="" class="btn btn-secondary">Home</a>
-            </div>
-          </div>
-          <a class="btn btn-primary" href="/dashboard">Login</a>
-          
-          <br>
-          <div class="link">
-            <a href="https://centumworld.com">Centum World</a>
-          </div>
-          <div class="forget_password">
-            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">Forget Password</a>
-          </div>
-          <div class="signup">
-            <p>Haven't an account ?  <a href="javascript:void(0)" style="color:white;" (click)="SignUpMember()">SignUp</a></p>
-           
-          </div>
-        </form>  
-    </div>
-  </div>
-  
- 
-
-Forget password Modal
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="color: red;">Forget Password</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div *ngIf="userid_field" class="input-mobile-no">
-          <label for="userid">User ID</label>
-          <input type="text" placeholder="Enter your User ID" name="userid" [(ngModel)]="member_userid" class="form-control">
-        </div>
-        <div *ngIf="otp_field" class="verify">
-          <label for="verify">Enter OTP</label>
-          <input type="text" placeholder="Enter OTP" name="otp" [(ngModel)]="otp" class="form-control">
-        </div>
-        <div *ngIf="new_password" class="verify">
-          <label for="new_password">Enter New Password</label>
-          <input type="text" placeholder="Enter new password" name="new_password" [(ngModel)]="member_password" class="form-control">
-        </div>
-      </div>
-      <div *ngIf="userid_field" class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="sendOtp()">Send OTP</button>
-      </div>
-      <div *ngIf="otp_field" class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" (click)="verifyOtp()">Verify</button>
-      </div>
-      <div *ngIf="new_password" class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" (click)="setPassword()">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
-   -->
+      

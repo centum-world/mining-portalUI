@@ -11,6 +11,7 @@ import { ToastrService } from "ngx-toastr";
   encapsulation: ViewEncapsulation.None,
 })
 export class UserLoginComponent implements OnInit {
+  spin = false;
   heading: string = "Member";
   passwordFieldType: string = "password"; // Initial type is 'password'
   showPasswordIcon: string = "visibility";
@@ -40,6 +41,7 @@ export class UserLoginComponent implements OnInit {
   ngOnInit() {}
 
   submit(memberLoginForm) {
+    this.spin = true;
     this.member_userid = memberLoginForm.controls.member_id.value;
     this.member_password = memberLoginForm.controls.member_password.value;
     let data = {
@@ -49,6 +51,7 @@ export class UserLoginComponent implements OnInit {
     this.userService.memberLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
+          this.spin = false;
           console.log(response)
           this.shareService.setToken(response.token);
           this.shareService.setUserId(response.data[0].m_userid);
@@ -62,6 +65,7 @@ export class UserLoginComponent implements OnInit {
         }
       },
       error: (error) => {
+        this.spin = false;
         this.router.navigate(["memberlogin"]);
         this.toastr.error("Invalid User ID or Password", "Error");
       },
@@ -69,7 +73,8 @@ export class UserLoginComponent implements OnInit {
   }
 
   SignUpMember() {
-    window.open( "/member-signup", "_parent");
+    // window.open( "/member-signup", "_parent");
+    this.router.navigate(['/member-signup']);
   }
 
   sendOtp() {

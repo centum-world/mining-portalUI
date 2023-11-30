@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder, FormGroupDirective, Ng
 import { ErrorStateMatcher } from '@angular/material/core';
 import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router'
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -30,7 +31,7 @@ function mobileNumberValidator(): ValidatorFn {
 
 
 export class StatehandlerRegisterComponent implements OnInit {
-
+  spin = false;
   allStates = allState.states;
 
   ngOnInit() {
@@ -61,7 +62,7 @@ export class StatehandlerRegisterComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private router : Router, private userService: UserService, private toastr: ToastrService) {
     this.stateSignUpForm = this.fb.group({
       fname: this.nameFormControl,
       lname: this.lastNameFormControl,
@@ -93,6 +94,7 @@ export class StatehandlerRegisterComponent implements OnInit {
 
 
   addPartnerData(form: FormGroup) {
+    this.spin = true;
     console.log('Form submitted:', form.value.fname, form.value.pan, "aadhar Image ==> ", form.value.adhar_back_side);
     const formData = new FormData();
     formData.append('fname', form.value.fname);
@@ -111,12 +113,14 @@ export class StatehandlerRegisterComponent implements OnInit {
     this.userService.createSho(formData).subscribe({
       next: (response) => {
         if (response) {
-          console.log(response)
+          this.spin = false;
           form.reset();
           this.toastr.success(response.message);
+          this.router.navigate(['/statelogin'])
         }
       },
       error: error => {
+        this.spin = false;
         console.log(error)
         this.toastr.error(error.error.message);
       }
