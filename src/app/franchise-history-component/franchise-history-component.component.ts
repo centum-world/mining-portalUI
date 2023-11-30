@@ -45,6 +45,18 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     "actions",
   ];
 
+  downgradeColumns: string[] = [
+    "franchiseId",
+    "fname",
+    "lname",
+    "email",
+    "phone",
+    "gender",
+    "referralId",
+    "franchiseState",
+    "franchiseCity",
+  ];
+
   dataSource: MatTableDataSource<franchise>;
 
   constructor(
@@ -63,6 +75,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   }
 
   tabChanged(event : any){
+    console.log(event)
     if(event === 0){
       this.userService.CallApifetchVerifiedFranchise().subscribe({
         next: (res: any) => {
@@ -83,11 +96,22 @@ export class FranchiseHistoryComponentComponent implements OnInit {
           console.log(err.message);
         },
       });
+    }else if(event === 2){
+      
+      this.userService.CallApiFetchUpgradeDowngradeFranchise().subscribe({
+        next: (res: any) => {
+          console.log(res.data);
+          this.dataSource.data = res.data;
+        },
+        error: (err) => {
+          console.log(err.message);
+        },
+      });
     }
   }
 
   getAllFranchise() {
-    this.userService.CallApifetchUnVerifiedFranchise().subscribe({
+    this.userService.CallApifetchVerifiedFranchise().subscribe({
       next: (res: any) => {
         console.log(res.data);
         this.dataSource.data = res.data;

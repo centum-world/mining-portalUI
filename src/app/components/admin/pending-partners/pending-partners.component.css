@@ -1,15 +1,16 @@
 .sho-list-header{
     width: calc(100%-300px);
     height: 70px;
-    background: #ee5411;
+    /* background: #ee5411; */
     border-radius: 8px;
     margin-left: 300px;
     padding: 20px;
 }
 .title p{
     font-size: 20px;
-    color: #fff;
+    color: #0000;
     font-family: Calibri;
+  margin-left: 30px;
 }
 /* .search{
     display: flex;

@@ -34,6 +34,9 @@ export class MemberHistoryComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['m_userid', 'm_name', 'm_lname', 'm_email', 'm_phone', 'm_gender',
     'm_refferid','reffer_id','m_state', 'actions'];
+
+    downgradeColumns: string[] = ['m_userid', 'm_name', 'm_lname', 'm_email', 'm_phone', 'm_gender',
+    'm_refferid','reffer_id','m_state'];
   dataSource: MatTableDataSource<Member>;
 
   constructor(
@@ -73,6 +76,8 @@ export class MemberHistoryComponent implements OnInit {
           console.log('error')
         }
       })
+    }else if(event === 2){
+      
     }
   }
 

@@ -32,6 +32,17 @@ export class ShoHistoryComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['stateHandlerId', 'fname', 'lname', 'email', 'phone', 'gender',
     'referralId', 'selectedState', 'actions'];
+
+    downgradeColumns: string[] =
+     ['stateHandlerId',
+      'fname',
+      'lname',
+      'email', 
+      'phone', 
+      'gender',
+      'referralId', 
+      'selectedState'];
+
   dataSource: MatTableDataSource<Sho>;
 
   constructor(
@@ -70,10 +81,20 @@ export class ShoHistoryComponent implements OnInit {
           console.log(err.message)
         }
       })
+    }else if(event === 2){
+      this.userService.CallApifetchUpgradeDowngradeBmm().subscribe({
+        next: (res: any) => {
+          console.log(res.data)
+          this.dataSource.data = res.data
+        },
+        error: (err) => {
+          console.log(err.message)
+        }
+      })
     }
   }
   callApiToFetchAllSho() {
-    this.userService.CallApifetchUnVerifiedBmm().subscribe({
+    this.userService.CallApifetchVerifiedBmm().subscribe({
       next: (res: any) => {
         console.log(res.data)
         this.dataSource.data = res.data

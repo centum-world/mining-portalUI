@@ -1504,4 +1504,18 @@ export class UserService {
       }
     );
   }
+
+  // fetchUpgradeDowngradeFranchise
+  CallApiFetchUpgradeDowngradeFranchise(){
+    return this.http.get(this.url + "/admin/fetch-upgrade-downgrade-franchise", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+   // fetchUpgradeDowngradeBmm
+   CallApifetchUpgradeDowngradeBmm(){
+    return this.http.get(this.url + "/admin/fetch-upgrade-downgrade-bmm", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }
