@@ -14,6 +14,8 @@ import { NgForm } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPartnerComponent implements OnInit {
+  passwordFieldType: string = "password"; // Initial type is 'password'
+  showPasswordIcon: string = "visibility"; 
   spin = false;
   role:"";
   aadharImage: null;
@@ -60,6 +62,14 @@ export class SignupPartnerComponent implements OnInit {
   ngOnInit() {
     
   }
+
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
+    this.showPasswordIcon =
+      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
+  }
+
   
 
   addPartnerData(form : FormGroup) {

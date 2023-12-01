@@ -6,7 +6,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   transition: all ease-in-out 200ms;
-  overflow-x: hidden;
 }
 
 .partner-signup-partner{
@@ -134,6 +133,12 @@
   font-size: 1rem;
   color: #fff;
 }
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  display: block !important;
+}
+
+
 
 
 
