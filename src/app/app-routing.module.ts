@@ -90,6 +90,7 @@ import { BmmPartnerlistComponent } from "./components/sho/bmm-partnerlist/bmm-pa
 import { MemberPromotionComponent } from "./components/member/member-promotion/member-promotion.component";
 import { FranchisePromotionComponent } from "./components/franchise/franchise-promotion/franchise-promotion.component";
 import { BmmPromotionComponent } from "./components/sho/bmm-promotion/bmm-promotion.component";
+import { DeactivateGuard } from "./deActivate/deactivate.guard";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -135,14 +136,10 @@ const routes: Routes = [
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },
-  // {
-  //   path: "miningdashboard",
-  //   canActivate: [GuardGuard],
-  //   component: MiningDashboardComponent,
-  // },
   {
     path: "miningdashboard",
     canActivate : [GuardGuard],
+    canDeactivate:[DeactivateGuard],
     component : DashboardMiningComponent,
     children:[
       {path: "home" , component : MiningCardsComponent},
