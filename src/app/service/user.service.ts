@@ -1518,4 +1518,11 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  // fetchUpgradedMember
+  CallApifetchUpgradedMember(){
+    return this.http.get(this.url + "/member/member/fetch-upgraded-member", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

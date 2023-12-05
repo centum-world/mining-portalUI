@@ -77,7 +77,15 @@ export class MemberHistoryComponent implements OnInit {
         }
       })
     }else if(event === 2){
-      
+      this.userService.CallApifetchUpgradedMember().subscribe({
+        next:(res: any) => {
+          console.log(res)
+          this.dataSource.data = res.data
+        },
+        error: (err) => {
+          console.log('error')
+        }
+      })
     }
   }
 

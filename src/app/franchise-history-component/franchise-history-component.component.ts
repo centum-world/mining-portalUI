@@ -22,6 +22,7 @@ interface franchise {
   franchiseState: string;
   franchiseCity: string;
   actions: string;
+  userType:string;
 }
 
 @Component({
@@ -55,6 +56,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     "referralId",
     "franchiseState",
     "franchiseCity",
+    "userType"
   ];
 
   dataSource: MatTableDataSource<franchise>;

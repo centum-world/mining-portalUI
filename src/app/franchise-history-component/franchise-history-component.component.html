@@ -221,6 +221,11 @@
                     <th mat-header-cell *matHeaderCellDef class="franchise-history-header">City</th>
                     <td mat-cell *matCellDef="let franchise"> {{franchise.franchiseCity}} </td>
                 </ng-container>
+
+                <ng-container matColumnDef="userType">
+                    <th mat-header-cell *matHeaderCellDef class="franchise-history-header">UserType</th>
+                    <td mat-cell *matCellDef="let franchise"> {{franchise.userType}} </td>
+                </ng-container>
       
                 <tr mat-header-row *matHeaderRowDef="downgradeColumns"></tr>
                 <tr mat-row *matRowDef="let franchise; columns: downgradeColumns;"></tr>

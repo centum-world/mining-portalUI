@@ -22,6 +22,7 @@ interface Sho {
   referralId: string,
   selectedState: string,
   actions: string,
+  userType:string,
 }
 @Component({
   selector: 'app-sho-history',
@@ -41,7 +42,8 @@ export class ShoHistoryComponent implements OnInit {
       'phone', 
       'gender',
       'referralId', 
-      'selectedState'];
+      'selectedState',
+      'userType'];
 
   dataSource: MatTableDataSource<Sho>;
 
