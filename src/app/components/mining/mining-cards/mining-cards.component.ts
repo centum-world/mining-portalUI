@@ -485,8 +485,9 @@ export class MiningCardsComponent implements OnInit {
     this.userService.fetchMiningPartnerBankDetails(data).subscribe((response: any) => {
       if (response) {
         this.partnerBankDetails = Object.values(response);
+        console.log(this.partnerBankDetails[1].length)
         console.log(this.partnerBankDetails.length);  
-        if(this.partnerBankDetails.length > 0){
+        if(this.partnerBankDetails[1].length > 0){
           console.log(this.partnerBankDetails);
           
           

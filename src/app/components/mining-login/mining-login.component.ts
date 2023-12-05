@@ -51,6 +51,7 @@ export class MiningLoginComponent implements OnInit {
     this.userService.partnerLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
+          localStorage.setItem('login','true');
           this.spin = false;
           this.shareService.setPartnerId(response.data[0].p_userid);
           this.shareService.setMiningPartnerRefferId(

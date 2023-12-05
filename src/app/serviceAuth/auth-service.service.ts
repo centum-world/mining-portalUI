@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router'
 
 function _window():any{
   return window;
@@ -9,7 +10,7 @@ function _window():any{
 })
 export class AuthServiceService {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   get nativeWindow():any{
     return _window();
@@ -21,5 +22,10 @@ export class AuthServiceService {
 
   isLoggedIn(){
     return !!localStorage.getItem('token') || !!localStorage.getItem('stateToken') || !!localStorage.getItem('franchiseToken') || !!localStorage.getItem('bdToken')
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/'])
   }
 }

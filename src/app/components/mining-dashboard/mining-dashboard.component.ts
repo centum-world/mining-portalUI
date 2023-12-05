@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
+
+
 @Component({
   selector: 'app-mining-dashboard',
   templateUrl: './mining-dashboard.component.html',
@@ -103,6 +105,8 @@ export class MiningDashboardComponent implements OnInit {
     private datePipe:DatePipe
   ) {
   }
+
+  
 
   ngOnInit() {
 

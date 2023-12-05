@@ -91,6 +91,7 @@ import { MemberPromotionComponent } from "./components/member/member-promotion/m
 import { FranchisePromotionComponent } from "./components/franchise/franchise-promotion/franchise-promotion.component";
 import { BmmPromotionComponent } from "./components/sho/bmm-promotion/bmm-promotion.component";
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "mininglogin", component: MiningLoginComponent },
@@ -108,6 +109,7 @@ const routes: Routes = [
   {
     path: "dashboard",
     canActivate: [GuardGuard],
+    canDeactivate:[GuardGuard],
     component: AdminDashboardComponent,
     children:[
       {path: "home" , component : HrDashboardComponent},
@@ -135,14 +137,10 @@ const routes: Routes = [
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },
-  // {
-  //   path: "miningdashboard",
-  //   canActivate: [GuardGuard],
-  //   component: MiningDashboardComponent,
-  // },
   {
     path: "miningdashboard",
     canActivate : [GuardGuard],
+    canDeactivate:[GuardGuard],
     component : DashboardMiningComponent,
     children:[
       {path: "home" , component : MiningCardsComponent},
@@ -158,6 +156,7 @@ const routes: Routes = [
   {
     path: "memberdashboard",
     canActivate: [GuardGuard],
+    canDeactivate:[GuardGuard],
     component: MemberDashboardComponent,
     children:[
       { path: "home", component: MemberCardComponent },
@@ -173,6 +172,7 @@ const routes: Routes = [
   {
     path: "statedashboard",
     canActivate: [GuardGuard],
+    canDeactivate:[GuardGuard],
     component: StatedashboardComponent,
     children: [
       { path: "home", component: ShoCardComponent },
@@ -190,6 +190,7 @@ const routes: Routes = [
   {
     path: "franchisedashboard",
     canActivate:[GuardGuard],
+    canDeactivate:[GuardGuard],
     component: FranchisedashboardComponent,
     children: [
       { path: "home", component: FranchiseCardComponent },
@@ -221,6 +222,7 @@ const routes: Routes = [
   {
     path: "dashboard/sendwithdrawal",
     canActivate: [GuardGuard],
+    canDeactivate:[GuardGuard],
     component: SendWithdrawalAmountComponent,
   },
   
