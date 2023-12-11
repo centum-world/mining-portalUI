@@ -8,40 +8,20 @@
   transition: all ease-in-out 200ms;
 }
 
-.partner-signup-partner{
-  height: 100vh;
-  width: 100vw;
-}
 
 .partner-signup-container{
-  height: 100%;
   display: flex;
 }
 
 .signup-left-wrapper{
-  width: 30%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 40%;
+  height:120vh;
   background-color: #ABDFFD;
 }
 
 .signup-right-wrapper{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.signup-right-container{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
+  width: 60%;
+  height: 120vh;
 }
 
 .mat-form-field-wrapper {
@@ -63,17 +43,10 @@
 
 .signup-fields-container{
   width: 100%;
-  padding: 20px;
-  margin-top: 30%;
 }
 
 .first-half-input-fields{
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-left: 1%;
+  padding:10px 50px 50px 50px;
 }
 
 .input-subtitle{
@@ -87,8 +60,12 @@
     flex-wrap: wrap;
 }
 
-.refferal-input, .reffer-box{
-  width: 100%;
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+.input{
+  width:40%;
 }
 
 .dob-box{

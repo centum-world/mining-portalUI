@@ -1,171 +1,221 @@
-<div class="partner-signup-partner">
-  <div class="partner-signup-container">
-    <div class="signup-left-wrapper">
-      <div class="signup-left-container">
+<div class="partner-signup-container">
+  <div class="signup-left-wrapper">
+    <div class="signup-left-container">
       <div class="company-name">
-        <img src="../../../assets/image/clogo.png" alt="" height="60">
+        <img src="../../../assets/image/clogo.png" alt="" height="60" />
         <span>Centum World</span>
       </div>
-      <img src="../../../assets/image/Data_security_05.jpg" alt="" width="100%"
-        style="border-bottom-right-radius: 10%; border-top-right-radius: 10%; mix-blend-mode: multiply;  opacity: 1;">
-      </div>
+      <img
+        src="../../../assets/image/Data_security_05.jpg"
+        alt=""
+        width="100%"
+        style="
+          border-bottom-right-radius: 10%;
+          border-top-right-radius: 10%;
+          mix-blend-mode: multiply;
+          opacity: 1;
+        "
+      />
     </div>
-    <div class="signup-right-wrapper">
-      <div class="signup-right-container">
-        <div class="signup-register">
-         
-          <div class="underline-box"></div>
-        </div>
-        <div class="signup-fields-container">
-          <h1 style="margin: 1%;">Registration</h1>
-          <div class="signup-first-half">
-            <form action="" [formGroup]="partnerSignUpForm" (ngSubmit)="addPartnerData(partnerSignUpForm)">
-              <div class="mining-form-fields" class="first-half-input-fields">
-                <div class="reffer-box">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Select referral type</mat-label>
-                    <mat-select [(value)]="role">
-                      <mat-option>Select one</mat-option>
-                      <mat-option value="MEMBER">Member</mat-option>
-                      <mat-option value="FRANCHISE">Franchise</mat-option>
-                      <mat-option value="BMM">BMM</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  
-                  <mat-form-field appearance="outline" class="refferal-input">
-                    <mat-label>
-                      Referral ID</mat-label>
-                    <input matInput formControlName="reffered_id" required/>
-                  </mat-form-field>
-                </div>
+  </div>
+  <div class="signup-right-wrapper">
+    <div class="signup-fields-container">
+      <div class="signup-first-half">
+        <form
+          action=""
+          [formGroup]="partnerSignUpForm"
+          (ngSubmit)="addPartnerData(partnerSignUpForm)"
+        >
+          <div class="first-half-input-fields">
+            <h1>Registration</h1>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>Select referral type</mat-label>
+                <mat-select [(value)]="role">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="MEMBER">Member</mat-option>
+                  <mat-option value="FRANCHISE">Franchise</mat-option>
+                  <mat-option value="BMM">BMM</mat-option>
+                </mat-select>
+              </mat-form-field>
 
-                <div class="name-box">
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      First Name</mat-label>
-                    <input matInput formControlName="name" required />
-                  </mat-form-field>
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Last Name</mat-label>
-                    <input matInput formControlName="lname" required />
-                  </mat-form-field>
-                </div>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Referral ID</mat-label>
+                <input matInput formControlName="reffered_id" required />
+              </mat-form-field>
+            </div>
 
-                <div class="number-box name-box">
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Aadhar</mat-label>
-                    <input matInput formControlName="aadhar" required />
-                  </mat-form-field>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> First Name</mat-label>
+                <input matInput formControlName="name" required />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Last Name</mat-label>
+                <input matInput formControlName="lname" required />
+              </mat-form-field>
+            </div>
 
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Phone</mat-label>
-                    <input matInput formControlName="phone" required />
-                  </mat-form-field>
-                </div>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Aadhar</mat-label>
+                <input matInput formControlName="aadhar" required />
+              </mat-form-field>
 
-                <div class="email-address-box name-box">
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Email</mat-label>
-                    <input matInput formControlName="email" required />
-                  </mat-form-field>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Phone</mat-label>
+                <input matInput formControlName="phone" required />
+              </mat-form-field>
+            </div>
 
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Enter address</mat-label>
-                    <input matInput formControlName="address" required />
-                  </mat-form-field>
-                </div>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Email</mat-label>
+                <input matInput formControlName="email" required />
+              </mat-form-field>
 
-                <div class="email-address-box name-box">
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      State</mat-label>
-                    <input matInput formControlName="state" required />
-                  </mat-form-field>
-                  <div class="dob-box">
-                    <label for="dob">DOB</label>
-                    <input type="date" name="dob" formControlName="dob" id="dob">
-                  </div>
-                </div>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Enter address</mat-label>
+                <input matInput formControlName="address" required />
+              </mat-form-field>
+            </div>
 
-                <div class="nominee-box name-box">
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Nominee Name</mat-label>
-                    <input matInput formControlName="nominee_name" required />
-                  </mat-form-field>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> State</mat-label>
+                <input matInput formControlName="state" required />
+              </mat-form-field>
+              <!-- <div class="input">
+                <label for="dob">DOB</label>
+                <input type="date" name="dob" formControlName="dob" id="dob" />
+              </div> -->
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>DOB</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
 
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Nominee aadhar</mat-label>
-                    <input matInput formControlName="nominee_aadhar" required />
-                  </mat-form-field>
-                </div>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Nominee Name</mat-label>
+                <input matInput formControlName="nominee_name" required />
+              </mat-form-field>
 
-                <div class="email-address-box name-box">
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Nominee Phone</mat-label>
-                    <input matInput formControlName="nominee_phone" required />
-                  </mat-form-field>
-                  <div class="dob-box">
-                    <label for="dop">DOP</label>
-                    <input type="date" name="dob" formControlName="dop" id="dop">
-                  </div>
-                </div>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Nominee aadhar</mat-label>
+                <input matInput formControlName="nominee_aadhar" required />
+              </mat-form-field>
+            </div>
 
-                <div class="name-box">
-                  <div class="form-group">
-                    <label for="liquidity">Liquidity</label>
-                    <select name="liquidity" id="liquidity" formControlName="liquidity" class="form-control">
-                      <option value="">Select Liquidity</option>
-                      <option value="1200000">12 Lakh</option>
-                      <option value="600000">6 Lakh</option>
-                      <option value="300000">3 Lakh</option>
-                      <option value="200000">2 Lakh</option>
-                      <option value="100000">1 Lakh</option>
-                    </select>
-                  </div>
-                  <mat-form-field appearance="outline" class="name-input">
-                    <mat-label>
-                      Terms</mat-label>
-                    <input matInput formControlName="terms" required value="12 Months" />
-                  </mat-form-field>
-                </div>
-                <mat-form-field appearance="outline" class="name-input">
-                  <mat-label>
-                    Front Aadhar Card</mat-label>
-                    <input matInput type="text" [value]="aadharImageName" placeholder="Choose a file" readonly />
-                    <input type="file" id="aadharImage" (change)="onAadharImageChange($event,'front')" accept="image/*" class="input" />
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="name-input">
-                  <mat-label>
-                    Back Aadhar Card</mat-label>
-                    <input matInput type="text" [value]="backAadharImageName" placeholder="Choose a file" readonly />
-                    <input type="file" id="aadharImage" (change)="onAadharImageChange($event,'back')" accept="image/*" class="input" />
-                </mat-form-field>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Nominee Phone</mat-label>
+                <input matInput formControlName="nominee_phone" required />
+              </mat-form-field>
+              <div class="input">
+                <label for="dop">DOP</label>
+                <input type="date" name="dob" formControlName="dop" id="dop" />
+              </div>
+           
+            </div>
 
-                <mat-form-field appearance="outline" class="name-input">
-                  <mat-label>
-                    Pan Card</mat-label>
-                    <input matInput type="text" [value]="panImageName" placeholder="Choose a file" readonly />
-                    <input type="file" id="aadharImage" (change)="onAadharImageChange($event,'pan')" accept="image/*" class="input" />
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="name-input">
-                  <mat-label>
-                    User id</mat-label>
-                  <input matInput formControlName="user_id" required />
-                </mat-form-field>
+            <div class="box">
+              <div class="input">
+                <select
+                  name="liquidity"
+                  id="liquidity"
+                  formControlName="liquidity"
+                  class="form-control"
+                >
+                  <option value="">Select Liquidity</option>
+                  <option value="1200000">12 Lakh</option>
+                  <option value="600000">6 Lakh</option>
+                  <option value="300000">3 Lakh</option>
+                  <option value="200000">2 Lakh</option>
+                  <option value="100000">1 Lakh</option>
+                </select>
+              </div>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Terms</mat-label>
+                <input
+                  matInput
+                  formControlName="terms"
+                  required
+                  value="12 Months"
+                />
+              </mat-form-field>
+            </div>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Front Aadhar Card</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [value]="aadharImageName"
+                  placeholder="Choose a file"
+                  readonly
+                />
+                <input
+                  type="file"
+                  id="aadharImage"
+                  (change)="onAadharImageChange($event, 'front')"
+                  accept="image/*"
+                  class="input"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Back Aadhar Card</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [value]="backAadharImageName"
+                  placeholder="Choose a file"
+                  readonly
+                />
+                <input
+                  type="file"
+                  id="aadharImage"
+                  (change)="onAadharImageChange($event, 'back')"
+                  accept="image/*"
+                  class="input"
+                />
+              </mat-form-field>
+            </div>
 
-                <mat-form-field appearance="outline" class="name-input">
-                  <mat-label>
-                    Password</mat-label>
-                  <input  [type]="passwordFieldType" matInput formControlName="password" required />
-                  <button
+            <mat-form-field appearance="outline" class="input">
+              <mat-label> Pan Card</mat-label>
+              <input
+                matInput
+                type="text"
+                [value]="panImageName"
+                placeholder="Choose a file"
+                readonly
+              />
+              <input
+                type="file"
+                id="aadharImage"
+                (change)="onAadharImageChange($event, 'pan')"
+                accept="image/*"
+                class="input"
+              />
+            </mat-form-field>
+            <div class="box">
+            <mat-form-field appearance="outline" class="input">
+              <mat-label> User id</mat-label>
+              <input matInput formControlName="user_id" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input">
+              <mat-label> Password</mat-label>
+              <input
+                [type]="passwordFieldType"
+                matInput
+                formControlName="password"
+                required
+              />
+              <button
                 mat-icon-button
                 matSuffix
                 (click)="togglePasswordVisibility()"
@@ -173,42 +223,22 @@
               >
                 <mat-icon>{{ showPasswordIcon }}</mat-icon>
               </button>
-                </mat-form-field>
-                <p>Already have an account? <a href="javascript:void(0)" (click)="gotoLogin()">LOG IN</a>&nbsp; <a href="">Home</a> </p>
-              </div>
-              <button class="partner-signup-btn" type="submit">
-                <ng-container *ngIf="spin; else registerText">
-                  <mat-spinner diameter="40"></mat-spinner>
-                </ng-container>
-                <ng-template #registerText>Create Account</ng-template>
-              </button>
-            </form>
+            </mat-form-field>
           </div>
-        </div>
+            <p>
+              Already have an account?
+              <a href="javascript:void(0)" (click)="gotoLogin()">LOG IN</a
+              >&nbsp; <a href="">Home</a>
+            </p>
+            <button class="partner-signup-btn" type="submit">
+              <ng-container *ngIf="spin; else registerText">
+                <mat-spinner diameter="40"></mat-spinner>
+              </ng-container>
+              <ng-template #registerText>Create Account</ng-template>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
