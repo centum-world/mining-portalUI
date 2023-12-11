@@ -79,6 +79,10 @@
   display: flex;
   align-items: center;
 }
+.c-company-name span{
+  font-family: Calibri;
+  font-weight: 700;
+}
 
 .state-singup-btn{
   display: flex;
@@ -121,6 +125,9 @@
 .subtitle-text{
   color: #616161;
   text-align: center;
+  font-size: 18px;
+  font-family: Calibri;
+  font-weight: 600;
 }
 
 .main-fields{
