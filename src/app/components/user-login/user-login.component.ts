@@ -76,6 +76,9 @@ export class UserLoginComponent implements OnInit {
     // window.open( "/member-signup", "_parent");
     this.router.navigate(['/member-signup']);
   }
+  backToHome(){
+    this.router.navigate(['/'])
+  }
 
   sendOtp() {
     let data = {

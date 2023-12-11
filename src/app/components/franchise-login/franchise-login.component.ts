@@ -67,6 +67,9 @@ export class FranchiseLoginComponent implements OnInit {
     // window.open("/franchiseSignUp");
     this.router.navigate(['/franchiseSignUp'])
   }
+  backToHome(){
+    this.router.navigate(['/'])
+  }
   logOut(){
     localStorage.removeItem('stateToken');
     localStorage.removeItem('stateHandlerId');
