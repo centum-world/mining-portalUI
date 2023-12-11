@@ -53,7 +53,7 @@ export class SignupPartnerComponent implements OnInit {
       Validators.minLength(13), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       dop: new FormControl("", [Validators.required]),
       liquidity: new FormControl("", [Validators.required]),
-      terms: new FormControl("12 Months", [Validators.required]),
+      terms : new FormControl({ value: '12 Months', disabled: true }, Validators.required),
       user_id: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required])
     });
