@@ -2,26 +2,25 @@
   <div class="contact-container">
     <h1>Contact Us</h1>
     <p>
-      Feel free to contact us any time. We will get back to you as soon as we
-      can
+      Feel free to contact us any time. We will get back to you as soon as we can.
     </p>
     <div class="input-container">
       <mat-form-field appearance="standard" class="text-input">
         <mat-label>Name</mat-label>
-        <input matInput />
+        <input matInput [(ngModel)]="name" name="name" />
       </mat-form-field>
 
       <mat-form-field appearance="standard" class="text-input">
         <mat-label>Email</mat-label>
-        <input matInput />
+        <input matInput [(ngModel)]="email" name="email" />
       </mat-form-field>
 
       <mat-form-field appearance="standard" class="text-input">
         <mat-label>Message</mat-label>
-        <input matInput />
+        <textarea matInput [(ngModel)]="message" name="message"></textarea>
       </mat-form-field>
 
-      <button class="send-btn">SEND</button>
+      <button class="send-btn" (click)="sendEmail()">SEND</button>
     </div>
   </div>
   <div class="color-div"></div>
