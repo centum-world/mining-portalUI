@@ -212,6 +212,7 @@ import { BmmPartnerlistComponent } from './components/sho/bmm-partnerlist/bmm-pa
 import { MemberPromotionComponent } from './components/member/member-promotion/member-promotion.component';
 import { FranchisePromotionComponent } from './components/franchise/franchise-promotion/franchise-promotion.component';
 import { BmmPromotionComponent } from './components/sho/bmm-promotion/bmm-promotion.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -395,7 +396,8 @@ import { BmmPromotionComponent } from './components/sho/bmm-promotion/bmm-promot
     BmmPartnerlistComponent,
     MemberPromotionComponent,
     FranchisePromotionComponent,
-    BmmPromotionComponent
+    BmmPromotionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
