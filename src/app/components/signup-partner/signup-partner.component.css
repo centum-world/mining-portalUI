@@ -133,6 +133,11 @@
   color: #fff;
 }
 
+.mat-input-element {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* .mat-form-field.mat-focused .mat-form-field-label {
   display: block !important;
 } */
