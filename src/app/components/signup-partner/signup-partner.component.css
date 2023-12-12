@@ -1,6 +1,6 @@
 @import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,142 +8,188 @@
   transition: all ease-in-out 200ms;
 }
 
-
-.partner-signup-container{
+.partner-signup-container {
   display: flex;
 }
 
-.signup-left-wrapper{
+.signup-left-wrapper {
   width: 40%;
-  height:120vh;
-  background-color: #ABDFFD;
+  height: 125vh;
+  background-color: #abdffd;
 }
 
-.signup-right-wrapper{
+.signup-right-wrapper {
   width: 60%;
-  height: 120vh;
 }
 
 .mat-form-field-wrapper {
   padding-bottom: 0;
 }
+.imgPng {
+  width:100%;
+  border-bottom-right-radius: 10%;
+  border-top-right-radius: 10%;
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
 
-.signup-register{
+
+.signup-register {
   display: flex;
   flex-direction: column;
   width: max-content;
   padding: 20px;
 }
-
-.underline-box{
+/* 
+.underline-box {
   height: 5px;
   width: 100%;
-  background-color: #ABDFFD;
-}
+  background-color: #abdffd;
+} */
 
-.signup-fields-container{
+.signup-fields-container {
   width: 100%;
 }
 
-.first-half-input-fields{
-  padding:10px 50px 50px 50px;
+.first-half-input-fields {
+  padding: 10px 50px 50px 50px;
 }
 
-.input-subtitle{
-  font-size: .8rem;
+.input-subtitle {
+  font-size: 0.8rem;
 }
-
-.name-box{
+/* 
+.name-box {
   display: flex;
   gap: 2rem;
   justify-content: space-between;
-    flex-wrap: wrap;
-}
+  flex-wrap: wrap;
+} */
 
 .box {
   display: flex;
   justify-content: space-between;
 }
-.input{
-  width:40%;
+.input {
+  width: 40%;
 }
 
-.dob-box{
+/* .dob-box {
   display: flex;
   flex-direction: column;
-}
+} */
 
-.form-group{
+/* .form-group {
   width: 33%;
-}
+} */
 
-.partner-signup-btn{
-  margin-left: 1%;
+.partner-signup-btn {
   border: none;
-  background-color: #6FC6FD;
+  background-color: #478fbf;
   color: #eee;
   text-transform: uppercase;
   width: 50%;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 0.6rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.alreadyAccount {
+  margin-top: 1rem;
+  color: #888; /* Default color */
+  transition: color 0.3s ease;
 }
 
-.signup-left-container{
+.alreadyAccount a {
+  text-decoration: none;
+}
+.alreadyAccount a:hover {
+  color: #6fc6fd; /* Color on hover */
+  text-decoration: underline;
+}
+
+.alreadyAccounat {
+  margin-top: 0.6rem;
+}
+
+.signup-left-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
 
-.company-name{
+/* .company-name {
   display: flex;
-  align-items: center
-}
+  align-items: center;
+} */
 
-.company-name span{
+.company-name span {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1rem;
   color: #fff;
 }
 
-.mat-form-field.mat-focused .mat-form-field-label {
+/* .mat-form-field.mat-focused .mat-form-field-label {
   display: block !important;
-}
+} */
 
-
-
-
-
-@media only screen and (max-width: 768px){
-  .partner-signup-container{
+@media only screen and (max-width: 768px) {
+  .partner-signup-container {
     flex-direction: column;
   }
-  .signup-left-wrapper{
+  .imgPng{
+    height:110px;
+    width:35%;
+  }
+  .signup-left-wrapper {
+    width:100vw;
+    height: 30vh;
+  }
+  .signup-right-wrapper {
+    width: 100vw;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+  }
+  .input {
+    width: 90%;
+  }
+  .first-half-input-fields {
+    padding: 5px 20px 20px 20px;
+  }
+
+  .partner-signup-btn {
+    width: 60%;
+    padding: 8px 0px;
+    cursor: pointer;
+  }
+  
+  /* .signup-left-wrapper {
     width: 100%;
   }
-  .signup-first-half{
+  .signup-first-half {
     display: flex;
     justify-content: space-around;
   }
   .first-half-input-fields {
     width: 100%;
   }
-  .signup-right-wrapper{
+  .signup-right-wrapper {
     height: auto;
   }
-  .signup-fields-container{
+  .signup-fields-container {
     margin-top: 120%;
-  }
+  } */
 }
-
-@media only screen and(max-width: 475px){
-  .name-box{
+/* 
+@media only screen and(max-width: 475px) {
+  .name-box {
     flex-wrap: wrap;
   }
-  
-}
+} */

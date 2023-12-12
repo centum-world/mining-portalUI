@@ -7,14 +7,8 @@
       </div>
       <img
         src="../../../assets/image/Data_security_05.jpg"
-        alt=""
-        width="100%"
-        style="
-          border-bottom-right-radius: 10%;
-          border-top-right-radius: 10%;
-          mix-blend-mode: multiply;
-          opacity: 1;
-        "
+        alt="png Registration"
+        class="imgPng"
       />
     </div>
   </div>
@@ -91,8 +85,15 @@
               </div> -->
               <mat-form-field appearance="outline" class="input">
                 <mat-label>DOB</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="dob">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="dob"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </div>
@@ -114,16 +115,29 @@
                 <mat-label> Nominee Phone</mat-label>
                 <input matInput formControlName="nominee_phone" required />
               </mat-form-field>
-              <div class="input">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>DOP</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="dopPicker"
+                  formControlName="dop"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dopPicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dopPicker></mat-datepicker>
+              </mat-form-field>
+
+              <!-- <div class="input">
                 <label for="dop">DOP</label>
                 <input type="date" name="dob" formControlName="dop" id="dop" />
-              </div>
-           
+              </div> -->
             </div>
 
             <div class="box">
-              <div class="input">
-                <select
+              <!-- <div class="input"> -->
+              <!-- <select
                   name="liquidity"
                   id="liquidity"
                   formControlName="liquidity"
@@ -135,8 +149,21 @@
                   <option value="300000">3 Lakh</option>
                   <option value="200000">2 Lakh</option>
                   <option value="100000">1 Lakh</option>
-                </select>
-              </div>
+                </select> -->
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>Select Liquidity</mat-label>
+                <!-- <mat-select [(value)]="role" formControlName="liquidity"> -->
+                <mat-select formControlName="liquidity">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="1200000">12 Lakh</mat-option>
+                  <mat-option value="600000">6 Lakh</mat-option>
+                  <mat-option value="300000">3 Lakh</mat-option>
+                  <mat-option value="200000">2 Lakh</mat-option>
+                  <mat-option value="100000">1 Lakh</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- </div> -->
+              <!-- <div > -->
               <mat-form-field appearance="outline" class="input">
                 <mat-label> Terms</mat-label>
                 <input
@@ -146,6 +173,7 @@
                   value="12 Months"
                 />
               </mat-form-field>
+              <!-- </div> -->
             </div>
             <div class="box">
               <mat-form-field appearance="outline" class="input">
@@ -162,7 +190,6 @@
                   id="aadharImage"
                   (change)="onAadharImageChange($event, 'front')"
                   accept="image/*"
-                  class="input"
                 />
               </mat-form-field>
               <mat-form-field appearance="outline" class="input">
@@ -179,63 +206,65 @@
                   id="aadharImage"
                   (change)="onAadharImageChange($event, 'back')"
                   accept="image/*"
-                  class="input"
                 />
               </mat-form-field>
             </div>
-
-            <mat-form-field appearance="outline" class="input">
-              <mat-label> Pan Card</mat-label>
-              <input
-                matInput
-                type="text"
-                [value]="panImageName"
-                placeholder="Choose a file"
-                readonly
-              />
-              <input
-                type="file"
-                id="aadharImage"
-                (change)="onAadharImageChange($event, 'pan')"
-                accept="image/*"
-                class="input"
-              />
-            </mat-form-field>
             <div class="box">
-            <mat-form-field appearance="outline" class="input">
-              <mat-label> User id</mat-label>
-              <input matInput formControlName="user_id" required />
-            </mat-form-field>
+              <!-- <div> -->
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Pan Card</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [value]="panImageName"
+                  placeholder="Choose a file"
+                  readonly
+                />
+                <input
+                  type="file"
+                  id="aadharImage"
+                  (change)="onAadharImageChange($event, 'pan')"
+                  accept="image/*"
+                />
+              </mat-form-field>
+              <!-- </div> -->
+            </div>
+            <div class="box">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> User id</mat-label>
+                <input matInput formControlName="user_id" required />
+              </mat-form-field>
 
-            <mat-form-field appearance="outline" class="input">
-              <mat-label> Password</mat-label>
-              <input
-                [type]="passwordFieldType"
-                matInput
-                formControlName="password"
-                required
-              />
-              <button
-                mat-icon-button
-                matSuffix
-                (click)="togglePasswordVisibility()"
-                type="button"
-              >
-                <mat-icon>{{ showPasswordIcon }}</mat-icon>
-              </button>
-            </mat-form-field>
-          </div>
-            <p>
-              Already have an account?
-              <a href="javascript:void(0)" (click)="gotoLogin()">LOG IN</a
-              >&nbsp; <a href="">Home</a>
-            </p>
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Password</mat-label>
+                <input
+                  [type]="passwordFieldType"
+                  matInput
+                  formControlName="password"
+                  required
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="togglePasswordVisibility()"
+                  type="button"
+                >
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+
             <button class="partner-signup-btn" type="submit">
               <ng-container *ngIf="spin; else registerText">
                 <mat-spinner diameter="40"></mat-spinner>
               </ng-container>
               <ng-template #registerText>Create Account</ng-template>
             </button>
+            <p class="alreadyAccounat">
+              Already have an account?
+              <a href="javascript:void(0)" (click)="gotoLogin()">LogIn</a
+              >&nbsp; <a href="">Home</a>
+            </p>
           </div>
         </form>
       </div>
