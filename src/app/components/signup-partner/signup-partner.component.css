@@ -21,6 +21,7 @@
 
 .signup-right-wrapper {
   width: 60%;
+  height: 130vh;
 }
 
 .mat-form-field-wrapper {
@@ -158,6 +159,7 @@
   }
   .signup-right-wrapper {
     width: 100%;
+    height: 190vh;
   }
 
   .box {
