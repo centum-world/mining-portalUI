@@ -21,11 +21,13 @@ section {
 }
 h3 {
   color: #acafb5;
+  font-family: "Poppins", sans-serif;
 }
 a,
 h5 {
   color: white;
   font-family: "Poppins", sans-serif;
+  padding:1px
 }
 .firstHalf {
   width: 50%;
@@ -68,4 +70,39 @@ h5 {
 .mobileButton{
     display:flex;
     gap:20px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  section {
+    width: 100%;
+    flex-direction:column;
+    height:70vh
+  }
+  .firstSection {
+    padding: 10px;
+    width:100%
+  }
+  .firstHalf,
+  .firstOtherHalf {
+    width: 100%;
+  }
+
+  .secondSection {
+    padding: 10px; 
+    display:flex;
+    width:100%;
+    gap:50px
+  }
+  .mobileButton{
+   flex-direction:column;
+   gap:5px;
+}
+
+.my-button {
+  padding: 7px 13px;
+  height: 30px;
+  width: 80px;
+}
 }
