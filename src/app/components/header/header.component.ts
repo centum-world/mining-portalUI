@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit {
     } else if (service === 'Centum World') {
       url = 'https://centumworld.com/'; // Replace with the URL for Centum World
     } else if (service === 'Centumo Swap') {
-      url = 'https://centumoswap.com'; // Replace with the URL for Centumo Swap
+      url = 'https://centumo.centumworld.com/#/exchange'; // Replace with the URL for Centumo Swap
     }
     // Add more conditions for other services if needed
 
