@@ -8,7 +8,7 @@ footer {
 
 section {
   width: 100%;
-  height: 43vh;
+  height: auto;
   background: #170045;
   display: flex;
 }
@@ -78,7 +78,7 @@ h5 {
   section {
     width: 100%;
     flex-direction:column;
-    height:70vh
+    /* height:70vh */
   }
   .firstSection {
     padding: 10px;
