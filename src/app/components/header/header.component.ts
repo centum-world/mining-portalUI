@@ -82,4 +82,21 @@ export class HeaderComponent implements OnInit {
     console.log("button pressed")
     this.isMobileSidebarVisible = !this.isMobileSidebarVisible;
   }
+
+  openServiceInNewTab(service: string) {
+    let url = '';
+
+    if (service === 'JetTrade FX') {
+      url = 'http://jettradefx.in'; // Replace with the URL for JetTrade FX
+    } else if (service === 'Centum World') {
+      url = 'https://centumworld.com/'; // Replace with the URL for Centum World
+    } else if (service === 'Centumo Swap') {
+      url = 'https://centumoswap.com'; // Replace with the URL for Centumo Swap
+    }
+    // Add more conditions for other services if needed
+
+    if (url !== '') {
+      window.open(url, '_blank');
+    }
+  }
 }
