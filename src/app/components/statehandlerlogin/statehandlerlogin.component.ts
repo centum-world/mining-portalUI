@@ -71,7 +71,7 @@ export class StatehandlerloginComponent implements OnInit {
 
 
   SignUpState(){
-    window.open('/stateRegitration')
+   window.location.href = '/stateRegitration';
   }
 
   // logout

@@ -89,12 +89,12 @@
   align-items: center;
 }
 
-.signup-btn{
+/* .signup-btn{
   border: none;
   background-color: transparent;
   border: 1px solid #212121;
   padding: 10px 8px;
-}
+} */
 
 .state-singup-btn span{
   color: #424242;

@@ -6,10 +6,10 @@
                     <img src="../../../assets/image/clogo.png" alt="" height="60" width="60" />
                     <span>CENTUM WORLD</span>
                 </div>
-                <div class="state-singup-btn">
+                <!-- <div class="state-singup-btn">
                     <span>No account yet ?</span>
                     <button class="signup-btn" (click)="SignUpState()">Signup</button>
-                </div>
+                </div> -->
             </div>
             <div class="state-left-container">
                 <div class="fields-container">
@@ -40,7 +40,8 @@
                                                 d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
                                         </svg>Password</mat-label>
                                     <input matInput [type]="passwordFieldType" formControlName="password" required />
-                                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()"
+                                        type="button">
                                         <mat-icon>{{ showPasswordIcon }}</mat-icon>
                                     </button>
                                 </mat-form-field>
@@ -53,6 +54,12 @@
                             </button>
                             <hr>
                             <button class="state-login-btn" (click)="home()">home</button>
+                            <hr>
+
+                            <span>No account yet ?</span>
+                            <br>
+                            <button class="state-login-btn" (click)="SignUpState()">SignUp</button>
+
                         </form>
                     </div>
                 </div>
