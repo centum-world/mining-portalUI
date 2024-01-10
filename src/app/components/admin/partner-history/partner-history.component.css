@@ -76,6 +76,13 @@
     color: red;
   }
 
+  .block{
+    color:red;
+  }
+  .unblock{
+    color:green;
+  }
+
   @media screen and (max-width: 768px ){
     .sho-list-header, .large-expand{
      margin-left: 0px ;

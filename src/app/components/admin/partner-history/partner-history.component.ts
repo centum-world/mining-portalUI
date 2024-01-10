@@ -32,6 +32,7 @@ interface Partner {
   p_nominee_phone:Number,
   p_nominee_aadhar:Number,
   status:string,
+  isBlocked:string,
   actions: string,
 }
 
@@ -44,7 +45,7 @@ export class PartnerHistoryComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['p_userid', 'p_name', 'p_lname', 'p_email', 'p_phone', 'p_dob',
-    'p_refferal_id','p_reffered_id','p_address','p_state', 'p_liquidity', 'p_aadhar', 'p_nominee_name', 'p_nominee_phone', 'p_nominee_aadhar','status', 'actions'];
+    'p_refferal_id','p_reffered_id','p_address','p_state', 'p_liquidity', 'p_aadhar', 'p_nominee_name', 'p_nominee_phone', 'p_nominee_aadhar','status','isBlocked', 'actions'];
   dataSource: MatTableDataSource<Partner>;
 
   constructor(
