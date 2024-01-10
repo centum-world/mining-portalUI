@@ -8,6 +8,10 @@
 table {
     width: 100%;
 }
+.pdf-prmat{
+  margin-left:350px;
+  padding:20px;
+}
 .detail-heading p{
     margin-top: 0;
     margin-bottom: 11px;
@@ -57,6 +61,11 @@ table {
   .mat-header-cell:last-child {
     border-right: 1px solid #ddd;
   }
+
+  .hidden-content {
+    display: none;
+  }
+  
  
 @media (max-width:768px){
     .large-expand{

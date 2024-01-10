@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material';
 import { MatDialogConfig } from '@angular/material';
 import { ConfirmApprovedComponent } from '../dialog/confirm-approved/confirm-approved.component';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-partner-account',
@@ -13,6 +15,8 @@ import { Router } from '@angular/router'
   styleUrls: ['./partner-account.component.css']
 })
 export class PartnerAccountComponent implements OnInit {
+  @ViewChild('contentToConvert', { static: false }) contentToConvert: ElementRef;
+  hideContent = false;
   status:boolean;
   partnerID: string;
   bankDetails = [];
@@ -298,6 +302,24 @@ export class PartnerAccountComponent implements OnInit {
       })
     })
     
+  }
+
+  downloadPdf() {
+    if (!this.hideContent && this.contentToConvert) {
+      const element = this.contentToConvert.nativeElement;
+      console.log("pdf")
+      html2canvas(element).then(canvas => {
+        const imgWidth = 210; // A4 size
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+        let position = 0;
+
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        pdf.save('generated_pdf.pdf');
+      });
+    }
   }
 
 }
