@@ -88,6 +88,82 @@
   .refferal-div{
     margin-left: 330px;
   }
+
+  .pdf-container{
+      padding: 20px;
+      width: 60%;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  .date-heading{
+    display:flex;
+    justify-content:end;
+
+  }
+
+  .user-name{
+    display:flex;
+    justify-content:space-between;
+  }
+
+  .user-id{
+    line-height:1px;
+    font-size:10px;
+    font-weight:700;
+    text:bold;
+  }
+  .company-name{
+    line-height:1px;
+    font-size:14px;
+    font-weight:700;
+    text-align:end;
+  }
+  .sub-div{
+    margin-top:10px;
+    line-height:1px;
+  }
+  .description{
+    display:flex;
+    justify-content:space-between;
+  }
+  .price-total {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Example grid columns */
+    gap: 20px;
+    text-align:end;
+  }
+  .price-total > * {
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  /* To avoid margin on the last item causing extra space */
+  .price-total > *:last-child {
+    margin-right: 0;
+  }
+
+  .custom-divider {
+    border-color: blue; /* Change the color */
+    border-style: solid; /* Change the border style */
+    border-width: 1px; /* Change the border width */
+    margin-bottom:10px;
+  }
+
+  .payment-successful{
+    margin-top:2px;
+  }
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    line-height:1px;
+  }
+  .layout{
+    width:200px;
+    height:60px;
+    background:blue;
+    padding:10px;
+  }
   
   @media (max-width: 768px) {
     .container {
@@ -105,6 +181,9 @@
     .account-content{
         margin-left: 0;
     }
+    .pdf-container{
+      width:80%;
+    }
   }
   @media (max-width: 576px) {
     .transaction {
@@ -118,5 +197,8 @@
       }
       .example-card{
         width: 400px;
+      }
+      .pdf-container{
+        width:100%;
       }
   }
