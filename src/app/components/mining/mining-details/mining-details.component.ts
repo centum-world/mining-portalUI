@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { MatDialogConfig } from "@angular/material";
@@ -7,8 +7,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { PartnerViewComponent } from "../../admin/dialog/partner-view/partner-view.component";
 import { MyQueryComponent } from "../dialog/my-query/my-query.component";
 import { PdfService } from "src/app/pdfService/pdf.service";
-import * as jspdf from 'jspdf';
-import html2canvas from 'html2canvas';
+
 // import image from '../../../../assets/image/pdfBond.png';
 
 
@@ -32,7 +31,7 @@ interface Partner {
   styleUrls: ["./mining-details.component.css"],
 })
 export class MiningDetailsComponent implements OnInit {
-  @ViewChild('contentToConvert', { static: false }) contentToConvert: ElementRef;
+ 
   hideContent = false;
   
   query = [];
@@ -101,44 +100,25 @@ export class MiningDetailsComponent implements OnInit {
     });
   }
 
-  // downLoadPartnershipBond(){
-  //   console.log("hii")
-  //   this.userService.fetchPartnerBond().subscribe({
-  //     next:(res:any)=>{
-  //      console.log(res.data[0].bond);
-  //     const bondData = res.data[0].bond;
-  //     const pdfUrl = bondData;
+  downLoadPartnershipBond(){
+    console.log("hii")
+    this.userService.fetchPartnerBond().subscribe({
+      next:(res:any)=>{
+       console.log(res.data[0].bond);
+      const bondData = res.data[0].bond;
+      const pdfUrl = bondData;
 
-  //     window.open(pdfUrl, '_blank');
-  //     },
-  //     error:(err=>{
-  //       console.log(err.error.message)
-  //     })
-  //   })
-  // }
+      window.open(pdfUrl, '_blank');
+      },
+      error:(err=>{
+        console.log(err.error.message)
+      })
+    })
+  }
 
  
 
-  downLoadPartnershipBond() {
-    console.log(this.contentToConvert)
-    if (this.contentToConvert) {
-      console.log("success")
-      const element = this.contentToConvert.nativeElement;
-
-      html2canvas(element).then(canvas => {
-        const imgWidth = 210; // A4 size
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-        const contentDataURL = canvas.toDataURL('../../../../assets/image/pdfBond.png');
-        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
-        let position = 0;
-
-        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-        pdf.save('generated_pdf.pdf');
-      });
-    }
   
-  }
 
   toggleContent() {
     this.hideContent = !this.hideContent;

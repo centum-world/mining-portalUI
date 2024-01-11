@@ -19,6 +19,8 @@ export class PartnerAccountComponent implements OnInit {
   hideContent = false;
   status:boolean;
   partnerID: string;
+  fname:"";
+  lname:"";
   bankDetails = [];
   partnerRequestHistory = [];
   approvedRequest = [];
@@ -29,6 +31,8 @@ export class PartnerAccountComponent implements OnInit {
   refferalAmount = 0;
   paymentDate = null;
   perDayAmounReal = 0;
+  liquidity = 0;
+  percentage = 0;
   partnerDetails = {
     dop:"",
     liquidity:0,
@@ -39,6 +43,7 @@ export class PartnerAccountComponent implements OnInit {
   color = 'accent';
   checked = false;
   disabled = false;
+  pdfButton = true;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -113,7 +118,12 @@ export class PartnerAccountComponent implements OnInit {
       this.userService.callApiToUniqepartnerDetails(data).subscribe({
         next:(res:any)=>{
           console.log(res.result[0])
+          this.fname = res.result[0].p_name;
+          this.lname = res.result[0].p_lname;
+          this.liquidity = res.result[0].p_liquidity;
+          this.percentage = (this.liquidity * 18)/100;
           this.partnerDetails.dop = res.result[0].p_dop;
+          this.paymentDate = res.result[0].p_dop;
           this.partnerDetails.liquidity = res.result[0].p_liquidity;
           this.partnerDetails.monthComplete = res.result[0].month_count;
           this.partnerDetails.status = res.result[0].partner_status
@@ -307,7 +317,6 @@ export class PartnerAccountComponent implements OnInit {
   downloadPdf() {
     if (!this.hideContent && this.contentToConvert) {
       const element = this.contentToConvert.nativeElement;
-      console.log("pdf")
       html2canvas(element).then(canvas => {
         const imgWidth = 210; // A4 size
         const imgHeight = (canvas.height * imgWidth) / canvas.width;

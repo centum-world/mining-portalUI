@@ -1,204 +1,225 @@
-.account-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    margin-left: 340px;
-    padding: 10px;
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin-left: 340px;
+  padding: 10px;
 }
-.account-header h5{
-    color: #000;
-    font-weight: 600;
-    font-family: Calibri;
+.account-header h5 {
+  color: #000;
+  font-weight: 600;
+  font-family: Calibri;
 }
-.wallet-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 40px;
-    background: #f8fc02;
-    color: #b63003;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 600;
+.wallet-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  background: #f8fc02;
+  color: #b63003;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
 }
-.account-content{
-    margin-left: 330px;
+.account-content {
+  margin-left: 330px;
 }
-.bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
 }
 .example-card {
-    margin: 10px;
-    width: 350px;
+  margin: 10px;
+  width: 350px;
 }
-.payment-card{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 50%;
+.payment-card {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 50%;
 }
-  
-.bank-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
+
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 }
-.bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
 }
-.example-header-image{
-    background-image: url("/assets/image/bank.jpg");
-    background-size: cover;
+.example-header-image {
+  background-image: url("/assets/image/bank.jpg");
+  background-size: cover;
 }
-.partner-history-card{
-    width: 70%;
-    margin-top: 5%;
+.partner-history-card {
+  width: 70%;
+  margin-top: 5%;
 }
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 5px;
-    margin: 10px;
-    box-sizing: border-box;
-    position: relative; /* Position relative for pseudo-element positioning */
-  }
-  
-  /* Style for the divider between columns */
-  .column:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -5px; /* Adjust this value to control the width of the divider */
-    height: 100%;
-    width: 1px; /* Width of the divider */
-    background-color: #ccc; /* Divider color */
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .refferal-div{
-    margin-left: 330px;
-  }
+.column {
+  flex: 1;
+  padding: 5px;
+  margin: 10px;
+  box-sizing: border-box;
+  position: relative; /* Position relative for pseudo-element positioning */
+}
 
+/* Style for the divider between columns */
+.column:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -5px; /* Adjust this value to control the width of the divider */
+  height: 100%;
+  width: 1px; /* Width of the divider */
+  background-color: #ccc; /* Divider color */
+}
+
+.refferal-div {
+  margin-left: 330px;
+}
+
+.pdf-container {
+  padding: 20px;
+  width: 40%;
+  /* background-color: #fff;
+  border: 1px solid #ccc; */
+  border-radius: 5px; 
+}
+
+.date-heading {
+  display: flex;
+  justify-content: end;
+  font-size:8px;
+}
+
+.user-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-id {
+  line-height: 1px;
+  font-size: 10px;
+  font-weight: 700;
+  text: bold;
+}
+.company-name {
+  line-height: 1px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: end;
+}
+.sub-div {
+  line-height: 1px;
+  margin-bottom:5px;
+}
+.description {
+  display: flex;
+  justify-content: space-between;
+}
+.price-total {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Example grid columns */
+  gap: 20px;
+  text-align: end;
+}
+.price-total > * {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+/* To avoid margin on the last item causing extra space */
+.price-total > *:last-child {
+  margin-right: 0;
+}
+
+.custom-divider {
+  border-color: #2a2c96; /* Change the color */
+  border-style: solid; /* Change the border style */
+  border-width: 1px; /* Change the border width */
+  margin-bottom: 10px;
+}
+
+.payment-successful {
+  line-height:1px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1px;
+}
+.layout {
+  width: 200px;
+  height: 60px;
+  background: #2a2c96;
+  padding: 10px;
+}
+
+.image-div{
+  width:250px;
+  height:65px;
+}
+@media screen and (min-width: 1025) and (max-width:1200px){
   .pdf-container{
-      padding: 20px;
-      width: 60%;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    width: 90%;
   }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .pdf-container {
+    width: 90%;
+  }
+}
 
-  .date-heading{
-    display:flex;
-    justify-content:end;
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .payment-card {
+    width: 90%;
+  }
+  .partner-history-card {
+    width: 98%;
+  }
+  .account-header,
+  .refferal-div {
+    margin-left: 0;
+  }
+  .account-content {
+    margin-left: 0;
+  }
+  .pdf-container {
+    width: 60%;
+  }
+}
+@media (max-width: 576px) {
 
-  }
-
-  .user-name{
-    display:flex;
-    justify-content:space-between;
-  }
-
-  .user-id{
-    line-height:1px;
-    font-size:10px;
-    font-weight:700;
-    text:bold;
-  }
-  .company-name{
-    line-height:1px;
-    font-size:14px;
-    font-weight:700;
-    text-align:end;
-  }
-  .sub-div{
-    margin-top:10px;
-    line-height:1px;
-  }
-  .description{
-    display:flex;
-    justify-content:space-between;
-  }
-  .price-total {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Example grid columns */
-    gap: 20px;
-    text-align:end;
-  }
-  .price-total > * {
-    margin-right: 10px; /* Adjust as needed */
-  }
-  
-  /* To avoid margin on the last item causing extra space */
-  .price-total > *:last-child {
-    margin-right: 0;
-  }
-
-  .custom-divider {
-    border-color: blue; /* Change the color */
-    border-style: solid; /* Change the border style */
-    border-width: 1px; /* Change the border width */
-    margin-bottom:10px;
-  }
-
-  .payment-successful{
-    margin-top:2px;
-  }
-  .footer{
-    display:flex;
-    justify-content:space-between;
-    line-height:1px;
-  }
-  .layout{
+  .image-div{
     width:200px;
-    height:60px;
-    background:blue;
-    padding:10px;
+    height:50px
   }
-  
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-    .payment-card{
-        width: 90%;
-    }
-    .partner-history-card{
-        width: 98%;
-    }
-    .account-header,.refferal-div{
-        margin-left: 0;
-    }
-    .account-content{
-        margin-left: 0;
-    }
-    .pdf-container{
-      width:80%;
-    }
+  .transaction {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  @media (max-width: 576px) {
-    .transaction {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    
-      .mat-form-field {
-        width: 100%;
-        margin-bottom: 10px; 
-      }
-      .example-card{
-        width: 400px;
-      }
-      .pdf-container{
-        width:100%;
-      }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
   }
+  .example-card {
+    width: 400px;
+  }
+  .pdf-container {
+    width: 100%;
+  }
+}

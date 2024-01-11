@@ -369,6 +369,7 @@
       </div>
     </mat-tab>
     <mat-tab label="Bond">
+      <button mat-raised-button color="primary" (click)="downloadPdf()" [disabled]="!pdfButton">Download</button>
       <div
         style="
           display: flex;
@@ -382,87 +383,83 @@
           [ngClass]="{ 'hidden-content': hideContent }"
           class="pdf-container"
         >
-          <div class="date-heading">Date: 29/04/2023</div>
+          <div class="date-heading">Date: {{paymentDate|date}}</div>
 
           <div style="margin-bottom: 10px">
             <img
               src="../../../../assets/image/heading.png"
               alt=""
-              height="75px"
-              width="300px"
+              class="image-div"
             />
           </div>
           <div class="user-name">
             <div class="user-id">
               <p>To,</p>
-              <p>NIVEDITA GUPTA</p>
+              <p>{{fname}}&nbsp;{{lname}}</p>
               <p>USER ID-</p>
-              <p>12345678</p>
+              <p>{{partnerID}}</p>
             </div>
             <div class="company-name">
               <p>CENTUM WORLD</p>
               <p>GSTIN:19AAQFC7963A1Z5</p>
-              <p style="font-size: smaller; font-weight: 100">+919051622827</p>
               <p style="font-size: smaller; font-weight: 100">
                 worldcentum@gmail.com
               </p>
             </div>
           </div>
           <div class="sub-div">
-            <p style="font-size: smaller; font-weight: 100">
+            <p style="font-size: 10px; font-weight: 100">
               Sub: SaaS-Software as a Service
             </p>
-            <p style="font-size: smaller; font-weight: 100">
+            <p style="font-size: 10px; font-weight: 100">
               IaaS-Infrastructure as a Service
             </p>
-            <p style="color: blue; font-weight: 700; margin-bottom: 10px">
+            <p style="color: #2a2c96; font-weight: 500; font-size:10px">
               INVOICE# 00227
             </p>
           </div>
-          <div style="line-height: normal">
             <div class="description">
-              <p style="font-size: smaller; font-weight: 700">
+              <p style="font-size: 10px; font-weight: 500">
                 DESCRIPTION/FEATURES
               </p>
               <div class="price-total">
-                <p style="font-size: smaller; font-weight: 700">PRICE</p>
-                <P style="font-size: smaller; font-weight: 700">TOTAL</P>
+                <p style="font-size: 10px; font-weight: 500">PRICE</p>
+                <P style="font-size: 10px; font-weight: 500">TOTAL</P>
               </div>
-            </div>
-            <mat-divider class="custom-divider"></mat-divider>
           </div>
+          <mat-divider class="custom-divider"></mat-divider>
           <div class="description">
             <div style="line-height: 1px; margin-top: 2px">
-              <p style="font-size: small; font-weight: 700">Price List</p>
-              <p style="font-size: smaller; font-weight: 500">
+              <p style="font-size: 12px; font-weight: 600">Price List</p>
+              <p style="font-size: 10px; font-weight: 500">
                 1.Software as a Service(SaaS)
               </p>
-              <p style="font-size: smaller; font-weight: 500">
+              <p style="font-size: 10px; font-weight: 500">
                 2.<strong>GPU RIG</strong> Configuration and
               </p>
-              <p style="font-size: smaller; font-weight: 500">
+              <p style="font-size: 10px; font-weight: 500">
                 Infrastructure as a Service(IaaS)
               </p>
             </div>
             <div class="price-total">
-              <p style="font-size: smaller; font-weight: 700">82,500</p>
-              <P style="font-size: smaller; font-weight: 700">82,500</P>
+              <p style="font-size: 12px; font-weight: 600">{{(liquidity - percentage) | currency: 'INR': 'symbol':'1.0-0' }}</p>
+              <P style="font-size: 12px; font-weight: 600">{{(liquidity - percentage) | currency: 'INR': 'symbol':'1.0-0' }}</P>
             </div>
           </div>
 
           <div class="description" style="margin-top: 20px">
-            <div style="line-height: 1px; margin-top: 2px">
-              <p style="font-size: small; font-weight: 700">Category 1</p>
-              <p style="font-size: smaller; font-weight: 500">
+            <div style="line-height: 1px;">
+              <p style="font-size: 12px; font-weight: 600">Category 1</p>
+              <p style="font-size: 10px; font-weight: 500">
                 12 Months basic Subscription
               </p>
-              <p style="font-size: smaller; font-weight: 500">
+              <p style="font-size: 10px; font-weight: 500">
                 1.Installation charge
               </p>
-              <p style="font-size: smaller; font-weight: 500">
+              <p style="font-size: 10px; font-weight: 500">
                 2.Mainteinance charge
               </p>
-              <p style="font-size: smaller; font-weight: 500">
+              <p style="font-size: 10px; font-weight: 500">
                 3.24*7 Online Support
               </p>
             </div>
@@ -472,59 +469,58 @@
             <div style="line-height: 1px; margin-top: 2px"></div>
             <div class="price-total">
               <div style="line-height: 1px">
-                <p style="font-size: smaller; font-weight: 700">TOTAL</p>
-                <p style="font-size: smaller; font-weight: 700">GST 18%</p>
-                <p style="font-size: smaller; font-weight: 700">
+                <p style="font-size: 12px; font-weight: 600">TOTAL</p>
+                <p style="font-size: 12px; font-weight: 600">GST 18%</p>
+                <p style="font-size: 12px; font-weight: 600">
                   Net Payable Amount
                 </p>
               </div>
               <div style="line-height: 1px">
-                <p style="font-size: smaller; font-weight: 700">Rs. 82,500/-</p>
-                <p style="font-size: smaller; font-weight: 700">Rs. 18,000/-</p>
-                <p style="font-size: smaller; font-weight: 700">
-                  Rs. 1,00,000/-
+                <p style="font-size: 12px; font-weight: 600">Rs. {{(liquidity - percentage) | currency: 'INR': 'symbol':'1.0-0' }}/-</p>
+                <p style="font-size: 12px; font-weight: 600">Rs. {{ percentage | currency: 'INR': 'symbol':'1.0-0' }}/-</p>
+                <p style="font-size: 12px; font-weight: 600">
+                  Rs. {{ liquidity | currency: 'INR': 'symbol':'1.0-0' }}/-
                 </p>
               </div>
             </div>
           </div>
 
           <div style="line-height: 1px">
-            <p style="font-size: smaller">
+            <p style="font-size: 10px">
               Installation, Security implementation and free
             </p>
-            <p style="font-size: smaller">
+            <p style="font-size: 10px">
               maintenance upto 12 Months from the
             </p>
-            <p style="font-size: smaller">Subscription data.</p>
+            <p style="font-size: 10px">Subscription data.</p>
           </div>
-
+          <br/>
           <div class="payment-successful">
-            <p style="color: blue; font-size: 16px; font-weight: 700">
+            <p style="color: #2a2c96; font-size: 10px; font-weight: 600">
               PAYMENT INFORMATION
             </p>
-            <p style="font-size: smaller; font-size: 14px; font-family: bold">
+            <p style=" font-size: 10px; font-weight: 600;">
               Bank Transfer - completed
             </p>
           </div>
-
+          <br/>
           <div class="footer">
             <div>
-              <p style="font-size: smaller; font-size: smaller">
+              <p style="font-size: 10px;">
                 www.centumworld.com
               </p>
-              <p style="font-size: smaller; font-size: smaller">
+              <p style="font-size: 10px;">
                 worldcentum@gmail.com
               </p>
-              <p style="font-size: smaller; font-size: smaller">8147062677</p>
             </div>
             <div class="layout">
-              <p style="font-size: smaller; font-size: 10px; color: white">
+              <p style=" font-size: 10px; color: white">
                 CENTUM WORLD
               </p>
-              <P style="font-size: smaller; font-size: 10px; color: white"
+              <P style=" font-size: 10px; color: white"
                 >HSR Layout,Banglore 560102</P
               >
-              <p style="font-size: smaller; font-size: 10px; color: white">
+              <p style="font-size: 10px; color: white">
                 Astra Tower,New Town,700136
               </p>
             </div>

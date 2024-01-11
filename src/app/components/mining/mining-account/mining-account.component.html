@@ -1,52 +1,193 @@
-<div style="display: flex; justify-content: center; align-items: center;">
-    <mat-card class="partner-history-card">
-       <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Payment history</mat-card-title>
-          <mat-card-subtitle>{{partnerDetails.partnerID}}</mat-card-subtitle>
-       </mat-card-header>
-       <mat-card-content>
-          <div class="container">
-             <div class="column">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Date of Payment</span> <strong>{{partnerDetails.dop | date}}</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Total liquidity</span> <strong>{{partnerDetails.liquidity | currency:'INR'}}</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Payout Tenure</span> <strong>12 TN</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Paid Tenure</span> <strong>{{partnerDetails.monthComplete}} TN</strong>
-                </div>
-             </div>
-             <div class="column">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Remaining Tenure</span> <strong>{{12 - partnerDetails.monthComplete}}&nbsp;TN</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Last Payout</span> <strong>{{partnerDetails.lastPaymentDate | date}}</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Next Payout</span> <strong>15 to 22nd (Of every month)</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                   <span>Status</span> <strong>{{partnerDetails.status?'Active':'Close'}}</strong>
-                </div>
-             </div>
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <mat-card class="partner-history-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Payment history</mat-card-title>
+      <mat-card-subtitle>{{ partnerDetails.partnerID }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container">
+        <div class="column">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Date of Payment</span>
+            <strong>{{ partnerDetails.dop | date }}</strong>
           </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Total liquidity</span>
+            <strong>{{ partnerDetails.liquidity | currency : "INR" }}</strong>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Payout Tenure</span> <strong>12 TN</strong>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Paid Tenure</span>
+            <strong>{{ partnerDetails.monthComplete }} TN</strong>
+          </div>
+        </div>
+        <div class="column">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Remaining Tenure</span>
+            <strong>{{ 12 - partnerDetails.monthComplete }}&nbsp;TN</strong>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Last Payout</span>
+            <strong>{{ partnerDetails.lastPaymentDate | date }}</strong>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Next Payout</span>
+            <strong>15 to 22nd (Of every month)</strong>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>Status</span>
+            <strong>{{ partnerDetails.status ? "Active" : "Close" }}</strong>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-button
+        type="button"
+        [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
+        mat-raised-button
+      >
+        {{ partnerDetails.status ? "ACTIVE" : "CLOSE" }}
+      </button>
+      <button mat-button type="button" (click)="gotoHome()" mat-raised-button>
+        Back
+      </button>
+    </mat-card-actions>
+  </mat-card>
 
-       </mat-card-content>
-       <mat-card-actions>
-          <button mat-button type="button" [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
-             mat-raised-button>
-             {{ partnerDetails.status ? 'ACTIVE' : 'CLOSE' }}
-          </button>
-          <button mat-button type="button" (click)="gotoHome()"
-             mat-raised-button>
-             Back
-          </button>
-       </mat-card-actions>
-    </mat-card>
- </div>
+  <div class="payout-div">
+    <div
+      class="pdf-prmat"
+      #contentToConvert
+      [ngClass]="{ 'hidden-content': hideContent }"
+      style="
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      "
+    >
+      <div class="pdf-div">
+        <div class="heading-logo">
+          <div class="both-logo">
+            <img
+              src="../../../../assets/image/centumlogo.png"
+              class="logo-div"
+            />
+            <img
+              src="../../../../assets/image/textlogo.png"
+              class="text-logo"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="year-div">
+        <p>March 2023 Payout</p>
+      </div>
+      <div class="paragraph-div">
+        <p style="line-height:12px;">
+          Dear
+          <span style="font-size: 10px; font-weight: 700"
+            >CENTUM WORLD MUTUAL RIG PARTNER</span
+          >
+          (Name)
+          <span style="font-size: 10px; font-weight: 700"
+            >GHASHIRAM MARANDI</span
+          >
+          join the rig program on
+          <span style="font-size: 10px; font-weight: 700">31/08/2022</span>
+        </p>
+      </div>
+      <div style="line-height:1px">
+         <p style="font-size: 10px;">Here are the details of your Account Payout:</p>
+         <p style="font-size: 10px;">1. User Account ID: <span style="font-size: 10px; font-weight: 700">GM0627</span></p>
+         <p style="font-size: 10px;">2. Total Liquidity: <span style="font-size: 10px; font-weight: 700">6 Lakh</span></p>
+         <p style="font-size: 10px;">3. Monthly payout: <span style="font-size: 10px; font-weight: 700">64,125/-</span></p>
+         <p style="font-size: 10px;">4. Payout Tenure: <span style="font-size: 10px; font-weight: 700">12TN</span></p>
+         <p style="font-size: 10px;">5. Paid Tenure: <span style="font-size: 10px; font-weight: 700">3TN</span></p>
+         <p style="font-size: 10px;">6. Remaining Tenure: <span style="font-size: 10px; font-weight: 700">9TN</span></p>
+         <p style="font-size: 10px;">7. Last Payout: <span style="font-size: 10px; font-weight: 700">03/04/2023</span></p>
+         <p style="font-size: 10px;">8. Next Payout : 15th to 22nd of April, 2023</p>
+         <p style="font-size: 10px;">9. Account Status: Active</p>
+      </div>
+      <div><p style="line-height: 12px; font-size: 10px; margin-bottom: 2px;">I agree and I recieved the amount for this month.</p></div>
+      <div style="display: flex; flex-direction: column-reverse; align-items: flex-end;">
+         <p>Signature</p>
+       </div>
+       
+
+    </div>
+    <div
+      style="
+        display: flex;
+        justify-content: flex-end;
+        align-items: end;
+        margin-top: 5px;
+      "
+    >
+      <button mat-raised-button color="primary" (click)="downloadPaylout()">
+        Download
+      </button>
+    </div>
+  </div>
+</div>

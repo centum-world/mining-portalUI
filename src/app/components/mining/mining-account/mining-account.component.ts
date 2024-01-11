@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { UserService } from 'src/app/service/user.service';
-
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-mining-account',
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./mining-account.component.css']
 })
 export class MiningAccountComponent implements OnInit {
-
+  @ViewChild('contentToConvert', { static: false }) contentToConvert: ElementRef;
   constructor(private router:Router,private dialog: MatDialog,private userService:UserService) { }
   partnerDetails = {
     partnerID:'',
@@ -63,4 +64,29 @@ export class MiningAccountComponent implements OnInit {
   gotoHome(){
     this.router.navigate(['/miningdashboard/home'])
   }
+
+  downloadPaylout() {
+    console.log(this.contentToConvert)
+    if (this.contentToConvert) {
+      console.log("success")
+      const element = this.contentToConvert.nativeElement;
+      const backgroundImage = new Image();
+      backgroundImage.src = 'path/to/your/background-image.jpg';
+      
+      html2canvas(element).then(canvas => {
+        const imgWidth = 210; // A4 size
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+        let position = 0;
+
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        pdf.save('payout.pdf');
+      });
+    }
+  
+  }
+
+  
 }
