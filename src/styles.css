@@ -186,7 +186,7 @@ body {
 }
 
 .myBdVieewDialogClass {
-  width: auto;
+  /* width: auto; */
   height: auto;
 
   .mat-dialog-container {
@@ -196,7 +196,7 @@ body {
 }
 
 .myBdVerifyDialogClass {
-  width: auto;
+  /* width: auto; */
   height: auto;
 
   .mat-dialog-container {
@@ -206,7 +206,7 @@ body {
 }
 
 .myBdEditDialogClass {
-  width: auto;
+  /* width: auto; */
   height: auto;
 
   .mat-dialog-container {
@@ -311,7 +311,7 @@ body {
 }
 .partnerBankDialogClass {
   height: auto;
-  width: auto;
+  /* width: auto; */
 
   .mat-dialog-container {
     border-radius: 20px;

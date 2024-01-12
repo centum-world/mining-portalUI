@@ -1,6 +1,6 @@
 .mat-dialog-title {
     background-color: #5476f2;
-    color: #fefefe;
+    color: #fff;
     font-size: 18px;
     font-weight: 600;
     font-family:Calibri;
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 800%;
+    height: 100%;
   }
   
   .modal-header {

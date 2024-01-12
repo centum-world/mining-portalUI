@@ -1,8 +1,9 @@
 .mat-dialog-title {
-    background-color: #b63003;
-    color: #fefefe;
+    background-color: #5476f2;
+    color: #fff;
     font-size: 18px;
     font-weight: 600;
+    font-family:calibri;
     margin-left: -24px;
     margin-right: -23px;
     padding-left: 16px;
@@ -24,7 +25,8 @@
 }
 
 .custom-ok-button {
-    background-color: greenyellow;
+    background-color: #5476f2;
+    color:#fff;
     margin-left: 10px;
 }
 
