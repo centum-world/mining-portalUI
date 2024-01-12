@@ -124,6 +124,10 @@
   line-height: 1px;
   margin-bottom:5px;
 }
+.sub-div{
+  font-size: 10px;
+  font-weight: 100;
+}
 .description {
   display: flex;
   justify-content: space-between;
@@ -168,6 +172,11 @@
 .image-div{
   width:250px;
   height:65px;
+}
+.invoce{
+  color: #2a2c96; 
+  font-weight: 500;
+   font-size:10px;
 }
 @media screen and (min-width: 1025) and (max-width:1200px){
   .pdf-container{
@@ -221,5 +230,29 @@
   }
   .pdf-container {
     width: 100%;
+    padding:20px;
+  }
+  .image-div{
+    width:180px;
+    height:40px;
+  }
+  .user-id {
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .company-name {
+    font-size: 14px;
+    line-height:-1;
+  }
+  .sub-div{
+    font-size: 8px;
+  }
+  .invoce{
+    color: #2a2c96; 
+    font-weight: 500;
+    font-size:8px;
+  }
+  p{
+    margin-bottom:11px;
   }
 }
