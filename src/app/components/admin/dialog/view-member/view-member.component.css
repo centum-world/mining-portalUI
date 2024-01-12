@@ -1,10 +1,9 @@
 .mat-dialog-title {
-    background-color: #f0f0f0;
-    color: #000;
     background-color: #5476f2;
-    color: #fefefe;
+    color: #fff;
     font-size: 18px;
     font-weight: 600;
+    font-family:calibri;
     margin-left: -24px;
     margin-right: -24px;
     padding-left: 16px;

@@ -44,6 +44,11 @@ table {
     width: 100%;
 }
 
+.partner-list-header{
+    font-weight: bold;
+    color: black;
+}
+
 /* Optional: Adjust scrollbar style */
 .large-expand::-webkit-scrollbar {
     width: 12px;
