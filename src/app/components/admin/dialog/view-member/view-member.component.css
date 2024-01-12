@@ -15,12 +15,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 800%;
+    height: 100%;
   }
 .modal-header{
   width: 100%;
   height: 60px;
-  background: #f0f0f0;
+  background-color: #5476f2;
 }  
   
   .modal-body {
