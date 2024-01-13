@@ -9,58 +9,56 @@
         <h2 class="heading-mining">Start your mining journey today</h2>
         <form action="" [formGroup]="partnerLoginForm">
           <div class="mining-form-fields">
-          <mat-form-field appearance="outline" class="name-input">
-            <mat-label>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-                viewBox="0 0 16 16">
-                <path
-                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-              </svg>Partner id</mat-label>
-            <input matInput formControlName="partner_id" required />
-          </mat-form-field>
+            <mat-form-field appearance="outline" class="name-input">
+              <mat-label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                </svg>Partner id</mat-label>
+              <input matInput formControlName="partner_id" required />
+            </mat-form-field>
 
-          <mat-form-field appearance="outline" class="name-input">
-            <mat-label>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-                viewBox="0 0 16 16">
-                <path
-                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-              </svg>Password</mat-label>
-            <input matInput [type]="passwordFieldType" formControlName="partner_password" required />
-            <button
-            type="button"
-                  mat-icon-button
-                  matSuffix
-                  (click)="togglePasswordVisibility()"
-                >
-                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
-                </button>
-          </mat-form-field>
-        </div>
-        <button class="start-btn" (click)="submit(partnerLoginForm)" type="submit">
-          <ng-container *ngIf="spin; else registerText">
-            <mat-spinner diameter="40"></mat-spinner>
-          </ng-container>
-          <ng-template #registerText>
-            Start my journey
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-            <mask id="mask0_12_1944" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
-              <rect x="0.900391" y="0.841797" width="16" height="15.7193" fill="white"/>
-            </mask>
-            <g mask="url(#mask0_12_1944)">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.54631 2.45877C5.64011 2.36638 5.76748 2.31445 5.90031 2.31445C6.03313 2.31445 6.1605 2.36638 6.25431 2.45877L12.2543 8.35351C12.3483 8.44567 12.4012 8.5708 12.4012 8.7013C12.4012 8.83179 12.3483 8.95693 12.2543 9.04909L6.25431 14.9438C6.05882 15.1359 5.74189 15.1359 5.54637 14.9439C5.35085 14.7519 5.35077 14.4405 5.54619 14.2484L11.1933 8.7013L5.54631 3.15435C5.45227 3.06219 5.39941 2.93706 5.39941 2.80656C5.39941 2.67606 5.45227 2.55093 5.54631 2.45877H5.54631Z" fill="#EEEEEE"/>
-            </g>
-          </svg>
-          </ng-template> 
-          
-        </button>
+            <mat-form-field appearance="outline" class="name-input">
+              <mat-label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-lock-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                </svg>Password</mat-label>
+              <input matInput [type]="passwordFieldType" formControlName="partner_password" required />
+              <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                <mat-icon>{{ showPasswordIcon }}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <button class="start-btn" (click)="submit(partnerLoginForm)" type="submit">
+            <ng-container *ngIf="spin; else registerText">
+              <mat-spinner diameter="40"></mat-spinner>
+            </ng-container>
+            <ng-template #registerText>
+              Start my journey
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                <mask id="mask0_12_1944" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="17"
+                  height="17">
+                  <rect x="0.900391" y="0.841797" width="16" height="15.7193" fill="white" />
+                </mask>
+                <g mask="url(#mask0_12_1944)">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M5.54631 2.45877C5.64011 2.36638 5.76748 2.31445 5.90031 2.31445C6.03313 2.31445 6.1605 2.36638 6.25431 2.45877L12.2543 8.35351C12.3483 8.44567 12.4012 8.5708 12.4012 8.7013C12.4012 8.83179 12.3483 8.95693 12.2543 9.04909L6.25431 14.9438C6.05882 15.1359 5.74189 15.1359 5.54637 14.9439C5.35085 14.7519 5.35077 14.4405 5.54619 14.2484L11.1933 8.7013L5.54631 3.15435C5.45227 3.06219 5.39941 2.93706 5.39941 2.80656C5.39941 2.67606 5.45227 2.55093 5.54631 2.45877H5.54631Z"
+                    fill="#EEEEEE" />
+                </g>
+              </svg>
+            </ng-template>
+
+          </button>
         </form>
-        <p class="already-partner-text">Are you newbie ?<a href="javascript:void(0)" (click)="signup()">SIGN UP</a> &nbsp; <a href="">HOME</a></p>
+        <p class="already-partner-text">Are you newbie ?<a href="javascript:void(0)" (click)="signup()">SIGN UP</a>
+          &nbsp; <a href="">HOME</a></p>
       </div>
     </div>
     <div class="mining-right-container">
-        <!-- <img src="../../../assets/image/sebastian-svenson-d2w-_1LJioQ-unsplash 1.png" alt="" class="right-image"> -->
+      <!-- <img src="../../../assets/image/sebastian-svenson-d2w-_1LJioQ-unsplash 1.png" alt="" class="right-image"> -->
     </div>
   </div>
 </div>
-
