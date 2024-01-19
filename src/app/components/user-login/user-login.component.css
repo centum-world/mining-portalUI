@@ -1,7 +1,7 @@
 @import url("https://fonts.fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 *{
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Calibri;
 }
 
 
@@ -73,7 +73,7 @@
 .user-login-container h2 {
   text-align: center;
   width: 50%;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .login-fields{
@@ -109,22 +109,33 @@
 
 
 .admin-login-btn{
-  padding: 5px 15px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  border: none;
-  background-color: #24243E;
+  justify-content:center;
+  width: 100px; 
+  height: 40px; 
+  background: linear-gradient(270deg, #8A2BE2, #0000FF);
+  border:none;
   color: white;
-  cursor: pointer;
+  cursor:pointer;
+  border-radius:5px;
+  transition: transform 0.3s ease; 
+}
+
+.admin-login-btn:hover {
+  
+  transform: scale(1.05); /* Zoom in by 10% on hover */
 }
 
 .btn-text{
   margin-top: 15px;
+  font-family:Calibri;
+  font-weight:700;
+  font-size:18px;
 }
 
 .singup-text, .singup-text:hover{
-  color: black;
+  color:linear-gradient(270deg, #8A2BE2, #0000FF);
   font-weight: 700;
 }
 

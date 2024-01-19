@@ -25,7 +25,7 @@
     </div>
     <div class="user-right-section">
       <div class="user-right-container">
-        <h2>Welcome back, Member to the Centumo MINING RIG</h2>
+        <h2>Welcome back, Member to the CENTUMO MINING RIG</h2>
         <div class="login-input">
           <form [formGroup]="memberLoginForm">
             <mat-form-field appearance="outline" class="name-input">
@@ -85,34 +85,21 @@
                   <mat-spinner diameter="30"></mat-spinner>
                 </ng-container>
                 <ng-template #registerText>
-                  <p class="btn-text">Proceed to my account</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="#eee"
-                  class="bi bi-arrow-right"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                  />
-                </svg>
+                  <p class="btn-text">Login</p>
                 </ng-template>
                 
               </button>
             </div>
           </form>
         </div>
-        <div class="line"></div>
+        <!-- <div class="line"></div> -->
         <p>
           No account yet?
           <a href="javascript:void(0)" class="singup-text" (click)="SignUpMember()"
-            >SIGN UP</a> &nbsp;&nbsp;
+            >SignUp</a> &nbsp;&nbsp;
             <a style="gap:'5px'" href="javascript:void(0)" class="singup-text" (click)="backToHome()">Home</a>
         </p>
-        <p class="password-text">
+        <!-- <p class="password-text">
           Having issue with password?
           <a
             href="javascript:void(0)"
@@ -120,6 +107,6 @@
             data-toggle="modal"
             data-target="#exampleModal"
             >Forgot Password</a>
-        </p>
+        </p> -->
       </div>
       

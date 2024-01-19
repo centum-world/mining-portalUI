@@ -95,7 +95,39 @@
                 <input matInput formControlName="email" required />
               </mat-form-field>
             </div>
-
+            <div class="gender-box">
+              <label for="ten">Qualification</label>
+              <div>
+                <input
+                  type="radio"
+                  formControlName="qualification"
+                  value="ten"
+                  name="qualification"
+                  id="qualification1"
+                />
+                <label for="ten">10th</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  formControlName="qualification"
+                  value="twelve"
+                  name="qualification"
+                  id="qualification2"
+                />
+                <label for="twelve">10+2</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  formControlName="qualification"
+                  value="graduation"
+                  name="qualification"
+                  id="qualification2"
+                />
+                <label for="graduation">Graduation</label>
+              </div>
+            </div>
             <div class="profession-box">
               <div class="designation">
                 <label for="designation">Designation</label>
@@ -136,39 +168,7 @@
                   <input matInput formControlName="salary" required />
                 </mat-form-field>
               </div>
-              <div class="form-group-Qualification">
-                <label for="ten">Qualification</label>
-                <div>
-                  <input
-                    type="radio"
-                    formControlName="qualification"
-                    value="ten"
-                    name="qualification"
-                    id="qualification1"
-                  />
-                  <label for="ten">10th</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    formControlName="qualification"
-                    value="twelve"
-                    name="qualification"
-                    id="qualification2"
-                  />
-                  <label for="twelve">10+2</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    formControlName="qualification"
-                    value="graduation"
-                    name="qualification"
-                    id="qualification2"
-                  />
-                  <label for="graduation">Graduation</label>
-                </div>
-              </div>
+            
             </div>
             <div class="date-box">
               <div class="dob-box">
@@ -280,7 +280,7 @@
                 <mat-icon>{{ showPasswordIcon }}</mat-icon>
               </button>
             </mat-form-field>
-            <button class="admin-login-btn">
+            <button class="member-signUp-btn">
               <ng-container *ngIf="spin; else registerText">
                 <mat-spinner diameter="40"></mat-spinner>
               </ng-container>
@@ -304,7 +304,7 @@
           </form>
         </div>
         <p class="have-an-account-btn">
-          Already have an account? <a href="javascript:void(0)" (click)="login()">Login Now</a>&nbsp; &nbsp; <strong style="cursor: pointer;" (click)="home()">Home</strong>
+          Already have an account? <a href="javascript:void(0)" (click)="login()">Login</a>&nbsp; &nbsp; <strong style="cursor: pointer; color: blueviolet;" (click)="home()">Home</strong>
         </p>
       </div>
     </div>

@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Calibri;
 }
 
 .member-wrapper{
@@ -90,8 +90,12 @@
 }
 
 .Designation, .Experiance, .DOB, .DOJ{
-  height: 65px;
+  height: 52px;
   border-radius: 5px;
+  border-color: #00000037;
+  margin-top:5px;
+  padding:10px;
+  color:darkgrey;
 }
 
 .mat-form-field-wrapper{
@@ -123,16 +127,18 @@
   margin-top: 15px;
 }
 
-.admin-login-btn{
-  padding: 5px 15px;
+.member-signUp-btn{
+  padding: 0px 15px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   border: none;
-  background-color: #24243E;
+  background:linear-gradient(45deg, #8A2BE2, #0000FF);
   color: white;
   cursor: pointer;
   width: 100%;
+  margin-top:5px;
+  border-radius:5px;
 }
 
 .form-group-Qualification{
@@ -150,8 +156,9 @@
 }
 
 .have-an-account-btn a, a:hover{
-  color: #5476f2;
-  font-weight: 800;
+  color:linear-gradient(270deg, #8A2BE2, #0000FF);
+  font-weight: 700;
+  text-decoration:none;
  
 }
 

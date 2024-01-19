@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="name-box">
-                            <span class="have-account">Have an account? <a href="/statelogin">Login</a>&nbsp; <a href="">Home</a></span>
+                            <span class="have-account">Have an account? <a href="/statelogin">Login</a>&nbsp; <a href="javascript:void(0)" (click)="backToHome()" >Home</a></span>
                             <button class="signup-btn">
                                 <ng-container *ngIf="spin; else registerText">
                                     <mat-spinner diameter="30" color="warn"></mat-spinner>

@@ -77,7 +77,7 @@ export class UserLoginComponent implements OnInit {
     this.router.navigate(['/member-signup']);
   }
   backToHome(){
-    this.router.navigate(['/'])
+    window.location.href = 'https://centumworldrig.com';
   }
 
   sendOtp() {

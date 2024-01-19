@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Calibri;
   transition: all ease-in-out 200ms;
 }
 
@@ -58,12 +58,12 @@
 }
 
 .m-company-name span{
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .heading-mining{
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .mining-form-fields{
@@ -71,14 +71,14 @@
   flex-direction: column;
 }
 
-.already-partner-text{
-  font-weight: 700;
-}
+
 
 .already-partner-text a, a:hover{
   font-weight: bold;
-  color: black;
+  color:chocolate;
+  text-decoration:none;
 }
+
 
 .start-btn{
   border: none;
@@ -86,7 +86,7 @@
   border-radius: 8px;
   padding: 15px 12px;
   color: #fff;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -91,7 +91,7 @@ export class StatehandlerloginComponent implements OnInit {
   }
 
   home(){
-    this.router.navigate([''])
+    window.location.href = 'https://centumworldrig.com';
   }
 
 }

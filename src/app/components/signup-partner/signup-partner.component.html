@@ -176,20 +176,22 @@
               <!-- </div> -->
             </div>
             <div class="box">
-              <mat-form-field appearance="outline" class="input">
+              <mat-form-field appearance="outline" class="input aadhar-form-field" >
                 <mat-label> Front Aadhaar Card</mat-label>
                 <input
                   matInput
                   type="text"
                   [value]="aadharImageName"
-                  placeholder="Choose a file"
+                  placeholder=""
                   readonly
+                  
                 />
                 <input
                   type="file"
                   id="aadharImage"
                   (change)="onAadharImageChange($event, 'front')"
                   accept="image/*"
+                  class="aadhar-input"
                 />
               </mat-form-field>
               <mat-form-field appearance="outline" class="input">
@@ -206,6 +208,7 @@
                   id="aadharImage"
                   (change)="onAadharImageChange($event, 'back')"
                   accept="image/*"
+                  class="aadhar-input"
                 />
               </mat-form-field>
             </div>
@@ -225,6 +228,7 @@
                   id="aadharImage"
                   (change)="onAadharImageChange($event, 'pan')"
                   accept="image/*"
+                  class="aadhar-input"
                 />
               </mat-form-field>
               <!-- </div> -->
@@ -260,10 +264,10 @@
               </ng-container>
               <ng-template #registerText>Create Account</ng-template>
             </button>
-            <p class="alreadyAccounat">
+            <p class="alreadyAccount">
               Already have an account?
               <a href="javascript:void(0)" (click)="gotoLogin()">LogIn</a
-              >&nbsp; <a href="">Home</a>
+              >&nbsp; <a style="color: chocolate;" href="javascript:void(0)" (click)="backToHome()" >Home</a>
             </p>
           </div>
         </form>

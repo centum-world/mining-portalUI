@@ -148,4 +148,7 @@ export class SignupPartnerComponent implements OnInit {
     this.router.navigate(['/mininglogin'])
   }
 
+  backToHome(){
+    window.location.href = 'https://centumworldrig.com';
+  }
 }

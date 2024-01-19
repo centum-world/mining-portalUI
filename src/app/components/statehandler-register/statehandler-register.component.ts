@@ -128,12 +128,9 @@ export class StatehandlerRegisterComponent implements OnInit {
     
   }
 
-  gotoHome(){
-    window.open("/", "_parent")
+  backToHome(){
+    window.location.href = 'https://centumworldrig.com';
   }
-
-
-
 
 
 }

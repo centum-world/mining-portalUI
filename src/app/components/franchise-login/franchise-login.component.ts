@@ -68,7 +68,7 @@ export class FranchiseLoginComponent implements OnInit {
     this.router.navigate(['/franchiseSignUp'])
   }
   backToHome(){
-    this.router.navigate(['/'])
+    window.location.href = 'https://centumworldrig.com';
   }
   logOut(){
     localStorage.removeItem('stateToken');

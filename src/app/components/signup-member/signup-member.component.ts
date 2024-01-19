@@ -139,7 +139,8 @@ export class SignupMemberComponent implements OnInit {
     this.router.navigate(['/memberlogin'])
   }
   home(){
-    this.router.navigate(['/'])
+    window.location.href = 'https://centumworldrig.com';
   }
+ 
 
 }

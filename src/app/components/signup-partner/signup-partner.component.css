@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Calibri;
   transition: all ease-in-out 200ms;
 }
 
@@ -74,8 +74,19 @@
 }
 .input {
   width: 40%;
+  cursor:pointer;
 }
 
+.aadhar-input{
+  width:40%;
+  opacity:0;
+}
+
+
+/* 
+.aadhar-form-field{
+  height:40px;
+} */
 /* .dob-box {
   display: flex;
   flex-direction: column;
@@ -90,29 +101,30 @@
   background-color: #478fbf;
   color: #eee;
   text-transform: uppercase;
-  width: 50%;
-  padding: 8px 12px;
+  width: 40%;
+  padding: 12px 12px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 0.6rem;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.alreadyAccount {
+/* .alreadyAccount {
   margin-top: 1rem;
-  color: #888; /* Default color */
+  color: #888; 
   transition: color 0.3s ease;
-}
+} */
 
 .alreadyAccount a {
   text-decoration: none;
+  color:blueviolet;
 }
-.alreadyAccount a:hover {
+.alreadyAccount a :hover {
   color: #6fc6fd; /* Color on hover */
-  text-decoration: underline;
+  text-decoration:underline;
 }
 
-.alreadyAccounat {
+.alreadyAccount {
   margin-top: 0.6rem;
 }
 
@@ -168,13 +180,14 @@
   }
   .input {
     width: 90%;
+ 
   }
   .first-half-input-fields {
     padding: 5px 20px 20px 20px;
   }
 
   .partner-signup-btn {
-    width: 60%;
+    width: 90%;
     padding: 8px 0px;
     cursor: pointer;
   }
