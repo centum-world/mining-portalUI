@@ -198,3 +198,14 @@
     text-align: center;
   }
 }
+
+@media only screen and (max-width: 767px){
+.profession-box{
+  display:flex;
+  flex-direction:column;
+}
+.date-box{
+  display:flex;
+  flex-direction:column;
+}
+}
