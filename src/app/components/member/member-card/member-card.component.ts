@@ -183,7 +183,7 @@ export class MemberCardComponent implements OnInit {
 
   memberViewBankDetailsDialog(){
     let config: MatDialogConfig = {
-      panelClass: 'stateViewBankDetailsDialogClass',
+      panelClass: 'memberViewBankDetailsDialogClass',
     };
     const dialogRef = this.dialog.open(MemberViewBankComponent,config)
     
@@ -428,7 +428,7 @@ export class MemberCardComponent implements OnInit {
 
   memberAddBankDialog(){
     let config:MatDialogConfig = {
-      panelClass:'stateAddBankDialogClass'
+      panelClass:'memberAddBankDialogClass'
    };
    const dialogRef = this.dialog.open(MemberAddBankComponent,config);
 

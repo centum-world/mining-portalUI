@@ -77,7 +77,7 @@ export class WithdrawalRequestComponent implements OnInit {
 
   openWithdrawalRequest(){
     let config: MatDialogConfig = {
-      panelClass: 'myStateWithdrawDialogClass',
+      panelClass: 'memberWithdrawDialogClass',
     };
     const dialogRef = this.dialog.open(WithdrawDialogComponent, config);
   }

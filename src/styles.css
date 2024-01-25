@@ -34,7 +34,7 @@ body {
 .myPartnerViewDialogClass .mat-dialog-container,
  .myMemberViewDialogClass .mat-dialog-container,
  .myStateViewDialogClass .mat-dialog-container,
- .viewFranchiseDocument .mat-dialog-container  {
+ .viewFranchiseDocument .mat-dialog-container {
   display: flex;
   justify-content: space-between;
   border-radius: 15px;
@@ -61,7 +61,8 @@ body {
 .myBmmVerifyDialogClass .mat-dialog-container,
 .VerifyFranchiseDialogClass .mat-dialog-container,
 .doActivatePartnerDialogClass .mat-dialog-container,
-.requsetApprovedDialogClass .mat-dialog-container
+.requsetApprovedDialogClass .mat-dialog-container,
+.memberViewBankDetailsDialogClass .mat-dialog-container
 {
   height:auto;
   width:40vw;
@@ -72,7 +73,9 @@ body {
 .myMemberEditDialogClass .mat-dialog-container,
 .partnerEditDialogClass .mat-dialog-container,
 .myBmmEditDialogClass .mat-dialog-container,
-.myFranchiseEditDialogClass .mat-dialog-container {
+.myFranchiseEditDialogClass .mat-dialog-container,
+.memberDetailsDialogClass .mat-dialog-container,
+.memberAddBankDialogClass .mat-dialog-container {
   width:50vw;
   height:60vh;
   margin-left:15vw;
@@ -107,7 +110,9 @@ body {
   .small-screen .myMemberEditDialogClass .mat-dialog-container,
   .small-screen .partnerEditDialogClass .mat-dialog-container,
   .small-screen .myBmmEditDialogClass .mat-dialog-container,
-  .small-screen .myFranchiseEditDialogClass .mat-dialog-container
+  .small-screen .myFranchiseEditDialogClass .mat-dialog-container,
+  .small-screen .memberDetailsDialogClass .mat-dialog-container,
+  .small-screen .memberAddBankDialogClass .mat-dialog-container
    {
     margin-left: 0px;
     height: 80vh;
@@ -123,7 +128,8 @@ body {
   .small-screen .VerifyFranchiseDialogClass .mat-dialog-container,
   .small-screen .doActivatePartnerDialogClass .mat-dialog-container,
   .small-screen .partnerQueryDialogClass .mat-dialog-container,
-  .small-screen .requsetApprovedDialogClass .mat-dialog-container{
+  .small-screen .requsetApprovedDialogClass .mat-dialog-container,
+  .small-screen .memberViewBankDetailsDialogClass .mat-dialog-container{
     width:80vw;
     margin-left:0px;
     border-radius:15px;
@@ -152,7 +158,10 @@ body {
   .small-screen .partnerQueryDialogClass .mat-dialog-title,
   .small-screen .parnershipBond .mat-dialog-title,
   .small-screen .accountsPaidWithdrawalDialogClass .mat-dialog-title,
-  .small-screen .requsetApprovedDialogClass .mat-dialog-title{
+  .small-screen .requsetApprovedDialogClass .mat-dialog-title,
+  .small-screen .memberDetailsDialogClass .mat-dialog-title,
+  .small-screen .memberAddBankDialogClass .mat-dialog-title,
+  .small-screen .memberViewBankDetailsDialogClass .mat-dialog-title{
     width:80vw;
   }
 

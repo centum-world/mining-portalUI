@@ -55,7 +55,7 @@ export class MemberHeaderComponent implements OnInit {
             this.memberDetails.designation= response.data[0].m_designation;
             // console.log(this.memberDetails.fname)
             let config:MatDialogConfig = {
-            panelClass:'stateViewBankDetailsDialogClass', data:this.memberDetails
+            panelClass:'memberDetailsDialogClass', data:this.memberDetails
             };
             const dialogRef = this.dialog.open(MemberProfileDetailsComponent,config);
             dialogRef.afterClosed().subscribe(result => {
@@ -87,7 +87,7 @@ export class MemberHeaderComponent implements OnInit {
         }
          console.log(this.memberDocuments)
         let config: MatDialogConfig = {
-          panelClass:'stateProfileDocumetsDialogClass',data:this.memberDocuments
+          panelClass:'memberProfileDocumetsDialogClass',data:this.memberDocuments
        
          };
          const dialogRef = this.dialog.open(MemberDocumentsDetailsComponent,config);

@@ -106,7 +106,7 @@
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
-        <div style="font-weight: bold; font-size:medium;">{{memberTotalWalletOfEachMonth | currency: 'INR'}}</div>
+        <div style="font-weight: bold; font-size:medium;">{{(memberTotalWalletOfEachMonth || 0) | currency: 'INR'}}</div>
       </div>
 
       <div class="card-single">

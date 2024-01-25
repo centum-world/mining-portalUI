@@ -1,13 +1,15 @@
 .mat-dialog-title {
-    background-color: #b63003;
+    background-color: #5476f2;
     color: #fff;
     font-size: 18px;
+    font-family:Calibri;
     font-weight: 600;
     margin-left: -24px;
-    margin-right: -23px;
+    margin-right: -24px;
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top:-24px;
 }
   
 .row {
@@ -72,4 +74,10 @@ td {
     font-weight: 400;
     color: #9d9a9a;
     font-size: small;
+}
+
+@media (max-width : 768px){
+    .example-card{
+        width:235px;
+    }
 }

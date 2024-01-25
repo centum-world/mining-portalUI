@@ -1,10 +1,12 @@
 .mat-dialog-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color:#104af6;
-    margin-left: -22px;
-    margin-right: -22px;
-    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:#5476f2;
+    color:#fff;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 16px;
+    margin-top:-24px;
 }
   
 .row {
@@ -16,9 +18,9 @@
     display: flex;
 }
 
-.custom-heading {
+/* .custom-heading {
     color:#fbf9f9;
-}
+} */
 
 .stateDetails span {
     font-size: 18px;
@@ -44,8 +46,8 @@ th {
 td {
     font-size: 12px;
 }
-.franchise-profile-modal-ok {
-    background: #0d6efd;
-    color: #fbf9f9;
+.member-profile-modal-ok {
+    background: #5476f2;
+    color: #fff;
 }
   
