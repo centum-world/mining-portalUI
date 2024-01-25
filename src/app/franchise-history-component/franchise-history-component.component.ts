@@ -202,7 +202,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
 
   openEditFranchiseDialog(franchiseData: any) {
     let config: MatDialogConfig = {
-      panelClass: "myFranchiseViewDialogClass",
+      panelClass: "myFranchiseEditDialogClass",
       data: franchiseData,
     };
     const dialogRef = this.dialog.open(AdminEditFranchiseComponent, config);

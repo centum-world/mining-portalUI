@@ -115,7 +115,7 @@ export class ShoHistoryComponent implements OnInit {
     console.log(shoData)
 
     let config: MatDialogConfig = {
-      panelClass: 'myStateVerifyDialogClass',
+      panelClass: 'myBusinessMarketingBlockDialogClass',
       data: shoData
     };
     const dialogRef = this.dialog.open(BlockShoComponent, config);
@@ -145,7 +145,7 @@ export class ShoHistoryComponent implements OnInit {
 
   openVerifyDialog(shoData: any) {
     let config: MatDialogConfig = {
-      panelClass: 'myStateVerifyDialogClass',
+      panelClass: 'myBmmVerifyDialogClass',
       data: shoData
     };
     const dialogRef = this.dialog.open(VerifyShoComponent, config);
@@ -188,7 +188,7 @@ export class ShoHistoryComponent implements OnInit {
   openEditShoDialog(shoData:any){
     
     let config: MatDialogConfig = {
-      panelClass: 'myStateEditDialogClass',
+      panelClass: 'myBmmEditDialogClass',
       data: shoData
     };
     const dialogRef = this.dialog.open(EditShoComponent, config);

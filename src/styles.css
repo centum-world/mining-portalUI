@@ -21,10 +21,6 @@ body {
   overflow-y: scroll;
 }
 
-/* .modal-dialog {
-  overflow-x: scroll;
-} */
-
 .modal::-webkit-scrollbar {
   display: none;
 }
@@ -33,7 +29,140 @@ body {
   overflow: visible !important;
 }
 
-.myStateDialogClass {
+/* Your regular styles here */
+
+.myPartnerViewDialogClass .mat-dialog-container,
+ .myMemberViewDialogClass .mat-dialog-container,
+ .myStateViewDialogClass .mat-dialog-container,
+ .viewFranchiseDocument .mat-dialog-container  {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  padding-top: 0px;
+  height: 60vh;
+  width: 60vw;
+  margin-left: 15%;
+  border-radius: 12px;
+  overflow-x: hidden;
+}
+.myPartnerViewDialogClass .mat-dialog-container::-webkit-scrollbar,
+.myMemberViewDialogClass .mat-dialog-container::-webkit-scrollbar,
+.myStateViewDialogClass .mat-dialog-container::-webkit-scrollbar,
+.viewFranchiseDocument .mat-dialog-container::-webkit-scrollbar{
+  overflow-y:scroll;
+  display:none;
+}
+
+.myMemberBLockStateDialogClass .mat-dialog-container,
+.myPartnerBlockStateDialogClass .mat-dialog-container,
+.myBusinessMarketingBlockDialogClass .mat-dialog-container,
+.verifyMemberDialogClass .mat-dialog-container,
+.verifyPartnerDialogClass .mat-dialog-container,
+.myBmmVerifyDialogClass .mat-dialog-container,
+.VerifyFranchiseDialogClass .mat-dialog-container,
+.doActivatePartnerDialogClass .mat-dialog-container,
+.requsetApprovedDialogClass .mat-dialog-container
+{
+  height:auto;
+  width:40vw;
+  margin-left:15%;
+  border-radius:15px;
+}
+
+.myMemberEditDialogClass .mat-dialog-container,
+.partnerEditDialogClass .mat-dialog-container,
+.myBmmEditDialogClass .mat-dialog-container,
+.myFranchiseEditDialogClass .mat-dialog-container {
+  width:50vw;
+  height:60vh;
+  margin-left:15vw;
+  border-radius:20px
+}
+
+.partnerQueryDialogClass .mat-dialog-container,
+.parnershipBond .mat-dialog-container,
+.accountsPaidWithdrawalDialogClass .mat-dialog-container{
+  width:40vw;
+  height:45vh;
+  margin-left:15vw;
+  border-radius:15px;
+}
+
+.myMemberEditDialogClass .mat-dialog-container::-webkit-scrollbar,
+.partnerEditDialogClass .mat-dialog-container::-webkit-scrollbar,
+.myBmmEditDialogClass .mat-dialog-container::-webkit-scrollbar,
+.myFranchiseEditDialogClass .mat-dialog-container::-webkit-scrollbar,
+.accountsPaidWithdrawalDialogClass .mat-dialog-container::-webkit-scrollbar,
+.parnershipBond .mat-dialog-container::-webkit-scrollbar {
+  overflow-y: scroll;
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .small-screen .myPartnerViewDialogClass .mat-dialog-container,
+  .small-screen .myMemberViewDialogClass .mat-dialog-container,
+  .small-screen .myStateViewDialogClass .mat-dialog-container,
+  .small-screen .viewFranchiseDocument .mat-dialog-container,
+  .small-screen .myMemberEditDialogClass .mat-dialog-container,
+  .small-screen .partnerEditDialogClass .mat-dialog-container,
+  .small-screen .myBmmEditDialogClass .mat-dialog-container,
+  .small-screen .myFranchiseEditDialogClass .mat-dialog-container
+   {
+    margin-left: 0px;
+    height: 80vh;
+    width: 80vw;
+  }
+
+  .small-screen .myMemberBLockStateDialogClass .mat-dialog-container,
+  .small-screen .myPartnerBlockStateDialogClass .mat-dialog-container,
+  .small-screen .myBusinessMarketingBlockDialogClass .mat-dialog-container,
+  .small-screen .verifyMemberDialogClass .mat-dialog-container,
+  .small-screen .verifyPartnerDialogClass .mat-dialog-container,
+  .small-screen .myBmmVerifyDialogClass .mat-dialog-container,
+  .small-screen .VerifyFranchiseDialogClass .mat-dialog-container,
+  .small-screen .doActivatePartnerDialogClass .mat-dialog-container,
+  .small-screen .partnerQueryDialogClass .mat-dialog-container,
+  .small-screen .requsetApprovedDialogClass .mat-dialog-container{
+    width:80vw;
+    margin-left:0px;
+    border-radius:15px;
+  }
+
+  .small-screen .parnershipBond .mat-dialog-container,
+  .small-screen .accountsPaidWithdrawalDialogClass .mat-dialog-container{
+    width:80vw;
+    height:45vh;
+    margin-left:0px;
+    border-radius:15px;
+  }
+
+  .small-screen .myMemberBLockStateDialogClass .mat-dialog-title,
+  .small-screen .myPartnerBlockStateDialogClass .mat-dialog-title,
+  .small-screen .myBusinessMarketingBlockDialogClass .mat-dialog-title,
+  .small-screen .verifyMemberDialogClass .mat-dialog-title,
+  .small-screen .verifyPartnerDialogClass .mat-dialog-title,
+  .small-screen .myBmmVerifyDialogClass .mat-dialog-title,
+  .small-screen .VerifyFranchiseDialogClass .mat-dialog-title,
+  .small-screen .myMemberEditDialogClass .mat-dialog-title,
+  .small-screen .partnerEditDialogClass .mat-dialog-title,
+  .small-screen .myBmmEditDialogClass .mat-dialog-title,
+  .small-screen .myFranchiseEditDialogClass .mat-dialog-title,
+  .small-screen .doActivatePartnerDialogClass .mat-dialog-title,
+  .small-screen .partnerQueryDialogClass .mat-dialog-title,
+  .small-screen .parnershipBond .mat-dialog-title,
+  .small-screen .accountsPaidWithdrawalDialogClass .mat-dialog-title,
+  .small-screen .requsetApprovedDialogClass .mat-dialog-title{
+    width:80vw;
+  }
+
+}
+
+
+
+
+
+/* .myStateDialogClass {
   height: 70%;
   width: 60%;
 
@@ -41,7 +170,6 @@ body {
     border-radius: 20px;
     padding-top: 0px;
     height: max-content;
-    /* border: 1px solid black; */
   }
 
   .mat-dialog-content {
@@ -73,10 +201,6 @@ body {
 .mat-form-field-appearance-outline .mat-form-field-infix {
   padding: 0.6em 0 1em 0;
 }
-
-/* .mat-form-field-wrapper {
-  padding-bottom: 0 !important;
-} */
 
 .myStateDialogClass .mat-dialog-content {
   overflow: hidden !important;
@@ -145,7 +269,7 @@ body {
 .myBdVerifyDialogClass {
   /* width: 27%; */
 
-  .mat-dialog-container {
+  /* .mat-dialog-container {
     width:27vw;
     padding-top: 0;
     border-radius: 20px;
@@ -187,14 +311,14 @@ body {
 }
 
 .myBdVieewDialogClass {
-  /* width: auto; */
+  width: auto;
   height: auto;
 
   .mat-dialog-container {
     border-radius: 20px;
     padding-top: 0;
   }
-}
+}  */
 
 /* .myBdVerifyDialogClass {
  
@@ -206,8 +330,8 @@ body {
   }
 } */
 
-.myBdEditDialogClass {
-  /* width: auto; */
+/* .myBdEditDialogClass {
+ 
   height: auto;
 
   .mat-dialog-container {
@@ -217,7 +341,7 @@ body {
 }
 .myFranchiseViewDialogClass {
   height: auto;
-  /* width: 70%; */
+  width: 70%;
 
   .mat-dialog-container {
     border-radius: 30px;
@@ -233,7 +357,7 @@ body {
   }
 }
 .VerifyFranchiseDialogClass {
-  /* width: 26%; */
+  width: 26%;
   height: auto;
   .mat-dialog-container {
     width:27vw;
@@ -242,7 +366,7 @@ body {
   }
 }
 .blockFranchiseDialogClass {
-  /* width: 26%; */
+  width: 26%;
   height: auto;
   .mat-dialog-container {
     width:27vw;
@@ -270,8 +394,8 @@ body {
 }
 .myPartnerBlockStateDialogClass {
   height: auto;
+  width:40%;
   .mat-dialog-container {
-    width:40%;
     border-radius: 20px;
     padding-top: 0px;
   }
@@ -312,7 +436,7 @@ body {
 }
 .partnerBankDialogClass {
   height: auto;
-  /* width: auto; */
+  width: auto;
 
   .mat-dialog-container {
     border-radius: 20px;
@@ -415,11 +539,6 @@ body {
   .franchiseVerifyDialogClass {
     width: 95%;
     height: 30%;
-
-    /* .mat-dialog-container{
-      padding-top: 0;
-      border-radius: 20px;
-    } */
     .mat-dialog-content {
       width: 90%;
     }
@@ -452,14 +571,6 @@ body {
       height: auto;
     }
   }
-
-  /* .requsetApprovedDialogClass{
-    width: 99%;
-    .mat-dialog-container{
-      border-radius: 20px;
-      padding-top: 0px;
-    }
-  } */
 
   .popupSidebarDialogClass {
     width: 100vw !important;
@@ -533,7 +644,7 @@ body {
   }
 }
 
-/* Styles for screens with a maximum width of 768 pixels (typical for mobile devices) */
+
 @media (max-width: 768px) {
   .myStateViewDialogClass {
     height: auto;
@@ -612,4 +723,4 @@ body {
       display: none;
     }
   }
-}
+} */

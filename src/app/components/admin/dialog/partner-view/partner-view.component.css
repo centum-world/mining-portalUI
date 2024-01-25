@@ -9,6 +9,7 @@
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
+    /* margin-top:-24px; */
   }
   
   .modal-container {
@@ -31,14 +32,13 @@
   
   .image-block {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: flex-end;
   }
   
   .image {
     width: 250px;
-    /* Set the width and height of the images */
     height: 150px;
     margin-right: 10px;
     margin-bottom: 5px;
@@ -49,11 +49,11 @@
     margin-bottom: 15px;
   }
   
-  .myStateViewDialogClass {
+  /* .myStateViewDialogClass {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  } */
   
   .image-button {
     display: flex;
@@ -77,18 +77,23 @@
   
   .mat-dialog-actions {
     margin-bottom: 0px;
+    margin-top: 80px;
   }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+/* @media (min-width: 768px) and (max-width: 1024px) {
   .mat-dialog-actions {
     margin-bottom: 0px;
-    margin-top: 250px;
+    margin-top: 80px;
   }
-}
+  
+} */
 
-@media (max-width:786px) {
+@media (max-width:768px) {
   .mat-dialog-actions {
     margin-bottom: 0px;
     margin-top: 300px;
+  }
+  .modal-container{
+    height:100vw;
   }
 }

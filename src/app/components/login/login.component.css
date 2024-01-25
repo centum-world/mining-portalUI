@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Calibri;
 }
 
 .login-wrapper {
@@ -170,7 +170,7 @@ h3 {
   }
   .left-section{
     /* flex-direction: row; */
-    height: 30vh;
+    height: 40vh;
     width: 100vw;
   }
   .handshake-img{

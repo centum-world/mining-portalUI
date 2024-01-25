@@ -1,14 +1,14 @@
 .sho-list-header{
     width: calc(100%-300px);
     height: 70px;
-    background: #ee5411;
+    /* background: #ee5411; */
     border-radius: 8px;
-    margin-left: 300px;
+    margin-left: 330px;
     padding: 20px;
 }
 .title p{
     font-size: 20px;
-    color: #fff;
+    color: #000;
     font-family: Calibri;
 }
 /* .search{
@@ -25,7 +25,7 @@
     overflow-x: auto;
     margin-top:5px;
     padding: 20px;
-    margin-left: 300px;
+    margin-left: 330px;
 }
 
 table {

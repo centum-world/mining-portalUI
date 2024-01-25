@@ -77,7 +77,7 @@ export class PartnerHistoryComponent implements OnInit {
 
   openMiningPartnerVerifyDialog(miningPartnerData: any) {
     let config: MatDialogConfig = {
-      panelClass: 'verifyMemberDialogClass',
+      panelClass: 'verifyPartnerDialogClass',
       data: miningPartnerData
     };
     const dialogRef = this.dialog.open(VerifyPartnerComponent, config);
@@ -177,7 +177,7 @@ export class PartnerHistoryComponent implements OnInit {
 
   openPartnerDoActivateDialog(miningPartnerData: any) {
     let config: MatDialogConfig = {
-      panelClass: 'verifyMemberDialogClass',
+      panelClass: 'doActivatePartnerDialogClass',
       data: miningPartnerData
     };
     const dialogRef = this.dialog.open(ActivateMiningPartnerComponent, config);

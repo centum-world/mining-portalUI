@@ -13,6 +13,13 @@
   <!-- <link rel="stylesheet" href="assets/css/font-awesome.min.css" /> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <script>
+    // Get the inner width of the viewport
+    const windowWidth = window.innerWidth;
+
+    // Add a class to the <html> element based on the window's inner width
+    document.documentElement.classList.toggle('small-screen', windowWidth <= 768);
+  </script>
 
 </head>
 <body>
@@ -25,7 +32,6 @@
 
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <app-root></app-root>
-
 
 </body>
 </html>

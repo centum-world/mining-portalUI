@@ -5,19 +5,20 @@
     font-weight: 600;
     font-family:calibri;
     margin-left: -24px;
-    margin-right: -23px;
+    margin-right: -24px;
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top:-24px;
 }
-.custom-dialog-container {
+/* .custom-dialog-container {
     margin-top: 0;
-    max-width: 100%; /* Set a maximum width */
-    width: 300px; /* Initial width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    max-width: 100%; 
+    width: 300px; 
+    box-sizing: border-box; 
     background-color: white;
     border-radius: 10px;
-}
+} */
 
 .custom-paragraph {
     font-family: Calibri;
@@ -31,8 +32,4 @@
 }
 
 /* Adjust for smaller screens */
-@media (max-width: 767px) {
-    .custom-dialog-container {
-        width: 90%; /* Adjust the width for smaller screens */
-    }
-}
+/*  */
