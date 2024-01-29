@@ -30,9 +30,11 @@ export class MiningSidebarComponent implements OnInit {
 
   partnerViewList(){
     this.router.navigate(['/miningdashboard/partner-details'])
+    this.isVisible = false;
   }
   partnerWithdraw(){
     this.router.navigate(['/miningdashboard/withdraw'])
+    this.isVisible = false;
   }
 
   gotoDahashboard(){
@@ -48,6 +50,7 @@ export class MiningSidebarComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
      
     });
+    
   }
   
   viewBankDetails(){
@@ -59,6 +62,7 @@ export class MiningSidebarComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
      
     });
+   
   }
 
   myteam(){
