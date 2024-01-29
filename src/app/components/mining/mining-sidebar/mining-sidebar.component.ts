@@ -41,7 +41,7 @@ export class MiningSidebarComponent implements OnInit {
 
   addBankDetails(){
     let config: MatDialogConfig = {
-      panelClass: 'partnerBankDialogClass',
+      panelClass: 'partnerAddBankDialogClass',
     };
     const dialogRef = this.dialog.open(MiningAddBankComponent,config)
     

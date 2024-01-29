@@ -94,7 +94,8 @@ body {
 .franchiseAddBankDialogClass .mat-dialog-container,
 .franchiseViewBankDetailsDialogClass .mat-dialog-container,
 .bmmAddBankDialogClass .mat-dialog-container,
-.bmmViewBankDetailsDialogClass .mat-dialog-container {
+.bmmViewBankDetailsDialogClass .mat-dialog-container,
+.partnerAddBankDialogClass .mat-dialog-container {
   width:50vw;
   height:60vh;
   margin-left:15vw;
@@ -172,7 +173,8 @@ body {
   .small-screen .franchiseAddBankDialogClass .mat-dialog-container,
   .small-screen .franchiseViewBankDetailsDialogClass .mat-dialog-container,
   .small-screen .bmmAddBankDialogClass .mat-dialog-container,
-  .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-container{
+  .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-container,
+  .small-screen .partnerAddBankDialogClass .mat-dialog-container{
     width:80vw;
     margin-left:0px;
     border-radius:15px;
@@ -218,7 +220,8 @@ body {
   .small-screen .franchiseAddBankDialogClass .mat-dialog-title,
   .small-screen .franchiseViewBankDetailsDialogClass .mat-dialog-title,
   .small-screen .bmmAddBankDialogClass .mat-dialog-title,
-  .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-title{
+  .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-title,
+  .small-screen .partnerAddBankDialogClass .mat-dialog-title{
     width:80vw;
   }
 
