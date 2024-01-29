@@ -34,7 +34,13 @@ body {
 .myPartnerViewDialogClass .mat-dialog-container,
  .myMemberViewDialogClass .mat-dialog-container,
  .myStateViewDialogClass .mat-dialog-container,
- .viewFranchiseDocument .mat-dialog-container {
+ .viewFranchiseDocument .mat-dialog-container,
+ .fetchPartnerDetailsDialogClass .mat-dialog-container,
+ .BmmDetailsDialogClass .mat-dialog-container,
+ .bmmProfileDocumetsDialogClass .mat-dialog-container,
+ .FranchiseDocumentsInBmmViewDialogClass .mat-dialog-container,
+ .franchiseProfileDetailsDialogClass .mat-dialog-container,
+ .franchiseDocumentsDialogClass .mat-dialog-container {
   display: flex;
   justify-content: space-between;
   border-radius: 15px;
@@ -48,7 +54,12 @@ body {
 .myPartnerViewDialogClass .mat-dialog-container::-webkit-scrollbar,
 .myMemberViewDialogClass .mat-dialog-container::-webkit-scrollbar,
 .myStateViewDialogClass .mat-dialog-container::-webkit-scrollbar,
-.viewFranchiseDocument .mat-dialog-container::-webkit-scrollbar{
+.viewFranchiseDocument .mat-dialog-container::-webkit-scrollbar,
+.BmmDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
+.bmmProfileDocumetsDialogClass .mat-dialog-container::-webkit-scrollbar,
+.FranchiseDocumentsInBmmViewDialogClass .mat-dialog-container::-webkit-scrollbar,
+.franchiseProfileDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
+.franchiseDocumentsDialogClass .mat-dialog-container::-webkit-scrollbar {
   overflow-y:scroll;
   display:none;
 }
@@ -62,7 +73,10 @@ body {
 .VerifyFranchiseDialogClass .mat-dialog-container,
 .doActivatePartnerDialogClass .mat-dialog-container,
 .requsetApprovedDialogClass .mat-dialog-container,
-.memberViewBankDetailsDialogClass .mat-dialog-container
+.memberViewBankDetailsDialogClass .mat-dialog-container,
+.franchiseVerifyInBmmDialogClass .mat-dialog-container,
+.blockFranchiseInBmmDialogClass .mat-dialog-container,
+.VerifyMemberInFranchiseDialogClass .mat-dialog-container
 {
   height:auto;
   width:40vw;
@@ -75,7 +89,12 @@ body {
 .myBmmEditDialogClass .mat-dialog-container,
 .myFranchiseEditDialogClass .mat-dialog-container,
 .memberDetailsDialogClass .mat-dialog-container,
-.memberAddBankDialogClass .mat-dialog-container {
+.memberAddBankDialogClass .mat-dialog-container,
+.EditFranchiseInBmmDialogClass .mat-dialog-container,
+.franchiseAddBankDialogClass .mat-dialog-container,
+.franchiseViewBankDetailsDialogClass .mat-dialog-container,
+.bmmAddBankDialogClass .mat-dialog-container,
+.bmmViewBankDetailsDialogClass .mat-dialog-container {
   width:50vw;
   height:60vh;
   margin-left:15vw;
@@ -96,11 +115,21 @@ body {
 .myBmmEditDialogClass .mat-dialog-container::-webkit-scrollbar,
 .myFranchiseEditDialogClass .mat-dialog-container::-webkit-scrollbar,
 .accountsPaidWithdrawalDialogClass .mat-dialog-container::-webkit-scrollbar,
-.parnershipBond .mat-dialog-container::-webkit-scrollbar {
+.parnershipBond .mat-dialog-container::-webkit-scrollbar,
+.EditFranchiseInBmmDialogClass .mat-dialog-container::-webkit-scrollbar,
+.franchiseViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
+.bmmViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar {
   overflow-y: scroll;
   display: none;
 }
 
+.fetchPartnerDetailsDialogClass .mat-dialog-title,
+.BmmDetailsDialogClass .mat-dialog-title,
+.bmmProfileDocumetsDialogClass .mat-dialog-title,
+.franchiseProfileDetailsDialogClass .mat-dialog-title,
+.franchiseDocumentsDialogClass .mat-dialog-title {
+  width:51vw;
+}
 
 @media only screen and (max-width: 768px) {
   .small-screen .myPartnerViewDialogClass .mat-dialog-container,
@@ -112,7 +141,14 @@ body {
   .small-screen .myBmmEditDialogClass .mat-dialog-container,
   .small-screen .myFranchiseEditDialogClass .mat-dialog-container,
   .small-screen .memberDetailsDialogClass .mat-dialog-container,
-  .small-screen .memberAddBankDialogClass .mat-dialog-container
+  .small-screen .memberAddBankDialogClass .mat-dialog-container,
+  .small-screen .fetchPartnerDetailsDialogClass .mat-dialog-container,
+  .small-screen .BmmDetailsDialogClass .mat-dialog-container,
+  .small-screen .bmmProfileDocumetsDialogClass .mat-dialog-container,
+  .small-screen .FranchiseDocumentsInBmmViewDialogClass .mat-dialog-container,
+  .small-screen .EditFranchiseInBmmDialogClass .mat-dialog-container,
+  .small-screen .franchiseProfileDetailsDialogClass .mat-dialog-container,
+  .small-screen .franchiseDocumentsDialogClass .mat-dialog-container
    {
     margin-left: 0px;
     height: 80vh;
@@ -129,7 +165,14 @@ body {
   .small-screen .doActivatePartnerDialogClass .mat-dialog-container,
   .small-screen .partnerQueryDialogClass .mat-dialog-container,
   .small-screen .requsetApprovedDialogClass .mat-dialog-container,
-  .small-screen .memberViewBankDetailsDialogClass .mat-dialog-container{
+  .small-screen .memberViewBankDetailsDialogClass .mat-dialog-container,
+  .small-screen .franchiseVerifyInBmmDialogClass .mat-dialog-container,
+  .small-screen .blockFranchiseInBmmDialogClass .mat-dialog-container,
+  .small-screen .VerifyMemberInFranchiseDialogClass .mat-dialog-container,
+  .small-screen .franchiseAddBankDialogClass .mat-dialog-container,
+  .small-screen .franchiseViewBankDetailsDialogClass .mat-dialog-container,
+  .small-screen .bmmAddBankDialogClass .mat-dialog-container,
+  .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-container{
     width:80vw;
     margin-left:0px;
     border-radius:15px;
@@ -161,7 +204,21 @@ body {
   .small-screen .requsetApprovedDialogClass .mat-dialog-title,
   .small-screen .memberDetailsDialogClass .mat-dialog-title,
   .small-screen .memberAddBankDialogClass .mat-dialog-title,
-  .small-screen .memberViewBankDetailsDialogClass .mat-dialog-title{
+  .small-screen .memberViewBankDetailsDialogClass .mat-dialog-title,
+  .small-screen .fetchPartnerDetailsDialogClass .mat-dialog-title,
+  .small-screen .BmmDetailsDialogClass .mat-dialog-title,
+  .small-screen .bmmProfileDocumetsDialogClass .mat-dialog-title,
+  .small-screen .FranchiseDocumentsInBmmViewDialogClass .mat-dialog-title,
+  .small-screen .franchiseVerifyInBmmDialogClass .mat-dialog-title,
+  .small-screen .blockFranchiseInBmmDialogClass .mat-dialog-title,
+  .small-screen .EditFranchiseInBmmDialogClass .mat-dialog-title,
+  .small-screen .franchiseProfileDetailsDialogClass .mat-dialog-title,
+  .small-screen .franchiseDocumentsDialogClass .mat-dialog-title,
+  .small-screen .VerifyMemberInFranchiseDialogClass .mat-dialog-title,
+  .small-screen .franchiseAddBankDialogClass .mat-dialog-title,
+  .small-screen .franchiseViewBankDetailsDialogClass .mat-dialog-title,
+  .small-screen .bmmAddBankDialogClass .mat-dialog-title,
+  .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-title{
     width:80vw;
   }
 

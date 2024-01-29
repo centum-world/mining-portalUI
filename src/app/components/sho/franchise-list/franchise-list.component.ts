@@ -79,7 +79,7 @@ export class FranchiseListComponent implements OnInit {
  openViewFranchiseDialog (data: any) {
     console.log(data)
     let config: MatDialogConfig = {
-      panelClass: 'myFranchiseViewDialogClass',
+      panelClass: 'FranchiseDocumentsInBmmViewDialogClass',
       data: data
     };
     const dialogRef = this.dialog.open(ViewFranchiseComponent, config);
@@ -94,7 +94,7 @@ export class FranchiseListComponent implements OnInit {
   openVerifyDialog(id: any) {
     this.franchiseReferralId = id.franchiseId
     let config: MatDialogConfig = {
-       panelClass: 'franchiseVerifyDialogClass'
+       panelClass: 'franchiseVerifyInBmmDialogClass'
     };
     const dialogRef = this.dialog.open(VerifyModalComponent, config);
 
@@ -128,9 +128,7 @@ export class FranchiseListComponent implements OnInit {
     this.franchiseId = id.franchiseId;
     this.isBlock = id.isBlocked;
     let config: MatDialogConfig = {
-      height: '26%',
-      width: '23%',
-      panelClass: 'myStateDialogClass',
+      panelClass: 'blockFranchiseInBmmDialogClass',
       data: id
     };
     const dialogRef = this.dialog.open(BlockModalComponent, config);
@@ -160,7 +158,7 @@ export class FranchiseListComponent implements OnInit {
 
   openEditFranchiseDialog(id:any){
     let config: MatDialogConfig = {
-      panelClass: 'myEditDialogClass',
+      panelClass: 'EditFranchiseInBmmDialogClass',
       data:id
     };
     const dialogRef = this.dialog.open(EditFranchiseComponent, config)

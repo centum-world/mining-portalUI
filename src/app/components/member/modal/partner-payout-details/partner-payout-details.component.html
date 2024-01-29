@@ -7,22 +7,22 @@
     <div class="col-md-6">
       <div class="payment-details">
         <div class="left">
-          <div class="stateDetails">
+          <div class="partnerPayoutDetails">
             <span>Partner ID</span>: <p>{{this.partnerDetails.userid }}</p>
           </div>
-          <div class="stateDetails">
+          <div class="partnerPayoutDetails">
             <span>Name</span>: <p>{{data.name}}</p>
           </div>
-          <div class="stateDetails">
+          <div class="partnerPayoutDetails">
             <span>Date of Partner</span>: <p>{{data.dop | date}}</p>
           </div>
-          <div class="stateDetails">
+          <div class="partnerPayoutDetails">
             <span>Total Liquidity</span>: <p>{{data.liquidity | currency : 'INR'}}</p>
           </div>
-          <div class="stateDetails">
+          <div class="partnerPayoutDetails">
             <span>Monthly Payout</span>: <p></p>
           </div>
-          <div class="stateDetails">
+          <div class="partnerPayoutDetails">
             <span>Payout Tenure</span>: <p>12TN</p>
           </div>
         </div>
@@ -31,25 +31,25 @@
 
     <!-- Second Column -->
     <div class="col-md-6">
-      <div class="stateDetails">
+      <div class="partnerPayoutDetails">
         <span>Paid Tenure</span>: <p>{{data.month_count}} TN</p>
       </div>
 
-      <!-- <div class="stateDetails">
+      <!-- <div class="partnerPayoutDetails">
         <span>Referral ID</span>: <p></p>
       </div> -->
-      <div class="stateDetails">
+      <div class="partnerPayoutDetails">
         <span>Remaining Tenure</span>: <p>{{12-data.month_count}}</p>
       </div>
-      <div class="stateDetails">
+      <div class="partnerPayoutDetails">
         <span>Last Payout</span>: <p>{{partnerDetails.lastPaymentDate | date}}</p>
       </div>
-      <div class="stateDetails">
+      <div class="partnerPayoutDetails">
         <span>Next Payout</span>: <p>15 to 22nd (of Every Month)</p>
       </div>
     </div>
   </div>
 </div>
 <div mat-dialog-actions align="end">
-  <button class="franchise-profile-modal-ok" mat-raised-button mat-dialog-close>Ok</button>
+  <button class="partner-payout-modal-ok" mat-raised-button mat-dialog-close>Ok</button>
 </div>

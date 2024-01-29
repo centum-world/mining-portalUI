@@ -99,7 +99,7 @@ export class ReferralListComponent implements OnInit {
   openVerifyMemberDialog(id: any) {
     this.memberId = id.m_userid;
     let config: MatDialogConfig = {
-      panelClass: "franchiseVerifyDialogClass",
+      panelClass: "VerifyMemberInFranchiseDialogClass",
     };
     const dialogRef = this.dialog.open(MemberVerifyModelComponent, config);
 

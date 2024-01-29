@@ -6,8 +6,17 @@
 </div>
 
 <div class="account-section">
-    <div class="bakk-div">
-      <mat-card class="example-card" *ngFor="let data of myReferralPayout">
+  <div class="bakk-div">
+    <!-- Show card only if myReferralPayout is empty -->
+    <mat-card class="example-card" *ngIf="myReferralPayout.length === 0">
+      <mat-card-content>
+        <p>No referral payout found</p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Loop through myReferralPayout array if it's not empty -->
+    <div *ngFor="let data of myReferralPayout">
+      <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>Referral</mat-card-title>
@@ -20,7 +29,7 @@
           </div>
           <div class="bank-details">
             <h2>Amount</h2>
-            <strong>{{ data.amount |currency:"INR" }}</strong>
+            <strong>{{ data.amount | currency:"INR" }}</strong>
           </div>
           <div class="bank-details">
             <h2>Referral user</h2>
@@ -40,3 +49,4 @@
       </mat-card>
     </div>
   </div>
+</div>

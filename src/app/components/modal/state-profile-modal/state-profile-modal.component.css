@@ -1,12 +1,13 @@
 /* styles.css */
 
 .mat-dialog-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family:Calibri;
     background-color: #5476f2;
     margin-left: -24px;
     margin-right: -24px;
-    padding-left: 20px;
+    padding-left: 16px;
     color: #fff;
 }
 
@@ -49,9 +50,16 @@
 
 th {
     font-size: 14px;
-    font-family: bold;
+    font-family: Calibri;
 }
 
 td {
     font-size: 12px;
+    font-family:Calibri;
+}
+
+@media  (max-width: 768px){
+    .custom-ok{
+        margin-top:20px;
+    }
 }

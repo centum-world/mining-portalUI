@@ -6,9 +6,13 @@
 <div class="account-section">
    <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
        <mat-tab label="Request withdrawal">
-           <div *ngIf="requestHistroy.length === 0; else requestContent">
-               <p>No requests found</p>
-           </div>
+        <ng-container *ngIf="requestHistroy.length === 0; else requestContent">
+            <mat-card class="example-card">
+                <mat-card-content>
+                    <p>No requests found</p>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
            <ng-template #requestContent>
                <div class="bakk-div" *ngFor="let data of requestHistroy">
                    <mat-card class="example-card">
@@ -40,9 +44,13 @@
            </ng-template>
        </mat-tab>
        <mat-tab label="Approved withdrawal">
-           <div *ngIf="approvedHistory.length === 0; else approvedContent">
-               <p>No approvals found</p>
-           </div>
+        <ng-container *ngIf="approvedHistory.length === 0; else approvedContent">
+            <mat-card class="example-card">
+                <mat-card-content>
+                    <p>No approvals found</p>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
            <ng-template #approvedContent>
                <div class="bakk-div">
                    <mat-card class="example-card" *ngFor="let data of approvedHistory">

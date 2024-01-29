@@ -85,7 +85,7 @@ export class MyTeamComponent implements OnInit {
         }
         //  console.log(this.memberDocuments)
         let config: MatDialogConfig = {
-          panelClass:'stateProfileDocumetsDialogClass',data:this.partnerDetails
+          panelClass:'fetchPartnerDetailsDialogClass',data:this.partnerDetails
        
          };
          const dialogRef = this.dialog.open(PartnerPayoutDetailsComponent,config);

@@ -1,11 +1,13 @@
 .mat-dialog-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color:#b63003;
-    margin-left: -22px;
-    margin-right: -22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family:Calibri;
+    background-color:#5476f2;
+    margin-left: -24px;
+    margin-right: -24px;
     padding-left: 20px;
-    color: #ccc;
+    color: #fff;
+    /* margin-top:-24px; */
 }
   
 .row {
@@ -13,22 +15,18 @@
     justify-content: space-between;
   }
   
-  .stateDetails {
+  .partnerPayoutDetails {
     display: flex;
 }
 
-.custom-heading {
-    color:#fefefe;
-}
-
-.stateDetails span {
+.partnerPayoutDetails span {
     font-size: 18px;
     font-family: Calibri;
     color: #6512c4;
     margin-right: 10px;
 }
 
-.stateDetails p {
+.partnerPayoutDetails p {
     font-size: 16px;
     font-family: Calibri;
     color: #040108;
@@ -45,8 +43,8 @@ th {
 td {
     font-size: 12px;
 }
-.franchise-profile-modal-ok {
-    background: lightgreen;
-    color: red;
+.partner-payout-modal-ok {
+    background:#5476f2;
+    color:#fff;
 }
   

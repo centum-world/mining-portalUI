@@ -36,7 +36,7 @@ export class ShoHeaderComponent implements OnInit {
   openDialog() {
     this.isVisible = false;
     let config: MatDialogConfig = {
-     panelClass:'myStateDialogClass'
+     panelClass:'BmmDetailsDialogClass'
     };
     const dialogRef = this.dialog.open(StateProfileModalComponent,config);
 
@@ -69,7 +69,7 @@ export class ShoHeaderComponent implements OnInit {
 
       console.log(this.shoDocuments)
     let config: MatDialogConfig = {
-     panelClass:'stateProfileDocumetsDialogClass',data:this.shoDocuments
+     panelClass:'bmmProfileDocumetsDialogClass',data:this.shoDocuments
 
     };
     const dialogRef = this.dialog.open(StateProfileDocumentsComponent,config);

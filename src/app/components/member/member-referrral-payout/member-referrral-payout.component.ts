@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MemberReferrralPayoutComponent implements OnInit {
 
-  requestHistroy =[];
+  requestHistory: any[] = [];
+
   constructor(private userService : UserService, private router: Router) { }
 
   ngOnInit() {
@@ -24,7 +25,11 @@ export class MemberReferrralPayoutComponent implements OnInit {
     this.userService.memberReferralPayoutHistory(data).subscribe({
       next:(res:any)=>{
         console.log(res.data)
-        this.requestHistroy = res.data
+        if (res && res.data && Array.isArray(res.data)) {
+          this.requestHistory = res.data;
+        } else {
+          console.error("Invalid data format received from server");
+        }
       },
       error: (error) => {
         console.log(error.error.message)
