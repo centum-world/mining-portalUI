@@ -146,6 +146,10 @@ header label span {
     padding-left: 1rem;
 }
 
+.business-module{
+    display:flex;
+    justify-content:space-between;
+}
 /* .search-wrapper{
     border: 1px solid #ccc;
     border-radius: 40%;
@@ -238,6 +242,7 @@ main {
     transform: perspective(1000px);
 }
 
+
 .card-single h3+span {
     color: gray;
 }
@@ -251,6 +256,7 @@ main {
     margin-top: 25px;
 
 }
+
 
 .card-view span {
     cursor: pointer;
@@ -268,6 +274,9 @@ main {
 .modal-header h5 {
     color: purple;
     font-weight: 700;
+}
+.business-download{
+    margin-top : 16px;
 }
 
 .dop1 {

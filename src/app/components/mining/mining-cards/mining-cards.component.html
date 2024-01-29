@@ -3,8 +3,8 @@
     <div class="cards" *ngIf="!view_detail">
       <div class="card-single">
         <div>
-          <h6>Account Details</h6>
-          <span>
+          <!-- <h6>Account Details</h6> -->
+          <div>
             <div class="dop1" *ngIf="userStatus">
               <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
             </div>
@@ -14,11 +14,19 @@
             <div class="dop1" *ngIf="!userStatus && month_count === 0">
               <span style="font-weight: 600;">Status</span>: <p style="color:red;">Not Active</p>
             </div>
-          </span>
+          </div>
+          <div class="business-module">
+            <p>Business module docs</p>
+            
+          </div>
         </div>
-        <div class="card-view">
-          <span (click)="gotoAccount()">view</span>
+        <div>
+          <div class="card-view">
+            <span (click)="gotoAccount()">view</span>
+          </div>
+          <div class="business-download" (click)="downloadBusinessModule()"><mat-icon>file_download</mat-icon></div>
         </div>
+        
       </div>
       <div class="card-single">
         <div class="partner-refferal-id">

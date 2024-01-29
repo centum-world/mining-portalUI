@@ -573,4 +573,13 @@ export class MiningCardsComponent implements OnInit {
   referralPayout(){
     this.router.navigate(['/miningdashboard/referral-payout'])
   }
+
+  downloadBusinessModule(){
+    const url = '../../../../assets/image/rig.pdf';
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.download = 'business-module.pdf';
+    link.click();
+  }
 }
