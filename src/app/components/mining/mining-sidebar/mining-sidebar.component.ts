@@ -52,7 +52,7 @@ export class MiningSidebarComponent implements OnInit {
   
   viewBankDetails(){
     let config: MatDialogConfig = {
-      panelClass: 'stateViewBankDetailsDialogClass',
+      panelClass: 'partnerViewBankDetailsDialogClass',
     };
     const dialogRef = this.dialog.open(MiningViewBankComponent,config)
     
@@ -79,7 +79,7 @@ export class MiningSidebarComponent implements OnInit {
   helpAndSupport(){
     this.isVisible = false;
     let config: MatDialogConfig = {
-      panelClass: 'helpAndSupportClass',
+      panelClass: 'helpAndSupportDialogClass',
     };
     const dialogRef = this.dialog.open(HelpSupportComponent,config)
     

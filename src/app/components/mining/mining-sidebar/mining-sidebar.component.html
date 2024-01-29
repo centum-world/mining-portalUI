@@ -86,7 +86,7 @@
         <div class="mobile-header">
             <div class="centum-header">
                 <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60">
-                <span>CENTUM MINING RIG</span>
+                <span>CENTUMO MINING RIG</span>
             </div>
             <span class="fa fa-close" (click)="closeSidebar()"></span>
         </div>
@@ -105,7 +105,11 @@
             <li>
                 <div class="partner_history " (click)="partnerViewList()">
                     <a href="javascript:void(0)"><mat-icon class="bank-icon">account_balance</mat-icon>
-                        <span>Bank Details</span>
+                        <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="addBankDetails()">Add bank</button>
+                            <button mat-menu-item (click)="viewBankDetails()">View bank</button>
+                        </mat-menu>
                     </a>
                 </div>
             </li>

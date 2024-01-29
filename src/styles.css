@@ -76,7 +76,12 @@ body {
 .memberViewBankDetailsDialogClass .mat-dialog-container,
 .franchiseVerifyInBmmDialogClass .mat-dialog-container,
 .blockFranchiseInBmmDialogClass .mat-dialog-container,
-.VerifyMemberInFranchiseDialogClass .mat-dialog-container
+.VerifyMemberInFranchiseDialogClass .mat-dialog-container,
+.partnerViewBankDetailsDialogClass .mat-dialog-container,
+.bmmViewBankDetailsDialogClass .mat-dialog-container,
+.franchiseViewBankDetailsDialogClass .mat-dialog-container,
+.helpAndSupportDialogClass .mat-dialog-container,
+.partnerQueryDialogClass .mat-dialog-container
 {
   height:auto;
   width:40vw;
@@ -92,9 +97,7 @@ body {
 .memberAddBankDialogClass .mat-dialog-container,
 .EditFranchiseInBmmDialogClass .mat-dialog-container,
 .franchiseAddBankDialogClass .mat-dialog-container,
-.franchiseViewBankDetailsDialogClass .mat-dialog-container,
 .bmmAddBankDialogClass .mat-dialog-container,
-.bmmViewBankDetailsDialogClass .mat-dialog-container,
 .partnerAddBankDialogClass .mat-dialog-container {
   width:50vw;
   height:60vh;
@@ -119,7 +122,9 @@ body {
 .parnershipBond .mat-dialog-container::-webkit-scrollbar,
 .EditFranchiseInBmmDialogClass .mat-dialog-container::-webkit-scrollbar,
 .franchiseViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
-.bmmViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar {
+.bmmViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
+.partnerViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
+.partnerQueryDialogClass .mat-dialog-container::-webkit-scrollbar {
   overflow-y: scroll;
   display: none;
 }
@@ -149,7 +154,8 @@ body {
   .small-screen .FranchiseDocumentsInBmmViewDialogClass .mat-dialog-container,
   .small-screen .EditFranchiseInBmmDialogClass .mat-dialog-container,
   .small-screen .franchiseProfileDetailsDialogClass .mat-dialog-container,
-  .small-screen .franchiseDocumentsDialogClass .mat-dialog-container
+  .small-screen .franchiseDocumentsDialogClass .mat-dialog-container,
+  .small-screen .partnerQueryDialogClass .mat-dialog-container
    {
     margin-left: 0px;
     height: 80vh;
@@ -174,7 +180,10 @@ body {
   .small-screen .franchiseViewBankDetailsDialogClass .mat-dialog-container,
   .small-screen .bmmAddBankDialogClass .mat-dialog-container,
   .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-container,
-  .small-screen .partnerAddBankDialogClass .mat-dialog-container{
+  .small-screen .partnerAddBankDialogClass .mat-dialog-container,
+  .small-screen .partnerViewBankDetailsDialogClass .mat-dialog-container,
+  .small-screen .helpAndSupportDialogClass .mat-dialog-container
+  {
     width:80vw;
     margin-left:0px;
     border-radius:15px;
@@ -221,7 +230,10 @@ body {
   .small-screen .franchiseViewBankDetailsDialogClass .mat-dialog-title,
   .small-screen .bmmAddBankDialogClass .mat-dialog-title,
   .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-title,
-  .small-screen .partnerAddBankDialogClass .mat-dialog-title{
+  .small-screen .partnerAddBankDialogClass .mat-dialog-title,
+  .small-screen .partnerViewBankDetailsDialogClass .mat-dialog-title,
+  .small-screen .helpAndSupportDialogClass .mat-dialog-title,
+  .small-screen .partnerQueryDialogClass .mat-dialog-title{
     width:80vw;
   }
 

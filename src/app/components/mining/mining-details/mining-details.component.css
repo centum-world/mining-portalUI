@@ -56,6 +56,10 @@ table {
     background-color: #f0f0f0; /* Add a background color to the header row */
   }
   
+  .partnerDetailsHeader{
+    font-weight:bold;
+    color:black;
+  }
   /* Add a border to the last cell in each row */
   .mat-cell:last-child,
   .mat-header-cell:last-child {

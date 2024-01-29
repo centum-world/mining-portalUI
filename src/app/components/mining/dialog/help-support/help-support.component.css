@@ -1,18 +1,19 @@
 .mat-dialog-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #0D6EFD;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color: #5476f2;
     margin-left: -24px;
+    font-family:Calibri;
     margin-right: -24px;
     padding-left: 20px;
-    color: #ccc;
+    color: #fff;
+    margin-top:-24px;
 }
 
 .custom-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fefefe;
 }
 
 .mat-dialog-actions {
