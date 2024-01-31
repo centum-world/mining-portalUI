@@ -1,0 +1,78 @@
+<div class="register-container">
+  <div class="image-container">
+    <div class="logo">
+      <img src="../../../assets/image/clogo.png" width="80px" height="80px" />
+      <p>GPU MINING RIG</p>
+    </div>
+    <div class="image">
+      <img
+        src="../../../assets/image/reg-left.png"
+        width="400px"
+        height="420px"
+      />
+    </div>
+  </div>
+  <div class="form-container">
+    <div class="right-button">
+      <div class="login-buttun">
+        <p>Already have an account?</p>
+        &nbsp;
+        <div class="button-div">Sign in</div>
+      </div>
+    </div>
+    <div class="main-form">
+      <div class="form-content">
+        <div class="heading">
+          <p>Welcome to GPU Mining RIG</p>
+          <small>Register your account</small>
+        </div>
+        <form>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Select referral type</mat-label>
+            <mat-select [(value)]="role">
+              <mat-option>Select one</mat-option>
+              <mat-option value="MEMBER">Member</mat-option>
+              <mat-option value="FRANCHISE">Franchise</mat-option>
+              <mat-option value="BMM">BMM</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Referral ID" />
+            <mat-icon matSuffix>share</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="First name" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Last name" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Email" />
+            <mat-icon matSuffix>email</mat-icon> 
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input #phoneNumberInput matInput id="phoneNumber" placeholder="Phone" type="tel">
+
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Aadhar number" />
+          </mat-form-field>
+
+
+          <button mat-raised-button color="primary" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
