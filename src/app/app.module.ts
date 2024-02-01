@@ -213,6 +213,7 @@ import { MemberPromotionComponent } from './components/member/member-promotion/m
 import { FranchisePromotionComponent } from './components/franchise/franchise-promotion/franchise-promotion.component';
 import { BmmPromotionComponent } from './components/sho/bmm-promotion/bmm-promotion.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MiningSignupComponent } from './components/mining-signup/mining-signup.component';
 
 
 @NgModule({
@@ -397,7 +398,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MemberPromotionComponent,
     FranchisePromotionComponent,
     BmmPromotionComponent,
-    FooterComponent
+    FooterComponent,
+    MiningSignupComponent
   ],
   imports: [
     BrowserModule,

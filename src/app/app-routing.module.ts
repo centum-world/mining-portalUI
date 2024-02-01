@@ -90,11 +90,13 @@ import { BmmPartnerlistComponent } from "./components/sho/bmm-partnerlist/bmm-pa
 import { MemberPromotionComponent } from "./components/member/member-promotion/member-promotion.component";
 import { FranchisePromotionComponent } from "./components/franchise/franchise-promotion/franchise-promotion.component";
 import { BmmPromotionComponent } from "./components/sho/bmm-promotion/bmm-promotion.component";
+import { MiningSignupComponent } from "./components/mining-signup/mining-signup.component";
 
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "mininglogin", component: MiningLoginComponent },
+  { path: "partner-signup1", component: MiningSignupComponent},
   { path: "member-signup", component: SignupMemberComponent },
   { path: "partner-signup", component: SignupPartnerComponent },
   { path: "statelogin", component: StatehandlerloginComponent },

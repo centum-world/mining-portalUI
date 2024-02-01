@@ -151,4 +151,8 @@ export class SignupPartnerComponent implements OnInit {
   backToHome(){
     window.location.href = 'https://centumworldrig.com';
   }
+
+  signup(){
+    this.router.navigate(['/partner-signup1'])
+  }
 }
