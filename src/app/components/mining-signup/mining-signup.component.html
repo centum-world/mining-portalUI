@@ -7,27 +7,29 @@
     <div class="image">
       <img
         src="../../../assets/image/reg-left.png"
-        width="400px"
-        height="420px"
+        
       />
     </div>
   </div>
   <div class="form-container">
     <div class="right-button">
       <div class="login-buttun">
-        <p>Already have an account?</p>
+        <p>{{!change? "Already have an account?" :"Don't have an account?"}}</p>
         &nbsp;
-        <div class="button-div">Sign in</div>
+        <div class="button-div" (click)="loginPage()">{{!change? "Sign in" : "Sign up"}}</div>
       </div>
     </div>
     <div class="main-form">
-      <div class="form-content">
+      <div class="form-content" *ngIf="!change">
         <div class="heading">
           <p>Welcome to GPU Mining RIG</p>
           <small>Register your account</small>
         </div>
-        <form>
-          <mat-form-field appearance="outline" class="input">
+        <form
+          [formGroup]="partnerSignUpForm"
+          (ngSubmit)="addPartnerData(partnerSignUpForm)"
+        >
+          <mat-form-field appearance="outline">
             <mat-label>Select referral type</mat-label>
             <mat-select [(value)]="role">
               <mat-option>Select one</mat-option>
@@ -38,40 +40,188 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Referral ID" />
+            <mat-label>Referral ID</mat-label>
+            <input matInput formControlName="reffered_id" />
             <mat-icon matSuffix>share</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <input matInput placeholder="First name" />
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="name" />
             <mat-icon matSuffix>person</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Last name" />
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lname" />
             <mat-icon matSuffix>person</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Email" />
-            <mat-icon matSuffix>email</mat-icon> 
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <input #phoneNumberInput matInput id="phoneNumber" placeholder="Phone" type="tel">
-
+            <input
+              #phoneNumberInput
+              formControlName="phone"
+              matInput
+              id="phoneNumber"
+              placeholder="Phone number"
+              type="tel"
+            />
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Aadhar number" />
+            <mat-label>Aadhar number</mat-label>
+            <input matInput formControlName="aadhar" />
+            <mat-icon matSuffix>credit_card</mat-icon>
           </mat-form-field>
 
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your address</mat-label>
+            <input matInput formControlName="address" />
+            <mat-icon matSuffix>location_on</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your state</mat-label>
+            <input matInput formControlName="state" />
+            <mat-icon matSuffix>pin_drop</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>DOB</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dob" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>DOP</mat-label>
+            <input matInput [matDatepicker]="dopPicker" formControlName="dop" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="dopPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #dopPicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nominee full name</mat-label>
+            <input matInput formControlName="nominee_name" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nominee aadhar</mat-label>
+            <input matInput formControlName="nominee_aadhar" />
+            <mat-icon matSuffix>credit_card</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input
+              #phoneNumberInputNominee
+              formControlName="nominee_phone"
+              matInput
+              id="phoneNumber"
+              placeholder="Nominee phone number"
+              type="tel"
+            />
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Select Liquidity</mat-label>
+            <mat-select formControlName="liquidity">
+              <mat-option>Select one</mat-option>
+              <mat-option value="1200000">12 Lakh</mat-option>
+              <mat-option value="600000">6 Lakh</mat-option>
+              <mat-option value="300000">3 Lakh</mat-option>
+              <mat-option value="200000">2 Lakh</mat-option>
+              <mat-option value="100000">1 Lakh</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label> Terms</mat-label>
+            <input
+              matInput
+              required
+              value="12 Months"
+              formControlName="terms"
+              disabled
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Front side addhar image</mat-label>
+            <input
+              matInput
+              type="text"
+              [value]="aadharImageName"
+              placeholder="No file chosen"
+              readonly
+            />
+            <input
+              type="file"
+              id="aadharImage"
+              (change)="onFileSelected($event, 'front')"
+              accept="image/*"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Back side addhar image</mat-label>
+            <input matInput type="text" placeholder="No file chosen" readonly />
+            <input type="file" (change)="onFileSelected($event, 'back')" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pan card</mat-label>
+            <input matInput type="text" placeholder="No file chosen" readonly />
+            <input type="file" (change)="onFileSelected($event,'pan')" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Partner ID</mat-label>
+            <input matInput formControlName="user_id" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label> Password</mat-label>
+            <input
+              [type]="passwordFieldType"
+              formControlName="password"
+              matInput
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="togglePasswordVisibility()"
+              type="button"
+            >
+              <mat-icon>{{ showPasswordIcon }}</mat-icon>
+            </button>
+          </mat-form-field>
 
           <button mat-raised-button color="primary" type="submit">
-            Submit
+            <ng-container *ngIf="spin; else registerText">
+                <mat-spinner diameter="40"></mat-spinner>
+              </ng-container>
+              <ng-template #registerText>Create Account</ng-template>
           </button>
         </form>
+      </div>
+      <div class="login-container" *ngIf="change">
+        
       </div>
     </div>
   </div>
