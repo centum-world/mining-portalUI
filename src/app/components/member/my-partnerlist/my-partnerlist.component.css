@@ -45,6 +45,13 @@ table {
     font-weight: bold !important;
     font-size:14px;
     color:#000;
+    white-space: nowrap;
+    padding:8px;
+}
+
+.table-cell{
+    padding:8px;
+    white-space:nowrap;
 }
 
 
