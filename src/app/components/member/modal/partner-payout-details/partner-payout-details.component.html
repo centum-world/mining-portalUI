@@ -11,13 +11,13 @@
             <span>Partner ID</span>: <p>{{this.partnerDetails.userid }}</p>
           </div>
           <div class="partnerPayoutDetails">
-            <span>Name</span>: <p>{{data.name}}</p>
+            <span>Name</span>: <p>{{data.name}} {{data.lname}}</p>
           </div>
           <div class="partnerPayoutDetails">
             <span>Date of Partner</span>: <p>{{data.dop | date}}</p>
           </div>
           <div class="partnerPayoutDetails">
-            <span>Total Liquidity</span>: <p>{{data.liquidity | currency : 'INR'}}</p>
+            <span>Liquidity</span>: <p>{{data.liquidity | currency : 'INR'}}</p>
           </div>
           <div class="partnerPayoutDetails">
             <span>Monthly Payout</span>: <p></p>

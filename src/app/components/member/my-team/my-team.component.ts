@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 interface MemberMyTeam {
   p_userid: string,
   name: string,
+  lname:string,
   joinDate:Date,
   action:string
 }
@@ -77,6 +78,7 @@ export class MyTeamComponent implements OnInit {
             this.partnerDetails.liquidity = response.data[0].p_liquidity
              this.partnerDetails.dop= response.data[0].p_dop
               this.partnerDetails.name= response.data[0].p_name
+              this.partnerDetails.lname = response.data[0].p_lname
               this.partnerDetails.month_count= response.data[0].month_count
               this.partnerDetails.partner_count= response.data[0].partner_count
               this.partnerDetails.partner_status= response.data[0].partner_status
