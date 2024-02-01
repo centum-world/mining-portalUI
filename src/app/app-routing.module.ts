@@ -95,10 +95,10 @@ import { MiningSignupComponent } from "./components/mining-signup/mining-signup.
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
-  { path: "mininglogin", component: MiningLoginComponent },
-  { path: "partner-signup1", component: MiningSignupComponent},
+  // { path: "mininglogin", component: MiningLoginComponent },
+  { path: "mininglogin", component: MiningSignupComponent},
   { path: "member-signup", component: SignupMemberComponent },
-  { path: "partner-signup", component: SignupPartnerComponent },
+  // { path: "partner-signup", component: SignupPartnerComponent },
   { path: "statelogin", component: StatehandlerloginComponent },
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
   { path: "franchiselogin", component: FranchiseLoginComponent },

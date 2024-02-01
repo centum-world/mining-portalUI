@@ -19,6 +19,7 @@ import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "src/app/service/user.service";
 import { ActivatedRoute } from "@angular/router";
+import { ShareService } from "src/app/shareService/share.service";
 
 @Component({
   selector: "app-mining-signup",
@@ -43,15 +44,18 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   };
   spin = false;
   change = false;
+  pagename:String="Sign in your account";
   countryCode:"";
   nomineeCountryCode :"";
   partnerSignUpForm: FormGroup;
+  partnerLoginForm:FormGroup;
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private shareService : ShareService
   ) {
     this.partnerSignUpForm = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -90,36 +94,17 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       user_id: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required]),
     });
+
+    this.partnerLoginForm = this.formBuilder.group({
+      luser_id: new FormControl("", [Validators.required]),
+      lpassword: new FormControl("", [Validators.required]),
+    })
   }
 
   addPartnerData(form: FormGroup) {
     this.spin = true;
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
-    console.log(this.createMiningPartner.refferal_id)
-    console.log(
-      this.partnerSignUpForm.value.reffered_id,
-      this.role,
-      this.partnerSignUpForm.value.name,
-      this.partnerSignUpForm.value.lname,
-      this.partnerSignUpForm.value.email,
-      this.partnerSignUpForm.value.phone,
-      this.partnerSignUpForm.value.aadhar,
-      this.partnerSignUpForm.value.address,
-      this.partnerSignUpForm.value.state,
-      this.partnerSignUpForm.value.dob,
-      this.partnerSignUpForm.value.dop,
-      this.partnerSignUpForm.value.nominee_name,
-      this.partnerSignUpForm.value.nominee_aadhar,
-      this.partnerSignUpForm.value.nominee_phone,
-      this.partnerSignUpForm.value.liquidity,
-      this.partnerSignUpForm.value.terms,
-      this.partnerSignUpForm.value.user_id,
-      this.partnerSignUpForm.value.password,
-      this.aadharBackImage,
-      this.aadharImage,
-      this.panImage
-    );
-
+    
     const formData = new FormData();
     formData.append('p_reffered_id', this.partnerSignUpForm.value.reffered_id);
     formData.append('p_name', this.partnerSignUpForm.value.name);
@@ -150,6 +135,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
           this.toastr.success('Data submitted successfully', 'Success');
             form.reset();
             this.spin = false;
+            this.change = true;
         }
       },
       error: error => {
@@ -157,8 +143,40 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
         this.toastr.error(error.error.message);
       }
     })
+  }
 
+  loginPartner(form : FormGroup){
+    console.log(this.partnerLoginForm.value.luser_id, this.partnerLoginForm.value.lpassword)
+    let data = {
+      p_userid: this.partnerLoginForm.value.luser_id,
+      p_password: this.partnerLoginForm.value.lpassword
+    };
 
+    this.userService.partnerLogin(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          localStorage.setItem('login','true');
+          this.spin = false;
+          this.shareService.setPartnerId(response.data[0].p_userid);
+          this.shareService.setMiningPartnerRefferId(
+            response.data[0].p_refferal_id
+          );
+          this.shareService.setMiningPartnerLiquidity(
+            response.data[0].p_liquidity
+          );
+          this.shareService.setToken(response.token);
+          this.toastr.success("Logged In Successfully", "success");
+          this.router.navigate(["miningdashboard"]);
+          setTimeout(function () {
+            window.location.reload();
+          }, 100);
+        }
+      },
+      error: (error) => {
+        this.spin = false;
+        this.toastr.error("Invalid User ID Or Password ", "Error");
+      },
+    });
   }
 
   ngOnInit() {}
@@ -228,7 +246,12 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     }    
   }
 
-  loginPage(){
-    this.change = !this.change;
+  tabChanged(event: any): void {
+    console.log('Tab changed:', event.tab.textLabel);
+    if(event.tab.textLabel === "Login"){
+      this.pagename = "Sign in your account"
+    }else{
+      this.pagename = "Sign up your account"
+    }
   }
 }
