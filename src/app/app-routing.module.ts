@@ -92,6 +92,7 @@ import { FranchisePromotionComponent } from "./components/franchise/franchise-pr
 import { BmmPromotionComponent } from "./components/sho/bmm-promotion/bmm-promotion.component";
 import { MiningSignupComponent } from "./components/mining-signup/mining-signup.component";
 import { MemberSignupComponent } from "./components/member/member-signup/member-signup.component";
+import { SignupFranchiseComponent } from "./components/franchise/signup-franchise/signup-franchise.component";
 
 
 const routes: Routes = [
@@ -105,6 +106,7 @@ const routes: Routes = [
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
   { path: "franchiselogin", component: FranchiseLoginComponent },
   { path: "franchiseSignUp", component: FranchiseSignUpComponent },
+  { path: "franchiseSignUp1",component:SignupFranchiseComponent},
   { path: "frame", component: FrameComponent },
   { path: "memberlogin", component: UserLoginComponent },
   { path: "businesslogin", component: BdLoginComponent},

@@ -67,6 +67,11 @@ export class FranchiseLoginComponent implements OnInit {
     // window.open("/franchiseSignUp");
     this.router.navigate(['/franchiseSignUp'])
   }
+
+  SignUp(){
+    this.router.navigate(['/franchiseSignUp1'])
+  }
+
   backToHome(){
     window.location.href = 'https://centumworldrig.com';
   }
