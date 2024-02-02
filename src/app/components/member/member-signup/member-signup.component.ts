@@ -17,6 +17,7 @@ import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "src/app/service/user.service";
 import { ActivatedRoute } from "@angular/router";
+import { ShareService } from "src/app/shareService/share.service";
 
 @Component({
   selector: 'app-member-signup',
@@ -40,14 +41,17 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   };
   spin = false;
   change = false;
+  pagename:String="Sign in your account";
   countryCode:"";
   memberSignUpFrom: FormGroup;
+  memberLoginForm: FormGroup;
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private shareService : ShareService
   ) {
     this.memberSignUpFrom = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -72,6 +76,10 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       user_id: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required]),
     });
+    this.memberLoginForm = this.formBuilder.group({
+      loginUser_id: new FormControl("", [Validators.required]),
+      loginPassword: new FormControl("", [Validators.required]),
+    })
   }
 
   addMemberData(form: FormGroup) {
@@ -139,6 +147,36 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     })
   }
 
+  loginMember(form : FormGroup){
+    console.log(this.memberLoginForm.value.loginUser_id, this.memberLoginForm.value.loginPassword)
+    let data = {
+      m_userid: this.memberLoginForm.value.loginUser_id,
+      m_password: this.memberLoginForm.value.loginPassword
+    };
+
+    console.log(data)
+
+    this.userService.memberLogin(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          localStorage.setItem('login','true');
+          localStorage.setItem('memberId',response.data[0].m_userid)
+          localStorage.setItem('refferalId',response.data[0].reffer_id)
+          localStorage.setItem('userType',response.data[0].userType)
+          this.shareService.setToken(response.token);
+          this.toastr.success("Logged In Successfully", "success");
+          this.router.navigate(["memberdashboard"]);
+          setTimeout(function () {
+            window.location.reload();
+          }, 100);
+        }
+      },
+      error: (error) => {
+        this.toastr.error("Invalid Member ID Or Password ", "Error");
+      },
+    });
+  }
+
   ngOnInit() {
   }
 
@@ -199,6 +237,15 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
   loginPage(){
     this.change = !this.change;
+  }
+
+  tabChanged(event: any): void {
+    console.log('Tab changed:', event.tab.textLabel);
+    if(event.tab.textLabel === "Login"){
+      this.pagename = "Sign in your account"
+    }else{
+      this.pagename = "Sign up your account"
+    }
   }
 
 }
