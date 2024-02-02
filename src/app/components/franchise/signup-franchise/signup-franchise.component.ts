@@ -21,6 +21,7 @@ import { UserService } from "src/app/service/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { allState } from "../../common/states";
+import { ShareService } from "src/app/shareService/share.service";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -73,7 +74,8 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private shareService : ShareService
   ) {
     this.franchiseSignUpForm = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -162,7 +164,36 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
       }
     })
 
+  }
 
+  loginFranchise(form : FormGroup){
+    console.log(this.franchiseLoginForm.value.loginUser_id, this.franchiseLoginForm.value.loginPassword)
+    let data = {
+      userid: this.franchiseLoginForm.value.loginUser_id,
+      password: this.franchiseLoginForm.value.loginPassword
+    };
+
+    console.log(data)
+
+    this.userService.franchiseLogin(data).subscribe({
+      next: (response: any) => {
+        if (response) {
+          localStorage.setItem('login','true');
+          localStorage.setItem('franchiseId',response.user.franchiseId)
+          localStorage.setItem('franchiseRefferalId',response.user.referralId)
+          localStorage.setItem('userType',response.user.userType)
+          this.shareService.setFranchiseToken(response.token);
+          this.toastr.success("Logged In Successfully", "success");
+          this.router.navigate(["franchisedashboard"]);
+          setTimeout(function () {
+            window.location.reload();
+          }, 100);
+        }
+      },
+      error: (error) => {
+        this.toastr.error("Invalid Franchise ID Or Password ", "Error");
+      },
+    });
   }
 
   ngOnInit() {
