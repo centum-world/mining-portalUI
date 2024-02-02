@@ -216,6 +216,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MiningSignupComponent } from './components/mining-signup/mining-signup.component';
 import { MemberSignupComponent } from './components/member/member-signup/member-signup.component';
 import { SignupFranchiseComponent } from './components/franchise/signup-franchise/signup-franchise.component';
+import { BmmSignupLoginComponent } from './components/sho/bmm-signup-login/bmm-signup-login.component';
 
 
 @NgModule({
@@ -403,7 +404,8 @@ import { SignupFranchiseComponent } from './components/franchise/signup-franchis
     FooterComponent,
     MiningSignupComponent,
     MemberSignupComponent,
-    SignupFranchiseComponent
+    SignupFranchiseComponent,
+    BmmSignupLoginComponent
   ],
   imports: [
     BrowserModule,

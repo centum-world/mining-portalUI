@@ -1,0 +1,142 @@
+.register-container{
+    display:flex;
+}
+.image-container{
+    display:flex;
+    flex-direction: column;
+    aling-items:center;
+    width:40%;
+    height:100vh;
+    padding:20px;
+    background-color: #faf8fd;
+    
+}
+.form-container{
+    width:60%;
+    height:100vh;
+    padding:20px;
+    overflow-y: auto;
+}
+
+.form-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+    background-color: #3f51b5;
+    border-radius: 10px;
+}
+
+.form-container::-webkit-scrollbar-track {
+    background-color: #ecf0f1;
+}
+
+.logo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo p{
+    font-size:24px;
+    font-weight:900;
+    font-family:calibri;
+    color: #9d5df9;
+}
+.image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.right-button{
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom:20px;
+}
+.login-buttun{
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+}
+.login-buttun p{
+    font-family:calibri;
+}
+.button-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:30px;
+    width:80px;
+    border-radius:20px;
+    border:1px solid black;
+    font-family:calibri;
+    cursor:pointer;
+}
+.main-form{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-top:20px;
+}
+.heading{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.heading p{
+    font-size:24px;
+    font-weight:700;
+    font-family:calibri;
+    background: linear-gradient(to right, blue, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.heading small{
+    color:#838891;
+}
+
+.form-content form{
+    display:flex;
+    flex-direction:column;
+    width: 30vw;
+    margin-top:20px;
+}
+
+.image img{
+    width : 400px;
+    height : 420px
+}
+ 
+
+  
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .image img {
+        width: 300px;
+        height: 300px;
+    }
+    .form-content form {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .image-container{ 
+        display: none;
+    }
+    .form-container{
+        width:100%;
+    }
+    .form-content form{
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width:420px){
+    .heading p{
+        font-size:26px;
+        font-weight:900;
+        font-family:calibri;
+    }
+}
