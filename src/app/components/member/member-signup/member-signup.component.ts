@@ -24,7 +24,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./member-signup.component.css']
 })
 export class MemberSignupComponent implements OnInit, AfterViewInit {
-  @ViewChild("phoneNumberInput", { static: true }) phoneNumberInput: ElementRef;
+  @ViewChild("phoneNumberInput", { static: false }) phoneNumberInput: ElementRef;
 
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility";
@@ -104,7 +104,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     formData.append('m_refferid', this.memberSignUpFrom.value.reffered_id);
     formData.append('m_name', this.memberSignUpFrom.value.name);
     formData.append('m_lname', this.memberSignUpFrom.value.lname);
-    formData.append('m_phone','+' + '91' + this.memberSignUpFrom.value.phone);
+    formData.append('m_phone','+' + this.countryCode + this.memberSignUpFrom.value.phone);
     formData.append('m_email',  this.memberSignUpFrom.value.email);
     formData.append('m_gender',this.memberSignUpFrom.value.gender);
     formData.append('m_quali',this.memberSignUpFrom.value.qualification);
@@ -154,6 +154,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         const selectedCountryData = iti.getSelectedCountryData();
         console.log("Selected Country Code:", selectedCountryData.dialCode);
+        this.countryCode = selectedCountryData.dialCode;
       }, 500);
     } else {
       console.error('phoneNumberInput is not initialized or undefined.');
