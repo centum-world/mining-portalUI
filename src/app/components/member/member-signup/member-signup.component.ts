@@ -24,8 +24,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./member-signup.component.css']
 })
 export class MemberSignupComponent implements OnInit, AfterViewInit {
-
-  @ViewChild("phoneNumberInput", { static: true }) phoneNumberInput: ElementRef;
+  @ViewChild("phoneNumberInput", { static: false }) phoneNumberInput: ElementRef;
 
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility";
@@ -88,7 +87,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       this.memberSignUpFrom.value.gender,
       this.memberSignUpFrom.value.qualification,
       this.memberSignUpFrom.value.designation,
-      this.memberSignUpFrom.value.experiance,
+      this.memberSignUpFrom.value.experience,
       this.memberSignUpFrom.value.salary,
       this.memberSignUpFrom.value.address,
       this.memberSignUpFrom.value.state,
@@ -105,7 +104,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     formData.append('m_refferid', this.memberSignUpFrom.value.reffered_id);
     formData.append('m_name', this.memberSignUpFrom.value.name);
     formData.append('m_lname', this.memberSignUpFrom.value.lname);
-    formData.append('p_phone','+' + this.countryCode + this.memberSignUpFrom.value.phone);
+    formData.append('m_phone','+' + this.countryCode + this.memberSignUpFrom.value.phone);
     formData.append('m_email',  this.memberSignUpFrom.value.email);
     formData.append('m_gender',this.memberSignUpFrom.value.gender);
     formData.append('m_quali',this.memberSignUpFrom.value.qualification);
@@ -125,42 +124,44 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
     console.log(formData,'126')
   
-    // this.userService.signUpMember(formData).subscribe({
-    //   next: response => {
-    //     if (response) {
-    //       this.toastr.success('Data submitted successfully', 'Success');
-    //         form.reset();
-    //         this.spin = false;
-    //     }
-    //   },
-    //   error: error => {
-    //     this.spin = false;
-    //     this.toastr.error(error.error.message);
-    //   }
-    // })
-
-
+    this.userService.signUpMember(formData).subscribe({
+      next: response => {
+        if (response) {
+          this.toastr.success('Data submitted successfully', 'Success');
+            form.reset();
+            this.spin = false;
+        }
+      },
+      error: error => {
+        this.spin = false;
+        this.toastr.error(error.error.message);
+      }
+    })
   }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    if (this.phoneNumberInput) {
+    if (this.phoneNumberInput && this.phoneNumberInput.nativeElement) {
       const inputElement = this.phoneNumberInput.nativeElement;
       const iti = intlTelInput(inputElement, {
         separateDialCode: true,
         nationalMode: false,
       });
+      console.log("IntlTelInput instance:", iti);
       iti.setCountry("IN");
       setTimeout(() => {
         const selectedCountryData = iti.getSelectedCountryData();
+        console.log("Selected Country Code:", selectedCountryData.dialCode);
         this.countryCode = selectedCountryData.dialCode;
       }, 500);
     } else {
       console.error('phoneNumberInput is not initialized or undefined.');
     }
   }
+
+  
 
   
   togglePasswordVisibility(): void {
