@@ -10,7 +10,8 @@
   </div>
   <div class="form-container">
     <div class="heading">
-      <p>Welcome to GPU Mining RIG</p>
+      <h4>WELCOME TO CENTUM WORLD</h4>
+      <p>GPU MINING RIG</p>
       <small>{{ pagename }}</small>
     </div>
     <div class="main-form">
@@ -43,11 +44,13 @@
                 </button>
               </mat-form-field>
               <button mat-raised-button color="primary" type="submit">
-                <ng-container *ngIf="spin; else registerText">
+                <ng-container *ngIf="spin; else loginText">
                   <mat-spinner diameter="40"></mat-spinner>
                 </ng-container>
-                <ng-template #registerText>SIGN IN</ng-template>
+                <ng-template #loginText>SIGN IN</ng-template>
               </button>
+              <br>
+              <div class="home" (click)="gotoDhasboard()">HOME</div>
             </form>
           </div>
         </mat-tab>
@@ -264,6 +267,8 @@
                 </ng-container>
                 <ng-template #registerText>SIGN UP</ng-template>
               </button>
+              <br>
+              <div class="home" (click)="gotoDhasboard()">HOME</div>
             </form>
           </div>
         </mat-tab>

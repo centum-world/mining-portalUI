@@ -254,4 +254,8 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       this.pagename = "Sign up your account"
     }
   }
+
+  gotoDhasboard(){
+    window.open('http://centumworldrig.com', '_blank');
+  }
 }
