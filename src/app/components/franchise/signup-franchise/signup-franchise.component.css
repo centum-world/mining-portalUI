@@ -77,14 +77,21 @@
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    margin-top:20px;
 }
 .heading{
-    line-height:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 .heading p{
-    font-size:30px;
-    font-weight:900;
+    font-size:24px;
+    font-weight:700;
     font-family:calibri;
+    background: linear-gradient(to right, blue, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .heading small{
     color:#838891;
@@ -101,7 +108,9 @@
     width : 400px;
     height : 420px
 }
+ 
 
+  
 @media screen and (max-width: 1024px) and (min-width: 768px) {
     .image img {
         width: 300px;
@@ -126,7 +135,7 @@
 
 @media screen and (max-width:420px){
     .heading p{
-        font-size:24px;
+        font-size:26px;
         font-weight:900;
         font-family:calibri;
     }

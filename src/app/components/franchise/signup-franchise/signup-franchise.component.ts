@@ -64,7 +64,9 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
   // spin = false;
   change = false;
   countryCode:"";
+  pagename:String="Sign in your account";
   franchiseSignUpForm: FormGroup;
+  franchiseLoginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   constructor(
     private userService: UserService,
@@ -90,6 +92,11 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
       user_id: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required]),
     });
+
+    this.franchiseLoginForm = this.formBuilder.group({
+      loginUser_id: new FormControl("", [Validators.required]),
+      loginPassword: new FormControl("", [Validators.required]),
+    })
   }
 
   onStateChange(){
@@ -214,6 +221,14 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
 
   loginPage(){
     this.change = !this.change;
+  }
+  tabChanged(event: any): void {
+    console.log('Tab changed:', event.tab.textLabel);
+    if(event.tab.textLabel === "Login"){
+      this.pagename = "Sign in your account"
+    }else{
+      this.pagename = "Sign up your account"
+    }
   }
 
 }

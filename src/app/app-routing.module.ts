@@ -104,7 +104,7 @@ const routes: Routes = [
   { path: "member-signup1",component:MemberSignupComponent},
   { path: "statelogin", component: StatehandlerloginComponent },
   { path: "stateRegitration", component: StatehandlerRegisterComponent },
-  { path: "franchiselogin", component: FranchiseLoginComponent },
+  { path: "franchiselogin", component: SignupFranchiseComponent },
   { path: "franchiseSignUp", component: FranchiseSignUpComponent },
   { path: "franchiseSignUp1",component:SignupFranchiseComponent},
   { path: "frame", component: FrameComponent },

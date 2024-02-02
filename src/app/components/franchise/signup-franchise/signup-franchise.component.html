@@ -1,74 +1,82 @@
 <div class="register-container">
-    <div class="image-container">
-      <div class="logo">
-        <img src="../../../../assets/image/clogo.png" width="80px" height="80px" />
-        <p>GPU MINING RIG</p>
-      </div>
-      <div class="image">
-        <img
-          src="../../../../assets/image/reg-left.png"
-          
-        />
-      </div>
+  <div class="image-container">
+    <div class="logo">
+      <img src="../../../../assets/image/clogo.png" width="80px" height="80px" />
+      <p>GPU MINING RIG</p>
     </div>
-    <div class="form-container">
-      <div class="right-button">
-        <div class="login-buttun">
-          <p>{{!change? "Already have an account?" :"Don't have an account?"}}</p>
-          &nbsp;
-          <div class="button-div" (click)="loginPage()">{{!change? "Sign in" : "Sign up"}}</div>
-        </div>
-      </div>
-      <div class="main-form">
-        <div class="form-content" *ngIf="!change">
-          <div class="heading">
-            <p>Welcome to GPU Mining RIG</p>
-            <small>Register your account</small>
+    <div class="image">
+      <img src="../../../../assets/image/reg-left.png" />
+    </div>
+  </div>
+  <div class="form-container">
+    <div class="heading">
+      <h3>Welcome to CENTUM WORLD</h3>
+      <p>GPU MINING RIG</p>
+      <small>{{ pagename }}</small>
+    </div>
+    <div class="main-form">
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" (selectedTabChange)="tabChanged($event)">
+        <mat-tab label="Login">
+          <div class="form-content">
+            <form [formGroup]="franchiseLoginForm" (ngSubmit)="loginFranchise(franchiseLoginForm)">
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>Franchise ID</mat-label>
+                <input matInput formControlName="loginUser_id" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Password</mat-label>
+                <input [type]="passwordFieldType" formControlName="loginPassword" matInput required />
+                <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">
+                <ng-container *ngIf="spin; else registerText">
+                  <mat-spinner diameter="40"></mat-spinner>
+                </ng-container>
+                <ng-template #registerText>SIGN IN</ng-template>
+              </button>
+            </form>
           </div>
-          <form
-            [formGroup]="franchiseSignUpForm"
-            (ngSubmit)="addFranchiseData(franchiseSignUpForm)"
-          >
-      
-            <mat-form-field appearance="outline">
-              <mat-label>Referral ID</mat-label>
-              <input matInput formControlName="reffered_id" />
-              <mat-icon matSuffix>share</mat-icon>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>First name</mat-label>
-              <input matInput formControlName="name" />
-              <mat-icon matSuffix>person</mat-icon>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Last name</mat-label>
-              <input matInput formControlName="lname" />
-              <mat-icon matSuffix>person</mat-icon>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email" />
-              <mat-icon matSuffix>email</mat-icon>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <input
-                #phoneNumberInput
-                formControlName="phone"
-                matInput
-                id="phoneNumber"
-                placeholder="Phone number"
-                type="tel"
-              />
-              <mat-icon matSuffix>phone</mat-icon>
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
+        </mat-tab>
+        <mat-tab label="Sign up">
+          <div class="form-content" *ngIf="!change">
+            <form [formGroup]="franchiseSignUpForm" (ngSubmit)="addFranchiseData(franchiseSignUpForm)">
+
+              <mat-form-field appearance="outline">
+                <mat-label>Referral ID</mat-label>
+                <input matInput formControlName="reffered_id" />
+                <mat-icon matSuffix>share</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>First name</mat-label>
+                <input matInput formControlName="name" />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Last name</mat-label>
+                <input matInput formControlName="lname" />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <input #phoneNumberInput formControlName="phone" matInput id="phoneNumber" placeholder="Phone number"
+                  type="tel" />
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
                 <mat-label>Gender</mat-label>
-                <mat-select [(value)]="role"  formControlName="gender">
+                <mat-select [(value)]="role" formControlName="gender">
                   <mat-option>Select one</mat-option>
                   <mat-option value="MALE">Male</mat-option>
                   <mat-option value="FEMALE">Female</mat-option>
@@ -78,96 +86,69 @@
 
               <mat-form-field appearance="outline" class="state-input">
                 <mat-label>Select State</mat-label>
-                <mat-select
-                  formControlName="state"
-                  (selectionChange)="onStateChange()"
-                >
+                <mat-select formControlName="state" (selectionChange)="onStateChange()">
                   <mat-option *ngFor="let state of states" [value]="state">{{
                     state
-                  }}</mat-option>
+                    }}</mat-option>
                 </mat-select>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="district-input">
                 <mat-label>Select District</mat-label>
-                <mat-select
-                  formControlName="district"
-                  placeholder="Select city"
-                  multiple
-                >
+                <mat-select formControlName="district" placeholder="Select city" multiple>
                   <mat-option *ngFor="let district of cities" [value]="district">{{
                     district
-                  }}</mat-option>
+                    }}</mat-option>
                 </mat-select>
               </mat-form-field>
 
-            <mat-form-field appearance="outline">
-              <mat-label>Front side addhar image</mat-label>
-              <input
-                matInput
-                type="text"
-                [value]="aadharImageName"
-                placeholder="No file chosen"
-                readonly
-              />
-              <input
-                type="file"
-                id="aadharImage"
-                (change)="onFileSelected($event, 'front')"
-                accept="image/*"
-              />
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Back side addhar image</mat-label>
-              <input matInput type="text" placeholder="No file chosen" readonly />
-              <input type="file" (change)="onFileSelected($event, 'back')" />
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline">
-              <mat-label>Pan card</mat-label>
-              <input matInput type="text" placeholder="No file chosen" readonly />
-              <input type="file" (change)="onFileSelected($event,'pan')" />
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline" class="input">
-              <mat-label>Franchise ID</mat-label>
-              <input matInput formControlName="user_id" required />
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline" class="input">
-              <mat-label> Password</mat-label>
-              <input
-                [type]="passwordFieldType"
-                formControlName="password"
-                matInput
-                required
-              />
-              <button
-                mat-icon-button
-                matSuffix
-                (click)="togglePasswordVisibility()"
-                type="button"
-              >
-                <mat-icon>{{ showPasswordIcon }}</mat-icon>
-              </button>
-            </mat-form-field>
-  
-            <button mat-raised-button color="primary" type="submit" [disabled]="creatingAccount">
+              <mat-form-field appearance="outline">
+                <mat-label>Front side addhar image</mat-label>
+                <input matInput type="text" [value]="aadharImageName" placeholder="No file chosen" readonly />
+                <input type="file" id="aadharImage" (change)="onFileSelected($event, 'front')" accept="image/*" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Back side addhar image</mat-label>
+                <input matInput type="text" placeholder="No file chosen" readonly />
+                <input type="file" (change)="onFileSelected($event, 'back')" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Pan card</mat-label>
+                <input matInput type="text" placeholder="No file chosen" readonly />
+                <input type="file" (change)="onFileSelected($event,'pan')" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>Franchise ID</mat-label>
+                <input matInput formControlName="user_id" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Password</mat-label>
+                <input [type]="passwordFieldType" formControlName="password" matInput required />
+                <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit" [disabled]="creatingAccount">
                 <ng-container *ngIf="!creatingAccount; else creatingText">
-                    Create Account <!-- Display "Create Account" text when not creating account -->
+                  Create Account <!-- Display "Create Account" text when not creating account -->
                 </ng-container>
                 <ng-template #creatingText>
-                    Creating... <!-- Display "Creating..." text when creating account -->
+                  Creating... <!-- Display "Creating..." text when creating account -->
                 </ng-template>
-            </button>
-            
-          </form>
-        </div>
-        <div class="login-container" *ngIf="change">
-          
-        </div>
+              </button>
+
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <div class="login-container" *ngIf="change">
+
       </div>
     </div>
   </div>
-  
+</div>
