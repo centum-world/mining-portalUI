@@ -262,4 +262,8 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
     }
   }
 
+  gotoDhasboard(){
+    window.open('http://centumworldrig.com', '_blank');
+  }
+
 }

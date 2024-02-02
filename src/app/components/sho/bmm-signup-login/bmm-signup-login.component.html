@@ -10,7 +10,7 @@
     </div>
     <div class="form-container">
       <div class="heading">
-        <h3>Welcome to CENTUM WORLD</h3>
+        <h4>WELCOME TO CENTUM WORLD</h4>
         <p>GPU MINING RIG</p>
         <small>{{ pagename }}</small>
       </div>
@@ -37,6 +37,8 @@
                   </ng-container>
                   <ng-template #registerText>SIGN IN</ng-template>
                 </button>
+                <br>
+                <div class="home" (click)="gotoDhasboard()">HOME</div>
               </form>
             </div>
           </mat-tab>
@@ -128,6 +130,8 @@
                     Creating... <!-- Display "Creating..." text when creating account -->
                   </ng-template>
                 </button>
+                <br>
+                <div class="home" (click)="gotoDhasboard()">HOME</div>
   
               </form>
             </div>

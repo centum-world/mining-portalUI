@@ -259,4 +259,8 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     }
   }
 
+  gotoDhasboard(){
+    window.open('http://centumworldrig.com', '_blank');
+  }
+
 }
