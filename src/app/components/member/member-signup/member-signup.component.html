@@ -1,0 +1,224 @@
+<div class="register-container">
+    <div class="image-container">
+      <div class="logo">
+        <img src="../../../../assets/image/clogo.png" width="80px" height="80px" />
+        <p>GPU MINING RIG</p>
+      </div>
+      <div class="image">
+        <img
+          src="../../../../assets/image/reg-left.png"
+          
+        />
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="right-button">
+        <div class="login-buttun">
+          <p>{{!change? "Already have an account?" :"Don't have an account?"}}</p>
+          &nbsp;
+          <div class="button-div" (click)="loginPage()">{{!change? "Sign in" : "Sign up"}}</div>
+        </div>
+      </div>
+      <div class="main-form">
+        <div class="form-content" *ngIf="!change">
+          <div class="heading">
+            <p>Welcome to GPU Mining RIG</p>
+            <small>Register your account</small>
+          </div>
+          <form
+            [formGroup]="memberSignUpFrom"
+            (ngSubmit)="addMemberData(memberSignUpFrom)"
+          >
+            <!-- <mat-form-field appearance="outline">
+              <mat-label>Select referral type</mat-label>
+              <mat-select [(value)]="role">
+                <mat-option>Select one</mat-option>
+                <mat-option value="MEMBER">Member</mat-option>
+                <mat-option value="FRANCHISE">Franchise</mat-option>
+                <mat-option value="BMM">BMM</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Referral ID</mat-label>
+              <input matInput formControlName="reffered_id" />
+              <mat-icon matSuffix>share</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>First name</mat-label>
+              <input matInput formControlName="name" />
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Last name</mat-label>
+              <input matInput formControlName="lname" />
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" />
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <input
+                #phoneNumberInput
+                formControlName="phone"
+                matInput
+                id="phoneNumber"
+                placeholder="Phone number"
+                type="tel"
+              />
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select [(value)]="role">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="MALE">Male</mat-option>
+                  <mat-option value="FEMALE">Female</mat-option>
+                  <mat-option value="OTHER">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Qualification</mat-label>
+                <mat-select [(value)]="role">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="METRIC">10TH</mat-option>
+                  <mat-option value="INTERMEDIATE">INTERMEDIATE</mat-option>
+                  <mat-option value="GRADUATION">GRADUATION</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Designation</mat-label>
+                <mat-select [(value)]="role">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="SOFTWAREENGINEER">Software engineer</mat-option>
+                  <mat-option value="BUSINESSMANAGER">Business Manager</mat-option>
+                  <mat-option value="WEBDEVELOPER">Web Developer</mat-option>
+                  <mat-option value="FULLSTACK">Full stack developer</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Experience</mat-label>
+                <mat-select [(value)]="role">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="SOFTWAREENGINEER">1 Year</mat-option>
+                  <mat-option value="BUSINESSMANAGER">2 Year</mat-option>
+                  <mat-option value="WEBDEVELOPER">3 Year</mat-option>
+                  <mat-option value="FULLSTACK">More than 3 year</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Salary</mat-label>
+                <input matInput formControlName="salary" />
+                <mat-icon matSuffix>&#8377;</mat-icon>
+              </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Enter your address</mat-label>
+              <input matInput formControlName="address" />
+              <mat-icon matSuffix>location_on</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Enter your state</mat-label>
+              <input matInput formControlName="state" />
+              <mat-icon matSuffix>pin_drop</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>DOB</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dob" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>DOJ</mat-label>
+              <input matInput [matDatepicker]="dopPicker" formControlName="doj" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="dopPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #dopPicker></mat-datepicker>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Front side addhar image</mat-label>
+              <input
+                matInput
+                type="text"
+                [value]="aadharImageName"
+                placeholder="No file chosen"
+                readonly
+              />
+              <input
+                type="file"
+                id="aadharImage"
+                (change)="onFileSelected($event, 'front')"
+                accept="image/*"
+              />
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Back side addhar image</mat-label>
+              <input matInput type="text" placeholder="No file chosen" readonly />
+              <input type="file" (change)="onFileSelected($event, 'back')" />
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Pan card</mat-label>
+              <input matInput type="text" placeholder="No file chosen" readonly />
+              <input type="file" (change)="onFileSelected($event,'pan')" />
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Member ID</mat-label>
+              <input matInput formControlName="user_id" required />
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="input">
+              <mat-label> Password</mat-label>
+              <input
+                [type]="passwordFieldType"
+                formControlName="password"
+                matInput
+                required
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="togglePasswordVisibility()"
+                type="button"
+              >
+                <mat-icon>{{ showPasswordIcon }}</mat-icon>
+              </button>
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" type="submit">
+              <ng-container *ngIf="spin; else registerText">
+                  <mat-spinner diameter="40"></mat-spinner>
+                </ng-container>
+                <ng-template #registerText>Create Account</ng-template>
+            </button>
+          </form>
+        </div>
+        <div class="login-container" *ngIf="change">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

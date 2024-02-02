@@ -76,6 +76,10 @@ export class UserLoginComponent implements OnInit {
     // window.open( "/member-signup", "_parent");
     this.router.navigate(['/member-signup']);
   }
+
+  SignUp(){
+    this.router.navigate(['/member-signup1']);
+  }
   backToHome(){
     window.location.href = 'https://centumworldrig.com';
   }
