@@ -174,7 +174,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       },
       error: (error) => {
         this.spin = false;
-        this.toastr.error("Invalid User ID Or Password ", "Error");
+        this.toastr.error(error.error.message, "Error");
       },
     });
   }

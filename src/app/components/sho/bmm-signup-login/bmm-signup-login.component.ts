@@ -188,7 +188,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
         }
       },
       error: (error) => {
-        this.toastr.error("Invalid BMM ID Or Password ", "Error");
+        this.toastr.error(error.error.message, "Error");
       },
     });
   }

@@ -172,7 +172,8 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
         }
       },
       error: (error) => {
-        this.toastr.error("Invalid Member ID Or Password ", "Error");
+        // console.log(error.error.message,'175')
+        this.toastr.error(error.error.message, "Error");
       },
     });
   }

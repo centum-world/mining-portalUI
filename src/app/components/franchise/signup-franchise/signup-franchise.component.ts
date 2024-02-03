@@ -191,7 +191,7 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
         }
       },
       error: (error) => {
-        this.toastr.error("Invalid Franchise ID Or Password ", "Error");
+        this.toastr.error(error.error.message, "Error");
       },
     });
   }
