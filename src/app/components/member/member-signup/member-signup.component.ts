@@ -161,10 +161,10 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       next: (response: any) => {
         if (response) {
           localStorage.setItem('login','true');
-          localStorage.setItem('memberId',response.data[0].m_userid)
-          localStorage.setItem('refferalId',response.data[0].reffer_id)
+          this.shareService.setToken(response.token)
+          this.shareService.setUserId(response.data[0].m_userid)
+          this.shareService.setRefferID(response.data[0].reffer_id)
           localStorage.setItem('userType',response.data[0].userType)
-          this.shareService.setToken(response.token);
           this.toastr.success("Logged In Successfully", "success");
           this.router.navigate(["memberdashboard"]);
           setTimeout(function () {
