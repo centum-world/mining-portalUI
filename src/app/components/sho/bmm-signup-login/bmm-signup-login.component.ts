@@ -47,7 +47,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
   @ViewChild("phoneNumberInput", { static: false }) phoneNumberInput: ElementRef;
 
   creatingAccount: boolean = false;
-
+  privacy = false;
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility";
   states = allState.states.map((item) => item.state);
@@ -262,5 +262,19 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
   gotoDhasboard(){
     window.open('http://centumworldrig.com', '_blank');
   }
+
+  handleChange(event: any) {
+    // Handle the checkbox change here
+    if (event.checked) {
+      this.privacy = true;
+    } else {
+      this.privacy = false;
+    }
+  }
+
+  privacyPolicy(){
+    this.router.navigate(['/privacy-policy'])
+  }
+
 
 }

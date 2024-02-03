@@ -36,6 +36,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   aadharImageName: string = "";
   backAadharImageName: string = "";
   panImageName: string = "";
+  privacy = false;
   createReferralMember = {
     refferal_id: "",
   };
@@ -250,6 +251,19 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
   gotoDhasboard(){
     window.open('http://centumworldrig.com', '_blank');
+  }
+
+  
+  privacyPolicy(){
+    this.router.navigate(['/privacy-policy'])
+  }
+  handleChange(event: any) {
+    // Handle the checkbox change here
+    if (event.checked) {
+      this.privacy = true;
+    } else {
+      this.privacy = false;
+    }
   }
 
 }

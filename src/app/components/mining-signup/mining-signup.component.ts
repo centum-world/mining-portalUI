@@ -6,6 +6,7 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
+  ViewEncapsulation
 } from "@angular/core";
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
@@ -25,6 +26,7 @@ import { ShareService } from "src/app/shareService/share.service";
   selector: "app-mining-signup",
   templateUrl: "./mining-signup.component.html",
   styleUrls: ["./mining-signup.component.css"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MiningSignupComponent implements OnInit, AfterViewInit {
   @ViewChild("phoneNumberInput", { static: true }) phoneNumberInput: ElementRef;
@@ -39,6 +41,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   aadharImageName: string = "";
   backAadharImageName: string = "";
   panImageName: string = "";
+  privacy=false;
   createMiningPartner = {
     refferal_id: "",
   };
@@ -257,5 +260,18 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
 
   gotoDhasboard(){
     window.open('http://centumworldrig.com', '_blank');
+  }
+
+  privacyPolicy(){
+    this.router.navigate(['/privacy-policy'])
+  }
+
+  handleChange(event: any) {
+    // Handle the checkbox change here
+    if (event.checked) {
+      this.privacy = true;
+    } else {
+      this.privacy = false;
+    }
   }
 }
