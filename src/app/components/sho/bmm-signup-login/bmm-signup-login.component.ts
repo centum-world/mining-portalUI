@@ -62,7 +62,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
   createBmm = {
     refferal_id: "",
   };
-  // spin = false;
+  spin = false;
   change = false;
   countryCode:"";
   pagename:String="Sign in your account";
