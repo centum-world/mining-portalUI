@@ -73,7 +73,6 @@
               <mat-form-field appearance="outline">
                 <mat-label>Referral ID</mat-label>
                 <input matInput formControlName="reffered_id" />
-                <mat-icon matSuffix>share</mat-icon>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
@@ -260,8 +259,9 @@
                   <mat-icon>{{ showPasswordIcon }}</mat-icon>
                 </button>
               </mat-form-field>
-
-              <button mat-raised-button color="primary" type="submit">
+              <mat-checkbox (change)="handleChange($event)">I agree to the <span style="color: #3f51b5;" (click)="privacyPolicy()">Privacy Policy</span></mat-checkbox>
+              <br>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!privacy">
                 <ng-container *ngIf="spin; else registerText">
                   <mat-spinner diameter="40"></mat-spinner>
                 </ng-container>
