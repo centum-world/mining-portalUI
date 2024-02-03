@@ -12,12 +12,30 @@ import {
   FormControl,
   Validators,
   FormBuilder,
+  FormGroupDirective,
+  NgForm,
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "src/app/service/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { ShareService } from "src/app/shareService/share.service";
+import { ErrorStateMatcher } from "@angular/material/core";
+import { allState } from "../../common/states";
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
+}
 
 @Component({
   selector: 'app-member-signup',
@@ -29,6 +47,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility";
+  states = allState.states.map((item) => item.state);
   // role: "";
   aadharImage: File | null = null;
   aadharBackImage: File | null = null;
@@ -46,6 +65,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   countryCode:"";
   memberSignUpFrom: FormGroup;
   memberLoginForm: FormGroup;
+  matcher = new MyErrorStateMatcher();
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
@@ -81,6 +101,15 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       loginUser_id: new FormControl("", [Validators.required]),
       loginPassword: new FormControl("", [Validators.required]),
     })
+  }
+
+  onStateChange(){
+    console.log();
+     const selectedState = this.memberSignUpFrom.get("state").value;
+    const selectedStateObj = allState.states.find(
+      (state) => state.state === selectedState
+    );
+   
   }
 
   addMemberData(form: FormGroup) {
