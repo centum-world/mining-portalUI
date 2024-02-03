@@ -129,11 +129,20 @@
                 <mat-icon matSuffix>location_on</mat-icon>
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" class="state-input">
+                <mat-label>Select State</mat-label>
+                <mat-select formControlName="state" (selectionChange)="onStateChange()">
+                  <mat-option *ngFor="let state of states" [value]="state">{{
+                    state
+                    }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance="outline">
                 <mat-label>Enter your state</mat-label>
                 <input matInput formControlName="state" />
                 <mat-icon matSuffix>pin_drop</mat-icon>
-              </mat-form-field>
+              </mat-form-field> -->
 
               <mat-form-field appearance="outline" class="input">
                 <mat-label>DOB</mat-label>
