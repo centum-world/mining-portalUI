@@ -329,6 +329,10 @@ td{
     .sidebar-menu ul{
         padding:initial;
     }
+    cards{
+      grid-template-columns: repeat(2,1fr);
+        margin-left:-50px    
+    }
     
 
 }
@@ -339,6 +343,7 @@ td{
     }
     .cards{
         grid-template-columns: repeat(2,1fr);
+        margin-left:-50px
     }
 }
 
@@ -349,6 +354,7 @@ td{
     }
     .cards {
         grid-template-columns: repeat(2, 1fr);
+        margin-left:-50px
     }
 }
 
@@ -359,6 +365,7 @@ td{
     }
     .cards{
         grid-template-columns: repeat(2,1fr);
+        margin-left:-50px
     }
     header h2{
         font-size: 1rem;
@@ -371,6 +378,7 @@ td{
     }
     .cards{
         grid-template-columns: 100%;
+        margin-left:-50px
     }
     header h2 span{
         font-size: 1rem;
