@@ -1,111 +1,127 @@
 <main>
-    <div  class="cards">
-      <div class="card-single">
-        <div>
-          <h6 style="display: flex;">Promotion
-            <span *ngIf="usertype === 'FRANCHISE'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
-            <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
-            <span *ngIf="usertype === 'BMM'"><mat-icon style="color: rgb(140, 252, 120)">trending_up</mat-icon></span>
-          </h6>
-          <span>See your upgrade or downgrade</span>
-        </div>
-        <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+  <div class="cards">
+    <div class="card-single">
+      <div>
+        <h6 style="display: flex">
+          Promotion
+          <span *ngIf="usertype === 'FRANCHISE'"
+            ><mat-icon style="color: orange">trending_flat</mat-icon></span
+          >
+          <span *ngIf="usertype === 'MEMBER'"
+            ><mat-icon style="color: rgb(140, 252, 120)"
+              >trending_up</mat-icon
+            ></span
+          >
+          <span *ngIf="usertype === 'BMM'"
+            ><mat-icon style="color: rgb(140, 252, 120)"
+              >trending_up</mat-icon
+            ></span
+          >
+        </h6>
+        <span>See your upgrade or downgrade</span>
       </div>
-      <div class="card-single">
-        <div>
-          <h6>Bank</h6>
-          <span></span>
-        </div>
-      
-        <!-- <div class="icon" [matMenuTriggerFor]="menuProfile">
+      <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+    </div>
+    <div class="card-single">
+      <div>
+        <h6>Bank</h6>
+        <span></span>
+      </div>
+
+      <!-- <div class="icon" [matMenuTriggerFor]="menuProfile">
           <span>View</span>
         </div> -->
-        
-        <!-- Add a Material Design bank icon -->
-        <button mat-icon-button [matMenuTriggerFor]="menuBank">
-          <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
+
+      <!-- Add a Material Design bank icon -->
+      <button mat-icon-button [matMenuTriggerFor]="menuBank">
+        <mat-icon>account_balance</mat-icon>
+        <!-- Use the appropriate Material Design bank icon name -->
+      </button>
+
+      <mat-menu #menuBank="matMenu">
+        <button mat-menu-item (click)="franchiseAddBankDialog()">
+          Add Bank
         </button>
-        
-        <mat-menu #menuBank="matMenu">
-          <button mat-menu-item (click)="franchiseAddBankDialog()">Add Bank</button>
-          <button mat-menu-item (click)="franchiseViewBankDetailsDialog()">View Bank Details</button>
-        </mat-menu>
+        <button mat-menu-item (click)="franchiseViewBankDetailsDialog()">
+          View Bank Details
+        </button>
+      </mat-menu>
 
-        <mat-menu #menuProfile="matMenu">
-          <!-- Define your menu items here -->
-          <!-- <button mat-menu-item (click)="openDialog()">Details</button>
+      <mat-menu #menuProfile="matMenu">
+        <!-- Define your menu items here -->
+        <!-- <button mat-menu-item (click)="openDialog()">Details</button>
           <button mat-menu-item (click)="stateAddBankDialog()">Documents</button> -->
-          <!-- Add more menu items as needed -->
-        </mat-menu>
-      </div>
+        <!-- Add more menu items as needed -->
+      </mat-menu>
+    </div>
 
-      <div class="card-single">
-        <div>
-          <h6>Franchise ID :-  {{displayFranchiseId}}</h6>
-          <span>Referral ID &nbsp;<a href="/partner-signup?refferId={{displayFranchiseReferralId}}"
-              target="_blank" >{{displayFranchiseReferralId}}</a></span>
-    
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total wallet</span>
-        </div>
-        <div>
-          <b>{{totalWalletOfFranchise | currency:'INR'}}</b>
-        </div>
-        <div style="font-size:medium; font-weight: bold;"></div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Partner Team</h6>
-          <span></span>
-        </div>
-        <div data-toggle="modal" (click)="franchisePartnerMyTeamViewList()">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal Request</h6>
-
-        </div>
-        <div data-toggle="modal" (click)="franchiseWithdrawalRequestViewList()" >
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal success</h6>
-
-        </div>
-        <div data-toggle="modal" (click)="franchiseWithdrawalSuccessViewList()">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Withdrawal</span>
-        </div>
-        <div>
-          <b>{{totalWithdrawalOfFranchise | currency:'INR'}}</b>
-        </div>
-        <div style="font-size:medium; font-weight: bold;"></div>
+    <div class="card-single">
+      <div>
+        <h6>Franchise ID :- {{ displayFranchiseId }}</h6>
+        <span
+          >Referral ID &nbsp;<a
+            href="/partner-signup?refferId={{ displayFranchiseReferralId }}"
+            target="_blank"
+            >{{ displayFranchiseReferralId }}</a
+          ></span>
+          <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
       </div>
     </div>
-  </main>
 
+    <div class="card-single">
+      <div>
+        <h6>Transaction</h6>
+        <span>Total wallet</span>
+      </div>
+      <div>
+        <b>{{ totalWalletOfFranchise | currency : "INR" }}</b>
+      </div>
+      <div style="font-size: medium; font-weight: bold"></div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Partner Team</h6>
+        <span></span>
+      </div>
+      <div data-toggle="modal" (click)="franchisePartnerMyTeamViewList()">
+        <div class="icon">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Withdrawal Request</h6>
+      </div>
+      <div data-toggle="modal" (click)="franchiseWithdrawalRequestViewList()">
+        <div class="icon">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Withdrawal success</h6>
+      </div>
+      <div data-toggle="modal" (click)="franchiseWithdrawalSuccessViewList()">
+        <div class="icon">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Transaction</h6>
+        <span>Total Withdrawal</span>
+      </div>
+      <div>
+        <b>{{ totalWithdrawalOfFranchise | currency : "INR" }}</b>
+      </div>
+      <div style="font-size: medium; font-weight: bold"></div>
+    </div>
+  </div>
+</main>
