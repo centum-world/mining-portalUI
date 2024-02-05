@@ -15,12 +15,30 @@ import {
   FormControl,
   Validators,
   FormBuilder,
+  FormGroupDirective,
+  NgForm,
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "src/app/service/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { ShareService } from "src/app/shareService/share.service";
+import { ErrorStateMatcher } from "@angular/material/core";
+import { allState } from "../common/states";
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
+}
 
 @Component({
   selector: "app-mining-signup",
@@ -34,6 +52,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   phoneNumberInputNominee: ElementRef;
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility";
+  states = allState.states.map((item) => item.state);
   role: "";
   aadharImage: File | null = null;
   aadharBackImage: File | null = null;
@@ -52,6 +71,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   nomineeCountryCode :"";
   partnerSignUpForm: FormGroup;
   partnerLoginForm:FormGroup;
+  matcher = new MyErrorStateMatcher();
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
@@ -104,12 +124,34 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     })
   }
 
+  
+  onStateChange() {
+    console.log();
+    const selectedState = this.partnerSignUpForm.get("state").value;
+    const selectedStateObj = allState.states.find(
+      (state) => state.state === selectedState
+    );
+  }
+
   addPartnerData(form: FormGroup) {
     this.spin = true;
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
     console.log(this.partnerSignUpForm.value.phone);
     
+    const originalDateStrDob = this.partnerSignUpForm.value.dob;
+    const dateObj = new Date(originalDateStrDob);
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    const newDobFormat = `${year}-${month}-${day}`;
 
+    // ---------------------Doj-----------------
+    const originalDateStrDop = this.partnerSignUpForm.value.dob;
+    const dateObj1 = new Date(originalDateStrDop);
+    const yearDop = dateObj1.getFullYear();
+    const monthDop = String(dateObj1.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    const dayDop = String(dateObj1.getDate()).padStart(2, "0");
+    const newDopFormat = `${yearDop}-${monthDop}-${dayDop}`;
 
     const formData = new FormData();
     formData.append('p_reffered_id', this.partnerSignUpForm.value.reffered_id);
@@ -120,11 +162,11 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     formData.append('p_email',  this.partnerSignUpForm.value.email);
     formData.append('p_address', this.partnerSignUpForm.value.address);
     formData.append('p_state',this.partnerSignUpForm.value.state);
-    formData.append('p_dob',this.partnerSignUpForm.value.dob);
+    formData.append('p_dob',newDobFormat);
     formData.append('p_nominee_name', this.partnerSignUpForm.value.nominee_name);
     formData.append('p_nominee_aadhar', this.partnerSignUpForm.value.nominee_aadhar);
     formData.append('p_nominee_phone','+' + this.nomineeCountryCode + this.partnerSignUpForm.value.nominee_phone.replace(/\s/g, ''));
-    formData.append('p_dop',this.partnerSignUpForm.value.dop);
+    formData.append('p_dop',newDopFormat);
     formData.append('p_liquidity',this.partnerSignUpForm.value.liquidity);
     formData.append('terms', "12 Months");
     formData.append('p_userid', this.partnerSignUpForm.value.user_id);

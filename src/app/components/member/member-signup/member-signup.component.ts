@@ -38,12 +38,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-member-signup',
-  templateUrl: './member-signup.component.html',
-  styleUrls: ['./member-signup.component.css']
+  selector: "app-member-signup",
+  templateUrl: "./member-signup.component.html",
+  styleUrls: ["./member-signup.component.css"],
 })
 export class MemberSignupComponent implements OnInit, AfterViewInit {
-  @ViewChild("phoneNumberInput", { static: false }) phoneNumberInput: ElementRef;
+  @ViewChild("phoneNumberInput", { static: false })
+  phoneNumberInput: ElementRef;
 
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility";
@@ -51,7 +52,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   // role: "";
   aadharImage: File | null = null;
   aadharBackImage: File | null = null;
-  panImage: File|null = null;
+  panImage: File | null = null;
   aadharImageName: string = "";
   backAadharImageName: string = "";
   panImageName: string = "";
@@ -61,8 +62,8 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   };
   spin = false;
   change = false;
-  pagename:String="Sign in your account";
-  countryCode:"";
+  pagename: String = "Sign in your account";
+  countryCode: "";
   memberSignUpFrom: FormGroup;
   memberLoginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
@@ -72,7 +73,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private shareService : ShareService
+    private shareService: ShareService
   ) {
     this.memberSignUpFrom = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -89,7 +90,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       qualification: new FormControl("", [Validators.required]),
       designation: new FormControl("", [Validators.required]),
       experience: new FormControl("", [Validators.required]),
-      salary:new FormControl("", [Validators.required]),
+      salary: new FormControl("", [Validators.required]),
       address: new FormControl("", [Validators.required]),
       state: new FormControl("", [Validators.required]),
       dob: new FormControl("", [Validators.required]),
@@ -100,22 +101,41 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     this.memberLoginForm = this.formBuilder.group({
       loginUser_id: new FormControl("", [Validators.required]),
       loginPassword: new FormControl("", [Validators.required]),
-    })
+    });
   }
 
-  onStateChange(){
+  onStateChange() {
     console.log();
-     const selectedState = this.memberSignUpFrom.get("state").value;
+    const selectedState = this.memberSignUpFrom.get("state").value;
     const selectedStateObj = allState.states.find(
       (state) => state.state === selectedState
     );
-   
   }
 
   addMemberData(form: FormGroup) {
     this.spin = true;
-    this.createReferralMember.refferal_id = this.memberSignUpFrom.value.user_id + Math.floor(Math.random() * 100000);
-    console.log(this.createReferralMember.refferal_id)
+     this.createReferralMember.refferal_id =
+      this.memberSignUpFrom.value.user_id + Math.floor(Math.random() * 100000);
+
+    const originalDateStrDob = this.memberSignUpFrom.value.dob;
+    const dateObj = new Date(originalDateStrDob);
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    const newDobFormat = `${year}-${month}-${day}`;
+    console.log(newDobFormat,'126')
+
+    // ------------------------DoJ---------
+
+    const originalDateStrDoj = this.memberSignUpFrom.value.doj;
+    const dateObj1 = new Date(originalDateStrDoj);
+    const yearDoj = dateObj1.getFullYear();
+    const monthDoj = String(dateObj1.getMonth() + 1).padStart(2, "0"); 
+    const dayDoj = String(dateObj1.getDate()).padStart(2, "0");
+    const newDojFormat = `${yearDoj}-${monthDoj}-${dayDoj}`;
+    console.log(newDojFormat,'136')
+
+    console.log(this.createReferralMember.refferal_id);
     console.log(
       this.memberSignUpFrom.value.reffered_id,
       this.memberSignUpFrom.value.name,
@@ -139,29 +159,34 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     );
 
     const formData = new FormData();
-    formData.append('m_refferid', this.memberSignUpFrom.value.reffered_id);
-    formData.append('m_name', this.memberSignUpFrom.value.name);
-    formData.append('m_lname', this.memberSignUpFrom.value.lname);
-    formData.append('m_phone','+' + this.countryCode + this.memberSignUpFrom.value.phone.replace(/\s/g, ''));
-    formData.append('m_email',  this.memberSignUpFrom.value.email);
-    formData.append('m_gender',this.memberSignUpFrom.value.gender);
-    formData.append('m_quali',this.memberSignUpFrom.value.qualification);
-    formData.append('m_designation',this.memberSignUpFrom.value.designation);
-    formData.append('m_exp',this.memberSignUpFrom.value.experience);
-    formData.append('m_salary',this.memberSignUpFrom.value.salary);
-    formData.append('m_add', this.memberSignUpFrom.value.address);
-    formData.append('m_state',this.memberSignUpFrom.value.state);
-    formData.append('m_dob',this.memberSignUpFrom.value.dob);
-    formData.append('m_doj',this.memberSignUpFrom.value.doj);
-    formData.append('m_userid', this.memberSignUpFrom.value.user_id);
-    formData.append('m_password', this.memberSignUpFrom.value.password);
-    formData.append('reffer_id', this.createReferralMember.refferal_id)
-    formData.append('adhar_front_side', this.aadharImage);
-    formData.append('adhar_back_side', this.aadharBackImage);
-    formData.append('panCard',this.panImage);
+    formData.append("m_refferid", this.memberSignUpFrom.value.reffered_id);
+    formData.append("m_name", this.memberSignUpFrom.value.name);
+    formData.append("m_lname", this.memberSignUpFrom.value.lname);
+    formData.append(
+      "m_phone",
+      "+" +
+        this.countryCode +
+        this.memberSignUpFrom.value.phone.replace(/\s/g, "")
+    );
+    formData.append("m_email", this.memberSignUpFrom.value.email);
+    formData.append("m_gender", this.memberSignUpFrom.value.gender);
+    formData.append("m_quali", this.memberSignUpFrom.value.qualification);
+    formData.append("m_designation", this.memberSignUpFrom.value.designation);
+    formData.append("m_exp", this.memberSignUpFrom.value.experience);
+    formData.append("m_salary", this.memberSignUpFrom.value.salary);
+    formData.append("m_add", this.memberSignUpFrom.value.address);
+    formData.append("m_state", this.memberSignUpFrom.value.state);
+    formData.append("m_dob", newDobFormat);
+    formData.append("m_doj", newDojFormat);
+    formData.append("m_userid", this.memberSignUpFrom.value.user_id);
+    formData.append("m_password", this.memberSignUpFrom.value.password);
+    formData.append("reffer_id", this.createReferralMember.refferal_id);
+    formData.append("adhar_front_side", this.aadharImage);
+    formData.append("adhar_back_side", this.aadharBackImage);
+    formData.append("panCard", this.panImage);
 
-    console.log(formData,'126')
-  
+    console.log(formData, "126");
+
     this.userService.signUpMember(formData).subscribe({
       next: response => {
         if (response) {
@@ -177,23 +202,26 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     })
   }
 
-  loginMember(form : FormGroup){
-    console.log(this.memberLoginForm.value.loginUser_id, this.memberLoginForm.value.loginPassword)
+  loginMember(form: FormGroup) {
+    console.log(
+      this.memberLoginForm.value.loginUser_id,
+      this.memberLoginForm.value.loginPassword
+    );
     let data = {
       m_userid: this.memberLoginForm.value.loginUser_id,
-      m_password: this.memberLoginForm.value.loginPassword
+      m_password: this.memberLoginForm.value.loginPassword,
     };
 
-    console.log(data)
+    console.log(data);
 
     this.userService.memberLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
-          localStorage.setItem('login','true');
-          this.shareService.setToken(response.token)
-          this.shareService.setUserId(response.data[0].m_userid)
-          this.shareService.setRefferID(response.data[0].reffer_id)
-          localStorage.setItem('userType',response.data[0].userType)
+          localStorage.setItem("login", "true");
+          this.shareService.setToken(response.token);
+          this.shareService.setUserId(response.data[0].m_userid);
+          this.shareService.setRefferID(response.data[0].reffer_id);
+          localStorage.setItem("userType", response.data[0].userType);
           this.toastr.success("Logged In Successfully", "success");
           this.router.navigate(["memberdashboard"]);
           setTimeout(function () {
@@ -208,8 +236,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     if (this.phoneNumberInput && this.phoneNumberInput.nativeElement) {
@@ -226,13 +253,10 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
         this.countryCode = selectedCountryData.dialCode;
       }, 500);
     } else {
-      console.error('phoneNumberInput is not initialized or undefined.');
+      console.error("phoneNumberInput is not initialized or undefined.");
     }
   }
 
-  
-
-  
   togglePasswordVisibility(): void {
     this.passwordFieldType =
       this.passwordFieldType === "password" ? "text" : "password";
@@ -240,52 +264,50 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
-
   onFileSelected(event: any, fileSelected: any): void {
-    if(fileSelected === 'front'){
+    if (fileSelected === "front") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.aadharImage = selectedFile
-        console.log("Selected File:", this.aadharImage , fileSelected);
+        this.aadharImage = selectedFile;
+        console.log("Selected File:", this.aadharImage, fileSelected);
       }
     }
-    if(fileSelected === 'back'){
+    if (fileSelected === "back") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.aadharBackImage = selectedFile
-        console.log("Selected File:", this.aadharBackImage , fileSelected);
+        this.aadharBackImage = selectedFile;
+        console.log("Selected File:", this.aadharBackImage, fileSelected);
       }
     }
 
-    if(fileSelected === 'pan'){
+    if (fileSelected === "pan") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.panImage = selectedFile
-        console.log("Selected File:", this.panImage , fileSelected);
+        this.panImage = selectedFile;
+        console.log("Selected File:", this.panImage, fileSelected);
       }
-    }    
+    }
   }
 
-  loginPage(){
+  loginPage() {
     this.change = !this.change;
   }
 
   tabChanged(event: any): void {
-    console.log('Tab changed:', event.tab.textLabel);
-    if(event.tab.textLabel === "Login"){
-      this.pagename = "Sign in your account"
-    }else{
-      this.pagename = "Sign up your account"
+    console.log("Tab changed:", event.tab.textLabel);
+    if (event.tab.textLabel === "Login") {
+      this.pagename = "Sign in your account";
+    } else {
+      this.pagename = "Sign up your account";
     }
   }
 
-  gotoDhasboard(){
-    window.open('http://centumworldrig.com', '_blank');
+  gotoDhasboard() {
+    window.open("http://centumworldrig.com", "_blank");
   }
 
-  
-  privacyPolicy(){
-    this.router.navigate(['/privacy-policy'])
+  privacyPolicy() {
+    this.router.navigate(["/privacy-policy"]);
   }
   handleChange(event: any) {
     // Handle the checkbox change here
@@ -295,5 +317,4 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       this.privacy = false;
     }
   }
-
 }

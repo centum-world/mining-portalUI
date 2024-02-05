@@ -99,7 +99,7 @@
                   formControlName="phone"
                   matInput
                   id="phoneNumber"
-                  placeholder="Phone number"
+                  placeholder="Phone"
                   type="tel"
                 />
                 <mat-icon matSuffix>phone</mat-icon>
@@ -117,11 +117,20 @@
                 <mat-icon matSuffix>location_on</mat-icon>
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" class="state-input">
+                <mat-label>Select State</mat-label>
+                <mat-select formControlName="state" (selectionChange)="onStateChange()">
+                  <mat-option *ngFor="let state of states" [value]="state">{{
+                    state
+                    }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance="outline">
                 <mat-label>Enter your state</mat-label>
                 <input matInput formControlName="state" />
                 <mat-icon matSuffix>pin_drop</mat-icon>
-              </mat-form-field>
+              </mat-form-field> -->
 
               <mat-form-field appearance="outline" class="input">
                 <mat-label>DOB</mat-label>
@@ -169,7 +178,7 @@
                   formControlName="nominee_phone"
                   matInput
                   id="phoneNumber"
-                  placeholder="Nominee phone number"
+                  placeholder="Nominee phone"
                   type="tel"
                 />
                 <mat-icon matSuffix>phone</mat-icon>
