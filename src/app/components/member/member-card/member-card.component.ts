@@ -453,4 +453,13 @@ export class MemberCardComponent implements OnInit {
     localStorage.removeItem('token');
   }
 
+
+  shareFunction(){
+    const displayMemberRefferalId = localStorage.getItem('refferalId');
+    const referralType = localStorage.getItem('userType');
+    const message = `Check out this link: https://apps.centumworldrig.com/mininglogin and Referral type : ${referralType} , Referral ID : ${displayMemberRefferalId}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
 }

@@ -1,0 +1,74 @@
+.privacy-container{
+    padding:3rem;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+}
+.header{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+    
+}
+.header p{
+    font-weight:700;
+    font-size:30px;
+    font-family:calibri;
+}
+.privacy-content{
+    width:60vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;;
+    padding:2rem;
+}
+.privacy-content p{
+    font-size:16px;
+    font-family:calibri;
+    color:#7d838e;
+}
+
+.privacy-content ul li{
+    font-size:16px;
+    font-family:calibri;
+    color:#0f101e;
+}
+
+.home{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:60px;
+    height:30px;
+    border-radius:8px;
+    background-color:#3f51b5;
+    color:#fff;
+    font-size:12px;
+    cursor:pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .privacy-content{
+        width:95vw;
+    }
+    .header{
+        text-align:center;
+    }
+    .header p{
+        font-size:24px;
+    }
+    .privacy-content{
+        box-shadow:none;
+    }
+    .privacy-content p{
+        font-size:14px;
+    }
+    .privacy-content ul li{
+        font-size:14px;
+    }
+    .privacy-content ul li{
+        font-size:14px;
+    }
+    
+  }

@@ -18,7 +18,7 @@ export class FranchiseCardComponent implements OnInit {
   totalWalletOfFranchise:any;
   bankDetails = [];
   displayFranchiseId = localStorage.getItem('franchiseId');
-  displayFranchiseReferralId = localStorage.getItem('franchiseReferralId')
+  displayFranchiseReferralId = localStorage.getItem('franchiseRefferalId')
   usertype = localStorage.getItem('userType');
 
   constructor(private userService:UserService,private dialog:MatDialog,
@@ -122,6 +122,14 @@ export class FranchiseCardComponent implements OnInit {
 
   udgrade(){
     this.router.navigate(['/franchisedashboard/promotion'])
+  }
+
+  shareFunction(){
+    const displayMemberRefferalId = localStorage.getItem('franchiseRefferalId');
+    const referralType = localStorage.getItem('userType');
+    const message = `Check out this link: https://apps.centumworldrig.com/mininglogin and Referral type : ${referralType} , Referral ID : ${displayMemberRefferalId}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   }
 
 }
