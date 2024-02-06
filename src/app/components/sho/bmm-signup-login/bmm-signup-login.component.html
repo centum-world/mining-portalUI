@@ -1,146 +1,218 @@
 <div class="register-container">
-    <div class="image-container">
-      <div class="logo">
-        <img src="../../../../assets/image/clogo.png" width="80px" height="80px" />
-        <p>GPU MINING RIG</p>
-      </div>
-      <div class="image">
-        <img src="../../../../assets/image/reg-left.png" />
-      </div>
+  <div class="image-container">
+    <div class="logo">
+      <img src="../../../assets/image/clogo.png" width="80px" height="80px" />
+      <p>CENTUM WORLD</p>
     </div>
-    <div class="form-container">
-      <div class="heading">
-        <h4>WELCOME TO CENTUM WORLD</h4>
-        <p>GPU MINING RIG</p>
-        <small>{{ pagename }}</small>
-      </div>
-      <div class="main-form">
-        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" (selectedTabChange)="tabChanged($event)">
-          <mat-tab label="Login">
-            <div class="form-content">
-              <form [formGroup]="bmmLoginForm" (ngSubmit)="loginBmm(bmmLoginForm)">
-                <mat-form-field appearance="outline" class="input">
-                  <mat-label>BMM ID</mat-label>
-                  <input matInput formControlName="loginUser_id" required />
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline" class="input">
-                  <mat-label> Password</mat-label>
-                  <input [type]="passwordFieldType" formControlName="loginPassword" matInput required />
-                  <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
-                    <mat-icon>{{ showPasswordIcon }}</mat-icon>
-                  </button>
-                </mat-form-field>
-                <button mat-raised-button color="primary" type="submit">
-                  <ng-container *ngIf="spin; else registerText">
-                    <mat-spinner diameter="40"></mat-spinner>
-                  </ng-container>
-                  <ng-template #registerText>SIGN IN</ng-template>
-                </button>
-                <br>
-                <div class="home" (click)="gotoDhasboard()">HOME</div>
-              </form>
-            </div>
-          </mat-tab>
-          <mat-tab label="Sign up">
-            <div class="form-content" *ngIf="!change">
-              <form [formGroup]="bmmSignUpForm" (ngSubmit)="addBmmData(bmmSignUpForm)">
-  
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>First name</mat-label>
-                  <input matInput formControlName="name" />
-                  <mat-icon matSuffix>person</mat-icon>
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>Last name</mat-label>
-                  <input matInput formControlName="lname" />
-                  <mat-icon matSuffix>person</mat-icon>
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>Email</mat-label>
-                  <input matInput formControlName="email" />
-                  <mat-icon matSuffix>email</mat-icon>
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline">
-                  <input #phoneNumberInput formControlName="phone" matInput id="phoneNumber" placeholder="Phone number"
-                    type="tel" />
-                  <mat-icon matSuffix>phone</mat-icon>
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>Gender</mat-label>
-                  <mat-select formControlName="gender">
-                    <mat-option>Select one</mat-option>
-                    <mat-option value="MALE">Male</mat-option>
-                    <mat-option value="FEMALE">Female</mat-option>
-                    <mat-option value="OTHER">Other</mat-option>
-                  </mat-select>
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline" class="state-input">
-                  <mat-label>Select State</mat-label>
-                  <mat-select formControlName="state" (selectionChange)="onStateChange()">
-                    <mat-option *ngFor="let state of states" [value]="state">{{
-                      state
-                      }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-  
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>Front side addhar image</mat-label>
-                  <input matInput type="text" [value]="aadharImageName" placeholder="No file chosen" readonly />
-                  <input type="file" id="aadharImage" (change)="onFileSelected($event, 'front')" accept="image/*" />
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>Back side addhar image</mat-label>
-                  <input matInput type="text" placeholder="No file chosen" readonly />
-                  <input type="file" (change)="onFileSelected($event, 'back')" />
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline">
-                  <mat-label>Pan card</mat-label>
-                  <input matInput type="text" placeholder="No file chosen" readonly />
-                  <input type="file" (change)="onFileSelected($event,'pan')" />
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline" class="input">
-                  <mat-label>BMM ID</mat-label>
-                  <input matInput formControlName="user_id" required />
-                </mat-form-field>
-  
-                <mat-form-field appearance="outline" class="input">
-                  <mat-label> Password</mat-label>
-                  <input [type]="passwordFieldType" formControlName="password" matInput required />
-                  <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
-                    <mat-icon>{{ showPasswordIcon }}</mat-icon>
-                  </button>
-                </mat-form-field>
-                <mat-checkbox (change)="handleChange($event)">I agree to the <span style="color: #3f51b5;" (click)="privacyPolicy()">Privacy Policy</span></mat-checkbox>
-              <br>
-                <button mat-raised-button color="primary" type="submit" [disabled]="!privacy">
-                  <ng-container *ngIf="!creatingAccount; else creatingText">
-                    Create Account <!-- Display "Create Account" text when not creating account -->
-                  </ng-container>
-                  <ng-template #creatingText>
-                    Creating... <!-- Display "Creating..." text when creating account -->
-                  </ng-template>
-                </button>
-                <br>
-                <div class="home" (click)="gotoDhasboard()">HOME</div>
-  
-              </form>
-            </div>
-          </mat-tab>
-        </mat-tab-group>
-        <div class="login-container" *ngIf="change">
-  
-        </div>
-      </div>
+    <div class="image">
+      <img src="../../../assets/image/signupui.gif" />
     </div>
   </div>
+  <div class="form-container">
+    <div class="heading">
+      <h4>WELCOME TO CENTUM WORLD</h4>
+      <div class="logo1">
+        <img src="../../../assets/image/clogo.png" width="65px" height="65px" />
+        <p style="font-size: 24px;">CENTUM WORLD</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <p>CRYPTO MUTUAL RIG BMM</p>
+        <small style="font-family: roboto, sans-serif; font-size: 14px;">{{ pagename }}</small>
+      </div>
+    </div>
+    <div class="main-form">
+      <mat-tab-group
+        mat-stretch-tabs
+        class="example-stretched-tabs"
+        (selectedTabChange)="tabChanged($event)"
+      >
+        <mat-tab label="Login">
+          <div class="form-content">
+            <form
+              [formGroup]="bmmLoginForm"
+              (ngSubmit)="loginBmm(bmmLoginForm)"
+            >
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>BMM ID</mat-label>
+                <input matInput formControlName="loginUser_id" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Password</mat-label>
+                <input
+                  [type]="passwordFieldType"
+                  formControlName="loginPassword"
+                  matInput
+                  required
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="togglePasswordVisibility()"
+                  type="button"
+                >
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">
+                <ng-container *ngIf="spin; else registerText">
+                  <mat-spinner diameter="40"></mat-spinner>
+                </ng-container>
+                <ng-template #registerText>SIGN IN</ng-template>
+              </button>
+              <br />
+              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)">Back to home</a></div>
+            </form>
+          </div>
+        </mat-tab>
+        <mat-tab label="Sign up">
+          <div class="form-content" *ngIf="!change">
+            <form
+              [formGroup]="bmmSignUpForm"
+              (ngSubmit)="addBmmData(bmmSignUpForm)"
+            >
+              <mat-form-field appearance="outline">
+                <mat-label>First name</mat-label>
+                <input matInput formControlName="name" />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Last name</mat-label>
+                <input matInput formControlName="lname" />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <input
+                  #phoneNumberInput
+                  formControlName="phone"
+                  matInput
+                  id="phoneNumber"
+                  placeholder="Phone number"
+                  type="tel"
+                />
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="MALE">Male</mat-option>
+                  <mat-option value="FEMALE">Female</mat-option>
+                  <mat-option value="OTHER">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="state-input">
+                <mat-label>Select State</mat-label>
+                <mat-select
+                  formControlName="state"
+                  (selectionChange)="onStateChange()"
+                >
+                  <mat-option *ngFor="let state of states" [value]="state">{{
+                    state
+                  }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Front side addhar image</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [value]="aadharImageName"
+                  placeholder="No file chosen"
+                  readonly
+                />
+                <input
+                  type="file"
+                  id="aadharImage"
+                  (change)="onFileSelected($event, 'front')"
+                  accept="image/*"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Back side addhar image</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="No file chosen"
+                  readonly
+                />
+                <input type="file" (change)="onFileSelected($event, 'back')" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Pan card</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="No file chosen"
+                  readonly
+                />
+                <input type="file" (change)="onFileSelected($event, 'pan')" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input">
+                <mat-label>BMM ID</mat-label>
+                <input matInput formControlName="user_id" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input">
+                <mat-label> Password</mat-label>
+                <input
+                  [type]="passwordFieldType"
+                  formControlName="password"
+                  matInput
+                  required
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="togglePasswordVisibility()"
+                  type="button"
+                >
+                  <mat-icon>{{ showPasswordIcon }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-checkbox (change)="handleChange($event)"
+                >I agree to the
+                <span style="color: #3f51b5" (click)="privacyPolicy()"
+                  >Privacy Policy</span
+                ></mat-checkbox
+              >
+              <br />
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                [disabled]="!privacy"
+              >
+                <ng-container *ngIf="!creatingAccount; else creatingText">
+                  Create Account
+                  <!-- Display "Create Account" text when not creating account -->
+                </ng-container>
+                <ng-template #creatingText>
+                  Creating...
+                  <!-- Display "Creating..." text when creating account -->
+                </ng-template>
+              </button>
+              <br />
+              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)">Back to home</a></div>
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <div class="login-container" *ngIf="change"></div>
+    </div>
+  </div>
+</div>
