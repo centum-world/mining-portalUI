@@ -98,5 +98,4 @@ export class MiningSidebarComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/mininglogin'])
   }
-
 }

@@ -303,7 +303,7 @@ export class UserService {
   //member total wallet of each month
   memberTotalWalletOfAMonth(data) {
     return this.http.post(
-      this.url + "/member/fetch-sum-of-member-wallet-of-month",
+      this.url + "/member/member/fetch-member-wallet",
       data,
       {
         headers: new HttpHeaders().set("Content-Type", "application/json"),
