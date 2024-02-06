@@ -135,7 +135,7 @@ export class SignupFranchiseComponent implements OnInit,AfterViewInit {
     formData.append('referredId', this.franchiseSignUpForm.value.reffered_id);
     formData.append('fname', this.franchiseSignUpForm.value.name);
     formData.append('lname', this.franchiseSignUpForm.value.lname);
-    formData.append('phone',this.franchiseSignUpForm.value.phone.replace(/\s/g, ''));
+    formData.append('phone','+' + this.countryCode + this.franchiseSignUpForm.value.phone.replace(/\s/g, ''));
     formData.append('email',  this.franchiseSignUpForm.value.email);
     formData.append('gender',this.franchiseSignUpForm.value.gender);
     formData.append('franchiseState',this.franchiseSignUpForm.value.state);
