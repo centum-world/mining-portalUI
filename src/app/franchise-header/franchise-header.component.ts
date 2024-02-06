@@ -131,7 +131,7 @@ export class FranchiseHeaderComponent implements OnInit {
 
   logOut(){
     localStorage.clear();
-    this.router.navigate(['/franchiselogin']);
+    this.router.navigate(['/franchiselogin'])
   }
 
   addBussinessDeveloper(){
