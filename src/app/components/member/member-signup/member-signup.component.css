@@ -4,7 +4,7 @@
 .image-container{
     display:flex;
     flex-direction: column;
-    aling-items:center;
+    align-items:center;
     width:40%;
     height:100vh;
     padding:20px;
@@ -40,10 +40,8 @@
 .logo p{
     font-size:24px;
     font-weight:900;
-    font-family: 'Roboto', sans-serif;
-    color: #305dc0;
-    margin-top:14px;
-
+    font-family:calibri;
+    color: #9d5df9;
 }
 .image{
     display:flex;
@@ -79,27 +77,14 @@
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    margin-top:20px;
 }
 .heading{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-.heading h4{
-    background: linear-gradient(to right, #305dc0,#305dc0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Roboto', sans-serif;
+    line-height:10px;
 }
 .heading p{
-    font-size:18px;
-    font-weight:700;
+    font-size:30px;
+    font-weight:900;
     font-family:calibri;
-    background: linear-gradient(to right, #305dc0, #305dc0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .heading small{
     color:#838891;
@@ -114,31 +99,9 @@
 
 .image img{
     width : 400px;
-    height : 400px;
-    margin-top:50px;
+    height : 420px
 }
 
-
-.back{
-    display:flex;
-    gap:3px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.custom-button {
-    background-color: #305dc0;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .custom-button:hover {
-    background-color: #2a2c96;
-  }
-
-  .logo1{
-    display:none;
-  }
-  
 @media screen and (max-width: 1024px) and (min-width: 768px) {
     .image img {
         width: 300px;
@@ -153,38 +116,17 @@
     .image-container{ 
         display: none;
     }
-    .heading h4{
-        display:none;
-    }
-    .heading{
-        display:block;
-    }
-    .logo1{
-        display:flex;
-        flex-direction:start;
-        align-items:center;
-        gap:10px;
-    }
-    .logo1 p{
-        margin-top:17px;
-        font-size:30px;
-    }
     .form-container{
         width:100%;
-        padding:10px;
     }
     .form-content form{
         width: 90vw;
-    }
-    .heading img{
-        width:100%;
-        object-fit:cover;
     }
 }
 
 @media screen and (max-width:420px){
     .heading p{
-        font-size:20px;
+        font-size:24px;
         font-weight:900;
         font-family:calibri;
     }
