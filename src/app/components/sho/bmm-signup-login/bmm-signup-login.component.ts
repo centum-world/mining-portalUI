@@ -131,7 +131,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     const formData = new FormData();
     formData.append('fname', this.bmmSignUpForm.value.name);
     formData.append('lname', this.bmmSignUpForm.value.lname);
-    formData.append('phone','+' + this.countryCode + this.bmmSignUpForm.value.phone.replace(/\s/g, ''));
+    formData.append('phone',this.bmmSignUpForm.value.phone.replace(/\s/g, ''));
     formData.append('email',  this.bmmSignUpForm.value.email);
     formData.append('gender',this.bmmSignUpForm.value.gender);
     formData.append('selectedState',this.bmmSignUpForm.value.state);

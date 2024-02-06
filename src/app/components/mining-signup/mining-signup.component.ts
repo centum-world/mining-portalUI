@@ -158,14 +158,14 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     formData.append('p_name', this.partnerSignUpForm.value.name);
     formData.append('p_lname', this.partnerSignUpForm.value.lname);
     formData.append('p_aadhar', this.partnerSignUpForm.value.aadhar);
-    formData.append('p_phone','+' + this.countryCode + this.partnerSignUpForm.value.phone.replace(/\s/g, ''));
+    formData.append('p_phone',this.partnerSignUpForm.value.phone.replace(/\s/g, ''));
     formData.append('p_email',  this.partnerSignUpForm.value.email);
     formData.append('p_address', this.partnerSignUpForm.value.address);
     formData.append('p_state',this.partnerSignUpForm.value.state);
     formData.append('p_dob',newDobFormat);
     formData.append('p_nominee_name', this.partnerSignUpForm.value.nominee_name);
     formData.append('p_nominee_aadhar', this.partnerSignUpForm.value.nominee_aadhar);
-    formData.append('p_nominee_phone','+' + this.nomineeCountryCode + this.partnerSignUpForm.value.nominee_phone.replace(/\s/g, ''));
+    formData.append('p_nominee_phone', this.partnerSignUpForm.value.nominee_phone.replace(/\s/g, ''));
     formData.append('p_dop',newDopFormat);
     formData.append('p_liquidity',this.partnerSignUpForm.value.liquidity);
     formData.append('terms', "12 Months");
