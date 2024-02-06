@@ -2,17 +2,24 @@
   <div class="image-container">
     <div class="logo">
       <img src="../../../assets/image/clogo.png" width="80px" height="80px" />
-      <p>GPU MINING RIG</p>
+      <p>CENTUM WORLD</p>
     </div>
     <div class="image">
-      <img src="../../../assets/image/reg-left.png" />
+      <img src="../../../assets/image/signupui.gif" />
     </div>
   </div>
   <div class="form-container">
     <div class="heading">
       <h4>WELCOME TO CENTUM WORLD</h4>
-      <p>GPU MINING RIG</p>
-      <small>{{ pagename }}</small>
+      <div class="logo1">
+        <img src="../../../assets/image/clogo.png" width="65px" height="65px" />
+        <p style="font-size: 24px;">CENTUM WORLD</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <p>CRYPTO MUTUAL RIG PARTNER</p>
+        <small style="font-family: roboto, sans-serif; font-size: 14px;">{{ pagename }}</small>
+      </div>
+    
     </div>
     <div class="main-form">
       <mat-tab-group
@@ -20,7 +27,7 @@
         class="example-stretched-tabs"
         (selectedTabChange)="tabChanged($event)"
       >
-        <mat-tab label="Login">
+        <mat-tab label="Login" style="font-family:sans-serif;">
           <div class="form-content">
             <form
               [formGroup]="partnerLoginForm"
@@ -43,14 +50,14 @@
                   <mat-icon>{{ showPasswordIcon }}</mat-icon>
                 </button>
               </mat-form-field>
-              <button mat-raised-button color="primary" type="submit">
+              <button mat-raised-button class="custom-button" type="submit">
                 <ng-container *ngIf="spin; else loginText">
                   <mat-spinner diameter="40"></mat-spinner>
                 </ng-container>
                 <ng-template #loginText>SIGN IN</ng-template>
               </button>
               <br>
-              <div class="home" (click)="gotoDhasboard()">HOME</div>
+              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)">Back to home</a></div>
             </form>
           </div>
         </mat-tab>
@@ -268,16 +275,16 @@
                   <mat-icon>{{ showPasswordIcon }}</mat-icon>
                 </button>
               </mat-form-field>
-              <mat-checkbox (change)="handleChange($event)">I agree to the <span style="color: #3f51b5;" (click)="privacyPolicy()">Privacy Policy</span></mat-checkbox>
+              <mat-checkbox (change)="handleChange($event)" style="font-family: 'Roboto', sans-serif">I agree to the <span style="color: #3f51b5;font-family:  'Roboto', sans-serif; " (click)="privacyPolicy()">Privacy Policy</span></mat-checkbox>
               <br>
-              <button mat-raised-button color="primary" type="submit" [disabled]="!privacy">
+              <button mat-raised-button class="custom-button" type="submit" [disabled]="!privacy">
                 <ng-container *ngIf="spin; else registerText">
                   <mat-spinner diameter="40"></mat-spinner>
                 </ng-container>
                 <ng-template #registerText>SIGN UP</ng-template>
               </button>
               <br>
-              <div class="home" (click)="gotoDhasboard()">HOME</div>
+              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)">Back to home</a></div>
             </form>
           </div>
         </mat-tab>
