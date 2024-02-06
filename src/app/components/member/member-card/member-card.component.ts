@@ -455,7 +455,7 @@ export class MemberCardComponent implements OnInit {
 
 
   shareFunction(){
-    const displayMemberRefferalId = localStorage.getItem('refferalId');
+    const displayMemberRefferalId = localStorage.getItem('mrefferid');
     const referralType = localStorage.getItem('userType');
     const message = `Check out this link: https://apps.centumworldrig.com/mininglogin and Referral type : ${referralType} , Referral ID : ${displayMemberRefferalId}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
