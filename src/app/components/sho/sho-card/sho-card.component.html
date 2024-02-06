@@ -16,9 +16,9 @@
         <h6>Profile</h6>
         <span>See your profile!</span>
       </div>
-      <div class="icon" [matMenuTriggerFor]="menuProfile">
+      <!-- <div class="icon" [matMenuTriggerFor]="menuProfile">
         <span>View</span>
-      </div>
+      </div> -->
       <!-- Add a Material Design bank icon -->
       <button mat-icon-button [matMenuTriggerFor]="menuBank">
         <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
@@ -38,7 +38,7 @@
       <div>
         <h6>BMM ID :- {{displayStateHandlerId}}</h6>
         <span>Referral ID &nbsp;<a href="/statedashboard/add-franchise?refferId={{displayStateHandlerReferralId}}"
-            >{{displayStateHandlerReferralId}}</a></span>
+            >{{displayStateHandlerReferralId}}</a></span>&nbsp;
             <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
       </div>
     </div>
