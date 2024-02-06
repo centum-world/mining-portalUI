@@ -13,8 +13,10 @@ html,
 
 body {
   margin: 0;
-  font-family: Calibri;
+  padding:0;
+  box-size:border-box;
 }
+
 
 :host ::ng-deep .modal-dialog {
   max-width: 100%;
