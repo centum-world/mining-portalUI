@@ -51,7 +51,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   @ViewChild("phoneNumberInputNominee", { static: true })
   phoneNumberInputNominee: ElementRef;
   passwordFieldType: string = "password";
-  showPasswordIcon: string = "visibility";
+  showPasswordIcon: string = "visibility_off";
   states = allState.states.map((item) => item.state);
   role: "";
   aadharImage: File | null = null;

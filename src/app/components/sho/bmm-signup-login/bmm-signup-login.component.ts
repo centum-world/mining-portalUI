@@ -49,7 +49,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
   creatingAccount: boolean = false;
   privacy = false;
   passwordFieldType: string = "password";
-  showPasswordIcon: string = "visibility";
+  showPasswordIcon: string = "visibility_off";
   states = allState.states.map((item) => item.state);
   cities = [];
   // role: "";

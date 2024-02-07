@@ -47,7 +47,8 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   phoneNumberInput: ElementRef;
 
   passwordFieldType: string = "password";
-  showPasswordIcon: string = "visibility";
+  showPasswordIcon: string = "visibility_off";
+  passwordShow:boolean = false;
   states = allState.states.map((item) => item.state);
   // role: "";
   aadharImage: File | null = null;
@@ -255,10 +256,11 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   }
 
   togglePasswordVisibility(): void {
-    this.passwordFieldType =
-      this.passwordFieldType === "password" ? "text" : "password";
+    this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
+    this.passwordShow = !this.passwordShow;
     this.showPasswordIcon =
-      this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
+    this.passwordShow ? "visibility" : "visibility_off";
+     
   }
 
   onFileSelected(event: any, fileSelected: any): void {

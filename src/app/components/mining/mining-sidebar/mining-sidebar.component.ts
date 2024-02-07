@@ -95,6 +95,8 @@ export class MiningSidebarComponent implements OnInit {
   
 
   logOut(){
+
+    console.log("logging out")
     localStorage.clear();
     this.router.navigate(['/mininglogin'])
   }
