@@ -218,7 +218,8 @@ export class MemberCardComponent implements OnInit {
     this.userService.memberTotalWalletOfAMonth(data).subscribe({
       next: (response: any) => {
         if (response) {
-          this.memberTotalWalletOfEachMonth = response.data[0].sumOfMemberWallet;
+          console.log(response)
+          this.memberTotalWalletOfEachMonth = response.data[0].member_wallet;
         }
       },
       error: error => {
