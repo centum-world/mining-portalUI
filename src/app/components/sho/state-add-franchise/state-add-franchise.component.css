@@ -1,15 +1,16 @@
 
 .add-franchise-container{
-    width: 70vw;
-    height: 75vh;
-    /* background-color:#e7e4df; */
-    margin-top: 100px;
-    border-radius: 20px;
+    width: 100%;
+    height: 100%;
 }
+.container{
+}
+
 .franchise-body{
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .large-card {
     width: 90%; /* Adjust the width as needed */
@@ -43,6 +44,9 @@
     margin-right: -8px;
     padding: 8px 0;
 }
+.mat-card{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .mat-form-field{
   width: 45%;
 }
@@ -50,7 +54,7 @@
   .large-card{
     margin-left: 0;
     width: 100%;
-    height: 75vh;
+    height: 100%;
   }
   .large-card {
     width: 183%;
@@ -58,6 +62,9 @@
     padding: 10px;
     margin-left: 0px;
 
+  }
+  .add-franchise-container{
+    margin-top:8rem
   }
   .mat-card-contant div{
     flex-direction: column;
