@@ -20,7 +20,7 @@
             <span>Liquidity</span>: <p>{{data.liquidity | currency : 'INR'}}</p>
           </div>
           <div class="partnerPayoutDetails">
-            <span>Monthly Payout</span>: <p></p>
+            <span>Monthly Payout</span>: <p>{{data.monthlyPayment | currency : 'INR'}}</p>
           </div>
           <div class="partnerPayoutDetails">
             <span>Payout Tenure</span>: <p>12TN</p>
@@ -50,6 +50,6 @@
     </div>
   </div>
 </div>
-<div mat-dialog-actions align="end">
+<div mat-dialog-actions align-Items="end">
   <button class="partner-payout-modal-ok" mat-raised-button mat-dialog-close>Ok</button>
 </div>

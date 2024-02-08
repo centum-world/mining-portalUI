@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
@@ -12,8 +14,12 @@ import { MemberDocumentsDetailsComponent } from '../modal/member-documents-detai
 })
 export class MemberHeaderComponent implements OnInit {
   isVisible: boolean = false;
+  memberRefferalIdToPartner: any;
+
+  monthlyPayment: any;
+
   
-  constructor(private userService:UserService , private dialog:MatDialog,private router:Router) { }
+  constructor(private userService:UserService , private dialog:MatDialog,private router:Router, private toastr: ToastrService) { }
   memberDetails: any = {};
   memberDocuments={
     aadharFrontSide:"",
@@ -22,6 +28,25 @@ export class MemberHeaderComponent implements OnInit {
 
   }
   ngOnInit() {
+
+    let myteamwithpartner = {
+      p_reffered_id: localStorage.getItem('mrefferid')
+    }
+  
+    // console.log(this.memberDocuments)
+    this.userService.useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.memberRefferalIdToPartner = Object.values(response.data);
+          console.log(Object.values(response.data),'117')
+
+        }
+      },
+      error: error => {
+        this.toastr.error('Something Went Wrong', 'Error');
+      }
+  
+    })
   }
 
   toggleSidebar() {
@@ -30,6 +55,36 @@ export class MemberHeaderComponent implements OnInit {
 
   closeSidebar() {
     this.isVisible = false;
+  }
+
+  fetchPartnerLiquidity(id) {
+    let lequidity = '';
+    let data = {
+      p_userid: id
+    }
+    this.userService.fetchPartnerLiquidity(data).subscribe({
+      next: (response: any) => {
+        lequidity = response.data[0].p_liquidity;
+        if (parseInt(lequidity) === 1200000) {
+          this.monthlyPayment = 22000;
+        }
+        if (parseInt(lequidity) === 600000) {
+          this.monthlyPayment = 11000;
+        }
+        if (parseInt(lequidity) === 300000) {
+          this.monthlyPayment = 5500;
+        }
+        if (parseInt(lequidity) === 200000) {
+          this.monthlyPayment = 3700;
+        }
+        if (parseInt(lequidity) === 100000) {
+          this.monthlyPayment = 1850;
+        }
+      },
+      error: error => {
+        this.toastr.error("Something went wrong", 'Error');
+      }
+    })
   }
   
   myProfileDialog(){
@@ -102,9 +157,15 @@ export class MemberHeaderComponent implements OnInit {
       }
     })
 
+
     // console.log(this.memberDocuments)
+
  
   }
+
+  
+
+
 
   withdrawal(){
     this.router.navigate(['/memberdashboard/withdrawal-request']);
@@ -142,6 +203,8 @@ export class MemberHeaderComponent implements OnInit {
     this.router.navigate(['/memberlogin'])
   
   }
+
+
 
   
 

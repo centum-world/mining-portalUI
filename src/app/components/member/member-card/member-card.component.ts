@@ -32,7 +32,7 @@ export class MemberCardComponent implements OnInit {
     bank_name: ''
   }
   memberRefferalId: any;
-  memberRefferalIdToPartner: any;
+  // memberRefferalIdToPartner: any;
   displayMemberRefferalId = '';
   displayMemberRefferalIdToPartner: any;
   withdrawAmount: any;
@@ -53,8 +53,7 @@ export class MemberCardComponent implements OnInit {
   lastPayOutMonth: any;
 
   memberProfilePopupModalDetails: any;
-  monthlyPayment: any;
-  perDayAmount: any;
+
 
   profilePopup = {
     email: '',
@@ -102,21 +101,7 @@ export class MemberCardComponent implements OnInit {
     });
 
 
-    let myteamwithpartner = {
-      p_reffered_id: localStorage.getItem('mrefferid')
-    }
-
-    this.userService.useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner).subscribe({
-      next: (response: any) => {
-        if (response) {
-          this.memberRefferalIdToPartner = Object.values(response.data);
-        }
-      },
-      error: error => {
-        this.toastr.error('Something Went Wrong', 'Error');
-      }
-
-    })
+  
 
     this.myTeamDetailsInPopup();
     this.callApiMemberWalletDepositeDaily();
@@ -366,36 +351,7 @@ export class MemberCardComponent implements OnInit {
     })
   }
 
-  fetchPartnerLiquidity(id) {
-    let lequidity = '';
-    let data = {
-      p_userid: id
-    }
-    this.userService.fetchPartnerLiquidity(data).subscribe({
-      next: (response: any) => {
-        lequidity = response.data[0].p_liquidity;
-        if (parseInt(lequidity) === 600000) {
-          this.monthlyPayment = 11000;
-          this.perDayAmount = 366;
-        }
-        if (parseInt(lequidity) === 300000) {
-          this.monthlyPayment = 5500;
-          this.perDayAmount = 183;
-        }
-        if (parseInt(lequidity) === 200000) {
-          this.monthlyPayment = 3700;
-          this.perDayAmount = 123;
-        }
-        if (parseInt(lequidity) === 100000) {
-          this.monthlyPayment = 1850;
-          this.perDayAmount = 61;
-        }
-      },
-      error: error => {
-        this.toastr.error("Something went wrong", 'Error');
-      }
-    })
-  }
+ 
 
   myProfileDialog(){
     let data = {

@@ -16,7 +16,7 @@
           width="50px" height="50px"></button>
       <mat-menu #menu="matMenu">
         <!-- <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button> -->
-        <button mat-menu-item (click)="myProfileDialog()" >Profile</button>
+        <button mat-menu-item (click)="myProfileDialog()" >Details</button>
         <button mat-menu-item data-toggle="modal" data-target="#memberSummary">Summary</button>
         <a href="" mat-menu-item (click)="logOut()">Log Out</a>
       </mat-menu>
@@ -570,76 +570,6 @@
           </div>
         </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- My Summary -->
-
-
-<div class="modal fade" id="memberSummary" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Summary Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <table class="table table-hover table-light table-responsive">
-          <thead>
-            <tr>
-              <th scope="col">Sr No.</th>
-              <th scope="col">User ID</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of memberRefferalIdToPartner; let i = index">
-              <th>{{i+1}}</th>
-              <td>{{data.p_userid}}</td>
-              <td><button class="btn btn-primary" (click)="fetchPartnerLiquidity(data.p_userid)" data-toggle="modal"
-                  data-target="#memberSummaryDetails">View</button></td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Member Summary Details -->
-
-<div class="modal fade" id="memberSummaryDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">My Summary</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="summry d-flex">
-          <p>Monthly Payout</p>:&nbsp;<span style="font-weight: bold;">{{monthlyPayment|currency:"INR"}}</span>
-        </div>
-        <div class="summry d-flex">
-          <p>Perday Payout</p>:&nbsp;<span style="font-weight: bold;">{{perDayAmount|currency:"INR"}}</span>
-        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

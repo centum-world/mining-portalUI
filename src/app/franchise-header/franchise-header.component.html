@@ -71,8 +71,8 @@
         </button>
         <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button>
-        <button mat-menu-item data-toggle="modal" data-target="#memberSummary">Summary</button>
+        <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails" (click)="openDialog()">Profile</button>
+    
         <a href="javascript:void(0)" mat-menu-item (click)="logOut()">Log Out</a>
       </mat-menu>
       <div>

@@ -1,151 +1,184 @@
-<input type="checkbox" id="nav-toggle">
+<input type="checkbox" id="nav-toggle" />
 <div class="sidebar">
-    <div class="sidebar-brand" (click)="gotoDahashboard()">
-        <h3><a class="fa fa-qrcode" href="javascript:void(0)"></a></h3>
-        <h2><a href="javascript:void(0)"><span class="fa fa-qrcode"></span>&nbsp;
-                Dashboard</a></h2>
-    </div>
-    <div class="sidebar-menu">
-        <ul>
-            <li>
-                <div class="member_history" (click)="partnerViewList()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">account_circle</mat-icon>
+  <div class="sidebar-brand" (click)="gotoDahashboard()">
+    <h3><a class="fa fa-qrcode" href="javascript:void(0)"></a></h3>
+    <h2>
+      <a href="javascript:void(0)"
+        ><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a
+      >
+    </h2>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <div class="member_history" (click)="partnerViewList()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_circle</mat-icon>
 
-                        <span>Profile</span>
-                    </a>
-                </div>
-            </li>
+            <span>Profile</span>
+          </a>
+        </div>
+      </li>
 
-            <li>
-                <div class="partner_history">
-                    <a href="javascript:void(0)" ><mat-icon class="bank-icon">account_balance</mat-icon>
-                        <!-- <span>Bank Details</span> -->
-                        <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item (click)="addBankDetails()">Add bank</button>
-                            <button mat-menu-item (click)="viewBankDetails()">View bank</button>
-                        </mat-menu>
+      <li>
+        <div class="partner_history">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_balance</mat-icon>
+            <!-- <span>Bank Details</span> -->
+            <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="addBankDetails()">Add bank</button>
+              <button mat-menu-item (click)="viewBankDetails()">
+                View bank
+              </button>
+            </mat-menu>
+          </a>
+        </div>
+      </li>
 
-                    </a>
-                </div>
-            </li>
+      <li>
+        <div class="partner_history" (click)="partnerWithdraw()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">money_off</mat-icon>
+            <span>Withdrawal</span>
+          </a>
+        </div>
+      </li>
 
-            <li>
-                <div class="partner_history " (click)="partnerWithdraw()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">money_off</mat-icon>
-                        <span>Withdrawal</span>
-                    </a>
-                </div>
-            </li>
+      <li>
+        <div class="partner_history" (click)="helpAndSupport()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">help</mat-icon>
+            <span>Help & Support</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="partner_history" (click)="myteam()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">group</mat-icon>
+            <span>My team</span>
+          </a>
+        </div>
+      </li>
 
-            <li>
-                <div class="partner_history " (click)="helpAndSupport()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">help</mat-icon>
-                        <span>Help & Support</span>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="partner_history " (click)="myteam()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">group</mat-icon>
-                        <span>My team</span>
-                    </a>
-                </div>
-            </li>
-            
+      <li>
+        <div class="partner_history" (click)="logOut()">
+          <a href="javascript:void(0)">
+            <mat-icon class="logout-icon">exit_to_app</mat-icon>
 
-            <li>
-                <div class="partner_history " (click)="logOut()">
-                    <a href="javascript:void(0)">
-                        <mat-icon class="logout-icon">exit_to_app</mat-icon>
-
-                        <span style="margin-left: 10px;">Logout</span>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
+            <span style="margin-left: 10px">Logout</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="main-content">
-    <header>
-        <div class="logo-centum">
-            <h3 style="color: #000;">CENTUM WORLD</h3>
-        </div>
-        <div class="user-wrapper">
-            <div class="user-av">
-                <img src="assets/image/profile.png" alt="" width="50px" height="50px">
-            </div>
-            <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
-        </div>
-    </header>
+  <header>
+    <div class="logo-centum">
+      <h3 style="color: #000">CENTUM WORLD</h3>
+    </div>
+    <div class="user-wrapper">
+      <button mat-button class="login_button" [matMenuTriggerFor]="menuUser">
+        <img src="assets/image/profile.png" alt="" width="50px" height="50px" />
+      </button>
+
+      <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
+
+      <mat-menu #menuUser="matMenu">
+        <button mat-menu-item
+        (click) = "partnerViewList()"
+        
+        >Profile</button>
+
+
+        <a href="javascript:void(0)" mat-menu-item (click)="logOut()"> Logout </a>
+      </mat-menu>
+    </div>
+  </header>
 </div>
 
-<div class="mobile-sidebar" [ngStyle]="{'display': isVisible ? 'block' : 'none'}">
-    <div class="mobile-sidebar-heading">
-        <div class="mobile-header">
-            <div class="centum-header">
-                <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60">
-                <span>CENTUMO MINING RIG</span>
-            </div>
-            <span class="fa fa-close" (click)="closeSidebar()"></span>
+<div
+  class="mobile-sidebar"
+  [ngStyle]="{ display: isVisible ? 'block' : 'none' }"
+>
+  <div class="mobile-sidebar-heading">
+    <div class="mobile-header">
+      <div class="centum-header">
+        <img
+          src="../../../../assets/image/clogo.png"
+          alt=""
+          height="60"
+          width="60"
+        />
+        <span>CENTUMO MINING RIG</span>
+      </div>
+      <span class="fa fa-close" (click)="closeSidebar()"></span>
+    </div>
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <div class="member_history" (click)="partnerViewList()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_circle</mat-icon>
+
+            <span>Profile</span>
+          </a>
         </div>
-    </div>
-    <div class="sidebar-menu">
-        <ul>
-            <li>
-                <div class="member_history" (click)="partnerViewList()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">account_circle</mat-icon>
+      </li>
 
-                        <span>Profile</span>
-                    </a>
-                </div>
-            </li>
+      <li>
+        <div class="partner_history" (click)="partnerViewList()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_balance</mat-icon>
+            <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="addBankDetails()">Add bank</button>
+              <button mat-menu-item (click)="viewBankDetails()">
+                View bank
+              </button>
+            </mat-menu>
+          </a>
+        </div>
+      </li>
 
-            <li>
-                <div class="partner_history " (click)="partnerViewList()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">account_balance</mat-icon>
-                        <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item (click)="addBankDetails()">Add bank</button>
-                            <button mat-menu-item (click)="viewBankDetails()">View bank</button>
-                        </mat-menu>
-                    </a>
-                </div>
-            </li>
+      <li>
+        <div class="partner_history" (click)="partnerWithdraw()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">money_off</mat-icon>
+            <span>Withdrawal</span>
+          </a>
+        </div>
+      </li>
 
-            <li>
-                <div class="partner_history " (click)="partnerWithdraw()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">money_off</mat-icon>
-                        <span>Withdrawal</span>
-                    </a>
-                </div>
-            </li>
+      <li>
+        <div class="partner_history" (click)="helpAndSupport()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">help</mat-icon>
+            <span>Help & Support</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="partner_history" (click)="myteam()">
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">group</mat-icon>
+            <span>My team</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="partner_history" (click)="logOut()">
+          <a href="javascript:void(0)">
+            <mat-icon class="logout-icon">exit_to_app</mat-icon>
 
-            <li>
-                <div class="partner_history " (click)="helpAndSupport()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">help</mat-icon>
-                        <span>Help & Support</span>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="partner_history " (click)="myteam()">
-                    <a href="javascript:void(0)"><mat-icon class="bank-icon">group</mat-icon>
-                        <span>My team</span>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="partner_history " (click)="logOut()">
-                    <a href="javascript:void(0)">
-                        <mat-icon class="logout-icon">exit_to_app</mat-icon>
-
-                        <span style="margin-left: 10px;">Logout</span>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
+            <span style="margin-left: 10px">Logout</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
