@@ -9,6 +9,10 @@
     padding: 20px;
 }
 
+.account-section{
+    width:100%;
+    margin-left:1rem
+}
 .sho-withdrawal-header p {
     font-size: 18px;
     font-family: Calibri;
@@ -23,7 +27,8 @@
     width: 150px;
     height: 40px;
     border-radius: 5px;
-    background: #eaff03;
+    background: #6075C3;
+    color:white;
     font-size: 16px;
     font-weight: Calibri;
     font-weight: 500;
@@ -63,6 +68,9 @@
     .bakk-div {
         flex-direction: column;
         align-items: center;
+    }
+    .account-section{
+        margin-left:0
     }
 
     .example-card {

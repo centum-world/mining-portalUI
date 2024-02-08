@@ -2,11 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 70px;
+    width: 78vw;
+    height: 100%;
     margin-top: 90px;
     padding: 10px;
     margin-left: 10px;
+    gap:1rem
 }
 .add-bd{
     display: flex;
@@ -15,13 +16,14 @@
     width: auto;
     height: 50px;
     border-radius: 8px;
-    background: #3660ebaf;  
+    background: #3660ebaf;
     font-size: 18px;
     color: #fff;
     padding: 8px;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+
 .custom-form-field {
     background: #fff;
     border-radius: 5px;

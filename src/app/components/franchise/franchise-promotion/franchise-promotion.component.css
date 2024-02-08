@@ -4,6 +4,7 @@
 }
 .promotion-arrow {
   display: flex;
+  gap:1rem;
 }
 .promotion-arrow p {
   font-size: 20px;

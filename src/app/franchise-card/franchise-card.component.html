@@ -59,12 +59,14 @@
       <div>
         <h6>Franchise ID :- {{ displayFranchiseId }}</h6>
         <span
-          >Referral ID &nbsp;<a
+          >Referral ID :- &nbsp;<a
             href="/partner-signup?refferId={{ displayFranchiseReferralId }}"
             target="_blank"
             >{{ displayFranchiseReferralId }}</a
           ></span>&nbsp;
-          <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+          <span style="margin-left: 1rem;">
+            <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+          </span>
       </div>
     </div>
 
