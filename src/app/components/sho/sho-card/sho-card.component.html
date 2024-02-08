@@ -35,12 +35,14 @@
       </mat-menu>
     </div>
     <div class="card-single">
-      <div>
+      <div >
         <h6>BMM ID :- {{displayStateHandlerId}}</h6>
-        <span>Referral ID &nbsp;<a href="/statedashboard/add-franchise?refferId={{displayStateHandlerReferralId}}"
+        <span >Referral ID &nbsp;<a href="/statedashboard/add-franchise?refferId={{displayStateHandlerReferralId}}"
             >{{displayStateHandlerReferralId}}</a></span>&nbsp;
-            <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
-      </div>
+            <span style="margin-left: 1rem;">
+              <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+            </span>
+          </div>
     </div>
    
     <div class="card-single">
