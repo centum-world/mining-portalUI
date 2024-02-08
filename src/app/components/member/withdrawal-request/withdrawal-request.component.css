@@ -3,11 +3,10 @@
   justify-content: space-between;
   align-items: center;
   margin-left: 330px;
-}
-.withdrawal-header {
   font-size: 24px;
   font-weight: 600;
 }
+
 .arrow span {
   font-size: 24px;
   font-weight: 600;
@@ -21,7 +20,8 @@
   width: 150px;
   height: 50px;
   border-radius: 8px;
-  background: yellow;
+  background: #6075C3;
+  color:white;
   cursor: pointer;
 }
 .withdrawal-btn p {

@@ -2,7 +2,7 @@
     <div><mat-icon style="cursor: pointer;" (click)="gotohome()">arrow_back</mat-icon></div>
     <div>
         <div class="promotion-arrow">
-            <p>Promotion</p>
+            <p style="gap: 1rem; margin-right: 1rem;">Promotion</p>
             <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
             <span *ngIf="usertype === 'FRANCHISE' "><mat-icon style="color: red">trending_down</mat-icon></span>
             <span *ngIf="usertype === 'BMM'"><mat-icon style="color: red">trending_down</mat-icon></span>
