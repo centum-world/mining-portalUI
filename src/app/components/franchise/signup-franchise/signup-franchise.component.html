@@ -36,7 +36,7 @@
                 <ng-template #registerText>SIGN IN</ng-template>
               </button>
               <br>
-              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)" style="text-decoration: none !important;">Back to home</a></div>
+              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)" style="text-decoration: none !important; color:  #0000FF;">Back to home</a></div>
             </form>
           </div>
         </mat-tab>
@@ -102,13 +102,13 @@
               </mat-form-field>
 
               <mat-form-field appearance="outline">
-                <mat-label>Front side addhar image</mat-label>
+                <mat-label>Front side aadhaar image</mat-label>
                 <input matInput type="text" [value]="aadharImageName" placeholder="No file chosen" readonly />
                 <input type="file" id="aadharImage" (change)="onFileSelected($event, 'front')" accept="image/*" />
               </mat-form-field>
 
               <mat-form-field appearance="outline">
-                <mat-label>Back side addhar image</mat-label>
+                <mat-label>Back side aadhaar image</mat-label>
                 <input matInput type="text" placeholder="No file chosen" readonly />
                 <input type="file" (change)="onFileSelected($event, 'back')" />
               </mat-form-field>
@@ -143,7 +143,7 @@
                 </ng-template>
               </button>
               <br>
-              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)" style="text-decoration: none !important;">Back to home</a></div>
+              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)" style="text-decoration: none !important; color:#0000FF;">Back to home</a></div>
             </form>
           </div>
         </mat-tab>

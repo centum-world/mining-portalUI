@@ -14,7 +14,7 @@ import { ToastrService } from "ngx-toastr";
 export class LoginComponent implements OnInit {
   heading: string = "Admin"
   passwordFieldType: string = "password"; // Initial type is 'password'
-  showPasswordIcon: string = "visibility"; // Initial icon is 'visibility'
+  showPasswordIcon: string = "visibility_off"; // Initial icon is 'visibility'
 
   loginForm: FormGroup;
   admin_userid: string = "";
