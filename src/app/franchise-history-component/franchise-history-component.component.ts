@@ -59,7 +59,10 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     "userType"
   ];
 
-  dataSource: MatTableDataSource<franchise>;
+  verifiedDataSource: MatTableDataSource<franchise>;
+  unverifiedDataSource: MatTableDataSource<franchise>;
+  upgradeDowngradeDataSource: MatTableDataSource<franchise>;
+
 
   constructor(
     private userService: UserService,
@@ -67,13 +70,15 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router
   ) {
-    this.dataSource = new MatTableDataSource([]);
+    this.verifiedDataSource = new MatTableDataSource([]);
+    this.unverifiedDataSource = new MatTableDataSource([]);
+    this.upgradeDowngradeDataSource = new MatTableDataSource([]);
   }
 
   ngOnInit() {
     this.tabChanged(0);
     this.getAllFranchise();
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
   }
 
   tabChanged(event : any){
@@ -82,7 +87,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       this.userService.CallApifetchVerifiedFranchise().subscribe({
         next: (res: any) => {
           console.log(res.data);
-          this.dataSource.data = res.data;
+          this.verifiedDataSource.data = res.data;
+          this.verifiedDataSource.paginator = this.paginator
         },
         error: (err) => {
           console.log(err.message);
@@ -92,7 +98,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       this.userService.CallApifetchUnVerifiedFranchise().subscribe({
         next: (res: any) => {
           console.log(res.data);
-          this.dataSource.data = res.data;
+          this.unverifiedDataSource.data = res.data;
+          this.unverifiedDataSource.paginator = this.paginator;
         },
         error: (err) => {
           console.log(err.message);
@@ -103,7 +110,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       this.userService.CallApiFetchUpgradeDowngradeFranchise().subscribe({
         next: (res: any) => {
           console.log(res.data);
-          this.dataSource.data = res.data;
+          this.upgradeDowngradeDataSource.data = res.data;
+          this.upgradeDowngradeDataSource.paginator = this.paginator;
         },
         error: (err) => {
           console.log(err.message);
@@ -116,7 +124,8 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     this.userService.CallApifetchVerifiedFranchise().subscribe({
       next: (res: any) => {
         console.log(res.data);
-        this.dataSource.data = res.data;
+        this.verifiedDataSource.data = res.data;
+        this.verifiedDataSource.paginator = this.paginator;
       },
       error: (err) => {
         console.log(err.message);
@@ -125,7 +134,9 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+     this.verifiedDataSource.filter = filterValue.trim().toLowerCase();
+    this.unverifiedDataSource.filter = filterValue.trim().toLowerCase();
+    this.upgradeDowngradeDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openIsBlockDialog(franchiseData: any) {
