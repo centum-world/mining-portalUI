@@ -32,7 +32,7 @@ export class MemberCardComponent implements OnInit {
     bank_name: ''
   }
   memberRefferalId: any;
-  // memberRefferalIdToPartner: any;
+  memberRefferalIdToPartner: any;
   displayMemberRefferalId = '';
   displayMemberRefferalIdToPartner: any;
   withdrawAmount: any;
