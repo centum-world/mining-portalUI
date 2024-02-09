@@ -6,6 +6,7 @@ import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
 import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
 import { MemberDocumentsDetailsComponent } from '../modal/member-documents-details/member-documents-details.component';
+import { MemberSummaryComponent } from '../modal/member-summary/member-summary.component';
 
 @Component({
   selector: 'app-member-header',
@@ -27,6 +28,9 @@ export class MemberHeaderComponent implements OnInit {
     panCard:""
 
   }
+  memberSummary:any=[]
+
+
   ngOnInit() {
 
     let myteamwithpartner = {
@@ -57,35 +61,35 @@ export class MemberHeaderComponent implements OnInit {
     this.isVisible = false;
   }
 
-  fetchPartnerLiquidity(id) {
-    let lequidity = '';
-    let data = {
-      p_userid: id
-    }
-    this.userService.fetchPartnerLiquidity(data).subscribe({
-      next: (response: any) => {
-        lequidity = response.data[0].p_liquidity;
-        if (parseInt(lequidity) === 1200000) {
-          this.monthlyPayment = 22000;
-        }
-        if (parseInt(lequidity) === 600000) {
-          this.monthlyPayment = 11000;
-        }
-        if (parseInt(lequidity) === 300000) {
-          this.monthlyPayment = 5500;
-        }
-        if (parseInt(lequidity) === 200000) {
-          this.monthlyPayment = 3700;
-        }
-        if (parseInt(lequidity) === 100000) {
-          this.monthlyPayment = 1850;
-        }
-      },
-      error: error => {
-        this.toastr.error("Something went wrong", 'Error');
-      }
-    })
-  }
+  // fetchPartnerLiquidity(id) {
+  //   let lequidity = '';
+  //   let data = {
+  //     p_userid: id
+  //   }
+  //   this.userService.fetchPartnerLiquidity(data).subscribe({
+  //     next: (response: any) => {
+  //       lequidity = response.data[0].p_liquidity;
+  //       if (parseInt(lequidity) === 1200000) {
+  //         this.monthlyPayment = 22000;
+  //       }
+  //       if (parseInt(lequidity) === 600000) {
+  //         this.monthlyPayment = 11000;
+  //       }
+  //       if (parseInt(lequidity) === 300000) {
+  //         this.monthlyPayment = 5500;
+  //       }
+  //       if (parseInt(lequidity) === 200000) {
+  //         this.monthlyPayment = 3700;
+  //       }
+  //       if (parseInt(lequidity) === 100000) {
+  //         this.monthlyPayment = 1850;
+  //       }
+  //     },
+  //     error: error => {
+  //       this.toastr.error("Something went wrong", 'Error');
+  //     }
+  //   })
+  // }
   
   myProfileDialog(){
     this.isVisible = false;
@@ -113,6 +117,32 @@ export class MemberHeaderComponent implements OnInit {
             panelClass:'memberDetailsDialogClass', data:this.memberDetails
             };
             const dialogRef = this.dialog.open(MemberProfileDetailsComponent,config);
+            dialogRef.afterClosed().subscribe(result => {
+              console.log('The dialog was closed');
+              // Do something with the result if needed
+            })
+        }
+      },
+      error: error => {
+       console.log(error)
+      }
+    })
+  }
+
+  summaryOpenDialog(){
+    let myteamwithpartner = {
+      p_reffered_id: localStorage.getItem('mrefferid')
+    }
+     this.userService.useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner).subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log(response,'139')
+          this.memberSummary = response.data;
+          
+            let config:MatDialogConfig = {
+            panelClass:'memberSummaryDialogClass', data:this.memberSummary
+            };
+            const dialogRef = this.dialog.open(MemberSummaryComponent,config);
             dialogRef.afterClosed().subscribe(result => {
               console.log('The dialog was closed');
               // Do something with the result if needed
@@ -203,9 +233,5 @@ export class MemberHeaderComponent implements OnInit {
     this.router.navigate(['/memberlogin'])
   
   }
-
-
-
-  
 
 }

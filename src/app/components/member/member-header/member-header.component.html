@@ -78,7 +78,10 @@
         <button mat-menu-item (click)="myProfileDialog()">
           Profile
         </button>
-        <button mat-menu-item data-toggle="modal" data-target="#memberSummary">
+        <!-- <button mat-menu-item data-toggle="modal" data-target="#memberSummary">
+          Summary
+        </button> -->
+        <button mat-menu-item (click)="summaryOpenDialog()">
           Summary
         </button>
         <a href="javascript:void(0)" mat-menu-item (click)="logOut()">Log Out</a>

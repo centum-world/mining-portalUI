@@ -1,0 +1,97 @@
+.mat-dialog-title {
+    background-color: #5476f2;
+    color: #fff;
+    font-size: 18px;
+    font-family:Calibri;
+    font-weight: 600;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top:-24px;
+}
+  
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+
+.stateDetails span {
+    font-size: 18px;
+    font-family: Calibri;
+    color: #6512c4;
+    margin-right: 10px;
+}
+
+.stateDetails p {
+    font-size: 16px;
+    font-family: Calibri;
+    color: #040108;
+    margin-left: 10px;
+    font-weight: bold;
+
+}
+
+th {
+    font-size: 14px;
+    font-family: bold;
+}
+
+td {
+    font-size: 12px;
+}
+.view-bank-modal-header{
+    font-family: Calibri;
+    font-weight: 700;
+    color:black;
+    font-size: 14px;
+}
+.example-card {
+    margin: 10px;
+    width: 300px;
+}
+  
+.example-header-image{
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+}
+
+.bakk-div{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
+.bank-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}  
+.bank-details h2{
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
+}
+
+.bold-header{
+    font:700;
+    color:#000;
+}
+.mat-cell, .mat-header-cell {
+    padding: 8px 16px; /* Adjust the padding as needed */
+  }
+
+  .custom-mat-table {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  
+@media (max-width : 768px){
+    .example-card{
+        width:235px;
+    }
+}

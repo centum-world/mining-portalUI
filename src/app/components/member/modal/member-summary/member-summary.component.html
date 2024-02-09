@@ -1,0 +1,50 @@
+<h1 class="custom-heading" mat-dialog-title>Summary Details</h1>
+
+<div mat-dialog-content class="table-container">
+  <ng-container *ngIf="dataSource.data.length > 0; else noDetails">
+    <table mat-table [dataSource]="dataSource"  class="custom-mat-table">
+      <ng-container matColumnDef="srNo">
+        <th mat-header-cell *matHeaderCellDef class="bold-header">Sr No.</th>
+        <td mat-cell *matCellDef="let data; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="bold-header">Name</th>
+        <td mat-cell *matCellDef="let data">{{ data.p_name + ' ' + data.p_lname }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef class="bold-header">Partner ID</th>
+        <td mat-cell *matCellDef="let data">{{ data.p_userid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dop">
+        <th mat-header-cell *matHeaderCellDef class="bold-header">DOP</th>
+        <td mat-cell *matCellDef="let data">{{ data.p_dop | date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="bold-header">Action</th>
+        <td mat-cell *matCellDef="let data">
+          <button class="btn btn-primary" mat-menu-item (click)="fetchPartnerLiquidityDialog(data.p_userid)" >View</button>
+        </td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: ['srNo','name', 'userId','dop', 'action'];"></tr>
+
+      <!-- Heading row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    </table>
+  </ng-container>
+  <ng-template #noDetails>
+    <mat-card class="example-card">
+      <mat-card-content>
+        No details found.
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close style="background-color: #5476f2; color: #fff;">Ok</button>
+</div>

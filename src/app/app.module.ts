@@ -218,6 +218,8 @@ import { MemberSignupComponent } from './components/member/member-signup/member-
 import { SignupFranchiseComponent } from './components/franchise/signup-franchise/signup-franchise.component';
 import { BmmSignupLoginComponent } from './components/sho/bmm-signup-login/bmm-signup-login.component';
 import { PrivacyComponent } from './components/common/privacy/privacy.component';
+import { MemberSummaryComponent } from './components/member/modal/member-summary/member-summary.component';
+import { MemberSummaryAmountComponent } from './components/member/modal/member-summary-amount/member-summary-amount.component';
 
 
 @NgModule({
@@ -407,7 +409,9 @@ import { PrivacyComponent } from './components/common/privacy/privacy.component'
     MemberSignupComponent,
     SignupFranchiseComponent,
     BmmSignupLoginComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    MemberSummaryComponent,
+    MemberSummaryAmountComponent
   ],
   imports: [
     BrowserModule,
@@ -515,6 +519,8 @@ import { PrivacyComponent } from './components/common/privacy/privacy.component'
     HelpSupportComponent,
     PartnerQueryComponent,
     MyQueryComponent,
+    MemberSummaryComponent,
+    MemberSummaryAmountComponent,
   ],
   providers: [
     {

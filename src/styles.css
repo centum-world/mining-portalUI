@@ -87,7 +87,8 @@ body {
 .bmmViewBankDetailsDialogClass .mat-dialog-container,
 .franchiseViewBankDetailsDialogClass .mat-dialog-container,
 .helpAndSupportDialogClass .mat-dialog-container,
-.partnerQueryDialogClass .mat-dialog-container
+.partnerQueryDialogClass .mat-dialog-container,
+.memberSummaryAmountDialogClass .mat-dialog-container
 {
   height:auto;
   width:40vw;
@@ -104,7 +105,8 @@ body {
 .EditFranchiseInBmmDialogClass .mat-dialog-container,
 .franchiseAddBankDialogClass .mat-dialog-container,
 .bmmAddBankDialogClass .mat-dialog-container,
-.partnerAddBankDialogClass .mat-dialog-container {
+.partnerAddBankDialogClass .mat-dialog-container,
+.memberSummaryDialogClass .mat-dialog-container, {
   width:50vw;
   height:60vh;
   margin-left:15vw;
@@ -130,7 +132,8 @@ body {
 .franchiseViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
 .bmmViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
 .partnerViewBankDetailsDialogClass .mat-dialog-container::-webkit-scrollbar,
-.partnerQueryDialogClass .mat-dialog-container::-webkit-scrollbar {
+.partnerQueryDialogClass .mat-dialog-container::-webkit-scrollbar,
+.memberSummaryDialogClass .mat-dialog-container::-webkit-scrollbar {
   overflow-y: scroll;
   display: none;
 }
@@ -188,7 +191,9 @@ body {
   .small-screen .bmmViewBankDetailsDialogClass .mat-dialog-container,
   .small-screen .partnerAddBankDialogClass .mat-dialog-container,
   .small-screen .partnerViewBankDetailsDialogClass .mat-dialog-container,
-  .small-screen .helpAndSupportDialogClass .mat-dialog-container
+  .small-screen .helpAndSupportDialogClass .mat-dialog-container,
+  .small-screen .memberSummaryDialogClass .mat-dialog-container,
+  .small-screen .memberSummaryAmountDialogClass .mat-dialog-container
   {
     width:80vw;
     margin-left:0px;
@@ -239,7 +244,9 @@ body {
   .small-screen .partnerAddBankDialogClass .mat-dialog-title,
   .small-screen .partnerViewBankDetailsDialogClass .mat-dialog-title,
   .small-screen .helpAndSupportDialogClass .mat-dialog-title,
-  .small-screen .partnerQueryDialogClass .mat-dialog-title{
+  .small-screen .partnerQueryDialogClass .mat-dialog-title,
+  .small-screen .memberSummaryDialogClass .mat-dialog-title,
+  .small-screen .memberSummaryAmountDialogClass .mat-dialog-title{
     width:80vw;
   }
 
