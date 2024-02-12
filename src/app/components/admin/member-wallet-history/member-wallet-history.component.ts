@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 interface MemberWalletHistory {
   m_userid: string,
@@ -26,6 +27,7 @@ export class MemberWalletHistoryComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
+    private router:Router,
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -54,6 +56,10 @@ export class MemberWalletHistoryComponent implements OnInit {
 
   addSerialNumbers(data: MemberWalletHistory[]): MemberWalletHistory[] {
     return data.map((item, index) => ({ ...item, serialNumber: index + 1 }));
+  }
+
+  goBack(){
+    this.router.navigate(['/dashboard/home'])
   }
 
 }
