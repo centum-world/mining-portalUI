@@ -1,42 +1,41 @@
 .mat-dialog-title {
-    background-color: #5476f2;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    font-family:calibri;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    z-index: 10;
-    position: sticky;
-    margin-top:-24px;
+  background-color: #5476f2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: calibri;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 10;
+  position: sticky;
+  margin-top: -24px;
 }
 
 .custom-heading {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .close-btn mat-icon {
-    margin-right: 13px;
-    border-radius: 10px;
-    background: red;
+  margin-right: 13px;
+  border-radius: 10px;
+  background: red;
 }
 
 .example-card {
-    max-width: 98%;
-    margin-bottom: 5px;
+  max-width: 98%;
+  margin-bottom: 5px;
 }
 
 .example-header-image {
-    background-image: url("/assets/image/query.jpeg");
-    background-size: cover;
+  background-image: url("/assets/image/query.jpeg");
+  background-size: cover;
 }
 
 .query-div-container {
-    max-height: 300px;
-    /* Adjust the height as needed */
-    overflow-y: auto;
+  max-height: 300px;
+  overflow-y: auto;
 }

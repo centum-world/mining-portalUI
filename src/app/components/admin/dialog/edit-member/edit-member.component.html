@@ -9,7 +9,6 @@
           }}</mat-error>
       </mat-form-field>
 
-      <!-- Last Name -->
       <mat-form-field>
         <input matInput placeholder="Enter your last name" formControlName="lname" required />
         <mat-error *ngIf="editForm.get('lname').invalid">{{
@@ -24,7 +23,7 @@
           getErrorMessage()
           }}</mat-error>
       </mat-form-field>
-      <!-- Phone Number -->
+
       <mat-form-field>
         <input matInput placeholder="Phone Number" formControlName="phone" />
         <mat-error *ngIf="editForm.get('phone').hasError('required')">Phone number is required</mat-error>
@@ -41,7 +40,7 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- State -->
+
       <mat-form-field>
         <input matInput placeholder="Enter your address" formControlName="add" required />
         <mat-error *ngIf="editForm.get('add').invalid">{{getErrorAddressMessage()}}</mat-error>
@@ -58,17 +57,9 @@
     <div mat-dialog-actions align="end">
       <button mat-raised-button mat-dialog-close>Cancel</button>
       <span style="margin-left: 10px"></span>
-      <button
-        mat-raised-button
-        mat-dialog-close
-        type="submit"
-        style="background-color: #5476f2; color: #fff;"
-      >
+      <button mat-raised-button mat-dialog-close type="submit" style="background-color: #5476f2; color: #fff;">
         Ok
       </button>
     </div>
   </form>
-
-
 </div>
-

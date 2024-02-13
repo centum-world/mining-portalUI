@@ -78,26 +78,6 @@ body {
   font-weight: initial;
 }
 
-/* #nav-toggle:checked+.sidebar {
-    width: 70px;
-}
-
-#nav-toggle:checked+.sidebar .sidebar-brand,
-#nav-toggle:checked+.sidebar li a {
-    padding: .5rem;
-}
-
-#nav-toggle:checked+.sidebar .sidebar-brand h2:last-child,
-#nav-toggle:checked+.sidebar li a span:last-child {
-    display: none;
-}
-
-#nav-togle:checked+.sidebar .sidebar-brand,
-#nav-toggle:checked+.sidebar li {
-    padding-left: 1px;
-    text-align: center;
-} */
-
 .sidebar-menu a i {
   margin-right: 1rem;
 }
@@ -118,14 +98,6 @@ body {
   justify-content: center;
 }
 
-/* #nav-toggle:checked~.main-content {
-    margin-left: 70px;
-}
-
-#nav-toggle:checked~.main-content header {
-    width: calc(100% - 70px);
-    left: 70px;
-} */
 
 .main-content {
   transition: margin-left 300ms;
@@ -139,10 +111,8 @@ header {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: sticky;
   left: 330px;
-  /* width: calc(100% - 300px); */
   top: 0;
   z-index: 10;
-  /* background: ; */
   transition: left 300ms;
   height: 90px;
   align-items: center;
@@ -210,8 +180,6 @@ header label span {
 main {
   margin-top: 85px;
   padding: 2rem 1.5rem;
-  /* background: #f0f0f0; */
-  /* min-height: cals(100vh - 90px); */
 }
 
 .cards {
@@ -260,8 +228,6 @@ table thead tr th,
 tbody tr td {
   font-family: Calibri;
 }
-
-/* partnership bond  */
 
 .modal-header h4 {
   color: #8214e9;
@@ -342,9 +308,6 @@ tbody tr td {
     width: calc(100% - 260px);
   }
 
-  /* .sidebar{
-          width: 261px;
-      } */
 }
 
 @media only screen and (min-width: 769px) {
@@ -392,13 +355,10 @@ tbody tr td {
 
 @media only screen and (max-width: 768px) {
   .sidebar {
-    /* width: 70px; */
     display: none;
   }
 
   .header {
-    /* left: 261px; */
-    /* width: calc(100% - 260px); */
     width: 100%;
   }
 
@@ -406,11 +366,6 @@ tbody tr td {
   .sidebar li a {
     padding: 0.5rem;
   }
-
-    /* .sidebar .sidebar-brand h2:last-child,
-    .sidebar li a span:last-child {
-        
-    } */
 
   .sidebar .sidebar-brand,
   .sidebar li {

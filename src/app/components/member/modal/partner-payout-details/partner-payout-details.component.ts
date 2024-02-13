@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import { MAT_DIALOG_DATA } from "@angular/material";
-import { ToastrService } from 'ngx-toastr';
-
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-partner-payout-details",
@@ -15,12 +14,11 @@ export class PartnerPayoutDetailsComponent implements OnInit {
     userid: "",
   };
 
-
   constructor(
-    private userService: UserService,private toastr:ToastrService,
+    private userService: UserService,
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data,23);
     this.partnerDetails.userid = data.userid;
   }
 
@@ -35,18 +33,14 @@ export class PartnerPayoutDetailsComponent implements OnInit {
     };
     this.userService.partnerLastApproveDate(data).subscribe({
       next: (result: any) => {
-        console.log(result.data);
         approveArray = Object.values(result.data);
         let lastPaymentOfIndex = approveArray.length;
         this.partnerDetails.lastPaymentDate =
           approveArray[lastPaymentOfIndex - 1].approve_date;
-        console.log(this.partnerDetails.lastPaymentDate);
       },
       error: (error) => {
         console.log(error.error.message);
       },
     });
   }
-
-
 }

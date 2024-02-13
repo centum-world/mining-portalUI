@@ -1,49 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { ViewChild } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogConfig } from '@angular/material/dialog';
-import { BlockShoComponent } from '../dialog/block-sho/block-sho.component';
-import { VerifyShoComponent } from '../dialog/verify-sho/verify-sho.component';
-import { ShoViewComponent } from '../dialog/sho-view/sho-view.component';
-import { EditShoComponent } from '../dialog/edit-sho/edit-sho.component';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "src/app/service/user.service";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
+import { ViewChild } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
+import { MatDialog } from "@angular/material/dialog";
+import { MatDialogConfig } from "@angular/material/dialog";
+import { BlockShoComponent } from "../dialog/block-sho/block-sho.component";
+import { VerifyShoComponent } from "../dialog/verify-sho/verify-sho.component";
+import { ShoViewComponent } from "../dialog/sho-view/sho-view.component";
+import { EditShoComponent } from "../dialog/edit-sho/edit-sho.component";
+import { Router } from "@angular/router";
 
 interface Sho {
-  stateHandlerId: '',
-  fname: string,
-  lname: string,
-  phone: string,
-  email: string,
-  gender: string,
-  referralId: string,
-  selectedState: string,
-  actions: string,
-  userType:string,
+  stateHandlerId: "";
+  fname: string;
+  lname: string;
+  phone: string;
+  email: string;
+  gender: string;
+  referralId: string;
+  selectedState: string;
+  actions: string;
+  userType: string;
 }
 @Component({
-  selector: 'app-sho-history',
-  templateUrl: './sho-history.component.html',
-  styleUrls: ['./sho-history.component.css']
+  selector: "app-sho-history",
+  templateUrl: "./sho-history.component.html",
+  styleUrls: ["./sho-history.component.css"],
 })
 export class ShoHistoryComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  displayedColumns: string[] = ['stateHandlerId', 'fname', 'lname', 'email', 'phone', 'gender',
-    'referralId', 'selectedState', 'actions'];
+  displayedColumns: string[] = [
+    "stateHandlerId",
+    "fname",
+    "lname",
+    "email",
+    "phone",
+    "gender",
+    "referralId",
+    "selectedState",
+    "actions",
+  ];
 
-    downgradeColumns: string[] =
-     ['stateHandlerId',
-      'fname',
-      'lname',
-      'email', 
-      'phone', 
-      'gender',
-      'referralId', 
-      'selectedState',
-      'userType'];
+  downgradeColumns: string[] = [
+    "stateHandlerId",
+    "fname",
+    "lname",
+    "email",
+    "phone",
+    "gender",
+    "referralId",
+    "selectedState",
+    "userType",
+  ];
 
   dataSource: MatTableDataSource<Sho>;
 
@@ -62,49 +72,45 @@ export class ShoHistoryComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  tabChanged(event: any){
-    if(event === 0 ){
+  tabChanged(event: any) {
+    if (event === 0) {
       this.userService.CallApifetchVerifiedBmm().subscribe({
         next: (res: any) => {
-          console.log(res.data)
-          this.dataSource.data = res.data
+          this.dataSource.data = res.data;
         },
         error: (err) => {
-          console.log(err.message)
-        }
-      })
-    }else if(event === 1){
+          console.log(err.error.message);
+        },
+      });
+    } else if (event === 1) {
       this.userService.CallApifetchUnVerifiedBmm().subscribe({
         next: (res: any) => {
-          console.log(res.data)
-          this.dataSource.data = res.data
+          this.dataSource.data = res.data;
         },
         error: (err) => {
-          console.log(err.message)
-        }
-      })
-    }else if(event === 2){
+          console.log(err.error.message);
+        },
+      });
+    } else if (event === 2) {
       this.userService.CallApifetchUpgradeDowngradeBmm().subscribe({
         next: (res: any) => {
-          console.log(res.data)
-          this.dataSource.data = res.data
+          this.dataSource.data = res.data;
         },
         error: (err) => {
-          console.log(err.message)
-        }
-      })
+          console.log(err.error.message);
+        },
+      });
     }
   }
   callApiToFetchAllSho() {
     this.userService.CallApifetchVerifiedBmm().subscribe({
       next: (res: any) => {
-        console.log(res.data)
-        this.dataSource.data = res.data
+        this.dataSource.data = res.data;
       },
       error: (err) => {
-        console.log(err.message)
-      }
-    })
+        console.log(err.error.message);
+      },
+    });
   }
 
   applyFilter(filterValue: string) {
@@ -112,100 +118,94 @@ export class ShoHistoryComponent implements OnInit {
   }
 
   openIsBlockDialog(shoData: any) {
-    console.log(shoData)
+    console.log(shoData);
 
     let config: MatDialogConfig = {
-      panelClass: 'myBusinessMarketingBlockDialogClass',
-      data: shoData
+      panelClass: "myBusinessMarketingBlockDialogClass",
+      data: shoData,
     };
     const dialogRef = this.dialog.open(BlockShoComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("clicked")
+      console.log("clicked");
       let data = {
-        "isBlocked": !shoData.isBlocked,
-        "stateHandlerId": shoData.stateHandlerId
-      }
+        isBlocked: !shoData.isBlocked,
+        stateHandlerId: shoData.stateHandlerId,
+      };
       this.userService.callApiToBlockOrUnblockSho(data).subscribe({
         next: (res: any) => {
-          console.log(res)
           this.callApiToFetchAllSho();
-          this.toastr.success(res.message)
+          this.toastr.success(res.message);
         },
         error: (err) => {
-          console.log(err)
-        }
+          console.log(err.error.message);
+        },
+      });
+    });
 
-      })
-    })
-
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
   }
 
   openVerifyDialog(shoData: any) {
     let config: MatDialogConfig = {
-      panelClass: 'myBmmVerifyDialogClass',
-      data: shoData
+      panelClass: "myBmmVerifyDialogClass",
+      data: shoData,
     };
     const dialogRef = this.dialog.open(VerifyShoComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("clicked")
+      console.log("clicked");
       let data = {
-        "isVerify": true,
-        "stateHandlerId": shoData.stateHandlerId
-      }
+        isVerify: true,
+        stateHandlerId: shoData.stateHandlerId,
+      };
       this.userService.callApiToAdminVerifySho(data).subscribe({
         next: (res: any) => {
-          console.log(res)
           this.callApiToFetchAllSho();
-          this.toastr.success(res.message)
+          this.toastr.success(res.message);
         },
         error: (err) => {
-          console.log(err)
-        }
+          console.log(err.error.message);
+        },
+      });
+    });
 
-      })
-    })
-
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
   }
 
-  openViewShoDialog(shoData:any){
+  openViewShoDialog(shoData: any) {
     let config: MatDialogConfig = {
-      panelClass: 'myStateViewDialogClass',
-      data: shoData
+      panelClass: "myStateViewDialogClass",
+      data: shoData,
     };
     const dialogRef = this.dialog.open(ShoViewComponent, config);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
   }
 
-  openEditShoDialog(shoData:any){
-    
+  openEditShoDialog(shoData: any) {
     let config: MatDialogConfig = {
-      panelClass: 'myBmmEditDialogClass',
-      data: shoData
+      panelClass: "myBmmEditDialogClass",
+      data: shoData,
     };
     const dialogRef = this.dialog.open(EditShoComponent, config);
 
-    dialogRef.afterClosed().subscribe(result=>{
+    dialogRef.afterClosed().subscribe((result) => {
       this.callApiToFetchAllSho();
-      console.log("closed")
-    })
+      console.log("closed");
+    });
   }
 
-
-  gotoAccountSection(shoData:any){
-    console.log(shoData.stateHandlerId)
+  gotoAccountSection(shoData: any) {
+    console.log(shoData.stateHandlerId);
     this.router.navigate(["dashboard/sho-account", shoData.stateHandlerId]);
   }
-  
-  goBack(){
-    this.router.navigate(['/dashboard/home'])
+
+  goBack() {
+    this.router.navigate(["/dashboard/home"]);
   }
 }

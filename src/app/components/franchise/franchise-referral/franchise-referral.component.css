@@ -1,60 +1,59 @@
-.header{
-    display: flex;
-    justify-content: start;
-    margin-top: 100px;
+.header {
+  display: flex;
+  justify-content: start;
+  margin-top: 100px;
 }
-.header p{
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    margin: -4px 0 0 5px;
+.header p {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: -4px 0 0 5px;
 }
-.bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
 }
 .example-card {
-    margin: 10px;
-    width: 330px;
-}
-  
-.bank-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
-}
-.bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+  margin: 10px;
+  width: 330px;
 }
 
-.example-header-image{
-    background-image: url("/assets/image/bank.jpg");
-    background-size: cover;
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
+}
+
+.example-header-image {
+  background-image: url("/assets/image/bank.jpg");
+  background-size: cover;
 }
 
 @media (max-width: 767px) {
-    .bakk-div {
-        flex-direction: column;
-        align-items: center;
-    }
-    .referral-payout{
-        margin-top: 100px;
-    }
-    .account-section, .referral-payout{
-        margin-left: 0;
-    }
-    
+  .bakk-div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .referral-payout {
+    margin-top: 100px;
+  }
+  .account-section,
+  .referral-payout {
+    margin-left: 0;
+  }
 
-    .example-card {
-        width: 90%;
-    }
-    .withdrwal-button {
-        width: 113px;
-        font-size: 12px;
-    }
-   
+  .example-card {
+    width: 90%;
+  }
+  .withdrwal-button {
+    width: 113px;
+    font-size: 12px;
+  }
 }

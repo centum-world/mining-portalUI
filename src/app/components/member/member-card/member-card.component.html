@@ -16,7 +16,7 @@
           width="50px" height="50px"></button>
       <mat-menu #menu="matMenu">
         <!-- <button mat-menu-item data-toggle="modal" data-target="#myProfileDetails">Profile</button> -->
-        <button mat-menu-item (click)="myProfileDialog()" >Details</button>
+        <button mat-menu-item (click)="myProfileDialog()">Details</button>
         <button mat-menu-item data-toggle="modal" data-target="#memberSummary">Summary</button>
         <a href="" mat-menu-item (click)="logOut()">Log Out</a>
       </mat-menu>
@@ -46,7 +46,7 @@
       </div> -->
       <div class="card-single">
         <div>
-          <h6 style="display: flex;">Promotion 
+          <h6 style="display: flex;">Promotion
             <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
             <span *ngIf="usertype === 'FRANCHISE' "><mat-icon style="color: red">trending_down</mat-icon></span>
             <span *ngIf="usertype === 'BMM'"><mat-icon style="color: red">trending_down</mat-icon></span>
@@ -60,9 +60,7 @@
           <h6>Bank</h6>
           <span>Details</span>
         </div>
-        <!-- <div class="icon" [matMenuTriggerFor]="menuProfile">
-          <span>View</span>
-        </div> -->
+
         <!-- Add a Material Design bank icon -->
         <button mat-icon-button [matMenuTriggerFor]="menuBank">
           <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
@@ -72,10 +70,10 @@
           <button mat-menu-item (click)="memberViewBankDetailsDialog()">View Bank Details</button>
         </mat-menu>
         <mat-menu #menuProfile="matMenu">
-          
+
           <button mat-menu-item (click)="openMemberDetailsDialog()">Details</button>
           <button mat-menu-item (click)="memberDocumentsDialog()">Documents</button>
-         
+
         </mat-menu>
       </div>
       <div class="card-single">
@@ -95,8 +93,8 @@
           <h6>Partner Team</h6>
           <span></span>
         </div>
-        
-        <div data-toggle="modal" (click)="viewListPartnerTeam()" >
+
+        <div data-toggle="modal" (click)="viewListPartnerTeam()">
           <div class="icon">
             <span>View</span>
           </div>
@@ -108,7 +106,8 @@
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
-        <div style="font-weight: bold; font-size:medium;">{{(memberTotalWalletOfEachMonth || 0) | currency: 'INR'}}</div>
+        <div style="font-weight: bold; font-size:medium;">{{(memberTotalWalletOfEachMonth || 0) | currency: 'INR'}}
+        </div>
       </div>
 
       <div class="card-single">
@@ -116,7 +115,7 @@
           <h6>Withdrawal Request</h6>
 
         </div>
-        
+
         <div (click)="viewWithdrawalRequestList()">
           <div class="icon">
             <span>View</span>

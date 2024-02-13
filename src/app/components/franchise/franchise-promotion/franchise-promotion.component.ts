@@ -1,41 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/service/user.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { UserService } from "src/app/service/user.service";
 @Component({
-  selector: 'app-franchise-promotion',
-  templateUrl: './franchise-promotion.component.html',
-  styleUrls: ['./franchise-promotion.component.css']
+  selector: "app-franchise-promotion",
+  templateUrl: "./franchise-promotion.component.html",
+  styleUrls: ["./franchise-promotion.component.css"],
 })
 export class FranchisePromotionComponent implements OnInit {
-  usertype = localStorage.getItem('userType');
-  userid = localStorage.getItem('franchiseId');
+  usertype = localStorage.getItem("userType");
+  userid = localStorage.getItem("franchiseId");
   referAndEarn = [];
-  panelOpenState:false;
-  constructor(private router: Router, private userService : UserService) { }
+  panelOpenState: false;
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
     this.callApiToReferralEarn();
   }
 
-  callApiToReferralEarn(){
+  callApiToReferralEarn() {
     let data = {
-      userid:this.userid,
-      userType:this.usertype
-    }
-    console.log(this.userid, this.usertype)
+      userid: this.userid,
+      userType: this.usertype,
+    };
+    console.log(this.userid, this.usertype);
     this.userService.callApiToReferralAndEarn(data).subscribe({
-      next:(res:any)=>{
-        console.log(res.data)
+      next: (res: any) => {
         this.referAndEarn = res.data;
       },
-      error: error => {
-        console.log(error)
-      }
-    })
+      error: (error) => {
+        console.log(error.error.message);
+      },
+    });
   }
 
-  gotohome(){
-    this.router.navigate(['/franchisedashboard'])
+  gotohome() {
+    this.router.navigate(["/franchisedashboard"]);
   }
-
 }

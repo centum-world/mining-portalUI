@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { allState } from "../common/states";
-import { Router } from '@angular/router'
+import { Router } from "@angular/router";
 
 import {
   FormGroup,
@@ -47,12 +47,10 @@ function mobileNumberValidator(): ValidatorFn {
 })
 export class FranchiseSignUpComponent implements OnInit {
   passwordFieldType: string = "password"; // Initial type is 'password'
-  showPasswordIcon: string = "visibility"; 
+  showPasswordIcon: string = "visibility";
   states = allState.states.map((item) => item.state);
   cities = [];
   spin = false;
-
-  
 
   ngOnInit() {
     console.log(allState.states);
@@ -97,13 +95,11 @@ export class FranchiseSignUpComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  
-
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private toastr: ToastrService,
-    private router : Router
+    private router: Router
   ) {
     this.stateSignUpForm = this.fb.group({
       referralId: this.referralFormControl,
@@ -112,8 +108,8 @@ export class FranchiseSignUpComponent implements OnInit {
       email: this.emailFormControl,
       phone: this.mobileFormControl,
       gender: this.genderFormControl,
-      state: ['', Validators.required],
-      district: ['', Validators.required],
+      state: ["", Validators.required],
+      district: ["", Validators.required],
       aadhar: this.adharFrontControl,
       aadharBack: this.adharBackControl,
       pan: this.panControl,
@@ -128,21 +124,20 @@ export class FranchiseSignUpComponent implements OnInit {
       this.adharFrontControl.setValue(file);
       this.fileTypeInvalid =
         !file.type.match("image/jpeg") && !file.type.match("image/png");
-    } else  if (fileType === "adharBackControl") {
+    } else if (fileType === "adharBackControl") {
       this.adharBackControl.setValue(file);
       this.fileTypeInvalid =
         !file.type.match("image/jpeg") && !file.type.match("image/png");
-    }
-    else if (fileType === "panControl") {
+    } else if (fileType === "panControl") {
       this.panControl.setValue(file);
       this.fileTypeInvalidPanCard =
         !file.type.match("image/jpeg") && !file.type.match("image/png");
     }
   }
 
-  onStateChange(){
+  onStateChange() {
     console.log();
-     const selectedState = this.stateSignUpForm.get("state").value;
+    const selectedState = this.stateSignUpForm.get("state").value;
     const selectedStateObj = allState.states.find(
       (state) => state.state === selectedState
     );
@@ -151,19 +146,19 @@ export class FranchiseSignUpComponent implements OnInit {
 
   addPartnerData(form: FormGroup) {
     this.spin = true;
-    console.log("Form submitted:", form.value.referralId);
-    console.log("fname:", form.value.fname);
-    console.log("lname:", form.value.lname);
-    console.log("phone:", form.value.phone);
-    console.log("email:", form.value.email);
-    console.log("gender:", form.value.gender);
-    console.log("selectedState:", form.value.state);
-    console.log("selectedCity:", form.value.district);
-    console.log("adharFRontCard:", form.value.aadhar);
-    console.log("adharBackCard:", form.value.aadharBack);
-    console.log("panCard:", form.value.pan);
-    console.log("stateHandlerId:", form.value.stateHandlerId);
-    console.log("password:", form.value.password);
+    // console.log("Form submitted:", form.value.referralId);
+    // console.log("fname:", form.value.fname);
+    // console.log("lname:", form.value.lname);
+    // console.log("phone:", form.value.phone);
+    // console.log("email:", form.value.email);
+    // console.log("gender:", form.value.gender);
+    // console.log("selectedState:", form.value.state);
+    // console.log("selectedCity:", form.value.district);
+    // console.log("adharFRontCard:", form.value.aadhar);
+    // console.log("adharBackCard:", form.value.aadharBack);
+    // console.log("panCard:", form.value.pan);
+    // console.log("stateHandlerId:", form.value.stateHandlerId);
+    // console.log("password:", form.value.password);
 
     const formData = new FormData();
     formData.append("referredId", form.value.referralId);
@@ -187,7 +182,7 @@ export class FranchiseSignUpComponent implements OnInit {
           console.log(response);
           form.reset();
           this.toastr.success(response.message);
-          this.router.navigate(['/franchiselogin'])
+          this.router.navigate(["/franchiselogin"]);
         }
       },
       error: (error) => {
@@ -198,10 +193,10 @@ export class FranchiseSignUpComponent implements OnInit {
     });
   }
 
-  login(){
-    this.router.navigate(['/franchiselogin'])
+  login() {
+    this.router.navigate(["/franchiselogin"]);
   }
-  home(){
-    this.router.navigate(['/'])
+  home() {
+    this.router.navigate(["/"]);
   }
 }

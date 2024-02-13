@@ -1,57 +1,48 @@
 .mat-dialog-title {
-    background-color: #5476f2;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    font-family:Calibri;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top:-24px;
+  background-color: #5476f2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Calibri;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: -24px;
 }
 
 .form-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .form-row mat-form-field {
-    width: 48%; /* Adjust as needed, leaving some space for margins */
+  width: 48%;
 }
-.mat-dialog-actions{
-    margin-bottom: 15px;
+.mat-dialog-actions {
+  margin-bottom: 15px;
 }
 @media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
+  .form-row mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-    .form-row {
-        flex-direction: column;
-    }
-    .form-row mat-form-field {
-        width: 100%; /* Full width on smaller screens */
-        margin-bottom: 10px; /* Add margin for separation */
-    }
+  .mat-dialog-content p {
+    font-size: 14px;
+  }
 
-    /* Apply styles for smaller screens */
-    .mat-dialog-content p {
-        font-size: 14px;
-        /* Adjust font size for smaller screens */
-    }
+  .mat-dialog-actions {
+    flex-direction: column;
+  }
 
-    .mat-dialog-actions {
-        flex-direction: column;
-        /* Stack buttons in a column for smaller screens */
-    }
-
-    .mat-dialog-actions button {
-        width: 100%;
-        /* Make buttons full width for smaller screens */
-        margin-bottom: 10px;
-        /* Add some spacing between buttons */
-    }
-    
-      
+  .mat-dialog-actions button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

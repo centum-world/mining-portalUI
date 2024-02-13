@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { UserService } from 'src/app/service/user.service';
-import { ToastrService } from 'ngx-toastr';
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { DatePipe } from '@angular/common';
-import { allState } from 'src/app/components/common/states';
+import { DatePipe } from "@angular/common";
+import { allState } from "src/app/components/common/states";
 
 @Component({
-  selector: 'app-edit-partner',
-  templateUrl: './edit-partner.component.html',
-  styleUrls: ['./edit-partner.component.css']
+  selector: "app-edit-partner",
+  templateUrl: "./edit-partner.component.html",
+  styleUrls: ["./edit-partner.component.css"],
 })
 export class EditPartnerComponent implements OnInit {
   editForm: FormGroup;
@@ -26,8 +26,8 @@ export class EditPartnerComponent implements OnInit {
     nomineePhone: "",
     state: [],
     dob: "",
-    id: ""
-  }
+    id: "",
+  };
   states = allState.states;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -44,12 +44,11 @@ export class EditPartnerComponent implements OnInit {
     this.partnerDetails.add = data.p_address;
     this.partnerDetails.aadhar = data.p_aadhar;
     this.partnerDetails.dob = this.formatISODate(data.p_dob);
-    this.partnerDetails.state = data.p_state
+    this.partnerDetails.state = data.p_state;
     this.partnerDetails.id = data.p_userid;
   }
 
   ngOnInit() {
-
     this.editForm = this.fb.group({
       fname: [this.partnerDetails.fname, Validators.required],
       lname: [this.partnerDetails.lname, Validators.required],
@@ -64,13 +63,12 @@ export class EditPartnerComponent implements OnInit {
       add: [this.partnerDetails.add],
       aadhar: [this.partnerDetails.aadhar],
       dob: [this.partnerDetails.dob],
-      state:[this.partnerDetails.state]
+      state: [this.partnerDetails.state],
     });
   }
-  
 
   private formatISODate(isoDate: string): string {
-    return this.datePipe.transform(isoDate, 'yyyy-MM-dd') || '';
+    return this.datePipe.transform(isoDate, "yyyy-MM-dd") || "";
   }
 
   getErrorMessage() {
@@ -85,37 +83,38 @@ export class EditPartnerComponent implements OnInit {
   }
 
   getErrorFnameMessage() {
-    return this.editForm.get("fname").hasError("required") ? "You must enter first name" : "";
+    return this.editForm.get("fname").hasError("required")
+      ? "You must enter first name"
+      : "";
   }
 
   getErrorLnameMessage() {
-    return this.editForm.get("lname").hasError("required") ? "You must enter last name" : "";
+    return this.editForm.get("lname").hasError("required")
+      ? "You must enter last name"
+      : "";
   }
 
-  getErrorAddressMessage(){
-    
-  }
+  getErrorAddressMessage() {}
   editFormSubmit(editForm: any) {
-    console.log(editForm.value)
     let data = {
       p_name: editForm.value.fname,
       p_lname: editForm.value.lname,
       p_email: editForm.value.email,
       p_phone: editForm.value.phone,
       p_address: editForm.value.add,
-      p_aadhar:editForm.value.aadhar,
-      p_dob:editForm.value.dob,
-      p_state:editForm.value.state,
-      p_userid: this.partnerDetails.id
+      p_aadhar: editForm.value.aadhar,
+      p_dob: editForm.value.dob,
+      p_state: editForm.value.state,
+      p_userid: this.partnerDetails.id,
     };
     this.userService.updatePartnerData(data).subscribe({
       next: (res: any) => {
         this.dialogRef.close();
-        this.toastr.success(res.message)
+        this.toastr.success(res.message);
       },
       error: (err) => {
-        this.toastr.error(err.error.message)
-      }
+        this.toastr.error(err.error.message);
+      },
     });
   }
 }

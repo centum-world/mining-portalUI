@@ -30,8 +30,8 @@ export class HeaderComponent implements OnInit {
     this.isClicked = true;
     console.log("clicked");
     setTimeout(() => {
-      this.isClicked = false
-    }, 2000)
+      this.isClicked = false;
+    }, 2000);
   }
 
   constructor(private router: Router) {}
@@ -40,15 +40,15 @@ export class HeaderComponent implements OnInit {
   }
 
   startTypingAnimation() {
-    const textToType = "ining Rig Partner"; // Text to be typed
-    const typingSpeed = 200; // Adjust typing speed (milliseconds per character)
+    const textToType = "Mining Rig Partner";
+    const typingSpeed = 200;
     let index = 0;
 
     const typingInterval = setInterval(() => {
       if (index < textToType.length) {
         this.typedText += textToType[index];
         index++;
-        this.animationState = "typing"; // Start the typing animation
+        this.animationState = "typing";
       } else {
         clearInterval(typingInterval);
         setTimeout(() => {
@@ -75,28 +75,28 @@ export class HeaderComponent implements OnInit {
   FranchisePage() {
     this.router.navigate(["/franchiselogin"]);
   }
-  BusinessPage(){
+  BusinessPage() {
     this.router.navigate(["/businesslogin"]);
   }
   toggleMobileSidebar() {
-    console.log("button pressed")
+    console.log("button pressed");
     this.isMobileSidebarVisible = !this.isMobileSidebarVisible;
   }
 
   openServiceInNewTab(service: string) {
-    let url = '';
+    let url = "";
 
-    if (service === 'JetTrade FX') {
-      url = 'http://jettradefx.in'; // Replace with the URL for JetTrade FX
-    } else if (service === 'Centum World') {
-      url = 'https://centumworld.com/'; // Replace with the URL for Centum World
-    } else if (service === 'Centumo Swap') {
-      url = 'https://centumo.centumworld.com/#/exchange'; // Replace with the URL for Centumo Swap
+    if (service === "JetTrade FX") {
+      url = "http://jettradefx.in"; // Replace with the URL for JetTrade FX
+    } else if (service === "Centum World") {
+      url = "https://centumworld.com/"; // Replace with the URL for Centum World
+    } else if (service === "Centumo Swap") {
+      url = "https://centumo.centumworld.com/#/exchange"; // Replace with the URL for Centumo Swap
     }
     // Add more conditions for other services if needed
 
-    if (url !== '') {
-      window.open(url, '_blank');
+    if (url !== "") {
+      window.open(url, "_blank");
     }
   }
 }

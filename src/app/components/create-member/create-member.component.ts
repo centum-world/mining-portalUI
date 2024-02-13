@@ -24,7 +24,7 @@ export class CreateMemberComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
-    private router :Router
+    private router: Router
   ) {}
 
   //  Add member
@@ -70,10 +70,8 @@ export class CreateMemberComponent implements OnInit {
       m_doj: this.userForm.value.doj,
       m_userid: this.userForm.value.user_id,
       m_password: this.userForm.value.user_password,
-      //reffer_id: this.createMember.refferal_id
     };
 
-    //create member
     this.userService.createMember(data).subscribe({
       next: (result) => {
         if (result) {
@@ -87,8 +85,8 @@ export class CreateMemberComponent implements OnInit {
     });
   }
 
-  goBack(){
-    this.router.navigate(['/bd-dashboard/home'])
+  goBack() {
+    this.router.navigate(["/bd-dashboard/home"]);
   }
 
   ngOnInit() {}

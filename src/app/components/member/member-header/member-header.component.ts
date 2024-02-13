@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { UserService } from 'src/app/service/user.service';
-import { Router } from '@angular/router';
-import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
-import { MemberDocumentsDetailsComponent } from '../modal/member-documents-details/member-documents-details.component';
-import { MemberSummaryComponent } from '../modal/member-summary/member-summary.component';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { UserService } from "src/app/service/user.service";
+import { Router } from "@angular/router";
+import { MemberProfileDetailsComponent } from "../modal/member-profile-details/member-profile-details.component";
+import { MemberDocumentsDetailsComponent } from "../modal/member-documents-details/member-documents-details.component";
+import { MemberSummaryComponent } from "../modal/member-summary/member-summary.component";
 
 @Component({
-  selector: 'app-member-header',
-  templateUrl: './member-header.component.html',
-  styleUrls: ['./member-header.component.css']
+  selector: "app-member-header",
+  templateUrl: "./member-header.component.html",
+  styleUrls: ["./member-header.component.css"],
 })
 export class MemberHeaderComponent implements OnInit {
   isVisible: boolean = false;
@@ -19,38 +19,38 @@ export class MemberHeaderComponent implements OnInit {
 
   monthlyPayment: any;
 
-  
-  constructor(private userService:UserService , private dialog:MatDialog,private router:Router, private toastr: ToastrService) { }
+  constructor(
+    private userService: UserService,
+    private dialog: MatDialog,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
   memberDetails: any = {};
-  memberDocuments={
-    aadharFrontSide:"",
-    aadharBackSide:"",
-    panCard:""
-
-  }
-  memberSummary:any=[]
-
+  memberDocuments = {
+    aadharFrontSide: "",
+    aadharBackSide: "",
+    panCard: "",
+  };
+  memberSummary: any = [];
 
   ngOnInit() {
-
     let myteamwithpartner = {
-      p_reffered_id: localStorage.getItem('mrefferid')
-    }
-  
-    // console.log(this.memberDocuments)
-    this.userService.useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner).subscribe({
-      next: (response: any) => {
-        if (response) {
-          this.memberRefferalIdToPartner = Object.values(response.data);
-          console.log(Object.values(response.data),'117')
+      p_reffered_id: localStorage.getItem("mrefferid"),
+    };
 
-        }
-      },
-      error: error => {
-        this.toastr.error('Something Went Wrong', 'Error');
-      }
-  
-    })
+    this.userService
+      .useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner)
+      .subscribe({
+        next: (response: any) => {
+          if (response) {
+            this.memberRefferalIdToPartner = Object.values(response.data);
+            console.log(Object.values(response.data), "117");
+          }
+        },
+        error: (error) => {
+          this.toastr.error("Something Went Wrong", "Error");
+        },
+      });
   }
 
   toggleSidebar() {
@@ -90,148 +90,139 @@ export class MemberHeaderComponent implements OnInit {
   //     }
   //   })
   // }
-  
-  myProfileDialog(){
+
+  myProfileDialog() {
     this.isVisible = false;
     let data = {
-      m_userid :localStorage.getItem('userdetail')
-     }
-     this.userService.fetchMemberPortalDetails(data).subscribe({
+      m_userid: localStorage.getItem("userdetail"),
+    };
+    this.userService.fetchMemberPortalDetails(data).subscribe({
       next: (response: any) => {
         if (response) {
-            // console.log(response.data)
-            this.memberDetails.fname= response.data[0].m_name;
-            this.memberDetails.lname= response.data[0].m_lname;
-            this.memberDetails.phone= response.data[0].m_phone;
-            this.memberDetails.email= response.data[0].m_email;
-            this.memberDetails.address= response.data[0].m_add;
-            this.memberDetails.dob= response.data[0].m_dob;
-            this.memberDetails.gender= response.data[0].m_gender;
-            this.memberDetails.referredId= response.data[0].m_refferid;
-            this.memberDetails.referralId= response.data[0].reffer_id;
-            this.memberDetails.memberId= response.data[0].m_userid;
-            this.memberDetails.state= response.data[0].m_state;
-            this.memberDetails.designation= response.data[0].m_designation;
-            // console.log(this.memberDetails.fname)
-            let config:MatDialogConfig = {
-            panelClass:'memberDetailsDialogClass', data:this.memberDetails
-            };
-            const dialogRef = this.dialog.open(MemberProfileDetailsComponent,config);
-            dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
-              // Do something with the result if needed
-            })
+          this.memberDetails.fname = response.data[0].m_name;
+          this.memberDetails.lname = response.data[0].m_lname;
+          this.memberDetails.phone = response.data[0].m_phone;
+          this.memberDetails.email = response.data[0].m_email;
+          this.memberDetails.address = response.data[0].m_add;
+          this.memberDetails.dob = response.data[0].m_dob;
+          this.memberDetails.gender = response.data[0].m_gender;
+          this.memberDetails.referredId = response.data[0].m_refferid;
+          this.memberDetails.referralId = response.data[0].reffer_id;
+          this.memberDetails.memberId = response.data[0].m_userid;
+          this.memberDetails.state = response.data[0].m_state;
+          this.memberDetails.designation = response.data[0].m_designation;
+
+          let config: MatDialogConfig = {
+            panelClass: "memberDetailsDialogClass",
+            data: this.memberDetails,
+          };
+          const dialogRef = this.dialog.open(
+            MemberProfileDetailsComponent,
+            config
+          );
+          dialogRef.afterClosed().subscribe((result) => {
+            console.log("The dialog was closed");
+          });
         }
       },
-      error: error => {
-       console.log(error)
-      }
-    })
+      error: (error) => {
+        console.log(error.error.message);
+      },
+    });
   }
 
-  summaryOpenDialog(){
+  summaryOpenDialog() {
     let myteamwithpartner = {
-      p_reffered_id: localStorage.getItem('mrefferid')
-    }
-     this.userService.useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner).subscribe({
-      next: (response: any) => {
-        if (response) {
-          console.log(response,'139')
-          this.memberSummary = response.data;
-          
-            let config:MatDialogConfig = {
-            panelClass:'memberSummaryDialogClass', data:this.memberSummary
+      p_reffered_id: localStorage.getItem("mrefferid"),
+    };
+    this.userService
+      .useRefferalIdOfMemberToFetchMiningPartner(myteamwithpartner)
+      .subscribe({
+        next: (response: any) => {
+          if (response) {
+            this.memberSummary = response.data;
+
+            let config: MatDialogConfig = {
+              panelClass: "memberSummaryDialogClass",
+              data: this.memberSummary,
             };
-            const dialogRef = this.dialog.open(MemberSummaryComponent,config);
-            dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
-              // Do something with the result if needed
-            })
-        }
-      },
-      error: error => {
-       console.log(error)
-      }
-    })
+            const dialogRef = this.dialog.open(MemberSummaryComponent, config);
+            dialogRef.afterClosed().subscribe((result) => {
+              console.log("The dialog was closed");
+            });
+          }
+        },
+        error: (error) => {
+          console.log(error.error.message);
+        },
+      });
   }
 
-  myDocumentsDialog(){
+  myDocumentsDialog() {
     this.isVisible = false;
     let data = {
-      m_userid:localStorage.getItem('userdetail')
-    }
+      m_userid: localStorage.getItem("userdetail"),
+    };
 
     this.userService.fetchMemberPortalDetails(data).subscribe({
       next: (response: any) => {
         if (response) {
-          console.log(response.data)
-           this.memberDocuments.aadharFrontSide = response.data[0].adhar_front_side,
-           this.memberDocuments.aadharBackSide= response.data[0].adhar_back_side,
-           this.memberDocuments.panCard = response.data[0].panCard
-
+          (this.memberDocuments.aadharFrontSide =
+            response.data[0].adhar_front_side),
+            (this.memberDocuments.aadharBackSide =
+              response.data[0].adhar_back_side),
+            (this.memberDocuments.panCard = response.data[0].panCard);
         }
-         console.log(this.memberDocuments)
+        console.log(this.memberDocuments);
         let config: MatDialogConfig = {
-          panelClass:'memberProfileDocumetsDialogClass',data:this.memberDocuments
-       
-         };
-         const dialogRef = this.dialog.open(MemberDocumentsDetailsComponent,config);
-       
-         dialogRef.afterClosed().subscribe(result => {
-           console.log('The dialog was closed');
-           // Do something with the result if needed
-         });
+          panelClass: "memberProfileDocumetsDialogClass",
+          data: this.memberDocuments,
+        };
+        const dialogRef = this.dialog.open(
+          MemberDocumentsDetailsComponent,
+          config
+        );
+
+        dialogRef.afterClosed().subscribe((result) => {
+          console.log("The dialog was closed");
+        });
       },
-      error: error => {
-       console.log(error)
-      }
-    })
-
-
-    // console.log(this.memberDocuments)
-
- 
+      error: (error) => {
+        console.log(error.error.message);
+      },
+    });
   }
 
-  
-
-
-
-  withdrawal(){
-    this.router.navigate(['/memberdashboard/withdrawal-request']);
+  withdrawal() {
+    this.router.navigate(["/memberdashboard/withdrawal-request"]);
     this.isVisible = false;
   }
 
-
-  myTeam(){
-    this.router.navigate(['/memberdashboard/my-team']);
-    this.isVisible = false;
-  }
-  
-  partnerList(){
-    this.router.navigate(['/memberdashboard/partner-list']);
+  myTeam() {
+    this.router.navigate(["/memberdashboard/my-team"]);
     this.isVisible = false;
   }
 
-  referralPayout(){
-    this.router.navigate(['/memberdashboard/referral-payout']);
+  partnerList() {
+    this.router.navigate(["/memberdashboard/partner-list"]);
     this.isVisible = false;
   }
 
-  dashboard(){
-    this.router.navigate(['/memberdashboard']);
+  referralPayout() {
+    this.router.navigate(["/memberdashboard/referral-payout"]);
+    this.isVisible = false;
   }
 
-  promotion(){
-    this.router.navigate(['/memberdashboard/promotion']);
+  dashboard() {
+    this.router.navigate(["/memberdashboard"]);
   }
 
- 
-  
-  logOut(){
+  promotion() {
+    this.router.navigate(["/memberdashboard/promotion"]);
+  }
+
+  logOut() {
     localStorage.clear();
-    this.router.navigate(['/memberlogin'])
-  
+    this.router.navigate(["/memberlogin"]);
   }
-
 }

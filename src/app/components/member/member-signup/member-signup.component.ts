@@ -48,9 +48,8 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility_off";
-  passwordShow:boolean = false;
+  passwordShow: boolean = false;
   states = allState.states.map((item) => item.state);
-  // role: "";
   aadharImage: File | null = null;
   aadharBackImage: File | null = null;
   panImage: File | null = null;
@@ -115,7 +114,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
   addMemberData(form: FormGroup) {
     this.spin = true;
-     this.createReferralMember.refferal_id =
+    this.createReferralMember.refferal_id =
       this.memberSignUpFrom.value.user_id + Math.floor(Math.random() * 100000);
 
     const originalDateStrDob = this.memberSignUpFrom.value.dob;
@@ -124,40 +123,38 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // Month is zero-based
     const day = String(dateObj.getDate()).padStart(2, "0");
     const newDobFormat = `${year}-${month}-${day}`;
-    console.log(newDobFormat,'126')
 
     // ------------------------DoJ---------
 
     const originalDateStrDoj = this.memberSignUpFrom.value.doj;
     const dateObj1 = new Date(originalDateStrDoj);
     const yearDoj = dateObj1.getFullYear();
-    const monthDoj = String(dateObj1.getMonth() + 1).padStart(2, "0"); 
+    const monthDoj = String(dateObj1.getMonth() + 1).padStart(2, "0");
     const dayDoj = String(dateObj1.getDate()).padStart(2, "0");
     const newDojFormat = `${yearDoj}-${monthDoj}-${dayDoj}`;
-    console.log(newDojFormat,'136')
 
-    console.log(this.createReferralMember.refferal_id);
-    console.log(
-      this.memberSignUpFrom.value.reffered_id,
-      this.memberSignUpFrom.value.name,
-      this.memberSignUpFrom.value.lname,
-      this.memberSignUpFrom.value.email,
-      this.memberSignUpFrom.value.phone,
-      this.memberSignUpFrom.value.gender,
-      this.memberSignUpFrom.value.qualification,
-      this.memberSignUpFrom.value.designation,
-      this.memberSignUpFrom.value.experience,
-      this.memberSignUpFrom.value.salary,
-      this.memberSignUpFrom.value.address,
-      this.memberSignUpFrom.value.state,
-      this.memberSignUpFrom.value.dob,
-      this.memberSignUpFrom.value.doj,
-      this.memberSignUpFrom.value.user_id,
-      this.memberSignUpFrom.value.password,
-      this.aadharBackImage,
-      this.aadharImage,
-      this.panImage
-    );
+    // console.log(this.createReferralMember.refferal_id);
+    // console.log(
+    //   this.memberSignUpFrom.value.reffered_id,
+    //   this.memberSignUpFrom.value.name,
+    //   this.memberSignUpFrom.value.lname,
+    //   this.memberSignUpFrom.value.email,
+    //   this.memberSignUpFrom.value.phone,
+    //   this.memberSignUpFrom.value.gender,
+    //   this.memberSignUpFrom.value.qualification,
+    //   this.memberSignUpFrom.value.designation,
+    //   this.memberSignUpFrom.value.experience,
+    //   this.memberSignUpFrom.value.salary,
+    //   this.memberSignUpFrom.value.address,
+    //   this.memberSignUpFrom.value.state,
+    //   this.memberSignUpFrom.value.dob,
+    //   this.memberSignUpFrom.value.doj,
+    //   this.memberSignUpFrom.value.user_id,
+    //   this.memberSignUpFrom.value.password,
+    //   this.aadharBackImage,
+    //   this.aadharImage,
+    //   this.panImage
+    // );
 
     const formData = new FormData();
     formData.append("m_refferid", this.memberSignUpFrom.value.reffered_id);
@@ -186,21 +183,19 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     formData.append("adhar_back_side", this.aadharBackImage);
     formData.append("panCard", this.panImage);
 
-    console.log(formData, "126");
-
     this.userService.signUpMember(formData).subscribe({
-      next: response => {
+      next: (response) => {
         if (response) {
-          this.toastr.success('Data submitted successfully', 'Success');
-            form.reset();
-            this.spin = false;
+          this.toastr.success("Data submitted successfully", "Success");
+          form.reset();
+          this.spin = false;
         }
       },
-      error: error => {
+      error: (error) => {
         this.spin = false;
         this.toastr.error(error.error.message);
-      }
-    })
+      },
+    });
   }
 
   loginMember(form: FormGroup) {
@@ -212,8 +207,6 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       m_userid: this.memberLoginForm.value.loginUser_id,
       m_password: this.memberLoginForm.value.loginPassword,
     };
-
-    console.log(data);
 
     this.userService.memberLogin(data).subscribe({
       next: (response: any) => {
@@ -231,7 +224,6 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
         }
       },
       error: (error) => {
-        // console.log(error.error.message,'175')
         this.toastr.error(error.error.message, "Error");
       },
     });
@@ -259,11 +251,10 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   }
 
   togglePasswordVisibility(): void {
-    this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
+    this.passwordFieldType =
+      this.passwordFieldType === "password" ? "text" : "password";
     this.passwordShow = !this.passwordShow;
-    this.showPasswordIcon =
-    this.passwordShow ? "visibility" : "visibility_off";
-     
+    this.showPasswordIcon = this.passwordShow ? "visibility" : "visibility_off";
   }
 
   onFileSelected(event: any, fileSelected: any): void {

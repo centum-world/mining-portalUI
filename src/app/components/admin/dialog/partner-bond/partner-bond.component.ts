@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { UserService } from 'src/app/service/user.service';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-partner-bond',
-  templateUrl: './partner-bond.component.html',
-  styleUrls: ['./partner-bond.component.css']
+  selector: "app-partner-bond",
+  templateUrl: "./partner-bond.component.html",
+  styleUrls: ["./partner-bond.component.css"],
 })
 export class PartnerBondComponent implements OnInit {
+  fileUploadForm: FormGroup;
 
-  fileUploadForm: FormGroup; // Define a FormGroup
+  constructor(
+    private userService: UserService,
+    private toastr: ToastrService
+  ) {}
 
-  constructor(private userService : UserService, private toastr: ToastrService) {
-   
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   selectedFile: File | null = null;
 
@@ -27,27 +26,21 @@ export class PartnerBondComponent implements OnInit {
 
   uploadFile(): void {
     if (this.selectedFile) {
-      console.log('Selected file:', this.selectedFile);
+      console.log("Selected file:", this.selectedFile);
 
       const form = new FormData();
-      form.append('bond', this.selectedFile);
+      form.append("bond", this.selectedFile);
       this.userService.bondUpload(form).subscribe({
-        next:(res:any)=>{
-          console.log(res.data)
-          this.toastr.success(res.message)
+        next: (res: any) => {
+          console.log(res.data);
+          this.toastr.success(res.message);
         },
-        error:(err=>{
-          this.toastr.warning(err.error.message)
-        })
-        
-      })
-
+        error: (err) => {
+          this.toastr.warning(err.error.message);
+        },
+      });
     } else {
-      this.toastr.error('No file selected')
-    
+      this.toastr.error("No file selected");
     }
   }
-  
-  
-
 }

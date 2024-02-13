@@ -3,7 +3,7 @@
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  font-family:calibri;
+  font-family: calibri;
   margin-left: -24px;
   margin-right: -24px;
   padding-left: 16px;
@@ -17,11 +17,11 @@
   justify-content: space-between;
   height: 100%;
 }
-.modal-header{
-width: 100%;
-height: 60px;
-background: #b63003;
-}  
+.modal-header {
+  width: 100%;
+  height: 60px;
+  background: #b63003;
+}
 
 .modal-body {
   display: flex;
@@ -30,19 +30,18 @@ background: #b63003;
 
 .image-block {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .image {
-  width: 250px; /* Set the width and height of the images */
+  width: 250px;
   height: 150px;
   margin-right: 10px;
   margin-bottom: 5px;
-  cursor: pointer; /* Add some margin between images */
+  cursor: pointer;
 }
-
 
 .myStateViewDialogClass {
   display: flex;
@@ -55,33 +54,31 @@ background: #b63003;
   align-items: center;
   margin-bottom: 5px;
 }
-.image-button button{
-width: 250px;
-margin-bottom: 5px !important;
+.image-button button {
+  width: 250px;
+  margin-bottom: 5px !important;
 }
-
 
 .image-container {
   flex: 1;
   display: inline-block;
   text-align: center;
-  margin: 0 10px; 
+  margin: 0 10px;
 }
 .mat-dialog-actions {
-margin-bottom: 0px;
+  margin-bottom: 0px;
 }
-
 
 @media (min-width: 768px) and (max-width: 1024px) {
-.mat-dialog-actions {
-  margin-bottom: 0px;
-  margin-top: 250px;
-}
+  .mat-dialog-actions {
+    margin-bottom: 0px;
+    margin-top: 250px;
+  }
 }
 
-@media (max-width:786px) {
-.mat-dialog-actions {
-  margin-bottom: 0px;
-  margin-top: 300px;
-}
+@media (max-width: 786px) {
+  .mat-dialog-actions {
+    margin-bottom: 0px;
+    margin-top: 300px;
+  }
 }
