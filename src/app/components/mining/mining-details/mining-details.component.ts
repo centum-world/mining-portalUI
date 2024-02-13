@@ -1,4 +1,4 @@
-import { Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { MatDialogConfig } from "@angular/material";
@@ -9,7 +9,6 @@ import { MyQueryComponent } from "../dialog/my-query/my-query.component";
 import { PdfService } from "src/app/pdfService/pdf.service";
 
 // import image from '../../../../assets/image/pdfBond.png';
-
 
 interface Partner {
   p_userid: string;
@@ -31,9 +30,8 @@ interface Partner {
   styleUrls: ["./mining-details.component.css"],
 })
 export class MiningDetailsComponent implements OnInit {
- 
   hideContent = false;
-  
+
   query = [];
   displayedColumns: string[] = [
     "p_userid",
@@ -71,7 +69,6 @@ export class MiningDetailsComponent implements OnInit {
     };
     this.userService.fetchMiningPartnerProfileDetails(data).subscribe({
       next: (res: any) => {
-        console.log(res.data);
         this.dataSource.data = res.data;
       },
       error: (err) => {
@@ -92,7 +89,6 @@ export class MiningDetailsComponent implements OnInit {
       panelClass: "myPartnerViewDialogClass",
       data: partner,
     };
-    console.log(partner);
     const dialogRef = this.dialog.open(PartnerViewComponent, config);
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -100,25 +96,20 @@ export class MiningDetailsComponent implements OnInit {
     });
   }
 
-  downLoadPartnershipBond(){
-    console.log("hii")
+  downLoadPartnershipBond() {
     this.userService.fetchPartnerBond().subscribe({
-      next:(res:any)=>{
-       console.log(res.data[0].bond);
-      const bondData = res.data[0].bond;
-      const pdfUrl = bondData;
+      next: (res: any) => {
+        console.log(res.data[0].bond);
+        const bondData = res.data[0].bond;
+        const pdfUrl = bondData;
 
-      window.open(pdfUrl, '_blank');
+        window.open(pdfUrl, "_blank");
       },
-      error:(err=>{
-        console.log(err.error.message)
-      })
-    })
+      error: (err) => {
+        console.log(err.error.message);
+      },
+    });
   }
-
- 
-
-  
 
   toggleContent() {
     this.hideContent = !this.hideContent;

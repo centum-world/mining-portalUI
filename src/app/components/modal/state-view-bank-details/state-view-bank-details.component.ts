@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
-import { UserService } from 'src/app/service/user.service';
+import { Component, OnInit, Inject } from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { ToastrService } from "ngx-toastr";
+import { UserService } from "src/app/service/user.service";
 
 interface BankDetails {
   holder_name: string;
@@ -13,19 +13,25 @@ interface BankDetails {
 }
 
 @Component({
-  selector: 'app-state-view-bank-details',
-  templateUrl: './state-view-bank-details.component.html',
-  styleUrls: ['./state-view-bank-details.component.css']
+  selector: "app-state-view-bank-details",
+  templateUrl: "./state-view-bank-details.component.html",
+  styleUrls: ["./state-view-bank-details.component.css"],
 })
 export class StateViewBankDetailsComponent implements OnInit {
   bankDetails: BankDetails[] = [];
   selectedBank = {
-    bankName: null
+    bankName: null,
   };
-  shoID = '';
+  shoID = "";
   dataSource: MatTableDataSource<BankDetails>;
-  displayStateHandlerId = localStorage.getItem('stateHandlerId');
-  displayedColumns: string[] = ['holder_name', 'bank_name', 'branch_name', 'account_no', 'ifsc_code'];
+  displayStateHandlerId = localStorage.getItem("stateHandlerId");
+  displayedColumns: string[] = [
+    "holder_name",
+    "bank_name",
+    "branch_name",
+    "account_no",
+    "ifsc_code",
+  ];
   noBankDetailsFound = false;
 
   constructor(
@@ -41,7 +47,6 @@ export class StateViewBankDetailsComponent implements OnInit {
         this.shoID = entry.user_id;
         if (entry.isPrimary === 1) {
           this.selectedBank.bankName = entry.bank_name;
-          // this.shoID = entry.user_id;
         }
       }
     } else {
@@ -54,7 +59,7 @@ export class StateViewBankDetailsComponent implements OnInit {
   onRadioChange() {
     let data = {
       user_id: this.shoID,
-      bank_name: this.selectedBank.bankName
+      bank_name: this.selectedBank.bankName,
     };
 
     this.userService.shoChangePrimarybank(data).subscribe({
@@ -63,7 +68,7 @@ export class StateViewBankDetailsComponent implements OnInit {
       },
       error: (err) => {
         this.toastr.warning(err.error.message);
-      }
+      },
     });
   }
 }

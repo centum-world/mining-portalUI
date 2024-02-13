@@ -2,41 +2,38 @@
   <a href="/dashboard">Home</a>
 </div>
 <div class="marque">
-  
-    <h4>Withdrawal Request</h4>
+  <h4>Withdrawal Request</h4>
 </div>
 <div class="container">
-    <div *ngIf="noRequestAvailable" class="table table-hover table-responsive">
-        <thead>
-          <tr>
-            <th scope="col">Sr No</th>
-            <th scope="col">User ID</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Service Charge(5%)</th>
-            <th scope="col">Payable Amount</th>
-            <th scope="col">Refferal</th>
-            <th scope="col">Requested Date</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of memberRequestHistory; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{data.m_userid}}</td>
-            <td>{{data.member_wallet | currency:'INR'}}</td>
-            <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
-            <td>{{(data.member_wallet-(data.member_wallet*5)/100) | currency:'INR'}}</td>
-            <td>{{data.reffer_p_userid}}</td>
-            <td>{{data.request_date | date}}</td>
-            <td> <button type="button" class="btn btn-outline-success" (click) = "sendUserId(data.m_userid,data.id)">Approve</button></td>
-          </tr>
-          
-        </tbody>
-      </div>
-      <div class="not-found" *ngIf="!noRequestAvailable" style="color:red">
-        No data found
-      </div>
-      
-      
-     
+  <div *ngIf="noRequestAvailable" class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Service Charge(5%)</th>
+        <th scope="col">Payable Amount</th>
+        <th scope="col">Refferal</th>
+        <th scope="col">Requested Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of memberRequestHistory; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{data.m_userid}}</td>
+        <td>{{data.member_wallet | currency:'INR'}}</td>
+        <td>{{(data.member_wallet*5)/100 | currency:'INR'}}</td>
+        <td>{{(data.member_wallet-(data.member_wallet*5)/100) | currency:'INR'}}</td>
+        <td>{{data.reffer_p_userid}}</td>
+        <td>{{data.request_date | date}}</td>
+        <td> <button type="button" class="btn btn-outline-success"
+            (click)="sendUserId(data.m_userid,data.id)">Approve</button></td>
+      </tr>
+
+    </tbody>
+  </div>
+  <div class="not-found" *ngIf="!noRequestAvailable" style="color:red">
+    No data found
+  </div>
 </div>

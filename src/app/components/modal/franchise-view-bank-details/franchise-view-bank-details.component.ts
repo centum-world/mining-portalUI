@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Inject } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
-import { UserService } from 'src/app/service/user.service';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit } from "@angular/core";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Inject } from "@angular/core";
+import { MatTableDataSource } from "@angular/material";
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
 
 interface BankDetails {
   holder_name: string;
@@ -14,23 +14,33 @@ interface BankDetails {
 }
 
 @Component({
-  selector: 'app-franchise-view-bank-details',
-  templateUrl: './franchise-view-bank-details.component.html',
-  styleUrls: ['./franchise-view-bank-details.component.css']
+  selector: "app-franchise-view-bank-details",
+  templateUrl: "./franchise-view-bank-details.component.html",
+  styleUrls: ["./franchise-view-bank-details.component.css"],
 })
 export class FranchiseViewBankDetailsComponent implements OnInit {
   bankDetails: BankDetails[] = [];
   selectedBank = {
-    bankName: null
+    bankName: null,
   };
 
   franchiseId = "";
   dataSource: MatTableDataSource<BankDetails>;
-  displayFranchiseId = localStorage.getItem('franchiseId');
-  displayedColumns: string[] = ['holder_name', 'bank_name', 'branch_name', 'account_no', 'ifsc_code'];
+  displayFranchiseId = localStorage.getItem("franchiseId");
+  displayedColumns: string[] = [
+    "holder_name",
+    "bank_name",
+    "branch_name",
+    "account_no",
+    "ifsc_code",
+  ];
   noBankDetailsFound = false;
 
-  constructor(private userService: UserService, private toastr: ToastrService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(
+    private userService: UserService,
+    private toastr: ToastrService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     this.dataSource = new MatTableDataSource([]);
     if (data && data.length > 0) {
       this.dataSource.data = data;
@@ -46,23 +56,21 @@ export class FranchiseViewBankDetailsComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onRadioChange() {
-    console.log(this.selectedBank.bankName, this.franchiseId);
     let data = {
       user_id: localStorage.getItem("franchiseId"),
-      bank_name: this.selectedBank.bankName
+      bank_name: this.selectedBank.bankName,
     };
 
     this.userService.franchieChangePrimarybank(data).subscribe({
       next: (res: any) => {
         this.toastr.success(res.message);
       },
-      error: (err => {
+      error: (err) => {
         this.toastr.warning(err.error.message);
-      })
+      },
     });
   }
 }

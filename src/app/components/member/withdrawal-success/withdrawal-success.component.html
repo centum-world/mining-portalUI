@@ -17,7 +17,8 @@
                     <h2>Service Charge</h2>{{ ((data.member_wallet * 5) / 100) | currency:'INR':'symbol':'1.2-2' }}
                 </div>
                 <div class="bank-details">
-                    <h2>Payable Amount</h2> <strong>{{ (data.member_wallet - (data.member_wallet * 5) / 100) | currency:'INR':'symbol':'1.2-2' }}</strong>
+                    <h2>Payable Amount</h2> <strong>{{ (data.member_wallet - (data.member_wallet * 5) / 100) |
+                        currency:'INR':'symbol':'1.2-2' }}</strong>
                 </div>
                 <div class="bank-details">
                     <h2>Referral</h2> <strong>{{ data.reffer_p_userid }}</strong>
