@@ -38,13 +38,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-bmm-signup-login',
-  templateUrl: './bmm-signup-login.component.html',
-  styleUrls: ['./bmm-signup-login.component.css']
+  selector: "app-bmm-signup-login",
+  templateUrl: "./bmm-signup-login.component.html",
+  styleUrls: ["./bmm-signup-login.component.css"],
 })
-export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
-
-  @ViewChild("phoneNumberInput", { static: false }) phoneNumberInput: ElementRef;
+export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
+  @ViewChild("phoneNumberInput", { static: false })
+  phoneNumberInput: ElementRef;
 
   creatingAccount: boolean = false;
   privacy = false;
@@ -55,7 +55,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
   // role: "";
   aadharImage: File | null = null;
   aadharBackImage: File | null = null;
-  panImage: File|null = null;
+  panImage: File | null = null;
   aadharImageName: string = "";
   backAadharImageName: string = "";
   panImageName: string = "";
@@ -64,8 +64,8 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
   };
   spin = false;
   change = false;
-  countryCode:"";
-  pagename:String="Sign in your account";
+  countryCode: "";
+  pagename: String = "Sign in your account";
   bmmSignUpForm: FormGroup;
   bmmLoginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
@@ -75,7 +75,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private shareService : ShareService
+    private shareService: ShareService
   ) {
     this.bmmSignUpForm = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -97,12 +97,12 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     this.bmmLoginForm = this.formBuilder.group({
       loginUser_id: new FormControl("", [Validators.required]),
       loginPassword: new FormControl("", [Validators.required]),
-    })
+    });
   }
 
-  onStateChange(){
+  onStateChange() {
     console.log();
-     const selectedState = this.bmmSignUpForm.get("state").value;
+    const selectedState = this.bmmSignUpForm.get("state").value;
     const selectedStateObj = allState.states.find(
       (state) => state.state === selectedState
     );
@@ -111,8 +111,9 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
 
   addBmmData(form: FormGroup) {
     this.creatingAccount = true;
-    this.createBmm.refferal_id = this.bmmSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
-    console.log(this.createBmm.refferal_id)
+    this.createBmm.refferal_id =
+      this.bmmSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
+    console.log(this.createBmm.refferal_id);
     console.log(
       this.bmmSignUpForm.value.reffered_id,
       this.bmmSignUpForm.value.name,
@@ -129,56 +130,59 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     );
 
     const formData = new FormData();
-    formData.append('fname', this.bmmSignUpForm.value.name);
-    formData.append('lname', this.bmmSignUpForm.value.lname);
-    formData.append('phone','+' + this.countryCode + this.bmmSignUpForm.value.phone.replace(/\s/g, ''));
-    formData.append('email',  this.bmmSignUpForm.value.email);
-    formData.append('gender',this.bmmSignUpForm.value.gender);
-    formData.append('selectedState',this.bmmSignUpForm.value.state);
-    formData.append('stateHandlerId', this.bmmSignUpForm.value.user_id);
-    formData.append('password', this.bmmSignUpForm.value.password);
-    formData.append('adhar_front_side', this.aadharImage);
-    formData.append('adhar_back_side', this.aadharBackImage);
-    formData.append('panCard',this.panImage);
-    formData.append('referredId',"admin123");
+    formData.append("fname", this.bmmSignUpForm.value.name);
+    formData.append("lname", this.bmmSignUpForm.value.lname);
+    // formData.append('phone','+' + this.countryCode + this.bmmSignUpForm.value.phone.replace(/\s/g, ''));
+    formData.append("phone", this.bmmSignUpForm.value.phone.replace(/\s/g, ""));
 
-    console.log(formData,'126')
-  
+    formData.append("email", this.bmmSignUpForm.value.email);
+    formData.append("gender", this.bmmSignUpForm.value.gender);
+    formData.append("selectedState", this.bmmSignUpForm.value.state);
+    formData.append("stateHandlerId", this.bmmSignUpForm.value.user_id);
+    formData.append("password", this.bmmSignUpForm.value.password);
+    formData.append("adhar_front_side", this.aadharImage);
+    formData.append("adhar_back_side", this.aadharBackImage);
+    formData.append("panCard", this.panImage);
+    formData.append("referredId", "admin123");
+
+    console.log(formData, "126");
+
     this.userService.createSho(formData).subscribe({
-      next: response => {
+      next: (response) => {
         if (response) {
-         
-          this.toastr.success('Data submitted successfully', 'Success');
-            form.reset();
-            this.creatingAccount = false;
-            // this.spin = false;
+          this.toastr.success("Data submitted successfully", "Success");
+          form.reset();
+          this.creatingAccount = false;
+          // this.spin = false;
         }
       },
-      error: error => {
+      error: (error) => {
         // this.spin = false;
         this.creatingAccount = false;
         this.toastr.error(error.error.message);
-      }
-    })
-
+      },
+    });
   }
 
-  loginBmm(form : FormGroup){
-    console.log(this.bmmLoginForm.value.loginUser_id, this.bmmLoginForm.value.loginPassword)
+  loginBmm(form: FormGroup) {
+    console.log(
+      this.bmmLoginForm.value.loginUser_id,
+      this.bmmLoginForm.value.loginPassword
+    );
     let data = {
       userid: this.bmmLoginForm.value.loginUser_id,
-      password: this.bmmLoginForm.value.loginPassword
+      password: this.bmmLoginForm.value.loginPassword,
     };
 
-    console.log(data)
+    console.log(data);
 
     this.userService.shoLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
-          localStorage.setItem('login','true');
-          localStorage.setItem('stateHandlerId',response.user.stateHandlerId)
-          localStorage.setItem('stateRefferalId',response.user.referralId)
-          localStorage.setItem('userType',response.user.userType)
+          localStorage.setItem("login", "true");
+          localStorage.setItem("stateHandlerId", response.user.stateHandlerId);
+          localStorage.setItem("stateRefferalId", response.user.referralId);
+          localStorage.setItem("userType", response.user.userType);
           this.shareService.setToken(response.token);
           this.toastr.success("Logged In Successfully", "success");
           this.router.navigate(["statedashboard"]);
@@ -193,8 +197,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     if (this.phoneNumberInput) {
@@ -209,11 +212,10 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
         this.countryCode = selectedCountryData.dialCode;
       }, 500);
     } else {
-      console.error('phoneNumberInput is not initialized or undefined.');
+      console.error("phoneNumberInput is not initialized or undefined.");
     }
   }
 
-  
   togglePasswordVisibility(): void {
     this.passwordFieldType =
       this.passwordFieldType === "password" ? "text" : "password";
@@ -221,46 +223,45 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
-
   onFileSelected(event: any, fileSelected: any): void {
-    if(fileSelected === 'front'){
+    if (fileSelected === "front") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.aadharImage = selectedFile
-        console.log("Selected File:", this.aadharImage , fileSelected);
+        this.aadharImage = selectedFile;
+        console.log("Selected File:", this.aadharImage, fileSelected);
       }
     }
-    if(fileSelected === 'back'){
+    if (fileSelected === "back") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.aadharBackImage = selectedFile
-        console.log("Selected File:", this.aadharBackImage , fileSelected);
+        this.aadharBackImage = selectedFile;
+        console.log("Selected File:", this.aadharBackImage, fileSelected);
       }
     }
 
-    if(fileSelected === 'pan'){
+    if (fileSelected === "pan") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.panImage = selectedFile
-        console.log("Selected File:", this.panImage , fileSelected);
+        this.panImage = selectedFile;
+        console.log("Selected File:", this.panImage, fileSelected);
       }
-    }    
+    }
   }
 
-  loginPage(){
+  loginPage() {
     this.change = !this.change;
   }
   tabChanged(event: any): void {
-    console.log('Tab changed:', event.tab.textLabel);
-    if(event.tab.textLabel === "Login"){
-      this.pagename = "Sign in your account"
-    }else{
-      this.pagename = "Sign up your account"
+    console.log("Tab changed:", event.tab.textLabel);
+    if (event.tab.textLabel === "Login") {
+      this.pagename = "Sign in your account";
+    } else {
+      this.pagename = "Sign up your account";
     }
   }
 
-  gotoDhasboard(){
-    window.open('http://centumworldrig.com', '_blank');
+  gotoDhasboard() {
+    window.open("http://centumworldrig.com", "_blank");
   }
 
   handleChange(event: any) {
@@ -272,9 +273,7 @@ export class BmmSignupLoginComponent implements OnInit,AfterViewInit {
     }
   }
 
-  privacyPolicy(){
-    this.router.navigate(['/privacy-policy'])
+  privacyPolicy() {
+    this.router.navigate(["/privacy-policy"]);
   }
-
-
 }

@@ -160,12 +160,13 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     formData.append("m_refferid", this.memberSignUpFrom.value.reffered_id);
     formData.append("m_name", this.memberSignUpFrom.value.name);
     formData.append("m_lname", this.memberSignUpFrom.value.lname);
-    formData.append(
-      "m_phone",
-      "+" +
-        this.countryCode +
-        this.memberSignUpFrom.value.phone.replace(/\s/g, "")
-    );
+    // formData.append(
+    //   "m_phone",
+    //   "+" +
+    //     this.countryCode +
+    //     this.memberSignUpFrom.value.phone.replace(/\s/g, "")
+    // );
+    formData.append("m_phone",this.memberSignUpFrom.value.phone.replace(/\s/g, ""));
     formData.append("m_email", this.memberSignUpFrom.value.email);
     formData.append("m_gender", this.memberSignUpFrom.value.gender);
     formData.append("m_quali", this.memberSignUpFrom.value.qualification);
