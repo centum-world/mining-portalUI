@@ -1,12 +1,12 @@
 <div class="account-header">
-    <h5 style="display: flex; justify-content: center; align-items: center; width: max-content;"><mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp;Member Account details</h5>
+    <h5 style="display: flex; justify-content: center; align-items: center; width: max-content;"><mat-icon
+            (click)="goBack()">arrow_back</mat-icon>&nbsp;Member Account details</h5>
     <div class="wallet-div">{{memberWallet | currency:'INR'}}</div>
 </div>
 <div class="account-content">
     <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
         <mat-tab label="Request withdrawal">
             <div class="bakk-div">
-                <!-- Check if memberRequestHistory is empty -->
                 <ng-container *ngIf="memberRequestHistory.length === 0; else requestList">
                     <mat-card class="example-card">
                         <mat-card-content>
@@ -15,7 +15,6 @@
                     </mat-card>
                 </ng-container>
 
-                <!-- Display the list of requests if memberRequestHistory is not empty -->
                 <ng-template #requestList>
                     <mat-card *ngFor="let data of memberRequestHistory" class="example-card">
                         <mat-card-header>
@@ -171,7 +170,7 @@
                             <div class="bank-details">
                                 <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
                             </div>
-                    
+
                             <div class="bank-details">
                                 <h2>Partner ID</h2><strong>{{data.partnerid }} </strong>
                             </div>

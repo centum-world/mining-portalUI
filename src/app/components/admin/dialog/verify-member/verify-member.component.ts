@@ -1,20 +1,18 @@
-import { Component, OnInit,Output,EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-verify-member',
-  templateUrl: './verify-member.component.html',
-  styleUrls: ['./verify-member.component.css']
+  selector: "app-verify-member",
+  templateUrl: "./verify-member.component.html",
+  styleUrls: ["./verify-member.component.css"],
 })
 export class VerifyMemberComponent implements OnInit {
   @Output() okClicked: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  verifyMember(){
+  verifyMember() {
     this.okClicked.emit();
   }
-
 }

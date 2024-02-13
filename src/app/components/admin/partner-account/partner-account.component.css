@@ -71,18 +71,17 @@
   padding: 5px;
   margin: 10px;
   box-sizing: border-box;
-  position: relative; /* Position relative for pseudo-element positioning */
+  position: relative;
 }
 
-/* Style for the divider between columns */
 .column:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 0;
-  right: -5px; /* Adjust this value to control the width of the divider */
+  right: -5px;
   height: 100%;
-  width: 1px; /* Width of the divider */
-  background-color: #ccc; /* Divider color */
+  width: 1px;
+  background-color: #ccc;
 }
 
 .refferal-div {
@@ -92,15 +91,13 @@
 .pdf-container {
   padding: 20px;
   width: 40%;
-  /* background-color: #fff;
-  border: 1px solid #ccc; */
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .date-heading {
   display: flex;
   justify-content: end;
-  font-size:8px;
+  font-size: 8px;
 }
 
 .user-name {
@@ -122,9 +119,9 @@
 }
 .sub-div {
   line-height: 1px;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }
-.sub-div{
+.sub-div {
   font-size: 10px;
   font-weight: 100;
 }
@@ -134,28 +131,27 @@
 }
 .price-total {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Example grid columns */
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   text-align: end;
 }
 .price-total > * {
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 10px;
 }
 
-/* To avoid margin on the last item causing extra space */
 .price-total > *:last-child {
   margin-right: 0;
 }
 
 .custom-divider {
-  border-color: #2a2c96; /* Change the color */
-  border-style: solid; /* Change the border style */
-  border-width: 1px; /* Change the border width */
+  border-color: #2a2c96;
+  border-style: solid;
+  border-width: 1px;
   margin-bottom: 10px;
 }
 
 .payment-successful {
-  line-height:1px;
+  line-height: 1px;
 }
 .footer {
   display: flex;
@@ -169,17 +165,17 @@
   padding: 10px;
 }
 
-.image-div{
-  width:250px;
-  height:65px;
+.image-div {
+  width: 250px;
+  height: 65px;
 }
-.invoce{
-  color: #2a2c96; 
+.invoce {
+  color: #2a2c96;
   font-weight: 500;
-   font-size:10px;
+  font-size: 10px;
 }
-@media screen and (min-width: 1025) and (max-width:1200px){
-  .pdf-container{
+@media screen and (min-width: 1025) and (max-width: 1200px) {
+  .pdf-container {
     width: 90%;
   }
 }
@@ -211,10 +207,9 @@
   }
 }
 @media (max-width: 576px) {
-
-  .image-div{
-    width:200px;
-    height:50px
+  .image-div {
+    width: 200px;
+    height: 50px;
   }
   .transaction {
     flex-direction: column;
@@ -230,11 +225,11 @@
   }
   .pdf-container {
     width: 100%;
-    padding:20px;
+    padding: 20px;
   }
-  .image-div{
-    width:180px;
-    height:40px;
+  .image-div {
+    width: 180px;
+    height: 40px;
   }
   .user-id {
     font-size: 10px;
@@ -242,17 +237,17 @@
   }
   .company-name {
     font-size: 14px;
-    line-height:-1;
+    line-height: -1;
   }
-  .sub-div{
+  .sub-div {
     font-size: 8px;
   }
-  .invoce{
-    color: #2a2c96; 
+  .invoce {
+    color: #2a2c96;
     font-weight: 500;
-    font-size:8px;
+    font-size: 8px;
   }
-  p{
-    margin-bottom:11px;
+  p {
+    margin-bottom: 11px;
   }
 }

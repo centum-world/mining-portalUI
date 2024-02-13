@@ -73,27 +73,25 @@ export class ReferralListComponent implements OnInit {
 
     this.userService.getAllMemberDetails(data).subscribe({
       next: (res: any) => {
-        console.log(res.results)
         this.dataSource.data = res.results;
       },
       error: (err) => {
-        console.log(err);
+        console.log(err.error.message);
       },
     });
   }
 
   openViewMemberDialog(data: any) {
-    console.log(data , "data is coming");
+    console.log(data, "data is coming");
     let config: MatDialogConfig = {
       panelClass: "myMemberViewDialogClass",
       data: data,
     };
     const dialogRef = this.dialog.open(ViewMemberComponent, config);
-    
+
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");
     });
-
   }
 
   openVerifyMemberDialog(id: any) {
@@ -114,7 +112,7 @@ export class ReferralListComponent implements OnInit {
           this.callApiToGetAllMembersList();
         },
         error: (err) => {
-          console.log(err);
+          console.log(err.error.message);
         },
       });
     });
@@ -124,11 +122,9 @@ export class ReferralListComponent implements OnInit {
     });
   }
 
-  applyFilter(value: any){
+  applyFilter(value: any) {}
 
-  }
-
-  goBack(){
-    this.router.navigate(['/franchisedashboard'])
+  goBack() {
+    this.router.navigate(["/franchisedashboard"]);
   }
 }

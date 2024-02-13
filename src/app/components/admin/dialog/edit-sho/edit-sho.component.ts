@@ -1,21 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { UserService } from 'src/app/service/user.service';
-import { ToastrService } from 'ngx-toastr';
-import {
-  FormControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-  ValidatorFn,
-} from "@angular/forms";
-import { allState } from 'src/app/components/common/states';
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { allState } from "src/app/components/common/states";
 @Component({
-  selector: 'app-edit-sho',
-  templateUrl: './edit-sho.component.html',
-  styleUrls: ['./edit-sho.component.css']
+  selector: "app-edit-sho",
+  templateUrl: "./edit-sho.component.html",
+  styleUrls: ["./edit-sho.component.css"],
 })
 export class EditShoComponent implements OnInit {
   editForm: FormGroup;
@@ -26,11 +19,15 @@ export class EditShoComponent implements OnInit {
     phone: "",
     gender: "",
     state: [],
-    id: ""
-  }
+    id: "",
+  };
   states = allState.states;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private userService: UserService, private toastr: ToastrService) {
-    console.log(data.stateHandlerId)
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder,
+    private userService: UserService,
+    private toastr: ToastrService
+  ) {
     this.shoDetails.fname = data.fname;
     this.shoDetails.lname = data.lname;
     this.shoDetails.email = data.email;
@@ -41,25 +38,18 @@ export class EditShoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.shoDetails.gender)
-    console.log(this.shoDetails.state)
     this.editForm = this.fb.group({
       fname: [this.shoDetails.fname, Validators.required],
       lname: [this.shoDetails.lname, Validators.required],
-      email: [
-        this.shoDetails.email,
-        [Validators.required, Validators.email],
-      ],
+      email: [this.shoDetails.email, [Validators.required, Validators.email]],
       phone: [
         this.shoDetails.phone,
         [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
       ],
       gender: [this.shoDetails.gender],
-      state: [this.shoDetails.state]
-    })
-
+      state: [this.shoDetails.state],
+    });
   }
-
 
   getErrorMessage() {
     const emailControl = this.editForm.get("email");
@@ -73,18 +63,18 @@ export class EditShoComponent implements OnInit {
   }
 
   getErrorFnameMessage() {
-    return this.editForm.get("fname").hasError("required") ? "You must enter first name" : "";
+    return this.editForm.get("fname").hasError("required")
+      ? "You must enter first name"
+      : "";
   }
 
   getErrorLnameMessage() {
-    return this.editForm.get("lname").hasError("required") ? "You must enter last name" : "";
+    return this.editForm.get("lname").hasError("required")
+      ? "You must enter last name"
+      : "";
   }
 
-
-
-
   editFormSubmit(editForm: any) {
-    console.log(editForm.value.phone, this.shoDetails.id)
     let data = {
       fname: editForm.value.fname,
       lname: editForm.value.lname,
@@ -92,17 +82,15 @@ export class EditShoComponent implements OnInit {
       phone: editForm.value.phone,
       gender: editForm.value.gender,
       selectedState: editForm.value.state,
-      stateHandlerId: this.shoDetails.id
-    }
+      stateHandlerId: this.shoDetails.id,
+    };
     this.userService.editShoByAdmin(data).subscribe({
       next: (res: any) => {
-        this.toastr.success(res.message)
+        this.toastr.success(res.message);
       },
       error: (err) => {
-        this.toastr.error(err.error.message)
-      }
-    })
-
+        this.toastr.error(err.error.message);
+      },
+    });
   }
-
 }

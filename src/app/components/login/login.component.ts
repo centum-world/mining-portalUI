@@ -12,14 +12,14 @@ import { ToastrService } from "ngx-toastr";
   encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
-  heading: string = "Admin"
+  heading: string = "Admin";
   passwordFieldType: string = "password"; // Initial type is 'password'
   showPasswordIcon: string = "visibility_off"; // Initial icon is 'visibility'
 
   loginForm: FormGroup;
   admin_userid: string = "";
   admin_password: string = "";
-  // functionCalled:boolean = false;
+
   constructor(
     private router: Router,
     private userService: UserService,
@@ -32,15 +32,7 @@ export class LoginComponent implements OnInit {
       admin_password: new FormControl(),
     });
   }
-  ngOnInit() {
-    //  this.myFunction()
-  }
-  // myFunction() {
-  //   if (!this.functionCalled) {
-  //     window.location.reload();
-  //     this.functionCalled =true;
-  //   }
-  // }
+  ngOnInit() {}
 
   msa: string = "";
   submit(loginForm) {
@@ -50,7 +42,7 @@ export class LoginComponent implements OnInit {
       user_id: loginForm.controls.admin_id.value,
       password: loginForm.controls.admin_password.value,
     };
-    // console.log(data);
+
     this.userService.login(data).subscribe({
       next: (result) => {
         if (result) {

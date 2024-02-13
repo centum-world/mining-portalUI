@@ -1,4 +1,10 @@
-import { Component, OnInit,NgModule, Output,EventEmitter  } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  NgModule,
+  Output,
+  EventEmitter,
+} from "@angular/core";
 import { Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { UserService } from "src/app/service/user.service";
@@ -10,7 +16,6 @@ import {
   Validators,
   AbstractControl,
   ValidatorFn,
-  
 } from "@angular/forms";
 import { allState } from "src/app/components/common/states";
 
@@ -20,10 +25,9 @@ import { allState } from "src/app/components/common/states";
   styleUrls: ["./admin-edit-franchise.component.css"],
 })
 export class AdminEditFranchiseComponent implements OnInit {
-
   @Output() okClicked: EventEmitter<any> = new EventEmitter();
   states = allState.states;
-  filteredDistricts = []
+  filteredDistricts = [];
 
   editForm: FormGroup;
 
@@ -52,20 +56,13 @@ export class AdminEditFranchiseComponent implements OnInit {
     this.franchiseDetails.franchiseId = data.franchiseId;
     this.franchiseDetails.franchiseState = data.franchiseState;
     this.franchiseDetails.franchiseCity = data.franchiseCity.split(",");
-    const districts =  allState.states.find((state)=>state.state === data.franchiseState)
+    const districts = allState.states.find(
+      (state) => state.state === data.franchiseState
+    );
     this.filteredDistricts = districts.districts;
-    console.log(this.franchiseDetails.franchiseCity)
   }
 
   ngOnInit() {
-    console.log(this.franchiseDetails.fname);
-    console.log(this.franchiseDetails.gender);
-    console.log(this.franchiseDetails.email);
-    console.log(this.franchiseDetails.phone);
-    console.log(this.franchiseDetails.franchiseId);
-    console.log(this.franchiseDetails.franchiseState);
-    console.log(this.franchiseDetails.franchiseCity);
-
     this.editForm = this.fb.group({
       fname: [this.franchiseDetails.fname, Validators.required],
       lname: [this.franchiseDetails.lname, Validators.required],
@@ -84,14 +81,12 @@ export class AdminEditFranchiseComponent implements OnInit {
   }
 
   onFranchiseChange(selectedState: string) {
-    this.filteredDistricts=[];
-    console.log(selectedState)
-    const districts =  allState.states.find((state)=>state.state === selectedState)
+    this.filteredDistricts = [];
+    const districts = allState.states.find(
+      (state) => state.state === selectedState
+    );
     this.filteredDistricts = districts.districts;
   }
-
-  
-
 
   getErrorMessage() {
     const emailControl = this.editForm.get("email");
@@ -117,7 +112,6 @@ export class AdminEditFranchiseComponent implements OnInit {
   }
 
   editFormSubmit(editForm: any) {
-    console.log(editForm.value, this.franchiseDetails.franchiseId);
     let data = {
       fname: editForm.value.fname,
       lname: editForm.value.lname,
@@ -138,6 +132,4 @@ export class AdminEditFranchiseComponent implements OnInit {
       },
     });
   }
-
-  
 }

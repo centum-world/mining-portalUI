@@ -169,7 +169,6 @@ h3 {
     flex-direction: column;
   }
   .left-section{
-    /* flex-direction: row; */
     height: 40vh;
     width: 100vw;
   }

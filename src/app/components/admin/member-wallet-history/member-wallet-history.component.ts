@@ -1,33 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { ViewChild } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "src/app/service/user.service";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
+import { ViewChild } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
 
 interface MemberWalletHistory {
-  m_userid: string,
-  walletAmount: number,
-  wallet_update_date: Date,
-  reffer_user:string
+  m_userid: string;
+  walletAmount: number;
+  wallet_update_date: Date;
+  reffer_user: string;
 }
 
 @Component({
-  selector: 'app-member-wallet-history',
-  templateUrl: './member-wallet-history.component.html',
-  styleUrls: ['./member-wallet-history.component.css']
+  selector: "app-member-wallet-history",
+  templateUrl: "./member-wallet-history.component.html",
+  styleUrls: ["./member-wallet-history.component.css"],
 })
 export class MemberWalletHistoryComponent implements OnInit {
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  displayedColumns: string[] = ['serialNumber', 'm_userid', 'walletAmount','reffer_user', 'wallet_update_date'];
+  displayedColumns: string[] = [
+    "serialNumber",
+    "m_userid",
+    "walletAmount",
+    "reffer_user",
+    "wallet_update_date",
+  ];
   dataSource: MatTableDataSource<MemberWalletHistory>;
 
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
-    private router:Router,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -40,13 +45,12 @@ export class MemberWalletHistoryComponent implements OnInit {
   callApiToFetchAllPartnerWalletHistory() {
     this.userService.fetchMemberWalletOfMonth().subscribe({
       next: (res: any) => {
-        // console.log(res)
         const dataWithSerial = this.addSerialNumbers(res.data);
         this.dataSource.data = dataWithSerial;
       },
       error: (err) => {
         console.log(err.message);
-      }
+      },
     });
   }
 
@@ -58,8 +62,7 @@ export class MemberWalletHistoryComponent implements OnInit {
     return data.map((item, index) => ({ ...item, serialNumber: index + 1 }));
   }
 
-  goBack(){
-    this.router.navigate(['/dashboard/home'])
+  goBack() {
+    this.router.navigate(["/dashboard/home"]);
   }
-
 }

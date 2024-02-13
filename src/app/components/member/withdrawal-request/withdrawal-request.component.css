@@ -20,8 +20,8 @@
   width: 150px;
   height: 50px;
   border-radius: 8px;
-  background: #6075C3;
-  color:white;
+  background: #6075c3;
+  color: white;
   cursor: pointer;
 }
 .withdrawal-btn p {
@@ -63,10 +63,11 @@
     flex-direction: column;
     align-items: center;
   }
-  .withdrawal-header{
+  .withdrawal-header {
     margin-top: 100px;
   }
-  .withdrawal-header,.account-section{
+  .withdrawal-header,
+  .account-section {
     margin-left: 0;
   }
 
@@ -81,3 +82,4 @@
     font-size: 15px;
   }
 }
+    

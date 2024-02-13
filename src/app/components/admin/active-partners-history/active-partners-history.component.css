@@ -1,3 +1,4 @@
+
 .sho-list-header {
   width: calc(100%-300px);
   height: 70px;
@@ -6,22 +7,15 @@
   padding: 20px;
 }
 
+.title {
+  display: flex;
+}
 .title h5 {
   font-weight: 800;
   color: #000;
   font-family: Calibri;
 }
 
-/* .search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
-    height: 40px;
-    background: antiquewhite;
-    border-radius: 8px;
-
-} */
 .large-expand {
   overflow-x: auto;
   margin-top: 5px;
@@ -72,18 +66,17 @@ table {
   border-right: 1px solid #ddd;
 }
 
-@media only screen and (max-width :768px) {
-  .sho-list-header{
+@media only screen and (max-width: 768px) {
+  .sho-list-header {
     margin-left: 0;
   }
-  .large-expand{
+  .large-expand {
     margin-left: 0;
   }
 }
 
-@media only screen and (min-width: 375px) and (max-width:767px) {
+@media only screen and (min-width: 375px) and (max-width: 767px) {
   .mat-form-field-infix {
     width: 128px;
   }
-
 }

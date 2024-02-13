@@ -28,7 +28,7 @@ table {
 }
 .mat-cell,
 .mat-header-cell {
-  padding: 8px; /* Adjust the padding as needed */
+  padding: 8px; 
   text-align: left; /* Left-align cell content */
   border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
 }

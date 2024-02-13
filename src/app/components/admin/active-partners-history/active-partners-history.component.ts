@@ -52,7 +52,6 @@ export class ActivePartnersHistoryComponent implements OnInit {
       next: (res: any) => {
          console.log(res.data)
           this.dataSource.data = res.data
-        //  console.log(this.dataSource.data)
       },
       error: (err) => {
         console.log(err.message)

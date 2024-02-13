@@ -3,51 +3,30 @@
   <form [formGroup]="editForm" (ngSubmit)="editFormSubmit(editForm)">
     <div class="form-row">
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Enter your first name"
-          formControlName="fname"
-          required
-        />
+        <input matInput placeholder="Enter your first name" formControlName="fname" required />
         <mat-error *ngIf="editForm.get('fname').invalid">{{
           getErrorFnameMessage()
-        }}</mat-error>
+          }}</mat-error>
       </mat-form-field>
 
-      <!-- Last Name -->
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Enter your last name"
-          formControlName="lname"
-          required
-        />
+        <input matInput placeholder="Enter your last name" formControlName="lname" required />
         <mat-error *ngIf="editForm.get('lname').invalid">{{
           getErrorLnameMessage()
-        }}</mat-error>
+          }}</mat-error>
       </mat-form-field>
     </div>
     <div class="form-row">
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Enter your email"
-          formControlName="email"
-          required
-        />
+        <input matInput placeholder="Enter your email" formControlName="email" required />
         <mat-error *ngIf="editForm.get('email').invalid">{{
           getErrorMessage()
-        }}</mat-error>
+          }}</mat-error>
       </mat-form-field>
-      <!-- Phone Number -->
       <mat-form-field>
         <input matInput placeholder="Phone Number" formControlName="phone" />
-        <mat-error *ngIf="editForm.get('phone').hasError('required')"
-          >Phone number is required</mat-error
-        >
-        <mat-error *ngIf="editForm.get('phone').hasError('pattern')"
-          >Invalid Indian mobile number</mat-error
-        >
+        <mat-error *ngIf="editForm.get('phone').hasError('required')">Phone number is required</mat-error>
+        <mat-error *ngIf="editForm.get('phone').hasError('pattern')">Invalid Indian mobile number</mat-error>
       </mat-form-field>
     </div>
     <div class="form-row">
@@ -60,28 +39,20 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- State and Franchise -->
 
       <mat-form-field>
         <mat-label>State</mat-label>
-        <mat-select
-          formControlName="franchiseState"
-          (ngModelChange)="onFranchiseChange($event)"
-        >
+        <mat-select formControlName="franchiseState" (ngModelChange)="onFranchiseChange($event)">
           <mat-option *ngFor="let state of states" [value]="state.state">{{
             state.state
-          }}</mat-option>
+            }}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>District</mat-label>
         <mat-select formControlName="franchiseCity" multiple>
-          <mat-option
-            *ngFor="let district of filteredDistricts"
-            [value]="district"
-            >{{ district }}</mat-option
-          >
+          <mat-option *ngFor="let district of filteredDistricts" [value]="district">{{ district }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -89,12 +60,7 @@
     <div mat-dialog-actions align="end">
       <button mat-raised-button mat-dialog-close>Cancel</button>
       <span style="margin-left: 10px"></span>
-      <button
-        mat-raised-button
-        mat-dialog-close
-        type="submit"
-        style="background-color: #5476f2; color: #fff;"
-      >
+      <button mat-raised-button mat-dialog-close type="submit" style="background-color: #5476f2; color: #fff;">
         Ok
       </button>
     </div>

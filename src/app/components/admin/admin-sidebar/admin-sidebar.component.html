@@ -2,7 +2,8 @@
 <div class="sidebar">
   <div class="sidebar-brand">
     <h3><a class="fa fa-qrcode" href="/dashboard"></a></h3>
-    <h2><a href="javascript:void(0)" (click)="gotoDahashboard()"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a></h2>
+    <h2><a href="javascript:void(0)" (click)="gotoDahashboard()"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a>
+    </h2>
 
   </div>
   <div class="sidebar-menu">
@@ -39,14 +40,7 @@
         </div>
       </li>
 
-      <!-- <li>
-        <div class="partner_history " (click)="BdHistory()">
-          <a href="javascript:void(0)"><i class="fa fa-book"></i>
-            <span>Business Dev History</span>
-          </a>
-        </div>
-      </li> -->
-    
+
       <li>
         <a href="javascript:void(0)" (click)="viewActivePartnerList()"><i class="fa fa-money"></i>
           <span>Total Liquidity</span>
@@ -54,12 +48,12 @@
       </li>
 
       <li>
-        <a href="javascript:void(0)"(click)="viewPartnerWalletHistoryList()" ><i class="fa fa-user"></i>
+        <a href="javascript:void(0)" (click)="viewPartnerWalletHistoryList()"><i class="fa fa-user"></i>
           <span>All Partner Wallet History</span>
         </a>
 
       </li>
-     
+
       <li>
         <a href="javascript:void(0)" (click)="uploadBond()"><i class="	fa fa-file"></i>
           <span>Partnership Bond</span>
@@ -67,23 +61,21 @@
       </li>
 
       <li>
-        <!-- <a href="javascript:void(0)" data-toggle="modal" data-target="#accountsPaidWithdrawal"><i
-            class="fa fa-address-card-o"></i>
+        <a href="javascript:void(0)" (click)="accountsPaidWithdrawalDialog()"><i class="fa fa-address-card-o"></i>
           <span>Accounts</span>
-        </a> -->
-        <a href="javascript:void(0)" (click)="accountsPaidWithdrawalDialog()" ><i
-          class="fa fa-address-card-o"></i>
-        <span>Accounts</span>
-      </a>
+        </a>
       </li>
 
 
       <li>
         <div class="partner_history " (click)="logOut()">
           <a href="javascript:void(0)" data-toggle="modal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+              <path fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
             </svg>
             <span style="margin-left: 10px;">Logout</span>
           </a>
@@ -94,37 +86,32 @@
 </div>
 
 <div class="main-content">
-    <header>
-      <div class="logo-centum">
-        <h3 style="color:gray; font-family:Roboto ;font-weight:800">CENTUM WORLD</h3>
-      </div>
-      <div class="user-wrapper">
-        <div class="user-av">
+  <header>
+    <div class="logo-centum">
+      <h3 style="color:gray; font-family:Roboto ;font-weight:800">CENTUM WORLD</h3>
+    </div>
+    <div class="user-wrapper">
+      <div class="user-av">
         <img src="assets/image/profile.png" alt="" width="50px" height="50px">
-            <h4 style="color: #000;">Admin</h4>
-        </div>
-          <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
-        </div>
-      </header>
+        <h4 style="color: #000;">Admin</h4>
+      </div>
+      <p class="fa fa-bars mobile-bars" (click)="toggleSidebar()"></p>
+    </div>
+  </header>
 </div>
 
 <div class="mobile-sidebar" [ngStyle]="{'display': isVisible ? 'block' : 'none'}">
   <div class="mobile-sidebar-heading">
     <div class="mobile-header">
       <div class="centum-header">
-      <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60">
-      <span style="position: relative; left: 20px; font-size: 20px;">CENTUM MINING RIG</span>
-    </div>
-      <span class="fa fa-close" (click)="closeSidebar()"></span>
+        <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60">
+        <span style="position: relative; left: 20px; font-size: 20px;">CENTUM MINING RIG</span>
       </div>
+      <span class="fa fa-close" (click)="closeSidebar()"></span>
+    </div>
   </div>
   <div class="sidebar-menu">
     <ul>
-      <!-- <li>
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#teamMates"><i class="fa fa-user"></i>
-          <span>M</span>
-        </a>
-      </li> -->
       <li>
         <div class="member_history" (click)="memberViewList()">
           <a href="javascript:void(0)"><i class="fa fa-book"></i>
@@ -164,7 +151,7 @@
           </a>
         </div>
       </li>
-    
+
       <li>
         <a href="javascript:void(0)" (click)="viewActivePartnerList()"><i class="fa fa-money"></i>
           <span>Total Liquidity</span>
@@ -172,12 +159,12 @@
       </li>
 
       <li>
-        <a href="javascript:void(0)"(click)="viewPartnerWalletHistoryList()" ><i class="fa fa-user"></i>
+        <a href="javascript:void(0)" (click)="viewPartnerWalletHistoryList()"><i class="fa fa-user"></i>
           <span>All Partner Wallet History</span>
         </a>
 
       </li>
-     
+
       <li>
         <a href="javascript:void(0)" (click)="uploadBond()"><i class="	fa fa-file"></i>
           <span>Partnership Bond</span>
@@ -185,17 +172,19 @@
       </li>
 
       <li>
-        <a href="javascript:void(0)" (click)="accountsPaidWithdrawalDialog()" ><i
-          class="fa fa-address-card-o"></i>
-        <span>Accounts</span>
-      </a>
+        <a href="javascript:void(0)" (click)="accountsPaidWithdrawalDialog()"><i class="fa fa-address-card-o"></i>
+          <span>Accounts</span>
+        </a>
       </li>
       <li>
         <div class="partner_history " (click)="logOut()">
           <a href="javascript:void(0)" data-toggle="modal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+              <path fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
             </svg>
             <span style="margin-left: 10px;">Logout</span>
           </a>

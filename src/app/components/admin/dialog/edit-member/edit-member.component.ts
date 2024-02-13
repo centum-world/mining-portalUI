@@ -1,21 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { UserService } from 'src/app/service/user.service';
-import { ToastrService } from 'ngx-toastr';
-import {
-  FormControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-  ValidatorFn,
-} from "@angular/forms";
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-edit-member',
-  templateUrl: './edit-member.component.html',
-  styleUrls: ['./edit-member.component.css']
+  selector: "app-edit-member",
+  templateUrl: "./edit-member.component.html",
+  styleUrls: ["./edit-member.component.css"],
 })
 export class EditMemberComponent implements OnInit {
   editForm: FormGroup;
@@ -26,23 +19,27 @@ export class EditMemberComponent implements OnInit {
     phone: "",
     gender: "",
     add: "",
-    state:"",
-    id: ""
-  }
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private dialogRef: MatDialogRef<EditMemberComponent>) {
-    console.log(data.m_userid)
+    state: "",
+    id: "",
+  };
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder,
+    private userService: UserService,
+    private toastr: ToastrService,
+    private dialogRef: MatDialogRef<EditMemberComponent>
+  ) {
     this.memberDetails.fname = data.m_name;
     this.memberDetails.lname = data.m_lname;
     this.memberDetails.email = data.m_email;
     this.memberDetails.phone = data.m_phone;
     this.memberDetails.gender = data.m_gender;
-    this.memberDetails.add = data.m_add
+    this.memberDetails.add = data.m_add;
     this.memberDetails.id = data.m_userid;
-    this.memberDetails.state = data.m_state
+    this.memberDetails.state = data.m_state;
   }
 
   ngOnInit() {
-    console.log(this.memberDetails.gender,)
     this.editForm = this.fb.group({
       fname: [this.memberDetails.fname, Validators.required],
       lname: [this.memberDetails.lname, Validators.required],
@@ -56,8 +53,8 @@ export class EditMemberComponent implements OnInit {
       ],
       gender: [this.memberDetails.gender],
       add: [this.memberDetails.add],
-      state:[this.memberDetails.state]
-    })
+      state: [this.memberDetails.state],
+    });
   }
 
   getErrorMessage() {
@@ -72,18 +69,19 @@ export class EditMemberComponent implements OnInit {
   }
 
   getErrorFnameMessage() {
-    return this.editForm.get("fname").hasError("required") ? "You must enter first name" : "";
+    return this.editForm.get("fname").hasError("required")
+      ? "You must enter first name"
+      : "";
   }
 
   getErrorLnameMessage() {
-    return this.editForm.get("lname").hasError("required") ? "You must enter last name" : "";
+    return this.editForm.get("lname").hasError("required")
+      ? "You must enter last name"
+      : "";
   }
-  getErrorAddressMessage(){
-    
-  }
+  getErrorAddressMessage() {}
 
   editFormSubmit(editForm: any) {
-    console.log(editForm.value, this.memberDetails.id)
     let data = {
       m_name: editForm.value.fname,
       m_lname: editForm.value.lname,
@@ -92,18 +90,16 @@ export class EditMemberComponent implements OnInit {
       m_gender: editForm.value.gender,
       m_add: editForm.value.add,
       m_state: editForm.value.state,
-      m_userid: this.memberDetails.id
-    }
+      m_userid: this.memberDetails.id,
+    };
     this.userService.editMemberByAdmin(data).subscribe({
       next: (res: any) => {
         this.dialogRef.close();
-        this.toastr.success(res.message)
+        this.toastr.success(res.message);
       },
       error: (err) => {
-        this.toastr.error(err.error.message)
-      }
-    })
-
+        this.toastr.error(err.error.message);
+      },
+    });
   }
-
 }

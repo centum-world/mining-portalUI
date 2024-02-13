@@ -1,68 +1,68 @@
-.account-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    border-radius: 5px;
-    margin-left: 340px;
-    padding: 10px;
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-radius: 5px;
+  margin-left: 340px;
+  padding: 10px;
 }
-.account-header h5{
-    color: #000;
-    font-weight: 600;
-    font-family: Calibri;
+.account-header h5 {
+  color: #000;
+  font-weight: 600;
+  font-family: Calibri;
 }
-.wallet-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
-    height: max-content;
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    background: #0d6efd;;
-    color: white;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+.wallet-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background: #0d6efd;
+  color: white;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-.account-content{
-    margin-left: 330px;
+.account-content {
+  margin-left: 330px;
 }
-.bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
 }
 .example-card {
-    margin: 10px;
-    width: 300px;
+  margin: 10px;
+  width: 300px;
 }
-  
-.bank-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
+
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 }
-.bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
 }
-.example-header-image{
-    background-image: url("/assets/image/bank.jpg");
-    background-size: cover;
+.example-header-image {
+  background-image: url("/assets/image/bank.jpg");
+  background-size: cover;
 }
-@media only screen and (max-width :768px){
-    .account-header{
-        margin-left: 0px;
-    }
-    .account-content{
-        margin-left:0px;
-    }
-   
+@media only screen and (max-width: 768px) {
+  .account-header {
+    margin-left: 0px;
+  }
+  .account-content {
+    margin-left: 0px;
+  }
 }

@@ -27,7 +27,6 @@ export class MyTeamComponent implements OnInit {
   lastPayOutAmount: any;
   lastPayOutMonth: any;
   monthlyPayment: any;
-  // lequidity: any;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = [
@@ -60,12 +59,11 @@ export class MyTeamComponent implements OnInit {
     };
     this.userService.useRefferalIdOfMemberToFetchMiningPartner(data).subscribe({
       next: (res: any) => {
-        console.log(res.data);
         const dataWithSerial = this.addSerialNumbers(res.data);
         this.dataSource.data = dataWithSerial;
       },
       error: (err) => {
-        console.log(err.message);
+        console.log(err.error.message);
       },
     });
   }
@@ -81,7 +79,6 @@ export class MyTeamComponent implements OnInit {
     this.userService.fetchPartnerDetailsFromMember(data).subscribe({
       next: (response: any) => {
         if (response) {
-          console.log(response.data);
           this.partnerDetails.liquidity = response.data[0].p_liquidity;
           this.partnerDetails.dop = response.data[0].p_dop;
           this.partnerDetails.name = response.data[0].p_name;
@@ -89,9 +86,7 @@ export class MyTeamComponent implements OnInit {
           this.partnerDetails.month_count = response.data[0].month_count;
           this.partnerDetails.partner_count = response.data[0].partner_count;
           this.partnerDetails.partner_status = response.data[0].partner_status;
-          // this.partnerDetails= response.data[0].p_name
         }
-        //  console.log(this.memberDocuments)
         let config: MatDialogConfig = {
           panelClass: "fetchPartnerDetailsDialogClass",
           data: this.partnerDetails,
@@ -103,18 +98,16 @@ export class MyTeamComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe((result) => {
           console.log("The dialog was closed");
-          // Do something with the result if needed
         });
       },
       error: (error) => {
-        console.log(error);
+        console.log(error.error.message);
       },
     });
 
     let lequidity = "";
     this.userService.fetchPartnerLiquidity(data).subscribe({
       next: (response: any) => {
-        console.log(response, 59);
         lequidity = response.data[0].p_liquidity;
         if (parseInt(lequidity) === 1200000) {
           this.partnerDetails.monthlyPayment = 22000;

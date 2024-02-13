@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { UserService } from "src/app/service/user.service";
 import { ShareService } from "src/app/shareService/share.service";
 import { Router } from "@angular/router";
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-franchise-login",
@@ -21,7 +21,7 @@ export class FranchiseLoginComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private shareService: ShareService,
-    private _snackBar:MatSnackBar
+    private _snackBar: MatSnackBar
   ) {
     this.franchiseLoginForm = this.formBuilder.group({
       franchiseId: ["", Validators.required],
@@ -39,10 +39,9 @@ export class FranchiseLoginComponent implements OnInit {
     this.userService.franchiseLogin(data).subscribe({
       next: (res: any) => {
         if (res) {
-          console.log(res);
-          localStorage.setItem("franchiseId",res.user.franchiseId);
-          localStorage.setItem("franchiseReferralId",res.user.referralId);
-          localStorage.setItem('userType', res.user.userType);
+          localStorage.setItem("franchiseId", res.user.franchiseId);
+          localStorage.setItem("franchiseReferralId", res.user.referralId);
+          localStorage.setItem("userType", res.user.userType);
           this.shareService.setFranchiseToken(res.token);
           this.router.navigate(["franchisedashboard"]);
           setTimeout(function () {
@@ -50,36 +49,33 @@ export class FranchiseLoginComponent implements OnInit {
           }, 100);
         }
       },
-      error: error => {
-        console.log(error.error.message)
-        // this.toastr.error(error.error.message);
-        this._snackBar.open(error.error.message, 'Close', {
-          duration: 3000, // Adjust the duration as needed (in milliseconds)
-          horizontalPosition: 'center', // Horizontal position: 'start' | 'center' | 'end' | 'left' | 'right'
-          verticalPosition: 'top',
-          panelClass: ['custom-snackbar']
+      error: (error) => {
+        console.log(error.error.message);
+        this._snackBar.open(error.error.message, "Close", {
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+          panelClass: ["custom-snackbar"],
         });
-      }
+      },
     });
   }
 
   SignUpFranchise() {
-    // window.open("/franchiseSignUp");
-    this.router.navigate(['/franchiseSignUp'])
+    this.router.navigate(["/franchiseSignUp"]);
   }
 
-  SignUp(){
-    this.router.navigate(['/franchiseSignUp1'])
+  SignUp() {
+    this.router.navigate(["/franchiseSignUp1"]);
   }
 
-  backToHome(){
-    window.location.href = 'https://centumworldrig.com';
+  backToHome() {
+    window.location.href = "https://centumworldrig.com";
   }
-  logOut(){
-    localStorage.removeItem('stateToken');
-    localStorage.removeItem('stateHandlerId');
-    localStorage.removeItem('stateRefferalId');
-    // localStorage.removeItem('')
+  logOut() {
+    localStorage.removeItem("stateToken");
+    localStorage.removeItem("stateHandlerId");
+    localStorage.removeItem("stateRefferalId");
     localStorage.clear();
   }
 
@@ -90,7 +86,7 @@ export class FranchiseLoginComponent implements OnInit {
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
-  GoToHome(){
+  GoToHome() {
     window.open("/", "_parent");
   }
 }

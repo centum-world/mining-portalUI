@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Inject } from "@angular/core";
-import { UserService  } from 'src/app/service/user.service';
-import { ToastrService } from 'ngx-toastr';
+import { UserService } from "src/app/service/user.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-view-franchise",
@@ -10,21 +10,21 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ["./view-franchise.component.css"],
 })
 export class ViewFranchiseComponent implements OnInit {
-  selectedImage: string = '';
+  selectedImage: string = "";
   forntAdhar = false;
   uploadImage = {
-    front_adhar_image :"",
+    front_adhar_image: "",
     back_adhar_imgae: "",
-    panImage:""
-  }
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private userService : UserService, private toastr : ToastrService) {
-    console.log(data);
-  }
+    panImage: "",
+  };
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private userService: UserService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {}
-  clickOk(){
-    
-  }
+  clickOk() {}
   frontAadharSelected(event: any, imageType: string) {
     const file = event.target.files[0];
     this.uploadImage.front_adhar_image = file;
@@ -33,9 +33,8 @@ export class ViewFranchiseComponent implements OnInit {
       this.data[imageType] = e.target.result;
     };
     reader.readAsDataURL(file);
-  
   }
-  backAadharSelected(event: any, imageType: string){
+  backAadharSelected(event: any, imageType: string) {
     const file = event.target.files[0];
     this.uploadImage.back_adhar_imgae = file;
     const reader = new FileReader();
@@ -45,7 +44,7 @@ export class ViewFranchiseComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
-  panSelected(event: any, imageType: string){
+  panSelected(event: any, imageType: string) {
     const file = event.target.files[0];
     this.uploadImage.panImage = file;
     const reader = new FileReader();
@@ -56,7 +55,7 @@ export class ViewFranchiseComponent implements OnInit {
     reader.readAsDataURL(file);
   }
   downloadImage(imageUrl: string, fileName: string) {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = imageUrl;
     link.download = fileName;
     document.body.appendChild(link);
@@ -64,46 +63,46 @@ export class ViewFranchiseComponent implements OnInit {
     document.body.removeChild(link);
   }
 
-  uploadFrontImage(id:any){
+  uploadFrontImage(id: any) {
     const form = new FormData();
-    form.append('userId',id);
-    form.append('adhar_front_side', this.uploadImage.front_adhar_image);
+    form.append("userId", id);
+    form.append("adhar_front_side", this.uploadImage.front_adhar_image);
 
     this.userService.uploadFranchiseFrontAdharImage(form).subscribe({
-      next:(res:any)=>{
-        this.toastr.success(res.message)
+      next: (res: any) => {
+        this.toastr.success(res.message);
       },
-      error:(err=>{
-        this.toastr.warning(err.error.message)
-      })
-    })
+      error: (err) => {
+        this.toastr.warning(err.error.message);
+      },
+    });
   }
-  uploadBackImage(id:any){
+  uploadBackImage(id: any) {
     const form = new FormData();
-    form.append('userId',id);
-    form.append('adhar_back_side', this.uploadImage.back_adhar_imgae);
+    form.append("userId", id);
+    form.append("adhar_back_side", this.uploadImage.back_adhar_imgae);
 
     this.userService.uploalFranchiseBackAdharImage(form).subscribe({
-      next:(res:any)=>{
-        this.toastr.success(res.message)
+      next: (res: any) => {
+        this.toastr.success(res.message);
       },
-      error:(err=>{
-        this.toastr.warning(err.error.message)
-      })
-    })
+      error: (err) => {
+        this.toastr.warning(err.error.message);
+      },
+    });
   }
-  uploadPankImage(id:any){
+  uploadPankImage(id: any) {
     const form = new FormData();
-    form.append('userId',id);
-    form.append('panCard', this.uploadImage.panImage);
+    form.append("userId", id);
+    form.append("panCard", this.uploadImage.panImage);
 
     this.userService.uploadFranchisePanImage(form).subscribe({
-      next:(res:any)=>{
-        this.toastr.success(res.message)
+      next: (res: any) => {
+        this.toastr.success(res.message);
       },
-      error:(err=>{
-        this.toastr.warning(err.error.message)
-      })
-    })
+      error: (err) => {
+        this.toastr.warning(err.error.message);
+      },
+    });
   }
 }

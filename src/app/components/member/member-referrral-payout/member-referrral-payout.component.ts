@@ -1,30 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "src/app/service/user.service";
+import { Router } from "@angular/router";
 @Component({
-  selector: 'app-member-referrral-payout',
-  templateUrl: './member-referrral-payout.component.html',
-  styleUrls: ['./member-referrral-payout.component.css']
+  selector: "app-member-referrral-payout",
+  templateUrl: "./member-referrral-payout.component.html",
+  styleUrls: ["./member-referrral-payout.component.css"],
 })
 export class MemberReferrralPayoutComponent implements OnInit {
-
   requestHistory: any[] = [];
 
-  constructor(private userService : UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
-    this.myReferralPayout()
+    this.myReferralPayout();
   }
 
-  myReferralPayout(){
+  myReferralPayout() {
     let data = {
-      userid : localStorage.getItem('userdetail'),
-      userType : localStorage.getItem('userType')
-    }
+      userid: localStorage.getItem("userdetail"),
+      userType: localStorage.getItem("userType"),
+    };
 
     this.userService.memberReferralPayoutHistory(data).subscribe({
-      next:(res:any)=>{
-        console.log(res.data)
+      next: (res: any) => {
         if (res && res.data && Array.isArray(res.data)) {
           this.requestHistory = res.data;
         } else {
@@ -32,14 +30,12 @@ export class MemberReferrralPayoutComponent implements OnInit {
         }
       },
       error: (error) => {
-        console.log(error.error.message)
-      }
-    })
-
+        console.log(error.error.message);
+      },
+    });
   }
 
-  gotoDashboard(){
-    this.router.navigate(['/memberdashboard/home'])
+  gotoDashboard() {
+    this.router.navigate(["/memberdashboard/home"]);
   }
-
 }
