@@ -53,10 +53,10 @@ body{
 
 .table thead tr th{
     font-size: small;
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Roboto' san-serif;
 }
 .table tbody tr td{
     font-size: small;
-    font-family: sans-serif;
+    font-family: Roboto;
     background: honeydew;
 }

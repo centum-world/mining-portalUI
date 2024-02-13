@@ -20,9 +20,10 @@
             </mat-card-content>
             <mat-card-actions>
                 <button mat-stroked-button>Status</button>
-                <button mat-raised-button  [ngStyle]="{'background-color': data.status === 1 ? '#81f803' : 'red'}">{{data.status === 1 ? 'Done' : 'Pending'}}</button>
+                <button mat-raised-button
+                    [ngStyle]="{'background-color': data.status === 1 ? '#81f803' : 'red'}">{{data.status === 1 ? 'Done'
+                    : 'Pending'}}</button>
             </mat-card-actions>
-
 
         </mat-card>
     </div>

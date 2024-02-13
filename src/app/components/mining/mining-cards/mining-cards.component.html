@@ -1,119 +1,115 @@
 <main>
-
-    <div class="cards" *ngIf="!view_detail">
-      <div class="card-single">
+  <div class="cards" *ngIf="!view_detail">
+    <div class="card-single">
+      <div>
         <div>
-          <!-- <h6>Account Details</h6> -->
-          <div>
-            <div class="dop1" *ngIf="userStatus">
-              <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
-            </div>
-            <div class="dop1" *ngIf="month_count === 12 ">
-              <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
-            </div>
-            <div class="dop1" *ngIf="!userStatus && month_count === 0">
-              <span style="font-weight: 600;">Status</span>: <p style="color:red;">Not Active</p>
-            </div>
+          <div class="dop1" *ngIf="userStatus">
+            <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
           </div>
-          <div class="business-module">
-            <p>Business module docs</p>
-            
+          <div class="dop1" *ngIf="month_count === 12 ">
+            <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
+          </div>
+          <div class="dop1" *ngIf="!userStatus && month_count === 0">
+            <span style="font-weight: 600;">Status</span>: <p style="color:red;">Not Active</p>
           </div>
         </div>
-        <div>
-          <div class="card-view">
-            <span (click)="gotoAccount()">view</span>
-          </div>
-          <div class="business-download" (click)="downloadBusinessModule()"><mat-icon>file_download</mat-icon></div>
+        <div class="business-module">
+          <p>Business module docs</p>
         </div>
-        
       </div>
-      <div class="card-single">
-        <div class="partner-refferal-id">
-          <h6>User ID:-  {{partnerId}}</h6>
-          <span>Refferal ID:- &nbsp;{{refferID}}</span>
+      <div>
+        <div class="card-view">
+          <span (click)="gotoAccount()">view</span>
         </div>
+        <div class="business-download" (click)="downloadBusinessModule()"><mat-icon>file_download</mat-icon></div>
       </div>
 
-      <div class="card-single">
-        <div>
-          <h6>Liquidity</h6>
-          <!-- <span>History</span> -->
-        </div>
-        <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
-        <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
-      </div>
-      <div class="card-single">
-        <div>
-          <h6>My Team</h6>
-        </div>
-        <div class="card-view">
-          <a href="javascript:void(0)" (click)="myteam()">
-            <span>view</span>
-          </a>
-          
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal</h6>
-          <span>Pending History</span>
-        </div>
-        <div class="card-view">
-          <a href="javascript:void(0)" (click)="withdrwalPage()">
-            <span>view</span>
-          </a>
-          
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal</h6>
-          <span>Success History</span>
-        </div>
-        <div class="card-view">
-          <a href="javascript:void(0)" (click)="withdrwalPage()">
-            <span>view</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Refferal</h6>
-          <span>Pending History</span>
-        </div>
-        <div class="card-view">
-          <a href="javascript:void(0)" (click)="referralPayout()">
-            <span>view</span>
-          </a>
-        </div>
-      </div>
-      <div class="card-single">
-        <div>
-          <h6>Refferal</h6>
-          <span>Success History</span>
-        </div>
-        <div class="card-view">
-          <a href="javascript:void(0)" (click)="referralPayout()">
-            <span>view</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Withdrawal</span>
-        </div>
-        <span style="font-weight: bold;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
+    </div>
+    <div class="card-single">
+      <div class="partner-refferal-id">
+        <h6>User ID:- {{partnerId}}</h6>
+        <span>Refferal ID:- &nbsp;{{refferID}}</span>
       </div>
     </div>
 
-    <div *ngIf="view_detail">
-      <app-mining-profile-details></app-mining-profile-details>
+    <div class="card-single">
+      <div>
+        <h6>Liquidity</h6>
+      </div>
+      <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
+      <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
+    </div>
+    <div class="card-single">
+      <div>
+        <h6>My Team</h6>
+      </div>
+      <div class="card-view">
+        <a href="javascript:void(0)" (click)="myteam()">
+          <span>view</span>
+        </a>
+
+      </div>
     </div>
 
-  </main>
+    <div class="card-single">
+      <div>
+        <h6>Withdrawal</h6>
+        <span>Pending History</span>
+      </div>
+      <div class="card-view">
+        <a href="javascript:void(0)" (click)="withdrwalPage()">
+          <span>view</span>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Withdrawal</h6>
+        <span>Success History</span>
+      </div>
+      <div class="card-view">
+        <a href="javascript:void(0)" (click)="withdrwalPage()">
+          <span>view</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Refferal</h6>
+        <span>Pending History</span>
+      </div>
+      <div class="card-view">
+        <a href="javascript:void(0)" (click)="referralPayout()">
+          <span>view</span>
+        </a>
+      </div>
+    </div>
+    <div class="card-single">
+      <div>
+        <h6>Refferal</h6>
+        <span>Success History</span>
+      </div>
+      <div class="card-view">
+        <a href="javascript:void(0)" (click)="referralPayout()">
+          <span>view</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h6>Transaction</h6>
+        <span>Total Withdrawal</span>
+      </div>
+      <span style="font-weight: bold;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
+    </div>
+  </div>
+
+  <div *ngIf="view_detail">
+    <app-mining-profile-details></app-mining-profile-details>
+  </div>
+
+</main>

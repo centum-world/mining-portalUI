@@ -1,27 +1,27 @@
 /* styles.css */
 
 .mat-dialog-title {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-family:Calibri;
-    background-color: #5476f2;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 16px;
-    color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Calibri;
+  background-color: #5476f2;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 16px;
+  color: #fff;
 }
 
-.mat-dialog-title-1{
-    height: max-content;
+.mat-dialog-title-1 {
+  height: max-content;
 }
-  
+
 .row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .stateDetails {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stateDetails {
+  display: flex;
 }
 
 /* .custom-heading {
@@ -29,37 +29,36 @@
 } */
 
 .stateDetails span {
-    font-size: 18px;
-    font-family: Calibri;
-    color: #6512c4;
-    margin-right: 10px;
+  font-size: 18px;
+  font-family: Calibri;
+  color: #6512c4;
+  margin-right: 10px;
 }
 
 .stateDetails p {
-    font-size: 16px;
-    font-family: Calibri;
-    color: #040108;
-    margin-left: 10px;
-    font-weight: bold;
-
+  font-size: 16px;
+  font-family: Calibri;
+  color: #040108;
+  margin-left: 10px;
+  font-weight: bold;
 }
-.custom-ok{
-    background-color:#5476f2;
-    color:#fff;
+.custom-ok {
+  background-color: #5476f2;
+  color: #fff;
 }
 
 th {
-    font-size: 14px;
-    font-family: Calibri;
+  font-size: 14px;
+  font-family: Calibri;
 }
 
 td {
-    font-size: 12px;
-    font-family:Calibri;
+  font-size: 12px;
+  font-family: Calibri;
 }
 
-@media  (max-width: 768px){
-    .custom-ok{
-        margin-top:20px;
-    }
+@media (max-width: 768px) {
+  .custom-ok {
+    margin-top: 20px;
+  }
 }

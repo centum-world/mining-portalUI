@@ -1,186 +1,181 @@
 <div class="container">
   <!-- <button mat-raised-button color="primary" (click)="home()">Back</button> -->
   <a href="/dashboard">Home</a>
-    <h5 class="mt-2">Member Details</h5><span><input type="text" class="form-control" [(ngModel)]="searchText"
+  <h5 class="mt-2">Member Details</h5><span><input type="text" class="form-control" [(ngModel)]="searchText"
       placeholder="Search by name, userid, phone and email...."></span>
-    <div class="table table-hover table-responsive">
-        <thead>
-            <tr>
-                <th>Sr no.</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Refer ID</th>
-                <th>State</th>
-                <th>Email ID</th>
-                <th>Designation</th>
-                <th>Qualification</th>
-                <th>Gender</th>
-                <th>Experience</th>
-                <th>Salary</th>
-                <th>DOB</th>
-                <th>DOJ</th>
-                <th>User ID</th>
-                <!-- <th>Password</th> -->
-                <th>Refferal ID</th>
-                <th>Action</th>
+  <div class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Sr no.</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Refer ID</th>
+        <th>State</th>
+        <th>Email ID</th>
+        <th>Designation</th>
+        <th>Qualification</th>
+        <th>Gender</th>
+        <th>Experience</th>
+        <th>Salary</th>
+        <th>DOB</th>
+        <th>DOJ</th>
+        <th>User ID</th>
+        <th>Refferal ID</th>
+        <th>Action</th>
 
- 
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let data of memberListDetail | filter:searchText | paginate: {itemsPerPage:10, currentPage:p}; let i = index">
-                <td>{{i+1}}</td>
-                <td>{{data.m_name}}</td>
-                <td>{{data.m_phone}}</td>
-                <td>{{data.m_add}}</td>
-                <td>{{data.m_refferid}}</td>
-                <td>{{data.m_state}}</td>
-                <td>{{data.m_email}}</td>
-                <td>{{data.m_designation}}</td>
-                <td>{{data.m_quali}}</td>
-                <td>{{data.m_gender}}</td>
-                <td>{{data.m_exp}}</td>
-                <td>{{data.m_salary}}</td>
-                <td>{{data.m_dob |date}}</td>
-                <td>{{data.m_doj |date }}</td>
-                <td>{{data.m_userid}}</td>
-                <!-- <td>{{data.m_password}}</td> -->
-                <td>{{data.reffer_id}}</td>
 
-               
-                <td>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="edit" data-toggle="modal" data-target="#teamMates" (click)="fetchMemberDetails(data.m_userid)"><i class="fa fa-edit">Edit</i></a>
-                    </div>
-                </td>
-                
-            </tr>
-        </tbody>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let data of memberListDetail | filter:searchText | paginate: {itemsPerPage:10, currentPage:p}; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{data.m_name}}</td>
+        <td>{{data.m_phone}}</td>
+        <td>{{data.m_add}}</td>
+        <td>{{data.m_refferid}}</td>
+        <td>{{data.m_state}}</td>
+        <td>{{data.m_email}}</td>
+        <td>{{data.m_designation}}</td>
+        <td>{{data.m_quali}}</td>
+        <td>{{data.m_gender}}</td>
+        <td>{{data.m_exp}}</td>
+        <td>{{data.m_salary}}</td>
+        <td>{{data.m_dob |date}}</td>
+        <td>{{data.m_doj |date }}</td>
+        <td>{{data.m_userid}}</td>
+        <td>{{data.reffer_id}}</td>
+
+        <td>
+          <div class="action">
+            <a href="javascript:void(0)" class="edit" data-toggle="modal" data-target="#teamMates"
+              (click)="fetchMemberDetails(data.m_userid)"><i class="fa fa-edit">Edit</i></a>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>
 
 <!--Edit Member Modal -->
-<div class="modal fade" id="teamMates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Member Details</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-  
-        <div class="modal-body">
-          <!-- form -->
-          
-          <div class="form">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="userName">Name</label>
-                <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.name" id="userName">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="userPhone">Phone</label>
-                <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.phone"  id="userPhone">
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <textarea class="form-control" [(ngModel)]="memberUpdateDetails.address" id="inputAddress"></textarea>
-              </div>
-              
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="userState">State</label>
-                <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.state"  id="userState">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="experiance">Experience</label>
-                <select name="experiance" (change)="experianceMember($event)" id="experiance" class="form-control">
-                  <option value="undefined">Select</option>
-                  <option  [value]="1" [selected] ="memberUpdateDetails.experience === '1'" >1 Year</option>
-                  <option [value]="2"   [selected] = "memberUpdateDetails.experience === '2'">2 Year</option>
-                  <option [value]="3"   [selected] ="memberUpdateDetails.experience === '3'">3 Year</option>
-                  <option [value]="4"   [selected] ="memberUpdateDetails.experience === '4'"> More than 3 year</option>
-                </select>
-              </div>
-            </div>
-           
+<div class="modal fade" id="teamMates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Member Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
-  
-           
-           
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="">Qualification</label><br>
-                <input type="radio" (change)="changeMemberQuali($event)" name="quali" [checked]="memberUpdateDetails.qualification  ==='matric'"   id="qualification1"  value="matric">
-                <label for="qualification1">Matric</label>&nbsp;
-                <input type="radio" (change)="changeMemberQuali($event)"  name="quali" [checked]="memberUpdateDetails.qualification  ==='inter'" id="qualification2" value="inter">
-                <label for="qualification2">Inter</label>&nbsp;
-                <input type="radio" (change)="changeMemberQuali($event)"  name="quali" [checked]="memberUpdateDetails.qualification  ==='graduation'" id="qualification3" value="graduation">
-                <label for="qualification3">Graduation</label>&nbsp;
-                
-              </div>
-              <div class="form-group col-md-6">
-                <label for="gender">Gender</label><br>
-                <input type="radio" (change)="changeMemberGender($event)" [checked]="memberUpdateDetails.gender  ==='male'" name="gender" id="male" value="male">
-                <label for="male">Male</label>&nbsp;
-                <input type="radio" (change)="changeMemberGender($event)" [checked]=" memberUpdateDetails.gender  ==='female'"   name="gender" id="female" value="female">
-                <label for="female">Female</label>&nbsp;
-                <input type="radio" (change)="changeMemberGender($event)" name="gender" [checked]="memberUpdateDetails.gender  ==='other'" id="other" value="other">
-                <label for="other">other</label>&nbsp;
-                
-              </div>
-            </div> 
-            <div class="row">
-              
-              <div class="form-group col-md-6">
-                <label for="userEmail">Email</label>
-                <input type="email" class="form-control" [(ngModel)]="memberUpdateDetails.email" id="userEmail" >
-              </div>
-  
-              <div class="form-group col-md-6">
-                <label for="salary">Salary</label>
-                <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.salary" placeholder="Enter Salary">
-              </div>
+      <div class="modal-body">
+        <!-- form -->
+
+        <div class="form">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="userName">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.name" id="userName">
             </div>
-  
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="dob">DOB</label>
-                <input type="date" [(ngModel)]="memberUpdateDetails.dob" name="memberUpdateDetails.dob" id="dob" class="form-control">
-              </div>
-  
-              <div class="form-group col-md-6">
-                <label for="doj">DOJ</label>
-                <input   [(ngModel)]="memberUpdateDetails.doj" id="doj" type="date" class="form-control">
-              </div>
+            <div class="form-group col-md-6">
+              <label for="userPhone">Phone</label>
+              <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.phone" id="userPhone">
             </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="userDesignation">Designation</label>
-                <select class="form-control" (change)="changeMemberDegisnation($event)" id="userDesignation" >
-                  <option value="undefined">Select</option>
-                 <option *ngFor="let data of designationArray" [value]="data.value" [selected]="data.data === memberUpdateDetails.designation ">{{data.display}}</option>
-                </select>
-              </div>
-  
-              <!-- <div class="form-group col-md-6">
-                <label for="upassword">User Password1</label>
-                <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.password"  placeholder="Enter userId" name="upassword" id="upassword">
-              </div> -->
-  
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <textarea class="form-control" [(ngModel)]="memberUpdateDetails.address" id="inputAddress"></textarea>
             </div>
-  
-            
-              
-            
-            
-            
+
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="userState">State</label>
+              <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.state" id="userState">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="experiance">Experience</label>
+              <select name="experiance" (change)="experianceMember($event)" id="experiance" class="form-control">
+                <option value="undefined">Select</option>
+                <option [value]="1" [selected]="memberUpdateDetails.experience === '1'">1 Year</option>
+                <option [value]="2" [selected]="memberUpdateDetails.experience === '2'">2 Year</option>
+                <option [value]="3" [selected]="memberUpdateDetails.experience === '3'">3 Year</option>
+                <option [value]="4" [selected]="memberUpdateDetails.experience === '4'"> More than 3 year</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="">Qualification</label><br>
+              <input type="radio" (change)="changeMemberQuali($event)" name="quali"
+                [checked]="memberUpdateDetails.qualification  ==='matric'" id="qualification1" value="matric">
+              <label for="qualification1">Matric</label>&nbsp;
+              <input type="radio" (change)="changeMemberQuali($event)" name="quali"
+                [checked]="memberUpdateDetails.qualification  ==='inter'" id="qualification2" value="inter">
+              <label for="qualification2">Inter</label>&nbsp;
+              <input type="radio" (change)="changeMemberQuali($event)" name="quali"
+                [checked]="memberUpdateDetails.qualification  ==='graduation'" id="qualification3" value="graduation">
+              <label for="qualification3">Graduation</label>&nbsp;
+
+            </div>
+            <div class="form-group col-md-6">
+              <label for="gender">Gender</label><br>
+              <input type="radio" (change)="changeMemberGender($event)"
+                [checked]="memberUpdateDetails.gender  ==='male'" name="gender" id="male" value="male">
+              <label for="male">Male</label>&nbsp;
+              <input type="radio" (change)="changeMemberGender($event)"
+                [checked]=" memberUpdateDetails.gender  ==='female'" name="gender" id="female" value="female">
+              <label for="female">Female</label>&nbsp;
+              <input type="radio" (change)="changeMemberGender($event)" name="gender"
+                [checked]="memberUpdateDetails.gender  ==='other'" id="other" value="other">
+              <label for="other">other</label>&nbsp;
+
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="form-group col-md-6">
+              <label for="userEmail">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="memberUpdateDetails.email" id="userEmail">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="salary">Salary</label>
+              <input type="text" class="form-control" [(ngModel)]="memberUpdateDetails.salary"
+                placeholder="Enter Salary">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="dob">DOB</label>
+              <input type="date" [(ngModel)]="memberUpdateDetails.dob" name="memberUpdateDetails.dob" id="dob"
+                class="form-control">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="doj">DOJ</label>
+              <input [(ngModel)]="memberUpdateDetails.doj" id="doj" type="date" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="userDesignation">Designation</label>
+              <select class="form-control" (change)="changeMemberDegisnation($event)" id="userDesignation">
+                <option value="undefined">Select</option>
+                <option *ngFor="let data of designationArray" [value]="data.value"
+                  [selected]="data.data === memberUpdateDetails.designation ">{{data.display}}</option>
+              </select>
+            </div>
+          </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -189,8 +184,4 @@
       </div>
     </div>
   </div>
-  </div>
-
-  <!-- Add member bank details -->
-
-  
+</div>

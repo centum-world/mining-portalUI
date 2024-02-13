@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
-import { MatDialogConfig } from '@angular/material';
-import { UserService } from 'src/app/service/user.service';
-import { MiningAddBankComponent } from '../dialog/mining-add-bank/mining-add-bank.component';
-import { MiningViewBankComponent } from '../dialog/mining-view-bank/mining-view-bank.component';
-import { HelpSupportComponent } from '../dialog/help-support/help-support.component';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { MatDialog } from "@angular/material";
+import { MatDialogConfig } from "@angular/material";
+import { UserService } from "src/app/service/user.service";
+import { MiningAddBankComponent } from "../dialog/mining-add-bank/mining-add-bank.component";
+import { MiningViewBankComponent } from "../dialog/mining-view-bank/mining-view-bank.component";
+import { HelpSupportComponent } from "../dialog/help-support/help-support.component";
 
 @Component({
-  selector: 'app-mining-sidebar',
-  templateUrl: './mining-sidebar.component.html',
-  styleUrls: ['./mining-sidebar.component.css']
+  selector: "app-mining-sidebar",
+  templateUrl: "./mining-sidebar.component.html",
+  styleUrls: ["./mining-sidebar.component.css"],
 })
 export class MiningSidebarComponent implements OnInit {
   isVisible: boolean = false;
 
-  constructor(private router:Router,private dialog: MatDialog,private userService:UserService) { }
+  constructor(
+    private router: Router,
+    private dialog: MatDialog,
+    private userService: UserService
+  ) {}
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   toggleSidebar() {
     this.isVisible = !this.isVisible;
@@ -28,76 +30,59 @@ export class MiningSidebarComponent implements OnInit {
     this.isVisible = false;
   }
 
-  partnerViewList(){
-    this.router.navigate(['/miningdashboard/partner-details'])
+  partnerViewList() {
+    this.router.navigate(["/miningdashboard/partner-details"]);
     this.isVisible = false;
   }
-  partnerWithdraw(){
-    this.router.navigate(['/miningdashboard/withdraw'])
+  partnerWithdraw() {
+    this.router.navigate(["/miningdashboard/withdraw"]);
     this.isVisible = false;
   }
 
-  gotoDahashboard(){
-    this.router.navigate(['/miningdashboard/home'])
+  gotoDahashboard() {
+    this.router.navigate(["/miningdashboard/home"]);
   }
 
-  addBankDetails(){
+  addBankDetails() {
     let config: MatDialogConfig = {
-      panelClass: 'partnerAddBankDialogClass',
+      panelClass: "partnerAddBankDialogClass",
     };
-    const dialogRef = this.dialog.open(MiningAddBankComponent,config)
-    
-    dialogRef.afterClosed().subscribe(result => {
-     
-    });
-    
+    const dialogRef = this.dialog.open(MiningAddBankComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
-  
-  viewBankDetails(){
+
+  viewBankDetails() {
     let config: MatDialogConfig = {
-      panelClass: 'partnerViewBankDetailsDialogClass',
+      panelClass: "partnerViewBankDetailsDialogClass",
     };
-    const dialogRef = this.dialog.open(MiningViewBankComponent,config)
-    
-    dialogRef.afterClosed().subscribe(result => {
-     
-    });
-   
+    const dialogRef = this.dialog.open(MiningViewBankComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
-  myteam(){
+  myteam() {
     this.isVisible = false;
-    this.router.navigate(['/miningdashboard/my-team'])
+    this.router.navigate(["/miningdashboard/my-team"]);
   }
 
-  FranchiseList(){
+  FranchiseList() {}
+  memberViewList() {}
+  viewList() {}
 
-  }
-  memberViewList(){
-
-  }
-  viewList(){
-
-  }
-
-  helpAndSupport(){
+  helpAndSupport() {
     this.isVisible = false;
     let config: MatDialogConfig = {
-      panelClass: 'helpAndSupportDialogClass',
+      panelClass: "helpAndSupportDialogClass",
     };
-    const dialogRef = this.dialog.open(HelpSupportComponent,config)
-    
-    dialogRef.afterClosed().subscribe(result => {
-     
-    });
-    
+    const dialogRef = this.dialog.open(HelpSupportComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
-  
 
-  logOut(){
-
-    console.log("logging out")
+  logOut() {
+    console.log("logging out");
     localStorage.clear();
-    this.router.navigate(['/mininglogin'])
+    this.router.navigate(["/mininglogin"]);
   }
 }

@@ -18,9 +18,9 @@ export class MiningAccountComponent implements OnInit {
     private dialog: MatDialog,
     private userService: UserService
   ) {}
-  fname:"";
-  lname:"";
-  perDayAmountDropDown=0;
+  fname: "";
+  lname: "";
+  perDayAmountDropDown = 0;
   partnerDetails = {
     partnerID: "",
     dop: "",
@@ -42,7 +42,6 @@ export class MiningAccountComponent implements OnInit {
     };
     this.userService.fetchMiningPartnerProfileDetails(data).subscribe({
       next: (res: any) => {
-        console.log(res.data[0]);
         this.fname = res.data[0].p_name.toUpperCase();
         this.lname = res.data[0].p_lname.toUpperCase();
         this.partnerDetails.partnerID = res.data[0].p_userid;
@@ -50,20 +49,16 @@ export class MiningAccountComponent implements OnInit {
         this.partnerDetails.liquidity = res.data[0].p_liquidity;
         this.partnerDetails.monthComplete = res.data[0].partner_count;
 
-        if(res.data[0].p_liquidity === 600000){
-          this.perDayAmountDropDown = (67500 - (67500*5)/100);
-          
-        }else if(res.data[0].p_liquidity === 300000){
-          this.perDayAmountDropDown = (40500 - (40500*5)/100);
-          
-        }else if(res.data[0].p_liquidity === 200000){
-          this.perDayAmountDropDown = (27000 - (27000*5)/100);
-          
-        }else if(res.data[0].p_liquidity === 100000){
-          this.perDayAmountDropDown = (13500 - (13500*5)/100);
-          
-        }else if(res.data[0].p_liquidity === 1200000){
-          this.perDayAmountDropDown = (135000 - (135000*5)/100); 
+        if (res.data[0].p_liquidity === 600000) {
+          this.perDayAmountDropDown = 67500 - (67500 * 5) / 100;
+        } else if (res.data[0].p_liquidity === 300000) {
+          this.perDayAmountDropDown = 40500 - (40500 * 5) / 100;
+        } else if (res.data[0].p_liquidity === 200000) {
+          this.perDayAmountDropDown = 27000 - (27000 * 5) / 100;
+        } else if (res.data[0].p_liquidity === 100000) {
+          this.perDayAmountDropDown = 13500 - (13500 * 5) / 100;
+        } else if (res.data[0].p_liquidity === 1200000) {
+          this.perDayAmountDropDown = 135000 - (135000 * 5) / 100;
         }
       },
       error: (err) => {
@@ -83,7 +78,6 @@ export class MiningAccountComponent implements OnInit {
         let lastPaymentOfIndex = approveArray.length;
         this.partnerDetails.lastPaymentDate =
           approveArray[lastPaymentOfIndex - 1].approve_date;
-        console.log(this.partnerDetails.lastPaymentDate);
       },
     });
   }
@@ -94,7 +88,6 @@ export class MiningAccountComponent implements OnInit {
   downloadPaylout() {
     console.log(this.contentToConvert);
     if (this.contentToConvert) {
-      console.log("success");
       const element = this.contentToConvert.nativeElement;
       const backgroundImage = new Image();
       backgroundImage.src = "path/to/your/background-image.jpg";
@@ -114,20 +107,31 @@ export class MiningAccountComponent implements OnInit {
   }
   // In your component class
   formatDate(date: Date | string): string {
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  
-    if (typeof date === 'string') {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    if (typeof date === "string") {
       date = new Date(date);
     }
-  
+
     if (date instanceof Date && !isNaN(date.getTime())) {
       const year = date.getFullYear();
       const month = monthNames[date.getMonth()];
       return `${month} ${year}`;
     } else {
-      return 'Invalid Date';
+      return "Invalid Date";
     }
   }
-  
-  
 }
