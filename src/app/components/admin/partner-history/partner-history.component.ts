@@ -98,9 +98,11 @@ export class PartnerHistoryComponent implements OnInit {
     const dialogRef = this.dialog.open(VerifyPartnerComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
       console.log("clicked");
+      let verifyDate = new Date()
       let data = {
         isVerify: true,
         p_userid: miningPartnerData.p_userid,
+        verifyDate,
       };
       this.userService.adminVerifyPartner(data).subscribe({
         next: (res: any) => {

@@ -68,9 +68,9 @@
         </mat-card>
       </div>
     </mat-tab>
-    <mat-tab label="Request withdrawal">
+    <!-- <mat-tab label="Request withdrawal">
       <div class="bakk-div">
-        <!-- Check if partnerRequestHistory is empty -->
+      
         <ng-container *ngIf="partnerRequestHistory.length === 0; else partnerRequestList">
           <mat-card class="example-card">
             <mat-card-content>
@@ -79,7 +79,6 @@
           </mat-card>
         </ng-container>
 
-        <!-- Display the list of request withdrawals if partnerRequestHistory is not empty -->
         <ng-template #partnerRequestList>
           <mat-card class="example-card" *ngFor="let data of partnerRequestHistory">
             <mat-card-header>
@@ -115,10 +114,9 @@
           </mat-card>
         </ng-template>
       </div>
-    </mat-tab>
-    <mat-tab label="Approved withdrawal">
+    </mat-tab> -->
+    <!-- <mat-tab label="Approved withdrawal">
       <div class="bakk-div">
-        <!-- Check if approvedRequest is empty -->
         <ng-container *ngIf="approvedRequest.length === 0; else approvedRequestList">
           <mat-card class="example-card">
             <mat-card-content>
@@ -126,8 +124,6 @@
             </mat-card-content>
           </mat-card>
         </ng-container>
-
-        <!-- Display the list of approved withdrawals if approvedRequest is not empty -->
         <ng-template #approvedRequestList>
           <mat-card class="example-card" *ngFor="let data of approvedRequest">
             <mat-card-header>
@@ -164,10 +160,9 @@
           </mat-card>
         </ng-template>
       </div>
-    </mat-tab>
+    </mat-tab> -->
     <mat-tab label="Bank details">
       <div class="bakk-div">
-        <!-- Check if bankDetails is empty -->
         <ng-container *ngIf="bankDetails.length === 0; else bankDetailsList">
           <mat-card class="example-card">
             <mat-card-content>
@@ -175,8 +170,6 @@
             </mat-card-content>
           </mat-card>
         </ng-container>
-
-        <!-- Display the list of bank details if bankDetails is not empty -->
         <ng-template #bankDetailsList>
           <mat-card class="example-card" *ngFor="let data of bankDetails">
             <mat-card-header>
@@ -307,7 +300,7 @@
         </mat-card>
       </div>
     </mat-tab>
-    <mat-tab label="Bond">
+    <mat-tab label="INVOICE">
       <div style="
           display: flex;
           justify-content: center;
@@ -460,6 +453,174 @@
       <div style=" display: flex; 
       flex-direction: column-reverse; 
       align-items: flex-end; margin-right: 10px;"><button mat-raised-button color="primary" (click)="downloadPdf()"
+          [disabled]="!pdfButton">Download</button></div>
+    </mat-tab>
+
+    <mat-tab label="Bond">
+      <div class="downloadBondDiv">
+        <div class="bond-main-div">
+          <div #contentToConvert [ngClass]="{ 'hidden-content': hideContent }" class="bond-pdf-container">
+            <div class="heading-section">
+              <div style="display: flex; align-items: end; font-family: Calibri;">Date: {{paymentDate|date}}</div>
+              <div style="margin-bottom: 10px">
+                <img src="../../../../assets/image/bond-logo.png" alt="" class="bond-image-div" />
+              </div>
+            </div>
+            <p class="bond-subject">Subject : Declaration of Virtual Partnership for RIG firm Participation,
+              Implementation and acceptance of Mutual Bond Agreemnet</p>
+            <p style="font-family:Calibri; margin-bottom: 0px;">This is to Certify that a Mutual & Virtual Partnership
+              bond betwen CENTUM WORLD, called 1st party (refer as Technical Partner), having GST NO. 19AAQFC7963A1Z5 and
+              PAN:AAQFC7963A,Corporate office in Bangalore and Kolkata (A Blockchain and Crypto Mining Firm Development
+              Company)</p>
+            <p style="font-family: Calibri;">and with 2nd party (refer as Individual/Persons/Company)</p>
+            <p style="font-family: Calibri;"><strong>Individual Name / </strong>Company Name:</p>
+            <p style="font-family: Calibri;"><strong>Aadhaar / PAN no. _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _</strong></p>
+  
+            <p style="font-family: Calibri;">on Date _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ for Virtual Liquidity adding
+              partnership of Crypto Mining Firm Development <strong>(Iaas - Infrastructure as a Services)</strong> and
+              Blockchain Development on certain terms and conditions as specified in the agreement.</p>
+  
+            <ul>
+              <li style="font-family: Calibri;"> <strong>Duration of Partnership : 12 Months </strong>(1st tenure will be
+                released after 35 days of adding
+                Liquidity share)
+              </li>
+              <li style="font-family: Calibri;"> <strong>Fixed Share distribution /commission(Day/Month wise):
+                  {{fixedShareAmount | currency : 'INR'}} </strong>per Month
+  
+              </li>
+              <li style="font-family: Calibri;"> Yearly Bonus : 10% (will be added after the completion of contract
+                period)
+              </li>
+  
+              <li style="font-family: Calibri;"><strong>Shared Liquidity Amount : {{partnerDetails.liquidity |
+                  currency:'INR'}} LAKH</strong>({{fixedShareAmountInString}})
+              </li>
+              <li style="font-family: Calibri;"><strong>Date of Liquidity add :</strong> {{ dateOfLiquidityAdd | date: 'dd
+                MMM yyyy' }}
+              </li>
+              <li style="font-family: Calibri; margin-bottom: 3rem;"><strong>Payment mode in details:</strong></li>
+              <li style="font-family: Calibri; margin-bottom: 0px;">Duties & Obligations of partners:</li>
+            </ul>
+  
+            <div class="duties-obligation">
+  
+              <ul style="font-family: Calibri;">
+  
+                <strong style="margin-top: 0px;">1st Partner</strong>
+                <li>Technical Staff</li>
+                <li>Technical Skill & Maintenance</li>
+                <li>Expert Service and solutions</li>
+                <li>Device Configuration/Implementation</li>
+                <li>Electricity Bill</li>
+                <li>100% Responsibility</li>
+              </ul>
+              <div style="font-family: Calibri;">
+                <strong style="margin-top:0px;">2nd Partner</strong>
+                <li>No Technical Staff Cost bearing</li>
+                <li>No Technical Skill Required</li>
+                <li>No Technical Knowledge</li>
+                <li>No Setup Cost</li>
+                <li>No Electricity</li>
+                <li>No Responsibility</li>
+              </div>
+            </div>
+  
+            <div class="footer-section">
+              <div class="left-section">
+                <p>CENTUMO Token, CENTUMO Swap (DeX SaaS)</p>
+                <p>CENTUMO RIG (IaaS), CENTUMO NFT (SaaS),</p>
+                <p>Apps Ecosystem</p>
+                <p>worldcentum@gmail.com</p>
+              </div>
+              <div class="right-section">
+                <p>Business Address:</p>
+                <p>CENTUM WORLD</p>
+                <p>Bangalore,Karnataka,560102</p>
+                <p>Kolkata,New Town,West Bengal,700102</p>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="bond-main-div">
+          <div #contentToConvert [ngClass]="{ 'hidden-content': hideContent }" class="bond-pdf-container">
+            <div class="heading-section">
+              <div style="display: flex; align-items: end; font-family: Calibri;">Date: {{paymentDate|date}}</div>
+              <div style="margin-bottom: 10px">
+                <img src="../../../../assets/image/bond-logo.png" alt="" class="bond-image-div" />
+              </div>
+            </div>
+            <p class="terms-condition-p">Terms and Conditions :</p>
+            <ul style="font-family: Calibri;">
+              <li>The 2nd party is hereby Acknowledged that This Mutual Bond
+                of "the Mining RIG (IaaS- Infrastructure as a Service) Partnership Contract" is for
+                12 Months and with this form He/She agreed to participate virtually for
+                our Blockchain based Mining firm Technically called IaaS (Infrastructure
+                as a Servi ce) Ecosystem as per calculated work profit Share Basis.
+                The 2nd party will get <strong>{{ fixedSharePerDayAmount | currency : 'INR' }}</strong>
+                /- per day basis means <strong>{{fixedShareAmount | currency : 'INR'}}</strong>/- per
+                Monthly share from 1st Party, valid till to 12 months after 35 days
+                Connecting with this program</li>
+              <li>The 2nd party will get <strong>{{ fixedSharePerDayAmount | currency : 'INR' }}</strong>
+                /- per day basis means <strong>{{fixedShareAmount | currency : 'INR'}}</strong>/- per
+                Monthly share from 1st Party, valid till to 12 months after 35 days
+                Connecting with this program.</li>
+  
+              <li>The projected Daily share will be transferred automatically to the
+                Register Bank Account of 2nd Party by 1st Party as per the commitment.</li>
+  
+              <li>The 2nd Party is hereby Acknowledged that This is not any Investment
+                Plan but a participation Ecosystem to grow Infrastructure towards to a
+                profitable contract of 1st Party.</li>
+  
+              <li>With this Agreement form Company is liable to pay the Committed
+                Amount through out 12 Months (35 days after the Connection and
+                Configuration) + 10 % Bonus on Liquidity adding after 12th month</li>
+              <li>Pre claim is not applicable from both the party with this Agreement/Contract from either side.</li>
+  
+            </ul>
+  
+            <p style="padding-bottom: 20px; font-family: Calibri;">I/We solemnly Inform that I am Agree with all te Terms
+              and Condition Applied by CENTUM WORLD regarding the
+              Mining Partnership Contract and I/We will follow Business Module and Productivity ratio which will be
+              maintained by the Company for further Growth.</p>
+  
+            <div class="terms-signature">
+              <div style="font-family: Calibri;">
+                <p style="margin-bottom: 0px;">Official Signatory on behalf of </p>
+                <p style="margin-bottom: 0px;">CENTUM WORLD :</p>
+                <P style="margin-bottom: 0px;">1st Party</P>
+              </div>
+              <div style="font-family: Calibri;">
+                <p style="margin-bottom: 0px;">Authorize Signatory:</p>
+                <p style="margin-bottom: 0px;">(2nd Party)</p>
+              </div>
+            </div>
+  
+            <div class="footer-section">
+              <div class="left-section">
+                <p>CENTUMO Token, CENTUMO Swap (DeX SaaS)</p>
+                <p>CENTUMO RIG (IaaS), CENTUMO NFT (SaaS),</p>
+                <p>Apps Ecosystem</p>
+                <p>worldcentum@gmail.com</p>
+              </div>
+              <div class="right-section">
+                <p>Business Address:</p>
+                <p>CENTUM WORLD</p>
+                <p>Bangalore,Karnataka,560102</p>
+                <p>Kolkata,New Town,West Bengal,700102</p>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      <div style=" display: flex; 
+      flex-direction: column-reverse; 
+      align-items: flex-end; margin-right: 10px;"><button mat-raised-button color="primary" (click)="downloadBond()"
           [disabled]="!pdfButton">Download</button></div>
     </mat-tab>
   </mat-tab-group>

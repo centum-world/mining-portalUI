@@ -30,6 +30,10 @@ export class PartnerAccountComponent implements OnInit {
   perDayAmountDropDown = 0;
   februaryAmount = 0;
   refferalAmount = 0;
+  fixedShareAmount = 0;
+  fixedSharePerDayAmount = 0;
+  fixedShareAmountInString = "";
+  dateOfLiquidityAdd: Date;
   paymentDate = null;
   perDayAmounReal = 0;
   liquidity = 0;
@@ -121,27 +125,44 @@ export class PartnerAccountComponent implements OnInit {
           this.partnerDetails.liquidity = res.result[0].p_liquidity;
           this.partnerDetails.monthComplete = res.result[0].month_count;
           this.partnerDetails.status = res.result[0].partner_status;
+          this.dateOfLiquidityAdd = res.result[0].verifyDate;
+          console.log(this.dateOfLiquidityAdd,129)
 
           if (res.result[0].p_liquidity === 600000) {
             this.perDayAmountDropDown = 67500;
             this.februaryAmount = 63000;
             this.refferalAmount = 11000;
+            this.fixedShareAmount = 64125;
+            this.fixedSharePerDayAmount = 2250;
+            this.fixedShareAmountInString = "Six lakh rupees only";
           } else if (res.result[0].p_liquidity === 300000) {
             this.perDayAmountDropDown = 40500;
             this.februaryAmount = 37800;
             this.refferalAmount = 5500;
+            this.fixedShareAmount = 38475;
+            this.fixedSharePerDayAmount = 1350;
+            this.fixedShareAmountInString = "Three lakh rupees only";
           } else if (res.result[0].p_liquidity === 200000) {
             this.perDayAmountDropDown = 27000;
             this.februaryAmount = 25200;
             this.refferalAmount = 3700;
+            this.fixedShareAmount = 25650;
+            this.fixedSharePerDayAmount = 900;
+            this.fixedShareAmountInString = "Two lakh rupees only";
           } else if (res.result[0].p_liquidity === 100000) {
             this.perDayAmountDropDown = 13500;
             this.februaryAmount = 12600;
             this.refferalAmount = 1850;
+            this.fixedShareAmount = 12825;
+            this.fixedSharePerDayAmount = 450;
+            this.fixedShareAmountInString = "One lakh rupees only";
           } else if (res.result[0].p_liquidity === 1200000) {
             this.perDayAmountDropDown = 135000;
             this.februaryAmount = 124000;
             this.refferalAmount = 22000;
+            this.fixedShareAmount = 128250;
+            this.fixedSharePerDayAmount = 4500;
+            this.fixedShareAmountInString = "Twelve lakh rupees only";
           }
         },
         error: (err) => {
@@ -150,6 +171,7 @@ export class PartnerAccountComponent implements OnInit {
       });
     } else if (event === 4) {
       this.lastApproveDate();
+    } else if (event === 5) {
     }
   }
 
@@ -274,7 +296,7 @@ export class PartnerAccountComponent implements OnInit {
     }
   }
   goBack() {
-    this.router.navigate(["/dashboard/home"]);
+    this.router.navigate(["/dashboard/partner-history"]);
   }
 
   referralPayoutApproved(id: any) {
@@ -308,4 +330,23 @@ export class PartnerAccountComponent implements OnInit {
       });
     }
   }
+  downloadBond() {
+    if (!this.hideContent && this.contentToConvert) {
+      const element = this.contentToConvert.nativeElement;
+      html2canvas(element).then((canvas) => {
+        const imgWidth = 210; // A4 size
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  
+        const contentDataURL = canvas.toDataURL("image/png");
+        const pdf = new jspdf.jsPDF("p", "mm", "a4");
+        let position = 0;
+  
+        pdf.addImage(contentDataURL, "PNG", 0, position, imgWidth, imgHeight);
+        pdf.save("generated_pdf.pdf");
+      }).catch((error) => {
+        console.error('Error generating PDF:', error);
+      });
+    }
+  }
+  
 }
