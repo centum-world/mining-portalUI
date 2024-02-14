@@ -40,6 +40,10 @@
       <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
     </div>
     <div class="card-single">
+      <div>Add Liquidity</div>
+      <div style="color: blue;" (click)="openRigID()"><mat-icon>add</mat-icon></div>
+    </div>
+    <div class="card-single">
       <div>
         <h6>My Team</h6>
       </div>

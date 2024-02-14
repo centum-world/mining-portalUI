@@ -122,6 +122,26 @@ body {
   border-radius:15px;
 }
 
+.partnerRigDialogClass .mat-dialog-container{
+  width:30vw;
+  height:70vh;
+  padding-bottom:10px;
+  overflow:auto;
+  scrollbar-width: thin;
+  scrollbar-color: #5476f2 white;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5476f2;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: white;
+  }
+}
+
 .myMemberEditDialogClass .mat-dialog-container::-webkit-scrollbar,
 .partnerEditDialogClass .mat-dialog-container::-webkit-scrollbar,
 .myBmmEditDialogClass .mat-dialog-container::-webkit-scrollbar,
@@ -164,7 +184,8 @@ body {
   .small-screen .EditFranchiseInBmmDialogClass .mat-dialog-container,
   .small-screen .franchiseProfileDetailsDialogClass .mat-dialog-container,
   .small-screen .franchiseDocumentsDialogClass .mat-dialog-container,
-  .small-screen .partnerQueryDialogClass .mat-dialog-container
+  .small-screen .partnerQueryDialogClass .mat-dialog-container,
+  .small-screen .partnerRigDialogClass .mat-dialog-container
    {
     margin-left: 0px;
     height: 80vh;
@@ -193,7 +214,7 @@ body {
   .small-screen .partnerViewBankDetailsDialogClass .mat-dialog-container,
   .small-screen .helpAndSupportDialogClass .mat-dialog-container,
   .small-screen .memberSummaryDialogClass .mat-dialog-container,
-  .small-screen .memberSummaryAmountDialogClass .mat-dialog-container
+  .small-screen .memberSummaryAmountDialogClass .mat-dialog-container,
   {
     width:80vw;
     margin-left:0px;
@@ -248,6 +269,10 @@ body {
   .small-screen .memberSummaryDialogClass .mat-dialog-title,
   .small-screen .memberSummaryAmountDialogClass .mat-dialog-title{
     width:80vw;
+  }
+
+  .small-screen .partnerRigDialogClass .mat-dialog-container{
+    width:100vw;
   }
 
 }

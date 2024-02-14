@@ -1,0 +1,107 @@
+<div class="main-div">
+  <h1 class="custom-heading" mat-dialog-title>Add Liquidity</h1>
+  <div>
+    <div class="header-div">
+      <p>Same as privious details</p>
+      <mat-slide-toggle
+        color="primary"
+        (change)="onToggleChange($event)"
+      ></mat-slide-toggle>
+    </div>
+    <div class="form-div">
+      <form
+        [formGroup]="newAccountForm"
+        (ngSubmit)="addnewAccount(newAccountForm)"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="fname" />
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lname"/>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <input
+              #phoneNumberInputForNew
+              id="phoneNumberInputForNew"
+              placeholder="Phone"
+              formControlName="phone"
+              matInput
+              type="tel"
+            />
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </ng-container>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Select Liquidity</mat-label>
+          <mat-select formControlName="liquidity">
+            <mat-option>Select one</mat-option>
+            <mat-option value="1200000">12 Lakh</mat-option>
+            <mat-option value="600000">6 Lakh</mat-option>
+            <mat-option value="300000">3 Lakh</mat-option>
+            <mat-option value="200000">2 Lakh</mat-option>
+            <mat-option value="100000">1 Lakh</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>Aadhaar number</mat-label>
+            <input matInput  formControlName="aadhar"/>
+            <mat-icon matSuffix>credit_card</mat-icon>
+          </mat-form-field>
+        </ng-container>
+
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>DOB</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dob" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </ng-container>
+
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>Aadhaar front</mat-label>
+            <input matInput type="text" placeholder="No file chosen" readonly />
+            <input
+              type="file"
+              id="aadharImage"
+              (change)="onFileSelected($event, 'front')"
+              accept="image/*"
+            />
+          </mat-form-field>
+        </ng-container>
+
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>Aadhaar back</mat-label>
+            <input matInput type="text" placeholder="No file chosen" readonly />
+            <input type="file" (change)="onFileSelected($event, 'back')" />
+          </mat-form-field>
+        </ng-container>
+
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>Pan card</mat-label>
+            <input matInput type="text" placeholder="No file chosen" readonly />
+            <input type="file" (change)="onFileSelected($event, 'pan')" />
+          </mat-form-field>
+        </ng-container>
+
+        <button mat-raised-button color="primary" type="submit">submit</button>
+      </form>
+    </div>
+  </div>
+</div>
