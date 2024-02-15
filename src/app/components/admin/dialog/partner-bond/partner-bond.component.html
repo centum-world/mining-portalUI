@@ -1,20 +1,18 @@
 <h1 class="custom-heading" mat-dialog-title>Partnership Bond</h1>
-  <mat-card>
-    <mat-card-title>PDF File Upload</mat-card-title>
-    <mat-card-content>
-      <form #fileUploadForm>
-        <input type="file" (change)="selectFile($event)" accept=".pdf">
-        <button class="upload-button" color="primary" (click)="uploadFile()">Upload</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<mat-card>
+  <mat-card-title>PDF File Upload</mat-card-title>
+  <mat-card-content>
+    <form #fileUploadForm="ngForm" class="form-container">
+      <!-- Input field for Partner ID -->
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Partner ID" name="userId" [(ngModel)]="userId" required>
+      </mat-form-field>
+
+      <!-- File input field -->
+      <input type="file" (change)="selectFile($event)" accept=".pdf" name="file" ngModel required>
+
+      <!-- Upload button -->
+      <button mat-raised-button  [disabled]="fileUploadForm.invalid" (click)="uploadFile()" style="color: #fff; background-color: #5476f2;">{{uploadText}}</button>
+    </form>
+  </mat-card-content>
+</mat-card>

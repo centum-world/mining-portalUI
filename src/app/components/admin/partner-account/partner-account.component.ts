@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { UserService } from "src/app/service/user.service";
 import { ToastrService } from "ngx-toastr";
 import { MatDialog } from "@angular/material";
@@ -7,7 +8,7 @@ import { MatDialogConfig } from "@angular/material";
 import { ConfirmApprovedComponent } from "../dialog/confirm-approved/confirm-approved.component";
 import { Router } from "@angular/router";
 import * as jspdf from "jspdf";
-import { jsPDF } from 'jspdf';
+import { jsPDF } from "jspdf";
 
 import html2canvas from "html2canvas";
 
@@ -17,7 +18,10 @@ import html2canvas from "html2canvas";
   styleUrls: ["./partner-account.component.css"],
 })
 export class PartnerAccountComponent implements OnInit {
-  buttonText: string = 'Download';
+  uploadText: string = 'Upload';
+  isUploading: boolean = false;
+  fileUploadForm: FormGroup;
+  buttonText: string = "Download";
   isDownloading: boolean = false;
 
   @ViewChild("contentToConvert", { static: false })
@@ -39,7 +43,7 @@ export class PartnerAccountComponent implements OnInit {
   fixedSharePerDayAmount = 0;
   fixedShareAmountInString = "";
   dateOfLiquidityAdd: Date;
-  aadharNumber : Number;
+  aadharNumber: Number;
   paymentDate = null;
   perDayAmounReal = 0;
   liquidity = 0;
@@ -64,7 +68,6 @@ export class PartnerAccountComponent implements OnInit {
   ) {
     this.route.params.subscribe((params) => {
       this.partnerID = params["id"]; // Retrieve parameter 1
-    
     });
   }
 
@@ -73,6 +76,13 @@ export class PartnerAccountComponent implements OnInit {
     this.referralTabChange(0);
     this.callApiToUserDetails();
   }
+
+  selectedFile: File | null = null;
+
+  selectFile(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
+
   onSlideToggleChange() {
     this.checked = !this.checked; // Toggle the checked state
     console.log("Slide toggle changed:", this.checked);
@@ -177,6 +187,8 @@ export class PartnerAccountComponent implements OnInit {
     } else if (event === 4) {
       this.lastApproveDate();
     } else if (event === 5) {
+    }else if (event === 6){
+
     }
   }
 
@@ -266,21 +278,20 @@ export class PartnerAccountComponent implements OnInit {
       next: (result: any) => {
         if (result && result.data && result.data.length > 0) {
           approveArray = Object.values(result.data);
-          console.log(approveArray)
+          console.log(approveArray);
           let lastPaymentOfIndex = approveArray.length;
           this.partnerDetails.lastPaymentDate =
             approveArray[lastPaymentOfIndex - 1].approve_date;
         } else {
           // Handle the case where result.data is empty
-          console.log('No data available.');
+          console.log("No data available.");
           // You can assign a default value to this.partnerDetails.lastPaymentDate if needed
           // this.partnerDetails.lastPaymentDate = someDefaultValue;
         }
       },
       error: (error) => {
-        console.log(error.error.message)
-      }
-      
+        console.log(error.error.message);
+      },
     });
   }
 
@@ -350,15 +361,15 @@ export class PartnerAccountComponent implements OnInit {
 
   downloadBond() {
     // Change button text and set downloading status
-    this.buttonText = 'Downloading...';
+    this.buttonText = "Downloading...";
     this.isDownloading = true;
 
-    const elementsToConvert = document.querySelectorAll('.bond-pdf-container');
+    const elementsToConvert = document.querySelectorAll(".bond-pdf-container");
     const pdf = new jsPDF(); // Create a new PDF instance
 
     elementsToConvert.forEach((element: HTMLElement, index: number) => {
       html2canvas(element).then((canvas) => {
-        const imageData = canvas.toDataURL('image/png');
+        const imageData = canvas.toDataURL("image/png");
 
         if (index > 0) {
           pdf.addPage(); // Add new page for subsequent elements
@@ -367,24 +378,55 @@ export class PartnerAccountComponent implements OnInit {
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
 
-        pdf.addImage(imageData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        
+        pdf.addImage(imageData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
         // Check if this is the last element, then save the PDF
         if (index === elementsToConvert.length - 1) {
-          pdf.save('bond.pdf');
+          pdf.save("bond.pdf");
 
           // Reset button text and downloading status
-          this.buttonText = 'Download';
+          this.buttonText = "Download";
           this.isDownloading = false;
         }
       });
     });
   }
-  
-  
-  
-  
-  
-  
-  
+
+  uploadPartnershipBond(): void {
+    this.uploadText = 'Uploading...';
+    this.isUploading = true;
+    if (this.selectedFile) {
+      console.log("Selected file:", this.selectedFile);
+
+      const form = new FormData();
+      form.append("bond", this.selectedFile);
+
+      // Add Partner ID to the FormData object
+      form.append("userId", this.partnerID);
+      // console.log("Partner ID:", this.userId);
+
+      this.userService.bondUpload(form).subscribe({
+        next: (res: any) => {
+          this.uploadText = 'Upload';
+          this.isUploading = false;
+          this.toastr.success(res.message);
+          this.clearFileInput();
+
+        },
+        error: (err) => {
+          this.toastr.warning(err.error.message);
+        },
+      });
+    } else {
+      this.toastr.error("No file selected");
+    }
+  }
+
+  clearFileInput(): void {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = ''; // Clear the file input value
+      this.selectedFile = null; // Reset the selected file
+    }
+  }
 }

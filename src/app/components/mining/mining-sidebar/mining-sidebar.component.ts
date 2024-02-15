@@ -6,6 +6,7 @@ import { UserService } from "src/app/service/user.service";
 import { MiningAddBankComponent } from "../dialog/mining-add-bank/mining-add-bank.component";
 import { MiningViewBankComponent } from "../dialog/mining-view-bank/mining-view-bank.component";
 import { HelpSupportComponent } from "../dialog/help-support/help-support.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-mining-sidebar",
@@ -18,7 +19,8 @@ export class MiningSidebarComponent implements OnInit {
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    private userService: UserService
+    private userService: UserService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit() {}
@@ -78,6 +80,26 @@ export class MiningSidebarComponent implements OnInit {
     const dialogRef = this.dialog.open(HelpSupportComponent, config);
 
     dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  downloadBond(){
+    let partnerIdDetails = localStorage.getItem("partnerdetails");
+    let data = {
+      userId: partnerIdDetails,
+    };
+    this.userService.fetchPartnerBond(data).subscribe({
+      next: (res: any) => {
+        console.log(res.data[0].bond);
+        const bondData = res.data[0].bond;
+        const pdfUrl = bondData;
+
+        window.open(pdfUrl, "_blank");
+      },
+      error: (err) => {
+        console.log(err.error.message);
+        this.toastr.warning("!No Partnership bond Found")
+      },
+    });
   }
 
   logOut() {
