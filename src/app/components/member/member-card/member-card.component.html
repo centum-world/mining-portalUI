@@ -53,16 +53,16 @@
           </h6>
           <span>See your upgrade or downgrade</span>
         </div>
-        <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+        <div style="color: rgb(149, 147, 147);"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
       </div>
       <div class="card-single">
         <div>
           <h6>Bank</h6>
-          <span>Details</span>
+          <span>Add your bank !</span>
         </div>
 
         <!-- Add a Material Design bank icon -->
-        <button mat-icon-button [matMenuTriggerFor]="menuBank">
+        <button style="color: blue;" mat-icon-button [matMenuTriggerFor]="menuBank">
           <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
         </button>
         <mat-menu #menuBank="matMenu">
@@ -78,7 +78,7 @@
       </div>
       <div class="card-single">
         <div>
-          <h6>User ID {{displayUserId}}</h6>
+          <h6>User ID :- {{displayUserId}}</h6>
           <span>Refferal ID :- &nbsp;{{displayMemberRefferalId}}</span>
           <span style="margin-left: 1rem;">
             <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
@@ -106,7 +106,7 @@
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
-        <div style="font-weight: bold; font-size:medium;">{{(memberTotalWalletOfEachMonth || 0) | currency: 'INR'}}
+        <div style="font-weight: bold; font-size:medium; color: yellowgreen;">{{(memberTotalWalletOfEachMonth || 0) | currency: 'INR'}}
         </div>
       </div>
 
@@ -139,7 +139,7 @@
           <h6>Transaction</h6>
           <span>Total Withdrawal</span>
         </div>
-        <div style="font-size:medium; font-weight: bold;">{{paidAmount | currency:'INR'}}</div>
+        <div style="font-size:medium; font-weight: bold; color: yellowgreen;">{{paidAmount | currency:'INR'}}</div>
       </div>
 
 

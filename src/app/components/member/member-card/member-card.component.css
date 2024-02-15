@@ -163,7 +163,7 @@ main {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
-.card-single {
+/* .card-single {
   display: flex;
   justify-content: space-between;
   background: #fff;
@@ -174,7 +174,29 @@ main {
   cursor: pointer;
   transform-style: preserve-3d;
   transform: perspective(1000px);
+} */
+.card-single{
+  display: flex;
+  justify-content: space-between;
+  color:white;
+    width: 350px;
+  height: 150px;
+  border-radius: 20px;
+  padding: 10px;
+   font-family: roboto; 
+   background-size: cover;
+   background-position: center bottom;
+  text-align: justify;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  background-image: url('../../../../assets/card/RIG1.gif');
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
 }
+
+
+
 .card-single h3 + span {
   color: gray;
 }
@@ -271,7 +293,7 @@ td {
     text-align: center;
   }
   .main-content {
-    margin-left: 70px;
+    margin-left: 45px;
   }
 
   .main-content header {
