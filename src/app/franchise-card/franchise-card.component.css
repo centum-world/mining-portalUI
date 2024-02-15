@@ -195,9 +195,11 @@ header label span{
     margin-top: -3px !important;
 }
 
+
 main{
-    margin-top: 85px;
-    padding: 2rem 1.5rem; 
+    margin-top: 100px;
+    padding:1rem 1rem 1.5rem 1.5rem
+    /* padding: 2rem 1.5rem;  */
     /* background: #f0f0f0; */
     /* min-height: cals(100vh - 90px); */
 }
@@ -206,20 +208,43 @@ main{
     grid-template-columns: repeat(3, 1fr);
     grid-gap:2rem;
 }
-.card-single{
+/* .card-single{
     display: flex;
     justify-content: space-between;
     background: #fff;
     padding: 2rem;
     border-radius: 2rem;
     box-shadow: 5px 5px 15px rgba(0,0,0,9);
-    /* font-family: roboto; */
+    font-family: roboto;
     text-align: justify;
     cursor: pointer;
     transform-style: preserve-3d;
     transform: perspective(1000px);
 
+} */
+
+
+.card-single{
+    display: flex;
+    justify-content: space-between;
+    color:white;
+      width: 350px;
+    height: 150px;
+    border-radius: 20px;
+    padding: 10px;
+     font-family: roboto; 
+     background-size: cover;
+     background-position: center bottom;
+    text-align: justify;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    background-image: url('../../assets/card/RIG.gif');
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
 }
+
+
 .card-single h3 + span{
     color: gray;
 }
@@ -323,7 +348,7 @@ td{
     .sidebar-menu ul{
         padding:initial;
     }
-    
+
 
 }
 @media only screen and (max-width:960px){
@@ -338,6 +363,7 @@ td{
     header h2{
         font-size: 1rem;
     }
+    
 }
 @media only screen and (max-width:560px){
     .cards{
@@ -346,6 +372,7 @@ td{
     header h2 span{
         font-size: 1rem;
     }
+
 }
 
 .modal{
@@ -373,3 +400,7 @@ td{
     margin: 10px;
     color: red;
 }
+
+
+
+  

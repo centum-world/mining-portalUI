@@ -20,12 +20,12 @@
         </h6>
         <span>See your upgrade or downgrade</span>
       </div>
-      <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+      <div style="color:gray"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
     </div>
     <div class="card-single">
       <div>
         <h6>Bank</h6>
-        <span></span>
+        <span>Add your bank !</span>
       </div>
 
       <!-- <div class="icon" [matMenuTriggerFor]="menuProfile">
@@ -59,11 +59,9 @@
       <div>
         <h6>Franchise ID :- {{ displayFranchiseId }}</h6>
         <span
-          >Referral ID :- &nbsp;<a
-            href="/partner-signup?refferId={{ displayFranchiseReferralId }}"
-            target="_blank"
-            >{{ displayFranchiseReferralId }}</a
-          ></span>&nbsp;
+          >Referral ID :- &nbsp;
+            {{ displayFranchiseReferralId }}
+          </span>&nbsp;
           <span style="margin-left: 1rem;">
             <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
           </span>
@@ -76,7 +74,7 @@
         <span>Total wallet</span>
       </div>
       <div>
-        <b>{{ totalWalletOfFranchise | currency : "INR" }}</b>
+        <b style="color: yellowgreen;">{{ totalWalletOfFranchise | currency : "INR" }}</b>
       </div>
       <div style="font-size: medium; font-weight: bold"></div>
     </div>
@@ -88,7 +86,7 @@
       </div>
       <div data-toggle="modal" (click)="franchisePartnerMyTeamViewList()">
         <div class="icon">
-          <span>View</span>
+          <span style="color: #0D6EFD;">View</span>
         </div>
       </div>
     </div>
@@ -99,7 +97,7 @@
       </div>
       <div data-toggle="modal" (click)="franchiseWithdrawalRequestViewList()">
         <div class="icon">
-          <span>View</span>
+          <span  style="color: #0D6EFD;">View</span>
         </div>
       </div>
     </div>
@@ -110,7 +108,7 @@
       </div>
       <div data-toggle="modal" (click)="franchiseWithdrawalSuccessViewList()">
         <div class="icon">
-          <span>View</span>
+          <span  style="color: #0D6EFD;">View</span>
         </div>
       </div>
     </div>
@@ -121,7 +119,7 @@
         <span>Total Withdrawal</span>
       </div>
       <div>
-        <b>{{ totalWithdrawalOfFranchise | currency : "INR" }}</b>
+        <b style="color: yellowgreen;">{{ totalWithdrawalOfFranchise | currency : "INR" }}</b>
       </div>
       <div style="font-size: medium; font-weight: bold"></div>
     </div>
