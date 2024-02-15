@@ -1,3 +1,4 @@
+
 .account-header {
   display: flex;
   justify-content: space-between;
@@ -90,7 +91,7 @@
 
 .pdf-container {
   padding: 20px;
-  width: 40%;
+  width: 60%;
   border-radius: 5px;
 }
 
@@ -174,14 +175,94 @@
   font-weight: 500;
   font-size: 10px;
 }
+
+
+.bond-main-div{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom:20px;
+}
+.bond-pdf-container{
+  padding: 20px;
+  width: 70%;
+  border-radius: 5px;
+}
+.top-date{
+  display: flex;
+   align-items: end;
+   font-family: Calibri;
+}
+.bond-image-div {
+  width: 350px;
+  height: 80px;
+}
+.heading-section{
+  display:flex;
+  justify-content:space-between;
+}
+.bond-subject{
+  margin-top:15px;
+  font-family: Calibri;
+  margin-bottom:1rem;
+  font-weight:700;
+  text-align:justify;
+}
+
+.footer-section{
+  display:flex;
+  margin-top:20px;
+  font-family:Calibri;
+  justify-content:space-between;
+}
+.left-section{
+  font-family:Calibri;
+}
+.left-section p {
+  margin-bottom:0px;
+  color:darkgoldenrod;
+}
+.right-section{
+  font-family:Calibri;
+  text-align:right;
+}
+.right-section p {
+  margin-bottom:0px;
+  color:darkgoldenrod;
+}
+
+.duties-obligation{
+  display: flex;
+   margin-top: 0px; 
+   justify-content: space-between;
+}
+.terms-condition-p{
+  font-family:Calibri;
+}
+.terms-signature{
+  display: flex; 
+  justify-content:space-between;
+}
+.Declaration{
+  padding-bottom: 20px; 
+  font-family: Calibri;
+}
 @media screen and (min-width: 1025) and (max-width: 1200px) {
   .pdf-container {
     width: 90%;
+  }
+  .bond-pdf-container{
+    width:90%
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .pdf-container {
     width: 90%;
+  }
+  .bond-pdf-container{
+    width:90%
   }
 }
 
@@ -205,11 +286,70 @@
   .pdf-container {
     width: 60%;
   }
+  .bond-pdf-container{
+    width:80%;
+  }
+  .duties-obligation {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .footer-section{
+    display:flex;
+    flex-direction:column;
+  }
+  .right-section{
+    text-align:justify;
+    padding-top:10px;
+  }
+  .heading-section{
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+  .terms-condition-p{
+    text-align:center;
+  }
+  .terms-signature {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
 }
 @media (max-width: 576px) {
   .image-div {
     width: 200px;
     height: 50px;
+  }
+  .top-date{
+    font-size:12px;
+  }
+  .bond-subject{
+    font-size:14px;
+  }
+  .first-section p {
+    font-size:12px;
+  }
+  .first-section-list li {
+    font-family: Calibri;
+    font-size:12px;
+  }
+  .duties-obligation ul strong,li{
+    font-size:12px;
+  }
+  .duties-obligation .second-partner strong,
+  .duties-obligation .second-partner li {
+    font-size: 12px; /* Adjust the font size as needed */
+  }
+  
+  .footer-section .left-section ,.right-section p {
+    font-size:12px;
+  }
+  .Declaration {
+    font-size:12px;
+  }
+  .terms-signature {
+    font-size:12px;
   }
   .transaction {
     flex-direction: column;
@@ -227,9 +367,17 @@
     width: 100%;
     padding: 20px;
   }
+  .bond-pdf-container{
+    width:90%;
+    padding:20px;
+  }
   .image-div {
     width: 180px;
     height: 40px;
+  }
+  .bond-image-div{
+    width:200px;
+    height:50px;
   }
   .user-id {
     font-size: 10px;
