@@ -1,0 +1,28 @@
+<div class="main-div">
+  <div class="header-div" mat-dialog-title>
+    <h6>All RIG Accounts</h6>
+    <div class="butonn-div" mat-dialog-close>X</div>
+  </div>
+  <div class="card-container">
+    <div class="card-div" *ngFor="let item of data">
+      <div class="card-header">
+        <div class="header-content">
+          <p>RIG ID</p>&nbsp;
+          <span>{{ item.rigId }}</span>
+        </div>
+        <div style="cursor: pointer;"><mat-icon>keyboard_arrow_right</mat-icon></div>
+      </div>
+      <hr>
+      <div class="card-content">
+        <div class="name-div">
+            <p>Name</p>
+            <span>{{item.fname}} {{item.lname}}</span>
+        </div>
+        <div class="name-div">
+            <p>Liquidity</p>
+            <span>{{item.liquidity | currency:"INR"}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1530,4 +1530,10 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  callApiToMultipleRig(data:any){
+    return this.http.post(this.url + "/mining/fetch-partner-and-multiple-rig",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

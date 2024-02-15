@@ -1,20 +1,26 @@
 <div class="account-header">
-  <h5 style="
+  <h5
+    style="
       display: flex;
       justify-content: center;
       align-items: center;
       width: max-content;
       cursor: pointer;
-    ">
+    "
+  >
     <mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp; Partner Account
     details
   </h5>
   <mat-card class="result">
     <mat-card-content>
-
       <section class="example-section">
-        <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled"
-          (change)="onSlideToggleChange()">
+        <mat-slide-toggle
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled"
+          (change)="onSlideToggleChange()"
+        >
           Referral Payout
         </mat-slide-toggle>
       </section>
@@ -22,8 +28,12 @@
   </mat-card>
 </div>
 <div class="account-content" *ngIf="!checked">
-  <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
-    <mat-tab label="Pay">
+  <mat-tab-group
+    animationDuration="2000ms"
+    class="example-stretched-tabs"
+    (selectedIndexChange)="tabChanged($event)"
+  >
+    <mat-tab label="PAY">
       <div style="display: flex; justify-content: center; align-items: center">
         <mat-card class="payment-card">
           <mat-card-header>
@@ -34,11 +44,14 @@
 
           <mat-card-content>
             <form>
-              <div class="transaction" style="
+              <div
+                class="transaction"
+                style="
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
-                ">
+                "
+              >
                 <mat-form-field>
                   <mat-label>Select amount</mat-label>
                   <mat-select (selectionChange)="onSelectChange($event)">
@@ -51,9 +64,16 @@
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Choose a date"
-                    (dateChange)="onDateSelected($event)" />
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Choose a date"
+                    (dateChange)="onDateSelected($event)"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
@@ -61,16 +81,48 @@
           </mat-card-content>
           <mat-card-actions align-items="end">
             <button mat-raised-button type="button">Cancel</button>
-            <button mat-raised-button type="submit" [disabled]="!status" (click)="payNow()" color="primary">
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="!status"
+              (click)="payNow()"
+              color="primary"
+            >
               Pay now
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </mat-tab>
-    <mat-tab label="Request withdrawal">
+    <mat-tab label="ALL RIG ID" class="custum-tab">
+      <div class="rig-container" *ngFor="let item of allrig">
+        <div class="rig-header">
+          <div class="header-content">
+            <div class="header-name">
+              <div class="name-content">
+                <p>RIG ID</p>&nbsp;
+                <span>{{item.rigId}}</span>
+              </div>
+              <div><mat-icon>keyboard_arrow_right</mat-icon></div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-content">
+            <div class="name-div">
+                <p>Name</p>
+                <span>{{item.fname}} {{item.lname}}</span>
+            </div>
+            <div class="name-div">
+                <p>Liquidity</p>
+                <span>{{item.liquidity | currency:"INR"}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- <mat-tab label="Request withdrawal">
       <div class="bakk-div">
-        <!-- Check if partnerRequestHistory is empty -->
         <ng-container *ngIf="partnerRequestHistory.length === 0; else partnerRequestList">
           <mat-card class="example-card">
             <mat-card-content>
@@ -79,7 +131,6 @@
           </mat-card>
         </ng-container>
 
-        <!-- Display the list of request withdrawals if partnerRequestHistory is not empty -->
         <ng-template #partnerRequestList>
           <mat-card class="example-card" *ngFor="let data of partnerRequestHistory">
             <mat-card-header>
@@ -115,10 +166,9 @@
           </mat-card>
         </ng-template>
       </div>
-    </mat-tab>
-    <mat-tab label="Approved withdrawal">
+    </mat-tab> -->
+    <!-- <mat-tab label="Approved withdrawal">
       <div class="bakk-div">
-        <!-- Check if approvedRequest is empty -->
         <ng-container *ngIf="approvedRequest.length === 0; else approvedRequestList">
           <mat-card class="example-card">
             <mat-card-content>
@@ -126,8 +176,6 @@
             </mat-card-content>
           </mat-card>
         </ng-container>
-
-        <!-- Display the list of approved withdrawals if approvedRequest is not empty -->
         <ng-template #approvedRequestList>
           <mat-card class="example-card" *ngFor="let data of approvedRequest">
             <mat-card-header>
@@ -164,8 +212,9 @@
           </mat-card>
         </ng-template>
       </div>
-    </mat-tab>
-    <mat-tab label="Bank details">
+    </mat-tab> -->
+
+    <mat-tab label="BANK DETAILS">
       <div class="bakk-div">
         <!-- Check if bankDetails is empty -->
         <ng-container *ngIf="bankDetails.length === 0; else bankDetailsList">
@@ -215,7 +264,7 @@
         </ng-template>
       </div>
     </mat-tab>
-    <mat-tab label="Payout History">
+    <mat-tab label="MONTHLY PAYOUT">
       <div style="display: flex; justify-content: center; align-items: center">
         <mat-card class="partner-history-card">
           <mat-card-header>
@@ -226,106 +275,138 @@
           <mat-card-content>
             <div class="container">
               <div class="column">
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Date of Payment</span>
                   <strong>{{ partnerDetails.dop | date }}</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Total liquidity</span>
                   <strong>{{
                     partnerDetails.liquidity | currency : "INR"
-                    }}</strong>
+                  }}</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Payout Tenure</span> <strong>12 TN</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Paid Tenure</span>
                   <strong>{{ partnerDetails.monthComplete }} TN</strong>
                 </div>
               </div>
               <div class="column">
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Remaining Tenure</span>
-                  <strong>{{ 12 - partnerDetails.monthComplete }}&nbsp;TN</strong>
+                  <strong
+                    >{{ 12 - partnerDetails.monthComplete }}&nbsp;TN</strong
+                  >
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Last Payout</span>
                   <strong>{{ partnerDetails.lastPaymentDate | date }}</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Next Payout</span>
                   <strong>15 to 22nd (Of every month)</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Status</span>
                   <strong>{{
                     partnerDetails.status ? "Active" : "Close"
-                    }}</strong>
+                  }}</strong>
                 </div>
               </div>
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button type="button" [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
-              mat-raised-button>
+            <button
+              mat-button
+              type="button"
+              [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
+              mat-raised-button
+            >
               {{ partnerDetails.status ? "ACTIVE" : "CLOSE" }}
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </mat-tab>
-    <mat-tab label="Bond">
-      <div style="
+    <mat-tab label="BOND">
+      <div
+        style="
           display: flex;
           justify-content: center;
           align-items: center;
           margin-top: 10px;
-        ">
-        <div #contentToConvert [ngClass]="{ 'hidden-content': hideContent }" class="pdf-container">
-          <div class="date-heading">Date: {{paymentDate|date}}</div>
+        "
+      >
+        <div
+          #contentToConvert
+          [ngClass]="{ 'hidden-content': hideContent }"
+          class="pdf-container"
+        >
+          <div class="date-heading">Date: {{ paymentDate | date }}</div>
 
           <div style="margin-bottom: 10px">
-            <img src="../../../../assets/image/heading.png" alt="" class="image-div" />
+            <img
+              src="../../../../assets/image/heading.png"
+              alt=""
+              class="image-div"
+            />
           </div>
           <div class="user-name">
             <div class="user-id">
               <p>To,</p>
-              <p>{{fname}}&nbsp;{{lname}}</p>
+              <p>{{ fname }}&nbsp;{{ lname }}</p>
               <p>USER ID-</p>
-              <p>{{partnerID}}</p>
+              <p>{{ partnerID }}</p>
             </div>
             <div class="company-name">
               <p>CENTUM WORLD</p>
@@ -336,15 +417,9 @@
             </div>
           </div>
           <div class="sub-div">
-            <p>
-              Sub: SaaS-Software as a Service
-            </p>
-            <p>
-              IaaS-Infrastructure as a Service
-            </p>
-            <p class="invoce">
-              INVOICE# 00227
-            </p>
+            <p>Sub: SaaS-Software as a Service</p>
+            <p>IaaS-Infrastructure as a Service</p>
+            <p class="invoce">INVOICE# 00227</p>
           </div>
           <div class="description">
             <p style="font-size: 10px; font-weight: 500">
@@ -370,15 +445,19 @@
               </p>
             </div>
             <div class="price-total">
-              <p style="font-size: 12px; font-weight: 600">{{(liquidity - percentage) | currency: 'INR':
-                'symbol':'1.0-0' }}</p>
-              <P style="font-size: 12px; font-weight: 600">{{(liquidity - percentage) | currency: 'INR':
-                'symbol':'1.0-0' }}</P>
+              <p style="font-size: 12px; font-weight: 600">
+                {{
+                  liquidity - percentage | currency : "INR" : "symbol" : "1.0-0"
+                }}
+              </p>
+              <P style="font-size: 12px; font-weight: 600">{{
+                liquidity - percentage | currency : "INR" : "symbol" : "1.0-0"
+              }}</P>
             </div>
           </div>
 
           <div class="description" style="margin-top: 20px">
-            <div style="line-height: 1px;">
+            <div style="line-height: 1px">
               <p style="font-size: 12px; font-weight: 600">Category 1</p>
               <p style="font-size: 10px; font-weight: 500">
                 12 Months basic Subscription
@@ -406,12 +485,18 @@
                 </p>
               </div>
               <div style="line-height: 1px">
-                <p style="font-size: 12px; font-weight: 600">Rs. {{(liquidity - percentage) | currency: 'INR':
-                  'symbol':'1.0-0' }}/-</p>
-                <p style="font-size: 12px; font-weight: 600">Rs. {{ percentage | currency: 'INR': 'symbol':'1.0-0' }}/-
+                <p style="font-size: 12px; font-weight: 600">
+                  Rs.
+                  {{
+                    liquidity - percentage
+                      | currency : "INR" : "symbol" : "1.0-0"
+                  }}/-
                 </p>
                 <p style="font-size: 12px; font-weight: 600">
-                  Rs. {{ liquidity | currency: 'INR': 'symbol':'1.0-0' }}/-
+                  Rs. {{ percentage | currency : "INR" : "symbol" : "1.0-0" }}/-
+                </p>
+                <p style="font-size: 12px; font-weight: 600">
+                  Rs. {{ liquidity | currency : "INR" : "symbol" : "1.0-0" }}/-
                 </p>
               </div>
             </div>
@@ -421,9 +506,7 @@
             <p style="font-size: 10px">
               Installation, Security implementation and free
             </p>
-            <p style="font-size: 10px">
-              maintenance upto 12 Months from the
-            </p>
+            <p style="font-size: 10px">maintenance upto 12 Months from the</p>
             <p style="font-size: 10px">Subscription data.</p>
           </div>
           <br />
@@ -431,25 +514,21 @@
             <p style="color: #2a2c96; font-size: 10px; font-weight: 600">
               PAYMENT INFORMATION
             </p>
-            <p style=" font-size: 10px; font-weight: 600;">
+            <p style="font-size: 10px; font-weight: 600">
               Bank Transfer - completed
             </p>
           </div>
           <br />
           <div class="footer">
             <div>
-              <p style="font-size: 10px;">
-                www.centumworld.com
-              </p>
-              <p style="font-size: 10px;">
-                worldcentum@gmail.com
-              </p>
+              <p style="font-size: 10px">www.centumworld.com</p>
+              <p style="font-size: 10px">worldcentum@gmail.com</p>
             </div>
             <div class="layout">
-              <p style=" font-size: 10px; color: white">
-                CENTUM WORLD
-              </p>
-              <P style=" font-size: 10px; color: white">HSR Layout,Banglore 560102</P>
+              <p style="font-size: 10px; color: white">CENTUM WORLD</p>
+              <P style="font-size: 10px; color: white"
+                >HSR Layout,Banglore 560102</P
+              >
               <p style="font-size: 10px; color: white">
                 Astra Tower,New Town,700136
               </p>
@@ -457,19 +536,38 @@
           </div>
         </div>
       </div>
-      <div style=" display: flex; 
-      flex-direction: column-reverse; 
-      align-items: flex-end; margin-right: 10px;"><button mat-raised-button color="primary" (click)="downloadPdf()"
-          [disabled]="!pdfButton">Download</button></div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: flex-end;
+          margin-right: 10px;
+        "
+      >
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="downloadPdf()"
+          [disabled]="!pdfButton"
+        >
+          Download
+        </button>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>
 <div *ngIf="checked" class="refferal-div">
-  <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs"
-    (selectedIndexChange)="referralTabChange($event)">
+  <mat-tab-group
+    animationDuration="2000ms"
+    class="example-stretched-tabs"
+    (selectedIndexChange)="referralTabChange($event)"
+  >
     <mat-tab label="Request">
       <div class="bakk-div">
-        <mat-card class="example-card" *ngFor="let data of referralRequestHistory">
+        <mat-card
+          class="example-card"
+          *ngFor="let data of referralRequestHistory"
+        >
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Bank details</mat-card-title>
@@ -484,7 +582,7 @@
               <h2>Amount</h2>
               <strong>{{
                 data.partner_wallet | currency : "INR" : "symbol" : "1.2-2"
-                }}</strong>
+              }}</strong>
             </div>
             <div class="bank-details">
               <h2>Request date</h2>
@@ -500,7 +598,11 @@
             <button mat-button style="background: rgb(87, 251, 87)">
               Request
             </button>
-            <button mat-button style="background: red" (click)="referralPayoutApproved(data.id)">
+            <button
+              mat-button
+              style="background: red"
+              (click)="referralPayoutApproved(data.id)"
+            >
               Approve
             </button>
           </mat-card-actions>
@@ -524,7 +626,7 @@
               <h2>Amount</h2>
               <strong>{{
                 data.partner_wallet | currency : "INR" : "symbol" : "1.2-2"
-                }}</strong>
+              }}</strong>
             </div>
             <div class="bank-details">
               <h2>Request date</h2>

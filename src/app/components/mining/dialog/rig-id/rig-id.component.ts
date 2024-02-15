@@ -9,6 +9,7 @@ import { FormGroup,
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
 import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-rig-id',
@@ -26,24 +27,21 @@ export class RigIdComponent implements OnInit, AfterViewInit {
   backAadharImageName: string = "";
   panImageName: string = "";
   newAccountForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private toastr : ToastrService) {
     this.newAccountForm = this.formBuilder.group({
-      fname: new FormControl("", [Validators.required]),
-      lname: new FormControl("", [Validators.required]),
+      fname: new FormControl(""),
+      lname: new FormControl(""),
       phone: new FormControl("", [
-        Validators.required,
         Validators.maxLength(10),
         Validators.minLength(10),
         Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
       ]),
       aadhar: new FormControl("", [
-        Validators.required,
         Validators.maxLength(12),
         Validators.minLength(12),
       ]),
-      dob: new FormControl("", [Validators.required]),
-      liquidity: new FormControl("", [Validators.required]),
-      
+      dob: new FormControl(""),
+      liquidity: new FormControl("", [Validators.required]), 
     });
 
     
@@ -69,14 +67,17 @@ export class RigIdComponent implements OnInit, AfterViewInit {
   }
 
   initializeIntlTelInput(){
-    this.countryCode ='IN';
     const inputElement = this.phoneNumberInputForNew.nativeElement;
     const iti = intlTelInput(inputElement, {
       separateDialCode: true,
       nationalMode: false,
     });
     console.log("IntlTelInput instance:", iti);
-    iti.setCountry(this.countryCode);
+    iti.setCountry('in');
+
+    const selectedCountryData = iti.getSelectedCountryData();
+    console.log('Updated Country Code:', selectedCountryData.dialCode);
+    this.countryCode = selectedCountryData.dialCode;
 
     inputElement.addEventListener('countrychange', () => {
       this.updateCountryCode(iti);
@@ -112,13 +113,14 @@ export class RigIdComponent implements OnInit, AfterViewInit {
     formData.append('userId', localStorage.getItem('partnerdetails'));
 
     this.userService.newRigPartnerAccount(formData).subscribe({
-      next: response => {
+      next: (response:any) => {
         if (response) {
             form.reset();
+            this.toastr.success(response.message)
         }
       },
-      error: error => {
-        
+      error: (error:any) => {
+        this.toastr.error(error.error.message)
       }
     })
 

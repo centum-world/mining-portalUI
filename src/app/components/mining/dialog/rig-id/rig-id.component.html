@@ -1,5 +1,8 @@
-<div class="main-div">
-  <h1 class="custom-heading" mat-dialog-title>Add Liquidity</h1>
+<div class="main-div" [class.auto-height]="toggleValue">
+  <div class="custom-heading" mat-dialog-title>
+    <div class="heading-p">Add Liquidity</div>
+    <div class="button-div" mat-dialog-close>X</div>
+  </div>
   <div>
     <div class="header-div">
       <p>Same as privious details</p>
@@ -13,17 +16,21 @@
         [formGroup]="newAccountForm"
         (ngSubmit)="addnewAccount(newAccountForm)"
       >
-        <mat-form-field appearance="outline">
-          <mat-label>First name</mat-label>
-          <input matInput formControlName="fname" />
-          <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="fname" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </ng-container>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Last name</mat-label>
-          <input matInput formControlName="lname"/>
-          <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
+        <ng-container *ngIf="!toggleValue">
+          <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lname" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </ng-container>
 
         <ng-container *ngIf="!toggleValue">
           <mat-form-field appearance="outline">
@@ -54,7 +61,7 @@
         <ng-container *ngIf="!toggleValue">
           <mat-form-field appearance="outline">
             <mat-label>Aadhaar number</mat-label>
-            <input matInput  formControlName="aadhar"/>
+            <input matInput formControlName="aadhar" />
             <mat-icon matSuffix>credit_card</mat-icon>
           </mat-form-field>
         </ng-container>

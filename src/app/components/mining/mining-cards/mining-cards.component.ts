@@ -7,6 +7,7 @@ import { DatePipe } from "@angular/common";
 import {MatDialog} from '@angular/material/dialog';
 import { MatDialogConfig } from "@angular/material";
 import { RigIdComponent } from "../dialog/rig-id/rig-id.component";
+import { RigAccountComponent } from "../dialog/rig-account/rig-account.component";
 
 @Component({
   selector: "app-mining-cards",
@@ -572,6 +573,17 @@ export class MiningCardsComponent implements OnInit {
       panelClass: "partnerRigDialogClass",
     };
     const dialogRef = this.dialog.open(RigIdComponent, config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  allRigAccount(): void {
+    let config: MatDialogConfig = {
+      panelClass: "partnerRigAccountDialogClass",
+    };
+    const dialogRef = this.dialog.open(RigAccountComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

@@ -221,6 +221,7 @@ import { PrivacyComponent } from './components/common/privacy/privacy.component'
 import { MemberSummaryComponent } from './components/member/modal/member-summary/member-summary.component';
 import { MemberSummaryAmountComponent } from './components/member/modal/member-summary-amount/member-summary-amount.component';
 import { RigIdComponent } from './components/mining/dialog/rig-id/rig-id.component';
+import { RigAccountComponent } from './components/mining/dialog/rig-account/rig-account.component';
 
 
 @NgModule({
@@ -413,7 +414,8 @@ import { RigIdComponent } from './components/mining/dialog/rig-id/rig-id.compone
     PrivacyComponent,
     MemberSummaryComponent,
     MemberSummaryAmountComponent,
-    RigIdComponent
+    RigIdComponent,
+    RigAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -524,6 +526,7 @@ import { RigIdComponent } from './components/mining/dialog/rig-id/rig-id.compone
     MemberSummaryComponent,
     MemberSummaryAmountComponent,
     RigIdComponent,
+    RigAccountComponent,
   ],
   providers: [
     {
