@@ -7,6 +7,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { PartnerViewComponent } from "../../admin/dialog/partner-view/partner-view.component";
 import { MyQueryComponent } from "../dialog/my-query/my-query.component";
 import { PdfService } from "src/app/pdfService/pdf.service";
+import { ToastrService } from 'ngx-toastr';
 
 // import image from '../../../../assets/image/pdfBond.png';
 
@@ -53,7 +54,8 @@ export class MiningDetailsComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private userService: UserService,
-    private pdfservice: PdfService
+    private pdfservice: PdfService,
+    private toastr: ToastrService
   ) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -97,7 +99,11 @@ export class MiningDetailsComponent implements OnInit {
   }
 
   downLoadPartnershipBond() {
-    this.userService.fetchPartnerBond().subscribe({
+    let partnerIdDetails = localStorage.getItem("partnerdetails");
+    let data = {
+      userId: partnerIdDetails,
+    };
+    this.userService.fetchPartnerBond(data).subscribe({
       next: (res: any) => {
         console.log(res.data[0].bond);
         const bondData = res.data[0].bond;
@@ -107,6 +113,7 @@ export class MiningDetailsComponent implements OnInit {
       },
       error: (err) => {
         console.log(err.error.message);
+        this.toastr.warning("!No Partnership bond Found")
       },
     });
   }

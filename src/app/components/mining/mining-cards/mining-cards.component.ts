@@ -562,4 +562,26 @@ export class MiningCardsComponent implements OnInit {
     link.download = "business-module.pdf";
     link.click();
   }
+
+  downloadPartnershipBond(){
+    let partnerIdDetails = localStorage.getItem("partnerdetails");
+    console.log(partnerIdDetails,101)
+    let data = {
+      userId: partnerIdDetails,
+    };
+    console.log(data,105)
+    this.userService.fetchPartnerBond(data).subscribe({
+      next: (res: any) => {
+        console.log(res.data[0].bond);
+        const bondData = res.data[0].bond;
+        const pdfUrl = bondData;
+
+        window.open(pdfUrl, "_blank");
+      },
+      error: (err) => {
+        console.log(err.error.message);
+        this.toastr.warning("!No Partnership bond Found")
+      },
+    });
+  }
 }

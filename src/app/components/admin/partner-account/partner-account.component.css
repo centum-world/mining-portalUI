@@ -240,6 +240,11 @@
 }
 .terms-condition-p{
   font-family:Calibri;
+  color:#000000;
+}
+.terms-condition-list {
+  font-family:Calibri;
+  color:#000000;
 }
 .terms-signature{
   display: flex; 
@@ -248,6 +253,16 @@
 .Declaration{
   padding-bottom: 20px; 
   font-family: Calibri;
+  color:#000000;
+}
+.upload-bond{
+  display:flex;
+  justify-content:center;
+}
+.upload-bond p {
+  font-family:Calibri;
+  padding-top:20px;
+  font-size:22px;
 }
 @media screen and (min-width: 1025) and (max-width: 1200px) {
   .pdf-container {
@@ -314,7 +329,9 @@
     display:flex;
     flex-direction:column;
     gap:10px;
+    color:#000000;
   }
+  
 }
 @media (max-width: 576px) {
   .image-div {
@@ -329,17 +346,22 @@
   }
   .first-section p {
     font-size:12px;
+    color:#000000;
+    font-family:Calibri;
   }
   .first-section-list li {
     font-family: Calibri;
     font-size:12px;
+    color:#000000;
   }
   .duties-obligation ul strong,li{
     font-size:12px;
+    color:#000000;
   }
   .duties-obligation .second-partner strong,
   .duties-obligation .second-partner li {
-    font-size: 12px; /* Adjust the font size as needed */
+    font-size: 12px; 
+    color:#000000;
   }
   
   .footer-section .left-section ,.right-section p {

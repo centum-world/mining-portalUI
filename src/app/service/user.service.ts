@@ -1380,8 +1380,8 @@ export class UserService {
     });
   }
   //fetch partner bond
-  fetchPartnerBond() {
-    return this.http.get(this.url + "/admin/fetch-bond", {
+  fetchPartnerBond(data:any) {
+    return this.http.post(this.url + "/admin/fetch-bond",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
