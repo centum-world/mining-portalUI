@@ -91,7 +91,7 @@
 
 .pdf-container {
   padding: 20px;
-  width: 40%;
+  width: 60%;
   border-radius: 5px;
 }
 
@@ -176,8 +176,10 @@
   font-size: 10px;
 }
 
+
 .bond-main-div{
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
@@ -185,8 +187,13 @@
 }
 .bond-pdf-container{
   padding: 20px;
-  width: 80%;
+  width: 70%;
   border-radius: 5px;
+}
+.top-date{
+  display: flex;
+   align-items: end;
+   font-family: Calibri;
 }
 .bond-image-div {
   width: 350px;
@@ -238,14 +245,24 @@
   display: flex; 
   justify-content:space-between;
 }
+.Declaration{
+  padding-bottom: 20px; 
+  font-family: Calibri;
+}
 @media screen and (min-width: 1025) and (max-width: 1200px) {
   .pdf-container {
     width: 90%;
+  }
+  .bond-pdf-container{
+    width:90%
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .pdf-container {
     width: 90%;
+  }
+  .bond-pdf-container{
+    width:90%
   }
 }
 
@@ -268,6 +285,9 @@
   }
   .pdf-container {
     width: 60%;
+  }
+  .bond-pdf-container{
+    width:80%;
   }
   .duties-obligation {
     display:flex;
@@ -301,6 +321,36 @@
     width: 200px;
     height: 50px;
   }
+  .top-date{
+    font-size:12px;
+  }
+  .bond-subject{
+    font-size:14px;
+  }
+  .first-section p {
+    font-size:12px;
+  }
+  .first-section-list li {
+    font-family: Calibri;
+    font-size:12px;
+  }
+  .duties-obligation ul strong,li{
+    font-size:12px;
+  }
+  .duties-obligation .second-partner strong,
+  .duties-obligation .second-partner li {
+    font-size: 12px; /* Adjust the font size as needed */
+  }
+  
+  .footer-section .left-section ,.right-section p {
+    font-size:12px;
+  }
+  .Declaration {
+    font-size:12px;
+  }
+  .terms-signature {
+    font-size:12px;
+  }
   .transaction {
     flex-direction: column;
     align-items: flex-start;
@@ -317,9 +367,17 @@
     width: 100%;
     padding: 20px;
   }
+  .bond-pdf-container{
+    width:90%;
+    padding:20px;
+  }
   .image-div {
     width: 180px;
     height: 40px;
+  }
+  .bond-image-div{
+    width:200px;
+    height:50px;
   }
   .user-id {
     font-size: 10px;

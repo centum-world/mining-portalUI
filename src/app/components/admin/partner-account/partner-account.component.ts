@@ -7,6 +7,8 @@ import { MatDialogConfig } from "@angular/material";
 import { ConfirmApprovedComponent } from "../dialog/confirm-approved/confirm-approved.component";
 import { Router } from "@angular/router";
 import * as jspdf from "jspdf";
+import { jsPDF } from 'jspdf';
+
 import html2canvas from "html2canvas";
 
 @Component({
@@ -15,6 +17,9 @@ import html2canvas from "html2canvas";
   styleUrls: ["./partner-account.component.css"],
 })
 export class PartnerAccountComponent implements OnInit {
+  buttonText: string = 'Download';
+  isDownloading: boolean = false;
+
   @ViewChild("contentToConvert", { static: false })
   contentToConvert: ElementRef;
   hideContent = false;
@@ -34,6 +39,7 @@ export class PartnerAccountComponent implements OnInit {
   fixedSharePerDayAmount = 0;
   fixedShareAmountInString = "";
   dateOfLiquidityAdd: Date;
+  aadharNumber : Number;
   paymentDate = null;
   perDayAmounReal = 0;
   liquidity = 0;
@@ -58,12 +64,11 @@ export class PartnerAccountComponent implements OnInit {
   ) {
     this.route.params.subscribe((params) => {
       this.partnerID = params["id"]; // Retrieve parameter 1
-      console.log(this.partnerID);
+    
     });
   }
 
   ngOnInit() {
-    console.log(this.partnerID);
     this.tabChanged(0);
     this.referralTabChange(0);
     this.callApiToUserDetails();
@@ -126,7 +131,7 @@ export class PartnerAccountComponent implements OnInit {
           this.partnerDetails.monthComplete = res.result[0].month_count;
           this.partnerDetails.status = res.result[0].partner_status;
           this.dateOfLiquidityAdd = res.result[0].verifyDate;
-          console.log(this.dateOfLiquidityAdd,129)
+          this.aadharNumber = res.result[0].p_aadhar;
 
           if (res.result[0].p_liquidity === 600000) {
             this.perDayAmountDropDown = 67500;
@@ -259,11 +264,23 @@ export class PartnerAccountComponent implements OnInit {
     };
     this.userService.partnerLastApproveDate(data).subscribe({
       next: (result: any) => {
-        approveArray = Object.values(result.data);
-        let lastPaymentOfIndex = approveArray.length;
-        this.partnerDetails.lastPaymentDate =
-          approveArray[lastPaymentOfIndex - 1].approve_date;
+        if (result && result.data && result.data.length > 0) {
+          approveArray = Object.values(result.data);
+          console.log(approveArray)
+          let lastPaymentOfIndex = approveArray.length;
+          this.partnerDetails.lastPaymentDate =
+            approveArray[lastPaymentOfIndex - 1].approve_date;
+        } else {
+          // Handle the case where result.data is empty
+          console.log('No data available.');
+          // You can assign a default value to this.partnerDetails.lastPaymentDate if needed
+          // this.partnerDetails.lastPaymentDate = someDefaultValue;
+        }
       },
+      error: (error) => {
+        console.log(error.error.message)
+      }
+      
     });
   }
 
@@ -330,23 +347,44 @@ export class PartnerAccountComponent implements OnInit {
       });
     }
   }
+
   downloadBond() {
-    if (!this.hideContent && this.contentToConvert) {
-      const element = this.contentToConvert.nativeElement;
+    // Change button text and set downloading status
+    this.buttonText = 'Downloading...';
+    this.isDownloading = true;
+
+    const elementsToConvert = document.querySelectorAll('.bond-pdf-container');
+    const pdf = new jsPDF(); // Create a new PDF instance
+
+    elementsToConvert.forEach((element: HTMLElement, index: number) => {
       html2canvas(element).then((canvas) => {
-        const imgWidth = 210; // A4 size
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-  
-        const contentDataURL = canvas.toDataURL("image/png");
-        const pdf = new jspdf.jsPDF("p", "mm", "a4");
-        let position = 0;
-  
-        pdf.addImage(contentDataURL, "PNG", 0, position, imgWidth, imgHeight);
-        pdf.save("generated_pdf.pdf");
-      }).catch((error) => {
-        console.error('Error generating PDF:', error);
+        const imageData = canvas.toDataURL('image/png');
+
+        if (index > 0) {
+          pdf.addPage(); // Add new page for subsequent elements
+        }
+
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+
+        pdf.addImage(imageData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        
+        // Check if this is the last element, then save the PDF
+        if (index === elementsToConvert.length - 1) {
+          pdf.save('bond.pdf');
+
+          // Reset button text and downloading status
+          this.buttonText = 'Download';
+          this.isDownloading = false;
+        }
       });
-    }
+    });
   }
+  
+  
+  
+  
+  
+  
   
 }
