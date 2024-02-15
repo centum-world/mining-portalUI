@@ -2,25 +2,25 @@
   <div  class="cards">
     <div class="card-single">
       <div>
-        <h6 style="display: flex;">Promotion 
+        <h6 style="display: flex; ">Promotion 
           <span *ngIf="usertype === 'BMM'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
           <span *ngIf="usertype === 'FRANCHISE'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
           <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
         </h6>
         <span>See your upgrade or downgrade</span>
       </div>
-      <div><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+      <div style="color: rgb(181, 173, 173);"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
     </div>
     <div class="card-single">
       <div>
-        <h6>Profile</h6>
-        <span>See your profile!</span>
+        <h6>Bank</h6>
+        <span>Add you bank !</span>
       </div>
       <!-- <div class="icon" [matMenuTriggerFor]="menuProfile">
         <span>View</span>
       </div> -->
       <!-- Add a Material Design bank icon -->
-      <button mat-icon-button [matMenuTriggerFor]="menuBank">
+      <button style="color: blue" mat-icon-button [matMenuTriggerFor]="menuBank">
         <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
       </button>
       <mat-menu #menuBank="matMenu">
@@ -37,9 +37,9 @@
     <div class="card-single">
       <div >
         <h6>BMM ID :- {{displayStateHandlerId}}</h6>
-        <span >Referral ID :- &nbsp;<a href="/statedashboard/add-franchise?refferId={{displayStateHandlerReferralId}}"
+        <span >Referral ID :- &nbsp;<a
             >{{displayStateHandlerReferralId}}</a></span>&nbsp;
-            <span style="margin-left: 1rem;">
+            <span style="margin-left: 1rem; color: rgb(181, 173, 173);">
               <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
             </span>
           </div>
@@ -62,7 +62,7 @@
         <span>Total Wallet</span>
       </div>
       <div>
-        <b>{{totalWalletOfState | currency:'INR'}}</b>
+        <b style="color: yellowgreen">{{totalWalletOfState | currency:'INR'}}</b>
       </div>
       <div style="font-size:medium; font-weight: bold;"></div>
     </div>
@@ -92,7 +92,7 @@
         <span>Total Withdrawal</span>
       </div>
       <div>
-        <b>{{totalWithdrawalOfState | currency:'INR'}}</b>
+        <b style="color: yellowgreen">{{totalWithdrawalOfState | currency:'INR'}}</b>
       </div>
       <div style="font-size:medium; font-weight: bold;"></div>
     </div>
