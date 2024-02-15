@@ -4,13 +4,13 @@
       <div>
         <div>
           <div class="dop1" *ngIf="userStatus">
-            <span style="font-weight: 600;">Status</span>: <p style="color:green;">Active</p>
+            <span style="font-weight: 600;">Status  : </span> <p style="color:green;">Active</p>
           </div>
           <div class="dop1" *ngIf="month_count === 12 ">
-            <span style="font-weight: 600;">Status</span>: <p style="color: red;">Closed</p>
+            <span style="font-weight: 600;">Status  :</span>  <p style="color: red;">Closed</p>
           </div>
           <div class="dop1" *ngIf="!userStatus && month_count === 0">
-            <span style="font-weight: 600;">Status</span>: <p style="color:red;">Not Active</p>
+            <span style="font-weight: 600;">Status  :</span>  <p style="color:red;">Not Active</p>
           </div>
         </div>
         <div class="business-module">
@@ -27,8 +27,8 @@
     </div>
     <div class="card-single">
       <div class="partner-refferal-id">
-        <h6>User ID:- {{partnerId}}</h6>
-        <span>Refferal ID:- &nbsp;{{refferID}}</span>
+        <h6>Userr ID :- {{partnerId}}</h6>
+        <span>Refferal ID :- &nbsp;{{refferID}}</span>
       </div>
     </div>
 
@@ -104,7 +104,7 @@
         <h6>Transaction</h6>
         <span>Total Withdrawal</span>
       </div>
-      <span style="font-weight: bold;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
+      <span style="font-weight: bold; color: yellowgreen;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
     </div>
   </div>
 
