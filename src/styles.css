@@ -3,9 +3,6 @@
 @import '~intl-tel-input/build/css/intlTelInput.css';
 
 
-
-
-html,
 /* body {
   height: 100%;
   scroll-behavior: smooth;
@@ -15,6 +12,7 @@ body {
   margin: 0;
   padding:0;
   box-size:border-box;
+
 }
 
 

@@ -12,6 +12,9 @@ body {
   background: #fff;
 }
 
+.partner_history , .member_history span {
+  font-family:Roboto;
+}
 .sidebar {
   width: 330px;
   position: fixed;
@@ -48,6 +51,9 @@ body {
   padding-left: 1rem;
 }
 
+.sidebar-menu span{
+  font-family:Roboto;
+}
 .sidebar-menu a {
   padding-left: 1rem;
   display: block;
@@ -97,6 +103,7 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
 
 
 .main-content {
