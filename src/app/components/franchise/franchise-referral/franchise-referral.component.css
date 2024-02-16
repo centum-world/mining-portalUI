@@ -24,6 +24,17 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
+
+/* .example-card {
+    width: calc(34% - 25px); 
+  margin-bottom: 16px;
+} */
+  
+.bank-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
 }
 .bank-details h2 {
   font-weight: 400;
@@ -31,10 +42,20 @@
   font-size: small;
 }
 
-.example-header-image {
-  background-image: url("/assets/image/bank.jpg");
-  background-size: cover;
+#id{
+    margin-top: 12px;
 }
+
+.example-header-image{
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+}
+
+/* @media (max-width: 480px) {
+    .example-card {
+      width: 100%; 
+    }
+  } */
 
 @media (max-width: 767px) {
   .bakk-div {
