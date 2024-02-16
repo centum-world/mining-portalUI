@@ -122,6 +122,7 @@ body {
   border-radius:15px;
 }
 
+
 .myMemberEditDialogClass .mat-dialog-container::-webkit-scrollbar,
 .partnerEditDialogClass .mat-dialog-container::-webkit-scrollbar,
 .myBmmEditDialogClass .mat-dialog-container::-webkit-scrollbar,
@@ -164,7 +165,8 @@ body {
   .small-screen .EditFranchiseInBmmDialogClass .mat-dialog-container,
   .small-screen .franchiseProfileDetailsDialogClass .mat-dialog-container,
   .small-screen .franchiseDocumentsDialogClass .mat-dialog-container,
-  .small-screen .partnerQueryDialogClass .mat-dialog-container
+  .small-screen .partnerQueryDialogClass .mat-dialog-container,
+  .small-screen .partnerRigDialogClass .mat-dialog-container
    {
     margin-left: 0px;
     height: 80vh;
@@ -193,7 +195,7 @@ body {
   .small-screen .partnerViewBankDetailsDialogClass .mat-dialog-container,
   .small-screen .helpAndSupportDialogClass .mat-dialog-container,
   .small-screen .memberSummaryDialogClass .mat-dialog-container,
-  .small-screen .memberSummaryAmountDialogClass .mat-dialog-container
+  .small-screen .memberSummaryAmountDialogClass .mat-dialog-container,
   {
     width:80vw;
     margin-left:0px;

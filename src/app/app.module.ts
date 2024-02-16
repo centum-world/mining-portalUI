@@ -220,6 +220,8 @@ import { BmmSignupLoginComponent } from './components/sho/bmm-signup-login/bmm-s
 import { PrivacyComponent } from './components/common/privacy/privacy.component';
 import { MemberSummaryComponent } from './components/member/modal/member-summary/member-summary.component';
 import { MemberSummaryAmountComponent } from './components/member/modal/member-summary-amount/member-summary-amount.component';
+import { RigIdComponent } from './components/mining/dialog/rig-id/rig-id.component';
+import { RigAccountComponent } from './components/mining/dialog/rig-account/rig-account.component';
 
 
 @NgModule({
@@ -411,7 +413,9 @@ import { MemberSummaryAmountComponent } from './components/member/modal/member-s
     BmmSignupLoginComponent,
     PrivacyComponent,
     MemberSummaryComponent,
-    MemberSummaryAmountComponent
+    MemberSummaryAmountComponent,
+    RigIdComponent,
+    RigAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -521,6 +525,8 @@ import { MemberSummaryAmountComponent } from './components/member/modal/member-s
     MyQueryComponent,
     MemberSummaryComponent,
     MemberSummaryAmountComponent,
+    RigIdComponent,
+    RigAccountComponent,
   ],
   providers: [
     {

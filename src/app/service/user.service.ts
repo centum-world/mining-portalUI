@@ -439,6 +439,11 @@ export class UserService {
     return this.http.post(`${this.url}/signup/partner-signup`, formData);
   }
 
+  //new Rig
+  newRigPartnerAccount(formData : FormData): Observable<any>{
+    return this.http.post(`${this.url}/signup/create-multiple-rig`, formData);
+  }
+
   // pendingPayemntPartner
   pendingPayemntPartnerList() {
     return this.http.post(this.url + "/admin/fetch-All-Pending-Partner-Only", {
@@ -1522,6 +1527,12 @@ export class UserService {
   // fetchUpgradedMember
   CallApifetchUpgradedMember(){
     return this.http.get(this.url + "/member/member/fetch-upgraded-member", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToMultipleRig(data:any){
+    return this.http.post(this.url + "/mining/fetch-partner-and-multiple-rig",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
