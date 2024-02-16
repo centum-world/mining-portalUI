@@ -222,6 +222,7 @@ import { MemberSummaryComponent } from './components/member/modal/member-summary
 import { MemberSummaryAmountComponent } from './components/member/modal/member-summary-amount/member-summary-amount.component';
 import { RigIdComponent } from './components/mining/dialog/rig-id/rig-id.component';
 import { RigAccountComponent } from './components/mining/dialog/rig-account/rig-account.component';
+import { RigPartnerComponent } from './components/admin/rig-partner/rig-partner.component';
 
 
 @NgModule({
@@ -415,7 +416,8 @@ import { RigAccountComponent } from './components/mining/dialog/rig-account/rig-
     MemberSummaryComponent,
     MemberSummaryAmountComponent,
     RigIdComponent,
-    RigAccountComponent
+    RigAccountComponent,
+    RigPartnerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<div class="rig-container">
+  <p>
+    <mat-icon (click)="goBack()" style="margin-top: 5px">arrow_back</mat-icon>
+    &nbsp; All RIG ID
+  </p>
+  <div class="rig-cards">
+    <div class="cards-container" *ngFor="let item of allrig">
+        <div class="cards-header">
+            <div class="cards-content">
+                <p>RIG ID</p>
+                <small>{{item.rigId}}</small>
+            </div>
+            <div><mat-icon style="color: blue; cursor: pointer;">keyboard_arrow_right</mat-icon></div>
+        </div>
+        <div class="devide"><hr></div>
+        <div class="cards-data">
+            <div class="card-body-data">
+                <h6>Name</h6>
+                <p>{{item.fname}} {{lname}}</p>
+            </div>
+            <div class="card-body-data">
+                <h6>Liquidity</h6>
+                <p>{{item.liquidity | currency:"INR"}}</p>
+            </div>
+            <div class="card-body-data">
+                <h6>Joining Date</h6>
+                <p>{{item.doj | date}}</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
