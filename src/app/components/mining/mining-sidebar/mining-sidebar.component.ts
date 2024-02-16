@@ -36,10 +36,10 @@ export class MiningSidebarComponent implements OnInit {
     this.router.navigate(["/miningdashboard/partner-details"]);
     this.isVisible = false;
   }
-  partnerWithdraw() {
-    this.router.navigate(["/miningdashboard/withdraw"]);
-    this.isVisible = false;
-  }
+  // partnerWithdraw() {
+  //   this.router.navigate(["/miningdashboard/withdraw"]);
+  //   this.isVisible = false;
+  // }
 
   gotoDahashboard() {
     this.router.navigate(["/miningdashboard/home"]);
