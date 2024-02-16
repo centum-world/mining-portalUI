@@ -104,10 +104,15 @@ body {
   margin-left: 330px;
 }
 
+.logo-centum img {
+  width: 350px; /* Adjust the width as needed */
+  height: 90px; /* Maintain aspect ratio */
+}
+
 header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0 1.5rem 0 0;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: sticky;
   left: 330px;
@@ -341,6 +346,12 @@ tbody tr td {
   .sidebar-menu{
     height: auto;
   }
+
+  .logo-centum img {
+    width: 250px; /* Adjust the width as needed */
+    height: 90px; /* Maintain aspect ratio */
+  }
+  
 }
 
 @media only screen and (max-width: 560px) {
