@@ -1,3 +1,17 @@
+.detail-heading,
+.large-expand,
+.subtitle,
+.paragraph p,
+.key,
+.value,
+.partner-card,
+.threedot,
+.pdf-prmat,
+.hidden-content {
+  font-family: Calibri;
+}
+
+/* Additional styling for specific elements */
 
 .table thead tr th{
     font-size: small;
