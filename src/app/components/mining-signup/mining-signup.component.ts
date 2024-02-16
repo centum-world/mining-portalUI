@@ -146,7 +146,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     const newDobFormat = `${year}-${month}-${day}`;
 
     // ---------------------Doj-----------------
-    const originalDateStrDop = this.partnerSignUpForm.value.dob;
+    const originalDateStrDop = this.partnerSignUpForm.value.dop;
     const dateObj1 = new Date(originalDateStrDop);
     const yearDop = dateObj1.getFullYear();
     const monthDop = String(dateObj1.getMonth() + 1).padStart(2, "0"); // Month is zero-based

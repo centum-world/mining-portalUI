@@ -1,0 +1,86 @@
+.main-div{
+  width: 30vw;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #5476f2 white;
+  height: 70vh;
+}
+
+.custom-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-right:10px;
+}
+
+.heading-p {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.button-div{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;
+  height:30px;
+  color:#d4dbe3;
+  border-radius:15px;
+}
+
+.mat-dialog-container.auto-height {
+  height: auto;
+}
+
+.mat-dialog-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mat-dialog-container::-webkit-scrollbar-thumb {
+  background-color: #5476f2;
+}
+
+.mat-dialog-container::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.mat-dialog-title {
+  background-color: #5476f2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Calibri;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: -24px;
+}
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+.header-div p {
+  font-family: "Roboto";
+}
+
+.form-div form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: auto;
+  padding-bottom:10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .header-div {
+    width: 100%;
+  }
+  .main-div{
+    width:100%;
+  }
+}

@@ -1,9 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import { AuthServiceService } from "src/app/serviceAuth/auth-service.service";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { DatePipe } from "@angular/common";
+import {MatDialog} from '@angular/material/dialog';
+import { MatDialogConfig } from "@angular/material";
+import { RigIdComponent } from "../dialog/rig-id/rig-id.component";
+import { RigAccountComponent } from "../dialog/rig-account/rig-account.component";
 
 @Component({
   selector: "app-mining-cards",
@@ -95,7 +99,8 @@ export class MiningCardsComponent implements OnInit {
     private authService: AuthServiceService,
     private toastr: ToastrService,
     private router: Router,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -582,6 +587,28 @@ export class MiningCardsComponent implements OnInit {
         console.log(err.error.message);
         this.toastr.warning("!No Partnership bond Found")
       },
+    });
+  }
+
+  openRigID(): void {
+    let config: MatDialogConfig = {
+      panelClass: "partnerRigDialogClass",
+    };
+    const dialogRef = this.dialog.open(RigIdComponent, config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  allRigAccount(): void {
+    let config: MatDialogConfig = {
+      panelClass: "partnerRigAccountDialogClass",
+    };
+    const dialogRef = this.dialog.open(RigAccountComponent, config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }

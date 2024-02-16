@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild,ViewEncapsulation } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { UserService } from "src/app/service/user.service";
@@ -16,6 +16,7 @@ import html2canvas from "html2canvas";
   selector: "app-partner-account",
   templateUrl: "./partner-account.component.html",
   styleUrls: ["./partner-account.component.css"],
+  encapsulation: ViewEncapsulation.None
 })
 export class PartnerAccountComponent implements OnInit {
   uploadText: string = 'Upload';
@@ -59,6 +60,7 @@ export class PartnerAccountComponent implements OnInit {
   checked = false;
   disabled = false;
   pdfButton = true;
+  allrig: any[] = [];
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -103,16 +105,36 @@ export class PartnerAccountComponent implements OnInit {
       });
     } else if (event === 1) {
       let data = {
-        p_userid: this.partnerID,
+        userId: this.partnerID,
       };
-      this.userService.perticularPartnerWithdrawalRequest(data).subscribe({
-        next: (res: any) => {
-          this.partnerRequestHistory = res.data;
+
+      this.userService.callApiToMultipleRig(data).subscribe({
+        next:(response:any)=>{
+          console.log(response.data)
+          const newData = {
+            fname: response.data[0].p_name,
+            lname: response.data[0].p_lname,
+            liquidity: response.data[0].p_liquidity,
+            rigId: response.data[0].rigId,
+          };
+          response.data.unshift(newData);
+          response.data.splice(1, 1);
+          this.allrig = response.data;
         },
-        error: (error) => {
-          console.log(error.error.message);
-        },
-      });
+        error:(error:any)=>{
+
+        }
+      })
+      // this.userService.perticularPartnerWithdrawalRequest(data).subscribe({
+      //   next: (res: any) => {
+      //     this.partnerRequestHistory = res.data;
+      //   },
+      //   error: (error) => {
+      //     console.log(error.error.message);
+      //   },
+      // });
+
+      console.log("hii")
     } else if (event === 2) {
       let data = {
         p_userid: this.partnerID,

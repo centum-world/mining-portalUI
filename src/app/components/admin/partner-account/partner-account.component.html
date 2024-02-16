@@ -1,20 +1,26 @@
 <div class="account-header">
-  <h5 style="
+  <h5
+    style="
       display: flex;
       justify-content: center;
       align-items: center;
       width: max-content;
       cursor: pointer;
-    ">
+    "
+  >
     <mat-icon (click)="goBack()">arrow_back</mat-icon>&nbsp; Partner Account
     details
   </h5>
   <mat-card class="result">
     <mat-card-content>
-
       <section class="example-section">
-        <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled"
-          (change)="onSlideToggleChange()">
+        <mat-slide-toggle
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled"
+          (change)="onSlideToggleChange()"
+        >
           Referral Payout
         </mat-slide-toggle>
       </section>
@@ -22,8 +28,12 @@
   </mat-card>
 </div>
 <div class="account-content" *ngIf="!checked">
-  <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs" (selectedIndexChange)="tabChanged($event)">
-    <mat-tab label="Pay">
+  <mat-tab-group
+    animationDuration="2000ms"
+    class="example-stretched-tabs"
+    (selectedIndexChange)="tabChanged($event)"
+  >
+    <mat-tab label="PAY">
       <div style="display: flex; justify-content: center; align-items: center">
         <mat-card class="payment-card">
           <mat-card-header>
@@ -34,11 +44,14 @@
 
           <mat-card-content>
             <form>
-              <div class="transaction" style="
+              <div
+                class="transaction"
+                style="
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
-                ">
+                "
+              >
                 <mat-form-field>
                   <mat-label>Select amount</mat-label>
                   <mat-select (selectionChange)="onSelectChange($event)">
@@ -51,9 +64,16 @@
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Choose a date"
-                    (dateChange)="onDateSelected($event)" />
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Choose a date"
+                    (dateChange)="onDateSelected($event)"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
@@ -61,13 +81,46 @@
           </mat-card-content>
           <mat-card-actions align-items="end">
             <button mat-raised-button type="button">Cancel</button>
-            <button mat-raised-button type="submit" [disabled]="!status" (click)="payNow()" color="primary">
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="!status"
+              (click)="payNow()"
+              color="primary"
+            >
               Pay now
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </mat-tab>
+    <mat-tab label="ALL RIG ID" class="custum-tab">
+      <div class="rig-container" *ngFor="let item of allrig">
+        <div class="rig-header">
+          <div class="header-content">
+            <div class="header-name">
+              <div class="name-content">
+                <p>RIG ID</p>&nbsp;
+                <span>{{item.rigId}}</span>
+              </div>
+              <div><mat-icon>keyboard_arrow_right</mat-icon></div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-content">
+            <div class="name-div">
+                <p>Name</p>
+                <span>{{item.fname}} {{item.lname}}</span>
+            </div>
+            <div class="name-div">
+                <p>Liquidity</p>
+                <span>{{item.liquidity | currency:"INR"}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
     <!-- <mat-tab label="Request withdrawal">
       <div class="bakk-div">
       
@@ -161,7 +214,8 @@
         </ng-template>
       </div>
     </mat-tab> -->
-    <mat-tab label="Bank details">
+
+    <mat-tab label="BANK DETAILS">
       <div class="bakk-div">
         <ng-container *ngIf="bankDetails.length === 0; else bankDetailsList">
           <mat-card class="example-card">
@@ -208,7 +262,7 @@
         </ng-template>
       </div>
     </mat-tab>
-    <mat-tab label="Payout History">
+    <mat-tab label="MONTHLY PAYOUT">
       <div style="display: flex; justify-content: center; align-items: center">
         <mat-card class="partner-history-card">
           <mat-card-header>
@@ -219,81 +273,103 @@
           <mat-card-content>
             <div class="container">
               <div class="column">
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Date of Payment</span>
                   <strong>{{ partnerDetails.dop | date }}</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Total liquidity</span>
                   <strong>{{
                     partnerDetails.liquidity | currency : "INR"
-                    }}</strong>
+                  }}</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Payout Tenure</span> <strong>12 TN</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Paid Tenure</span>
                   <strong>{{ partnerDetails.monthComplete }} TN</strong>
                 </div>
               </div>
               <div class="column">
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Remaining Tenure</span>
-                  <strong>{{ 12 - partnerDetails.monthComplete }}&nbsp;TN</strong>
+                  <strong
+                    >{{ 12 - partnerDetails.monthComplete }}&nbsp;TN</strong
+                  >
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Last Payout</span>
                   <strong>{{ partnerDetails.lastPaymentDate | date }}</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Next Payout</span>
                   <strong>15 to 22nd (Of every month)</strong>
                 </div>
-                <div style="
+                <div
+                  style="
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  ">
+                  "
+                >
                   <span>Status</span>
                   <strong>{{
                     partnerDetails.status ? "Active" : "Close"
-                    }}</strong>
+                  }}</strong>
                 </div>
               </div>
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button type="button" [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
-              mat-raised-button>
+            <button
+              mat-button
+              type="button"
+              [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
+              mat-raised-button
+            >
               {{ partnerDetails.status ? "ACTIVE" : "CLOSE" }}
             </button>
           </mat-card-actions>
@@ -306,19 +382,28 @@
           justify-content: center;
           align-items: center;
           margin-top: 10px;
-        ">
-        <div #contentToConvert [ngClass]="{ 'hidden-content': hideContent }" class="pdf-container">
-          <div class="date-heading">Date: {{paymentDate|date}}</div>
+        "
+      >
+        <div
+          #contentToConvert
+          [ngClass]="{ 'hidden-content': hideContent }"
+          class="pdf-container"
+        >
+          <div class="date-heading">Date: {{ paymentDate | date }}</div>
 
           <div style="margin-bottom: 10px">
-            <img src="../../../../assets/image/heading.png" alt="" class="image-div" />
+            <img
+              src="../../../../assets/image/heading.png"
+              alt=""
+              class="image-div"
+            />
           </div>
           <div class="user-name">
             <div class="user-id">
               <p>To,</p>
-              <p>{{fname}}&nbsp;{{lname}}</p>
+              <p>{{ fname }}&nbsp;{{ lname }}</p>
               <p>USER ID-</p>
-              <p>{{partnerID}}</p>
+              <p>{{ partnerID }}</p>
             </div>
             <div class="company-name">
               <p>CENTUM WORLD</p>
@@ -329,15 +414,9 @@
             </div>
           </div>
           <div class="sub-div">
-            <p>
-              Sub: SaaS-Software as a Service
-            </p>
-            <p>
-              IaaS-Infrastructure as a Service
-            </p>
-            <p class="invoce">
-              INVOICE# 00227
-            </p>
+            <p>Sub: SaaS-Software as a Service</p>
+            <p>IaaS-Infrastructure as a Service</p>
+            <p class="invoce">INVOICE# 00227</p>
           </div>
           <div class="description">
             <p style="font-size: 10px; font-weight: 500">
@@ -363,15 +442,19 @@
               </p>
             </div>
             <div class="price-total">
-              <p style="font-size: 12px; font-weight: 600">{{(liquidity - percentage) | currency: 'INR':
-                'symbol':'1.0-0' }}</p>
-              <P style="font-size: 12px; font-weight: 600">{{(liquidity - percentage) | currency: 'INR':
-                'symbol':'1.0-0' }}</P>
+              <p style="font-size: 12px; font-weight: 600">
+                {{
+                  liquidity - percentage | currency : "INR" : "symbol" : "1.0-0"
+                }}
+              </p>
+              <P style="font-size: 12px; font-weight: 600">{{
+                liquidity - percentage | currency : "INR" : "symbol" : "1.0-0"
+              }}</P>
             </div>
           </div>
 
           <div class="description" style="margin-top: 20px">
-            <div style="line-height: 1px;">
+            <div style="line-height: 1px">
               <p style="font-size: 12px; font-weight: 600">Category 1</p>
               <p style="font-size: 10px; font-weight: 500">
                 12 Months basic Subscription
@@ -399,12 +482,18 @@
                 </p>
               </div>
               <div style="line-height: 1px">
-                <p style="font-size: 12px; font-weight: 600">Rs. {{(liquidity - percentage) | currency: 'INR':
-                  'symbol':'1.0-0' }}/-</p>
-                <p style="font-size: 12px; font-weight: 600">Rs. {{ percentage | currency: 'INR': 'symbol':'1.0-0' }}/-
+                <p style="font-size: 12px; font-weight: 600">
+                  Rs.
+                  {{
+                    liquidity - percentage
+                      | currency : "INR" : "symbol" : "1.0-0"
+                  }}/-
                 </p>
                 <p style="font-size: 12px; font-weight: 600">
-                  Rs. {{ liquidity | currency: 'INR': 'symbol':'1.0-0' }}/-
+                  Rs. {{ percentage | currency : "INR" : "symbol" : "1.0-0" }}/-
+                </p>
+                <p style="font-size: 12px; font-weight: 600">
+                  Rs. {{ liquidity | currency : "INR" : "symbol" : "1.0-0" }}/-
                 </p>
               </div>
             </div>
@@ -414,9 +503,7 @@
             <p style="font-size: 10px">
               Installation, Security implementation and free
             </p>
-            <p style="font-size: 10px">
-              maintenance upto 12 Months from the
-            </p>
+            <p style="font-size: 10px">maintenance upto 12 Months from the</p>
             <p style="font-size: 10px">Subscription data.</p>
           </div>
           <br />
@@ -424,25 +511,21 @@
             <p style="color: #2a2c96; font-size: 10px; font-weight: 600">
               PAYMENT INFORMATION
             </p>
-            <p style=" font-size: 10px; font-weight: 600;">
+            <p style="font-size: 10px; font-weight: 600">
               Bank Transfer - completed
             </p>
           </div>
           <br />
           <div class="footer">
             <div>
-              <p style="font-size: 10px;">
-                www.centumworld.com
-              </p>
-              <p style="font-size: 10px;">
-                worldcentum@gmail.com
-              </p>
+              <p style="font-size: 10px">www.centumworld.com</p>
+              <p style="font-size: 10px">worldcentum@gmail.com</p>
             </div>
             <div class="layout">
-              <p style=" font-size: 10px; color: white">
-                CENTUM WORLD
-              </p>
-              <P style=" font-size: 10px; color: white">HSR Layout,Banglore 560102</P>
+              <p style="font-size: 10px; color: white">CENTUM WORLD</p>
+              <P style="font-size: 10px; color: white"
+                >HSR Layout,Banglore 560102</P
+              >
               <p style="font-size: 10px; color: white">
                 Astra Tower,New Town,700136
               </p>
@@ -450,10 +533,225 @@
           </div>
         </div>
       </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: flex-end;
+          margin-right: 10px;
+        "
+      >
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="downloadPdf()"
+          [disabled]="!pdfButton"
+        >
+          Download
+        </button>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Bond">
+      <div class="downloadBondDiv">
+        <div class="bond-main-div">
+          <div #contentToConvert [ngClass]="{ 'hidden-content': hideContent }" class="bond-pdf-container">
+            <div class="heading-section">
+              <div class="top-date">Date: {{paymentDate|date}}</div>
+              <div style="margin-bottom: 10px">
+                <img src="../../../../assets/image/bond-logo.png" alt="" class="bond-image-div" />
+              </div>
+            </div>
+            <p class="bond-subject">Subject : Declaration of Virtual Partnership for RIG firm Participation,
+              Implementation and acceptance of Mutual Bond Agreemnet</p>
+            <div class="first-section">
+              <p style="font-family:Calibri; margin-bottom: 0px;;">This is to Certify that a Mutual & Virtual Partnership
+                bond betwen CENTUM WORLD, called 1st party (refer as Technical Partner), having GST NO. 19AAQFC7963A1Z5
+                and
+                PAN:AAQFC7963A,Corporate office in Bangalore and Kolkata (A Blockchain and Crypto Mining Firm Development
+                Company)</p>
+              <p>and with 2nd party (refer as Individual/Persons/Company)</p>
+              <p><strong>Individual Name / </strong>Company Name:</p>
+              <p><strong>Aadhaar / PAN no. {{aadharNumber}}</strong></p>
+  
+              <p>on Date <strong>{{ dateOfLiquidityAdd | date: 'dd
+                  MMM yyyy' }} </strong> for Virtual Liquidity adding
+                partnership of Crypto Mining Firm Development <strong>(Iaas - Infrastructure as a Services)</strong> and
+                Blockchain Development on certain terms and conditions as specified in the agreement.</p>
+            </div>
+
+            <ul class="first-section-list">
+              <li > <strong>Duration of Partnership : 12 Months </strong>(1st tenure will
+                be
+                released after 35 days of adding
+                Liquidity share)
+              </li>
+              <li > <strong>Fixed Share distribution /commission(Day/Month wise):
+                  {{fixedShareAmount | currency : 'INR'}} </strong>per Month
+
+              </li>
+              <li > Yearly Bonus : 10% (will be added after the completion of contract
+                period)
+              </li>
+
+              <li ><strong>Shared Liquidity Amount : {{partnerDetails.liquidity |
+                  currency:'INR'}} LAKH</strong>({{fixedShareAmountInString}})
+              </li>
+              <li ><strong>Date of Liquidity add :</strong> {{ dateOfLiquidityAdd | date:
+                'dd
+                MMM yyyy' }}
+              </li>
+              <li style=" margin-bottom: 3rem;"><strong>Payment mode in details:</strong></li>
+              <li style="margin-bottom: 0px;">Duties & Obligations of partners:</li>
+            </ul>
+
+            <div class="duties-obligation">
+
+              <ul style="font-family: Calibri;">
+
+                <strong style="margin-top: 0px;">1st Partner</strong>
+                <li>Technical Staff</li>
+                <li>Technical Skill & Maintenance</li>
+                <li>Expert Service and solutions</li>
+                <li>Device Configuration/Implementation</li>
+                <li>Electricity Bill</li>
+                <li>100% Responsibility</li>
+              </ul>
+              <div class="second-partner">
+                <strong style="margin-top:0px;">2nd Partner</strong>
+                <li>No Technical Staff Cost bearing</li>
+                <li>No Technical Skill Required</li>
+                <li>No Technical Knowledge</li>
+                <li>No Setup Cost</li>
+                <li>No Electricity</li>
+                <li>No Responsibility</li>
+              </div>
+            </div>
+
+            <div class="footer-section">
+              <div class="left-section">
+                <p>CENTUMO Token, CENTUMO Swap (DeX SaaS)</p>
+                <p>CENTUMO RIG (IaaS), CENTUMO NFT (SaaS),</p>
+                <p>Apps Ecosystem</p>
+                <p>worldcentum@gmail.com</p>
+              </div>
+              <div class="right-section">
+                <p>Business Address:</p>
+                <p>CENTUM WORLD</p>
+                <p>Bangalore,Karnataka,560102</p>
+                <p>Kolkata,New Town,West Bengal,700102</p>
+              </div>
+            </div>
+
+          </div>
+          <!-- </div> -->
+
+          <!-- <div class="bond-main-div"> -->
+          <div #contentToConvert [ngClass]="{ 'hidden-content': hideContent }" class="bond-pdf-container">
+            <div class="heading-section">
+              <div style="display: flex; align-items: end; font-family: Calibri; color:#000000;">Date: {{paymentDate|date}}</div>
+              <div style="margin-bottom: 10px">
+                <img src="../../../../assets/image/bond-logo.png" alt="" class="bond-image-div" />
+              </div>
+            </div>
+            <p class="terms-condition-p">Terms and Conditions :</p>
+            <ul class="terms-condition-list">
+              <li>The 2nd party is hereby Acknowledged that This Mutual Bond
+                of "the Mining RIG (IaaS- Infrastructure as a Service) Partnership Contract" is for
+                12 Months and with this form He/She agreed to participate virtually for
+                our Blockchain based Mining firm Technically called IaaS (Infrastructure
+                as a Servi ce) Ecosystem as per calculated work profit Share Basis.
+                The 2nd party will get <strong>{{ fixedSharePerDayAmount | currency : 'INR' }}</strong>
+                /- per day basis means <strong>{{fixedShareAmount | currency : 'INR'}}</strong>/- per
+                Monthly share from 1st Party, valid till to 12 months after 35 days
+                Connecting with this program</li>
+              <li>The 2nd party will get <strong>{{ fixedSharePerDayAmount | currency : 'INR' }}</strong>
+                /- per day basis means <strong>{{fixedShareAmount | currency : 'INR'}}</strong>/- per
+                Monthly share from 1st Party, valid till to 12 months after 35 days
+                Connecting with this program.</li>
+
+              <li>The projected Daily share will be transferred automatically to the
+                Register Bank Account of 2nd Party by 1st Party as per the commitment.</li>
+
+              <li>The 2nd Party is hereby Acknowledged that This is not any Investment
+                Plan but a participation Ecosystem to grow Infrastructure towards to a
+                profitable contract of 1st Party.</li>
+
+              <li>With this Agreement form Company is liable to pay the Committed
+                Amount through out 12 Months (35 days after the Connection and
+                Configuration) + 10 % Bonus on Liquidity adding after 12th month</li>
+              <li>Pre claim is not applicable from both the party with this Agreement/Contract from either side.</li>
+
+            </ul>
+
+            <p class="Declaration">I/We solemnly Inform that I am Agree with all te
+              Terms
+              and Condition Applied by CENTUM WORLD regarding the
+              Mining Partnership Contract and I/We will follow Business Module and Productivity ratio which will be
+              maintained by the Company for further Growth.</p>
+
+            <div class="terms-signature">
+              <div style="font-family: Calibri;">
+                <p style="margin-bottom: 0px;">Official Signatory on behalf of </p>
+                <p style="margin-bottom: 0px;">CENTUM WORLD :</p>
+                <P style="margin-bottom: 0px;">1st Party</P>
+              </div>
+              <div style="font-family: Calibri;">
+                <p style="margin-bottom: 0px;">Authorize Signatory:</p>
+                <p style="margin-bottom: 0px;">(2nd Party)</p>
+              </div>
+            </div>
+
+            <div class="footer-section">
+              <div class="left-section">
+                <p>CENTUMO Token, CENTUMO Swap (DeX SaaS)</p>
+                <p>CENTUMO RIG (IaaS), CENTUMO NFT (SaaS),</p>
+                <p>Apps Ecosystem</p>
+                <p>worldcentum@gmail.com</p>
+              </div>
+              <div class="right-section">
+                <p>Business Address:</p>
+                <p>CENTUM WORLD</p>
+                <p>Bangalore,Karnataka,560102</p>
+                <p>Kolkata,New Town,West Bengal,700102</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
       <div style=" display: flex; 
       flex-direction: column-reverse; 
-      align-items: flex-end; margin-right: 10px;"><button mat-raised-button color="primary" (click)="downloadPdf()"
-          [disabled]="!pdfButton">Download</button></div>
+      align-items: flex-end; margin-right: 10px;margin-bottom: 10px;"><button mat-raised-button color="primary" (click)="downloadBond()"
+          [disabled]="!pdfButton"> {{ buttonText }}</button></div>
+    </mat-tab>
+
+    <mat-tab label="Upload Bond">
+      <div class="upload-bond">
+        <mat-card class="payment-card">
+          <mat-card-header>
+            <div>
+              <i class="material-icons">description</i> <!-- Document icon -->
+            </div>
+            <mat-card-title>Upload Bond of<mat-card-subtitle>{{ partnerID }}</mat-card-subtitle></mat-card-title>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <!-- Your content goes here -->
+            <form #fileUploadForm>
+              <input type="file" id="fileInput" (change)="selectFile($event)" accept=".pdf">
+            </form>
+          </mat-card-content>
+      
+          <mat-card-actions align-items="end" style="float: inline-end;">
+            <button mat-raised-button type="button">Cancel</button>
+            <button mat-raised-button type="submit" (click)="uploadPartnershipBond()" color="primary">
+              {{uploadText}}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
     </mat-tab>
 
     <mat-tab label="Bond">
@@ -660,11 +958,17 @@
   </mat-tab-group>
 </div>
 <div *ngIf="checked" class="refferal-div">
-  <mat-tab-group animationDuration="2000ms" class="example-stretched-tabs"
-    (selectedIndexChange)="referralTabChange($event)">
+  <mat-tab-group
+    animationDuration="2000ms"
+    class="example-stretched-tabs"
+    (selectedIndexChange)="referralTabChange($event)"
+  >
     <mat-tab label="Request">
       <div class="bakk-div">
-        <mat-card class="example-card" *ngFor="let data of referralRequestHistory">
+        <mat-card
+          class="example-card"
+          *ngFor="let data of referralRequestHistory"
+        >
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Bank details</mat-card-title>
@@ -679,7 +983,7 @@
               <h2>Amount</h2>
               <strong>{{
                 data.partner_wallet | currency : "INR" : "symbol" : "1.2-2"
-                }}</strong>
+              }}</strong>
             </div>
             <div class="bank-details">
               <h2>Request date</h2>
@@ -695,7 +999,11 @@
             <button mat-button style="background: rgb(87, 251, 87)">
               Request
             </button>
-            <button mat-button style="background: red" (click)="referralPayoutApproved(data.id)">
+            <button
+              mat-button
+              style="background: red"
+              (click)="referralPayoutApproved(data.id)"
+            >
               Approve
             </button>
           </mat-card-actions>
@@ -719,7 +1027,7 @@
               <h2>Amount</h2>
               <strong>{{
                 data.partner_wallet | currency : "INR" : "symbol" : "1.2-2"
-                }}</strong>
+              }}</strong>
             </div>
             <div class="bank-details">
               <h2>Request date</h2>

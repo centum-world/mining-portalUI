@@ -4,13 +4,16 @@
       <div>
         <div>
           <div class="dop1" *ngIf="userStatus">
-            <span style="font-weight: 600;">Status  : </span> <p style="color:green;">Active</p>
+            <span style="font-weight: 600">Status</span>:
+            <p style="color: green">Active</p>
           </div>
-          <div class="dop1" *ngIf="month_count === 12 ">
-            <span style="font-weight: 600;">Status  :</span>  <p style="color: red;">Closed</p>
+          <div class="dop1" *ngIf="month_count === 12">
+            <span style="font-weight: 600">Status</span>:
+            <p style="color: red">Closed</p>
           </div>
           <div class="dop1" *ngIf="!userStatus && month_count === 0">
-            <span style="font-weight: 600;">Status  :</span>  <p style="color:red;">Not Active</p>
+            <span style="font-weight: 600">Status</span>:
+            <p style="color: red">Not Active</p>
           </div>
         </div>
         <div class="business-module">
@@ -21,15 +24,15 @@
         <div class="card-view">
           <span (click)="gotoAccount()">view</span>
         </div>
-        <div class="business-download" (click)="downloadBusinessModule()"><mat-icon>file_download</mat-icon></div>
-        
+        <div class="business-download" (click)="downloadBusinessModule()">
+          <mat-icon>file_download</mat-icon>
+        </div>
       </div>
-
     </div>
     <div class="card-single">
       <div class="partner-refferal-id">
-        <h6>Userr ID :- {{partnerId}}</h6>
-        <span>Refferal ID :- &nbsp;{{refferID}}</span>
+        <h6>User ID:- {{ partnerId }}</h6>
+        <span>Refferal ID:- &nbsp;{{ refferID }}</span>
       </div>
     </div>
 
@@ -37,8 +40,26 @@
       <div>
         <h6>Liquidity</h6>
       </div>
-      <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">Pay Now</div>
-      <div *ngIf="userStatus" style="font-weight: bold;">{{partnerLiquidity | currency:'INR'}}</div>
+      <div *ngIf="!userStatus" class="pay-now btn btn-primary" (click)="pay()">
+        Pay Now
+      </div>
+      <div *ngIf="userStatus" style="font-weight: bold">
+        {{ partnerLiquidity | currency : "INR" }}
+      </div>
+    </div>
+    <div class="card-single">
+      <div>Add Liquidity</div>
+      <div style="color: blue" (click)="openRigID()">
+        <mat-icon>add</mat-icon>
+      </div>
+    </div>
+    <div class="card-single">
+      <div>All RIG Accounts</div>
+      <div style="color: blue">
+        <a href="javascript:void(0)" style="text-decoration: none;" (click)="allRigAccount()">
+          <span>view</span>
+        </a>
+      </div>
     </div>
     <div class="card-single">
       <div>
@@ -48,7 +69,6 @@
         <a href="javascript:void(0)" (click)="myteam()">
           <span>view</span>
         </a>
-
       </div>
     </div>
 
@@ -63,7 +83,7 @@
       </div>
     </div>
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>Withdrawal</h6>
         <span>Success History</span>
@@ -73,9 +93,9 @@
           <span>view</span>
         </a>
       </div>
-    </div>
+    </div> -->
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>Refferal</h6>
         <span>Pending History</span>
@@ -85,8 +105,8 @@
           <span>view</span>
         </a>
       </div>
-    </div>
-    <div class="card-single">
+    </div> -->
+    <!-- <div class="card-single">
       <div>
         <h6>Refferal</h6>
         <span>Success History</span>
@@ -96,7 +116,7 @@
           <span>view</span>
         </a>
       </div>
-    </div>
+    </div> -->
 
     <div class="card-single">
       <div>
@@ -110,5 +130,4 @@
   <div *ngIf="view_detail">
     <app-mining-profile-details></app-mining-profile-details>
   </div>
-
 </main>
