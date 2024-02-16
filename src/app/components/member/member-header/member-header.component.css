@@ -152,10 +152,12 @@ body {
   margin-left: 300px;
 }
 
+
+
 header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem 0 0;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
   left: 300px;
@@ -210,6 +212,12 @@ header label span {
   display: inline-block;
   color: gray;
   margin-top: -3px !important;
+}
+
+
+#clogo img {
+  width: 350px; /* Adjust the width as needed */
+  height: 90px; /* Maintain aspect ratio */
 }
 
 main {
@@ -338,6 +346,11 @@ td {
   }
   .sidebar-menu {
     height: auto;
+  }
+
+  #clogo img {
+    width: 250px; /* Adjust the width as needed */
+    height: 90px; /* Maintain aspect ratio */
   }
 }
 
