@@ -1,15 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { MatDialog } from "@angular/material";
-import { MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material";
 import { UserService } from "src/app/service/user.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { PartnerViewComponent } from "../../admin/dialog/partner-view/partner-view.component";
 import { MyQueryComponent } from "../dialog/my-query/my-query.component";
 import { PdfService } from "src/app/pdfService/pdf.service";
 import { ToastrService } from 'ngx-toastr';
-
-// import image from '../../../../assets/image/pdfBond.png';
 
 interface Partner {
   p_userid: string;
@@ -25,6 +22,7 @@ interface Partner {
   isVerify: string;
   actions: string;
 }
+
 @Component({
   selector: "app-mining-details",
   templateUrl: "./mining-details.component.html",
@@ -32,8 +30,7 @@ interface Partner {
 })
 export class MiningDetailsComponent implements OnInit {
   hideContent = false;
-
-  query = [];
+  query: any[] = [];
   displayedColumns: string[] = [
     "p_userid",
     "p_name",
@@ -49,32 +46,40 @@ export class MiningDetailsComponent implements OnInit {
     "actions",
   ];
 
-  dataSource: MatTableDataSource<Partner>;
+  dataSource: MatTableDataSource<Partner> = new MatTableDataSource<Partner>([]);
+  partner: Partner = {} as Partner;
+
   constructor(
     private router: Router,
     private dialog: MatDialog,
     private userService: UserService,
     private pdfservice: PdfService,
     private toastr: ToastrService
-  ) {
-    this.dataSource = new MatTableDataSource([]);
-  }
+  ) {}
 
   ngOnInit() {
     this.fetchMiningPartnerProfileDetails();
   }
 
   fetchMiningPartnerProfileDetails() {
-    let partnerIdDetails = localStorage.getItem("partnerdetails");
-    let data = {
-      p_userid: partnerIdDetails,
-    };
+    const partnerIdDetails = localStorage.getItem("partnerdetails");
+    const data = { p_userid: partnerIdDetails };
+
     this.userService.fetchMiningPartnerProfileDetails(data).subscribe({
       next: (res: any) => {
-        this.dataSource.data = res.data;
+        if (Array.isArray(res.data) && res.data.length > 0) {
+          console.log('Data is an array:', res.data);
+          this.dataSource.data = res.data as Partner[];
+
+          // Assign the first partner in the array to the 'partner' property
+          this.partner = this.dataSource.data[0];
+          console.log('Partner:', this.partner);
+        } else {
+          console.log('Unexpected data structure or empty array:', res.data);
+        }
       },
       error: (err) => {
-        console.log(err.error.message);
+        console.error('Error fetching partner details:', err.error.message);
       },
     });
   }
@@ -82,38 +87,36 @@ export class MiningDetailsComponent implements OnInit {
   gotoHome() {
     this.router.navigate(["/miningdashboard/home"]);
   }
+
   gotoAccountsection() {
     this.router.navigate(["/miningdashboard/account"]);
   }
 
-  openViewPartnerDialog(partner: any) {
-    let config: MatDialogConfig = {
+  openViewPartnerDialog(partner: Partner) {
+    const config: MatDialogConfig = {
       panelClass: "myPartnerViewDialogClass",
       data: partner,
     };
     const dialogRef = this.dialog.open(PartnerViewComponent, config);
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("Closed");
+    dialogRef.afterClosed().subscribe(() => {
+      console.log("Dialog closed");
     });
   }
 
   downLoadPartnershipBond() {
-    let partnerIdDetails = localStorage.getItem("partnerdetails");
-    let data = {
-      userId: partnerIdDetails,
-    };
+    const partnerIdDetails = localStorage.getItem("partnerdetails");
+    const data = { userId: partnerIdDetails };
+
     this.userService.fetchPartnerBond(data).subscribe({
       next: (res: any) => {
-        console.log(res.data[0].bond);
-        const bondData = res.data[0].bond;
-        const pdfUrl = bondData;
-
+        console.log('PDF data:', res.data[0].bond);
+        const pdfUrl = res.data[0].bond;
         window.open(pdfUrl, "_blank");
       },
       error: (err) => {
-        console.log(err.error.message);
-        this.toastr.warning("!No Partnership bond Found")
+        console.error('Error fetching partnership bond:', err.error.message);
+        this.toastr.warning("No Partnership bond Found");
       },
     });
   }
@@ -123,22 +126,14 @@ export class MiningDetailsComponent implements OnInit {
   }
 
   queryDetails() {
-    let config: MatDialogConfig = {
+    const config: MatDialogConfig = {
       panelClass: "partnerQueryDialogClass",
       data: localStorage.getItem("partnerdetails"),
     };
     const dialogRef = this.dialog.open(MyQueryComponent, config);
-    // let data ={
-    //   p_userid: localStorage.getItem('partnerdetails')
-    // }
-    // this.userService.fetchQueery(data).subscribe({
-    //   next:(res:any)=>{
-    //     console.log(res.data)
-    //     this.query = res.data
-    //   },
-    //   error:(err=>{
-    //     console.log(err.error.message)
-    //   })
-    // })
+    // Handle dialog result if needed
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Query dialog closed with result:', result);
+    });
   }
 }

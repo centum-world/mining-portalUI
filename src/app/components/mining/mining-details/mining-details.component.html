@@ -1,98 +1,88 @@
 <div class="detail-heading">
-  <div style="margin-left: 1rem;">
-    <mat-icon class="back-icon" style="cursor: pointer" (click)="gotoHome()"
-      >arrow_back</mat-icon
-    >
-  </div>
+  <mat-icon class="back-icon" (click)="gotoHome()">arrow_back</mat-icon>&nbsp;
   <p>My details</p>
 </div>
 <div class="large-expand">
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="p_userid">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Partner ID</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_userid }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_name">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">F-Name</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_name }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_lname">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">L-Name</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_lname }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_email">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Email</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_email }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_phone">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Phone</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_phone }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_address">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Address</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_address }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_liquidity">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Liquidity</th>
-        <td mat-cell *matCellDef="let partner" style="font-weight: bold;">
-          {{ partner.p_liquidity | currency : "INR" }}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="p_refferal_id">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Referral Id</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_refferal_id }}</td>
-      </ng-container>
-      <ng-container matColumnDef="p_reffered_id">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Referred Id</th>
-        <td mat-cell *matCellDef="let partner">{{ partner.p_reffered_id }}</td>
-      </ng-container>
-      <ng-container matColumnDef="isVerify">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Verify</th>
-        <td
-          mat-cell
-          *matCellDef="let partner"
-          [ngStyle]="{ color: partner.isVerify === 1 ? 'green' : 'red' }"
-        >
-          {{ partner.isVerify === 1 ? "Yes" : "No" }}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="isBlocked">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Block</th>
-        <td
-          mat-cell
-          *matCellDef="let partner"
-          [ngStyle]="{ color: partner.isBlocked === 1 ? 'green' : 'red' }"
-        >
-          {{ partner.isBlocked === 1 ? "Yes" : "No" }}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef class="partnerDetailsHeader">Actions</th>
-        <td mat-cell *matCellDef="let partner">
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
+    <mat-card class="partner-card">
+      <div class="header">
+        <mat-card-header>
+          <!-- <div mat-card-avatar class="header-avatar"></div> -->
+          <mat-card-title>Partner ID: {{ partner?.p_userid }}</mat-card-title>
+          <mat-card-subtitle
+          class="subtitle"
+            >Name: {{ partner?.p_name }}
+            {{ partner?.p_lname }}</mat-card-subtitle
+          >
+        </mat-card-header>
+      </div>
+
+      <div class="paragraph">
+        <mat-card-content>
+          <p>
+            <span class="key">Email:</span>
+            <span class="value">{{ partner?.p_email }}</span>
+          </p>
+          <p>
+            <span class="key">Phone:</span>
+            <span class="value">{{ partner?.p_phone }}</span>
+          </p>
+          <p>
+            <span class="key">Address:</span>
+            <span class="value">{{ partner?.p_address }}</span>
+          </p>
+          <p>
+            <span class="key">Liquidity:</span>
+            <span class="value">{{
+              partner?.p_liquidity | currency : "INR"
+            }}</span>
+          </p>
+          <p>
+            <span class="key">Referral Id:</span>
+            <span class="value">{{ partner?.p_refferal_id }}</span>
+          </p>
+          <p>
+            <span class="key">Referred Id:</span>
+            <span class="value">{{ partner?.p_reffered_id }}</span>
+          </p>
+          <p>
+            <span class="key">Verify:</span>
+            <span
+              [ngStyle]="{ color: partner?.isVerify === 1 ? 'green' : 'red' }"
+            >
+              {{ partner?.isVerify === 1 ? "Yes" : "No" }}
+            </span>
+          </p>
+          <p>
+            <span class="key">Block:</span>
+            <span
+              [ngStyle]="{ color: partner?.isBlocked === 1 ? 'green' : 'red' }"
+            >
+              {{ partner?.isBlocked === 1 ? "Yes" : "No" }}
+            </span>
+          </p>
+        </mat-card-content>
+      </div>
+
+      <button class="threedot" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-card-actions>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openViewPartnerDialog(partner)">
+            <mat-icon>visibility</mat-icon> View
           </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="openViewPartnerDialog(partner)">
-              <mat-icon>visibility</mat-icon> View
-            </button>
-            <button mat-menu-item (click)="gotoAccountsection()">
-              <mat-icon>account_circle</mat-icon> Account
-            </button>
-            <button mat-menu-item (click)="downLoadPartnershipBond()">
-              <mat-icon>cloud_download</mat-icon> Partner Bond
-            </button>
-            <button mat-menu-item (click)="queryDetails()">
-              <mat-icon>search</mat-icon> Your Query
-            </button>
-          </mat-menu>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let partner; columns: displayedColumns"></tr>
-    </table>
+          <button mat-menu-item (click)="gotoAccountsection()">
+            <mat-icon>account_circle</mat-icon> Account
+          </button>
+          <button mat-menu-item (click)="downLoadPartnershipBond()">
+            <mat-icon>cloud_download</mat-icon> Partner Bond
+          </button>
+          <button mat-menu-item (click)="queryDetails()">
+            <mat-icon>search</mat-icon> Your Query
+          </button>
+        </mat-menu>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
-
-

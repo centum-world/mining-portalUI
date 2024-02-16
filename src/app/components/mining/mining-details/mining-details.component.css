@@ -1,82 +1,73 @@
-.detail-heading{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-left: 330px;
-    margin-top: -46px;
+.detail-heading {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 340px;
+  margin-top: -46px;
 }
-table {
-    width: 100%;
-}
-.pdf-prmat{
-  margin-left:350px;
-  padding:20px;
-}
-.detail-heading p{
-    margin-top: 0;
-    margin-bottom: 11px;
-    margin-left: 11px;
-    font-size: 18px;
-    font-weight: 700;
-    font-family: Calibri;
-}
+
 .large-expand {
-    overflow-x: auto;
-    margin-top:5px;
-    padding: 20px;
-    margin-left: 330px;
+  overflow-x: auto;
+  margin-top: 5px;
+  padding: 20px;
+  margin-left: 550px;
+  width: 600px;
+  height: 100%;
+}
+.back-icon {
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-/* table {
-    width: 100%;
-} */
-.member-history-header{
-    font-weight: bold;
-    color: black;
+.subtitle {
+  font-size: 1rem; 
+  color: #333
 }
-/* Add this CSS to your component's CSS file */
-.table-container {
-    overflow-x: auto; /* Enable horizontal scrolling for the container */
-  }
-  
-  .mat-table {
-    width: 100%; /* Ensure the table takes up the full width of its container */
-    border-collapse: collapse; /* Remove default cell spacing */
-  }
-  
-  .mat-cell,
-  .mat-header-cell {
-    padding: 8px; /* Adjust the padding as needed */
-    text-align: left; /* Left-align cell content */
-    border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
-  }
-  
-  /* Style the header row */
-  .mat-header-row {
-    background-color: #f0f0f0; /* Add a background color to the header row */
-  }
-  
-  .partnerDetailsHeader{
-    font-weight:bold;
-    color:black;
-  }
-  /* Add a border to the last cell in each row */
-  .mat-cell:last-child,
-  .mat-header-cell:last-child {
-    border-right: 1px solid #ddd;
-  }
 
-  .hidden-content {
-    display: none;
+
+.paragraph p{
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.key {
+  font-weight: bold;
+  color: #555;
+  margin-right: 5px;
+}
+
+.value {
+  color: #666;
+}
+
+
+.partner-card {
+  width: 100%;
+}
+
+.threedot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+
+.pdf-prmat {
+  margin-left: 350px;
+  padding: 20px;
+}
+
+
+.hidden-content {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .large-expand {
+    margin-left: 0;
   }
-  
- 
-@media (max-width:768px){
-    .large-expand{
-        margin-left: 0;
-    }
-    .detail-heading{
-        margin-left: 0;
-        margin-top: 100px;
-    }
+  .detail-heading {
+    margin-left: 15px;
+    margin-top: 100px;
+  }
 }
