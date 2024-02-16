@@ -122,10 +122,17 @@ body{
     margin-bottom: 10%;
 }
 
+
+.logo-centum img {
+    width: 300px; 
+    height: 67px; 
+  }
+  
+
 header{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem 0 0;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     position: fixed;
     left: 330px;
@@ -376,6 +383,14 @@ td{
         display: block;
         font-size: 1.5rem;
       }
+
+      
+
+.logo-centum img {
+    width: 250px; /* Adjust the width as needed */
+    height: 67px; /* Maintain aspect ratio */
+  }
+  
 
 }
 @media only screen and (max-width:960px){
