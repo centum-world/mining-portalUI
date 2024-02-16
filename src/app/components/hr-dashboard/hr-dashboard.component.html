@@ -3,10 +3,7 @@
     <div *ngIf="!viewMemberList" class="cards">
       <div class="card-single">
         <div>
-          <h6>
-            <div class="fa fa-plus" (click)="redirectToCreateMember()"></div>
-          </h6>
-          <span>Add Member</span>
+          <span>Member history</span>
         </div>
         <div class="icon" (click)="viewMemberHistoryList()">
           <span>view</span>
@@ -15,17 +12,8 @@
 
       <div class="card-single">
         <div>
-          <h6>
-            <div class="fa fa-plus" (click)="redirectToCreatePartner()"></div>
-          </h6>
-          <span>Add Partner</span>
+          <span>Partner history</span>
         </div>
-
-        <!-- <div class="icon" (click)="viewList('view_mining_partner')">
-           
-          <span>view</span>
-
-        </div> -->
 
         <div class="icon" (click)="miningPartnerViewList()">
           <span>view</span>
@@ -38,10 +26,6 @@
           <div class="col-sm-8">
             <h6 >Total Liquidity :</h6>
           </div>
-
-          <!-- <div class=" icon col-sm-4" (click)="viewList('active_partner')">
-            <span>view</span>
-          </div> -->
           <div class="icon col-sm-4" (click)="activePartnerViewList()">
             <span>view</span>
           </div>
@@ -51,17 +35,8 @@
         </div>
       </div>
 
-      <!-- <div class="card-single">
-        <div>
-          <h6>Wallet</h6>
-          <span>Partner History</span>
-        </div>
-        <div class="icon">
-          <span data-toggle="modal" data-target="#allPartnerWallet">view</span>
-        </div>
-      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Wallet</h6>
           <span>Partner History</span>
@@ -69,7 +44,7 @@
         <div class="icon">
           <span (click)="partnerWalletHistoryViewList()">view</span>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="card-single">
         <div>
@@ -81,7 +56,7 @@
         </div>
       </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Wallet</h6>
           <span>Member History</span>
@@ -89,7 +64,7 @@
         <div class="icon">
           <span (click)="memberWalletHistoryViewList()">view</span>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="card-single">
         <div class="col-sm-8">
@@ -101,7 +76,7 @@
         </div>
       </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div class="col-sm-8">
           <h6>Withdrawal Request</h6>
           <span>Member</span>
@@ -109,85 +84,87 @@
         <div class="icon col-sm-4" (click)="memberWithdrawalRequestViewList()">
           <span>view</span>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Approved Withdrawal</h6>
           <span>Member</span>
         </div>
-        <!-- <div class="icon" (click)="viewList('approved-member-history')">
-          <span>view</span>
-        </div> -->
         <div class="icon" (click)="memberApprovedWithdrawalViewList()">
           <span>view</span>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Withdrawal Request</h6>
           <span>Partner</span>
         </div>
-        <!-- <div class="icon" (click)="viewList('send_withdrawal')">
-          <span>view</span>
-        </div> -->
         <div class="icon" (click)="partnerWithdrawalRequestViewList()">
           <span>view</span>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Approved Withdrawal</h6>
           <span>Partner</span>
         </div>
-        <!-- <div class="icon" (click)="viewList('approved_withdrawal')">
-          <span>view</span>
-        </div> -->
         <div class="icon" (click)="partnerApprovedWithdrawalHistoryViewList()">
           <span>view</span>
         </div>
-      </div>
+      </div> -->
 
       <div class="card-single">
         <div>
           <h6>Pending Partners</h6>
           <span>Payment</span>
         </div>
-        <!-- <div class="icon" (click)="viewList('pending_payment')">
-          <span>view</span>
-        </div> -->
         <div class="icon" (click)="pendingPartnersViewList()">
           <span>view</span>
         </div>
       </div>
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Refferal Request</h6>
           <span>Partner</span>
         </div>
-        <!-- <div class="icon" (click)="viewList('refferal_request')">
-          <span>view</span>
-        </div> -->
         <div class="icon" (click)="partnerReferralPayoutRequestViewList()">
+          <span>view</span>
+        </div>
+      </div> -->
+
+      <!-- <div class="card-single">
+        <div>
+          <h6>Refferal Approved</h6>
+          <span>Partner</span>
+        </div>
+        <div class="icon" (click)="partnerReferralPayoutApprovedViewList()">
+          <span>view</span>
+        </div>
+      </div> -->
+       <div class="card-single">
+        <div>
+          <h6>Business</h6>
+          <span>BBM history</span>
+        </div>
+        <div class="icon" (click)="bmmhistory()">
           <span>view</span>
         </div>
       </div>
 
       <div class="card-single">
         <div>
-          <h6>Refferal Approved</h6>
-          <span>Partner</span>
+          <h6>Franchise history</h6>
         </div>
-        <!-- <div class="icon" (click)="viewList('refferal_approved')">
-          <span>view</span>
-        </div> -->
-        <div class="icon" (click)="partnerReferralPayoutApprovedViewList()">
+        <div class="icon" (click)="franchisehistory()">
           <span>view</span>
         </div>
       </div>
+
+      
     </div>
 
     <div *ngIf="viewMemberList && show_detail_list === 'view_member'">
