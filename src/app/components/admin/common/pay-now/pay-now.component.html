@@ -1,0 +1,49 @@
+<div class="paynow-container">
+  <div class="paynow-cards">
+    <div class="cards-header">
+      <p>Each month pay and bank details</p>
+    </div>
+    <hr />
+    <div class="cards-pay-content">
+      <div class="pay-form">
+        <p>Pay now</p>
+        <div class="form-data">
+          <form [formGroup]="myForm" (ngSubmit)="paymentthismonth()">
+            <mat-form-field style="width: 280px;">
+              <mat-label>Select amount</mat-label>
+              <mat-select formControlName="selectedAmount" (selectionChange)="onSelectChange($event)">
+                <mat-option [value]="perDayAmountDropDown">
+                  {{ perDayAmountDropDown | currency : "INR" }}
+                </mat-option>
+                <mat-option [value]="februaryAmount">
+                  {{ februaryAmount | currency : "INR" }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="myForm.get('selectedAmount').hasError('required')">Select amount is required</mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 280px;">
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="payoutDate"
+                placeholder="Payout date"
+                (dateChange)="onDateSelected($event)"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="myForm.get('payoutDate').hasError('required')">Payment date is required</mat-error>
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="primary" style="width: 280px;">PAY</button>
+          </form>
+        </div>
+      </div>
+      <div class="pay-form">
+        <p>Bank details</p>
+        <div>hel</div>
+      </div>
+    </div>
+  </div>
+</div>

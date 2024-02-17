@@ -10,7 +10,6 @@ import { VerifyPartnerComponent } from "../dialog/verify-partner/verify-partner.
 import { BlockMiningPartnerComponent } from "../dialog/block-mining-partner/block-mining-partner.component";
 import { EditPartnerComponent } from "../dialog/edit-partner/edit-partner.component";
 import { Router } from "@angular/router";
-import { ActivateMiningPartnerComponent } from "../dialog/activate-mining-partner/activate-mining-partner.component";
 import { PartnerViewComponent } from "../dialog/partner-view/partner-view.component";
 import { PartnerQueryComponent } from "../dialog/partner-query/partner-query.component";
 interface Partner {
@@ -185,34 +184,7 @@ export class PartnerHistoryComponent implements OnInit {
     ]);
   }
 
-  // ------------------
-
-  openPartnerDoActivateDialog(miningPartnerData: any) {
-    let config: MatDialogConfig = {
-      panelClass: "doActivatePartnerDialogClass",
-      data: miningPartnerData,
-    };
-    const dialogRef = this.dialog.open(ActivateMiningPartnerComponent, config);
-    dialogRef.componentInstance.okClicked.subscribe(() => {
-      let data = {
-        p_userid: miningPartnerData.p_userid,
-      };
-      this.userService.doactivatePartnerManualFromAdmin(data).subscribe({
-        next: (res: any) => {
-          this.callApiToFetchAllPartner();
-          this.toastr.success(res.message);
-        },
-        error: (err) => {
-          console.log(err.error.message);
-        },
-      });
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("Closed");
-    });
-  }
-
+  
   goBack() {
     this.router.navigate(["/dashboard/home"]);
   }

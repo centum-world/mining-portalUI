@@ -95,6 +95,8 @@ import { MemberSignupComponent } from "./components/member/member-signup/member-
 import { SignupFranchiseComponent } from "./components/franchise/signup-franchise/signup-franchise.component";
 import { BmmSignupLoginComponent } from "./components/sho/bmm-signup-login/bmm-signup-login.component";
 import { PrivacyComponent } from "./components/common/privacy/privacy.component";
+import { RigPartnerComponent } from "./components/admin/rig-partner/rig-partner.component";
+import { PartnerPayoutComponent } from "./components/admin/partner-payout/partner-payout.component";
 
 
 const routes: Routes = [
@@ -141,7 +143,9 @@ const routes: Routes = [
       {path:"partner-referral-payout-request",component:PartnerReferralPayoutRequestComponent},
       {path:"pending-partners",component:PendingPartnersComponent},
       {path:"partner-referral-payout-approved",component:PartnerReferralPayoutApprovedComponent},
-      {path:"partner-account/:id",component:PartnerAccountComponent},
+      // {path:"partner-account/:id",component:PartnerAccountComponent},
+      {path:"partner-account/:id",component:RigPartnerComponent},
+      {path:"partner-account/:userId/:rigId",component:PartnerPayoutComponent},
       {path:"member-account/:id",component:MemberAccountComponent},
       {path: "franchise-account/:id", component: FranchiseAccountComponent},
       {path:"bd-account/:id", component: BdAccountComponent},
