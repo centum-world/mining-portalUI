@@ -22,16 +22,16 @@
       </div>
 
       <div class="card-single">
-        <div class="row">
+        <div style="display: flex;">
           <div class="col-sm-8">
-            <h6 >Total Liquidity :</h6>
+            <h6 >Total Liquidity : &nbsp;</h6>
           </div>
           <div class="icon col-sm-4" (click)="activePartnerViewList()">
             <span>view</span>
           </div>
-          <div>
-            <b>{{ totalLiquidityOfPartner | currency : "INR" }}</b>
-          </div>
+        </div>
+        <div>
+          <b>{{ totalLiquidityOfPartner | currency : "INR" }}</b>
         </div>
       </div>
 
