@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   startTypingAnimation() {
-    const textToType = "Mining Rig Partner";
+    const textToType = "Mining RIG Partner";
     const typingSpeed = 200;
     let index = 0;
 
