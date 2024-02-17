@@ -223,6 +223,9 @@ import { MemberSummaryAmountComponent } from './components/member/modal/member-s
 import { RigIdComponent } from './components/mining/dialog/rig-id/rig-id.component';
 import { RigAccountComponent } from './components/mining/dialog/rig-account/rig-account.component';
 import { RigPartnerComponent } from './components/admin/rig-partner/rig-partner.component';
+import { PartnerPayoutComponent } from './components/admin/partner-payout/partner-payout.component';
+import { PayNowComponent } from './components/admin/common/pay-now/pay-now.component';
+import { PayoutEachmonthsComponent } from './components/admin/common/payout-eachmonths/payout-eachmonths.component';
 
 
 @NgModule({
@@ -417,7 +420,10 @@ import { RigPartnerComponent } from './components/admin/rig-partner/rig-partner.
     MemberSummaryAmountComponent,
     RigIdComponent,
     RigAccountComponent,
-    RigPartnerComponent
+    RigPartnerComponent,
+    PartnerPayoutComponent,
+    PayNowComponent,
+    PayoutEachmonthsComponent
   ],
   imports: [
     BrowserModule,

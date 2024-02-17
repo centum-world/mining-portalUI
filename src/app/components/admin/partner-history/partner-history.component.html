@@ -135,10 +135,6 @@
                         <button mat-menu-item (click)="openPartnerEditDialog(partner)">
                             <mat-icon>edit</mat-icon>Edit
                         </button>
-                        <button mat-menu-item [disabled]="partner.partner_status === 1"
-                            (click)="openPartnerDoActivateDialog(partner)">
-                            <mat-icon>check</mat-icon> Do Activate
-                        </button>
                         <button mat-menu-item (click)="gotoPartnerAccountSection(partner)">
                             <mat-icon>person</mat-icon> Account
                         </button>

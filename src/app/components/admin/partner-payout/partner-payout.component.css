@@ -1,0 +1,19 @@
+.rigpayout-container{
+    margin-left: 340px;
+    padding: 10px;
+}
+
+.rigpayout-container p {
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    font-family: Roboto;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:768px){
+    .rigpayout-container{
+        margin-left: 0;
+    }
+}

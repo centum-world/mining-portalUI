@@ -1,0 +1,80 @@
+.paynow-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 40px;
+}
+.paynow-cards {
+  width: 60%;
+  height: 50vh;
+  border-radius: 40px;
+  box-shadow: 0 0 10px 0 #f0f0f0;
+  border: 1px solid #f0f0f0;
+}
+.cards-header {
+  padding: 20px 20px 0 20px;
+}
+.cards-header p {
+  font-size: 18px;
+  font-weight: 600;
+}
+.paynow-cards hr {
+  margin: 0;
+}
+
+.cards-pay-content {
+  display: flex;
+  padding:0 10px 0 20px;
+}
+
+.cards-pay-content div {
+  flex: 1;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+.cards-pay-content div:last-child {
+  border-right: none;
+}
+.pay-form{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+}
+.pay-form p{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-data form{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+}
+  
+
+
+@media only screen and (max-width: 767px) {
+  .paynow-container {
+    padding: 10px;
+  }
+  .paynow-cards {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .cards-header {
+    padding: 10px 20px 0 5px;
+  }
+
+  .cards-pay-content {
+    flex-direction: column;
+  }
+  .cards-pay-content div {
+    flex: none;
+    border-right: none;
+  }
+}

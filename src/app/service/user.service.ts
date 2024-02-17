@@ -1536,4 +1536,16 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  callApiToFetchPartnerDetailsUsingRigID(data:any){
+    return this.http.post(this.url + "/admin/fetch-partner-by-rig-id",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToPayForEachMonth(data:any){
+    return this.http.post(this.url + "/admin/create-partner-payout",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }
