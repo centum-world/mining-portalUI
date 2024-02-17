@@ -221,6 +221,9 @@ main {
     /* min-height: cals(100vh - 90px); */
 }
 
+
+
+
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -286,10 +289,15 @@ main {
     text-decoration: none;
 }
 
-.icon span {
-    cursor: pointer;
-    color: blue;
-}
+.card-view span {
+    color: #7EC8E3; /* Set the initial blue text color */
+    transition: color 0.3s;
+  }
+  
+  /* Hover styles with a stronger blue color */
+  .card-view:hover span {
+    color: #0000FF; /* Adjust the hover color to a stronger blue (#0044cc) or your preferred shade */
+  }
 
 .modal-header h5 {
     color: purple;

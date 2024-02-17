@@ -256,10 +256,17 @@ main{
     margin-top: 25px;
 
 }
-.icon span{
-    color: blue;
-    cursor: pointer;
-}
+.icon span {
+    color: #7EC8E3; /* Set the initial blue text color */
+    transition: color 0.3s;
+  }
+  
+  /* Hover styles with a stronger blue color */
+  .icon:hover span {
+    color: #0000FF; /* Adjust the hover color to a stronger blue (#0044cc) or your preferred shade */
+  }
+
+
 th{
     font-size: 14px;
     font-family: bold;
