@@ -1548,4 +1548,14 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  callApiToPartnerBankDetails(data:any){
+    return this.http.post(this.url + "/admin/fetch-bank-details",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+  callApiToPartnerPayout(data:any){
+    return this.http.post(this.url + "/admin/fetch-partner-payouts",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

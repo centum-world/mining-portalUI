@@ -30,29 +30,41 @@
 
 .cards-pay-content div {
   flex: 1;
-  padding: 10px;
+  padding: 10px 0 0 5px;
   border-right: 1px solid #ccc;
 }
 .cards-pay-content div:last-child {
   border-right: none;
 }
-.pay-form{
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items:center;
+.bank-container div{
+  border-right: none;
+  line-height:1px;
 }
 .pay-form p{
     font-size: 16px;
     font-weight: 500;
+    text-align:center;
 }
-
 .form-data form{
     display:flex;
     justify-content:center;
     flex-direction:column;
     align-items:center;
 }
+.bank-name{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.bank-name p{
+  font-size:14px;
+}
+.bank-name h6{
+  font-size:14px;
+  color:#1a4038;
+  font-weight:600;
+}
+
   
 
 
@@ -76,5 +88,8 @@
   .cards-pay-content div {
     flex: none;
     border-right: none;
+    padding: 10px 0 0 2px;
   }
+  
+
 }

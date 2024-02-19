@@ -1,0 +1,62 @@
+.payout-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 40px;
+}
+.payout-cards {
+  width: 60%;
+  height: auto;
+  border-radius: 40px;
+  box-shadow: 0 0 10px 0 #f0f0f0;
+  border: 1px solid #f0f0f0;
+}
+
+.cards-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding: 20px 20px 0 20px;
+}
+.cards-header p {
+  font-size: 18px;
+  font-weight: 600;
+}
+.cards-header small{
+    color:#5ba2f6;
+}
+.payout-cards hr {
+  margin: 0rem;
+}
+.last-payout{
+    padding: 10px 40px 0 40px;
+}
+.last-payout-data{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .payout-container {
+      padding: 10px;
+    }
+    .payout-cards {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      padding: 10px;
+    }
+    .cards-header {
+      padding: 10px 20px 0 5px;
+    }
+    .cards-header p{
+        font-size:14px;
+    }
+    .last-payout{
+        padding: 10px 10px 0 10px;
+    }
+  
+  }

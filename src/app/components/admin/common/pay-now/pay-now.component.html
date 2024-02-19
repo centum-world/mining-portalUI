@@ -9,9 +9,12 @@
         <p>Pay now</p>
         <div class="form-data">
           <form [formGroup]="myForm" (ngSubmit)="paymentthismonth()">
-            <mat-form-field style="width: 280px;">
+            <mat-form-field style="width: 280px">
               <mat-label>Select amount</mat-label>
-              <mat-select formControlName="selectedAmount" (selectionChange)="onSelectChange($event)">
+              <mat-select
+                formControlName="selectedAmount"
+                (selectionChange)="onSelectChange($event)"
+              >
                 <mat-option [value]="perDayAmountDropDown">
                   {{ perDayAmountDropDown | currency : "INR" }}
                 </mat-option>
@@ -19,9 +22,12 @@
                   {{ februaryAmount | currency : "INR" }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="myForm.get('selectedAmount').hasError('required')">Select amount is required</mat-error>
+              <mat-error
+                *ngIf="myForm.get('selectedAmount').hasError('required')"
+                >Select amount is required</mat-error
+              >
             </mat-form-field>
-            <mat-form-field style="width: 280px;">
+            <mat-form-field style="width: 280px">
               <input
                 matInput
                 [matDatepicker]="picker"
@@ -34,15 +40,45 @@
                 [for]="picker"
               ></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="myForm.get('payoutDate').hasError('required')">Payment date is required</mat-error>
+              <mat-error *ngIf="myForm.get('payoutDate').hasError('required')"
+                >Payment date is required</mat-error
+              >
             </mat-form-field>
-            <button mat-raised-button type="submit" color="primary" style="width: 280px;">PAY</button>
+            <button
+              mat-raised-button
+              type="submit"
+              color="primary"
+              style="width: 280px"
+            >
+              PAY
+            </button>
           </form>
         </div>
       </div>
       <div class="pay-form">
         <p>Bank details</p>
-        <div>hel</div>
+        <div class="bank-container" *ngFor="let item of bankDetails">
+            <div class="bank-name">
+              <p>Holder Name</p>
+              <h6>{{item.holder_name}}</h6>
+            </div>
+            <div class="bank-name">
+              <p>Bank Name</p>
+              <h6>{{item.bank_name}}</h6>
+            </div>
+            <div class="bank-name">
+              <p>Branch Name</p>
+              <h6>{{item.branch_name}}</h6>
+            </div>
+            <div class="bank-name">
+              <p>A/C Number</p>
+              <h6>{{item.account_no}}</h6>
+            </div>
+            <div class="bank-name">
+              <p>IFSC Code</p>
+              <h6>{{item.ifsc_code}}</h6>
+            </div>
+        </div>
       </div>
     </div>
   </div>

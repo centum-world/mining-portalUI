@@ -1,1 +1,40 @@
-<p>payout-eachmonths works!</p>
+<div class="payout-container">
+  <div class="payout-cards">
+    <div class="cards-header">
+      <p>RIG partner payout and history</p>
+      <small>{{id}}</small>
+    </div>
+    <hr />
+    <div class="last-payout">
+        <div class="last-payout-data">
+            <p>Liquidity</p>
+            <h6>{{lastPayout.liquidity | currency:"INR"}}</h6>
+        </div>
+        <div class="last-payout-data">
+            <p>Payable Amount</p>
+            <h6>{{lastPayout.payableAmount | currency:"INR"}}</h6>
+        </div>
+        <div class="last-payout-data">
+            <p>Payout Tenure</p>
+            <h6>12 TN</h6>
+        </div>
+        <div class="last-payout-data">
+            <p>Paid Tanure</p>
+            <h6>{{lastPayout.payableCount}} TN</h6>
+        </div>
+        <div class="last-payout-data">
+            <p>Remaining Tenure</p>
+            <h6>{{(12- lastPayout.payableCount)}} TN</h6>
+        </div>
+        <div class="last-payout-data">
+            <p>Last Payout</p>
+            <h6>{{lastPayout.payoutDate | date}}</h6>
+        </div>
+        <div class="last-payout-data">
+            <p>Next Payout</p>
+            <h6>HIii</h6>
+        </div>
+    </div>
+    <hr>
+  </div>
+</div>
