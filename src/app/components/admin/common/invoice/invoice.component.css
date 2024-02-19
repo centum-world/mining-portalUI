@@ -1,0 +1,476 @@
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin-left: 340px;
+    padding: 10px;
+  }
+  .account-header h5 {
+    color: #000;
+    /* font-weight: 600; */
+    font-family: Calibri;
+  }
+  .wallet-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background: #f8fc02;
+    color: #b63003;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .account-content {
+    margin-left: 330px;
+  }
+  .bakk-div {
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .example-card {
+    margin: 10px;
+    width: 350px;
+  }
+  .payment-card {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+  }
+  
+  .bank-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .bank-details h2 {
+    font-weight: 400;
+    color: #9d9a9a;
+    font-size: small;
+  }
+  .example-header-image {
+    background-image: url("/assets/image/bank.jpg");
+    background-size: cover;
+  }
+  .partner-history-card {
+    width: 70%;
+    margin-top: 5%;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -5px;
+    height: 100%;
+    width: 1px;
+    background-color: #ccc;
+  }
+  
+  .refferal-div {
+    margin-left: 330px;
+  }
+  
+  .pdf-container {
+    padding: 20px;
+    width: 60%;
+    border-radius: 5px;
+  }
+  
+  .date-heading {
+    display: flex;
+    justify-content: end;
+    font-size: 8px;
+  }
+  
+  .user-name {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .user-id {
+    line-height: 1px;
+    font-size: 10px;
+    font-weight: 700;
+    text: bold;
+  }
+  .company-name {
+    line-height: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: end;
+  }
+  .sub-div {
+    line-height: 1px;
+    margin-bottom: 5px;
+  }
+  .sub-div {
+    font-size: 10px;
+    font-weight: 100;
+  }
+  .description {
+    display: flex;
+    justify-content: space-between;
+  }
+  .price-total {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: end;
+  }
+  .price-total > * {
+    margin-right: 10px;
+  }
+  
+  .price-total > *:last-child {
+    margin-right: 0;
+  }
+  
+  .custom-divider {
+    border-color: #2a2c96;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .payment-successful {
+    line-height: 1px;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1px;
+  }
+  .layout {
+    width: 200px;
+    height: 60px;
+    background: #2a2c96;
+    padding: 10px;
+  }
+  
+  .image-div {
+    width: 250px;
+    height: 65px;
+  }
+  .invoce {
+    color: #2a2c96;
+    font-weight: 500;
+    font-size: 10px;
+  }
+  
+  
+  .bond-main-div{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom:20px;
+  }
+  .bond-pdf-container{
+    padding: 20px;
+    width: 70%;
+    border-radius: 5px;
+  }
+  .top-date{
+    display: flex;
+     align-items: end;
+     font-family: Calibri;
+  }
+  .bond-image-div {
+    width: 350px;
+    height: 80px;
+  }
+  .heading-section{
+    display:flex;
+    justify-content:space-between;
+  }
+  .bond-subject{
+    margin-top:15px;
+    font-family: Calibri;
+    margin-bottom:1rem;
+    font-weight:700;
+    text-align:justify;
+  }
+  
+  .footer-section{
+    display:flex;
+    margin-top:20px;
+    font-family:Calibri;
+    justify-content:space-between;
+  }
+  .left-section{
+    font-family:Calibri;
+  }
+  .left-section p {
+    margin-bottom:0px;
+    color:darkgoldenrod;
+  }
+  .right-section{
+    font-family:Calibri;
+    text-align:right;
+  }
+  .right-section p {
+    margin-bottom:0px;
+    color:darkgoldenrod;
+  }
+  
+  .duties-obligation{
+    display: flex;
+     margin-top: 0px; 
+     justify-content: space-between;
+  }
+  .terms-condition-p{
+    font-family:Calibri;
+    color:#000000;
+  }
+  .terms-condition-list {
+    font-family:Calibri;
+    color:#000000;
+  }
+  .terms-signature{
+    display: flex; 
+    justify-content:space-between;
+  }
+  .Declaration{
+    padding-bottom: 20px; 
+    font-family: Calibri;
+    color:#000000;
+  }
+  .upload-bond{
+    display:flex;
+    justify-content:center;
+  }
+  .upload-bond p {
+    font-family:Calibri;
+    padding-top:20px;
+    font-size:22px;
+  }
+  .rig-container{
+    display:flex;
+    flex-wrap:wrap;
+    padding:20px;
+  }
+  .rig-header{
+    width:23%;
+    height:200px;
+    border-radius:20px;
+    box-shadow: 0 0 10px 0 #f0f0f0;
+  }
+  .header-content{
+    padding:10px 10px 0 10px;
+  }
+  .header-name{
+    display:flex;
+    justify-content:space-between;
+  }
+  .name-content{
+    display:flex;
+    justify-content:space-between;
+  }
+  .rig-header hr{
+    margin:0;
+  }
+  .card-content{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    margin-top:10px;
+    padding:10px;
+  }
+  
+  .name-div{
+    display:flex;
+    gap:10px;
+    justify-content:start;
+    align-items:baseline;
+  }
+  .name-div p{
+    font-weight:700;
+    font-family:Roboto;
+    font-size:12px;
+  }
+  .name-div span{
+    color:#838891;
+    font-family:Roboto;
+    font-size:12px;
+  }
+  @media screen and (min-width: 1025) and (max-width: 1200px) {
+    .pdf-container {
+      width: 90%;
+    }
+    .bond-pdf-container{
+      width:90%
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .pdf-container {
+      width: 90%;
+    }
+    .bond-pdf-container{
+      width:90%
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .payment-card {
+      width: 90%;
+    }
+    .partner-history-card {
+      width: 98%;
+    }
+    .account-header,
+    .refferal-div {
+      margin-left: 0;
+    }
+    .account-content {
+      margin-left: 0;
+    }
+    .pdf-container {
+      width: 60%;
+    }
+    .bond-pdf-container{
+      width:80%;
+    }
+    .duties-obligation {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .footer-section{
+      display:flex;
+      flex-direction:column;
+    }
+    .right-section{
+      text-align:justify;
+      padding-top:10px;
+    }
+    .heading-section{
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+    }
+    .terms-condition-p{
+      text-align:center;
+    }
+    .terms-signature {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      color:#000000;
+    }
+    
+    .rig-header{
+      width:100%;
+    }
+  }
+  @media (max-width: 576px) {
+    .image-div {
+      width: 200px;
+      height: 50px;
+    }
+    .top-date{
+      font-size:12px;
+    }
+    .bond-subject{
+      font-size:14px;
+    }
+    .first-section p {
+      font-size:12px;
+      color:#000000;
+      font-family:Calibri;
+    }
+    .first-section-list li {
+      font-family: Calibri;
+      font-size:12px;
+      color:#000000;
+    }
+    .duties-obligation ul strong,li{
+      font-size:12px;
+      color:#000000;
+    }
+    .duties-obligation .second-partner strong,
+    .duties-obligation .second-partner li {
+      font-size: 12px; 
+      color:#000000;
+    }
+    
+    .footer-section .left-section ,.right-section p {
+      font-size:12px;
+    }
+    .Declaration {
+      font-size:12px;
+    }
+    .terms-signature {
+      font-size:12px;
+    }
+    .transaction {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .mat-form-field {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .example-card {
+      width: 400px;
+    }
+    .pdf-container {
+      width: 100%;
+      padding: 20px;
+    }
+    .bond-pdf-container{
+      width:90%;
+      padding:20px;
+    }
+    .image-div {
+      width: 180px;
+      height: 40px;
+    }
+    .bond-image-div{
+      width:200px;
+      height:50px;
+    }
+    .user-id {
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .company-name {
+      font-size: 14px;
+      line-height: -1;
+    }
+    .sub-div {
+      font-size: 8px;
+    }
+    .invoce {
+      color: #2a2c96;
+      font-weight: 500;
+      font-size: 8px;
+    }
+    p {
+      margin-bottom: 11px;
+    }
+  }
+  

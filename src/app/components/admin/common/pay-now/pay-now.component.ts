@@ -116,9 +116,11 @@ export class PayNowComponent implements OnInit {
     this.userService.callApiToPayForEachMonth(data).subscribe({
       next:(res:any)=>{
         this.toastr.success(res.message);
+        console.log(res.message)
       },
       error:(error)=>{
         this.toastr.warning(error.error.message)
+        console.log(error.error.message)
       }
     })
   }

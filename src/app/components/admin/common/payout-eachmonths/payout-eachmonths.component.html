@@ -2,39 +2,65 @@
   <div class="payout-cards">
     <div class="cards-header">
       <p>RIG partner payout and history</p>
-      <small>{{id}}</small>
+      <small>{{ id }}</small>
     </div>
     <hr />
     <div class="last-payout">
-        <div class="last-payout-data">
-            <p>Liquidity</p>
-            <h6>{{lastPayout.liquidity | currency:"INR"}}</h6>
-        </div>
-        <div class="last-payout-data">
-            <p>Payable Amount</p>
-            <h6>{{lastPayout.payableAmount | currency:"INR"}}</h6>
-        </div>
-        <div class="last-payout-data">
-            <p>Payout Tenure</p>
-            <h6>12 TN</h6>
-        </div>
-        <div class="last-payout-data">
-            <p>Paid Tanure</p>
-            <h6>{{lastPayout.payableCount}} TN</h6>
-        </div>
-        <div class="last-payout-data">
-            <p>Remaining Tenure</p>
-            <h6>{{(12- lastPayout.payableCount)}} TN</h6>
-        </div>
-        <div class="last-payout-data">
-            <p>Last Payout</p>
-            <h6>{{lastPayout.payoutDate | date}}</h6>
-        </div>
-        <div class="last-payout-data">
-            <p>Next Payout</p>
-            <h6>HIii</h6>
-        </div>
+      <div class="last-payout-data">
+        <p>Liquidity</p>
+        <h6>{{ lastPayout.liquidity | currency : "INR" }}</h6>
+      </div>
+      <div class="last-payout-data">
+        <p>Payable Amount</p>
+        <h6>{{ lastPayout.payableAmount | currency : "INR" }}</h6>
+      </div>
+      <div class="last-payout-data">
+        <p>Payout Tenure</p>
+        <h6>12 TN</h6>
+      </div>
+      <div class="last-payout-data">
+        <p>Paid Tanure</p>
+        <h6>{{ lastPayout.payableCount }} TN</h6>
+      </div>
+      <div class="last-payout-data">
+        <p>Remaining Tenure</p>
+        <h6>{{ 12 - lastPayout.payableCount }} TN</h6>
+      </div>
+      <div class="last-payout-data">
+        <p>Last Payout</p>
+        <h6>{{ lastPayout.payoutDate | date }}</h6>
+      </div>
+      <div class="last-payout-data">
+        <p>Next Payout</p>
+        <h6>20 to 25 Of every month</h6>
+      </div>
     </div>
-    <hr>
+    <hr />
+    <div class="footerdiv">
+      <mat-accordion style="width: 100%;">
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> All Month </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="all-month" *ngFor="let item of allPayout">
+            <div class="last-payout-data">
+                <p>Liquidity</p>
+                <h6>{{item.liquidity | currency:"INR"}}</h6>
+            </div>
+            <div class="last-payout-data">
+                <p>Payable Amount</p>
+                <h6>{{item.payableAmount | currency:"INR"}}</h6>
+            </div>
+            <div class="last-payout-data">
+                <p>Payout Date</p>
+                <h6>{{item.payoutDate | date}}</h6>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
 </div>
