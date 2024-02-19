@@ -21,6 +21,7 @@ export class PartnerPayoutComponent implements OnInit {
 
   }
 
+
   goBack() {
     this.router.navigate([
       "dashboard/partner-account",

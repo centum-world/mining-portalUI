@@ -10,7 +10,9 @@ import { ToastrService } from 'ngx-toastr';
 export class PayoutEachmonthsComponent implements OnInit {
   @Input() id: string = "";
   @Input() userId: string = "";
+  panelOpenState:Boolean = false;
   lastPayout:[] = [];
+  allPayout:[] = [];
   constructor(private userService : UserService, private toastr : ToastrService) { }
 
   ngOnInit() {
@@ -25,7 +27,8 @@ export class PayoutEachmonthsComponent implements OnInit {
     this.userService.callApiToPartnerPayout(data).subscribe({
       next:(res:any)=>{
         console.log(res.data)
-        this.lastPayout = res.data[res.data.length - 1]
+        this.allPayout = res.data;
+        this.lastPayout = res.data[res.data.length - 1];
         console.log(this.lastPayout)
       },
       error:(error)=>{

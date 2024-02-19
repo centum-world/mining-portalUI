@@ -226,6 +226,7 @@ import { RigPartnerComponent } from './components/admin/rig-partner/rig-partner.
 import { PartnerPayoutComponent } from './components/admin/partner-payout/partner-payout.component';
 import { PayNowComponent } from './components/admin/common/pay-now/pay-now.component';
 import { PayoutEachmonthsComponent } from './components/admin/common/payout-eachmonths/payout-eachmonths.component';
+import { InvoiceComponent } from './components/admin/common/invoice/invoice.component';
 
 
 @NgModule({
@@ -423,7 +424,8 @@ import { PayoutEachmonthsComponent } from './components/admin/common/payout-each
     RigPartnerComponent,
     PartnerPayoutComponent,
     PayNowComponent,
-    PayoutEachmonthsComponent
+    PayoutEachmonthsComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
