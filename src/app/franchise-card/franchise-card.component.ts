@@ -110,7 +110,7 @@ export class FranchiseCardComponent implements OnInit {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    this.toastr.success('Refferal ID copied to clipboard!', 'Success');
+    this.toastr.success('Referral ID copied to clipboard!', 'Success');
   }
 
 
