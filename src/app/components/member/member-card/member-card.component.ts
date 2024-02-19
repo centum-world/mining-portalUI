@@ -410,6 +410,18 @@ export class MemberCardComponent implements OnInit {
     localStorage.removeItem('token');
   }
 
+  copyToClipboard() {
+    const textToCopy = this.memberRefferalId;
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    this.toastr.success('Referral ID copied to clipboard!', 'Success');
+  }
+
+
 
   shareFunction(){
     const displayMemberRefferalId = localStorage.getItem('mrefferid');

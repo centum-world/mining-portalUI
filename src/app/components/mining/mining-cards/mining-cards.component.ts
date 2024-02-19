@@ -219,6 +219,26 @@ export class MiningCardsComponent implements OnInit {
     this.view_detail = true;
   }
 
+
+  copyToClipboard() {
+    const textToCopy = this.refferID;
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    this.toastr.success('Referral ID copied to clipboard!', 'Success');
+  }
+
+  shareFunction(){
+    const displayPartnerRefferalId = localStorage.getItem('prefferid');
+    // const referralType = localStorage.getItem('userType');
+    const message = `Check out this link: https://apps.centumworldrig.com/mininglogin and Referral type : Partner , Referral ID : ${displayPartnerRefferalId}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
   amountReceive(amount1) {
     this.amountNumber = amount1;
 

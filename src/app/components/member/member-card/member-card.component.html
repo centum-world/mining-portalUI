@@ -79,8 +79,11 @@
       <div class="card-single">
         <div>
           <h6>User ID :- {{displayUserId}}</h6>
-          <span>Refferal ID :- &nbsp;{{displayMemberRefferalId}}</span>
-          <span style="margin-left: 1rem;">
+          <span>Referral ID :- &nbsp;{{displayMemberRefferalId}}</span>
+          <button class="copy-icon" (click)="copyToClipboard()">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+          <span class="copy-icon" style="margin-left: 1rem;">
             <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
           </span>
 

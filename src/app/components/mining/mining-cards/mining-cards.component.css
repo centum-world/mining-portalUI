@@ -17,6 +17,19 @@ body {
     background: #cacdd1 !important;
 }
 
+.copy-icon {
+    background: none; 
+    color: #ffff;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  
+  .copy-icon:hover {
+    color: #0056b3; 
+  }
+  
+
 .sidebar {
     width: 300px;
     position: fixed;

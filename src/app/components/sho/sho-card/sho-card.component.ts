@@ -106,6 +106,18 @@ export class ShoCardComponent implements OnInit {
     })
   }
 
+  copyToClipboard() {
+    const textToCopy = this.displayStateHandlerReferralId;
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    this.toastr.success('Refferal ID copied to clipboard!', 'Success');
+  }
+
+
   addFanchise(){
     this.router.navigate(['/statedashboard/add-franchise'])
   }

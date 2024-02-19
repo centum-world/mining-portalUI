@@ -39,7 +39,10 @@
         <h6>BMM ID :- {{displayStateHandlerId}}</h6>
         <span >Referral ID :- &nbsp;<a
             >{{displayStateHandlerReferralId}}</a></span>&nbsp;
-            <span style="margin-left: 1rem; color: rgb(181, 173, 173);">
+            <button class="copy-icon" (click)="copyToClipboard()">
+              <mat-icon>content_copy</mat-icon>
+            </button>
+            <span class="copy-icon">
               <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
             </span>
           </div>

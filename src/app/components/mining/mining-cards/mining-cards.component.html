@@ -32,7 +32,13 @@
     <div class="card-single">
       <div class="partner-refferal-id">
         <h6>User ID :- {{ partnerId }}</h6>
-        <span>Refferal ID :- &nbsp;{{ refferID }}</span>
+        <span>Referral ID :- &nbsp;{{ refferID }}</span>
+        <button class="copy-icon" (click)="copyToClipboard()">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+        <span class="copy-icon">
+          <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+        </span>
       </div>
     </div>
 

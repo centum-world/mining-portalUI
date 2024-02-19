@@ -101,6 +101,19 @@ export class FranchiseCardComponent implements OnInit {
     })
   }
 
+
+  copyToClipboard() {
+    const textToCopy = this.displayFranchiseReferralId;
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    this.toastr.success('Refferal ID copied to clipboard!', 'Success');
+  }
+
+
   callApiTOFetchTotalWiallet(){
     let data = {
       franchiseId:localStorage.getItem('franchiseId')
