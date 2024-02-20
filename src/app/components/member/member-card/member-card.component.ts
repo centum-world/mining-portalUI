@@ -411,7 +411,7 @@ export class MemberCardComponent implements OnInit {
   }
 
   copyToClipboard() {
-    const textToCopy = this.memberRefferalId;
+    const textToCopy = this.displayMemberRefferalId;
     const textarea = document.createElement('textarea');
     textarea.value = textToCopy;
     document.body.appendChild(textarea);
