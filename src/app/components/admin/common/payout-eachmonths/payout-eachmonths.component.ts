@@ -11,7 +11,11 @@ export class PayoutEachmonthsComponent implements OnInit {
   @Input() id: string = "";
   @Input() userId: string = "";
   panelOpenState:Boolean = false;
-  lastPayout:[] = [];
+  liquidity:number=0;
+  payableAmount:number=0;
+  payableCount:number=0;
+  payoutDate:string="";
+  
   allPayout:[] = [];
   constructor(private userService : UserService, private toastr : ToastrService) { }
 
@@ -28,8 +32,10 @@ export class PayoutEachmonthsComponent implements OnInit {
       next:(res:any)=>{
         console.log(res.data)
         this.allPayout = res.data;
-        this.lastPayout = res.data[res.data.length - 1];
-        console.log(this.lastPayout)
+        this.liquidity = res.data[res.data.length - 1].liquidity;
+        this.payoutDate = res.data[res.data.length - 1].payoutDate;
+        this.payableCount = res.data[res.data.length - 1].payableCount;
+        this.payableAmount = res.data[res.data.length - 1].payableAmount;
       },
       error:(error)=>{
         this.toastr.warning(error.error.message)
