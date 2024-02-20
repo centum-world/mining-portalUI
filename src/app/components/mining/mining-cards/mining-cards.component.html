@@ -12,8 +12,8 @@
             <p style="color: red">Closed</p>
           </div>
           <div class="dop1" *ngIf="!userStatus && month_count === 0">
-            <span style="font-weight: 600">Status</span>:
-            <p style="color: red">Not Active</p>
+            <span style="font-weight: 600">Status&nbsp;:</span>
+            <p style="color: red">&nbsp;Not Active</p>
           </div>
         </div>
         <div class="business-module">
@@ -129,7 +129,7 @@
         <h6>Transaction</h6>
         <span>Total Withdrawal</span>
       </div>
-      <span style="font-weight: bold; color: yellowgreen;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
+      <span style="font-weight: bold; color: yellow;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
     </div>
   </div>
 
