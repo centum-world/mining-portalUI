@@ -256,13 +256,13 @@ main{
 
 }
 .icon span {
-    color: yellowgreen; /* Set the initial blue text color */
+    color: yellow; /* Set the initial blue text color */
     transition: color 0.3s;
   }
   
   /* Hover styles with a stronger blue color */
   .icon:hover span {
-    color: yellow; /* Adjust the hover color to a stronger blue (#0044cc) or your preferred shade */
+    color: yellowgreen; /* Adjust the hover color to a stronger blue (#0044cc) or your preferred shade */
   }
 th{
     font-size: 14px;

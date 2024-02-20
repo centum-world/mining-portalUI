@@ -20,7 +20,7 @@
         <span>View</span>
       </div> -->
       <!-- Add a Material Design bank icon -->
-      <button style="color: blue" mat-icon-button [matMenuTriggerFor]="menuBank">
+      <button mat-icon-button [matMenuTriggerFor]="menuBank">
         <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
       </button>
       <mat-menu #menuBank="matMenu">
@@ -65,7 +65,7 @@
         <span>Total Wallet</span>
       </div>
       <div>
-        <b style="color: yellowgreen">{{totalWalletOfState | currency:'INR'}}</b>
+        <b style="color: yellow">{{totalWalletOfState | currency:'INR'}}</b>
       </div>
       <div style="font-size:medium; font-weight: bold;"></div>
     </div>
@@ -95,7 +95,7 @@
         <span>Total Withdrawal</span>
       </div>
       <div>
-        <b style="color: yellowgreen">{{totalWithdrawalOfState | currency:'INR'}}</b>
+        <b style="color: yellow">{{totalWithdrawalOfState | currency:'INR'}}</b>
       </div>
       <div style="font-size:medium; font-weight: bold;"></div>
     </div>
