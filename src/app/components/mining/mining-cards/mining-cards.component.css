@@ -238,10 +238,12 @@ main {
 
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-    margin-left: 330px;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   flex-wrap:wrap;
+   gap:2rem;
+   margin-left:20rem;
 }
 
 /* .card-single {
@@ -479,6 +481,12 @@ textarea {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+    .card-single {
+        width: 300px;
+    }
+}
+
 
 @media only screen and (max-width:768px) {
     .cards {
