@@ -1,0 +1,111 @@
+
+.payout-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .payout-cards {
+    width: 60%;
+    height: auto;
+    border-radius: 40px 40px 10px 10px;
+    box-shadow: 0 0 10px 0 #f0f0f0;
+    border: 1px solid #f0f0f0;
+  }
+
+  .back-button{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+  }
+  
+  .cards-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      padding: 20px 20px 0 20px;
+  }
+  .cards-header p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .cards-header small{
+      color:#5ba2f6;
+  }
+  .payout-cards hr {
+    margin: 0rem;
+  }
+  .last-payout{
+      padding: 10px 40px 0 40px;
+  }
+  .last-payout-data{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+  }
+  .last-payout-data h6{
+      font-size:14px;
+      color:#1a4038;
+      font-weight:600;
+  }
+  
+  .last-payout-data p{
+      font-size:14px;
+  }
+  .footerdiv{
+      padding:10px 40px 10px 40px;
+  }
+  
+  .all-month{
+      height:110px;
+      border:1px solid #5ba2f6;
+      border-radius:10px;
+      background-color:#f2f4f7;
+      margin-bottom:5px;
+      padding: 10px 15px 10px 15px;
+  }
+  
+  .all-month-data{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+  }
+  
+  @media only screen and (max-width: 767px) {
+      .payout-container {
+        padding: 10px;
+        margin-left:0px;
+      }
+      .payout-cards {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        padding: 10px;
+        margin-top: 26px;
+      }
+      .cards-header {
+        padding: 10px 20px 0 5px;
+      }
+      .cards-header p{
+          font-size:14px;
+      }
+      .last-payout{
+          padding: 10px 10px 0 10px;
+      }
+      .footerdiv{
+          padding:0px;
+      }
+  
+      .all-month{
+          height:110px;
+          border:1px solid #5ba2f6;
+          border-radius:10px;
+          background-color:#f2f4f7;
+          margin-bottom:5px;
+          padding: 10px;
+      }
+    
+    }

@@ -1,0 +1,34 @@
+<div class="paynow-container">
+  <div class="paynow-cards">
+    <div class="cards-header">
+      <p>Upload invoice and bond</p>
+    </div>
+    <hr />
+    <div class="cards-pay-content">
+      <div class="pay-form">
+        <p>Upload invoce</p>
+        <div class="form-data">
+          <form [formGroup]="invoiceForm" (ngSubmit)="uploadInvoice()">
+            <input
+              type="file"
+              accept=".pdf"
+              (change)="handleFileInput($event)"
+            />
+            <br>
+            <input
+              type="file"
+              accept=".pdf"
+              (change)="handleFileInputBond($event)"
+            />
+            <button type="submit" [disabled]="invoiceForm.invalid">
+              Upload
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="pay-form">
+        
+      </div>
+    </div>
+  </div>
+</div>
