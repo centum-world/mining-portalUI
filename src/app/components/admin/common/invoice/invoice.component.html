@@ -8,7 +8,6 @@
 >
   <div
     #contentToConvert
-    [ngClass]="{ 'hidden-content': hideContent }"
     class="pdf-container"
   >
     <div class="date-heading">Date: </div>
@@ -25,7 +24,7 @@
         <p>To,</p>
         <p>{{ fname }}&nbsp;{{ lname }}</p>
         <p>USER ID-</p>
-        <p>{{ partnerID }}</p>
+        <p>{{ id }}</p>
       </div>
       <div class="company-name">
         <p>CENTUM WORLD</p>
