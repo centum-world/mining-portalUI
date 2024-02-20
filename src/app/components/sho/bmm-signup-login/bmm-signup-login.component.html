@@ -25,17 +25,19 @@
               (ngSubmit)="loginBmm(bmmLoginForm)"
             >
               <mat-form-field appearance="outline" class="input">
-                <mat-label>BMM ID</mat-label>
-                <input matInput formControlName="loginUser_id" required />
+                <!-- <mat-label>BMM ID</mat-label> -->
+                <input matInput formControlName="loginUser_id" required 
+                placeholder="BMM ID"/>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="input">
-                <mat-label> Password</mat-label>
+                <!-- <mat-label> Password</mat-label> -->
                 <input
                   [type]="passwordFieldType"
                   formControlName="loginPassword"
                   matInput
                   required
+                  placeholder="Password"
                 />
                 <button
                   mat-icon-button
@@ -64,12 +66,13 @@
               (ngSubmit)="addBmmData(bmmSignUpForm)"
             >
               <mat-form-field appearance="outline">
-                <mat-label>First name</mat-label>
-                <input matInput formControlName="name" />
+                <!-- <mat-label>First name</mat-label> -->
+                <input matInput formControlName="name" 
+                placeholder="First Name" />
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Last name</mat-label>
                 <input matInput formControlName="lname" />
                 <mat-icon matSuffix>person</mat-icon>

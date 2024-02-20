@@ -1,8 +1,8 @@
 .mat-dialog-title {
   background-color: #5476f2;
   color: #fff;
-  font-size: 18px;
-  font-family: Calibri;
+  font-size: 16px;
+  font-family:'Roboto',sans-serif;
   font-weight: 600;
   margin-left: -24px;
   margin-right: -24px;
@@ -36,6 +36,17 @@
   align-self: flex-end;
   margin-top: 10px; /* Adjust as needed */
 }
+
+/* Apply Roboto font to card title */
+mat-card-title {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Apply Roboto font to button text */
+button .mat-raised-button  {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 
 @media (max-width: 768px){

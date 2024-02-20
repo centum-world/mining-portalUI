@@ -1,57 +1,69 @@
-
-.add-franchise-container{
-    width: 100%;
-    height: 100%;
+.add-franchise-container {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
 }
-.container{
+.container {
 }
 
-.franchise-body{
+.franchise-body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .large-card {
-    width: 90%; /* Adjust the width as needed */
-    margin: auto;
-    padding: 10px;
-
-  }
-  
-  .form-row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .mat-form-field {
-    width: 100%; /* Adjust the width of each field */
-  }
-  .file-upload {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-  
-  .file-upload input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
-  .mat-card-actions {
-    margin-left: 3px;
-    margin-right: -8px;
-    padding: 8px 0;
+  width: 90%; /* Adjust the width as needed */
+  margin: auto;
+  padding: 10px;
 }
-.mat-card{
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  width: 100%; /* Adjust the width of each field */
+}
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.file-upload input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.mat-card-actions {
+  margin-left: 3px;
+  margin-right: -8px;
+  padding: 8px 0;
+}
+.mat-card {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.mat-form-field{
+.mat-form-field {
   width: 45%;
 }
+.mat-form-field,
+.mat-card-content,
+.mat-hint,
+.mat-error,
+.mat-label,
+.mat-select-value,
+.mat-option {
+    font-family: 'Roboto', sans-serif; /* Roboto font family */
+}
+
+.mat-card-actions button {
+  font-family: 'Roboto', sans-serif; /* Roboto font family */
+}
+
 @media (max-width: 768px) {
-  .large-card{
+  .large-card {
     margin-left: 0;
     width: 100%;
     height: 100%;
@@ -61,12 +73,11 @@
     margin: auto;
     padding: 10px;
     margin-left: 0px;
-
   }
-  .add-franchise-container{
-    margin-top:8rem
+  .add-franchise-container {
+    margin-top: 8rem;
   }
-  .mat-card-contant div{
+  .mat-card-contant div {
     flex-direction: column;
   }
 }

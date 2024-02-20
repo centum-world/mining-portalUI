@@ -10,10 +10,10 @@
 .title {
   display: flex;
 }
-.title h5 {
-  font-weight: 800;
+.title p {
+  font-weight: 600;
   color: #000;
-  font-family: Calibri;
+  font-family:'Roboto',sans-serif;
 }
 
 .large-expand {
@@ -65,6 +65,15 @@ table {
 .mat-header-cell:last-child {
   border-right: 1px solid #ddd;
 }
+
+.mat-elevation-z8 table {
+  font-family: 'Roboto', sans-serif;
+}
+
+.mat-elevation-z8 th, .mat-elevation-z8 td {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 @media only screen and (max-width: 768px) {
   .sho-list-header {

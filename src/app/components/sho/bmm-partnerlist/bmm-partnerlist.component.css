@@ -54,6 +54,10 @@
     font-size: 14px;
     width: 20%;
   }
+
+  .mat-elevation-z8 {
+    font-family: 'Roboto', sans-serif; 
+}
   
   @media (max-width: 768px) {
     .large-expand{
