@@ -2,7 +2,7 @@
   overflow-x: auto;
   margin-top: 80px;
   padding: 20px;
-  width:78vw
+  width: 78vw;
 }
 
 table {
@@ -55,8 +55,12 @@ table {
   width: 20%;
 }
 
+.mat-elevation-z8 {
+  font-family: 'Roboto', sans-serif; /* Roboto font family */
+}
+
 @media (max-width: 768px) {
-  .large-expand{
+  .large-expand {
     margin-left: 0;
     width: 110%;
   }

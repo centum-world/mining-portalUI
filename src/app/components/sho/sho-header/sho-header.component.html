@@ -6,46 +6,46 @@
   </div>
   <div class="sidebar-menu">
     <ul>
-      <li > 
+      <li> 
         <a href="javascript:void(0)"  [matMenuTriggerFor]="menuProfile"><i class="fa fa-user"></i>
-          <span >My Profile</span>
+          <span class="menu-text" >My Profile</span>
         </a>
       </li>
       
       <li>
         <a href="javascript:void(0)" (click)="addFranchise()"><i class="fa fa-plus"></i>
-          <span>Add franchise</span>
+          <span class="menu-text">Add franchise</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)" (click)="franchiseList()"><i class="fa fa-list"></i>
-          <span>Franchise list</span>
+          <span class="menu-text">Franchise list</span>
         </a>
       </li>
       
       <li>
         <a href="javascript:void(0)" (click)="partnerList()"><i class="fa fa-list"></i>
-          <span>Partner list</span>
+          <span class="menu-text">Partner list</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)" (click)="referralPayout()"><i class="fa fa-reply"></i>
-          <span>Referral Payout</span>
+          <span class="menu-text">Referral Payout</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="javascript:void(0)" (click)="handleWithdrawalClick()"><i class="fa fa-money"></i>
           <span>Withdrawal</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="javascript:void(0)" (click)="promotion()"><i class="fa fa-gift"></i>
-          <span>Promotion</span>
+          <span class="menu-text">Promotion</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)"><i class="fa fa-sign-out"></i>
-          <span (click)="logOut()">Log Out</span>
+          <span class="menu-text" (click)="logOut()">Log Out</span>
         </a>
       </li>
 
@@ -53,7 +53,7 @@
   </div>
 </div> 
 
-<mat-menu #menuProfile="matMenu">
+<mat-menu #menuProfile="matMenu" style="font-family: 'Roboto',sans-serif;">
   <button mat-menu-item (click)="openDialog()">Details</button>
   <button mat-menu-item (click)="openStateDocumentsDialog()">Documents</button>
 </mat-menu>
@@ -93,43 +93,43 @@
     <ul>
       <li> 
         <a href="javascript:void(0)"><i class="fa fa-user"  [matMenuTriggerFor]="menuProfile"></i>
-          <span  [matMenuTriggerFor]="menuProfile">My Profile</span>
+          <span class="menu-text"  [matMenuTriggerFor]="menuProfile">My Profile</span>
         </a>
       </li>
       
       <li>
         <a href="javascript:void(0)" (click)="addFranchise()"><i class="fa fa-plus"></i>
-          <span>Add franchise</span>
+          <span class="menu-text">Add franchise</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)" (click)="franchiseList()"><i class="fa fa-list"></i>
-          <span>Franchise list</span>
+          <span class="menu-text">Franchise list</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)" (click)="partnerList()"><i class="fa fa-list"></i>
-          <span>Partner list</span>
+          <span class="menu-text">Partner list</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)" (click)="referralPayout()"><i class="fa fa-reply"></i>
-          <span>Referral Payout</span>
+          <span class="menu-text">Referral Payout</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="javascript:void(0)" (click)="handleWithdrawalClick()"><i class="fa fa-money"></i>
           <span>Withdrawal</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="javascript:void(0)" (click)="promotion()"><i class="fa fa-gift"></i>
-          <span>Promotion</span>
+          <span class="menu-text">Promotion</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)"><i class="fa fa-sign-out"></i>
-          <span (click)="logOut()">Log Out</span>
+          <span class="menu-text" (click)="logOut()">Log Out</span>
         </a>
       </li>
 

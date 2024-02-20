@@ -180,26 +180,25 @@ main {
   transform-style: preserve-3d;
   transform: perspective(1000px);
 } */
-.card-single{
+.card-single {
   display: flex;
   justify-content: space-between;
-  color:white;
-    width: 350px;
+  color: white;
+  width: 350px;
   height: 150px;
   border-radius: 20px;
   padding: 10px;
-   font-family: roboto; 
-   background-size: cover;
-   background-position: center bottom;
+  font-family: "Roboto", sans-serif;
+  background-size: cover;
+  background-position: center bottom;
   text-align: justify;
   cursor: pointer;
   transform-style: preserve-3d;
   transform: perspective(1000px);
-  background-image: url('../../../assets/card/RIG1.gif');
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-
+  background-image: url("../../../assets/card/RIG1.gif");
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
-
 
 .card-single h3 + span {
   color: gray;
@@ -226,7 +225,7 @@ main {
 
 table thead tr th,
 tbody tr td {
-  font-family: Calibri;
+  font-family: "Roboto", sans-serif;
 }
 
 /* partnership bond  */
@@ -234,7 +233,7 @@ tbody tr td {
 .modal-header h4 {
   color: #8214e9;
   font-weight: 700;
-  font-family: Calibri;
+  font-family: "Roboto", sans-serif;
 }
 
 .account_paid_withdrawal {
@@ -243,10 +242,10 @@ tbody tr td {
   align-items: center;
 }
 .account_paid_withdrawal p {
-  font-family: Calibri;
+  font-family: "Roboto", sans-serif;
 }
 .account_paid_withdrawal span {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
 
