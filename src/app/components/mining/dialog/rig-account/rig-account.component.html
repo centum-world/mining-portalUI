@@ -7,21 +7,37 @@
     <div class="card-div" *ngFor="let item of data">
       <div class="card-header">
         <div class="header-content">
-          <p>RIG ID</p>&nbsp;
+          <p>RIG ID</p>
+          &nbsp;
           <span>{{ item.rigId }}</span>
         </div>
-        <div style="cursor: pointer;"><mat-icon>keyboard_arrow_right</mat-icon></div>
+        <div style="cursor: pointer">
+          <mat-icon (click)="gotoPartnerPayout(item)" mat-dialog-close
+            >keyboard_arrow_right</mat-icon
+          >
+        </div>
       </div>
-      <hr>
+      <hr />
       <div class="card-content">
         <div class="name-div">
-            <p>Name</p>
-            <span>{{item.fname}} {{item.lname}}</span>
+          <p>Name</p>
+          <span>{{ item.fname }} {{ item.lname }}</span>
         </div>
         <div class="name-div">
-            <p>Liquidity</p>
-            <span>{{item.liquidity | currency:"INR"}}</span>
+          <p>Liquidity</p>
+          <span>{{ item.liquidity | currency : "INR" }}</span>
         </div>
+        <div class="name-div">
+          <p>Status</p>
+          <span [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }">
+            {{ item.partner_status ? "Active" : "Inactive" }}
+          </span>
+        </div>
+      </div>
+      <hr />
+      <div class="footer-invoce">
+        <div class="invoice"><p>Invoce</p><mat-icon>cloud_download</mat-icon></div>
+        <div class="invoice"><p>Bond</p><mat-icon>cloud_download</mat-icon></div>
       </div>
     </div>
   </div>

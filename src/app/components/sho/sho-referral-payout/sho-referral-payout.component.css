@@ -9,7 +9,7 @@
 .account-header h5{
     color: #000;
     font-weight: 600;
-    font-family: Calibri;
+    font-family: "Roboto",sans-serif;
 }
 .wallet-div{
     display: flex;
@@ -23,6 +23,7 @@
     font-size: 18px;
     font-weight: 600;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    font-family: "Roboto", sans-serif;
 }
 .account-content{
     margin-left: 50px;
@@ -31,6 +32,7 @@
     display: flex;
     height: auto;
     flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif; 
 }
 .example-card {
     margin: 10px;
@@ -52,6 +54,17 @@
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
+
+/* Additional styling for elements within the bakk-div */
+.bakk-div mat-card-content,
+.bakk-div mat-card-title,
+.bakk-div mat-divider,
+.bakk-div .bank-details,
+.bakk-div h2,
+.bakk-div strong {
+    font-family: 'Roboto', sans-serif; /* Roboto font family */
+}
+
 
 @media (min-width: 768px) and (max-width: 1200px){
 .account-header {

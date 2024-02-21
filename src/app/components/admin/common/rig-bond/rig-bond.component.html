@@ -1,0 +1,250 @@
+<div class="downloadBondDiv">
+  <div class="bond-main-div">
+    <div
+      #contentToConvert
+      class="bond-pdf-container"
+    >
+      <div class="heading-section">
+        <div class="top-date">Date: {{ paymentDate | date }}</div>
+        <div style="margin-bottom: 10px">
+          <img
+            src="../../../../assets/image/bond-logo.png"
+            alt=""
+            class="bond-image-div"
+          />
+        </div>
+      </div>
+      <p class="bond-subject">
+        Subject : Declaration of Virtual Partnership for RIG firm Participation,
+        Implementation and acceptance of Mutual Bond Agreemnet
+      </p>
+      <div class="first-section">
+        <p style="font-family: Calibri; margin-bottom: 0px">
+          This is to Certify that a Mutual & Virtual Partnership bond betwen
+          CENTUM WORLD, called 1st party (refer as Technical Partner), having
+          GST NO. 19AAQFC7963A1Z5 and PAN:AAQFC7963A,Corporate office in
+          Bangalore and Kolkata (A Blockchain and Crypto Mining Firm Development
+          Company)
+        </p>
+        <p>and with 2nd party (refer as Individual/Persons/Company)</p>
+        <p><strong>Individual Name / </strong>Company Name:</p>
+        <p>
+          <strong>Aadhaar / PAN no. {{ aadharNumber }}</strong>
+        </p>
+
+        <p>
+          on Date
+          <strong
+            >{{
+                paymentDate
+                | date
+                  : "dd
+              MMM yyyy"
+            }}
+          </strong>
+          for Virtual Liquidity adding partnership of Crypto Mining Firm
+          Development <strong>(Iaas - Infrastructure as a Services)</strong> and
+          Blockchain Development on certain terms and conditions as specified in
+          the agreement.
+        </p>
+      </div>
+
+      <ul class="first-section-list">
+        <li>
+          <strong>Duration of Partnership : 12 Months </strong>(1st tenure will
+          be released after 35 days of adding Liquidity share)
+        </li>
+        <li>
+          <strong
+            >Fixed Share distribution /commission(Day/Month wise):
+            {{ fixedShareAmount | currency : "INR" }} </strong
+          >per Month
+        </li>
+        <li>
+          Yearly Bonus : 10% (will be added after the completion of contract
+          period)
+        </li>
+
+        <li>
+          <strong
+            >Shared Liquidity Amount :
+            {{ liquidity | currency : "INR" }} LAKH</strong
+          >({{ fixedShareAmountInString }})
+        </li>
+        <li>
+          <strong>Date of Liquidity add :</strong>
+          {{
+            paymentDate
+              | date
+                : "dd
+            MMM yyyy"
+          }}
+        </li>
+        <li style="margin-bottom: 3rem">
+          <strong>Payment mode in details:</strong>
+        </li>
+        <li style="margin-bottom: 0px">Duties & Obligations of partners:</li>
+      </ul>
+
+      <div class="duties-obligation">
+        <ul style="font-family: Calibri">
+          <strong style="margin-top: 0px">1st Partner</strong>
+          <li>Technical Staff</li>
+          <li>Technical Skill & Maintenance</li>
+          <li>Expert Service and solutions</li>
+          <li>Device Configuration/Implementation</li>
+          <li>Electricity Bill</li>
+          <li>100% Responsibility</li>
+        </ul>
+        <div class="second-partner">
+          <strong style="margin-top: 0px">2nd Partner</strong>
+          <li>No Technical Staff Cost bearing</li>
+          <li>No Technical Skill Required</li>
+          <li>No Technical Knowledge</li>
+          <li>No Setup Cost</li>
+          <li>No Electricity</li>
+          <li>No Responsibility</li>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <div class="left-section">
+          <p>CENTUMO Token, CENTUMO Swap (DeX SaaS)</p>
+          <p>CENTUMO RIG (IaaS), CENTUMO NFT (SaaS),</p>
+          <p>Apps Ecosystem</p>
+          <p>worldcentum@gmail.com</p>
+        </div>
+        <div class="right-section">
+          <p>Business Address:</p>
+          <p>CENTUM WORLD</p>
+          <p>Bangalore,Karnataka,560102</p>
+          <p>Kolkata,New Town,West Bengal,700102</p>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- <div class="bond-main-div"> -->
+    <div
+      #contentToConvert
+      [ngClass]="{ 'hidden-content': hideContent }"
+      class="bond-pdf-container"
+    >
+      <div class="heading-section">
+        <div
+          style="
+            display: flex;
+            align-items: end;
+            font-family: Calibri;
+            color: #000000;
+          "
+        >
+          Date: {{ paymentDate | date }}
+        </div>
+        <div style="margin-bottom: 10px">
+          <img
+            src="../../../../assets/image/bond-logo.png"
+            alt=""
+            class="bond-image-div"
+          />
+        </div>
+      </div>
+      <p class="terms-condition-p">Terms and Conditions :</p>
+      <ul class="terms-condition-list">
+        <li>
+          The 2nd party is hereby Acknowledged that This Mutual Bond of "the
+          Mining RIG (IaaS- Infrastructure as a Service) Partnership Contract"
+          is for 12 Months and with this form He/She agreed to participate
+          virtually for our Blockchain based Mining firm Technically called IaaS
+          (Infrastructure as a Servi ce) Ecosystem as per calculated work profit
+          Share Basis. The 2nd party will get
+          <strong>{{ fixedSharePerDayAmount | currency : "INR" }}</strong> /-
+          per day basis means
+          <strong>{{ fixedShareAmount | currency : "INR" }}</strong
+          >/- per Monthly share from 1st Party, valid till to 12 months after 35
+          days Connecting with this program
+        </li>
+        <li>
+          The 2nd party will get
+          <strong>{{ fixedSharePerDayAmount | currency : "INR" }}</strong> /-
+          per day basis means
+          <strong>{{ fixedShareAmount | currency : "INR" }}</strong
+          >/- per Monthly share from 1st Party, valid till to 12 months after 35
+          days Connecting with this program.
+        </li>
+
+        <li>
+          The projected Daily share will be transferred automatically to the
+          Register Bank Account of 2nd Party by 1st Party as per the commitment.
+        </li>
+
+        <li>
+          The 2nd Party is hereby Acknowledged that This is not any Investment
+          Plan but a participation Ecosystem to grow Infrastructure towards to a
+          profitable contract of 1st Party.
+        </li>
+
+        <li>
+          With this Agreement form Company is liable to pay the Committed Amount
+          through out 12 Months (35 days after the Connection and Configuration)
+          + 10 % Bonus on Liquidity adding after 12th month
+        </li>
+        <li>
+          Pre claim is not applicable from both the party with this
+          Agreement/Contract from either side.
+        </li>
+      </ul>
+
+      <p class="Declaration">
+        I/We solemnly Inform that I am Agree with all te Terms and Condition
+        Applied by CENTUM WORLD regarding the Mining Partnership Contract and
+        I/We will follow Business Module and Productivity ratio which will be
+        maintained by the Company for further Growth.
+      </p>
+
+      <div class="terms-signature">
+        <div style="font-family: Calibri">
+          <p style="margin-bottom: 0px">Official Signatory on behalf of</p>
+          <p style="margin-bottom: 0px">CENTUM WORLD :</p>
+          <P style="margin-bottom: 0px">1st Party</P>
+        </div>
+        <div style="font-family: Calibri">
+          <p style="margin-bottom: 0px">Authorize Signatory:</p>
+          <p style="margin-bottom: 0px">(2nd Party)</p>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <div class="left-section">
+          <p>CENTUMO Token, CENTUMO Swap (DeX SaaS)</p>
+          <p>CENTUMO RIG (IaaS), CENTUMO NFT (SaaS),</p>
+          <p>Apps Ecosystem</p>
+          <p>worldcentum@gmail.com</p>
+        </div>
+        <div class="right-section">
+          <p>Business Address:</p>
+          <p>CENTUM WORLD</p>
+          <p>Bangalore,Karnataka,560102</p>
+          <p>Kolkata,New Town,West Bengal,700102</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  style="
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  "
+>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="downloadBond()"
+  >
+  {{ buttonText }}
+  </button>
+</div>

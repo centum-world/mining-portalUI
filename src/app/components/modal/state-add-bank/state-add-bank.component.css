@@ -1,14 +1,14 @@
 .mat-dialog-title {
-    padding-top: 10px;
-    padding-bottom:10px;
-    font-family:Calibri;
-    background-color:#5476f2;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 20px;
-    color: #fff;
-    margin-top:-24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  background-color: #5476f2;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 20px;
+  color: #fff;
+  margin-top: -24px;
 }
 .mat-dialog-actions {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }

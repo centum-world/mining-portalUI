@@ -227,6 +227,9 @@ import { PartnerPayoutComponent } from './components/admin/partner-payout/partne
 import { PayNowComponent } from './components/admin/common/pay-now/pay-now.component';
 import { PayoutEachmonthsComponent } from './components/admin/common/payout-eachmonths/payout-eachmonths.component';
 import { InvoiceComponent } from './components/admin/common/invoice/invoice.component';
+import { RigPayoutComponent } from './components/mining/rig-payout/rig-payout.component';
+import { RigBondComponent } from './components/admin/common/rig-bond/rig-bond.component';
+import { UploadInvoiceComponent } from './components/admin/common/upload-invoice/upload-invoice.component';
 
 
 @NgModule({
@@ -425,7 +428,10 @@ import { InvoiceComponent } from './components/admin/common/invoice/invoice.comp
     PartnerPayoutComponent,
     PayNowComponent,
     PayoutEachmonthsComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    RigPayoutComponent,
+    RigBondComponent,
+    UploadInvoiceComponent
   ],
   imports: [
     BrowserModule,
