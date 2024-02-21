@@ -6,11 +6,8 @@
     margin-top: 10px;
   "
 >
-  <div
-    #contentToConvert
-    class="pdf-container"
-  >
-    <div class="date-heading">Date: </div>
+  <div #contentToConvert class="pdf-container">
+    <div class="date-heading">Date:</div>
 
     <div style="margin-bottom: 10px">
       <img
@@ -134,4 +131,20 @@
       </div>
     </div>
   </div>
+</div>
+<div
+  style="
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin-right: 10px;
+  "
+>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="downloadPdf()"
+  >
+    Download
+  </button>
 </div>

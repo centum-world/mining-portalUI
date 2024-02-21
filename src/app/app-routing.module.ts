@@ -97,6 +97,7 @@ import { BmmSignupLoginComponent } from "./components/sho/bmm-signup-login/bmm-s
 import { PrivacyComponent } from "./components/common/privacy/privacy.component";
 import { RigPartnerComponent } from "./components/admin/rig-partner/rig-partner.component";
 import { PartnerPayoutComponent } from "./components/admin/partner-payout/partner-payout.component";
+import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.component";
 
 
 const routes: Routes = [
@@ -164,6 +165,7 @@ const routes: Routes = [
       {path: "withdraw", component: MiningWithdrawDetailsComponent},
       {path: "my-team", component: MyteamPartnerComponent},
       {path: "referral-payout", component: ReferralPayoutComponent},
+      {path: "rig-payout/:id", component: RigPayoutComponent},
       { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
     ] 
   },

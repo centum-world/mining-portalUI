@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, ElementRef } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
+import html2canvas from "html2canvas";
+import * as jspdf from "jspdf";
+import { jsPDF } from "jspdf";
 
 @Component({
   selector: "app-invoice",
@@ -12,6 +15,10 @@ export class InvoiceComponent implements OnInit {
   lname: string = "";
   liquidity: number = 0;
   percentage: number = 0;
+
+  @ViewChild("contentToConvert", { static: false })
+  contentToConvert: ElementRef;
+  hideContent = false;
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -41,5 +48,22 @@ export class InvoiceComponent implements OnInit {
       },
       error: (error) => {},
     });
+  }
+
+  downloadPdf() {
+    if (!this.hideContent && this.contentToConvert) {
+      const element = this.contentToConvert.nativeElement;
+      html2canvas(element).then((canvas) => {
+        const imgWidth = 210; // A4 size
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        const contentDataURL = canvas.toDataURL("image/png");
+        const pdf = new jspdf.jsPDF("p", "mm", "a4");
+        let position = 0;
+
+        pdf.addImage(contentDataURL, "PNG", 0, position, imgWidth, imgHeight);
+        pdf.save("generated_pdf.pdf");
+      });
+    }
   }
 }

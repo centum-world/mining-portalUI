@@ -1558,4 +1558,9 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  invoiceandbond(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/admin/upload-bond`, formData);
+  }
+
 }

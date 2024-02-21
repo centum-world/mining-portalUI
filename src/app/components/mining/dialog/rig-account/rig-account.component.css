@@ -70,6 +70,7 @@
     border-radius:10px;
     box-shadow:0 0 3px 0px #f0f0f0;
     padding:8px;
+    line-height:10px;
   }
 
   .card-header{
@@ -116,6 +117,27 @@
     font-family:Roboto;
     font-size:12px;
   }
+  .footer-invoce {
+    display: flex;
+    justify-content:space-between;
+    align-items: center
+  }
+  
+  .invoice {
+    display: inline-flex; /* Display the "invoice" divs inline */
+    margin-right: 20px; /* Adjust the spacing between "Invoce" and "Bond" as needed */
+  }
+  
+  .invoice p {
+    margin-right: 5px;
+  }
+  
+  
+  .invoice mat-icon {
+    cursor:pointer;
+    margin-top: -7px; /* Adjust the spacing as needed */
+  }
+  
 @media only screen and (max-width:600px){
     .main-div{
         width:65vw;
