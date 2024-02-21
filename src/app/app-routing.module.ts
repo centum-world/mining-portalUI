@@ -100,6 +100,7 @@ import { PartnerPayoutComponent } from "./components/admin/partner-payout/partne
 import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.component";
 
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   // { path: "mininglogin", component: MiningLoginComponent },
@@ -161,7 +162,7 @@ const routes: Routes = [
     children:[
       {path: "home" , component : MiningCardsComponent},
       {path: "partner-details", component : MiningDetailsComponent},
-      {path: "account", component: MiningAccountComponent},
+      {path: "account/:id", component: MiningAccountComponent},
       {path: "withdraw", component: MiningWithdrawDetailsComponent},
       {path: "my-team", component: MyteamPartnerComponent},
       {path: "referral-payout", component: ReferralPayoutComponent},

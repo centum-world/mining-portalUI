@@ -507,7 +507,7 @@ export class UserService {
   }
 
   // doactivate-partner-manual-from-admin
-  doactivatePartnerManualFromAdmin(data) {
+  doactivatePartnerManualFromAdmin(data:any) {
     return this.http.post(
       this.url + "/admin/doactivate-partner-manual-from-admin",
       data,
@@ -518,7 +518,7 @@ export class UserService {
   }
 
   //partner wallet daily data in admin
-  partnerWalletDailyDataInAdmin(data) {
+  partnerWalletDailyDataInAdmin(data:any) {
     return this.http.post(
       this.url + "/mining/fetch-partner-wallet-daily-history",
       data,
@@ -529,7 +529,7 @@ export class UserService {
   }
 
   //perticular partner withdrawal request for admin
-  perticularPartnerWithdrawalRequest(data) {
+  perticularPartnerWithdrawalRequest(data:any) {
     return this.http.post(
       this.url + "/admin/particular-partner-withdrawal-request-from-admin",
       data,
@@ -540,7 +540,7 @@ export class UserService {
   }
 
   //widthdrawal history for perticular partner in to admin
-  perticularPartnerWithdrawalHistory(data) {
+  perticularPartnerWithdrawalHistory(data:any) {
     return this.http.post(
       this.url +
         "/admin/particular-partner-approved-withdrawal-history-from-admin",
@@ -563,14 +563,14 @@ export class UserService {
   }
 
   //last approve date
-  partnerLastApproveDate(data) {
+  partnerLastApproveDate(data:any) {
     return this.http.post(this.url + "/admin/fetch-last-payment-date", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //partner-refferal-perday-wallet-history
-  partnerRefferalPerdayWalletHistory(data) {
+  partnerRefferalPerdayWalletHistory(data:any) {
     return this.http.post(
       this.url + "/mining/partner-refferal-perday-wallet-history",
       data,

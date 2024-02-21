@@ -1,102 +1,16 @@
 <div style="
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    padding: 20px 0 20px 0;
     justify-content: center;
     align-items: center;
   ">
-  <mat-card class="partner-history-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Payment history</mat-card-title>
-      <mat-card-subtitle>{{ partnerDetails.partnerID }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="container">
-        <div class="column">
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Date of Payment</span>
-            <strong>{{ partnerDetails.dop | date }}</strong>
-          </div>
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Total liquidity</span>
-            <strong>{{ partnerDetails.liquidity | currency : "INR" }}</strong>
-          </div>
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Payout Tenure</span> <strong>12 TN</strong>
-          </div>
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Paid Tenure</span>
-            <strong>{{ partnerDetails.monthComplete }} TN</strong>
-          </div>
-        </div>
-        <div class="column">
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Remaining Tenure</span>
-            <strong>{{ 12 - partnerDetails.monthComplete }}&nbsp;TN</strong>
-          </div>
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Last Payout</span>
-            <strong>{{ partnerDetails.lastPaymentDate | date }}</strong>
-          </div>
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Next Payout</span>
-            <strong>15 to 22nd (Of every month)</strong>
-          </div>
-          <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-            <span>Status</span>
-            <strong>{{ partnerDetails.status ? "Active" : "Close" }}</strong>
-          </div>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button type="button" [style.background]="partnerDetails.status ? '#93fb48' : '#c41111'"
-        mat-raised-button>
-        {{ partnerDetails.status ? "ACTIVE" : "CLOSE" }}
-      </button>
-      <button mat-button type="button" (click)="gotoHome()" mat-raised-button>
-        Back
-      </button>
-    </mat-card-actions>
-  </mat-card>
-
   <div class="payout-div">
+    <div class="back-arrow"><mat-icon style="cursor: pointer;" (click)="gotoHome()">arrow_back</mat-icon>&nbsp;
+      <p style="font-weight: 700; font-size: 18px;">Back</p></div>
     <div class="pdf-format" #contentToConvert>
       <div class="heading-logo">
-        <p>Rig Partner Payout</p>
+        <p>RIG Partner Payout</p>
       </div>
 
       <div class="pdf-div">
@@ -108,7 +22,7 @@
         </div>
       </div>
       <div class="year-div">
-        <p>{{ formatDate(partnerDetails.lastPaymentDate) }} Payout</p>
+        <p>{{payoutDate | date}} Payout</p>
       </div>
       <div class="paragraph-div">
         <p>
@@ -117,21 +31,21 @@
           (Name)
           <span>{{fname}} {{lname}}</span>
           join the rig program on
-          <span>{{ partnerDetails.dop | date }}</span>
+          <span>{{ paymentDate | date }}</span>
         </p>
       </div>
       <br />
       <div class="payout-content">
         <p>Here are the details of your Account Payout:</p>
-        <p>1. User Account ID: <span>{{ partnerDetails.partnerID }}</span></p>
-        <p>2. Total Liquidity: <span>{{ partnerDetails.liquidity | currency : "INR" }}</span></p>
-        <p>3. Monthly payout: <span>{{perDayAmountDropDown}}/-</span></p>
+        <p>1. User Account ID: <span>{{ rigId }}</span></p>
+        <p>2. Total Liquidity: <span>{{ liquidity | currency : "INR" }}</span></p>
+        <p>3. Monthly payout: <span>{{payableAmount |currency : "INR" }}/-</span></p>
         <p>4. Payout Tenure: <span>12TN</span></p>
-        <p>5. Paid Tenure: <span>{{ partnerDetails.monthComplete }}TN</span></p>
-        <p>6. Remaining Tenure: <span>{{ 12 - partnerDetails.monthComplete }}TN</span></p>
-        <p>7. Last Payout: <span>{{ partnerDetails.lastPaymentDate | date }}</span></p>
-        <p>8. Next Payout : 15th to 22nd of April, 2023</p>
-        <p>9. Account Status: {{ partnerDetails.status ? "Active" : "Close" }}</p>
+        <p>5. Paid Tenure: <span>{{ payableCount }}TN</span></p>
+        <p>6. Remaining Tenure: <span>{{ 12 - payableCount }}TN</span></p>
+        <p>7. Last Payout: <span>{{ payoutDate | date }}</span></p>
+        <p>8. Next Payout : 20th to 25nd of April, 2023</p>
+        <p>9. Account Status: <span [ngClass]="status ? 'active-text' : 'inactive-text'">{{ status ? "Active" : "Inactive" }}</span></p>
       </div>
       <div class="agree-month">
         <p>I agree and I recieved the amount for this month.</p>

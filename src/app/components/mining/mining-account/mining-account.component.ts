@@ -1,9 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { MatDialog } from "@angular/material";
 import { UserService } from "src/app/service/user.service";
 import * as jspdf from "jspdf";
 import html2canvas from "html2canvas";
+import { ActivatedRoute } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-mining-account",
@@ -13,76 +14,79 @@ import html2canvas from "html2canvas";
 export class MiningAccountComponent implements OnInit {
   @ViewChild("contentToConvert", { static: false })
   contentToConvert: ElementRef;
+  rigId: string = "";
   constructor(
     private router: Router,
-    private dialog: MatDialog,
-    private userService: UserService
-  ) {}
-  fname: "";
-  lname: "";
-  perDayAmountDropDown = 0;
-  partnerDetails = {
-    partnerID: "",
-    dop: "",
-    liquidity: "",
-    monthComplete: 0,
-    lastPaymentDate: "",
-    status: Boolean,
-  };
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {
+    this.route.params.subscribe((params) => {
+      this.rigId = params["id"];
+    });
+  }
+  fname: string = "";
+  lname: string = "";
+  paymentDate: string = "";
+  liquidity: number = 0;
+  payableAmount: number = 0;
+  payableCount: number = 0;
+  payoutDate: string = "";
+  status: Boolean = false;
 
   ngOnInit() {
-    this.fetchMiningPartnerProfileDetails();
-    this.lastApproveDate();
+    this.fetchPartnerDetails();
+    this.callApiToPartnerPayoutEveryMonth();
   }
 
-  fetchMiningPartnerProfileDetails() {
-    let partnerIdDetails = localStorage.getItem("partnerdetails");
+  fetchPartnerDetails() {
     let data = {
-      p_userid: partnerIdDetails,
+      rigId: this.rigId,
     };
-    this.userService.fetchMiningPartnerProfileDetails(data).subscribe({
-      next: (res: any) => {
-        this.fname = res.data[0].p_name.toUpperCase();
-        this.lname = res.data[0].p_lname.toUpperCase();
-        this.partnerDetails.partnerID = res.data[0].p_userid;
-        this.partnerDetails.dop = res.data[0].p_dop;
-        this.partnerDetails.liquidity = res.data[0].p_liquidity;
-        this.partnerDetails.monthComplete = res.data[0].partner_count;
 
-        if (res.data[0].p_liquidity === 600000) {
-          this.perDayAmountDropDown = 67500 - (67500 * 5) / 100;
-        } else if (res.data[0].p_liquidity === 300000) {
-          this.perDayAmountDropDown = 40500 - (40500 * 5) / 100;
-        } else if (res.data[0].p_liquidity === 200000) {
-          this.perDayAmountDropDown = 27000 - (27000 * 5) / 100;
-        } else if (res.data[0].p_liquidity === 100000) {
-          this.perDayAmountDropDown = 13500 - (13500 * 5) / 100;
-        } else if (res.data[0].p_liquidity === 1200000) {
-          this.perDayAmountDropDown = 135000 - (135000 * 5) / 100;
+    this.userService.callApiToFetchPartnerDetailsUsingRigID(data).subscribe({
+      next: (result: any) => {
+        const myString = result.data[0].rigId;
+        const thirdChar = myString[2];
+        console.log(thirdChar);
+        if (thirdChar === "0") {
+          console.log(result.data);
+          this.fname = result.data[0].p_name;
+          this.lname = result.data[0].p_lname;
+          this.paymentDate = result.data[0].p_dop;
+          this.status = result.data[0].partner_status;
+        } else {
+          console.log(result.data);
+          this.fname = result.data[0].fname;
+          this.lname = result.data[0].lname;
+          this.paymentDate = result.data[0].doj;
+          this.status = result.data[0].partner_status;
         }
       },
-      error: (err) => {
-        console.log(err.error.message);
-      },
+      error: (error) => {},
     });
   }
 
-  lastApproveDate() {
-    let approveArray = [];
+  callApiToPartnerPayoutEveryMonth() {
     let data = {
-      p_userid: localStorage.getItem("partnerdetails"),
+      rigId: this.rigId,
     };
-    this.userService.partnerLastApproveDate(data).subscribe({
-      next: (result: any) => {
-        approveArray = Object.values(result.data);
-        let lastPaymentOfIndex = approveArray.length;
-        this.partnerDetails.lastPaymentDate =
-          approveArray[lastPaymentOfIndex - 1].approve_date;
+
+    this.userService.callApiToPartnerPayout(data).subscribe({
+      next: (res: any) => {
+        console.log(res.data.length);
+        if (res.data.length > 0) {
+          this.liquidity = res.data[res.data.length - 1].liquidity;
+          this.payoutDate = res.data[res.data.length - 1].payoutDate;
+          this.payableCount = res.data[res.data.length - 1].payableCount;
+          this.payableAmount = res.data[res.data.length - 1].payableAmount;
+        }
+      },
+
+      error: (error) => {
+        this.toastr.warning(error.error.message);
       },
     });
-  }
-  gotoHome() {
-    this.router.navigate(["/miningdashboard/home"]);
   }
 
   downloadPaylout() {
@@ -105,33 +109,8 @@ export class MiningAccountComponent implements OnInit {
       });
     }
   }
-  // In your component class
-  formatDate(date: Date | string): string {
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
 
-    if (typeof date === "string") {
-      date = new Date(date);
-    }
-
-    if (date instanceof Date && !isNaN(date.getTime())) {
-      const year = date.getFullYear();
-      const month = monthNames[date.getMonth()];
-      return `${month} ${year}`;
-    } else {
-      return "Invalid Date";
-    }
+  gotoHome(){
+    this.router.navigate(["/miningdashboard/home"]);
   }
 }
