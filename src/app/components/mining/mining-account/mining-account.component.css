@@ -92,6 +92,16 @@
     flex-wrap:wrap;
     width: 50%;
     margin-left: 330px;
+    margin-top:20px;
+  }
+
+  .back-arrow{
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: flex-start;
   }
 
   .pdf-format{
@@ -168,6 +178,15 @@
     line-height:5px;
     font-size:20px;
   }
+
+  .active-text {
+    color: green;
+  }
+  
+  .inactive-text {
+    color: red;
+  }
+  
 
   @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .payout-div{

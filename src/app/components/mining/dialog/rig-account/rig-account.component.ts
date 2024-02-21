@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-rig-account",
@@ -9,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class RigAccountComponent implements OnInit {
   data: any[] = [];
-  constructor(private userService: UserService, private router : Router) {}
+  constructor(private userService: UserService, private toastr: ToastrService, private router : Router) {}
 
   ngOnInit() {
     this.callApiToMultipleAccount();
@@ -28,6 +29,8 @@ export class RigAccountComponent implements OnInit {
           liquidity: response.data[0].p_liquidity,
           rigId: response.data[0].rigId,
           partner_status : response.data[0].partner_status,
+          invoice: response.data[0].invoice,
+          bond: response.data[0].bond,
         };
         response.data.unshift(newData);
         response.data.splice(1, 1);
@@ -43,5 +46,34 @@ export class RigAccountComponent implements OnInit {
       "miningdashboard/rig-payout",
       data.rigId
     ]);
+  }
+  
+  downloadInvoice(data:any){
+    console.log(data.invoice);
+    const pdfUrl = data.invoice;
+
+    if (pdfUrl) {
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.target = '_blank';
+      link.download = 'invoice.pdf';
+      link.click();
+    } else {
+      this.toastr.warning('Invoice is not available.');
+    }
+  }
+  downloadBond(data:any){
+    console.log(data.bond);
+    const pdfUrl = data.bond;
+
+    if (pdfUrl) {
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.target = '_blank';
+      link.download = 'bond.pdf';
+      link.click();
+    } else {
+      this.toastr.warning('Bond is not available.');
+    }
   }
 }

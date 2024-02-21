@@ -88,10 +88,6 @@ export class MiningDetailsComponent implements OnInit {
     this.router.navigate(["/miningdashboard/home"]);
   }
 
-  gotoAccountsection() {
-    this.router.navigate(["/miningdashboard/account"]);
-  }
-
   openViewPartnerDialog(partner: Partner) {
     const config: MatDialogConfig = {
       panelClass: "myPartnerViewDialogClass",
