@@ -1,5 +1,6 @@
 .header{
     display: flex;
+    align-items:center;
     justify-content: space-between;
     margin-top: 100px;
     padding: 10px;
@@ -10,7 +11,7 @@
 }
 .heading p{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     margin: -4px 0 0 5px;   
 }
 
@@ -61,4 +62,16 @@ table {
 .mat-form-field {
     font-size: 14px;
     width: 100%;
+  }
+
+  @media only screen and (max-width:768px){
+    .header{
+        margin-top:65px;
+    }
+      .search-bar mat-form-field{
+        width:100px;
+      }
+      .heading p {
+        font-size:16px;
+      }
   }

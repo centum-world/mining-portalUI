@@ -6,6 +6,7 @@
 .header p {
   font-size: 20px;
   font-weight: 600;
+  font-family:'Roboto',sans-serif;
   text-align: center;
   margin: -4px 0 0 5px;
 }
@@ -51,6 +52,19 @@
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
+.example-card h2,
+.example-card strong,
+.example-card p,
+.example-card button {
+  font-family: 'Roboto', sans-serif;
+}
+
+mat-card-header mat-card-title {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
 
 /* @media (max-width: 480px) {
     .example-card {

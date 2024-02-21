@@ -6,11 +6,17 @@
     margin-right: -24px;
     padding-left: 20px;
     color: #fff;
-    font-family:Calibri;
+    font-family:'Roboto',sans-serif;
 }
 
 
 .franchise-documets-modal-ok{
     background: #5476f2;
     color:#fff;
+    font-family:'Roboto',sans-serif;
+}
+.stateDetails h6{
+    font-family:'Roboto',sans-serif;
+    font-weight:700;
+    color:blueviolet;
 }

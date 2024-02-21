@@ -7,10 +7,18 @@
     padding-left: 16px;
     margin-top:-24px;
     color:#fff;
+    font-family:'Roboto',sans-serif;
 }
 
 .member-documets-modal-ok{
     margin-top:20px;
     background: #5476f2;
     color:#fff;
+    font-family:'Roboto',sans-serif;
+}
+
+.stateDetails h6{
+    font-family:'Roboto',sans-serif;
+    color: blueviolet;
+    font-weight:700;
 }

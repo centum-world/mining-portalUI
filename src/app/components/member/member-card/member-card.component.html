@@ -2,13 +2,11 @@
   <header>
     <h2>
       <label for="nav-toggle">
-
         <div class="d-flex justify-content-between">
           <span class="fa fa-bars"></span>
           <span>CENTUM WORLD</span>
         </div>
       </label>
-
     </h2>
 
     <div class="user-wrapper">
@@ -53,7 +51,7 @@
           </h6>
           <span>See your upgrade or downgrade</span>
         </div>
-        <div style="color: rgb(149, 147, 147);"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+        <div style="color:orange;"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
       </div>
       <div class="card-single">
         <div>
@@ -62,7 +60,7 @@
         </div>
 
         <!-- Add a Material Design bank icon -->
-        <button  mat-icon-button [matMenuTriggerFor]="menuBank">
+        <button mat-icon-button [matMenuTriggerFor]="menuBank">
           <mat-icon>account_balance</mat-icon> <!-- Use the appropriate Material Design bank icon name -->
         </button>
         <mat-menu #menuBank="matMenu">
@@ -109,7 +107,8 @@
           <h6>Transaction</h6>
           <span>Total Wallet</span>
         </div>
-        <div style="font-weight: bold; font-size:medium; color: yellow;">{{(memberTotalWalletOfEachMonth || 0) | currency: 'INR'}}
+        <div style="font-weight: bold; font-size:medium; color: yellow;">{{(memberTotalWalletOfEachMonth || 0) |
+          currency: 'INR'}}
         </div>
       </div>
 

@@ -1,49 +1,48 @@
 .mat-dialog-title {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-family:Calibri;
-    background-color:#5476f2;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 20px;
-    color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  background-color: #5476f2;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 20px;
+  color: #fff;
 }
-  
+
 .row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .stateDetails {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stateDetails {
+  display: flex;
 }
 
 .stateDetails span {
-    font-size: 18px;
-    font-family: Calibri;
-    color: #6512c4;
-    margin-right: 10px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #6512c4;
+  margin-right: 10px;
 }
 
 .stateDetails p {
-    font-size: 16px;
-    font-family: Calibri;
-    color: #040108;
-    margin-left: 10px;
-    font-weight: bold;
-
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #040108;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 th {
-    font-size: 14px;
-    font-family: bold;
+  font-size: 14px;
+  font-family: bold;
 }
 
 td {
-    font-size: 12px;
+  font-size: 12px;
 }
 .franchise-profile-modal-ok {
-    background: #5476f2;
-    color: #fff;
+  background: #5476f2;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
 }
-  

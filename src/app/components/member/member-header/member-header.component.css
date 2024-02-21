@@ -28,6 +28,7 @@ body {
 }
 .sidebar-brand h2 a {
   text-decoration: none;
+  font-family:'Roboto',sans-serif;
 }
 .sidebar-brand span {
   display: inline-block;
@@ -50,7 +51,9 @@ body {
   border-radius: 10px;
   margin-right: 10px;
 }
-
+.sidebar-menu a span {
+  font-family:'Roboto',sans-serif;
+}
 .mobile-bars {
   display: none;
 }

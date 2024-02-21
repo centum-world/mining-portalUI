@@ -7,6 +7,7 @@
   margin-right: -24px;
   padding-left: 16px;
   margin-top: -24px;
+  font-family:'Roboto',sans-serif;
 }
 
 .row {
@@ -20,14 +21,14 @@
 
 .stateDetails span {
   font-size: 18px;
-  font-family: Calibri;
+  font-family:'Roboto',sans-serif;
   color: #0d6efd;
   margin-right: 10px;
 }
 
 .stateDetails p {
   font-size: 16px;
-  font-family: Calibri;
+  font-family:'Roboto',sans-serif;
   color: #040108;
   margin-left: 10px;
   font-weight: bold;
@@ -35,7 +36,7 @@
 
 th {
   font-size: 14px;
-  font-family: bold;
+  font-family:'Roboto',sans-serif;
 }
 
 td {
@@ -44,4 +45,5 @@ td {
 .member-profile-modal-ok {
   background: #5476f2;
   color: #fff;
+  font-family:'Roboto',sans-serif;
 }

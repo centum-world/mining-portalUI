@@ -9,9 +9,8 @@ body {
   background: #ffffff !important;
 }
 
-
 .copy-icon {
-  background: none; 
+  background: none;
   color: #ffff;
   border: none;
   cursor: pointer;
@@ -19,7 +18,7 @@ body {
 }
 
 .copy-icon:hover {
-  color: #0056b3; 
+  color: #0056b3;
 }
 
 .sidebar {
@@ -189,27 +188,25 @@ main {
   transform-style: preserve-3d;
   transform: perspective(1000px);
 } */
-.card-single{
+.card-single {
   display: flex;
   justify-content: space-between;
-  color:white;
-    width: 350px;
+  color: white;
+  width: 350px;
   height: 150px;
   border-radius: 20px;
   padding: 10px;
-   font-family: roboto; 
-   background-size: cover;
-   background-position: center bottom;
+  font-family:'Roboto',sans-serif;
+  background-size: cover;
+  background-position: center bottom;
   text-align: justify;
   cursor: pointer;
   transform-style: preserve-3d;
   transform: perspective(1000px);
-  background-image: url('../../../../assets/card/RIG1.gif');
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-
+  background-image: url("../../../../assets/card/RIG1.gif");
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
-
-
 
 .card-single h3 + span {
   color: gray;
@@ -232,7 +229,7 @@ main {
 }
 th {
   font-size: 14px;
-  font-family: bold;
+  font-family:'Roboto',sans-serif;
 }
 td {
   font-size: 12px;
@@ -256,20 +253,20 @@ td {
 }
 .dop span {
   font-size: 14px;
-  font-family: sans-serif;
+  font-family: 'Roboto',sans-serif;
   color: #6512c4;
   margin-right: 10px;
 }
 .dop p {
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: 'Roboto',sans-serif;
   color: #040108;
   margin-left: 10px;
   font-weight: bold;
 }
 th {
   font-size: 14px;
-  font-family: bold;
+  font-family:'Roboto',sans-serif;
 }
 td {
   font-size: 12px;
