@@ -44,10 +44,19 @@
         <mat-tab label="Sign up">
           <div class="form-content" *ngIf="!change">
             <form [formGroup]="franchiseSignUpForm" (ngSubmit)="addFranchiseData(franchiseSignUpForm)">
+            
+              <mat-form-field appearance="outline">
+                <mat-label>Select referral type</mat-label>
+                <mat-select [(value)]="role" (selectionChange)="onRoleChange($event)">
+                  <mat-option>Select one</mat-option>
+                  <mat-option value="OFFICIAL">Official ID</mat-option>
+                  <mat-option value="BMM">BMM</mat-option>
+                </mat-select>
+              </mat-form-field>
 
               <mat-form-field appearance="outline">
                 <mat-label>Referral ID</mat-label>
-                <input matInput formControlName="reffered_id" />
+                <input matInput formControlName="reffered_id"/>
               </mat-form-field>
 
               <mat-form-field appearance="outline">

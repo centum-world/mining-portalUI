@@ -64,9 +64,11 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   change = false;
   pagename: String = "Sign in your account";
   countryCode: "";
+  franchiseReferral:string="";
   memberSignUpFrom: FormGroup;
   memberLoginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  role:string="";
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
@@ -112,6 +114,30 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     );
   }
 
+  onRoleChange(event: any): void {
+    const updatedValue = event.value;
+    this.setRefferedIdValue(updatedValue);
+  }
+
+  setRefferedIdValue(selectedRole: string): void {
+    const referredIdControl = this.memberSignUpFrom.get("reffered_id");
+    console.log(referredIdControl);
+
+    if (referredIdControl) {
+      if (selectedRole === "OFFICIAL") {
+        referredIdControl.setValue("FC-FRA3082");
+        referredIdControl.disable();
+        this.franchiseReferral = referredIdControl.value;
+      } else {
+        referredIdControl.setValue("");
+        referredIdControl.enable();
+        this.franchiseReferral = "";
+      }
+    } else {
+      console.error("referred_id control not found in the form group");
+    }
+  }
+
   addMemberData(form: FormGroup) {
     this.spin = true;
     this.createReferralMember.refferal_id =
@@ -133,31 +159,8 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     const dayDoj = String(dateObj1.getDate()).padStart(2, "0");
     const newDojFormat = `${yearDoj}-${monthDoj}-${dayDoj}`;
 
-    // console.log(this.createReferralMember.refferal_id);
-    // console.log(
-    //   this.memberSignUpFrom.value.reffered_id,
-    //   this.memberSignUpFrom.value.name,
-    //   this.memberSignUpFrom.value.lname,
-    //   this.memberSignUpFrom.value.email,
-    //   this.memberSignUpFrom.value.phone,
-    //   this.memberSignUpFrom.value.gender,
-    //   this.memberSignUpFrom.value.qualification,
-    //   this.memberSignUpFrom.value.designation,
-    //   this.memberSignUpFrom.value.experience,
-    //   this.memberSignUpFrom.value.salary,
-    //   this.memberSignUpFrom.value.address,
-    //   this.memberSignUpFrom.value.state,
-    //   this.memberSignUpFrom.value.dob,
-    //   this.memberSignUpFrom.value.doj,
-    //   this.memberSignUpFrom.value.user_id,
-    //   this.memberSignUpFrom.value.password,
-    //   this.aadharBackImage,
-    //   this.aadharImage,
-    //   this.panImage
-    // );
-
     const formData = new FormData();
-    formData.append("m_refferid", this.memberSignUpFrom.value.reffered_id);
+    formData.append("m_refferid", this.franchiseReferral? this.franchiseReferral : this.memberSignUpFrom.value.reffered_id);
     formData.append("m_name", this.memberSignUpFrom.value.name);
     formData.append("m_lname", this.memberSignUpFrom.value.lname);
     // formData.append(

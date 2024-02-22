@@ -78,7 +78,7 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
     private shareService: ShareService
   ) {
     this.bmmSignUpForm = this.formBuilder.group({
-      reffered_id: new FormControl("", [Validators.required]),
+      reffered_id: new FormControl({ value: "admin123", disabled: true }, [Validators.required]),
       name: new FormControl("", [Validators.required]),
       lname: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),

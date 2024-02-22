@@ -65,6 +65,8 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
   change = false;
   privacy = false;
   countryCode: "";
+  role: string = "";
+  officialReferral:string="";
   pagename: String = "Sign in your account";
   franchiseSignUpForm: FormGroup;
   franchiseLoginForm: FormGroup;
@@ -109,14 +111,38 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
     this.cities = selectedStateObj.districts;
   }
 
+  onRoleChange(event: any): void {
+    const updatedValue = event.value;
+    console.log("Selected role:", updatedValue);
+    this.setRefferedIdValue(updatedValue);
+  }
+
+  setRefferedIdValue(selectedRole: string): void {
+    const referredIdControl = this.franchiseSignUpForm.get("reffered_id");
+    console.log(referredIdControl);
+
+    if (referredIdControl) {
+      if (selectedRole === "OFFICIAL") {
+        referredIdControl.setValue("BMM-BMM8018");
+        referredIdControl.disable();
+        this.officialReferral = referredIdControl.value;
+      } else {
+        referredIdControl.setValue("");
+        referredIdControl.enable();
+        this.officialReferral = "";
+      }
+    } else {
+      console.error("referred_id control not found in the form group");
+    }
+  }
+
   addFranchiseData(form: FormGroup) {
     this.creatingAccount = true;
     this.createFranchise.refferal_id =
       this.franchiseSignUpForm.value.user_id +
       Math.floor(Math.random() * 100000);
-
     const formData = new FormData();
-    formData.append("referredId", this.franchiseSignUpForm.value.reffered_id);
+    formData.append("referredId", this.officialReferral? this.officialReferral : this.franchiseSignUpForm.value.reffered_id);
     formData.append("fname", this.franchiseSignUpForm.value.name);
     formData.append("lname", this.franchiseSignUpForm.value.lname);
     // formData.append(

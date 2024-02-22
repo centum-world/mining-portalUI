@@ -1,73 +1,76 @@
-.detail-heading {
+
+.details-container{
+  margin:-50px 0 0 340px;
+}
+.back-button{
   display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-left: 340px;
-  margin-top: -46px;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.back-button p{
+  font-size:18px;
+  font-weight:700;
+  margin-top:-2px;
 }
 
-.large-expand {
-  overflow-x: auto;
-  margin-top: 5px;
-  padding: 20px;
-  margin-left: 550px;
-  width: 600px;
-  height: 100%;
+.card-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:20px;
 }
-.back-icon {
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1rem; 
-  color: #333
+.cards-div{
+  width:50vw;
+  height:auto;
+  border-radius: 40px;
+  box-shadow: 0 0 10px 0 #f0f0f0;
+  border: 1px solid #f0f0f0;
 }
 
-
-.paragraph p{
-  margin-left: 15px;
-  margin-top: 15px;
+.card-header{
+  display:flex;
+  justify-content:space-between;
+  align-items: baseline;
+  padding:15px 30px 0 30px;
 }
-.key {
-  font-weight: bold;
-  color: #555;
-  margin-right: 5px;
+.card-header p{
+  font-size:18px;
+  font-weight:700;
 }
-
-.value {
-  color: #666;
+.cards-div hr{
+  margin:0;
 }
-
-
-.partner-card {
-  width: 100%;
+.card-content{
+  padding:15px 30px;
 }
-
-.threedot {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.name-div{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-
-
-
-.pdf-prmat {
-  margin-left: 350px;
-  padding: 20px;
+.name-div h6{
+  font-size:18px;
+  color:#121e31;
+}
+.name-div p{
+  font-size:16px;
+  color:#81828d;
+  font-weight:600;
 }
 
-
-.hidden-content {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .large-expand {
-    margin-left: 0;
+@media only screen and (max-width:767px){
+  .details-container{
+    margin:80px 0 0 0;
+    padding:10px;
   }
-  .detail-heading {
-    margin-left: 15px;
-    margin-top: 100px;
+  .cards-div{
+    width:100%;
+    height:auto;
+  }
+  .card-header{
+    padding: 15px 15px 0 15px;
   }
 }

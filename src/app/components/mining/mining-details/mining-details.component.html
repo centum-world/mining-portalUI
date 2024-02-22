@@ -1,85 +1,70 @@
-<div class="detail-heading">
-  <mat-icon class="back-icon" (click)="gotoHome()">arrow_back</mat-icon>&nbsp;
-  <p>My details</p>
-</div>
-<div class="large-expand">
-  <div class="mat-elevation-z8">
-    <mat-card class="partner-card">
-      <div class="header">
-        <mat-card-header>
-          <!-- <div mat-card-avatar class="header-avatar"></div> -->
-          <mat-card-title>Partner ID: {{ partner?.p_userid }}</mat-card-title>
-          <mat-card-subtitle
-          class="subtitle"
-            >Name: {{ partner?.p_name }}
-            {{ partner?.p_lname }}</mat-card-subtitle
-          >
-        </mat-card-header>
+<div class="details-container">
+  <div class="back-button">
+    <mat-icon class="back-icon" (click)="gotoHome()" style="cursor: pointer;">arrow_back</mat-icon>
+    <p>My details</p>
+  </div>
+  <div class="card-container">
+    <div class="cards-div">
+      <div class="card-header">
+        <p>Profile</p>
+        <button class="threedot" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </div>
-
-      <div class="paragraph">
-        <mat-card-content>
-          <p>
-            <span class="key">Email:</span>
-            <span class="value">{{ partner?.p_email }}</span>
-          </p>
-          <p>
-            <span class="key">Phone:</span>
-            <span class="value">{{ partner?.p_phone }}</span>
-          </p>
-          <p>
-            <span class="key">Address:</span>
-            <span class="value">{{ partner?.p_address }}</span>
-          </p>
-          <p>
-            <span class="key">Liquidity:</span>
-            <span class="value">{{
-              partner?.p_liquidity | currency : "INR"
-            }}</span>
-          </p>
-          <p>
-            <span class="key">Referral Id:</span>
-            <span class="value">{{ partner?.p_refferal_id }}</span>
-          </p>
-          <p>
-            <span class="key">Referred Id:</span>
-            <span class="value">{{ partner?.p_reffered_id }}</span>
-          </p>
-          <p>
-            <span class="key">Verify:</span>
-            <span
-              [ngStyle]="{ color: partner?.isVerify === 1 ? 'green' : 'red' }"
-            >
-              {{ partner?.isVerify === 1 ? "Yes" : "No" }}
-            </span>
-          </p>
-          <p>
-            <span class="key">Block:</span>
-            <span
-              [ngStyle]="{ color: partner?.isBlocked === 1 ? 'green' : 'red' }"
-            >
-              {{ partner?.isBlocked === 1 ? "Yes" : "No" }}
-            </span>
-          </p>
-        </mat-card-content>
+      <hr>
+      <div class="card-content">
+        <div class="name-div">
+          <p>Full name</p>
+          <h6>{{ partner?.p_name }}
+            {{ partner?.p_lname }}</h6>
+        </div>
+        <div class="name-div">
+          <p>Email</p>
+          <h6>{{partner?.p_email}}</h6>
+        </div>
+        <div class="name-div">
+          <p>Phone</p>
+          <h6>{{partner?.p_phone}}</h6>
+        </div>
+        <div class="name-div">
+          <p>Address</p>
+          <h6>{{partner?.p_address}}</h6>
+        </div>
+        <div class="name-div">
+          <p>Liquidity</p>
+          <h6>{{partner?.p_liquidity | currency : "INR"}}</h6>
+        </div>
+        <div class="name-div">
+          <p>Referral Id</p>
+          <h6>{{partner?.p_refferal_id}}</h6>
+        </div>
+        <div class="name-div">
+          <p>Referred Id</p>
+          <h6>{{partner?.p_reffered_id}}</h6>
+        </div>
+        <div class="name-div">
+          <p>Verify</p>
+          <h6 [ngStyle]="{ color: partner?.isBlocked === 1 ? 'green' : 'red' }">{{ partner?.isBlocked === 1 ? "Yes" : "No" }}</h6>
+        </div>
+        <div class="name-div">
+          <p>Block</p>
+          <h6 [ngStyle]="{ color: partner?.isBlocked === 1 ? 'green' : 'red' }">{{ partner?.isBlocked === 1 ? "Yes" : "No" }}</h6>
+        </div>
       </div>
-
-      <button class="threedot" mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-card-actions>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="openViewPartnerDialog(partner)">
-            <mat-icon>visibility</mat-icon> View
-          </button>
-          <button mat-menu-item (click)="downLoadPartnershipBond()">
-            <mat-icon>cloud_download</mat-icon> Partner Bond
-          </button>
-          <button mat-menu-item (click)="queryDetails()">
-            <mat-icon>search</mat-icon> Your Query
-          </button>
-        </mat-menu>
-      </mat-card-actions>
-    </mat-card>
+    </div>
   </div>
 </div>
+
+<mat-card-actions>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openViewPartnerDialog(partner)">
+      <mat-icon>visibility</mat-icon> View
+    </button>
+    <button mat-menu-item (click)="downLoadPartnershipBond()">
+      <mat-icon>cloud_download</mat-icon> Partner Bond
+    </button>
+    <button mat-menu-item (click)="queryDetails()">
+      <mat-icon>search</mat-icon> Your Query
+    </button>
+  </mat-menu>
+</mat-card-actions>

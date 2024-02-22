@@ -69,6 +69,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   pagename:String="Sign in your account";
   countryCode:"";
   nomineeCountryCode :"";
+  memberOfficialId:string="";
   partnerSignUpForm: FormGroup;
   partnerLoginForm:FormGroup;
   matcher = new MyErrorStateMatcher();
@@ -133,6 +134,30 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     );
   }
 
+  onRoleChange(event: any): void {
+    const updatedValue = event.value;
+    this.setRefferedIdValue(updatedValue);
+  }
+
+  setRefferedIdValue(selectedRole: string): void {
+    const referredIdControl = this.partnerSignUpForm.get("reffered_id");
+    console.log(referredIdControl);
+
+    if (referredIdControl) {
+      if (selectedRole === "OFFICIAL") {
+        referredIdControl.setValue("MO8327");
+        referredIdControl.disable();
+        this.memberOfficialId = referredIdControl.value;
+      } else {
+        referredIdControl.setValue("");
+        referredIdControl.enable();
+        this.memberOfficialId = "";
+      }
+    } else {
+      console.error("referred_id control not found in the form group");
+    }
+  }
+
   addPartnerData(form: FormGroup) {
     this.spin = true;
     this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
@@ -154,7 +179,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     const newDopFormat = `${yearDop}-${monthDop}-${dayDop}`;
 
     const formData = new FormData();
-    formData.append('p_reffered_id', this.partnerSignUpForm.value.reffered_id);
+    formData.append('p_reffered_id', this.memberOfficialId? this.memberOfficialId : this.partnerSignUpForm.value.reffered_id);
     formData.append('p_name', this.partnerSignUpForm.value.name);
     formData.append('p_lname', this.partnerSignUpForm.value.lname);
     formData.append('p_aadhar', this.partnerSignUpForm.value.aadhar);
