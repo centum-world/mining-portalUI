@@ -129,11 +129,15 @@
         <h6>Transaction</h6>
         <span>Total Withdrawal</span>
       </div>
-      <span style="font-weight: bold; color: yellow;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
+      <span style="font-weight: bold; color: yellow; margin-bottom: 1rem;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
     </div>
   </div>
 
+
+  
   <div *ngIf="view_detail" style="height: 100vh;">
     <app-mining-profile-details></app-mining-profile-details>
   </div>
 </main>
+
+<app-trading-chart></app-trading-chart>
