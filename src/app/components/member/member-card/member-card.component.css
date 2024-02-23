@@ -223,6 +223,12 @@ main {
   transition: color 0.3s;
 }
 
+
+
+/* YourComponent.component.css */
+
+
+
 /* Hover styles with a stronger blue color */
 .icon:hover span {
   color: yellowgreen; /* Adjust the hover color to a stronger blue (#0044cc) or your preferred shade */

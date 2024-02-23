@@ -1,17 +1,24 @@
-import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-trading-chart',
-  templateUrl: './trading-chart.component.html',
+  template: `
+    <div class="tradingview-widget-container" #chartContainer style="width: 100%; height: 90vh;">
+      <div class="tradingview-widget-container__widget" id="tradingview-container">
+        <div class="tradingview-widget-copyright">
+          <div id="mychart"></div>
+        </div>
+      </div>
+    </div>
+  `,
   styleUrls: ['./trading-chart.component.css']
 })
-export class TradingChartComponent implements OnInit {
-  @ViewChild('chartContainer',{static:true}) chartContainer: ElementRef;
-  chartRendered: boolean = false;
-  
-  constructor(private renderer: Renderer2) { }
+export class TradingChartComponent implements AfterViewInit {
+  @ViewChild('chartContainer', { static: true }) chartContainer: ElementRef;
 
-  ngOnInit(): void {
+  constructor(private renderer: Renderer2) {}
+
+  ngAfterViewInit(): void {
     this.loadTradingViewScript();
   }
 
@@ -22,13 +29,17 @@ export class TradingChartComponent implements OnInit {
 
     script.onload = () => {
       this.initTradingViewWidget();
+      this.resizeChart(); // Initial resize after the script has loaded
     };
 
     script.onerror = (error) => {
       console.error('Error loading TradingView script:', error);
     };
 
-    this.chartContainer.nativeElement.appendChild(script);
+    this.renderer.appendChild(this.chartContainer.nativeElement, script);
+
+    // Attach a listener for window resize events to handle dynamic resizing
+    window.addEventListener('resize', () => this.resizeChart());
   }
 
   initTradingViewWidget(): void {
@@ -43,7 +54,7 @@ export class TradingChartComponent implements OnInit {
       "symbol": "FX_IDC:USDINR",
       "interval": "1",
       "timezone": "Asia/Kolkata",
-      "theme": "dark", // Set theme to dark
+      "theme": "dark",
       "style": "1",
       "locale": "in",
       "enable_publishing": true,
@@ -59,10 +70,23 @@ export class TradingChartComponent implements OnInit {
       "popup_width": "1000",
       "popup_height": "650",
       "support_host": "https://www.tradingview.com",
-      "container_id": "mychart",
+      "container_id": "tradingview-container", // Set container_id to the specific container
       "onReady": () => {
-        this.chartRendered = true;
+        console.log('TradingView widget is ready.');
       }
     });
+  }
+
+  resizeChart(): void {
+    const tradingviewWidget = window['TradingView'].widgets['tradingview-container'];
+
+    if (tradingviewWidget) {
+      tradingviewWidget.onChartReady(() => {
+        tradingviewWidget.chart().resizeContainer(
+          this.chartContainer.nativeElement.offsetWidth,
+          this.chartContainer.nativeElement.offsetHeight
+        );
+      });
+    }
   }
 }
