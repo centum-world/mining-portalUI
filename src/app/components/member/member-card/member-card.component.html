@@ -144,15 +144,17 @@
         <div style="font-size:medium; font-weight: bold; color: yellow;">{{paidAmount | currency:'INR'}}</div>
       </div>
 
-
     </div>
 
     <div *ngIf="profileDetails">
       <app-member-portal-details></app-member-portal-details>
     </div>
-
-
   </main>
+
+  <div class="chart-display">
+    <app-trading-chart></app-trading-chart>
+  </div>
+
 </div>
 
 

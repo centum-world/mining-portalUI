@@ -230,6 +230,7 @@ import { InvoiceComponent } from './components/admin/common/invoice/invoice.comp
 import { RigPayoutComponent } from './components/mining/rig-payout/rig-payout.component';
 import { RigBondComponent } from './components/admin/common/rig-bond/rig-bond.component';
 import { UploadInvoiceComponent } from './components/admin/common/upload-invoice/upload-invoice.component';
+import { TradingChartComponent } from './components/common/chart/trading-chart/trading-chart.component';
 
 
 @NgModule({
@@ -431,7 +432,8 @@ import { UploadInvoiceComponent } from './components/admin/common/upload-invoice
     InvoiceComponent,
     RigPayoutComponent,
     RigBondComponent,
-    UploadInvoiceComponent
+    UploadInvoiceComponent,
+    TradingChartComponent
   ],
   imports: [
     BrowserModule,
