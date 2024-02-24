@@ -22,6 +22,10 @@ import { ActivatedRoute } from "@angular/router";
 import { ShareService } from "src/app/shareService/share.service";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { allState } from "../../common/states";
+import { MatDialog } from "@angular/material";
+import { MatDialogConfig } from "@angular/material";
+import { CradentilsComponent } from "../../common/cradentils/cradentils.component";
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -45,6 +49,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class MemberSignupComponent implements OnInit, AfterViewInit {
   @ViewChild("phoneNumberInput", { static: false })
   phoneNumberInput: ElementRef;
+  cradentialID:string="";
+  cradentialPassword:string="";
 
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility_off";
@@ -75,7 +81,8 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private dialog: MatDialog
   ) {
     this.memberSignUpFrom = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -104,6 +111,10 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       loginUser_id: new FormControl("", [Validators.required]),
       loginPassword: new FormControl("", [Validators.required]),
     });
+  }
+
+  ngOnInit() {
+    // this.cradentialsModal();
   }
 
   onStateChange() {
@@ -181,7 +192,9 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     formData.append("m_dob", newDobFormat);
     formData.append("m_doj", newDojFormat);
     formData.append("m_userid", this.memberSignUpFrom.value.user_id);
+    this.cradentialID = this.memberSignUpFrom.value.user_id;
     formData.append("m_password", this.memberSignUpFrom.value.password);
+    this.cradentialPassword = this.memberSignUpFrom.value.password;
     formData.append("reffer_id", this.createReferralMember.refferal_id);
     formData.append("adhar_front_side", this.aadharImage);
     formData.append("adhar_back_side", this.aadharBackImage);
@@ -191,8 +204,9 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       next: (response) => {
         if (response) {
           this.toastr.success("Data submitted successfully", "Success");
-          form.reset();
+          this.cradentialsModal()
           this.spin = false;
+          form.reset();
         }
       },
       error: (error) => {
@@ -200,6 +214,20 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
         this.toastr.error(error.error.message);
       },
     });
+  }
+
+  cradentialsModal() {
+    let config: MatDialogConfig = {
+      panelClass: "cradentialDialogClass",
+      data:{
+        userID : this.cradentialID,
+        password: this.cradentialPassword,
+        userType: "REFERRAL"
+      }
+    };
+    const dialogRef = this.dialog.open(CradentilsComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   loginMember(form: FormGroup) {
@@ -233,7 +261,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
+  
 
   ngAfterViewInit() {
     if (this.phoneNumberInput && this.phoneNumberInput.nativeElement) {
