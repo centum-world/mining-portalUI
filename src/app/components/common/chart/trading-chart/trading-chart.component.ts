@@ -52,23 +52,20 @@ export class TradingChartComponent implements AfterViewInit {
     new window['TradingView'].widget({
       "autosize": true,
       "symbol": "FX_IDC:USDINR",
-      "interval": "1",
-      "timezone": "Asia/Kolkata",
-      "theme": "dark",
-      "style": "1",
-      "locale": "in",
-      "enable_publishing": true,
-      "withdateranges": true,
-      "hide_side_toolbar": false,
-      "allow_symbol_change": true,
-      "calendar": false,
-      "studies": [
-        "STD;24h%Volume",
-        "STD;Accumulation_Distribution"
-      ],
-      "show_popup_button": true,
-      "popup_width": "1000",
-      "popup_height": "650",
+  "interval": "1",
+  "timezone": "Asia/Kolkata",
+  "theme": "dark",
+  "style": "1",
+  "locale": "in",
+  "enable_publishing": false,
+  "withdateranges": true,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "details": true,
+  "calendar": false,
+  "studies": [
+    "STD;Accumulation_Distribution"
+  ],
       "support_host": "https://www.tradingview.com",
       "container_id": "tradingview-container", // Set container_id to the specific container
       "onReady": () => {
