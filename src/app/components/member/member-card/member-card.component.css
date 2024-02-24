@@ -105,6 +105,7 @@ body {
 .main-content {
   transition: margin-left 300ms;
   margin-left: 300px;
+  margin-bottom:20px;
 }
 
 header {
