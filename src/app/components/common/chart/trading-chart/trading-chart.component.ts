@@ -3,7 +3,7 @@ import { Component, AfterViewInit, ElementRef, Renderer2, ViewChild } from '@ang
 @Component({
   selector: 'app-trading-chart',
   template: `
-    <div class="tradingview-widget-container" #chartContainer style="width: 100%; height: 90vh; margin-left: 0px;"    >
+    <div class="tradingview-widget-container" #chartContainer style="width: 100%; height: 90vh;"    >
       <div class="tradingview-widget-container__widget" id="tradingview-container">
         <div class="tradingview-widget-copyright">
           <div id="mychart"></div>

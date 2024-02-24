@@ -376,6 +376,9 @@ td {
   header h2 span {
     font-size: 1rem;
   }
+  .chart {
+    margin-left:-35px;
+  }
 }
 
 .modal {
