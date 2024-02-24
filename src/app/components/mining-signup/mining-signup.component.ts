@@ -6,7 +6,7 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from "@angular/core";
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
@@ -25,6 +25,9 @@ import { ActivatedRoute } from "@angular/router";
 import { ShareService } from "src/app/shareService/share.service";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { allState } from "../common/states";
+import { MatDialog } from "@angular/material";
+import { MatDialogConfig } from "@angular/material";
+import { CradentilsComponent } from "../common/cradentils/cradentils.component";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -48,30 +51,31 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class MiningSignupComponent implements OnInit, AfterViewInit {
   @ViewChild("phoneNumberInput", { static: true }) phoneNumberInput: ElementRef;
-  @ViewChild("phoneNumberInputNominee", { static: true })
-  phoneNumberInputNominee: ElementRef;
+  @ViewChild("phoneNumberInputNominee", { static: true }) phoneNumberInputNominee: ElementRef;
+  cradentialID:string="";
+  cradentialPassword:string="";
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility_off";
   states = allState.states.map((item) => item.state);
   role: "";
   aadharImage: File | null = null;
   aadharBackImage: File | null = null;
-  panImage: File|null = null;
+  panImage: File | null = null;
   aadharImageName: string = "";
   backAadharImageName: string = "";
   panImageName: string = "";
-  privacy=false;
+  privacy = false;
   createMiningPartner = {
     refferal_id: "",
   };
   spin = false;
   change = false;
-  pagename:String="Sign in your account";
-  countryCode:"";
-  nomineeCountryCode :"";
-  memberOfficialId:string="";
+  pagename: String = "Sign in your account";
+  countryCode: "";
+  nomineeCountryCode: "";
+  memberOfficialId: string = "";
   partnerSignUpForm: FormGroup;
-  partnerLoginForm:FormGroup;
+  partnerLoginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   constructor(
     private userService: UserService,
@@ -79,7 +83,8 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private shareService : ShareService
+    private shareService: ShareService,
+    private dialog: MatDialog
   ) {
     this.partnerSignUpForm = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -122,10 +127,13 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     this.partnerLoginForm = this.formBuilder.group({
       luser_id: new FormControl("", [Validators.required]),
       lpassword: new FormControl("", [Validators.required]),
-    })
+    });
   }
 
-  
+  ngOnInit() {
+    // this.cradentialsModal(); 
+  }
+
   onStateChange() {
     console.log();
     const selectedState = this.partnerSignUpForm.get("state").value;
@@ -160,9 +168,10 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
 
   addPartnerData(form: FormGroup) {
     this.spin = true;
-    this.createMiningPartner.refferal_id = this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
+    this.createMiningPartner.refferal_id =
+      this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
     console.log(this.partnerSignUpForm.value.phone);
-    
+
     const originalDateStrDob = this.partnerSignUpForm.value.dob;
     const dateObj = new Date(originalDateStrDob);
     const year = dateObj.getFullYear();
@@ -179,58 +188,95 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     const newDopFormat = `${yearDop}-${monthDop}-${dayDop}`;
 
     const formData = new FormData();
-    formData.append('p_reffered_id', this.memberOfficialId? this.memberOfficialId : this.partnerSignUpForm.value.reffered_id);
-    formData.append('p_name', this.partnerSignUpForm.value.name);
-    formData.append('p_lname', this.partnerSignUpForm.value.lname);
-    formData.append('p_aadhar', this.partnerSignUpForm.value.aadhar);
+    formData.append(
+      "p_reffered_id",
+      this.memberOfficialId
+        ? this.memberOfficialId
+        : this.partnerSignUpForm.value.reffered_id
+    );
+    formData.append("p_name", this.partnerSignUpForm.value.name);
+    formData.append("p_lname", this.partnerSignUpForm.value.lname);
+    formData.append("p_aadhar", this.partnerSignUpForm.value.aadhar);
     // formData.append('p_phone','+' + this.countryCode + this.partnerSignUpForm.value.phone.replace(/\s/g, ''));
-    formData.append('p_phone', this.partnerSignUpForm.value.phone.replace(/\s/g, ''));
-    formData.append('p_email',  this.partnerSignUpForm.value.email);
-    formData.append('p_address', this.partnerSignUpForm.value.address);
-    formData.append('p_state',this.partnerSignUpForm.value.state);
-    formData.append('p_dob',newDobFormat);
-    formData.append('p_nominee_name', this.partnerSignUpForm.value.nominee_name);
-    formData.append('p_nominee_aadhar', this.partnerSignUpForm.value.nominee_aadhar);
-    formData.append('p_nominee_phone', this.partnerSignUpForm.value.nominee_phone.replace(/\s/g, ''));
+    formData.append(
+      "p_phone",
+      this.partnerSignUpForm.value.phone.replace(/\s/g, "")
+    );
+    formData.append("p_email", this.partnerSignUpForm.value.email);
+    formData.append("p_address", this.partnerSignUpForm.value.address);
+    formData.append("p_state", this.partnerSignUpForm.value.state);
+    formData.append("p_dob", newDobFormat);
+    formData.append(
+      "p_nominee_name",
+      this.partnerSignUpForm.value.nominee_name
+    );
+    formData.append(
+      "p_nominee_aadhar",
+      this.partnerSignUpForm.value.nominee_aadhar
+    );
+    formData.append(
+      "p_nominee_phone",
+      this.partnerSignUpForm.value.nominee_phone.replace(/\s/g, "")
+    );
     // formData.append('p_nominee_phone','+' + this.nomineeCountryCode + this.partnerSignUpForm.value.nominee_phone.replace(/\s/g, ''));
-    formData.append('p_dop',newDopFormat);
-    formData.append('p_liquidity',this.partnerSignUpForm.value.liquidity);
-    formData.append('terms', "12 Months");
-    formData.append('p_userid', this.partnerSignUpForm.value.user_id);
-    formData.append('p_password', this.partnerSignUpForm.value.password);
-    formData.append('p_refferal_id', this.createMiningPartner.refferal_id)
-    formData.append('adhar_front_side', this.aadharImage);
-    formData.append('adhar_back_side', this.aadharBackImage);
-    formData.append('panCard',this.panImage);
-    formData.append('role',this.role);
-  
+    formData.append("p_dop", newDopFormat);
+    formData.append("p_liquidity", this.partnerSignUpForm.value.liquidity);
+    formData.append("terms", "12 Months");
+    formData.append("p_userid", this.partnerSignUpForm.value.user_id);
+    formData.append("p_password", this.partnerSignUpForm.value.password);
+    this.cradentialID = this.partnerSignUpForm.value.user_id;
+    this.cradentialPassword = this.partnerSignUpForm.value.password;
+    formData.append("p_refferal_id", this.createMiningPartner.refferal_id);
+    formData.append("adhar_front_side", this.aadharImage);
+    formData.append("adhar_back_side", this.aadharBackImage);
+    formData.append("panCard", this.panImage);
+    formData.append("role", this.role);
+
     this.userService.signUpPartner(formData).subscribe({
-      next: response => {
+      next: (response) => {
         if (response) {
-          this.toastr.success('Data submitted successfully', 'Success');
-            form.reset();
-            this.spin = false;
-            this.change = true;
+          this.toastr.success("Data submitted successfully", "Success");
+          this.spin = false;
+          this.change = true;
+          this.cradentialsModal();
+          form.reset();
         }
       },
-      error: error => {
+      error: (error) => {
         this.spin = false;
         this.toastr.error(error.error.message);
-      }
-    })
+      },
+    });
   }
 
-  loginPartner(form : FormGroup){
-    console.log(this.partnerLoginForm.value.luser_id, this.partnerLoginForm.value.lpassword)
+  cradentialsModal() {
+    let config: MatDialogConfig = {
+      panelClass: "cradentialDialogClass",
+      data:{
+        userID : this.cradentialID,
+        password: this.cradentialPassword,
+        userType: "PARTNER"
+      }
+    };
+    const dialogRef = this.dialog.open(CradentilsComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  loginPartner(form: FormGroup) {
+    console.log(
+      this.partnerLoginForm.value.luser_id,
+      this.partnerLoginForm.value.lpassword
+    );
     let data = {
       p_userid: this.partnerLoginForm.value.luser_id,
-      p_password: this.partnerLoginForm.value.lpassword
+      p_password: this.partnerLoginForm.value.lpassword,
     };
 
     this.userService.partnerLogin(data).subscribe({
       next: (response: any) => {
         if (response) {
-          localStorage.setItem('login','true');
+          localStorage.setItem("login", "true");
           this.spin = false;
           this.shareService.setPartnerId(response.data[0].p_userid);
           this.shareService.setMiningPartnerRefferId(
@@ -254,7 +300,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
+  
 
   ngAfterViewInit() {
     const inputElement = this.phoneNumberInput.nativeElement;
@@ -286,8 +332,6 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     }, 500);
   }
 
-  
-
   togglePasswordVisibility(): void {
     this.passwordFieldType =
       this.passwordFieldType === "password" ? "text" : "password";
@@ -295,47 +339,46 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       this.showPasswordIcon === "visibility" ? "visibility_off" : "visibility";
   }
 
-
   onFileSelected(event: any, fileSelected: any): void {
-    if(fileSelected === 'front'){
+    if (fileSelected === "front") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.aadharImage = selectedFile
-        console.log("Selected File:", this.aadharImage , fileSelected);
+        this.aadharImage = selectedFile;
+        console.log("Selected File:", this.aadharImage, fileSelected);
       }
     }
-    if(fileSelected === 'back'){
+    if (fileSelected === "back") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.aadharBackImage = selectedFile
-        console.log("Selected File:", this.aadharBackImage , fileSelected);
+        this.aadharBackImage = selectedFile;
+        console.log("Selected File:", this.aadharBackImage, fileSelected);
       }
     }
 
-    if(fileSelected === 'pan'){
+    if (fileSelected === "pan") {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
-        this.panImage = selectedFile
-        console.log("Selected File:", this.panImage , fileSelected);
+        this.panImage = selectedFile;
+        console.log("Selected File:", this.panImage, fileSelected);
       }
-    }    
+    }
   }
 
   tabChanged(event: any): void {
-    console.log('Tab changed:', event.tab.textLabel);
-    if(event.tab.textLabel === "Login"){
-      this.pagename = "Sign in your account"
-    }else{
-      this.pagename = "Sign up your account"
+    console.log("Tab changed:", event.tab.textLabel);
+    if (event.tab.textLabel === "Login") {
+      this.pagename = "Sign in your account";
+    } else {
+      this.pagename = "Sign up your account";
     }
   }
 
-  gotoDhasboard(){
-    window.open('http://centumworldrig.com', '_blank');
+  gotoDhasboard() {
+    window.open("http://centumworldrig.com", "_blank");
   }
 
-  privacyPolicy(){
-    this.router.navigate(['/privacy-policy'])
+  privacyPolicy() {
+    this.router.navigate(["/privacy-policy"]);
   }
 
   handleChange(event: any) {

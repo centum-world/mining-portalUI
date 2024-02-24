@@ -22,6 +22,9 @@ import { ActivatedRoute } from "@angular/router";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { allState } from "../../common/states";
 import { ShareService } from "src/app/shareService/share.service";
+import { MatDialog } from "@angular/material";
+import { MatDialogConfig } from "@angular/material";
+import { CradentilsComponent } from "../../common/cradentils/cradentils.component";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -47,7 +50,8 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
   phoneNumberInput: ElementRef;
 
   creatingAccount: boolean = false;
-
+  cradentialID:string="";
+  cradentialPassword:string="";
   passwordFieldType: string = "password";
   showPasswordIcon: string = "visibility_off";
   states = allState.states.map((item) => item.state);
@@ -77,7 +81,8 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private dialog: MatDialog
   ) {
     this.franchiseSignUpForm = this.formBuilder.group({
       reffered_id: new FormControl("", [Validators.required]),
@@ -161,7 +166,9 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
     formData.append("franchiseState", this.franchiseSignUpForm.value.state);
     formData.append("franchiseCity", this.franchiseSignUpForm.value.district);
     formData.append("franchiseId", this.franchiseSignUpForm.value.user_id);
+    this.cradentialID = this.franchiseSignUpForm.value.user_id;
     formData.append("password", this.franchiseSignUpForm.value.password);
+    this.cradentialPassword = this.franchiseSignUpForm.value.password;
     formData.append("adhar_front_side", this.aadharImage);
     formData.append("adhar_back_side", this.aadharBackImage);
     formData.append("panCard", this.panImage);
@@ -170,8 +177,9 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
       next: (response) => {
         if (response) {
           this.toastr.success("Data submitted successfully", "Success");
-          form.reset();
+          this.cradentialsModal();
           this.creatingAccount = false;
+          form.reset();
         }
       },
       error: (error) => {
@@ -179,6 +187,20 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
         this.toastr.error(error.error.message);
       },
     });
+  }
+
+  cradentialsModal() {
+    let config: MatDialogConfig = {
+      panelClass: "cradentialDialogClass",
+      data:{
+        userID : this.cradentialID,
+        password: this.cradentialPassword,
+        userType: "FRANCHISE"
+      }
+    };
+    const dialogRef = this.dialog.open(CradentilsComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   loginFranchise(form: FormGroup) {

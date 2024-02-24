@@ -22,6 +22,9 @@ import { ActivatedRoute } from "@angular/router";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { allState } from "../../common/states";
 import { ShareService } from "src/app/shareService/share.service";
+import { MatDialog } from "@angular/material";
+import { MatDialogConfig } from "@angular/material";
+import { CradentilsComponent } from "../../common/cradentils/cradentils.component";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -45,7 +48,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
   @ViewChild("phoneNumberInput", { static: false })
   phoneNumberInput: ElementRef;
-
+  cradentialID:string="";
+  cradentialPassword:string="";
   creatingAccount: boolean = false;
   privacy = false;
   passwordFieldType: string = "password";
@@ -75,7 +79,8 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private dialog: MatDialog
   ) {
     this.bmmSignUpForm = this.formBuilder.group({
       reffered_id: new FormControl({ value: "admin123", disabled: true }, [Validators.required]),
@@ -139,7 +144,9 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
     formData.append("gender", this.bmmSignUpForm.value.gender);
     formData.append("selectedState", this.bmmSignUpForm.value.state);
     formData.append("stateHandlerId", this.bmmSignUpForm.value.user_id);
+    this.cradentialID = this.bmmSignUpForm.value.user_id;
     formData.append("password", this.bmmSignUpForm.value.password);
+    this.cradentialPassword = this.bmmSignUpForm.value.password;
     formData.append("adhar_front_side", this.aadharImage);
     formData.append("adhar_back_side", this.aadharBackImage);
     formData.append("panCard", this.panImage);
@@ -151,8 +158,10 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
       next: (response) => {
         if (response) {
           this.toastr.success("Data submitted successfully", "Success");
-          form.reset();
+          this.cradentialsModal();
           this.creatingAccount = false;
+          form.reset();
+          
           // this.spin = false;
         }
       },
@@ -162,6 +171,20 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
         this.toastr.error(error.error.message);
       },
     });
+  }
+
+  cradentialsModal() {
+    let config: MatDialogConfig = {
+      panelClass: "cradentialDialogClass",
+      data:{
+        userID : this.cradentialID,
+        password: this.cradentialPassword,
+        userType: "BMM"
+      }
+    };
+    const dialogRef = this.dialog.open(CradentilsComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   loginBmm(form: FormGroup) {

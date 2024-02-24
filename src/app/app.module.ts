@@ -231,6 +231,7 @@ import { RigPayoutComponent } from './components/mining/rig-payout/rig-payout.co
 import { RigBondComponent } from './components/admin/common/rig-bond/rig-bond.component';
 import { UploadInvoiceComponent } from './components/admin/common/upload-invoice/upload-invoice.component';
 import { TradingChartComponent } from './components/common/chart/trading-chart/trading-chart.component';
+import { CradentilsComponent } from './components/common/cradentils/cradentils.component';
 
 
 @NgModule({
@@ -433,7 +434,8 @@ import { TradingChartComponent } from './components/common/chart/trading-chart/t
     RigPayoutComponent,
     RigBondComponent,
     UploadInvoiceComponent,
-    TradingChartComponent
+    TradingChartComponent,
+    CradentilsComponent
   ],
   imports: [
     BrowserModule,
@@ -545,6 +547,7 @@ import { TradingChartComponent } from './components/common/chart/trading-chart/t
     MemberSummaryAmountComponent,
     RigIdComponent,
     RigAccountComponent,
+    CradentilsComponent
   ],
   providers: [
     {
