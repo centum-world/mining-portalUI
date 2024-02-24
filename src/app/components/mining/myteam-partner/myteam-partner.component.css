@@ -7,9 +7,9 @@
     margin-top: -41px;
 }
 .title h5{
-    font-weight: 800;
+    font-weight: 600;
     color: #000;
-    font-family: Calibri;
+    font-family: 'Roboto',sans-serif;
 }
 
 
@@ -50,6 +50,7 @@
   .mat-table {
     width: 100%; /* Ensure the table takes up the full width of its container */
     border-collapse: collapse; /* Remove default cell spacing */
+    font-family:'Roboto',sans-serif
   }
   
   .mat-cell,
@@ -57,6 +58,7 @@
     padding: 8px; /* Adjust the padding as needed */
     text-align: left; /* Left-align cell content */
     border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+    font-family:'Roboto',sans-serif;
   }
   
   /* Style the header row */
@@ -81,7 +83,7 @@
      margin-left: 0px ;
     } 
     .sho-list-header{
-      margin-top: 100px;
+      margin-top: 60px;
     }
     .mat-form-field-infix {
       width: 100px;
@@ -93,7 +95,7 @@
  @media only screen and (min-width: 375px) and (max-width:767px) {
   
   .title h5{
-    font-weight: 700;
+    font-weight: 600;
     
 }
  .mat-form-field-infix {

@@ -22,6 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #cacdd1 !important;
+  font-family:'Roboto',sans-serif;
 }
 .sidebar {
   width: 330px;
@@ -34,7 +35,7 @@ body {
   transition: width 300ms;
 }
 .partner_history ,.member_history span,button {
-  font-family:Roboto;
+  font-family:'Roboto',sans-serif;
 }
 .mat-button {
   margin-top: -6px;
@@ -162,7 +163,7 @@ header label span {
   margin-top: 11px;
   margin-bottom: 1rem;
   font-size: 24px;
-  font-family: Calibri;
+  font-family: 'Roboto',sans-serif;
   font-weight: 600;
 }
 .toggle span {
@@ -265,7 +266,7 @@ main {
 }
 th {
   font-size: 14px;
-  font-family: bold;
+  font-family: 'Roboto',sans-serif;
 }
 td {
   font-size: 12px;
@@ -290,20 +291,20 @@ td {
 }
 .dop span {
   font-size: 14px;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #6512c4;
   margin-right: 10px;
 }
 .dop p {
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: 'Roboto',sans-serif;
   color: #040108;
   margin-left: 10px;
   font-weight: bold;
 }
 th {
   font-size: 14px;
-  font-family: bold;
+  font-family: 'Roboto',sans-serif;
 }
 td {
   font-size: 12px;
