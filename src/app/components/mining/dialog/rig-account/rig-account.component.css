@@ -7,6 +7,7 @@
     width:20vw;
     height:70vh;
 }
+
 .mat-dialog-container .auto-height {
   height: auto;
 }
@@ -27,9 +28,9 @@
     height:50px;
     background-color: #5476f2;
     color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Roboto',sans-serif;
     margin-left: -24px;
     margin-right: -24px;
     padding-left: 16px;
@@ -84,11 +85,11 @@
   }
   .header-content p{
     font-weight:700;
-    font-family:Roboto;
+    font-family:'Roboto',sans-serif;
     font-size:12px;
   }
   .header-content span{
-    font-family:Roboto;
+    font-family:'Roboto',sans-serif;
     font-size:12px;
   }
   .card-div hr{
@@ -109,12 +110,12 @@
   }
   .name-div p{
     font-weight:700;
-    font-family:Roboto;
+    font-family:'Roboto',sans-serif;
     font-size:12px;
   }
   .name-div span{
     color:#838891;
-    font-family:Roboto;
+    font-family:'Roboto',sans-serif;
     font-size:12px;
   }
   .footer-invoce {
