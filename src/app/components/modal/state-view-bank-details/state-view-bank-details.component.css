@@ -3,7 +3,7 @@
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  font-family: Calibri;
+  font-family: 'Roboto',sans-serif;
   margin-left: -24px;
   margin-right: -24px;
   padding-left: 16px;
@@ -85,4 +85,9 @@ td {
   font-weight: 400;
   color: #9d9a9a;
   font-size: small;
+}
+
+.mat-raised-button{
+  background-color:#5476f2;
+  color:#fff;
 }

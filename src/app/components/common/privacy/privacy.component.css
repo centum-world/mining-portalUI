@@ -16,7 +16,7 @@
 .header p{
     font-weight:700;
     font-size:30px;
-    font-family:calibri;
+    font-family:'Roboto',sans-serif;
 }
 .privacy-content{
     width:60vw;
@@ -25,13 +25,13 @@
 }
 .privacy-content p{
     font-size:16px;
-    font-family:calibri;
+    font-family:'Roboto',sans-serif;
     color:#7d838e;
 }
 
 .privacy-content ul li{
     font-size:16px;
-    font-family:calibri;
+    font-family:'Roboto',sans-serif;
     color:#0f101e;
 }
 

@@ -41,32 +41,41 @@ export class ShoCardComponent implements OnInit {
     });
   }
 
-  stateViewBankDetailsDialog(){
-
+  stateViewBankDetailsDialog() {
     let data = {
-      userId :localStorage.getItem('stateHandlerId')
-     }
-     this.userService.fetchStateBankDetails(data).subscribe({
-      next: (response: any) => {
-        if (response) {
-            console.log(response.result)
-           
+        userId: localStorage.getItem('stateHandlerId')
+    };
+
+    this.userService.fetchStateBankDetails(data).subscribe({
+        next: (response: any) => {
+            let config: MatDialogConfig;
+
+            if (response && response.result) {
+                console.log(response.result);
+                config = {
+                    panelClass: 'bmmViewBankDetailsDialogClass',
+                    data: response.result
+                };
+            } else {
+                config = {
+                    panelClass: 'bmmViewBankDetailsDialogClass',
+                    data: null // or any default value you want to pass when there's no data
+                };
+            }
+
+            const dialogRef = this.dialog.open(StateViewBankDetailsComponent, config);
+
+            dialogRef.afterClosed().subscribe(result => {
+                console.log('The dialog was closed');
+                // Do something with the result if needed
+            });
+        },
+        error: error => {
+            console.log(error);
         }
-        let config:MatDialogConfig = {
-          panelClass:'bmmViewBankDetailsDialogClass', data:response.result
-          };
-          const dialogRef = this.dialog.open(StateViewBankDetailsComponent,config);
-          dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
-            // Do something with the result if needed
-          })
-      },
-      error: error => {
-       console.log(error)
-      }
-    })
-    
-  }
+    });
+}
+
 
   callApiToFetchStateTotalWithdrawal(){
     let data = {
