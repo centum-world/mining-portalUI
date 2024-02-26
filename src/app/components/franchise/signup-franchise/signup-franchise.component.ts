@@ -230,7 +230,9 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+ 
+  }
 
   ngAfterViewInit() {
     if (this.phoneNumberInput) {

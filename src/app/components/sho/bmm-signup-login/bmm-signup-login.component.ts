@@ -220,7 +220,9 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.cradentialsModal()
+  }
 
   ngAfterViewInit() {
     if (this.phoneNumberInput) {

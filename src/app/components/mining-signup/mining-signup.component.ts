@@ -29,6 +29,7 @@ import { MatDialog } from "@angular/material";
 import { MatDialogConfig } from "@angular/material";
 import { CradentilsComponent } from "../common/cradentils/cradentils.component";
 
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
     control: FormControl | null,
@@ -131,7 +132,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.cradentialsModal(); 
+    
   }
 
   onStateChange() {
@@ -255,7 +256,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       data:{
         userID : this.cradentialID,
         password: this.cradentialPassword,
-        userType: "PARTNER"
+        userType: "PARTNER",
       }
     };
     const dialogRef = this.dialog.open(CradentilsComponent, config);

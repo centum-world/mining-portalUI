@@ -114,7 +114,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.cradentialsModal();
+    
   }
 
   onStateChange() {

@@ -11,7 +11,7 @@
   <div class="form-container">
     <div class="heading"
     >
-      <img src="../../../assets/image/referralgif.gif"/>
+      <img src="../../../assets/image/referralgif.gif" width="50%" height="200px"/>
     </div>
     <div class="main-form">
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" (selectedTabChange)="tabChanged($event)">
@@ -154,14 +154,14 @@
               </mat-form-field> -->
 
               <mat-form-field appearance="outline" class="input">
-                <mat-label>DOB</mat-label>
+                <mat-label>Date of Birth</mat-label>
                 <input matInput [matDatepicker]="picker" formControlName="dob" />
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="input">
-                <mat-label>DOJ</mat-label>
+                <mat-label>Date of Joining</mat-label> 
                 <input matInput [matDatepicker]="dopPicker" formControlName="doj" />
                 <mat-datepicker-toggle matSuffix [for]="dopPicker"></mat-datepicker-toggle>
                 <mat-datepicker #dopPicker></mat-datepicker>

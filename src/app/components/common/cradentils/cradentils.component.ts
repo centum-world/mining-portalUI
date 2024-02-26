@@ -9,13 +9,28 @@ import { jsPDF } from 'jspdf';
   styleUrls: ['./cradentils.component.css']
 })
 export class CradentilsComponent implements OnInit {
+    image:string="";
+    imagePartner:string = "../../../../assets/image/partnergif.gif";
+    imageReferral:string = "../../../../assets/image/referralgif.gif";
+    imageFranchise:string = "../../../../assets/image/franchisegif.gif";
+    imageBmm:string = "../../../../assets/image/bmmgif.gif";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     console.log('Received data:', this.data);
   }
   
 
   ngOnInit() {
+    if(this.data.userType === 'PARTNER'){
+      this.image = this.imagePartner
+    }else if(this.data.userType === 'REFERRAL'){
+      this.image = this.imageReferral
+    }else if(this.data.userType === 'FRANCHISE'){
+      this.image = this.imageFranchise
+    }else if(this.data.userType === 'BMM'){
+      this.image = this.imageBmm
+    }
+    
   }
 
   downloadPdf() {
