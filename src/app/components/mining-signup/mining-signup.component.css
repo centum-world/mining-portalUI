@@ -61,7 +61,7 @@
     align-items:baseline;
 }
 .login-buttun p{
-    font-family:calibri;
+    font-family:'Roboto',sans-serif;
 }
 .button-div{
     display:flex;
@@ -71,7 +71,7 @@
     width:80px;
     border-radius:20px;
     border:1px solid black;
-    font-family:calibri;
+    font-family:'Roboto',sans-serif;
     cursor:pointer;
 }
 .main-form{
@@ -96,7 +96,7 @@
 .heading p{
     font-size:18px;
     font-weight:700;
-    font-family:calibri;
+    font-family:'Roboto',sans-serif;
     background: linear-gradient(to right, #305dc0, #305dc0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -137,6 +137,15 @@
 
   .logo1{
     display:none;
+  }
+  .bottom-section p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #5476f2;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+    margin-top: 20px;
   }
   
 @media screen and (max-width: 1024px) and (min-width: 768px) {
@@ -181,12 +190,15 @@
         width:100%;
         object-fit:cover;
     }
+    .bottom-section p {
+        font-size:12px;
+      }
 }
 
 @media screen and (max-width:420px){
     .heading p{
         font-size:20px;
         font-weight:900;
-        font-family:calibri;
+        font-family:'Roboto',sans-serif;
     }
 }
