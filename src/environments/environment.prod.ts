@@ -8,5 +8,7 @@ export const environment = {
 
 export const hosturl = {
   production: false,
-  apiUrl:'http://admin.centumworldrig.com/',
+  // apiUrl:'http://admin.centumworldrig.com/',
+  apiUrl:'http://apps.centumworldrig.com/',
+
 };
