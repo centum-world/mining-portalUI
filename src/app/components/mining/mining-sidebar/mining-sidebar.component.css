@@ -24,6 +24,10 @@ body {
   background: #cacdd1 !important;
   font-family:'Roboto',sans-serif;
 }
+
+
+
+
 .sidebar {
   width: 330px;
   position: fixed;
@@ -125,7 +129,7 @@ body {
 }
 
 .logo-centum img {
-  width: 300px;
+  width: 320px;
   height: 67px;
 }
 
@@ -366,7 +370,9 @@ td {
   .sidebar {
     display: none;
   }
-
+.login_button{
+  display:none
+}
   .main-content header {
     width: calc(100% - 0px);
     left: 0;
@@ -377,11 +383,6 @@ td {
   .mobile-bars {
     display: block;
     font-size: 1.5rem;
-  }
-
-  .logo-centum img {
-    width: 250px; /* Adjust the width as needed */
-    height: 67px; /* Maintain aspect ratio */
   }
 }
 @media only screen and (max-width: 960px) {
