@@ -1562,5 +1562,7 @@ export class UserService {
   invoiceandbond(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-bond`, formData);
   }
-
+  fetchReferralCounts(): Observable<any> {
+    return this.http.get(`${this.url}/admin/fetch-total-referral-count-and-today-referral-count`);
+  }
 }
