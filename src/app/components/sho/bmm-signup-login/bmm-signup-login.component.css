@@ -108,7 +108,7 @@
   flex-direction: column;
   width: 30vw;
   margin-top: 20px;
-  font-family:'Roboto',sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .image img {
@@ -137,15 +137,24 @@
   display: none;
 }
 button.mat-raised-button {
-    font-family: 'Roboto', sans-serif; /* Roboto font family */
+  font-family: "Roboto", sans-serif; /* Roboto font family */
 }
 
-:host ::ng-deep .mat-input-element::placeholder{
-   font-family:'Roboto',sans-serif;
+:host ::ng-deep .mat-input-element::placeholder {
+  font-family: "Roboto", sans-serif;
 }
 
 .custom-form-field .mat-form-field-label {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.bottom-section p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5476f2;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
@@ -188,6 +197,9 @@ button.mat-raised-button {
   .heading img {
     width: 100%;
     object-fit: cover;
+  }
+  .bottom-section p {
+    font-size: 12px;
   }
 }
 
