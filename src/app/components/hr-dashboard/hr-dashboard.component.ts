@@ -23,6 +23,18 @@ export class HrDashboardComponent implements OnInit {
   partnerUserId: string = '';
   helpAndSupportQuery:any;
   partnerHelpQuery:any;
+  totalReferralCount: number;
+  todayReferralCount: number;
+  totalPartnerCount: number;
+  todayPartnerCount: number;
+  totalFranchiseCount: number;
+  todayFranchiseCount: number;
+  totalBMMCount: number;
+  todayBMMCount: number;
+
+
+
+
 
   public createMember = {
 
@@ -60,6 +72,8 @@ export class HrDashboardComponent implements OnInit {
     this.eachMonthMemberWallet();
     this.helpAndSupport();
     this.account();
+    this.fetchReferralCounts(); // Call the new API method
+
   }
 
 
@@ -301,6 +315,32 @@ export class HrDashboardComponent implements OnInit {
 
 
   }
+
+
+  //fetch Referral count
+  fetchReferralCounts() {
+    this.userService.fetchReferralCounts().subscribe({
+      next: (result: any) => {
+        // Process the result as needed
+        console.log(result);
+        this.totalReferralCount = result.totalReferralCount
+        this.todayReferralCount  = result.todayReferralCount
+        this.totalPartnerCount = result.totalPartnerCount
+        this.todayPartnerCount = result.todayPartnerCount
+        this.totalFranchiseCount = result.totalFranchiseCount
+        this.todayFranchiseCount = result.todayFranchiseCount
+        this.totalBMMCount = result.totalBMMCount
+        this.todayBMMCount = result.todayBMMCount
+
+
+        console.log(  this.totalReferralCount , 318)
+      },
+      error: error => {
+        this.toastr.error('Failed to fetch referral counts', 'Error');
+      }
+    });
+  }
+  
 
   //member wallet each month
 
