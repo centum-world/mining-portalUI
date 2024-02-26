@@ -164,7 +164,7 @@ body {
 }
 
 .logo-centum img {
-  width: 350px; /* Adjust the width as needed */
+  width: 320px; /* Adjust the width as needed */
   height: 67px; /* Maintain aspect ratio */
 }
 
@@ -363,6 +363,9 @@ td {
   .main-content {
     margin-left: 0px;
   }
+  .loin_button{
+    display:none
+  }
 
   .main-content header {
     width: 100%;
@@ -393,10 +396,7 @@ td {
     font-size: 1.5rem;
   }
 
-  .logo-centum img {
-    width: 250px; /* Adjust the width as needed */
-    height: 67px; /* Maintain aspect ratio */
-  }
+
 }
 @media only screen and (max-width: 960px) {
   .cards {
