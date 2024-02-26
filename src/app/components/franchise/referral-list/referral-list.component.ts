@@ -68,7 +68,7 @@ export class ReferralListComponent implements OnInit {
 
   callApiToGetAllMembersList() {
     let data = {
-      referralId: localStorage.getItem("franchiseReferralId"),
+      referralId: localStorage.getItem("franchiseRefferalId"),
     };
 
     this.userService.getAllMemberDetails(data).subscribe({
