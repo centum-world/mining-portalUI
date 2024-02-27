@@ -1,4 +1,5 @@
 /* transaction-history.component.css */
+
 form {
   display: flex;
   align-items: center;
@@ -6,13 +7,16 @@ form {
 }
 
 
+.table-container {
+  max-height: 500px; /* Set your desired height */
+  overflow-y: auto;
+}
 
 select,
 button {
   padding: 8px;
   margin: 10px;
   border-radius: 5px;
-
 }
 
 button {
