@@ -61,8 +61,6 @@ export class TransactionHistoryComponent implements OnInit {
 
     this.userService.fetchTotalTransactions(requestData).subscribe(
       (response: any) => {
-        const length = response.data.length;
-        console.log(length,65);
         this.dataSource = response.data.map((transaction) => {
           return {
             userId: transaction.partnerId,
