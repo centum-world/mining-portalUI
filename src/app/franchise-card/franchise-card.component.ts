@@ -14,6 +14,11 @@ import { Router } from '@angular/router';
 })
 export class FranchiseCardComponent implements OnInit {
 
+  totalMemberReferralCount:number;
+  todayMemberReferralCount:number;
+  totalPartnerCount: number;
+  todayPartnerCount: number;
+
   totalWithdrawalOfFranchise :any;
   totalWalletOfFranchise:any;
   bankDetails = [];
@@ -29,6 +34,7 @@ export class FranchiseCardComponent implements OnInit {
   ngOnInit() {
     this.callApiTOFetchTotalWithdrawal()
     this.callApiTOFetchTotalWiallet()
+    this.fetchTotalCountMemberPartner()
   }
   
   franchiseWithdrawalRequestViewList() {
@@ -100,6 +106,29 @@ export class FranchiseCardComponent implements OnInit {
       }
     })
   }
+
+
+  fetchTotalCountMemberPartner() {
+    
+    let  referralId= this.displayFranchiseReferralId
+  
+    this.userService.fetchTotalCountMemberPartner(referralId).subscribe({
+      next: (result: any) => {
+        // Process the result as needed
+        console.log(result);
+        this.totalMemberReferralCount = result.totalMemberReferralCount
+        this.todayMemberReferralCount  = result.todayMemberReferralCount
+
+        this.totalPartnerCount = result.totalPartnerCount
+        this.todayPartnerCount = result.todayPartnerCount
+      
+      },
+      error: error => {
+        this.toastr.error('Failed to fetch referral counts in franchise', 'Error');
+      }
+    });
+  }
+
 
 
   copyToClipboard() {

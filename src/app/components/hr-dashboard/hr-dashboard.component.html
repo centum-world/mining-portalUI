@@ -17,9 +17,9 @@
       <div class="card-single">
         <div>
           <span>Total RIG Partner:     </span>
-          <span>{{totalPartnerCount}}</span><br>
+          <span>{{totalPartnerCount + totalMultipleRIGPartnerCount}}</span><br>
           <span>Today's RIG Partner:  </span>
-          <span>{{todayPartnerCount }}</span> 
+          <span>{{todayPartnerCount + todayMultipleRIGPartnerCount }}</span> 
         </div>
 
         <div class="icon" (click)="miningPartnerViewList()">

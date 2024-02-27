@@ -31,6 +31,8 @@ export class HrDashboardComponent implements OnInit {
   todayFranchiseCount: number;
   totalBMMCount: number;
   todayBMMCount: number;
+  totalMultipleRIGPartnerCount:number;
+  todayMultipleRIGPartnerCount:number
 
 
 
@@ -332,6 +334,8 @@ export class HrDashboardComponent implements OnInit {
         this.totalBMMCount = result.totalBMMCount
         this.todayBMMCount = result.todayBMMCount
 
+        this.totalMultipleRIGPartnerCount = result.totalMultipleRIGPartnerCount
+        this.todayMultipleRIGPartnerCount = result.todayMultipleRIGPartnerCount
 
         console.log(  this.totalReferralCount , 318)
       },
