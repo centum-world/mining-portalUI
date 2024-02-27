@@ -1575,6 +1575,17 @@ export class UserService {
     );
   }
 
+  fetchTotalcountFranchiseMemberPartner(referralId: string): Observable<any> {
+    const body = { referralId: referralId };
+    return this.http.post(`${this.url}/state/state/total-count-franchise-member-partner`, body);
+  }
+
+  fetchTotalCountMemberPartner(referralId: string): Observable<any> {
+    const body = { referralId: referralId };
+    return this.http.post(`${this.url}/member/member/total-count-member-partner`, body);
+  }
+
+
 
   fetchTotalTransactions(data:any) {
     return this.http.post(this.url + "/admin/fetch-transaction-history", data,{

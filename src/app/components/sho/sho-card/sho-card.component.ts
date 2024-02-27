@@ -12,6 +12,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./sho-card.component.css']
 })
 export class ShoCardComponent implements OnInit {
+  todayFranchiseCount:number;
+  totalFranchiseCount:number;
+  totalMemberReferralCount: number;
+  todayMemberReferralCount: number;
+  totalPartnerCount: number;
+  todayPartnerCount: number;
+
+
   usertype = localStorage.getItem('userType');
   totalWithdrawalOfState:any;
   totalWalletOfState:any;
@@ -26,6 +34,7 @@ export class ShoCardComponent implements OnInit {
   ngOnInit() {
     this.callApiToFetchStateTotalWithdrawal()
     this.callApiToFetchStateTotalWallet()
+    this.fetchTotalcountFranchiseMemberPartner()
   }
 
   stateAddBankDialog(){
@@ -113,6 +122,35 @@ export class ShoCardComponent implements OnInit {
         this.toastr.error('Something went wrong', 'Error');
       }
     })
+  }
+
+
+  fetchTotalcountFranchiseMemberPartner() {
+    
+    let  referralId=localStorage.getItem('stateRefferalId')
+  
+    this.userService.fetchTotalcountFranchiseMemberPartner(referralId).subscribe({
+      next: (result: any) => {
+        // Process the result as needed
+        console.log(result);
+        this.totalMemberReferralCount = result.totalMemberReferralCount
+        this.todayMemberReferralCount  = result.todayMemberReferralCount
+
+        this.totalPartnerCount = result.totalPartnerCount
+        this.todayPartnerCount = result.todayPartnerCount
+
+        this.totalFranchiseCount = result.totalFranchiseCount
+        this.todayFranchiseCount = result.todayFranchiseCount
+
+        // this.totalMultipleRIGPartnerCount = result.totalMultipleRIGPartnerCount
+        // this.todayMultipleRIGPartnerCount = result.todayMultipleRIGPartnerCount
+
+        // console.log(  this.totalReferralCount , 318)
+      },
+      error: error => {
+        this.toastr.error('Failed to fetch referral counts', 'Error');
+      }
+    });
   }
 
   copyToClipboard() {
