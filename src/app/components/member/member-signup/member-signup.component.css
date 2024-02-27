@@ -37,10 +37,12 @@
   align-items: center;
 }
 .logo p {
-  font-size: 24px;
-  font-weight: 900;
-  font-family: calibri;
-  color: #9d5df9;
+    font-size: 24px;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+    color: #305dc0;
+    margin-top: 14px;
+
 }
 .image {
   display: flex;
@@ -60,7 +62,7 @@
   align-items: baseline;
 }
 .login-buttun p {
-  font-family: calibri;
+  font-family: 'Roboto',sans-serif;
 }
 .button-div {
   display: flex;
@@ -70,7 +72,7 @@
   width: 80px;
   border-radius: 20px;
   border: 1px solid black;
-  font-family: calibri;
+  font-family: 'Roboto',sans-serif;
   cursor: pointer;
 }
 .main-form {
@@ -89,7 +91,7 @@
 .heading p {
   font-size: 30px;
   font-weight: 900;
-  font-family: calibri;
+  font-family: 'Roboto',sans-serif;
 }
 .heading small {
   color: #838891;
@@ -105,6 +107,19 @@
 .image img {
   width: 400px;
   height: 420px;
+}
+
+.bottom-section p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5476f2;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  margin-top: 20px;
+}
+.mat-raised-button{
+  font-family: "Roboto", sans-serif;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
@@ -131,13 +146,16 @@
     width: 100%;
     object-fit: cover;
   }
+  .bottom-section p {
+    font-size:12px;
+  }
 }
 
 @media screen and (max-width: 420px) {
   .heading p {
     font-size: 24px;
     font-weight: 900;
-    font-family: calibri;
+    font-family: 'Roboto',sans-serif;
   }
 }
 

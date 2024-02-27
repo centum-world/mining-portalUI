@@ -1562,7 +1562,9 @@ export class UserService {
   invoiceandbond(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-bond`, formData);
   }
-
+  fetchReferralCounts(): Observable<any> {
+    return this.http.get(`${this.url}/admin/fetch-total-referral-count-and-today-referral-count`);
+  }
   callApiToPartnerPaymentMonthlyPayout(data:any){
     return this.http.post(this.url + "/admin/create-partner-payout-for-monthly",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),

@@ -3,7 +3,11 @@
     <div *ngIf="!viewMemberList" class="cards">
       <div class="card-single">
         <div>
-          <span>Member history</span>
+          <span>Total Referral:     </span>
+          <span>{{totalReferralCount}}</span><br>
+          <span>Today's Referral:  </span>
+          <span>{{todayReferralCount }}</span> 
+
         </div>
         <div class="icon" (click)="viewMemberHistoryList()">
           <span>view</span>
@@ -12,7 +16,10 @@
 
       <div class="card-single">
         <div>
-          <span>Partner history</span>
+          <span>Total RIG Partner:     </span>
+          <span>{{totalPartnerCount}}</span><br>
+          <span>Today's RIG Partner:  </span>
+          <span>{{todayPartnerCount }}</span> 
         </div>
 
         <div class="icon" (click)="miningPartnerViewList()">
@@ -147,8 +154,10 @@
       </div> -->
        <div class="card-single">
         <div>
-          <h6>Business</h6>
-          <span>BBM history</span>
+          <span>Total BMM:     </span>
+          <span>{{totalBMMCount}}</span><br>
+          <span>Today's BMM:  </span>
+          <span>{{todayBMMCount }}</span> 
         </div>
         <div class="icon" (click)="bmmhistory()">
           <span>view</span>
@@ -157,7 +166,10 @@
 
       <div class="card-single">
         <div>
-          <h6>Franchise history</h6>
+          <span>Total Franchise:     </span>
+          <span>{{totalFranchiseCount}}</span><br>
+          <span>Today's Franchise:  </span>
+          <span>{{todayFranchiseCount }}</span> 
         </div>
         <div class="icon" (click)="franchisehistory()">
           <span>view</span>
