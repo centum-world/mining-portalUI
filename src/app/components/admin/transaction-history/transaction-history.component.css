@@ -1,0 +1,72 @@
+/* transaction-history.component.css */
+form {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+  select, button {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Optional: Add hover effect to the button */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+.mat-table-custom {
+    width: fit-content; /* Adjust the width based on content */
+    margin: auto; /* Center the table */
+    margin-left: 250px; /* Adjust this value based on your sidebar's width */
+  }
+  
+  
+/* Apply styles to the mat-table */
+.mat-elevation-z8 {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+  
+  /* Style the table header cells */
+  th.mat-header-cell {
+    background-color: #4285f4; /* Header background color */
+    color: #fff; /* Header text color */
+  }
+  
+  /* Style the table rows */
+  td.mat-cell, th.mat-header-cell {
+    text-align: center; /* Center-align text in cells */
+    padding: 10px; /* Adjust padding as needed */
+    border-bottom: 1px solid #ccc; /* Add a bottom border between rows */
+  }
+  
+  /* Style the even rows with a background color */
+  tr.mat-row:nth-child(even) {
+    background-color: #f5f5f5; /* Even row background color */
+  }
+  
+  /* Hover effect on rows */
+  tr.mat-row:hover {
+    background-color: #e0e0e0; /* Hover background color */
+  }
+  
+  /* Responsive styles for small screens */
+  @media screen and (max-width: 600px) {
+    .mat-elevation-z8 {
+      overflow-x: auto; /* Enable horizontal scrolling on small screens */
+    }
+  }
+  

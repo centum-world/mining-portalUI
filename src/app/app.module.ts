@@ -232,6 +232,10 @@ import { RigBondComponent } from './components/admin/common/rig-bond/rig-bond.co
 import { UploadInvoiceComponent } from './components/admin/common/upload-invoice/upload-invoice.component';
 import { TradingChartComponent } from './components/common/chart/trading-chart/trading-chart.component';
 import { CradentilsComponent } from './components/common/cradentils/cradentils.component';
+import { TransactionHistoryComponent } from './components/admin/transaction-history/transaction-history.component';
+import { TodayTransactionHistoryComponent } from './components/admin/today-transaction-history/today-transaction-history.component';
+
+
 
 
 @NgModule({
@@ -435,7 +439,9 @@ import { CradentilsComponent } from './components/common/cradentils/cradentils.c
     RigBondComponent,
     UploadInvoiceComponent,
     TradingChartComponent,
-    CradentilsComponent
+    CradentilsComponent,
+    TransactionHistoryComponent,
+    TodayTransactionHistoryComponent,
   ],
   imports: [
     BrowserModule,

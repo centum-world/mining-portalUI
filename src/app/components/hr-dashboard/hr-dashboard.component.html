@@ -2,12 +2,33 @@
   <main>
     <div *ngIf="!viewMemberList" class="cards">
       <div class="card-single">
+        <div
+          style="display: flex; flex-direction: column; justify-content: start"
+        >
+          <span>Transaction History</span>
+          <span>Today-Transaction History</span>
+        </div>
         <div>
-          <span>Total Referral:     </span>
-          <span>{{totalReferralCount}}</span><br>
-          <span>Today's Referral:  </span>
-          <span>{{todayReferralCount }}</span> 
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+            "
+          >
+            <span class="icon" (click)="viewTransactionHistory()">view</span>
+            <span class="icon" (click)="viewTodayTransactionHistory()">view</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="card-single">
+        <div>
+          <span>Total Referral: </span>
+          <span>{{ totalReferralCount }}</span
+          ><br />
+          <span>Today's Referral: </span>
+          <span>{{ todayReferralCount }}</span>
         </div>
         <div class="icon" (click)="viewMemberHistoryList()">
           <span>view</span>
@@ -16,22 +37,22 @@
 
       <div class="card-single">
         <div>
-          <span>Total RIG Partner:     </span>
-          <span>{{totalPartnerCount}}</span><br>
-          <span>Today's RIG Partner:  </span>
-          <span>{{todayPartnerCount }}</span> 
+          <span>Total RIG Partner: </span>
+          <span>{{ totalPartnerCount }}</span
+          ><br />
+          <span>Today's RIG Partner: </span>
+          <span>{{ todayPartnerCount }}</span>
         </div>
 
         <div class="icon" (click)="miningPartnerViewList()">
           <span>view</span>
-
         </div>
       </div>
 
       <div class="card-single">
-        <div style="display: flex;">
+        <div style="display: flex">
           <div class="col-sm-8">
-            <h6 >Total Liquidity : &nbsp;</h6>
+            <h6>Total Liquidity : &nbsp;</h6>
           </div>
           <div class="icon col-sm-4" (click)="activePartnerViewList()">
             <span>view</span>
@@ -41,7 +62,6 @@
           <b>{{ totalLiquidityOfPartner | currency : "INR" }}</b>
         </div>
       </div>
-
 
       <!-- <div class="card-single">
         <div>
@@ -152,12 +172,13 @@
           <span>view</span>
         </div>
       </div> -->
-       <div class="card-single">
+      <div class="card-single">
         <div>
-          <span>Total BMM:     </span>
-          <span>{{totalBMMCount}}</span><br>
-          <span>Today's BMM:  </span>
-          <span>{{todayBMMCount }}</span> 
+          <span>Total BMM: </span>
+          <span>{{ totalBMMCount }}</span
+          ><br />
+          <span>Today's BMM: </span>
+          <span>{{ todayBMMCount }}</span>
         </div>
         <div class="icon" (click)="bmmhistory()">
           <span>view</span>
@@ -166,17 +187,16 @@
 
       <div class="card-single">
         <div>
-          <span>Total Franchise:     </span>
-          <span>{{totalFranchiseCount}}</span><br>
-          <span>Today's Franchise:  </span>
-          <span>{{todayFranchiseCount }}</span> 
+          <span>Total Franchise: </span>
+          <span>{{ totalFranchiseCount }}</span
+          ><br />
+          <span>Today's Franchise: </span>
+          <span>{{ todayFranchiseCount }}</span>
         </div>
         <div class="icon" (click)="franchisehistory()">
           <span>view</span>
         </div>
       </div>
-
-      
     </div>
 
     <div *ngIf="viewMemberList && show_detail_list === 'view_member'">
@@ -332,7 +352,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- partnership bond upload -->
 

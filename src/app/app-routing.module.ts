@@ -98,7 +98,8 @@ import { PrivacyComponent } from "./components/common/privacy/privacy.component"
 import { RigPartnerComponent } from "./components/admin/rig-partner/rig-partner.component";
 import { PartnerPayoutComponent } from "./components/admin/partner-payout/partner-payout.component";
 import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.component";
-
+import { TransactionHistoryComponent } from "./components/admin/transaction-history/transaction-history.component";
+import { TodayTransactionHistoryComponent } from "./components/admin/today-transaction-history/today-transaction-history.component";
 
 
 const routes: Routes = [
@@ -131,6 +132,8 @@ const routes: Routes = [
       {path: "addmember" , component : CreateMemberComponent},
       {path: "member-history", component : MemberHistoryComponent},
       {path: "partner-history", component: PartnerHistoryComponent},
+      {path:"transaction-history", component:TransactionHistoryComponent},
+      {path:"today-transaction-history",component:TodayTransactionHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},
       {path: "bd-history", component: BdListComponent},

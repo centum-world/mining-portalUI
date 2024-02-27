@@ -440,7 +440,7 @@ export class UserService {
   }
 
   //new Rig
-  newRigPartnerAccount(formData : FormData): Observable<any>{
+  newRigPartnerAccount(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}/signup/create-multiple-rig`, formData);
   }
 
@@ -507,7 +507,7 @@ export class UserService {
   }
 
   // doactivate-partner-manual-from-admin
-  doactivatePartnerManualFromAdmin(data:any) {
+  doactivatePartnerManualFromAdmin(data: any) {
     return this.http.post(
       this.url + "/admin/doactivate-partner-manual-from-admin",
       data,
@@ -518,7 +518,7 @@ export class UserService {
   }
 
   //partner wallet daily data in admin
-  partnerWalletDailyDataInAdmin(data:any) {
+  partnerWalletDailyDataInAdmin(data: any) {
     return this.http.post(
       this.url + "/mining/fetch-partner-wallet-daily-history",
       data,
@@ -529,7 +529,7 @@ export class UserService {
   }
 
   //perticular partner withdrawal request for admin
-  perticularPartnerWithdrawalRequest(data:any) {
+  perticularPartnerWithdrawalRequest(data: any) {
     return this.http.post(
       this.url + "/admin/particular-partner-withdrawal-request-from-admin",
       data,
@@ -540,7 +540,7 @@ export class UserService {
   }
 
   //widthdrawal history for perticular partner in to admin
-  perticularPartnerWithdrawalHistory(data:any) {
+  perticularPartnerWithdrawalHistory(data: any) {
     return this.http.post(
       this.url +
         "/admin/particular-partner-approved-withdrawal-history-from-admin",
@@ -563,14 +563,14 @@ export class UserService {
   }
 
   //last approve date
-  partnerLastApproveDate(data:any) {
+  partnerLastApproveDate(data: any) {
     return this.http.post(this.url + "/admin/fetch-last-payment-date", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //partner-refferal-perday-wallet-history
-  partnerRefferalPerdayWalletHistory(data:any) {
+  partnerRefferalPerdayWalletHistory(data: any) {
     return this.http.post(
       this.url + "/mining/partner-refferal-perday-wallet-history",
       data,
@@ -1385,8 +1385,8 @@ export class UserService {
     });
   }
   //fetch partner bond
-  fetchPartnerBond(data:any) {
-    return this.http.post(this.url + "/admin/fetch-bond",data, {
+  fetchPartnerBond(data: any) {
+    return this.http.post(this.url + "/admin/fetch-bond", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
@@ -1458,42 +1458,42 @@ export class UserService {
   }
 
   // fetchUnVerifiedMember
-  CallApifetchUnVerifiedMember(){
+  CallApifetchUnVerifiedMember() {
     return this.http.get(this.url + "/admin/fetch-unVerified-member", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   // fetchVerifiedMember
-  CallApifetchVerifiedMember(){
+  CallApifetchVerifiedMember() {
     return this.http.get(this.url + "/admin/fetch-verified-member", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //fetchVerifiedBmm
-  CallApifetchVerifiedBmm(){
+  CallApifetchVerifiedBmm() {
     return this.http.get(this.url + "/admin/fetch-verified-bmm", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
-  } 
+  }
 
   // fetchUnVerifiedBmm
-  CallApifetchUnVerifiedBmm(){
+  CallApifetchUnVerifiedBmm() {
     return this.http.get(this.url + "/admin/fetch-unVerified-Bmm", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   // fetchUnVerifiedFranchise
-  CallApifetchUnVerifiedFranchise(){
+  CallApifetchUnVerifiedFranchise() {
     return this.http.get(this.url + "/admin/fetch-unVerified-franchise", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   // fetchVerifiedFranchise
-  CallApifetchVerifiedFranchise(){
+  CallApifetchVerifiedFranchise() {
     return this.http.get(this.url + "/admin/fetch-verified-franchise", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
@@ -1511,50 +1511,57 @@ export class UserService {
   }
 
   // fetchUpgradeDowngradeFranchise
-  CallApiFetchUpgradeDowngradeFranchise(){
-    return this.http.get(this.url + "/admin/fetch-upgrade-downgrade-franchise", {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
+  CallApiFetchUpgradeDowngradeFranchise() {
+    return this.http.get(
+      this.url + "/admin/fetch-upgrade-downgrade-franchise",
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
   }
 
-   // fetchUpgradeDowngradeBmm
-   CallApifetchUpgradeDowngradeBmm(){
+  // fetchUpgradeDowngradeBmm
+  CallApifetchUpgradeDowngradeBmm() {
     return this.http.get(this.url + "/admin/fetch-upgrade-downgrade-bmm", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   // fetchUpgradedMember
-  CallApifetchUpgradedMember(){
+  CallApifetchUpgradedMember() {
     return this.http.get(this.url + "/member/member/fetch-upgraded-member", {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  callApiToMultipleRig(data:any){
-    return this.http.post(this.url + "/mining/fetch-partner-and-multiple-rig",data, {
+  callApiToMultipleRig(data: any) {
+    return this.http.post(
+      this.url + "/mining/fetch-partner-and-multiple-rig",
+      data,
+      {
+        headers: new HttpHeaders().set("Content-Type", "application/json"),
+      }
+    );
+  }
+
+  callApiToFetchPartnerDetailsUsingRigID(data: any) {
+    return this.http.post(this.url + "/admin/fetch-partner-by-rig-id", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
-  callApiToFetchPartnerDetailsUsingRigID(data:any){
-    return this.http.post(this.url + "/admin/fetch-partner-by-rig-id",data, {
+  callApiToPayForEachMonth(data: any) {
+    return this.http.post(this.url + "/admin/create-partner-payout", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-
-  callApiToPayForEachMonth(data:any){
-    return this.http.post(this.url + "/admin/create-partner-payout",data, {
+  callApiToPartnerBankDetails(data: any) {
+    return this.http.post(this.url + "/admin/fetch-bank-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-  callApiToPartnerBankDetails(data:any){
-    return this.http.post(this.url + "/admin/fetch-bank-details",data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-    });
-  }
-  callApiToPartnerPayout(data:any){
-    return this.http.post(this.url + "/admin/fetch-partner-payouts",data, {
+  callApiToPartnerPayout(data: any) {
+    return this.http.post(this.url + "/admin/fetch-partner-payouts", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
@@ -1563,7 +1570,16 @@ export class UserService {
     return this.http.put(`${this.url}/admin/upload-bond`, formData);
   }
   fetchReferralCounts(): Observable<any> {
-    return this.http.get(`${this.url}/admin/fetch-total-referral-count-and-today-referral-count`);
+    return this.http.get(
+      `${this.url}/admin/fetch-total-referral-count-and-today-referral-count`
+    );
+  }
+
+
+  fetchTotalTransactions(data:any) {
+    return this.http.post(this.url + "/admin/fetch-transaction-history", data,{
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
   callApiToPartnerPaymentMonthlyPayout(data:any){
     return this.http.post(this.url + "/admin/create-partner-payout-for-monthly",data, {

@@ -502,4 +502,11 @@ export class HrDashboardComponent implements OnInit {
     this.router.navigate(['/dashboard/franchise-history'])
   }
 
+  viewTransactionHistory(){
+    this.router.navigate(['/dashboard/transaction-history'])
+  }
+  viewTodayTransactionHistory(){
+    this.router.navigate(['/dashboard/today-transaction-history'])
+  }
+
 }
