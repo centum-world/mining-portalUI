@@ -5,7 +5,7 @@
   </p>
   <div class="payouttab-container">
     <mat-tab-group animationDuration="2000ms">
-      <mat-tab label="PAY"><app-pay-now [id]="rigId" [userId]="partnerID"></app-pay-now></mat-tab>
+      <mat-tab label="PAY"><app-pay-now [id]="rigId" [userId]="partnerID" [type]="type" ></app-pay-now></mat-tab>
       <mat-tab label="PAYOUT"><app-payout-eachmonths [id]="rigId" [userId]="partnerID"></app-payout-eachmonths></mat-tab>
       <mat-tab label="INVOICE"><app-invoice [id]="rigId" ></app-invoice></mat-tab>
       <mat-tab label="BOND"><app-rig-bond [id]="rigId"></app-rig-bond></mat-tab>

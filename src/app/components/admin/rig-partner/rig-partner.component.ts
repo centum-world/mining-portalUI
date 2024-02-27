@@ -14,10 +14,12 @@ import { ActivateMiningPartnerComponent } from '../dialog/activate-mining-partne
 })
 export class RigPartnerComponent implements OnInit {
   partnerID:String="";
+  type:string="";
   allrig: any[] = [];
   constructor(private toastr: ToastrService, private dialog: MatDialog, private router: Router, private route: ActivatedRoute, private userService: UserService) { 
     this.route.params.subscribe((params) => {
       this.partnerID = params["id"];
+      this.type = params["type"];
     });
   }
 
@@ -82,6 +84,7 @@ export class RigPartnerComponent implements OnInit {
     this.router.navigate([
       "dashboard/partner-account",
       miningPartnerData.userId,
+      this.type,
       miningPartnerData.rigId
     ]);
   }

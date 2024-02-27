@@ -10,10 +10,12 @@ import { ActivatedRoute } from "@angular/router";
 export class PartnerPayoutComponent implements OnInit {
   partnerID:String="";
   rigId:String="";
+  type:string="";
   constructor(private router : Router, private route: ActivatedRoute,) { 
     this.route.params.subscribe((params) => {
       this.partnerID = params["userId"];
       this.rigId = params["rigId"];
+      this.type = params["type"];
     });
   }
 
@@ -25,7 +27,8 @@ export class PartnerPayoutComponent implements OnInit {
   goBack() {
     this.router.navigate([
       "dashboard/partner-account",
-      this.partnerID
+      this.partnerID,
+      this.type
     ]);
   }
 

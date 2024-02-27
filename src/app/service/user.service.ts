@@ -716,14 +716,14 @@ export class UserService {
   }
 
   //Query
-  partnerHelpAndQuery(data) {
+  partnerHelpAndQuery(data:any) {
     return this.http.post(this.url + "/mining/help-and-support", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
 
   //fetch partnerLiquidity
-  fetchPartnerLiquidity(data) {
+  fetchPartnerLiquidity(data:any) {
     return this.http.post(
       this.url + "/member/fetch-Liquidity-for-member-summary",
       data,
@@ -1561,6 +1561,12 @@ export class UserService {
 
   invoiceandbond(formData: FormData): Observable<any> {
     return this.http.put(`${this.url}/admin/upload-bond`, formData);
+  }
+
+  callApiToPartnerPaymentMonthlyPayout(data:any){
+    return this.http.post(this.url + "/admin/create-partner-payout-for-monthly",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
 }

@@ -63,6 +63,11 @@ export class PartnerHistoryComponent implements OnInit {
     "actions",
   ];
   dataSource: MatTableDataSource<Partner>;
+  selected = 'onetime'
+  afterData:[]=[];
+  beforeData:[]=[];
+
+  
 
   constructor(
     private userService: UserService,
@@ -81,12 +86,23 @@ export class PartnerHistoryComponent implements OnInit {
   callApiToFetchAllPartner() {
     this.userService.adminFetchAllMiningPartner().subscribe({
       next: (res: any) => {
-        this.dataSource.data = res.miningPartnerData;
+        console.log(res)
+          this.dataSource.data = res.afterDec152023;
+          this.afterData = res.afterDec152023;
+          this.beforeData = res.beforeDec152023;
       },
       error: (err) => {
         console.log(err.error.message);
       },
     });
+  }
+
+  onSelectionChange(){
+    if(this.selected === "onetime"){
+      this.dataSource.data = this.afterData;
+    }else{
+      this.dataSource.data = this.beforeData;
+    }
   }
 
   openMiningPartnerVerifyDialog(miningPartnerData: any) {
@@ -181,6 +197,7 @@ export class PartnerHistoryComponent implements OnInit {
     this.router.navigate([
       "dashboard/partner-account",
       miningPartnerData.p_userid,
+      this.selected
     ]);
   }
 

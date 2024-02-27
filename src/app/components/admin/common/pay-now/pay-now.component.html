@@ -57,28 +57,37 @@
       </div>
       <div class="pay-form">
         <p>Bank details</p>
-        <div class="bank-container" *ngFor="let item of bankDetails">
+        <ng-container *ngIf="bankDetails && bankDetails.length > 0; else noData">
+          <div class="bank-container" *ngFor="let item of bankDetails">
             <div class="bank-name">
               <p>Holder Name</p>
-              <h6>{{item.holder_name}}</h6>
+              <h6>{{ item.holder_name }}</h6>
             </div>
             <div class="bank-name">
               <p>Bank Name</p>
-              <h6>{{item.bank_name}}</h6>
+              <h6>{{ item.bank_name }}</h6>
             </div>
             <div class="bank-name">
               <p>Branch Name</p>
-              <h6>{{item.branch_name}}</h6>
+              <h6>{{ item.branch_name }}</h6>
             </div>
             <div class="bank-name">
               <p>A/C Number</p>
-              <h6>{{item.account_no}}</h6>
+              <h6>{{ item.account_no }}</h6>
             </div>
             <div class="bank-name">
               <p>IFSC Code</p>
-              <h6>{{item.ifsc_code}}</h6>
+              <h6>{{ item.ifsc_code }}</h6>
             </div>
-        </div>
+          </div>
+        </ng-container>
+        
+        <ng-template #noData>
+          <div class="bank-container">
+            <img src="../../../../../assets/image/no-data.png" width="280px" height="180px" alt="image"/>
+            <p>No data</p>
+          </div>
+        </ng-template>        
       </div>
     </div>
   </div>
