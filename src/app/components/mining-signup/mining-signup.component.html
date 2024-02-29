@@ -10,7 +10,11 @@
   </div>
   <div class="form-container">
     <div class="heading">
-      <img src="../../../assets/image/partnergif.gif" width="50%" height="200px"/>
+      <img
+        src="../../../assets/image/partnergif.gif"
+        width="50%"
+        height="200px"
+      />
     </div>
     <div class="main-form">
       <mat-tab-group
@@ -18,7 +22,7 @@
         class="example-stretched-tabs"
         (selectedTabChange)="tabChanged($event)"
       >
-        <mat-tab label="Login" style="font-family:sans-serif;">
+        <mat-tab label="Login" style="font-family: sans-serif">
           <div class="form-content">
             <form
               [formGroup]="partnerLoginForm"
@@ -31,7 +35,12 @@
 
               <mat-form-field appearance="outline" class="input">
                 <mat-label> Password</mat-label>
-                <input [type]="passwordFieldType" formControlName="lpassword" matInput required />
+                <input
+                  [type]="passwordFieldType"
+                  formControlName="lpassword"
+                  matInput
+                  required
+                />
                 <button
                   mat-icon-button
                   matSuffix
@@ -47,12 +56,19 @@
                 </ng-container>
                 <ng-template #loginText>SIGN IN</ng-template>
               </button>
-              <br>
-              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0)" style="text-decoration: none !important; color:#0000FF;">Back to home</a></div>
+              <br />
+              <div class="back" (click)="gotoDhasboard()">
+                <mat-icon>home</mat-icon>
+                <a
+                  href="javascrip:void(0)"
+                  style="text-decoration: none !important; color: #0000ff"
+                  >Back to home</a
+                >
+              </div>
             </form>
           </div>
           <div class="bottom-section">
-            <p>WE COLLABORATE - WE WORK - WE EARN - WE SHARE </p>
+            <p>WE COLLABORATE - WE WORK - WE EARN - WE SHARE</p>
             <p>IaaS (Infrastructure as a Service )</p>
           </div>
         </mat-tab>
@@ -64,7 +80,10 @@
             >
               <mat-form-field appearance="outline">
                 <mat-label>Select referral type</mat-label>
-                <mat-select [(value)]="role" (selectionChange)="onRoleChange($event)">
+                <mat-select
+                  [(value)]="role"
+                  (selectionChange)="onRoleChange($event)"
+                >
                   <mat-option>Select one</mat-option>
                   <mat-option value="OFFICIAL">Official ID</mat-option>
                   <mat-option value="MEMBER">Member</mat-option>
@@ -123,13 +142,16 @@
 
               <mat-form-field appearance="outline" class="state-input">
                 <mat-label>Select State</mat-label>
-                <mat-select formControlName="state" (selectionChange)="onStateChange()">
+                <mat-select
+                  formControlName="state"
+                  (selectionChange)="onStateChange()"
+                >
                   <mat-option *ngFor="let state of states" [value]="state">{{
                     state
-                    }}</mat-option>
+                  }}</mat-option>
                 </mat-select>
               </mat-form-field>
- 
+
               <!-- <mat-form-field appearance="outline">
                 <mat-label>Enter your state</mat-label>
                 <input matInput formControlName="state" />
@@ -224,8 +246,18 @@
                   type="file"
                   id="aadharImage"
                   (change)="onFileSelected($event, 'front')"
-                  accept="image/*"
+                  accept="image/png, image/jpeg, image/jpg"
                 />
+                <div
+                  style="color: red"
+                  *ngIf="
+                    partnerSignUpForm
+                      .get('aadharImage')
+                      .hasError('fileSizeExceeded')
+                  "
+                >
+                  File size exceeds 2MB.
+                </div>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
@@ -236,7 +268,21 @@
                   placeholder="No file chosen"
                   readonly
                 />
-                <input type="file" (change)="onFileSelected($event, 'back')" />
+                <input
+                  type="file"
+                  (change)="onFileSelected($event, 'back')"
+                  accept="image/png, image/jpeg, image/jpg"
+                />
+                <div
+                  style="color: red"
+                  *ngIf="
+                    partnerSignUpForm
+                      .get('aadharBackImage')
+                      .hasError('fileSizeExceeded')
+                  "
+                >
+                  File size exceeds 2MB.
+                </div>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
@@ -247,7 +293,21 @@
                   placeholder="No file chosen"
                   readonly
                 />
-                <input type="file" (change)="onFileSelected($event, 'pan')" />
+                <input
+                  type="file"
+                  (change)="onFileSelected($event, 'pan')"
+                  accept="image/png, image/jpeg, image/jpg"
+                />
+                <div
+                  style="color: red"
+                  *ngIf="
+                    partnerSignUpForm
+                      .get('panImage')
+                      .hasError('fileSizeExceeded')
+                  "
+                >
+                  File size exceeds 2MB.
+                </div>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="input">
@@ -272,16 +332,37 @@
                   <mat-icon>{{ showPasswordIcon }}</mat-icon>
                 </button>
               </mat-form-field>
-              <mat-checkbox (change)="handleChange($event)" style="font-family: 'Roboto', sans-serif">I agree to the <span style="color: #3f51b5;font-family:  'Roboto', sans-serif; " (click)="privacyPolicy()">Privacy Policy</span></mat-checkbox>
-              <br>
-              <button mat-raised-button class="custom-button" type="submit" [disabled]="!privacy">
+              <mat-checkbox
+                (change)="handleChange($event)"
+                style="font-family: 'Roboto', sans-serif"
+                >I agree to the
+                <span
+                  style="color: #3f51b5; font-family: 'Roboto', sans-serif"
+                  (click)="privacyPolicy()"
+                  >Privacy Policy</span
+                ></mat-checkbox
+              >
+              <br />
+              <button
+                mat-raised-button
+                class="custom-button"
+                type="submit"
+                [disabled]="!privacy"
+              >
                 <ng-container *ngIf="spin; else registerText">
                   <mat-spinner diameter="40"></mat-spinner>
                 </ng-container>
                 <ng-template #registerText>SIGN UP</ng-template>
               </button>
-              <br>
-              <div class="back" (click)="gotoDhasboard()"><mat-icon>home</mat-icon> <a href="javascrip:void(0) " style="text-decoration: none !important; color:#0000FF;">Back to home</a></div>
+              <br />
+              <div class="back" (click)="gotoDhasboard()">
+                <mat-icon>home</mat-icon>
+                <a
+                  href="javascrip:void(0) "
+                  style="text-decoration: none !important; color: #0000ff"
+                  >Back to home</a
+                >
+              </div>
             </form>
           </div>
         </mat-tab>
@@ -289,5 +370,3 @@
     </div>
   </div>
 </div>
-
-
