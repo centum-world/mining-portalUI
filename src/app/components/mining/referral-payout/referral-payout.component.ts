@@ -38,5 +38,8 @@ export class ReferralPayoutComponent implements OnInit {
       },
     });
   }
+  gotoDashboard(){
+    this.router.navigate[('/miningdashboard/home')]
+  }
   
 }

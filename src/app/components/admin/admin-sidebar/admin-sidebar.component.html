@@ -108,6 +108,13 @@
   <div class="sidebar-menu">
     <ul>
       <li>
+        <div class="member_history" (click)="transactionHistory()">
+          <a href="javascript:void(0)"><i class="fa fa-exchange"></i>
+            <span>Transaction</span>
+          </a>
+        </div>
+      </li>
+      <li>
         <div class="member_history" (click)="memberViewList()">
           <a href="javascript:void(0)"><i class="fa fa-book"></i>
             <span>Member History</span>
@@ -126,7 +133,7 @@
       <li>
         <div class="partner_history " (click)="viewList()">
           <a href="javascript:void(0)"><i class="fa fa-book"></i>
-            <span>State Handler History</span>
+            <span>BMM History</span>
           </a>
         </div>
       </li>
@@ -135,14 +142,6 @@
         <div class="partner_history " (click)="FranchiseList()">
           <a href="javascript:void(0)"><i class="fa fa-book"></i>
             <span>Franchise History</span>
-          </a>
-        </div>
-      </li>
-
-      <li>
-        <div class="partner_history " (click)="BdHistory()">
-          <a href="javascript:void(0)"><i class="fa fa-book"></i>
-            <span>Business Dev History</span>
           </a>
         </div>
       </li>
