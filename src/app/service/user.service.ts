@@ -1579,7 +1579,7 @@ export class UserService {
     return this.http.post(`${this.url}/state/state/total-count-franchise-member-partner`, body);
   }
 
-  fetchTotalCountMemberPartner(referralId: string): Observable<any> {
+  fetchedTotalCountMemberPartner(referralId: string): Observable<any> {
     const body = { referralId: referralId };
     return this.http.post(`${this.url}/franchise/franchise/total-count-member-partner`, body);
   }
@@ -1610,6 +1610,18 @@ export class UserService {
 
   callApiToFetchTodaysAndTotalPayout(data:any){
     return this.http.post(this.url + "/member/member/fetch-member-todays-and-total-payout",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchReferralPayoutForPartner(data:any){
+    return this.http.post(this.url + "/mining/partner/fetch-referral-payout-for-partner",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToPartnerVerify(data:any){
+    return this.http.post(this.url + "/admin/verify-multiple-rig-partner",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }

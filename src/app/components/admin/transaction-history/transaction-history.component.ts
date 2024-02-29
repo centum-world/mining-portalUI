@@ -15,10 +15,11 @@ export class TransactionHistoryComponent implements OnInit {
     "date",
     "liquidity",
   ];
+  type:string="partner";
   dataSource: any[] = [];
   selectedYear: number;
   selectedMonth: string;
-  availableYears: number[] = [2022, 2023, 2024]; // Adjust with your available years
+  availableYears: number[] = [2022, 2023, 2024];
   availableMonths: string[] = [
     "January",
     "February",
@@ -34,7 +35,6 @@ export class TransactionHistoryComponent implements OnInit {
     "December",
   ];
 
-  // Add a variable to track whether data is being fetched
   isFetchingData: boolean = false;
 
   constructor(private userService: UserService) {}
@@ -49,19 +49,12 @@ export class TransactionHistoryComponent implements OnInit {
     if (this.selectedYear && this.selectedMonth) {
       requestData.currentMonth = this.getMonthNumericValue(this.selectedMonth);
       requestData.currentYear = this.selectedYear;
-
-      console.log("Selected Year:", this.selectedYear);
-      console.log("Selected Month:", this.selectedMonth);
-      console.log("Month Numeric:", requestData.currentMonth);
     }
-    console.log("Request Data:", requestData);
-
-    // Set isFetchingData to true when starting to fetch data
     this.isFetchingData = true;
 
     this.userService.fetchTotalTransactions(requestData).subscribe(
       (response: any) => {
-        this.dataSource = response.data.map((transaction) => {
+        this.dataSource = response.data.map((transaction:any) => {
           return {
             userId: transaction.partnerId,
             rigid: transaction.rigId,
@@ -70,14 +63,10 @@ export class TransactionHistoryComponent implements OnInit {
             liquidity: transaction.liquidity,
           };
         });
-
-        // Set isFetchingData to false when data is fetched
         this.isFetchingData = false;
       },
       (error) => {
         console.error("Error fetching transaction history", error);
-
-        // Set isFetchingData to false on error
         this.isFetchingData = false;
       }
     );
@@ -99,17 +88,30 @@ export class TransactionHistoryComponent implements OnInit {
       "December",
     ];
 
-    // Find the index of the month in the array
     const monthIndex = monthNames.indexOf(monthString);
-
-    // Months are 0-indexed in JavaScript Date, so add 1
     return monthIndex + 1;
   }
-
-  // Function to check whether to show the table or not
   showTable(): boolean {
     return (
       !this.isFetchingData && this.dataSource && this.dataSource.length > 0
     );
   }
+
+  onInputChange(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    console.log(this.dataSource)
+    this.dataSource = this.dataSource.filter(item => item.userId.includes(inputValue))
+    if(!inputValue){
+      this.fetchTransactions();
+    }
+  }
+
+  payoutType(){
+    if(this.type === 'partner'){
+      this.fetchTransactions();
+    }else{
+      this.dataSource = [];
+    }
+  }
+
 }

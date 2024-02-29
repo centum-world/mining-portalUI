@@ -1,9 +1,17 @@
 /* transaction-history.component.css */
 
+.main-div{
+  display:flex;
+  margin-left:330px;
+  justify-content:space-between;
+  align-items:center;
+}
+
 form {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-left:200px;
 }
 
 
@@ -67,9 +75,30 @@ tr.mat-row:hover {
   background-color: #e0e0e0; /* Hover background color */
 }
 
+.searchby{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.searchby input, select{
+  border-radius:10px;
+  border:1px solid #c9c9c9;
+  padding:10px;
+}
+
+
 /* Responsive styles for small screens */
 @media screen and (max-width: 600px) {
   .mat-elevation-z8 {
     overflow-x: auto; /* Enable horizontal scrolling on small screens */
   }
+
+  .main-div{
+    margin-left:0;
+  }
+  
+  form {
+    margin-left:0;
+  }
+
 }

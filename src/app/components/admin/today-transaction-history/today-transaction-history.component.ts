@@ -30,21 +30,22 @@ export class TodayTransactionHistoryComponent implements OnInit {
       currentDate: currentDate,
     };
 
-    this.userService.fetchTotalTransactions(requestData).subscribe(
-      (response: any) => {
+    this.userService.fetchTotalTransactions(requestData).subscribe({
+      next:(response: any) => {
+        console.log(response)
         this.dataSource = response.data.map((transaction) => {
           return {
             userId: transaction.partnerId,
             rigid: transaction.rigId,
-            amount: transaction.amount,
-            date: new Date(transaction.credited_date),
+            amount: transaction.payableAmount,
+            date: new Date(transaction.payoutDate),
             liquidity: transaction.liquidity,
           };
         });
       },
-      (error) => {
+      error:(error) => {
         console.error("Error fetching today's transaction history", error);
       }
-    );
+  });
   }
 }

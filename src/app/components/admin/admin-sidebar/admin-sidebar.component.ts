@@ -50,12 +50,14 @@ export class AdminSidebarComponent implements OnInit {
     this.isVisible = false;
   }
 
-  viewPartnerWalletHistoryList(){
-    this.router.navigate(['/dashboard/partner-wallet-history'])
-    this.isVisible = false;
-  }
+  
   BdHistory(){
     this.router.navigate(['/dashboard/bd-history'])
+    this.isVisible = false;
+  }
+
+  transactionHistory(){
+    this.router.navigate(['/dashboard/transaction-history'])
     this.isVisible = false;
   }
 
@@ -97,20 +99,6 @@ export class AdminSidebarComponent implements OnInit {
 
 
     
-  }
-
-  uploadBond(){
-    this.isVisible = false;
-    let config: MatDialogConfig = {
-      panelClass: 'parnershipBond'
-   };
-   const dialogRef = this.dialog.open(PartnerBondComponent, config);
-
-
-  
-   dialogRef.afterClosed().subscribe(result => {
-     console.log("Closed");
-   });
   }
 
 

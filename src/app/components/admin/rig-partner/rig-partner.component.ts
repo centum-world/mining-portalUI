@@ -6,6 +6,7 @@ import { ToastrService } from "ngx-toastr";
 import { MatDialog } from "@angular/material/dialog";
 import { MatDialogConfig } from "@angular/material/dialog";
 import { ActivateMiningPartnerComponent } from '../dialog/activate-mining-partner/activate-mining-partner.component';
+import { VerifyPartnerComponent } from '../dialog/verify-partner/verify-partner.component';
 
 @Component({
   selector: 'app-rig-partner',
@@ -42,7 +43,8 @@ export class RigPartnerComponent implements OnInit {
           rigId: response.data[0].rigId,
           doj: response.data[0].p_dop,
           partner_status: response.data[0].partner_status,
-          userId:response.data[0].p_userid
+          userId:response.data[0].p_userid,
+          isVerify : response.data[0].isVerify
         };
         response.data.unshift(newData);
         response.data.splice(1, 1);
@@ -65,7 +67,8 @@ export class RigPartnerComponent implements OnInit {
       console.log(miningPartnerData)
       let data = {
         p_userid: miningPartnerData.userId,
-        rigId: miningPartnerData.rigId
+        rigId: miningPartnerData.rigId,
+        type:this.type
       };
       this.userService.doactivatePartnerManualFromAdmin(data).subscribe({
         next: (res: any) => {
@@ -87,6 +90,32 @@ export class RigPartnerComponent implements OnInit {
       this.type,
       miningPartnerData.rigId
     ]);
+  }
+
+  verifyPartner(partnerdata:any){
+    let config: MatDialogConfig = {
+      panelClass: "verifyPartnerDialogClass",
+    };
+    const dialogRef = this.dialog.open(VerifyPartnerComponent, config);
+    dialogRef.componentInstance.okClicked.subscribe(() => {
+      let data = {
+        rigId : partnerdata.rigId
+      }
+      this.userService.callApiToPartnerVerify(data).subscribe({
+        next:(res:any)=>{
+          this.callApiToRigID();
+          this.toastr.success(res.message)
+        },
+        error:(error=>{
+  
+        })
+      })
+    })
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("Closed");
+    });
+    
   }
 
   goBack() {
