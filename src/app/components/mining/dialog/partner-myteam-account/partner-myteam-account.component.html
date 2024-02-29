@@ -11,7 +11,7 @@
     <mat-card class="partner-history-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Payment history</mat-card-title>
+            <mat-card-title>Payout Details</mat-card-title>
             <mat-card-subtitle>{{data.p_userid}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
@@ -41,7 +41,7 @@
                         <span>Next Payout</span> <strong>15 to 22nd (Of every month)</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>Status</span> <strong>{{data.partner_status?'Active':'Close'}}</strong>
+                        <span>Status</span> <strong>{{data.partner_status === 1?'Active':'Close'}}</strong>
                     </div>
                 </div>
             </div>

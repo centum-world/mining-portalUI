@@ -99,6 +99,18 @@ export class MemberCardComponent implements OnInit {
       }
     });
 
+    
+    this.callApiTofetchTodaysAndTotal();
+    this.myTeamDetailsInPopup();
+    this.callApiMemberWalletDepositeDaily();
+    this.callApiMemberTotalWalletofMonth();
+    this.callApiMemberWithdrawalHistory();
+    this.callApiMemberTotalWithdrawal();
+    this.callApiMemberWithdrawalRequest();
+    this.memberProfileDataPopup();
+  }
+
+  callApiTofetchTodaysAndTotal(){
     let currentdate = new Date();
     let year = currentdate.getFullYear().toString();
     let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
@@ -113,22 +125,13 @@ export class MemberCardComponent implements OnInit {
     };
     this.userService.callApiToFetchTodaysAndTotalPayout(data1).subscribe((response: any) => {
         if (response) {
-          console.log(response)
+          console.log(response,116)
           this.totalAmountToday = response.data.totalAmountToday
           this.totalAmountCurrentMonth = response.data.totalAmountCurrentMonth
           this.totalPayout = response.data.totalPayout
         }
       });
-
-    this.myTeamDetailsInPopup();
-    this.callApiMemberWalletDepositeDaily();
-    this.callApiMemberTotalWalletofMonth();
-    this.callApiMemberWithdrawalHistory();
-    this.callApiMemberTotalWithdrawal();
-    this.callApiMemberWithdrawalRequest();
-    this.memberProfileDataPopup();
   }
-
   viewWithdrawalRequestList() {
     this.router.navigate(["/memberdashboard/withdrawal-request"]);
   }
