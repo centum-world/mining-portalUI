@@ -99,8 +99,15 @@ export class UserService {
   }
 
   //Add member bank details
-  addMemberBankDetails(data) {
+  addMemberBankDetails(data:any) {
     return this.http.post(this.url + "/member/member-bank-details", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  //Edit member bank details
+  editMemberBankDetails(data:any) {
+    return this.http.put(this.url + "/member/member/edit-member-bank-details", data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
@@ -793,13 +800,9 @@ export class UserService {
 
   //save bank details
   saveBankDetails(data) {
-    return this.http.post(
-      this.url + "/state/create-bank-details-for-sho",
-      data,
-      {
-        headers: new HttpHeaders().set("Content-Type", "application/json"),
-      }
-    );
+    return this.http.post(this.url + "/member/member-bank-details", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
   saveBankDetailsForBusiness(data) {
@@ -846,13 +849,9 @@ export class UserService {
   }
 
   addFranchiseBankDetails(data) {
-    return this.http.post(
-      this.url + "/franchise/frenchise/franchise-add-bank-details",
-      data,
-      {
-        headers: new HttpHeaders().set("Content-Type", "application/json"),
-      }
-    );
+    return this.http.post(this.url + "/member/member-bank-details", data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
   }
 
   fetchFranchiseBankDetails(data) {
@@ -1582,9 +1581,14 @@ export class UserService {
 
   fetchTotalCountMemberPartner(referralId: string): Observable<any> {
     const body = { referralId: referralId };
-    return this.http.post(`${this.url}/member/member/total-count-member-partner`, body);
+    return this.http.post(`${this.url}/franchise/franchise/total-count-member-partner`, body);
   }
 
+
+  fetchTotalCountPartner(referralId: string): Observable<any> {
+    const body = { referralId: referralId };
+    return this.http.post(`${this.url}/member/member/total-count-partner`, body);
+  }
 
 
   fetchTotalTransactions(data:any) {
@@ -1594,6 +1598,18 @@ export class UserService {
   }
   callApiToPartnerPaymentMonthlyPayout(data:any){
     return this.http.post(this.url + "/admin/create-partner-payout-for-monthly",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchTransactionHistory(data:any){
+    return this.http.post(this.url + "/member/member/member-fetch-transaction-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchTodaysAndTotalPayout(data:any){
+    return this.http.post(this.url + "/member/member/fetch-member-todays-and-total-payout",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }

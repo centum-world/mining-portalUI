@@ -5,6 +5,7 @@ import { FranchiseAddBankComponent } from '../components/modal/franchise-add-ban
 import { FranchiseViewBankDetailsComponent } from '../components/modal/franchise-view-bank-details/franchise-view-bank-details.component';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { FranchiseEditBankComponent } from '../components/modal/franchise-edit-bank/franchise-edit-bank.component';
 
 
 @Component({
@@ -59,6 +60,20 @@ export class FranchiseCardComponent implements OnInit {
       console.log('The dialog was closed');
       // Do something with the result if needed
     });
+
+  }
+
+  franchiseEditBankDialog(){
+   let config:MatDialogConfig = {
+       panelClass:'franchiseEditBankDialogClass'
+    };
+    const dialogRef = this.dialog.open(FranchiseEditBankComponent,config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Do something with the result if needed
+    });
+
   }
 
   franchiseViewBankDetailsDialog(){

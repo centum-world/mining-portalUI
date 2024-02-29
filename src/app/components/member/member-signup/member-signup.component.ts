@@ -14,6 +14,7 @@ import {
   FormBuilder,
   FormGroupDirective,
   NgForm,
+  AbstractControl
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
@@ -25,6 +26,23 @@ import { allState } from "../../common/states";
 import { MatDialog } from "@angular/material";
 import { MatDialogConfig } from "@angular/material";
 import { CradentilsComponent } from "../../common/cradentils/cradentils.component";
+
+
+
+
+export function fileSizeValidator(maxSizeInKB: number) {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    if (control.value) {
+      const file: File = control.value;
+      const fileSizeInKB = file.size / 1024; // Convert bytes to kilobytes
+      console.log('File Size:', fileSizeInKB);
+      if (fileSizeInKB > maxSizeInKB) {
+        return { 'fileSizeExceeded': true };
+      }
+    }
+    return null;
+  };
+}
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -85,6 +103,9 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog
   ) {
     this.memberSignUpFrom = this.formBuilder.group({
+      aadharImage: [null, [fileSizeValidator(2048)]], // Set 2 as the maximum allowed size in MB
+      aadharBackImage: [null, [fileSizeValidator(2048)]],
+      panImage: [null, [fileSizeValidator(2048)]],
       reffered_id: new FormControl("", [Validators.required]),
       name: new FormControl("", [Validators.required]),
       lname: new FormControl("", [Validators.required]),
@@ -150,6 +171,14 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
   }
 
   addMemberData(form: FormGroup) {
+    if (
+      this.memberSignUpFrom.get('aadharImage').hasError('fileSizeExceeded') ||
+      this.memberSignUpFrom.get('aadharBackImage').hasError('fileSizeExceeded') ||
+      this.memberSignUpFrom.get('panImage').hasError('fileSizeExceeded')
+    ) {
+      // Prevent form submission if any file size exceeds the limit
+      return;
+    }
     this.spin = true;
     this.createReferralMember.refferal_id =
       this.memberSignUpFrom.value.user_id + Math.floor(Math.random() * 100000);
@@ -294,6 +323,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
         this.aadharImage = selectedFile;
+        this.memberSignUpFrom.get('aadharImage').setValue(selectedFile);
         console.log("Selected File:", this.aadharImage, fileSelected);
       }
     }
@@ -301,6 +331,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
         this.aadharBackImage = selectedFile;
+        this.memberSignUpFrom.get('aadharBackImage').setValue(selectedFile);
         console.log("Selected File:", this.aadharBackImage, fileSelected);
       }
     }
@@ -309,6 +340,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
         this.panImage = selectedFile;
+        this.memberSignUpFrom.get('panImage').setValue(selectedFile);
         console.log("Selected File:", this.panImage, fileSelected);
       }
     }

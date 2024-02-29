@@ -186,6 +186,7 @@ const routes: Routes = [
       {path:"partner-list", component:MyPartnerlistComponent},
       {path:"promotion", component:MemberPromotionComponent},
       {path:"referral-payout", component:MemberReferrralPayoutComponent},
+      {path:"todays-transaction",component:TodayTransactionHistoryComponent},
       { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
     ]
   },

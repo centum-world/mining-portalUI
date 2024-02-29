@@ -340,7 +340,7 @@ export class HrDashboardComponent implements OnInit {
         console.log(  this.totalReferralCount , 318)
       },
       error: error => {
-        this.toastr.error('Failed to fetch referral counts', 'Error');
+        console.error('Error fetching referral counts:', error);
       }
     });
   }

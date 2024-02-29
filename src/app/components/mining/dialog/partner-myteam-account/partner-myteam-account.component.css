@@ -1,5 +1,5 @@
 .mat-dialog-title {
-    background-color: #0D6EFD;
+    background-color: #5476f2;
     color: #fff;
     font-size: 18px;
     font-weight: 600;
@@ -8,6 +8,8 @@
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top:-24px;
+    font-family:'Roboto',sans-serif;
 }
 .custom-heading{
     display: flex;
