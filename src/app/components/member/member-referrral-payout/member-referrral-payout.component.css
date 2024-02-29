@@ -22,7 +22,7 @@
   flex-wrap: wrap;
 }
 .example-card {
-    width: calc(34% - 25px); 
+    /* width: calc(34% - 25px);  */
   margin-bottom: 16px;
 }
 
@@ -63,7 +63,7 @@
 
   @media (max-width: 767px) {
     .example-card {
-        width: calc(25% - 16px); /* Adjust width for screens up to 768px */
+        /* width: calc(25% - 16px); */
       }
     }
 
@@ -71,7 +71,7 @@
 
 @media (max-width: 767px) {
     .example-card {
-        width: calc(50% - 16px); /* Adjust width for screens up to 768px */
+        /* width: calc(50% - 16px);  */
       }
     .bakk-div {
         flex-direction: column;

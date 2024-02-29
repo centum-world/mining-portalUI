@@ -140,9 +140,11 @@ export class MemberHistoryComponent implements OnInit {
     const dialogRef = this.dialog.open(VerifyMemberComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
       console.log("clicked");
+      let verifyDate = new Date()
       let data = {
         isVerify: true,
         m_userid: memberData.m_userid,
+        verifyDate
       };
       this.userService.adminVerifyMember(data).subscribe({
         next: (res: any) => {

@@ -1598,4 +1598,16 @@ export class UserService {
     });
   }
 
+  callApiToFetchTransactionHistory(data:any){
+    return this.http.post(this.url + "/member/member/member-fetch-transaction-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchTodaysAndTotalPayout(data:any){
+    return this.http.post(this.url + "/member/member/fetch-member-todays-and-total-payout",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
