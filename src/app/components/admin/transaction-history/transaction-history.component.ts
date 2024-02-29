@@ -12,8 +12,8 @@ export class TransactionHistoryComponent implements OnInit {
     "userId",
     "rigid",
     "amount",
-    "date",
     "liquidity",
+    "date",
   ];
   type:string="partner";
   dataSource: any[] = [];
