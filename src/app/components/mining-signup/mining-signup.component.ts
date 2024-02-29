@@ -17,6 +17,7 @@ import {
   FormBuilder,
   FormGroupDirective,
   NgForm,
+  AbstractControl
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
@@ -28,6 +29,21 @@ import { allState } from "../common/states";
 import { MatDialog } from "@angular/material";
 import { MatDialogConfig } from "@angular/material";
 import { CradentilsComponent } from "../common/cradentils/cradentils.component";
+
+export function fileSizeValidator(maxSizeInKB: number) {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    if (control.value) {
+      const file: File = control.value;
+      const fileSizeInKB = file.size / 1024; // Convert bytes to kilobytes
+      console.log('File Size:', fileSizeInKB);
+      if (fileSizeInKB > maxSizeInKB) {
+        return { 'fileSizeExceeded': true };
+      }
+    }
+    return null;
+  };
+}
+
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -88,6 +104,9 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog
   ) {
     this.partnerSignUpForm = this.formBuilder.group({
+      aadharImage: [null, [fileSizeValidator(2048)]], // Set 2 as the maximum allowed size in MB
+      aadharBackImage: [null, [fileSizeValidator(2048)]],
+      panImage: [null, [fileSizeValidator(2048)]],
       reffered_id: new FormControl("", [Validators.required]),
       name: new FormControl("", [Validators.required]),
       lname: new FormControl("", [Validators.required]),
@@ -168,6 +187,14 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
   }
 
   addPartnerData(form: FormGroup) {
+    if (
+      this.partnerSignUpForm.get('aadharImage').hasError('fileSizeExceeded') ||
+      this.partnerSignUpForm.get('aadharBackImage').hasError('fileSizeExceeded') ||
+      this.partnerSignUpForm.get('panImage').hasError('fileSizeExceeded')
+    ) {
+      // Prevent form submission if any file size exceeds the limit
+      return;
+    }
     this.spin = true;
     this.createMiningPartner.refferal_id =
       this.partnerSignUpForm.value.user_id + Math.floor(Math.random() * 100000);
@@ -345,6 +372,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
         this.aadharImage = selectedFile;
+        this.partnerSignUpForm.get('aadharImage').setValue(selectedFile);
         console.log("Selected File:", this.aadharImage, fileSelected);
       }
     }
@@ -352,6 +380,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
         this.aadharBackImage = selectedFile;
+        this.partnerSignUpForm.get('aadharBackImage').setValue(selectedFile);
         console.log("Selected File:", this.aadharBackImage, fileSelected);
       }
     }
@@ -360,6 +389,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       const selectedFile: File = event.target.files[0];
       if (selectedFile) {
         this.panImage = selectedFile;
+        this.partnerSignUpForm.get('panImage').setValue(selectedFile);
         console.log("Selected File:", this.panImage, fileSelected);
       }
     }
