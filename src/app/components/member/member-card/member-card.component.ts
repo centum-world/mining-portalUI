@@ -329,7 +329,7 @@ export class MemberCardComponent implements OnInit {
         }
       },
       error: (error) => {
-        this.toastr.error("Something Went Wrong ", "Error");
+        console.log(error, "fetch count")
       },
     });
 
