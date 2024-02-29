@@ -9,21 +9,12 @@
   <div class="sidebar-menu">
     <ul>
       <li>
-        <div class="member_history" (click)="memberViewList()">
-          <a href="javascript:void(0)"><i class="fa fa-book"></i>
-            <span>Member History</span>
+        <div class="member_history" (click)="transactionHistory()">
+          <a href="javascript:void(0)"><i class="fa fa-exchange"></i>
+            <span>Transaction</span>
           </a>
         </div>
       </li>
-
-      <li>
-        <div class="partner_history " (click)="partnerViewList()">
-          <a href="javascript:void(0)" data-toggle="modal"><i class="fa fa-book"></i>
-            <span>Partner History</span>
-          </a>
-        </div>
-      </li>
-
       <li>
         <div class="partner_history " (click)="viewList()">
           <a href="javascript:void(0)"><i class="fa fa-book"></i>
@@ -39,24 +30,28 @@
           </a>
         </div>
       </li>
+      <li>
+        <div class="member_history" (click)="memberViewList()">
+          <a href="javascript:void(0)"><i class="fa fa-book"></i>
+            <span>Member History</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="partner_history " (click)="partnerViewList()">
+          <a href="javascript:void(0)" data-toggle="modal"><i class="fa fa-book"></i>
+            <span>Partner History</span>
+          </a>
+        </div>
+      </li>
+
+      
 
 
       <li>
         <a href="javascript:void(0)" (click)="viewActivePartnerList()"><i class="fa fa-money"></i>
           <span>Total Liquidity</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="javascript:void(0)" (click)="viewPartnerWalletHistoryList()"><i class="fa fa-user"></i>
-          <span>All Partner Wallet History</span>
-        </a>
-
-      </li>
-
-      <li>
-        <a href="javascript:void(0)" (click)="uploadBond()"><i class="	fa fa-file"></i>
-          <span>Partnership Bond</span>
         </a>
       </li>
 
@@ -155,19 +150,6 @@
       <li >
         <a href="javascript:void(0)" (click)="viewActivePartnerList()"><i class="fa fa-money"></i>
           <span>Total Liquidity</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="javascript:void(0)" (click)="viewPartnerWalletHistoryList()"><i class="fa fa-user"></i>
-          <span>All Partner Wallet History</span>
-        </a>
-
-      </li>
-
-      <li>
-        <a href="javascript:void(0)" (click)="uploadBond()"><i class="	fa fa-file"></i>
-          <span>Partnership Bond</span>
         </a>
       </li>
 

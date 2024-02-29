@@ -44,55 +44,45 @@ export class PayNowComponent implements OnInit {
         const thirdChar = myString[2];
         if (thirdChar === "0") {
           if (result.data[0].p_liquidity === 1200000) {
-            this.perDayAmountDropDown = 135000;
-            this.februaryAmount = 124000;
+            this.perDayAmountDropDown = 128250;
             this.totalLiquidity = 1200000;
             this.refferalAmount = 22000;
           } else if (result.data[0].p_liquidity === 600000) {
-            this.perDayAmountDropDown = 67500;
-            this.februaryAmount = 63000;
+            this.perDayAmountDropDown = 64125;
             this.totalLiquidity = 600000;
             this.refferalAmount = 11000;
           } else if (result.data[0].p_liquidity === 300000) {
-            this.perDayAmountDropDown = 40500;
-            this.februaryAmount = 37800;
+            this.perDayAmountDropDown = 38475;
             this.totalLiquidity = 300000;
             this.refferalAmount = 5500;
           } else if (result.data[0].p_liquidity === 200000) {
-            this.perDayAmountDropDown = 27000;
-            this.februaryAmount = 25200;
+            this.perDayAmountDropDown = 25650;
             this.totalLiquidity = 200000;
             this.refferalAmount = 3700;
           } else if (result.data[0].p_liquidity === 100000) {
-            this.perDayAmountDropDown = 13500;
-            this.februaryAmount = 12600;
+            this.perDayAmountDropDown = 12825;
             this.totalLiquidity = 100000;
             this.refferalAmount = 1850;
           }
         } else {
           if (result.data[0].liquidity === 1200000) {
-            this.perDayAmountDropDown = 135000;
-            this.februaryAmount = 124000;
+            this.perDayAmountDropDown = 128250;
             this.totalLiquidity = 1200000;
             this.refferalAmount = 22000;
           } else if (result.data[0].liquidity === 600000) {
-            this.perDayAmountDropDown = 67500;
-            this.februaryAmount = 63000;
+            this.perDayAmountDropDown = 64125;
             this.totalLiquidity = 600000;
             this.refferalAmount = 11000;
           } else if (result.data[0].liquidity === 300000) {
-            this.perDayAmountDropDown = 40500;
-            this.februaryAmount = 37800;
+            this.perDayAmountDropDown = 38475;
             this.totalLiquidity = 300000;
             this.refferalAmount = 5500;
           } else if (result.data[0].liquidity === 200000) {
-            this.perDayAmountDropDown = 27000;
-            this.februaryAmount = 25200;
+            this.perDayAmountDropDown = 25650;
             this.totalLiquidity = 200000;
             this.refferalAmount = 3700;
           } else if (result.data[0].liquidity === 100000) {
-            this.perDayAmountDropDown = 13500;
-            this.februaryAmount = 12600;
+            this.perDayAmountDropDown = 12825;
             this.totalLiquidity = 100000;
             this.refferalAmount = 1850;
           }

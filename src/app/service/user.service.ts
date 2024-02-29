@@ -1598,4 +1598,10 @@ export class UserService {
     });
   }
 
+  callApiToPartnerVerify(data:any){
+    return this.http.post(this.url + "/admin/verify-multiple-rig-partner",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
