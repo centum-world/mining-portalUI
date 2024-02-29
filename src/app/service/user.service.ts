@@ -1610,4 +1610,10 @@ export class UserService {
     });
   }
 
+  callApiToFetchReferralPayoutForPartner(data:any){
+    return this.http.post(this.url + "/mining/partner/fetch-referral-payout-for-partner",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
