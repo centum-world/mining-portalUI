@@ -1,19 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material/snack-bar";
 import { UserService } from "src/app/service/user.service";
 import { MatDialogRef } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 
-
 @Component({
-  selector: "app-franchise-add-bank",
-  templateUrl: "./franchise-add-bank.component.html",
-  styleUrls: ["./franchise-add-bank.component.css"],
+  selector: "app-member-edit-bank",
+  templateUrl: "./member-edit-bank.component.html",
+  styleUrls: ["./member-edit-bank.component.css"],
 })
-export class FranchiseAddBankComponent implements OnInit {
-  displayFranchiseId = localStorage.getItem("franchiseId");
-  bankDetails = {
+export class MemberEditBankComponent implements OnInit {
+  memberBank = {
     holderName: "",
     bankName: "",
     branchName: "",
@@ -24,10 +21,8 @@ export class FranchiseAddBankComponent implements OnInit {
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar,
-    private dialogRef: MatDialogRef<FranchiseAddBankComponent>,
     private toastr: ToastrService,
-
+    private dialogRef: MatDialogRef<MemberEditBankComponent>
   ) {
     this.bankDetailsForm = this.formBuilder.group({
       holderName: ["", Validators.required],
@@ -36,18 +31,46 @@ export class FranchiseAddBankComponent implements OnInit {
       accountNumber: ["", Validators.required],
       ifscCode: ["", Validators.required],
     });
+
   }
 
-  ngOnInit() {}
+  ngOnInit() {
 
-  saveBankDetails() {
-    if (this.bankDetailsForm.valid) {
-      // Collect form data and send it to your API or service for saving
+    this.fetchBankDetails()
+  }
+
+  fetchBankDetails() {
+    let data = {
+      user_id: localStorage.getItem("userdetail"),
+    };
+  
+    this.userService.fetchMemberBankDetails(data).subscribe({
+      next: (res: any) => {
+        this.memberBank.holderName = res.data[0].holder_name;
+  
+        console.log(this.memberBank, "bank details");
+  
+        this.bankDetailsForm.patchValue({
+          holderName: res.data[0].holder_name,
+          bankName: res.data[0].bank_name,
+          branchName: res.data[0].branch_name,
+          accountNumber: res.data[0].account_no,
+          ifscCode: res.data[0].ifsc_code,
+        });
+      },
+      error: (error) => {
+        console.log(error.error.message);
+      },
+    });
+  }
+  
+
+
+  editMemberBank() {
       const formData = this.bankDetailsForm.value;
 
-      console.log("Form data submitted:", formData);
       let data = {
-        user_id: localStorage.getItem("franchiseId"),
+        user_id: localStorage.getItem("userdetail"),
         holder_name: this.bankDetailsForm.value.holderName,
         account_no: this.bankDetailsForm.value.accountNumber,
         ifsc_code: this.bankDetailsForm.value.ifscCode,
@@ -55,20 +78,23 @@ export class FranchiseAddBankComponent implements OnInit {
         bank_name: this.bankDetailsForm.value.bankName,
       };
 
-      this.userService.addFranchiseBankDetails(data).subscribe({
-        next: (res) => {
+      console.log(data);
+
+      this.userService.editMemberBankDetails(data).subscribe({
+        next: (res: any) => {
+          console.log("API Response:", res);
+
           this.bankDetailsForm.reset();
 
-          this.toastr.success("Bank details added successfully!", "Success");
+          // Show a success toast using Toastr
+          this.toastr.success("Bank details updated successfully!", "Success");
+
           this.dialogRef.close();
         },
         error: (error) => {
           this.toastr.error(error.error.message, 'Error');
-          
         },
       });
-    } else {
-      // Form is invalid, display error messages or take appropriate action
-    }
+    
   }
 }

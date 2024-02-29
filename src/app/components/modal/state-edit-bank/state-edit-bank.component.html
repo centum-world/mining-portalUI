@@ -1,7 +1,7 @@
-<h1 class="custom-heading" mat-dialog-title>Add Bank Details</h1>
+<h1 class="custom-heading" mat-dialog-title>Edit And View Bank Details</h1>
 <div mat-dialog-content>
     <!-- Bank Details Form -->
-    <form [formGroup]="bankDetailsForm" (ngSubmit)="saveBankDetails()">
+    <form [formGroup]="bankDetailsForm" (ngSubmit)="editMemberBank(bankDetailsForm)">
         <div class="row">
             <!-- Account holder Name -->
             <mat-form-field class="col-md-6">

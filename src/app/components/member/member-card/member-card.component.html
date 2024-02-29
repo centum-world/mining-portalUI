@@ -28,20 +28,18 @@
   <main>
 
     <div *ngIf="!profileDetails" class="cards">
-      <!-- <div class="card-single">
+      <div class="card-single">
         <div>
-          <h6>Profile</h6>
-          <span>See your profile!</span>
-
+          <span>Total RIG Partner: </span>
+          <span>{{ totalPartnerCount }}</span
+          ><br />
+          <span>Today's RIG PARTNER: </span>
+          <span>{{ todayPartnerCount }}</span>
         </div>
-
-        <div class="icon" (click)="memberDetails()">
-          <span>View</span>
+        <div class="icon" (click)="viewMemberHistoryList()">
+          <span>view</span>
         </div>
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#addBankDetail">
-          <i class="fa fa-bank"></i>
-        </a>
-      </div> -->
+      </div>
       <div class="card-single">
         <div>
           <h6 style="display: flex;">Promotion
@@ -66,7 +64,8 @@
         </button>
         <mat-menu #menuBank="matMenu">
           <button mat-menu-item (click)="memberAddBankDialog()">Add Bank</button>
-          <button mat-menu-item (click)="memberViewBankDetailsDialog()">View Bank Details</button>
+          <button mat-menu-item (click)="memberEditBankDialog()">Edit And View Bank</button>
+          <!-- <button mat-menu-item (click)="memberViewBankDetailsDialog()">View Bank Details</button> -->
         </mat-menu>
         <mat-menu #menuProfile="matMenu">
 
@@ -102,48 +101,6 @@
             <span>View</span>
           </div>
         </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Wallet</span>
-        </div>
-        <div style="font-weight: bold; font-size:medium; color: yellow;">{{(memberTotalWalletOfEachMonth || 0) |
-          currency: 'INR'}}
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal Request</h6>
-
-        </div>
-
-        <div (click)="viewWithdrawalRequestList()">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Withdrawal success</h6>
-        </div>
-        <div data-toggle="modal" (click)="viewWithdrawalSuccessList()">
-          <div class="icon">
-            <span>View</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-single">
-        <div>
-          <h6>Transaction</h6>
-          <span>Total Withdrawal</span>
-        </div>
-        <div style="font-size:medium; font-weight: bold; color: yellow;">{{paidAmount | currency:'INR'}}</div>
       </div>
 
     </div>
@@ -213,7 +170,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal"
-          (click)="addMemberBankDetails()">Save</button>
+          (click)="addMemberBankDetails()">SavE</button>
       </div>
     </div>
   </div>
