@@ -124,13 +124,14 @@
                   id="phoneNumber"
                   placeholder="Phone"
                   type="tel"
+                  maxlength="11"
                 />
                 <mat-icon matSuffix>phone</mat-icon>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
                 <mat-label>Aadhaar number</mat-label>
-                <input matInput formControlName="aadhar" />
+                <input matInput formControlName="aadhar" maxlength="12"/>
                 <mat-icon matSuffix>credit_card</mat-icon>
               </mat-form-field>
 
@@ -194,7 +195,7 @@
 
               <mat-form-field appearance="outline">
                 <mat-label>Nominee Aadhaar</mat-label>
-                <input matInput formControlName="nominee_aadhar" />
+                <input matInput formControlName="nominee_aadhar"  maxlength="12" />
                 <mat-icon matSuffix>credit_card</mat-icon>
               </mat-form-field>
 
@@ -206,6 +207,7 @@
                   id="phoneNumber"
                   placeholder="Nominee phone"
                   type="tel"
+                  maxlength="11"
                 />
                 <mat-icon matSuffix>phone</mat-icon>
               </mat-form-field>
