@@ -127,7 +127,7 @@ export class FranchiseCardComponent implements OnInit {
     
     let  referralId= this.displayFranchiseReferralId
   
-    this.userService.fetchTotalCountMemberPartner(referralId).subscribe({
+    this.userService.fetchedTotalCountMemberPartner(referralId).subscribe({
       next: (result: any) => {
         // Process the result as needed
         console.log(result);
@@ -139,7 +139,8 @@ export class FranchiseCardComponent implements OnInit {
       
       },
       error: error => {
-        this.toastr.error('Failed to fetch referral counts in franchise', 'Error');
+        // this.toastr.error('Failed to fetch referral counts in franchise', 'Error');
+        console.log(error)
       }
     });
   }
