@@ -234,6 +234,9 @@ import { TradingChartComponent } from './components/common/chart/trading-chart/t
 import { CradentilsComponent } from './components/common/cradentils/cradentils.component';
 import { TransactionHistoryComponent } from './components/admin/transaction-history/transaction-history.component';
 import { TodayTransactionHistoryComponent } from './components/admin/today-transaction-history/today-transaction-history.component';
+import { MemberEditBankComponent } from './components/member/modal/member-edit-bank/member-edit-bank.component';
+import { FranchiseEditBankComponent } from './components/modal/franchise-edit-bank/franchise-edit-bank.component';
+import { StateEditBankComponent } from './components/modal/state-edit-bank/state-edit-bank.component';
 
 
 
@@ -442,6 +445,9 @@ import { TodayTransactionHistoryComponent } from './components/admin/today-trans
     CradentilsComponent,
     TransactionHistoryComponent,
     TodayTransactionHistoryComponent,
+    MemberEditBankComponent,
+    FranchiseEditBankComponent,
+    StateEditBankComponent,
   ],
   imports: [
     BrowserModule,
@@ -553,7 +559,11 @@ import { TodayTransactionHistoryComponent } from './components/admin/today-trans
     MemberSummaryAmountComponent,
     RigIdComponent,
     RigAccountComponent,
-    CradentilsComponent
+    CradentilsComponent,
+    MemberEditBankComponent,
+    FranchiseEditBankComponent,
+    StateEditBankComponent
+    
   ],
   providers: [
     {

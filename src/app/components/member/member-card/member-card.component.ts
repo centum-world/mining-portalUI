@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { UserService } from "src/app/service/user.service";
-import { ToastrService } from "ngx-toastr";
-import { DatePipe } from "@angular/common";
-import { Router } from "@angular/router";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { MemberProfileDetailsComponent } from "../modal/member-profile-details/member-profile-details.component";
-import { MemberAddBankComponent } from "../modal/member-add-bank/member-add-bank.component";
-import { MemberViewBankComponent } from "../modal/member-view-bank/member-view-bank.component";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MemberProfileDetailsComponent } from '../modal/member-profile-details/member-profile-details.component';
+import { MemberAddBankComponent } from '../modal/member-add-bank/member-add-bank.component';
+import { MemberViewBankComponent } from '../modal/member-view-bank/member-view-bank.component';
+import { MemberEditBankComponent } from '../modal/member-edit-bank/member-edit-bank.component';
 @Component({
   selector: "app-member-card",
   templateUrl: "./member-card.component.html",
@@ -22,6 +23,8 @@ export class MemberCardComponent implements OnInit {
   memberWithdrawalHistoy: any;
   memberTotalWithdrawalAmount: any;
   memberRequest: any;
+  totalPartnerCount:number;
+  todayPartnerCount: number;
 
   bankDetails = {
     holder_name: "",
@@ -108,6 +111,7 @@ export class MemberCardComponent implements OnInit {
     this.callApiMemberTotalWithdrawal();
     this.callApiMemberWithdrawalRequest();
     this.memberProfileDataPopup();
+    this.fetchTotalCountPartner();
   }
 
   callApiTofetchTodaysAndTotal(){
@@ -154,6 +158,21 @@ export class MemberCardComponent implements OnInit {
     });
   }
 
+  fetchTotalCountPartner() {
+    const referralId = localStorage.getItem('mrefferid')
+    this.userService.fetchTotalCountPartner(referralId).subscribe({
+      next: (result: any) => {
+        // Process the result as needed
+        console.log(result);
+        this.totalPartnerCount = result.totalPartnerCount
+        this.todayPartnerCount = result.todayPartnerCount
+      },
+      error: error => {
+        console.error('Error fetching referral counts:', error);
+      }
+    });
+  }
+
   memberDetails() {
     this.profileDetails = true;
   }
@@ -174,10 +193,12 @@ export class MemberCardComponent implements OnInit {
           this.toastr.success("Bank Added Successfully", "Success");
         }
       },
-      error: (error) => {
-        this.toastr.error("Something Went Wrong", "Error");
-      },
-    });
+      error: error => {
+        console.log(error.error)
+        this.toastr.error(error.error.message, 'Error');
+      }
+
+    })
   }
 
   memberViewBankDetailsDialog() {
@@ -188,6 +209,18 @@ export class MemberCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
+
+  memberEditBankDialog(){
+    let config: MatDialogConfig = {
+      panelClass: 'memberEditBankDetailsDialogClass',
+    };
+    const dialogRef = this.dialog.open(MemberEditBankComponent,config)
+    
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
+  }
+
 
   callApiMemberWalletDepositeDaily() {
     let data = {

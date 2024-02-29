@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { UserService } from "src/app/service/user.service";
 import { MatDialogRef } from "@angular/material/dialog";
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: "app-member-add-bank",
@@ -22,6 +24,7 @@ export class MemberAddBankComponent implements OnInit {
     private userService: UserService,
     private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
+    private toastr: ToastrService,
     private dialogRef: MatDialogRef<MemberAddBankComponent>
   ) {
     this.bankDetailsForm = this.formBuilder.group({
@@ -51,17 +54,18 @@ export class MemberAddBankComponent implements OnInit {
       this.userService.addMemberBankDetails(data).subscribe({
         next: (res) => {
           this.bankDetailsForm.reset();
-          this._snackBar.open("Bank details saved successfully!", "Close", {
-            duration: 3000,
-            horizontalPosition: "center",
-            verticalPosition: "top",
-          });
+      
+          // Show a success toast using Toastr
+          this.toastr.success('Bank details saved successfully!', 'Success');
+      
           this.dialogRef.close();
         },
         error: (error) => {
           console.log(error.error.message);
+          this.toastr.error(error.error.message, 'Error');
         },
       });
+      
     } else {
     }
   }

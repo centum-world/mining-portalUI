@@ -27,11 +27,6 @@ export class MemberViewBankComponent implements OnInit {
     this.userService.fetchMemberBankDetails(data).subscribe({
       next: (res: any) => {
         this.bankDetails = res.data;
-        for (const entry of res.data) {
-          if (entry.isPrimary === 1) {
-            this.selectedBank.bankName = entry.bank_name;
-          }
-        }
       },
       error: (error) => {
         console.log(error.error.message);

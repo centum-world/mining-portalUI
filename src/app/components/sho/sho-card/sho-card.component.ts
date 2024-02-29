@@ -5,6 +5,7 @@ import { UserService } from 'src/app/service/user.service';
 import { StateViewBankDetailsComponent } from '../../modal/state-view-bank-details/state-view-bank-details.component';
 import { Router } from '@angular/router'
 import { ToastrService } from 'ngx-toastr';
+import { StateEditBankComponent } from '../../modal/state-edit-bank/state-edit-bank.component';
 
 @Component({
   selector: 'app-sho-card',
@@ -48,6 +49,20 @@ export class ShoCardComponent implements OnInit {
       console.log('The dialog was closed');
       // Do something with the result if needed
     });
+  }
+
+  stateEditBankDialog(){
+
+    let config:MatDialogConfig = {
+      panelClass:'bmmEditBankDialogClass'
+   };
+   const dialogRef = this.dialog.open(StateEditBankComponent,config);
+
+   dialogRef.afterClosed().subscribe(result => {
+     console.log('The dialog was closed');
+     // Do something with the result if needed
+   });
+
   }
 
   stateViewBankDetailsDialog() {
