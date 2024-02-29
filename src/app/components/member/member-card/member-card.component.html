@@ -42,6 +42,27 @@
           <i class="fa fa-bank"></i>
         </a>
       </div> -->
+
+      <div class="card-single">
+        <div>
+          <h5>Transaction</h5>
+          <div class="" style="display: flex; justify-content: space-between;" >
+            <span>Today's Payout</span>&nbsp;&nbsp;
+            <span style="color: yellow;" >{{totalAmountToday | currency:'INR'}}</span>
+          </div>
+          <div class="">
+            <span>Month Payout</span>&nbsp;&nbsp;
+            <span style="color: yellow;">{{totalAmountCurrentMonth | currency:'INR'}}</span>
+          </div>
+          <div class="">
+            <span>Total Payout</span>&nbsp;&nbsp;
+            <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span>
+          </div>
+
+        </div>
+
+      </div>
+
       <div class="card-single">
         <div>
           <h6 style="display: flex;">Promotion
@@ -52,6 +73,20 @@
           <span>See your upgrade or downgrade</span>
         </div>
         <div style="color:orange;"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <h6>User ID :- {{displayUserId}}</h6>
+          <span>Referral ID :- &nbsp;{{displayMemberRefferalId}}</span>
+          <button class="copy-icon" (click)="copyToClipboard()">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+          <span class="copy-icon" style="margin-left: 1rem;">
+            <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+          </span>
+
+        </div>
       </div>
 
       <div class="card-single">
@@ -78,21 +113,6 @@
 
       <div class="card-single">
         <div>
-          <h6>User ID :- {{displayUserId}}</h6>
-          <span>Referral ID :- &nbsp;{{displayMemberRefferalId}}</span>
-          <button class="copy-icon" (click)="copyToClipboard()">
-            <mat-icon>content_copy</mat-icon>
-          </button>
-          <span class="copy-icon" style="margin-left: 1rem;">
-            <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
-          </span>
-
-        </div>
-      </div>
-
-
-      <div class="card-single">
-        <div>
           <h6>Partner Team</h6>
           <span></span>
         </div>
@@ -104,7 +124,7 @@
         </div>
       </div>
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Transaction</h6>
           <span>Total Wallet</span>
@@ -112,9 +132,9 @@
         <div style="font-weight: bold; font-size:medium; color: yellow;">{{(memberTotalWalletOfEachMonth || 0) |
           currency: 'INR'}}
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Withdrawal Request</h6>
 
@@ -125,9 +145,9 @@
             <span>View</span>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Withdrawal success</h6>
         </div>
@@ -136,15 +156,15 @@
             <span>View</span>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Transaction</h6>
           <span>Total Withdrawal</span>
         </div>
         <div style="font-size:medium; font-weight: bold; color: yellow;">{{paidAmount | currency:'INR'}}</div>
-      </div>
+      </div> -->
 
     </div>
 

@@ -4,58 +4,58 @@
   <div class="sidebar-brand">
     <h3><a class="fa fa-qrcode" href="javascript:void(0)" (click)="dashboard()"></a></h3>
     <h2>
-      <span class="fa fa-qrcode"></span
-      ><a style="color: #fff" href="javascript:void(0)" (click)="dashboard()">Dashboard</a>
+      <span class="fa fa-qrcode"></span><a style="color: #fff" href="javascript:void(0)"
+        (click)="dashboard()">Dashboard</a>
     </h2>
   </div>
   <div class="sidebar-menu">
     <ul>
       <li>
         <a href="javascript:void(0)" [matMenuTriggerFor]="menuProfile"><i class="fa fa-user"></i>
-          <span >My Profile</span>
+          <span>My Profile</span>
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="javascript:void(0)"><i class="fa fa-money"></i>
           <span (click)="withdrawal()">Withdrawal</span>
         </a>
-      </li>
+      </li> -->
 
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-users" ></i>
-          <span (click)="myTeam()" >My Team</span>
+        <a href="javascript:void(0)"><i class="fa fa-users"></i>
+          <span (click)="myTeam()">My Team</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-list" ></i>
-          <span (click)="partnerList()" >Partner list</span>
+        <a href="javascript:void(0)"><i class="fa fa-list"></i>
+          <span (click)="partnerList()">Partner list</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)"><i class="fa fa-share"></i>
-          <span (click)="referralPayout()" >Referral payout</span>
+          <span (click)="referralPayout()">Referral payout</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0)"><i class="fa fa-gift"></i>
-          <span (click)="promotion()" >Promotion</span>
+          <span (click)="promotion()">Promotion</span>
         </a>
       </li>
-      
+
       <li>
         <a href="javascript:void(0)"><i class="fa fa-sign-out"></i>
           <span (click)="logOut()">Log Out</span>
         </a>
       </li>
 
-    
+
     </ul>
     <!-- <mat-menu #menuBank="matMenu">
       <button mat-menu-item (click)="memberWithdrawalRequest()" >Request</button>
       <button mat-menu-item  (click)="memberWithdrawalSuccess()">Approved</button>
     </mat-menu> -->
-    
+
   </div>
 </div>
 
@@ -64,7 +64,7 @@
     <h2>
       <label for="nav-toggle">
         <div class="d-flex justify-content-between" id="clogo">
-          <img  src="../../../../assets/logo/Clogo (2).png" alt="CENTUM WORLD">
+          <img src="../../../../assets/logo/Clogo (2).png" alt="CENTUM WORLD">
         </div>
       </label>
     </h2>
@@ -112,24 +112,26 @@
       </li>
 
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-users" ></i>
-          <span (click)="myTeam()" >My Team</span>
+        <a href="javascript:void(0)"><i class="fa fa-users"></i>
+          <span (click)="myTeam()">My Team</span>
         </a>
       </li>
 
       <li>
-        <a href="javascript:void(0)"><i class="fa fa-users" ></i>
-          <span (click)="partnerList()" >Partner list</span>
+        <a href="javascript:void(0)"><i class="fa fa-users"></i>
+          <span (click)="partnerList()">Partner list</span>
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="javascript:void(0)"><i class="fa fa-money"></i>
           <span (click)="withdrawal()">Withdrawal</span>
         </a>
-      </li><li>
+      </li> -->
+
+      <li>
         <a href="javascript:void(0)"><i class="fa fa-share"></i>
-          <span (click)="referralPayout()" >Referral payout</span>
+          <span (click)="referralPayout()">Referral payout</span>
         </a>
       </li>
 
@@ -137,7 +139,7 @@
       <li>
         <a href="javascript:void(0)">
           <i class="fa fa-sign-out"></i>
-          <span  (click)="logOut()">Log Out</span>
+          <span (click)="logOut()">Log Out</span>
         </a>
       </li>
     </ul>

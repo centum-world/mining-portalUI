@@ -98,6 +98,7 @@ import { PrivacyComponent } from "./components/common/privacy/privacy.component"
 import { RigPartnerComponent } from "./components/admin/rig-partner/rig-partner.component";
 import { PartnerPayoutComponent } from "./components/admin/partner-payout/partner-payout.component";
 import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.component";
+import { TodayTransactionHistoryComponent } from "./components/member/today-transaction-history/today-transaction-history.component";
 
 
 
@@ -183,6 +184,7 @@ const routes: Routes = [
       {path:"partner-list", component:MyPartnerlistComponent},
       {path:"promotion", component:MemberPromotionComponent},
       {path:"referral-payout", component:MemberReferrralPayoutComponent},
+      {path:"todays-transaction",component:TodayTransactionHistoryComponent},
       { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
     ]
   },
