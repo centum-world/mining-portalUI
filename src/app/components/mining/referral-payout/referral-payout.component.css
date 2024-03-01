@@ -1,109 +1,103 @@
-.referal-header{
-    margin-left: 333px;
-    margin-top: -45px;
+.referral-payout {
+  display: flex;
+  justify-content: start;
+  margin-left: 330px;
+  margin-top:-30px;
 }
-.referal-div{
-    margin-left: 333px;
+.arow-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top:-50px;
 }
-
-.bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
+.arow-title p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+  font-family:'Roboto',sans-serif;
+}
+.account-section {
+  margin-left: 330px;
+}
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  margin-left:30px;
 }
 .example-card {
-    margin: 10px;
-    width: 350px;
+  margin-bottom: 16px;
+  width:300px;
 }
-.payment-card{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 50%;
-}
-  
-.bank-details{
+
+.card-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
 }
-.bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 }
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
+}
+
+#id{
+    margin-top: 12px;
+}
+
 .example-header-image{
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
-.partner-history-card{
-    width: 70%;
-    margin-top: 5%;
-}
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 5px;
-    margin: 10px;
-    box-sizing: border-box;
-    position: relative; /* Position relative for pseudo-element positioning */
-  }
-  
-  /* Style for the divider between columns */
-  .column:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -5px; /* Adjust this value to control the width of the divider */
-    height: 100%;
-    width: 1px; /* Width of the divider */
-    background-color: #ccc; /* Divider color */
-  }
 
-  .refferal-div{
-    margin-left: 330px;
-  }
+
   
-  @media (max-width: 768px) {
-    .referal-header{
-        margin-left: 0;
+ 
+@media screen and (min-width: 768px) and (max-width:1200px){
+  .arow-title{
+    margin-top:0px;
+  }
+}
+
+
+@media (max-width: 767px) {
+    .example-card {
+        /* width: calc(50% - 16px);  */
+      }
+    .bakk-div {
+        flex-direction: column;
+        align-items: center;
+    }
+    .referral-payout{
         margin-top: 100px;
     }
-    .referal-div{
-        margin-left: 0px;
-    }
-    .container {
-      flex-direction: column;
-    }
-    .payment-card{
-        width: 90%;
-    }
-    .partner-history-card{
-        width: 98%;
-    }
-    .account-header,.refferal-div{
+    .account-section, .referral-payout{
         margin-left: 0;
     }
-    .account-content{
-        margin-left: 0;
-    }
-  }
-  @media (max-width: 576px) {
-    .transaction {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     
-      .mat-form-field {
-        width: 100%;
-        margin-bottom: 10px; 
-      }
-      .example-card{
-        width: 400px;
-      }
+    .withdrwal-button {
+        width: 113px;
+        font-size: 12px;
+    }
+    .sho-withdrawal-header p{
+        font-size: 15px;
+    }
+    .arow-title{
+      margin-top:-30px;
+    }
+    .arow-title p{
+      font-size:14px;
+    }
+}
+@media (max-width: 480px) {
+  .example-card {
+    width: 100%; 
   }
+}
