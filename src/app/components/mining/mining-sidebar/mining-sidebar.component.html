@@ -24,9 +24,12 @@
             <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="addBankDetails()">Add bank</button>
-              <button mat-menu-item (click)="viewBankDetails()">
-                View bank
-              </button>
+              <button mat-menu-item (click)="editAndViewBankDetails()">
+                Edit And View bank
+               </button>
+              <!-- <button mat-menu-item (click)="viewBankDetails()">
+               Edit And View bank
+              </button> -->
             </mat-menu>
           </a>
         </div>
@@ -126,9 +129,12 @@
             <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="addBankDetails()">Add bank</button>
-              <button mat-menu-item (click)="viewBankDetails()">
+              <button mat-menu-item (click)="editAndViewBankDetails()">
+                Edit And View bank
+               </button>
+              <!-- <button mat-menu-item (click)="viewBankDetails()">
                 View bank
-              </button>
+              </button> -->
             </mat-menu>
           </a>
         </div>

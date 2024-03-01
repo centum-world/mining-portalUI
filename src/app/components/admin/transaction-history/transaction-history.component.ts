@@ -1,6 +1,7 @@
 // transaction-history.component.ts
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-transaction-history",
@@ -15,7 +16,6 @@ export class TransactionHistoryComponent implements OnInit {
     "liquidity",
     "date",
   ];
-  type:string="partner";
   dataSource: any[] = [];
   selectedYear: number;
   selectedMonth: string;
@@ -37,7 +37,7 @@ export class TransactionHistoryComponent implements OnInit {
 
   isFetchingData: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router : Router) {}
 
   ngOnInit(): void {
     this.fetchTransactions();
@@ -106,12 +106,7 @@ export class TransactionHistoryComponent implements OnInit {
     }
   }
 
-  payoutType(){
-    if(this.type === 'partner'){
-      this.fetchTransactions();
-    }else{
-      this.dataSource = [];
-    }
+  gotohome(){
+    this.router.navigate(["/dashboard/home"]);
   }
-
 }

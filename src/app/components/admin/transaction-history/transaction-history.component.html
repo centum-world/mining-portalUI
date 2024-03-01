@@ -1,11 +1,7 @@
 <div class="mat-elevation-z8">
   <div class="main-div">
     <div class="searchby">
-      <mat-icon style="cursor: pointer">arrow_back</mat-icon>
-      <select [(ngModel)]="type" (click)="payoutType()">
-        <option value="partner">Partner Payout</option>
-        <option value="referral">Referral Payout</option>
-      </select>
+      <mat-icon style="cursor: pointer" (click)="gotohome()">arrow_back</mat-icon>
       <input
         placeholder="Search by userid..."
         (input)="onInputChange($event)"
@@ -32,7 +28,6 @@
     </form>
   </div>
 
-  <div *ngIf="type === 'partner'">
     <div *ngIf="showTable()" class="table-container">
       <table
         mat-table
@@ -73,8 +68,4 @@
       </table>
     </div>
     <div *ngIf="!showTable()">No transactions found.</div>
-  </div>
-  <div *ngIf="type === 'referral'">
-    hiii
-  </div>
 </div>

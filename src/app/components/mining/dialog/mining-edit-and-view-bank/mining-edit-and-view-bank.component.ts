@@ -6,12 +6,13 @@ import { MatDialogRef } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-franchise-edit-bank',
-  templateUrl: './franchise-edit-bank.component.html',
-  styleUrls: ['./franchise-edit-bank.component.css']
+  selector: 'app-mining-edit-and-view-bank',
+  templateUrl: './mining-edit-and-view-bank.component.html',
+  styleUrls: ['./mining-edit-and-view-bank.component.css']
 })
 
-export class FranchiseEditBankComponent implements OnInit {
+
+export class MiningEditAndViewBankComponent implements OnInit {
   memberBank = {
     holderName: "",
     bankName: "",
@@ -24,7 +25,7 @@ export class FranchiseEditBankComponent implements OnInit {
     private userService: UserService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private dialogRef: MatDialogRef<FranchiseEditBankComponent>
+    private dialogRef: MatDialogRef<MiningEditAndViewBankComponent>
   ) {
     this.bankDetailsForm = this.formBuilder.group({
       holderName: ["", Validators.required],
@@ -43,17 +44,14 @@ export class FranchiseEditBankComponent implements OnInit {
 
   fetchBankDetails() {
     let data = {
-      user_id: localStorage.getItem("franchiseId"),
+      user_id: localStorage.getItem("partnerdetails"),
     };
   
     this.userService.fetchMemberBankDetails(data).subscribe({
       next: (res: any) => {
-        // this.memberBank.holderName = res.data[0].holder_name;
-        // this.memberBank.holderName = res.data[0].holder_name;
-        this.memberBank = res.data[0]
+        this.memberBank.holderName = res.data[0].holder_name;
   
         console.log(this.memberBank, "bank details");
-  
   
         this.bankDetailsForm.patchValue({
           holderName: res.data[0].holder_name,
@@ -71,11 +69,11 @@ export class FranchiseEditBankComponent implements OnInit {
   
 
 
-  editMemberBank(item:any) {
+  editPartnerBank() {
       const formData = this.bankDetailsForm.value;
 
       let data = {
-        user_id: localStorage.getItem("franchiseId"),
+        user_id: localStorage.getItem("partnerdetails"),
         holder_name: this.bankDetailsForm.value.holderName,
         account_no: this.bankDetailsForm.value.accountNumber,
         ifsc_code: this.bankDetailsForm.value.ifscCode,
@@ -103,3 +101,4 @@ export class FranchiseEditBankComponent implements OnInit {
     
   }
 }
+

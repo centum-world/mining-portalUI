@@ -3,10 +3,32 @@
 
     <div class="card-single">
       <div>
+        <h5>Transaction</h5>
+        <span>Total Payout:     </span>
+        <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span><br>
+        <span>Today's Payout:  </span>
+        <span style="color: yellow;">{{totalPayoutToday | currency:'INR'}}</span> <br>
+        <span>Month Payout:</span>
+        <span style="color: yellow;">{{totalPayoutCurrentMonth | currency:'INR'}}</span>
+      </div>
+      <div data-toggle="modal" (click)="viewReferralPayout()">
+        <div class="icon">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
         <span>Total Referral:     </span>
-        <span>{{totalMemberReferralCount }}</span><br>
+        <span style="color: yellow;">{{totalMemberReferralCount }}</span><br>
         <span>Today's Referral:  </span>
-        <span>{{todayMemberReferralCount }}</span> 
+        <span style="color: yellow;">{{todayMemberReferralCount }}</span> 
+      </div>
+      <div data-toggle="modal" (click)="viewReferralList()">
+        <div class="icon">
+          <span>View</span>
+        </div>
       </div>
     </div>
 
@@ -14,9 +36,14 @@
     <div class="card-single">
       <div>
         <span>Total RIG Partner:     </span>
-        <span>{{totalPartnerCount}}</span><br>
+        <span style="color: yellow;">{{totalPartnerCount}}</span><br>
         <span>Today's RIG Partner:  </span>
-        <span>{{todayPartnerCount }}</span> 
+        <span style="color: yellow;">{{todayPartnerCount }}</span> 
+      </div>
+      <div data-toggle="modal" (click)="viewPartnerList()">
+        <div class="icon">
+          <span>View</span>
+        </div>
       </div>
     </div>
 
@@ -41,7 +68,7 @@
         </h6>
         <span>See your upgrade or downgrade</span>
       </div>
-      <div style="color:gray"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
+      <div style="color:orange"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
     </div>
     
     <div class="card-single">
@@ -95,7 +122,7 @@
       </div>
     </div>
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>Transaction</h6>
         <span>Total wallet</span>
@@ -104,9 +131,9 @@
         <b style="color: yellow;">{{ totalWalletOfFranchise | currency : "INR" }}</b>
       </div>
       <div style="font-size: medium; font-weight: bold"></div>
-    </div>
+    </div> -->
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>Partner Team</h6>
         <span></span>
@@ -116,10 +143,10 @@
           <span>View</span>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>Transaction</h6>
         <span>Total Withdrawal</span>
@@ -128,7 +155,8 @@
         <b style="color: yellow;">{{ totalWithdrawalOfFranchise | currency : "INR" }}</b>
       </div>
       <div style="font-size: medium; font-weight: bold"></div>
-    </div>
+    </div> -->
+
   </div>
 </main>
 

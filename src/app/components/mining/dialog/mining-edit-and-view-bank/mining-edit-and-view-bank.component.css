@@ -1,0 +1,13 @@
+.mat-dialog-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #5476f2;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 16px;
+    color: #fff;
+    margin-top:-24px
+}
+.mat-dialog-actions {
+    margin-bottom: 0;
+}

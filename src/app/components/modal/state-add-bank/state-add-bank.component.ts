@@ -41,7 +41,7 @@ export class StateAddBankComponent implements OnInit {
 
   ngOnInit() {}
 
-  saveBankDetails() {
+  saveBankDetails(item:any) {
     if (this.bankDetailsForm.valid) {
       // Collect form data and send it to your API or service for saving
       const formData = this.bankDetailsForm.value;
