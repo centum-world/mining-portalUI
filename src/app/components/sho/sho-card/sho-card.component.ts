@@ -39,8 +39,11 @@ export class ShoCardComponent implements OnInit {
     this.callApiToFetchStateTotalWithdrawal()
     this.callApiToFetchStateTotalWallet()
     this.fetchTotalcountFranchiseMemberPartner()
-    this.callApiTofetchTodaysAndTotal();
-  }
+    this.callApiTofetchTodaysAndTotal()
+  };
+
+
+ 
 
   stateAddBankDialog(){
 
@@ -216,9 +219,9 @@ export class ShoCardComponent implements OnInit {
   viewWithdrawalSuccessList(){
     this.router.navigate(['/statedashboard/withdrawal-list'])
   }
-  partnerMyTeam(){
-    this.router.navigate(['/statedashboard/partner-team'])
-  }
+  // partnerMyTeam(){
+  //   this.router.navigate(['/statedashboard/partner-list'])
+  // }
 
   udgrade(){
     this.router.navigate(['/statedashboard/promotion'])
