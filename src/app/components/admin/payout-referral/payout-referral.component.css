@@ -1,31 +1,33 @@
-.main-div{
-  display:flex;
-  margin-left:330px;
-  justify-content:space-between;
-  align-items:center;
+/* transaction-history.component.css */
+
+.main-div {
+  display: flex;
+  margin-left: 330px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 form {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left:200px;
+  margin-left: 200px;
 }
 
-.header-div{
-  margin-left:330px;
-  padding-left:35px;
+.header-div {
+  margin-left: 330px;
+  padding-left: 45px;
 }
-.header-div p{
-  font-size:16px;
+.header-div p {
+  font-size: 16px;
   font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
-
 
 .table-container {
+  margin-left: 330px;
   max-height: 500px; /* Set your desired height */
   overflow-y: auto;
-  margin-left:330px;
 }
 
 select,
@@ -47,14 +49,9 @@ button:hover {
   background-color: #0056b3;
 }
 
-.input-field{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
 .mat-table-custom {
-  width: fit-content; /* Adjust the width based on content */
-  margin: auto; /* Center the table */
+  width: fit-content;
+  margin: auto;
 }
 
 /* Apply styles to the mat-table */
@@ -87,47 +84,54 @@ tr.mat-row:hover {
   background-color: #e0e0e0; /* Hover background color */
 }
 
-.searchby{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.searchby {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.searchby input, select{
-  border-radius:10px;
-  border:1px solid #c9c9c9;
-  padding:10px;
+.searchby input,
+select {
+  border-radius: 10px;
+  border: 1px solid #c9c9c9;
+  padding: 10px;
+}
+
+.input-field{
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-/* Responsive styles for small screens */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .mat-elevation-z8 {
-    overflow-x: auto; /* Enable horizontal scrolling on small screens */
+    overflow-x: auto;
   }
 
-  .main-div{
+  .main-div {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
-    margin:10px 0 0 0;
+    flex-direction: column;
+    margin-left: 0;
   }
-  
+
   form {
     margin-left: 0;
     flex-direction: column;
   }
 
-  .table-container{
-    margin-left:0;
+  .table-container {
+    margin-left: 0;
   }
-
-  .header-div{
-    margin-left:0;
-    padding:10px;
+  .header-div {
+    margin-left: 0;
+    padding-left:5px;
   }
-
+ 
+  .searchby input{
+    width:177px;
+  }
   .input-field{
     padding: 0 0 0 10px;
   }
@@ -137,7 +141,6 @@ tr.mat-row:hover {
     margin-top: 15px;
   }
   button{
-    width:98%;
-   }
-
+   width:98%;
+  }
 }

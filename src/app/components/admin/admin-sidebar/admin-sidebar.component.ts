@@ -61,6 +61,11 @@ export class AdminSidebarComponent implements OnInit {
     this.isVisible = false;
   }
 
+  referralPayout(){
+    this.router.navigate(['/dashboard/referral-payout'])
+    this.isVisible = false;
+  }
+
   gotoDahashboard(){
     this.router.navigate(['/dashboard'])
   }
@@ -72,7 +77,7 @@ export class AdminSidebarComponent implements OnInit {
     totalwithdrawal:""
   }
   accountsPaidWithdrawalDialog(){
-
+    this.isVisible = false;
     this.userService.acountTotalPayout().subscribe({
       next: (response: any) => {
         if (response) {
@@ -83,7 +88,8 @@ export class AdminSidebarComponent implements OnInit {
           this.accountsPaidWithdrawal.totalwithdrawal = response.totalWithdrawal
           
           let config: MatDialogConfig = {
-            panelClass:'accountsPaidWithdrawalDialogClass',data:this.accountsPaidWithdrawal
+            panelClass:'accountsPaidWithdrawalDialogClass',
+            data:this.accountsPaidWithdrawal
          };
          const dialogRef = this.dialog.open(AccountsPaidWithdrawalComponent,config);
      

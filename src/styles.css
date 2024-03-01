@@ -107,7 +107,7 @@ body {
 .parnershipBond .mat-dialog-container,
 .accountsPaidWithdrawalDialogClass .mat-dialog-container{
   width:40vw;
-  height:45vh;
+  height:55vh;
   margin-left:15vw;
   border-radius:15px;
 }
@@ -192,10 +192,15 @@ body {
     border-radius:15px;
   }
 
-  .small-screen .parnershipBond .mat-dialog-container,
-  .small-screen .accountsPaidWithdrawalDialogClass .mat-dialog-container{
+  .small-screen .parnershipBond .mat-dialog-container{
     width:80vw;
     height:45vh;
+    margin-left:0px;
+    border-radius:15px;
+  }
+  .small-screen .accountsPaidWithdrawalDialogClass .mat-dialog-container{
+    width:100vw;
+    height:80vh;
     margin-left:0px;
     border-radius:15px;
   }
