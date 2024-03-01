@@ -187,9 +187,6 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
 
     this.userService.createSho(formData).subscribe({
       next: (response) => {
-        console.log(response);
-        
-        debugger;
         if (response) {
           localStorage.setItem("login", "true");
           localStorage.setItem("stateHandlerId", response.data.stateHandlerId);

@@ -263,11 +263,21 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
     this.userService.signUpPartner(formData).subscribe({
       next: (response) => {
         if (response) {
-          this.toastr.success("Data submitted successfully", "Success");
-          this.spin = false;
-          this.change = true;
+          localStorage.setItem("login", "true");
+          this.shareService.setPartnerId(response.data.p_userid);
+          this.shareService.setMiningPartnerRefferId(
+            response.data.p_refferal_id
+          );
+          this.shareService.setMiningPartnerLiquidity(
+            response.data.p_liquidity
+          );
+          this.shareService.setToken(response.token);
+          this.toastr.success("SignUP successfully", "Success");
           this.cradentialsModal();
+          this.change = true;
+          this.router.navigate(["miningdashboard"]);
           form.reset();
+          // this.spin = false;
         }
       },
       error: (error) => {
