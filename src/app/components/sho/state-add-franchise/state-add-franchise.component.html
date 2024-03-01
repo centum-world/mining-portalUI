@@ -74,6 +74,7 @@
                 placeholder="Mobile Number"
                 formControlName="mobileNumber"
                 type="tel"
+                maxlength="10"
               />
               <mat-hint>This is your mobile number</mat-hint>
               <mat-error *ngIf="form.get('mobileNumber').hasError('pattern')"
@@ -129,7 +130,7 @@
                 id="frontAadharImage"
                 name="frontAadharImage"
                 (change)="onFileSelected($event, 'frontAadharImage')"
-                accept=".jpg,.png"
+                accept="image/png, image/jpeg, image/jpg" 
               />
             </mat-form-field>
             <mat-error *ngIf="fileTypeInvalid">
@@ -147,7 +148,7 @@
                 id="backAadharImage"
                 name="backAadharImage"
                 (change)="onFileSelected($event, 'backAadharImage')"
-                accept=".jpg,.png"
+                accept="image/png, image/jpeg, image/jpg" 
               />
             </mat-form-field>
             <mat-error *ngIf="fileTypeInvalid">
@@ -162,7 +163,7 @@
                 id="panImage"
                 name="panImage"
                 (change)="onFileSelected($event, 'panImage')"
-                accept=".jpg,.png"
+                     accept="image/png, image/jpeg, image/jpg" 
               />
             </mat-form-field>
             <mat-error *ngIf="fileTypeInvalid">

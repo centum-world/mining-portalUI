@@ -139,6 +139,7 @@ export class StateAddFranchiseComponent implements OnInit {
           this.form.reset();
           console.log(response)
           this.toastr.success(response.message);
+          this.router.navigate(['/statedashboard/franchise-list']);
         }
       },
       error: error => {
