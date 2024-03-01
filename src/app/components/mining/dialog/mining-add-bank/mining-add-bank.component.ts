@@ -48,7 +48,7 @@ export class MiningAddBankComponent implements OnInit {
         branch_name: this.bankDetailsForm.value.branchName,
         bank_name: this.bankDetailsForm.value.bankName,
       };
-      this.userService.addMiningPartnerBankDetails(data).subscribe({
+      this.userService.saveBankDetails(data).subscribe({
         next: (res: any) => {
           this.bankDetailsForm.reset();
           this.toastr.success(res.message);
