@@ -4,7 +4,7 @@ import { AuthServiceService } from "src/app/serviceAuth/auth-service.service";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { DatePipe } from "@angular/common";
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from "@angular/material/dialog";
 import { MatDialogConfig } from "@angular/material";
 import { RigIdComponent } from "../dialog/rig-id/rig-id.component";
 import { RigAccountComponent } from "../dialog/rig-account/rig-account.component";
@@ -94,6 +94,12 @@ export class MiningCardsComponent implements OnInit {
     p_refferal_id: "",
   };
 
+  todayPayout:any;
+  monthPayout:any;
+  totalPayout:any;
+  referralTodayPayout:any;
+  referralMonthPayout:any;
+  referralTotalPayout:any;
   constructor(
     private userService: UserService,
     private authService: AuthServiceService,
@@ -121,6 +127,8 @@ export class MiningCardsComponent implements OnInit {
     this.refferalWithdrawalSuccess();
     this.miningBankDetails();
     this.fetchMiningPartnerProfileDetails();
+    this.callApiToFetchTodayMonthTotalPayout();
+    this.callApiToFetchReferralTodayMonthTotalPayout();
   }
 
   partnerWalletDailyData() {
@@ -219,24 +227,25 @@ export class MiningCardsComponent implements OnInit {
     this.view_detail = true;
   }
 
-
   copyToClipboard() {
     const textToCopy = this.refferID;
-    const textarea = document.createElement('textarea');
+    const textarea = document.createElement("textarea");
     textarea.value = textToCopy;
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     document.body.removeChild(textarea);
-    this.toastr.success('Referral ID copied to clipboard!', 'Success');
+    this.toastr.success("Referral ID copied to clipboard!", "Success");
   }
 
-  shareFunction(){
-    const displayPartnerRefferalId = localStorage.getItem('prefferid');
+  shareFunction() {
+    const displayPartnerRefferalId = localStorage.getItem("prefferid");
     // const referralType = localStorage.getItem('userType');
     const message = `Check out this link: https://apps.centumworldrig.com/mininglogin and Referral type : Partner , Referral ID : ${displayPartnerRefferalId}`;
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
   }
 
   amountReceive(amount1) {
@@ -588,13 +597,13 @@ export class MiningCardsComponent implements OnInit {
     link.click();
   }
 
-  downloadPartnershipBond(){
+  downloadPartnershipBond() {
     let partnerIdDetails = localStorage.getItem("partnerdetails");
-    console.log(partnerIdDetails,101)
+    console.log(partnerIdDetails, 101);
     let data = {
       userId: partnerIdDetails,
     };
-    console.log(data,105)
+    console.log(data, 105);
     this.userService.fetchPartnerBond(data).subscribe({
       next: (res: any) => {
         console.log(res.data[0].bond);
@@ -605,7 +614,7 @@ export class MiningCardsComponent implements OnInit {
       },
       error: (err) => {
         console.log(err.error.message);
-        this.toastr.warning("!No Partnership bond Found")
+        this.toastr.warning("!No Partnership bond Found");
       },
     });
   }
@@ -616,8 +625,8 @@ export class MiningCardsComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(RigIdComponent, config);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
     });
   }
 
@@ -627,8 +636,63 @@ export class MiningCardsComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(RigAccountComponent, config);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
     });
+  }
+
+  callApiToFetchTodayMonthTotalPayout(){
+    let currentdate = new Date();
+    let year = currentdate.getFullYear().toString();
+    let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = currentdate.getDate().toString().padStart(2, "0");
+    let formattedDate = `${year}-${month}-${day}`;
+
+    let data = {
+      partnerId:localStorage.getItem("partnerdetails"),
+      currentDate:formattedDate
+    };
+    this.userService.apiToGetPartnerOwnPayoutTransactionTotal(data).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.totalPayout = res.TotalPayout;
+        this.monthPayout = res.MonthPayout;
+        this.todayPayout = res.TodaysPayout;
+      },
+      error: (err) => {
+        console.log(err.error.message);
+      },
+    });
+  }
+
+  callApiToFetchReferralTodayMonthTotalPayout(){
+    let currentdate = new Date();
+    let year = currentdate.getFullYear().toString();
+    let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = currentdate.getDate().toString().padStart(2, "0");
+    let formattedDate = `${year}-${month}-${day}`;
+
+    let data = {
+      userid:localStorage.getItem("partnerdetails"),
+      currentDate:formattedDate
+    };
+    this.userService.apiTofetchReferralPayoutTodayMonthTotalTransaction(data).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.referralTotalPayout = res.TotalPayout;
+        this.referralMonthPayout = res.MonthPayout;
+        this.referralTodayPayout = res.TodaysPayout;
+      },
+      error: (err) => {
+        console.log(err.error.message);
+      },
+    });
+  }
+
+  viewReferralPayoutList(){
+    this.router.navigate(['/miningdashboard/referral-payout'])
+  }
+  viewTransactionHistoryList(){
+    this.router.navigate(['/miningdashboard/transaction-history'])
   }
 }
