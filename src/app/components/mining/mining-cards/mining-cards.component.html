@@ -1,5 +1,52 @@
 <main>
   <div class="cards" *ngIf="!view_detail">
+
+    <div class="card-single">
+      <div>
+        <h5>Transaction</h5>
+        <div class="" style="display: flex; justify-content: space-between;" >
+          <span>Today's Transaction</span>&nbsp;&nbsp;
+          <span style="color: yellow;" >{{todayPayout | currency:'INR'}}</span>
+        </div>
+        <div class="">
+          <span>Month Transaction</span>&nbsp;&nbsp;
+          <span style="color: yellow;">{{monthPayout | currency:'INR'}}</span>
+        </div>
+        <div class="">
+          <span>Total Transaction</span>&nbsp;&nbsp;
+          <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span>
+        </div>
+      </div>
+      <div data-toggle="modal" (click)="viewTransactionHistoryList()">
+        <div class="card-view">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <h5>Referral Payout</h5>
+        <div class="" style="display: flex; justify-content: space-between;" >
+          <span>Today's Payout</span>&nbsp;&nbsp;
+          <span style="color: yellow;" >{{referralTodayPayout | currency:'INR'}}</span>
+        </div>
+        <div class="">
+          <span>Month Payout</span>&nbsp;&nbsp;
+          <span style="color: yellow;">{{referralMonthPayout | currency:'INR'}}</span>
+        </div>
+        <div class="">
+          <span>Total Payout</span>&nbsp;&nbsp;
+          <span style="color: yellow;">{{referralTotalPayout | currency:'INR'}}</span>
+        </div>
+      </div>
+      <div data-toggle="modal" (click)="viewReferralPayoutList()">
+        <div class="card-view">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
     <div class="card-single">
       <div>
         <div>
@@ -22,7 +69,7 @@
       </div>
       <div>
         <div class="card-view">
-          <span (click)="gotoAccount()">view</span>
+          <span (click)="gotoAccount()">View</span>
         </div>
         <div class="business-download" (click)="downloadBusinessModule()">
           <mat-icon>file_download</mat-icon>
@@ -42,7 +89,7 @@
       </div>
     </div>
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>Liquidity</h6>
       </div>
@@ -52,7 +99,7 @@
       <div *ngIf="userStatus" style="font-weight: bold">
         {{ partnerLiquidity | currency : "INR" }}
       </div>
-    </div>
+    </div> -->
     <div class="card-single">
       <div>Add Liquidity</div>
       <div (click)="openRigID()">
@@ -63,7 +110,7 @@
       <div>All RIG Accounts : {{multipleRigCount}}</div>
       <div class="card-view">
         <a href="javascript:void(0)" style="text-decoration: none;" (click)="allRigAccount()">
-          <span>view</span>
+          <span>View</span>
         </a>
       </div>
     </div>
@@ -73,12 +120,12 @@
       </div>
       <div class="card-view">
         <a href="javascript:void(0)" (click)="myteam()">
-          <span>view</span>
+          <span>View</span>
         </a>
       </div>
     </div>
 
-    <div class="card-single">
+    <!-- <div class="card-single">
       <div>
         <h6>PartnershipBond</h6>
       
@@ -87,7 +134,7 @@
         <div class="business-download" (click)="downloadPartnershipBond()"><mat-icon>file_download</mat-icon></div>
 
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="card-single">
       <div>

@@ -84,6 +84,10 @@ export class MiningSidebarComponent implements OnInit {
     this.isVisible = false;
     this.router.navigate(['/miningdashboard/referral-payout']);
   }
+  payoutTransactionHistory(){
+    this.isVisible = false;
+    this.router.navigate(['/miningdashboard/transaction-history'])
+  }
 
   FranchiseList() {}
   memberViewList() {}

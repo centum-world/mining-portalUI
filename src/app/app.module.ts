@@ -239,6 +239,7 @@ import { FranchiseEditBankComponent } from './components/modal/franchise-edit-ba
 import { StateEditBankComponent } from './components/modal/state-edit-bank/state-edit-bank.component';
 import { MiningEditAndViewBankComponent } from './components/mining/dialog/mining-edit-and-view-bank/mining-edit-and-view-bank.component';
 import { BmmReferralListComponent } from './components/sho/bmm-referral-list/bmm-referral-list.component';
+import { PartnerTransactionHistoryComponent } from './components/mining/partner-transaction-history/partner-transaction-history.component';
 
 
 
@@ -452,6 +453,7 @@ import { BmmReferralListComponent } from './components/sho/bmm-referral-list/bmm
     StateEditBankComponent,
     MiningEditAndViewBankComponent,
     BmmReferralListComponent,
+    PartnerTransactionHistoryComponent,
   ],
   imports: [
     BrowserModule,

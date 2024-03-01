@@ -1631,4 +1631,16 @@ export class UserService {
     });
   }
 
+  apiToGetPartnerOwnPayoutTransactionTotal(data:any){
+    return this.http.post(this.url + "/mining/partner/fetch-transaction-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  apiTofetchReferralPayoutTodayMonthTotalTransaction(data:any){
+    return this.http.post(this.url + "/mining/partner/fetch-referral-payout-transaction-total",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
