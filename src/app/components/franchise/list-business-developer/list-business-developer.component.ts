@@ -56,7 +56,7 @@ export class ListBusinessDeveloperComponent implements OnInit {
     let data = {
       referralId: localStorage.getItem('franchiseRefferalId')
     }
-    this.userService.callApiToPartnerDetails(data).subscribe({
+    this.userService.ApiToFetchFranchisePartnerTeam(data).subscribe({
       next: (res: any) => {
         console.log(res.partners)
         this.dataSource.data = res.partners

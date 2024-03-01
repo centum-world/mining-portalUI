@@ -1626,4 +1626,10 @@ export class UserService {
     });
   }
 
+    ApiToFetchFranchisePartnerTeam(data:any){
+    return this.http.post(this.url + "/franchise/frenchise/franchise-fetch-partner-my-team",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
