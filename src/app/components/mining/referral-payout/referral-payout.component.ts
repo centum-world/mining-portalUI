@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import { Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-referral-payout",
@@ -9,48 +8,36 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./referral-payout.component.css"],
 })
 export class ReferralPayoutComponent implements OnInit {
-  referralRequestHistory = [];
-  apprvedHistory = [];
+  requestHistory: any[] = [];
   constructor(
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
-    this.referralTabChange(0);
+    this.myReferralPayout();
   }
-  referralTabChange(event: any) {
-    if (event === 0) {
-      let data = {
-        userId: localStorage.getItem("partnerdetails"),
-      };
-      if (event === 0) {
-        this.userService.partnerReferalRequst(data).subscribe({
-          next: (res: any) => {
-            this.referralRequestHistory = res.result;
-          },
-          error: (err) => {
-            console.log(err.error.message);
-          },
-        });
-      }
-    } else {
-      let data = {
-        userId: localStorage.getItem("partnerdetails"),
-      };
-      this.userService.fetchPartnerReferralPayout(data).subscribe({
-        next: (res: any) => {
-          this.apprvedHistory = res.result;
-        },
-        error: (err) => {
-          console.log(err.error.message);
-        },
-      });
-    }
-  }
+  myReferralPayout() {
+    let data = {
+      partnerId: localStorage.getItem("partnerdetails"),
+    };
 
-  goBack() {
-    this.router.navigate(["/miningdashboard/my-team"]);
+    this.userService.callApiToFetchReferralPayoutForPartner(data).subscribe({
+      next: (res: any) => {
+        console.log(res)
+        if (res && res.data && Array.isArray(res.data)) {
+          this.requestHistory = res.data;
+        } else {
+          console.error("Invalid data format received from server");
+        }
+      },
+      error: (error) => {
+        console.log(error.error.message);
+      },
+    });
   }
+  gotoDashboard(){
+    this.router.navigate(['/miningdashboard/home'])
+  }
+  
 }

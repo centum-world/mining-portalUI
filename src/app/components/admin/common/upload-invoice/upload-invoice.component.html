@@ -6,15 +6,17 @@
     <hr />
     <div class="cards-pay-content">
       <div class="pay-form">
-        <p>Upload invoce</p>
+        <!-- <p>Upload invoce</p> -->
         <div class="form-data">
           <form [formGroup]="invoiceForm" (ngSubmit)="uploadInvoice()">
+            <label for="pdfInput">Select invoice file</label>
             <input
               type="file"
               accept=".pdf"
               (change)="handleFileInput($event)"
             />
             <br />
+            <label for="pdfInput">Select bond file</label>
             <input
               type="file"
               accept=".pdf"

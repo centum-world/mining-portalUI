@@ -18,9 +18,6 @@
                 <mat-option [value]="perDayAmountDropDown">
                   {{ perDayAmountDropDown | currency : "INR" }}
                 </mat-option>
-                <mat-option [value]="februaryAmount">
-                  {{ februaryAmount | currency : "INR" }}
-                </mat-option>
               </mat-select>
               <mat-error
                 *ngIf="myForm.get('selectedAmount').hasError('required')"

@@ -66,7 +66,7 @@ export class MemberEditBankComponent implements OnInit {
   
 
 
-  editMemberBank() {
+  editMemberBank(item:any) {
       const formData = this.bankDetailsForm.value;
 
       let data = {

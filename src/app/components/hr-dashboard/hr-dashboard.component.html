@@ -50,16 +50,22 @@
       </div>
 
       <div class="card-single">
-        <div style="display: flex">
-          <div class="col-sm-8">
-            <h6>Total Liquidity : &nbsp;</h6>
-          </div>
-          <div class="icon col-sm-4" (click)="activePartnerViewList()">
-            <span>view</span>
-          </div>
+        <div
+          style="display: flex; flex-direction: column; justify-content: start"
+        >
+          <span>Total Liquidity</span>
+          <span>{{ totalLiquidityOfPartner | currency : "INR" }}</span>
         </div>
         <div>
-          <b>{{ totalLiquidityOfPartner | currency : "INR" }}</b>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+            "
+          >
+            <span class="icon" (click)="activePartnerViewList()">view</span>
+          </div>
         </div>
       </div>
 
@@ -143,7 +149,7 @@
         </div>
       </div> -->
 
-      <div class="card-single">
+      <!-- <div class="card-single">
         <div>
           <h6>Pending Partners</h6>
           <span>Payment</span>
@@ -151,7 +157,7 @@
         <div class="icon" (click)="pendingPartnersViewList()">
           <span>view</span>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="card-single">
         <div>

@@ -486,9 +486,9 @@ export class HrDashboardComponent implements OnInit {
     this.router.navigate(['/dashboard/partner-approved-withdrawal']);
   }
 
-  pendingPartnersViewList(){
-    this.router.navigate(['/dashboard/pending-partners']);
-  }
+  // pendingPartnersViewList(){
+  //   this.router.navigate(['/dashboard/pending-partners']);
+  // }
 
   partnerReferralPayoutRequestViewList(){
     this.router.navigate(['/dashboard/partner-referral-payout-request']);

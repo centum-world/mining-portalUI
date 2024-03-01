@@ -71,7 +71,7 @@ export class StateEditBankComponent implements OnInit {
   
 
 
-  editMemberBank() {
+  editMemberBank(item:any) {
       const formData = this.bankDetailsForm.value;
 
       let data = {

@@ -187,13 +187,6 @@
             <button mat-menu-item (click)="openViewPartnerDialog(partner)">
               <mat-icon>visibility</mat-icon> View
             </button>
-            <button
-              mat-menu-item
-              [disabled]="partner.isVerify === 1"
-              (click)="openMiningPartnerVerifyDialog(partner)"
-            >
-              <mat-icon>check_circle</mat-icon> Verify
-            </button>
             <button mat-menu-item (click)="openIsBlockPartnerDialog(partner)">
               <mat-icon>{{
                 partner.isBlocked === 0 ? "block" : "cancel"
