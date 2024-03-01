@@ -188,11 +188,16 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
     this.userService.createSho(formData).subscribe({
       next: (response) => {
         if (response) {
-          this.toastr.success("Data submitted successfully", "Success");
+          localStorage.setItem("login", "true");
+          localStorage.setItem("stateHandlerId", response.data.stateHandlerId);
+          localStorage.setItem("stateRefferalId", response.data.referralId);
+          localStorage.setItem("userType", "BMM");
+          this.shareService.setToken(response.data.token);
+          this.toastr.success("SignUP successfully", "Success");
           this.cradentialsModal();
           this.creatingAccount = false;
+          this.router.navigate(["statedashboard"]);
           form.reset();
-          
           // this.spin = false;
         }
       },
