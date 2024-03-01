@@ -195,7 +195,6 @@ export class FranchiseCardComponent implements OnInit {
     };
     this.userService.callApiToFetchTodaysAndTotalPayout(data).subscribe((response: any) => {
         if (response) {
-          console.log(response,116)
           this.totalPayoutToday = response.data.totalAmountToday
           this.totalPayoutCurrentMonth = response.data.totalAmountCurrentMonth
           this.totalPayout = response.data.totalPayout

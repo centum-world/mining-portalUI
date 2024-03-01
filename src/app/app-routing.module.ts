@@ -100,6 +100,7 @@ import { PartnerPayoutComponent } from "./components/admin/partner-payout/partne
 import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.component";
 import { TransactionHistoryComponent } from "./components/admin/transaction-history/transaction-history.component";
 import { TodayTransactionHistoryComponent } from "./components/admin/today-transaction-history/today-transaction-history.component";
+import { BmmReferralListComponent } from "./components/sho/bmm-referral-list/bmm-referral-list.component";
 
 
 const routes: Routes = [
@@ -205,6 +206,7 @@ const routes: Routes = [
       {path:"partner-team",component:StatePartnerMyTeamComponent},
       {path:"referral-payout",component:ShoReferralPayoutComponent},
       {path: "promotion", component: BmmPromotionComponent},
+      {path:"referral-list",component:BmmReferralListComponent},
       { path: "", redirectTo: "/statedashboard/home", pathMatch: "full" },
     ],
   },

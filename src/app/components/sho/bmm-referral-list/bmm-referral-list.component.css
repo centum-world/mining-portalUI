@@ -3,7 +3,7 @@
   margin-top: 80px;
   padding: 20px;
   width: 78vw;
-  margin-top:-30px;
+  margin-top: -30px;
 }
 
 table {
@@ -16,15 +16,14 @@ table {
   gap: 20px;
 }
 .heading span {
-  font-weight: 600;
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
+    font-weight: 600; 
+    font-size: 20px; 
+    font-family:'Roboto',sans-serif;
 }
-
 .franchise-list-header {
-  font-weight: bold;
-  color: black;
-}
+    font-weight: bold;
+    color: black;
+  }
 
 .mat-cell,
 .mat-header-cell {
@@ -36,6 +35,7 @@ table {
 .mat-header-row {
   background-color: #f0f0f0;
 }
+
 .mat-cell:last-child,
 .mat-header-cell:last-child {
   border-right: 1px solid #ddd;
@@ -65,11 +65,11 @@ table {
 
 @media (max-width: 768px) {
   .large-expand {
-    margin-left: 0;
+    margin-left: 0px;
+    margin-top: 0px;
     width: 100%;
-    margin-top:0px;
   }
-  .heading span {
+  .heading span{
     font-size:14px;
   }
 }

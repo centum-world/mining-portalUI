@@ -25,6 +25,9 @@ export class ShoCardComponent implements OnInit {
   totalWithdrawalOfState:any;
   totalWalletOfState:any;
   bankDetails=[];
+  totalPayout:any;
+  totalPayoutCurrentMonth:any;
+  totalPayoutToday:any;
   displayStateHandlerId = localStorage.getItem('stateHandlerId');
   displayStateHandlerReferralId = localStorage.getItem('stateRefferalId')
   constructor(private dialog:MatDialog,private userService:UserService,
@@ -36,6 +39,7 @@ export class ShoCardComponent implements OnInit {
     this.callApiToFetchStateTotalWithdrawal()
     this.callApiToFetchStateTotalWallet()
     this.fetchTotalcountFranchiseMemberPartner()
+    this.callApiTofetchTodaysAndTotal();
   }
 
   stateAddBankDialog(){
@@ -168,6 +172,26 @@ export class ShoCardComponent implements OnInit {
     });
   }
 
+  callApiTofetchTodaysAndTotal(){
+    let currentdate = new Date();
+    let year = currentdate.getFullYear().toString();
+    let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = currentdate.getDate().toString().padStart(2, "0");
+    let formattedDate = `${year}-${month}-${day}`;
+
+    let data = {
+      userid: localStorage.getItem("stateHandlerId"),
+      currentDate:formattedDate
+    };
+    this.userService.callApiToFetchTodaysAndTotalPayout(data).subscribe((response: any) => {
+        if (response) {
+          this.totalPayoutToday = response.data.totalAmountToday
+          this.totalPayoutCurrentMonth = response.data.totalAmountCurrentMonth
+          this.totalPayout = response.data.totalPayout
+        }
+      });
+  }
+
   copyToClipboard() {
     const textToCopy = this.displayStateHandlerReferralId;
     const textarea = document.createElement('textarea');
@@ -198,6 +222,19 @@ export class ShoCardComponent implements OnInit {
 
   udgrade(){
     this.router.navigate(['/statedashboard/promotion'])
+  }
+
+  viewPartnerList(){
+    this.router.navigate(['/statedashboard/partner-list'])
+  }
+  viewReferralList(){
+    this.router.navigate(['/statedashboard/referral-list'])
+  }
+  viewFranchiseList(){
+    this.router.navigate(['/statedashboard/franchise-list'])
+  }
+  viewReferralPayout(){
+    this.router.navigate(['/statedashboard/referral-payout'])
   }
 
   shareFunction(){

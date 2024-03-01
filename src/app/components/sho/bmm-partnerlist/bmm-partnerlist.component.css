@@ -1,67 +1,75 @@
 .large-expand {
-    overflow-x: auto;
-    margin-top: 80px;
-    padding: 20px;
-    width:78vw
-  }
-  
-  table {
+  overflow-x: auto;
+  margin-top: 80px;
+  padding: 20px;
+  width: 78vw;
+  margin-top:-30px
+}
+
+table {
+  width: 100%;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.heading span {
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+.partner-list-header {
+  font-weight: bold;
+  color: black;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.mat-header-row {
+  background-color: #f0f0f0;
+}
+
+.mat-cell:last-child,
+.mat-header-cell:last-child {
+  border-right: 1px solid #ddd;
+}
+
+.large-expand::-webkit-scrollbar {
+  width: 12px;
+}
+
+.large-expand::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.large-expand::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 20%;
+}
+
+.mat-elevation-z8 {
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .large-expand {
+    margin-left: 0;
+    margin-top:0px;
     width: 100%;
   }
-  
-  .partner-list-header {
-    font-weight: bold;
-    color: black;
+  .heading span {
+    font-size:14px;
   }
-  
-  .mat-cell,
-  .mat-header-cell {
-    padding: 8px;
-    /* Adjust the padding as needed */
-    text-align: left;
-    /* Left-align cell content */
-    border-bottom: 1px solid #ddd;
-    /* Add a bottom border for separation */
-  }
-  
-  /* Style the header row */
-  .mat-header-row {
-    background-color: #f0f0f0;
-    /* Add a background color to the header row */
-  }
-  
-  /* Add a border to the last cell in each row */
-  .mat-cell:last-child,
-  .mat-header-cell:last-child {
-    border-right: 1px solid #ddd;
-  }
-  
-  /* Optional: Adjust scrollbar style */
-  .large-expand::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  .large-expand::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-  }
-  
-  .large-expand::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 20%;
-  }
-
-  .mat-elevation-z8 {
-    font-family: 'Roboto', sans-serif; 
 }
-  
-  @media (max-width: 768px) {
-    .large-expand{
-      margin-left: 0;
-      width: 110%;
-    }
-  }

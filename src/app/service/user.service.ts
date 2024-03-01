@@ -1625,5 +1625,10 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  apiToGetAllRefferalDetails(data:any){
+    return this.http.post(this.url + "/state/state/fetch-referral-my-team",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 
 }
