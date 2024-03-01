@@ -93,7 +93,10 @@ export class MiningCardsComponent implements OnInit {
     p_reffered_id: "",
     p_refferal_id: "",
   };
-
+  data: any[] = [];
+  multipleRigCount: number = 0;
+  partneReferPartnerCount : number = 0
+  
   todayPayout:any;
   monthPayout:any;
   totalPayout:any;
