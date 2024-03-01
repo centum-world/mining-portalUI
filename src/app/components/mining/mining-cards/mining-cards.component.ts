@@ -95,6 +95,7 @@ export class MiningCardsComponent implements OnInit {
   };
   data: any[] = [];
   multipleRigCount: number = 0;
+  partneReferPartnerCount : number = 0
 
   constructor(
     private userService: UserService,
@@ -124,7 +125,25 @@ export class MiningCardsComponent implements OnInit {
     this.miningBankDetails();
     this.fetchMiningPartnerProfileDetails();
     this.fetchMulitipleRigCount();
+    this.fetchPartnerReferPartner();
   }
+
+
+  fetchPartnerReferPartner(){
+    let data = {
+      referralId: localStorage.getItem("prefferid"),
+    };
+    this.userService.partnerMyTeam(data).subscribe({
+      next: (res: any) => {
+        this.partneReferPartnerCount = res.result.length || 0
+      },
+      error: (err) => {
+        console.log(err.error.message);
+      },
+    });
+  }
+
+
   
   fetchMulitipleRigCount() {
     let data = {
