@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import { Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-referral-payout",
@@ -13,7 +12,6 @@ export class ReferralPayoutComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -39,7 +37,7 @@ export class ReferralPayoutComponent implements OnInit {
     });
   }
   gotoDashboard(){
-    this.router.navigate[('/miningdashboard/home')]
+    this.router.navigate(['/miningdashboard/home'])
   }
   
 }
