@@ -27,10 +27,6 @@
   margin-right: 20px;
 }
 
-/* .example-card {
-    width: calc(34% - 25px); 
-  margin-bottom: 16px;
-} */
   
 .bank-details{
     display: flex;
@@ -64,14 +60,6 @@ mat-card-header mat-card-title {
 }
 
 
-
-
-/* @media (max-width: 480px) {
-    .example-card {
-      width: 100%; 
-    }
-  } */
-
 @media (max-width: 767px) {
   .bakk-div {
     flex-direction: column;
@@ -86,10 +74,13 @@ mat-card-header mat-card-title {
   }
 
   .example-card {
-    width: 90%;
+    width: 100%;
   }
   .withdrwal-button {
     width: 113px;
     font-size: 12px;
+  }
+  .header P {
+    font-size:14px;
   }
 }
