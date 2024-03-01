@@ -1,0 +1,43 @@
+<h1 class="custom-heading" mat-dialog-title>Edit And View Bank Details</h1>
+<div mat-dialog-content>
+    <!-- Bank Details Form -->
+    <form [formGroup]="bankDetailsForm" (ngSubmit)="editPartnerBank(bankDetailsForm)">
+        <div class="row">
+            <!-- Account holder Name -->
+            <mat-form-field class="col-md-6">
+                <mat-label>Holder Name</mat-label>
+                <input matInput placeholder="Enter Holder Name" formControlName="holderName" required>
+            </mat-form-field>
+
+            <!-- Bank Name Input -->
+            <mat-form-field class="col-md-6">
+                <mat-label>Bank Name</mat-label>
+                <input matInput placeholder="Enter Bank Name" formControlName="bankName" required>
+            </mat-form-field>
+
+            <!-- Branch Name Input -->
+            <mat-form-field class="col-md-6">
+                <mat-label>Branch Name</mat-label>
+                <input matInput placeholder="Enter Branch Name" formControlName="branchName" required>
+            </mat-form-field>
+
+            <!-- Account Number Input -->
+            <mat-form-field class="col-md-6">
+                <mat-label>Account Number</mat-label>
+                <input matInput placeholder="Enter Account Number" formControlName="accountNumber" required>
+            </mat-form-field>
+
+            <!-- IFSC Code Input -->
+            <mat-form-field class="col-md-6">
+                <mat-label>IFSC Code</mat-label>
+                <input matInput placeholder="Enter IFSC Code" formControlName="ifscCode" required>
+            </mat-form-field>
+
+            <!-- Add more input fields for other bank details as needed -->
+        </div>
+        <div mat-dialog-actions aligns="end">
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button style="background-color: #5476f2; color: #fff;" type="submit">Save</button>
+        </div>
+    </form>
+</div>

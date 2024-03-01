@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
 import { Router } from "@angular/router";
-
 @Component({
-  selector: "app-referral-payout",
-  templateUrl: "./referral-payout.component.html",
-  styleUrls: ["./referral-payout.component.css"],
+  selector: 'app-partner-transaction-history',
+  templateUrl: './partner-transaction-history.component.html',
+  styleUrls: ['./partner-transaction-history.component.css']
 })
-export class ReferralPayoutComponent implements OnInit {
+export class PartnerTransactionHistoryComponent implements OnInit {
+
   requestHistory: any[] = [];
   constructor(
     private userService: UserService,
@@ -15,14 +15,14 @@ export class ReferralPayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.myReferralPayout();
+    this.payoutTransactionHistory();
   }
-  myReferralPayout() {
+  payoutTransactionHistory() {
     let data = {
       partnerId: localStorage.getItem("partnerdetails"),
     };
 
-    this.userService.callApiToFetchReferralPayoutForPartner(data).subscribe({
+    this.userService.apiToGetPartnerOwnPayoutTransactionTotal(data).subscribe({
       next: (res: any) => {
         console.log(res)
         if (res && res.data && Array.isArray(res.data)) {
@@ -39,5 +39,5 @@ export class ReferralPayoutComponent implements OnInit {
   gotoDashboard(){
     this.router.navigate(['/miningdashboard/home'])
   }
-  
+
 }

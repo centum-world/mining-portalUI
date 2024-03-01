@@ -9,6 +9,14 @@
   <div class="sidebar-menu">
     <ul>
       <li>
+        <div class="partner_history" (click)="payoutTransactionHistory()">
+          <a href="javascript:void(0)"><i class="material-icons">swap_horiz</i>
+            <span>Transaction History</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
         <div class="member_history" (click)="partnerViewList()">
           <a href="javascript:void(0)"><mat-icon class="bank-icon">account_circle</mat-icon>
 
@@ -24,9 +32,12 @@
             <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="addBankDetails()">Add bank</button>
-              <button mat-menu-item (click)="viewBankDetails()">
-                View bank
-              </button>
+              <button mat-menu-item (click)="editAndViewBankDetails()">
+                Edit And View bank
+               </button>
+              <!-- <button mat-menu-item (click)="viewBankDetails()">
+               Edit And View bank
+              </button> -->
             </mat-menu>
           </a>
         </div>
@@ -41,13 +52,14 @@
         </div>
       </li>
 
-      <li>
+
+      <!-- <li>
         <div class="partner_history" (click)="downloadBond()">
           <a href="javascript:void(0)"><i class="material-icons">description</i>
             <span>Partnership Bond</span>
           </a>
         </div>
-      </li>
+      </li> -->
 
       <li>
         <div class="partner_history" (click)="myteam()">
@@ -112,6 +124,14 @@
   <div class="sidebar-menu">
     <ul>
       <li>
+        <div class="partner_history" (click)="downloadBond()">
+          <a href="javascript:void(0)"><i class="material-icons">description</i>
+            <span>Partnership Bond</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
         <div class="member_history" (click)="partnerViewList()">
           <a href="javascript:void(0)"><mat-icon class="bank-icon">account_circle</mat-icon>
 
@@ -126,9 +146,12 @@
             <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="addBankDetails()">Add bank</button>
-              <button mat-menu-item (click)="viewBankDetails()">
+              <button mat-menu-item (click)="editAndViewBankDetails()">
+                Edit And View bank
+               </button>
+              <!-- <button mat-menu-item (click)="viewBankDetails()">
                 View bank
-              </button>
+              </button> -->
             </mat-menu>
           </a>
         </div>

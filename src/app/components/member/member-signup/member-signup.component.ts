@@ -232,9 +232,15 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     this.userService.signUpMember(formData).subscribe({
       next: (response) => {
         if (response) {
+          localStorage.setItem("login", "true");
+          this.shareService.setUserId(response.data.m_userid);
+          this.shareService.setRefferID(response.data.reffer_id);
+          localStorage.setItem("userType", response.data.userType);
+          this.shareService.setToken(response.token);
           this.toastr.success("Data submitted successfully", "Success");
           this.cradentialsModal()
           this.spin = false;
+          this.router.navigate(["memberdashboard"]);
           form.reset();
         }
       },

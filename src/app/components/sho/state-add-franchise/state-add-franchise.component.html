@@ -74,6 +74,7 @@
                 placeholder="Mobile Number"
                 formControlName="mobileNumber"
                 type="tel"
+                maxlength="10"
               />
               <mat-hint>This is your mobile number</mat-hint>
               <mat-error *ngIf="form.get('mobileNumber').hasError('pattern')"
@@ -84,7 +85,7 @@
               >
             </mat-form-field>
           </div>
-          <div style="display: flex; justify-content: space-between">
+          <div style="display: flex;  justify-content: space-between">
             <mat-form-field>
               <mat-label>State</mat-label>
               <mat-select
@@ -118,23 +119,26 @@
             </mat-form-field>
           </div>
           <div style="display: flex; justify-content: space-between">
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Aadhaar front image (JPG or PNG)"
-                disabled
-              />
-              <input
-                type="file"
-                id="frontAadharImage"
-                name="frontAadharImage"
-                (change)="onFileSelected($event, 'frontAadharImage')"
-                accept=".jpg,.png"
-              />
-            </mat-form-field>
-            <mat-error *ngIf="fileTypeInvalid">
-              Please upload a JPG or PNG file.
-            </mat-error>
+            <div style="display: flex;flex-direction: column;">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Aadhaar front image (JPG or PNG)"
+                  disabled
+                />
+                <input
+                  type="file"
+                  id="frontAadharImage"
+                  name="frontAadharImage"
+                  (change)="onFileSelected($event, 'frontAadharImage')"
+                  accept="image/png, image/jpeg, image/jpg" 
+                />
+              </mat-form-field>
+              <mat-error *ngIf="aadharFrontImageSizeExceeds">
+                File size exceeds 2MB
+              </mat-error>
+            </div>
+          
 
             <mat-form-field>
               <input
@@ -147,14 +151,15 @@
                 id="backAadharImage"
                 name="backAadharImage"
                 (change)="onFileSelected($event, 'backAadharImage')"
-                accept=".jpg,.png"
+                accept="image/png, image/jpeg, image/jpg" 
               />
             </mat-form-field>
-            <mat-error *ngIf="fileTypeInvalid">
-              Please upload a JPG or PNG file.
+            <mat-error  *ngIf="aadharBackImageSizeExceeds">
+              File size exceeds 2MB
             </mat-error>
           </div>
           <div style="display: flex; justify-content: space-between">
+           <div style="display: flex;flex-direction: column;">
             <mat-form-field>
               <input matInput placeholder="Pan image (JPG or PNG)" disabled />
               <input
@@ -162,12 +167,13 @@
                 id="panImage"
                 name="panImage"
                 (change)="onFileSelected($event, 'panImage')"
-                accept=".jpg,.png"
+                     accept="image/png, image/jpeg, image/jpg" 
               />
             </mat-form-field>
-            <mat-error *ngIf="fileTypeInvalid">
-              Please upload a JPG or PNG file.
+            <mat-error *ngIf="panImageSizeExceeds">
+              File size exceeds 2MB
             </mat-error>
+           </div>
 
             <mat-form-field>
               <mat-label>Gender</mat-label>
@@ -191,7 +197,7 @@
                 placeholder="Franchise Id"
                 formControlName="franchiseId"
               />
-              <mat-hint>This is your first name</mat-hint>
+              <mat-hint>This is your userId</mat-hint>
               <mat-error *ngIf="form.get('franchiseId').hasError('required')"
                 >Franchise Id is required</mat-error
               >
@@ -213,15 +219,7 @@
             </mat-form-field>
           </div>
         </mat-card-content>
-        <mat-card-actions>
-          <button
-            mat-raised-button
-            color="accent"
-            type="button"
-            (click)="gotoList()"
-          >
-            Franchise List
-          </button>
+        <mat-card-actions style="display: flex; justify-content: flex-end; margin-right: 1rem;" >
           <button mat-raised-button color="primary" type="submit">
             Register Now
           </button>

@@ -7,6 +7,7 @@ import { MiningAddBankComponent } from "../dialog/mining-add-bank/mining-add-ban
 import { MiningViewBankComponent } from "../dialog/mining-view-bank/mining-view-bank.component";
 import { HelpSupportComponent } from "../dialog/help-support/help-support.component";
 import { ToastrService } from 'ngx-toastr';
+import { MiningEditAndViewBankComponent } from "../dialog/mining-edit-and-view-bank/mining-edit-and-view-bank.component";
 
 @Component({
   selector: "app-mining-sidebar",
@@ -63,6 +64,18 @@ export class MiningSidebarComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {});
   }
 
+  editAndViewBankDetails() {
+    let config: MatDialogConfig = {
+      panelClass: "partnerEditAndViewBankDetailsDialogClass",
+    };
+    const dialogRef = this.dialog.open(MiningEditAndViewBankComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+
+
+
   myteam() {
     this.isVisible = false;
     this.router.navigate(["/miningdashboard/my-team"]);
@@ -70,6 +83,10 @@ export class MiningSidebarComponent implements OnInit {
   referralPayout(){
     this.isVisible = false;
     this.router.navigate(['/miningdashboard/referral-payout']);
+  }
+  payoutTransactionHistory(){
+    this.isVisible = false;
+    this.router.navigate(['/miningdashboard/transaction-history'])
   }
 
   FranchiseList() {}

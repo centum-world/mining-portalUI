@@ -238,6 +238,9 @@ import { MemberEditBankComponent } from './components/member/modal/member-edit-b
 import { FranchiseEditBankComponent } from './components/modal/franchise-edit-bank/franchise-edit-bank.component';
 import { StateEditBankComponent } from './components/modal/state-edit-bank/state-edit-bank.component';
 import { PayoutReferralComponent } from './components/admin/payout-referral/payout-referral.component';
+import { MiningEditAndViewBankComponent } from './components/mining/dialog/mining-edit-and-view-bank/mining-edit-and-view-bank.component';
+import { BmmReferralListComponent } from './components/sho/bmm-referral-list/bmm-referral-list.component';
+import { PartnerTransactionHistoryComponent } from './components/mining/partner-transaction-history/partner-transaction-history.component';
 
 
 
@@ -449,6 +452,9 @@ import { PayoutReferralComponent } from './components/admin/payout-referral/payo
     MemberEditBankComponent,
     FranchiseEditBankComponent,
     StateEditBankComponent,
+    MiningEditAndViewBankComponent,
+    BmmReferralListComponent,
+    PartnerTransactionHistoryComponent,
     PayoutReferralComponent,
   ],
   imports: [
@@ -564,7 +570,8 @@ import { PayoutReferralComponent } from './components/admin/payout-referral/payo
     CradentilsComponent,
     MemberEditBankComponent,
     FranchiseEditBankComponent,
-    StateEditBankComponent
+    StateEditBankComponent,
+    MiningEditAndViewBankComponent,
     
   ],
   providers: [

@@ -8,7 +8,6 @@ import { Observable, of, timer } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-
 const emailAsyncValidator: AsyncValidatorFn = (control: AbstractControl):
   Observable<ValidationErrors | null> => {
   if (!control.valueChanges || control.pristine) {
@@ -26,7 +25,6 @@ const emailAsyncValidator: AsyncValidatorFn = (control: AbstractControl):
   );
 };
 
-
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -40,36 +38,39 @@ function mobileNumberValidator(): ValidatorFn {
     return isValid ? null : { 'invalidMobileNumber': { value: control.value } };
   };
 }
+
 @Component({
   selector: 'app-state-add-franchise',
   templateUrl: './state-add-franchise.component.html',
   styleUrls: ['./state-add-franchise.component.css']
 })
 export class StateAddFranchiseComponent implements OnInit {
-
-
-  states = allState.states.map((item) => item.state)
+  states = allState.states.map((item) => item.state);
   cities = [];
   fileTypeInvalid = false;
-  ngOnInit() {
-
-  }
+  aadharFrontImageSizeExceeds = false;
+  aadharBackImageSizeExceeds = false;
+  panImageSizeExceeds = false;
 
   form: FormGroup;
 
   aadharFrontImageControl = new FormControl(null, [
-    Validators.required,// Custom file type validator
+    Validators.required,
   ]);
+
   aadharBackImageControl = new FormControl(null, [
-    Validators.required,// Custom file type validator
+    Validators.required,
   ]);
+
   panImageControl = new FormControl(null, [
-    Validators.required,// Custom file type validator
+    Validators.required,
   ]);
+
   passwordControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
   franchiseIdControl = new FormControl("", Validators.required)
   genderFormControl = new FormControl('', [Validators.required]);
-  constructor(private fb: FormBuilder, private userService: UserService, private toastr : ToastrService, private router : Router ) {
+
+  constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private router: Router) {
     this.form = this.fb.group({
       referalId: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -77,7 +78,7 @@ export class StateAddFranchiseComponent implements OnInit {
       email: ['', {
         validators: [Validators.required, Validators.email],
         asyncValidators: [emailAsyncValidator],
-        updateOn: 'blur' // Update validation on blur
+        updateOn: 'blur'
       }],
       mobileNumber: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
       state: ['', Validators.required],
@@ -88,39 +89,44 @@ export class StateAddFranchiseComponent implements OnInit {
       gender: this.genderFormControl,
       franchiseId: this.franchiseIdControl,
       password: this.passwordControl
-
     });
   }
 
   matcher = new MyErrorStateMatcher();
 
+  ngOnInit() {}
 
   onStateChange() {
     const selectedState = this.form.get('state').value;
     const selectedStateObj = allState.states.find(state => state.state === selectedState);
-    this.cities = selectedStateObj.districts
-
+    this.cities = selectedStateObj.districts;
   }
 
   onFileSelected(event: any, fileType: string) {
     const file = event.target.files[0];
+    const maxSize = 2 * 1024 * 1024; // 2MB
+
     if (fileType === 'frontAadharImage') {
       this.aadharFrontImageControl.setValue(file);
-      this.fileTypeInvalid = !file.type.match('image/jpeg') && !file.type.match('image/png');
+      this.aadharFrontImageSizeExceeds = file.size > maxSize;
     } else if (fileType === 'backAadharImage') {
       this.aadharBackImageControl.setValue(file);
-      this.fileTypeInvalid = !file.type.match('image/jpeg') && !file.type.match('image/png');
+      this.aadharBackImageSizeExceeds = file.size > maxSize;
     } else if (fileType === 'panImage') {
       this.panImageControl.setValue(file);
-      this.fileTypeInvalid = !file.type.match('image/jpeg') && !file.type.match('image/png');
+      this.panImageSizeExceeds = file.size > maxSize;
     }
   }
 
   submitForm() {
-    console.log(this.form.value)
+    if (this.aadharFrontImageSizeExceeds || this.aadharBackImageSizeExceeds || this.panImageSizeExceeds) {
+      // Do not proceed with form submission, show error messages, or take any other necessary action.
+      return;
+    }
+
     const formData = new FormData();
     formData.append('fname', this.form.value.firstName);
-    formData.append('lname', this.form.value.lastName)
+    formData.append('lname', this.form.value.lastName);
     formData.append('email', this.form.value.email);
     formData.append('gender', this.form.value.gender);
     formData.append('phone', this.form.value.mobileNumber);
@@ -137,21 +143,22 @@ export class StateAddFranchiseComponent implements OnInit {
       next: (response) => {
         if (response) {
           this.form.reset();
-          console.log(response)
           this.toastr.success(response.message);
+          this.router.navigate(['/statedashboard/franchise-list']);
         }
       },
       error: error => {
         console.log(error)
         this.toastr.error(error.error.message);
       }
-    })
+    });
   }
 
-  gotoList(){
+  gotoList() {
     this.router.navigate(['/statedashboard/franchise-list']);
   }
-  gotoDashboard(){
+
+  gotoDashboard() {
     this.router.navigate(['/statedashboard']);
   }
 }

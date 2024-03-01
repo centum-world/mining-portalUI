@@ -205,9 +205,15 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
     this.userService.createFranchise(formData).subscribe({
       next: (response) => {
         if (response) {
+          localStorage.setItem("login", "true");
+          localStorage.setItem("franchiseId", response.data.franchiseId);
+          localStorage.setItem("franchiseRefferalId", response.data.referralId);
+          localStorage.setItem("userType", response.data.userType);
+          this.shareService.setFranchiseToken(response.data.token);
           this.toastr.success("Data submitted successfully", "Success");
           this.cradentialsModal();
           this.creatingAccount = false;
+          this.router.navigate(["franchisedashboard"]);
           form.reset();
         }
       },

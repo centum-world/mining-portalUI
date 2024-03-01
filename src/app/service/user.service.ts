@@ -1625,6 +1625,23 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+  apiToGetAllRefferalDetails(data:any){
+    return this.http.post(this.url + "/state/state/fetch-referral-my-team",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  apiToGetPartnerOwnPayoutTransactionTotal(data:any){
+    return this.http.post(this.url + "/mining/partner/fetch-transaction-history",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  apiTofetchReferralPayoutTodayMonthTotalTransaction(data:any){
+    return this.http.post(this.url + "/mining/partner/fetch-referral-payout-transaction-total",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 
   callApiToReferralPayout(data:any){
     return this.http.post(this.url + "/admin/fetch-referral-payout-history-admin",data, {

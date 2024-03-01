@@ -23,6 +23,9 @@ export class FranchiseCardComponent implements OnInit {
   totalWithdrawalOfFranchise :any;
   totalWalletOfFranchise:any;
   bankDetails = [];
+  totalPayout:any;
+  totalPayoutCurrentMonth :any;
+  totalPayoutToday:any;
   displayFranchiseId = localStorage.getItem('franchiseId');
   displayFranchiseReferralId = localStorage.getItem('franchiseRefferalId')
   usertype = localStorage.getItem('userType');
@@ -36,6 +39,7 @@ export class FranchiseCardComponent implements OnInit {
     this.callApiTOFetchTotalWithdrawal()
     this.callApiTOFetchTotalWiallet()
     this.fetchTotalCountMemberPartner()
+    this.callApiTofetchTodaysAndTotal()
   }
   
   franchiseWithdrawalRequestViewList() {
@@ -178,8 +182,37 @@ export class FranchiseCardComponent implements OnInit {
     })
   }
 
+  callApiTofetchTodaysAndTotal(){
+    let currentdate = new Date();
+    let year = currentdate.getFullYear().toString();
+    let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = currentdate.getDate().toString().padStart(2, "0");
+    let formattedDate = `${year}-${month}-${day}`;
+
+    let data = {
+      userid: localStorage.getItem("franchiseId"),
+      currentDate:formattedDate
+    };
+    this.userService.callApiToFetchTodaysAndTotalPayout(data).subscribe((response: any) => {
+        if (response) {
+          this.totalPayoutToday = response.data.totalAmountToday
+          this.totalPayoutCurrentMonth = response.data.totalAmountCurrentMonth
+          this.totalPayout = response.data.totalPayout
+        }
+      });
+  }
+
   udgrade(){
     this.router.navigate(['/franchisedashboard/promotion'])
+  }
+  viewPartnerList(){
+    this.router.navigate(['/franchisedashboard/partner-list'])
+  }
+  viewReferralList(){
+    this.router.navigate(['/franchisedashboard/member-list'])
+  }
+  viewReferralPayout(){
+    this.router.navigate(['/franchisedashboard/referral-payout'])
   }
 
   shareFunction(){

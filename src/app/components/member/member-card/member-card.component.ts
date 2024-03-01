@@ -121,15 +121,12 @@ export class MemberCardComponent implements OnInit {
     let day = currentdate.getDate().toString().padStart(2, "0");
     let formattedDate = `${year}-${month}-${day}`;
 
-    console.log(formattedDate);
-
     let data1 = {
       userid: localStorage.getItem("userdetail"),
       currentDate:formattedDate
     };
     this.userService.callApiToFetchTodaysAndTotalPayout(data1).subscribe((response: any) => {
         if (response) {
-          console.log(response,116)
           this.totalAmountToday = response.data.totalAmountToday
           this.totalAmountCurrentMonth = response.data.totalAmountCurrentMonth
           this.totalPayout = response.data.totalPayout

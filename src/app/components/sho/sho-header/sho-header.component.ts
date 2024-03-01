@@ -100,6 +100,9 @@ export class ShoHeaderComponent implements OnInit {
     this.router.navigate(['/statedashboard/withdrawal-list'])
     this.isVisible = false;
   }
+  ReferralList(){
+    this.router.navigate(['/statedashboard/referral-list'])
+  }
   gotoDahashboard(){
     this.router.navigate(['/statedashboard'])
   }
