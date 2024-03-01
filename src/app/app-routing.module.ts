@@ -101,6 +101,7 @@ import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.co
 import { TransactionHistoryComponent } from "./components/admin/transaction-history/transaction-history.component";
 import { TodayTransactionHistoryComponent } from "./components/admin/today-transaction-history/today-transaction-history.component";
 import { BmmReferralListComponent } from "./components/sho/bmm-referral-list/bmm-referral-list.component";
+import { PartnerTransactionHistoryComponent } from "./components/mining/partner-transaction-history/partner-transaction-history.component";
 
 
 const routes: Routes = [
@@ -170,6 +171,7 @@ const routes: Routes = [
       {path: "my-team", component: MyteamPartnerComponent},
       {path: "referral-payout", component: ReferralPayoutComponent},
       {path: "rig-payout/:id", component: RigPayoutComponent},
+      {path:"transaction-history",component:PartnerTransactionHistoryComponent},
       { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
     ] 
   },

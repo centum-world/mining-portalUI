@@ -93,10 +93,13 @@ export class MiningCardsComponent implements OnInit {
     p_reffered_id: "",
     p_refferal_id: "",
   };
-  data: any[] = [];
-  multipleRigCount: number = 0;
-  partneReferPartnerCount : number = 0
 
+  todayPayout:any;
+  monthPayout:any;
+  totalPayout:any;
+  referralTodayPayout:any;
+  referralMonthPayout:any;
+  referralTotalPayout:any;
   constructor(
     private userService: UserService,
     private authService: AuthServiceService,
@@ -124,6 +127,8 @@ export class MiningCardsComponent implements OnInit {
     this.refferalWithdrawalSuccess();
     this.miningBankDetails();
     this.fetchMiningPartnerProfileDetails();
+    this.callApiToFetchTodayMonthTotalPayout();
+    this.callApiToFetchReferralTodayMonthTotalPayout();
     this.fetchMulitipleRigCount();
     this.fetchPartnerReferPartner();
   }
@@ -671,5 +676,60 @@ export class MiningCardsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");
     });
+  }
+
+  callApiToFetchTodayMonthTotalPayout(){
+    let currentdate = new Date();
+    let year = currentdate.getFullYear().toString();
+    let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = currentdate.getDate().toString().padStart(2, "0");
+    let formattedDate = `${year}-${month}-${day}`;
+
+    let data = {
+      partnerId:localStorage.getItem("partnerdetails"),
+      currentDate:formattedDate
+    };
+    this.userService.apiToGetPartnerOwnPayoutTransactionTotal(data).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.totalPayout = res.TotalPayout;
+        this.monthPayout = res.MonthPayout;
+        this.todayPayout = res.TodaysPayout;
+      },
+      error: (err) => {
+        console.log(err.error.message);
+      },
+    });
+  }
+
+  callApiToFetchReferralTodayMonthTotalPayout(){
+    let currentdate = new Date();
+    let year = currentdate.getFullYear().toString();
+    let month = (currentdate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed, so add 1
+    let day = currentdate.getDate().toString().padStart(2, "0");
+    let formattedDate = `${year}-${month}-${day}`;
+
+    let data = {
+      userid:localStorage.getItem("partnerdetails"),
+      currentDate:formattedDate
+    };
+    this.userService.apiTofetchReferralPayoutTodayMonthTotalTransaction(data).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.referralTotalPayout = res.TotalPayout;
+        this.referralMonthPayout = res.MonthPayout;
+        this.referralTodayPayout = res.TodaysPayout;
+      },
+      error: (err) => {
+        console.log(err.error.message);
+      },
+    });
+  }
+
+  viewReferralPayoutList(){
+    this.router.navigate(['/miningdashboard/referral-payout'])
+  }
+  viewTransactionHistoryList(){
+    this.router.navigate(['/miningdashboard/transaction-history'])
   }
 }
