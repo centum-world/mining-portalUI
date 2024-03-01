@@ -42,3 +42,36 @@
   background: #0d6efd;
   color: #fefefe;
 }
+
+.input-div {
+  display: flex;
+}
+.input-field{
+  display:flex;
+}
+.input-field select{
+  width: 157px;
+  border-radius: 7px;
+}
+button{
+  width: 98%;
+    border-radius: 10px;
+    background-color: lightsteelblue;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .input-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+  }
+  .input-field{
+    flex-direction:column;
+  }
+  .input-field select{
+    width:98%;
+  }
+}

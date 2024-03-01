@@ -1626,4 +1626,16 @@ export class UserService {
     });
   }
 
+  callApiToReferralPayout(data:any){
+    return this.http.post(this.url + "/admin/fetch-referral-payout-history-admin",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFilterTotalPayout(){
+    return this.http.get(this.url + "/admin/fliter-payout-total-and-monthlywise", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }

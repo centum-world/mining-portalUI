@@ -1,71 +1,72 @@
-<div class="mat-elevation-z8">
-  <div class="main-div">
-    <div class="searchby">
-      <mat-icon style="cursor: pointer" (click)="gotohome()">arrow_back</mat-icon>
-      <input
-        placeholder="Search by userid..."
-        (input)="onInputChange($event)"
-      />
-    </div>
-    <form>
-      <label for="year">Select Year:</label>
-      <select id="year" [(ngModel)]="selectedYear" name="year">
-        <option *ngFor="let year of availableYears" [value]="year">
-          {{ year }}
-        </option>
-      </select>
-
-      <label for="month">Select Month:</label>
-      <select id="month" [(ngModel)]="selectedMonth" name="month">
-        <option *ngFor="let month of availableMonths" [value]="month">
-          {{ month }}
-        </option>
-      </select>
-
-      <button type="button" (click)="fetchTransactions()">
-        Fetch Transactions
-      </button>
-    </form>
+<div class="main-div">
+  <div class="searchby">
+    <mat-icon style="cursor: pointer" (click)="gotohome()">arrow_back</mat-icon>
+    <input placeholder="Search by userid..." (input)="onInputChange($event)" />
   </div>
+  <form>
+    <div class="input-field">
+      <label for="year">Select Year:</label>
+    <select id="year" [(ngModel)]="selectedYear" name="year">
+      <option *ngFor="let year of availableYears" [value]="year">
+        {{ year }}
+      </option>
+    </select>
 
-    <div *ngIf="showTable()" class="table-container">
-      <table
-        mat-table
-        [dataSource]="dataSource"
-        class="mat-elevation-z8 mat-table-custom"
-      >
-        <ng-container matColumnDef="userId">
-          <th mat-header-cell *matHeaderCellDef>User ID</th>
-          <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="rigid">
-          <th mat-header-cell *matHeaderCellDef>RIG ID</th>
-          <td mat-cell *matCellDef="let element">{{ element.rigid }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="amount">
-          <th mat-header-cell *matHeaderCellDef>Amount</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.amount | currency : "INR" }}
-          </td>
-        </ng-container>
-        
-        <ng-container matColumnDef="liquidity">
-          <th mat-header-cell *matHeaderCellDef>Liquidity</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.liquidity | currency : "INR" }}
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef>Date</th>
-          <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+    <label for="month">Select Month:</label>
+    <select id="month" [(ngModel)]="selectedMonth" name="month">
+      <option *ngFor="let month of availableMonths" [value]="month">
+        {{ month }}
+      </option>
+    </select>
     </div>
-    <div *ngIf="!showTable()">No transactions found.</div>
+
+    <button type="button" (click)="fetchTransactions()">
+      Fetch Transactions
+    </button>
+  </form>
 </div>
+<div class="header-div">
+  <p>CENTUM WORLD MUTUAL RIG WORK-EARN-SHARE PARTNER PAYOUT</p>
+</div>
+
+<div *ngIf="showTable()" class="table-container">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 mat-table-custom"
+  >
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef>User ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rigid">
+      <th mat-header-cell *matHeaderCellDef>RIG ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.rigid }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>Amount</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.amount | currency : "INR" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="liquidity">
+      <th mat-header-cell *matHeaderCellDef>Liquidity</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.liquidity | currency : "INR" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons="true"></mat-paginator>
+</div>
+<div *ngIf="!showTable()">No transactions found.</div>

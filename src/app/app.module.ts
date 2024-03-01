@@ -237,6 +237,7 @@ import { TodayTransactionHistoryComponent } from './components/admin/today-trans
 import { MemberEditBankComponent } from './components/member/modal/member-edit-bank/member-edit-bank.component';
 import { FranchiseEditBankComponent } from './components/modal/franchise-edit-bank/franchise-edit-bank.component';
 import { StateEditBankComponent } from './components/modal/state-edit-bank/state-edit-bank.component';
+import { PayoutReferralComponent } from './components/admin/payout-referral/payout-referral.component';
 
 
 
@@ -448,6 +449,7 @@ import { StateEditBankComponent } from './components/modal/state-edit-bank/state
     MemberEditBankComponent,
     FranchiseEditBankComponent,
     StateEditBankComponent,
+    PayoutReferralComponent,
   ],
   imports: [
     BrowserModule,

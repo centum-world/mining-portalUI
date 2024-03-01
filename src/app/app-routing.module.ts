@@ -100,6 +100,7 @@ import { PartnerPayoutComponent } from "./components/admin/partner-payout/partne
 import { RigPayoutComponent } from "./components/mining/rig-payout/rig-payout.component";
 import { TransactionHistoryComponent } from "./components/admin/transaction-history/transaction-history.component";
 import { TodayTransactionHistoryComponent } from "./components/admin/today-transaction-history/today-transaction-history.component";
+import { PayoutReferralComponent } from "./components/admin/payout-referral/payout-referral.component";
 
 
 const routes: Routes = [
@@ -133,6 +134,7 @@ const routes: Routes = [
       {path: "member-history", component : MemberHistoryComponent},
       {path: "partner-history", component: PartnerHistoryComponent},
       {path:"transaction-history", component:TransactionHistoryComponent},
+      {path: "referral-payout", component: PayoutReferralComponent},
       {path:"today-transaction-history",component:TodayTransactionHistoryComponent},
       {path: "sho-history", component: ShoHistoryComponent},
       {path: "franchise-history", component: FranchiseHistoryComponentComponent},

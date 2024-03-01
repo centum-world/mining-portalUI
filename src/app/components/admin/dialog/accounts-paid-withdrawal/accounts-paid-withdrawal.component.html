@@ -1,16 +1,44 @@
-<h1 mat-dialog-title style="font-family: Calibri;">Accounts (Paid Withdrawal)</h1>
+<div mat-dialog-title style="font-family: Calibri;">
+  <p>Total payout</p>
+  <div>
+    <div class="input-div">
+      <div class="input-field">
+        <label for="year">Select Year:</label>
+        <select id="year" [(ngModel)]="selectedYear" name="year">
+          <option *ngFor="let year of availableYears" [value]="year">
+            {{ year }}
+          </option>
+        </select>
+  
+        <label for="month">Select Month:</label>
+        <select id="month" [(ngModel)]="selectedMonth" name="month">
+          <option *ngFor="let month of availableMonths" [value]="month">
+            {{ month }}
+          </option>
+        </select>
+      </div>
+      <button type="button" (click)="fetchMonthWise()">Fetch payout</button>
+    </div>
+  </div>
+</div>
 <mat-dialog-content>
   <div class="account_paid_withdrawal">
-    <p>Partner withdrawal</p> <span>{{data.partner | currency:'INR'}}</span>
+    <p>BMM PAYOUT</p> <span>{{payoutData.totalBmmPayout | currency:"INR"}}</span>
   </div>
   <div class="account_paid_withdrawal">
-    <p>Refferal partner</p> <span>{{data.refferalPartner | currency:'INR'}}</span>
+    <p>FRANCHISE PAYOUT</p> <span>{{payoutData.totalFranchisePayout | currency:"INR"}}</span>
   </div>
   <div class="account_paid_withdrawal">
-    <p>Refferal member</p> <span>{{data.member | currency:'INR'}}</span>
+    <p>REFERRAL PAYOUT</p> <span>{{payoutData.totalReferralPayout | currency:"INR"}}</span>
   </div>
   <div class="account_paid_withdrawal">
-    <p>Total Withdrawal</p> <span>{{data.totalwithdrawal | currency:'INR'}}</span>
+    <p>PARTNER PAYOUT</p> <span>{{payoutData.totalPartnerPayout | currency:"INR"}}</span>
+  </div>
+  <div class="account_paid_withdrawal">
+    <p>REFERRAL PARTNER</p> <span>{{payoutData.totalReferralPartnerPayout | currency:"INR"}}</span>
+  </div>
+  <div class="account_paid_withdrawal">
+    <p>TOTAL PAYOUT</p> <span>{{payoutData.totalPayout | currency:"INR"}}</span>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions class="align">

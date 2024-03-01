@@ -1,0 +1,76 @@
+<div class="main-div">
+  <div class="searchby">
+    <mat-icon style="cursor: pointer" (click)="gotohome()">arrow_back</mat-icon>
+    <select [(ngModel)]="type" (change)="referralType()">
+      <option value="REFERRAL">REFERRAL</option>
+      <option value="FRANCHISE">FRANCHISE</option>
+      <option value="BMM">BMM</option>
+    </select>
+    <input placeholder="Search by userid..." (input)="onInputChange($event)" />
+  </div>
+  <form>
+    <div class="input-field">
+      <label for="year">Select Year:</label>
+      <select id="year" [(ngModel)]="selectedYear" name="year">
+        <option *ngFor="let year of availableYears" [value]="year">
+          {{ year }}
+        </option>
+      </select>
+
+      <label for="month">Select Month:</label>
+      <select id="month" [(ngModel)]="selectedMonth" name="month">
+        <option *ngFor="let month of availableMonths" [value]="month">
+          {{ month }}
+        </option>
+      </select>
+    </div>
+
+    <button type="button" (click)="fetchMonthWise()">Fetch payout</button>
+  </form>
+</div>
+<div class="header-div">
+  <p>CENTUM WORLD MUTUAL RIG WORK-EARN-SHARE {{ type }} PAYOUT</p>
+</div>
+
+<div *ngIf="showTable()" class="table-container">
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8 mat-table-custom"
+    >
+      <ng-container matColumnDef="userid">
+        <th mat-header-cell *matHeaderCellDef>User ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.userid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="partnerid">
+        <th mat-header-cell *matHeaderCellDef>Partner ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.partnerid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.amount | currency : "INR" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="credit_date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.credit_date | date }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      [showFirstLastButtons]="true"
+    ></mat-paginator>
+  </div>
+  <div *ngIf="!showTable()">No transactions found.</div>
+</div>
