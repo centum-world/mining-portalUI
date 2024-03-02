@@ -13,7 +13,9 @@ interface MemberMyTeam {
   name: string;
   lname: string;
   joinDate: Date;
-  action: string;
+  phone: number;
+  email:string;
+  // action: string;
 }
 
 @Component({
@@ -33,8 +35,10 @@ export class MyTeamComponent implements OnInit {
     "serialNumber",
     "p_userid",
     "name",
+    "phone",
+    "email",
     "joinDate",
-    "action",
+    // "action",
   ];
   dataSource: MatTableDataSource<MemberMyTeam>;
   userid = "";

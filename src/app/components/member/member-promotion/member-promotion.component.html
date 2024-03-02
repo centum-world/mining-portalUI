@@ -39,7 +39,7 @@
           <mat-divider></mat-divider>
           <mat-card-content class="single-line-content">
             <div class="bank-details">
-              <h2>Id</h2>
+              <h2>ID</h2>
               <strong>{{ data.userid }}</strong>
             </div>
             <div class="bank-details">
@@ -47,18 +47,18 @@
               <strong>{{ data.amount |currency:"INR" }}</strong>
             </div>
             <div class="bank-details">
-              <h2>Referral user</h2>
+              <h2>Referral Partner</h2>
               <strong>{{ data.partnerid }}</strong>
             </div>
             <div class="bank-details">
-              <h2>Referral user</h2>
+              <h2>Credit Date</h2>
               <strong>{{ data.credit_date | date}}</strong>
             </div>
           </mat-card-content>
           <mat-divider></mat-divider>
-          <mat-card-actions>
+          <!-- <mat-card-actions>
             <button mat-button style="background: rgb(0, 255, 38);;">Share & Earn more</button>
-          </mat-card-actions>
+          </mat-card-actions> -->
         </mat-card>
       </div>
     </div>

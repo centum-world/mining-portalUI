@@ -183,13 +183,13 @@ const routes: Routes = [
     component: MemberDashboardComponent,
     children:[
       { path: "home", component: MemberCardComponent },
-      {path:"withdrawal-success",component:WithdrawalSuccessComponent},
-      {path:"withdrawal-request",component:WithdrawalRequestComponent},
-      {path:"my-team",component:MyTeamComponent},
-      {path:"partner-list", component:MyPartnerlistComponent},
+      // {path:"withdrawal-success",component:WithdrawalSuccessComponent},
+      // {path:"withdrawal-request",component:WithdrawalRequestComponent},
+      {path:"partner-list",component:MyTeamComponent},
+      // {path:"partner-list", component:MyPartnerlistComponent},
       {path:"promotion", component:MemberPromotionComponent},
       {path:"referral-payout", component:MemberReferrralPayoutComponent},
-      {path:"todays-transaction",component:TodayTransactionHistoryComponent},
+      // {path:"todays-transaction",component:TodayTransactionHistoryComponent},
       { path: "", redirectTo: "/memberdashboard/home", pathMatch: "full" },
     ]
   },
