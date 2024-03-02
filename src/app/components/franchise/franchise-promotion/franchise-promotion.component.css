@@ -84,7 +84,7 @@ mat-panel-description {
     flex-direction: column;
     align-items: center;
   }
-  .example-card {
+  /* .example-card {
     width: 90%;
-  }
+  } */
 }
