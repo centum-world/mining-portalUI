@@ -1,44 +1,77 @@
 <div class="account-header">
-   <div class="title">
-    <mat-icon (click)="goBack()"
-        style="cursor: pointer;">arrow_back</mat-icon>&nbsp; <p>CENTUM WORLD MUTUAL RIG WORK-EARN SHARE BMM PAYOUT</p> 
-   </div>
-    <!-- <div class="wallet-div">{{myWallet | currency:"INR"}}</div> -->
+  <div class="title">
+    <mat-icon (click)="goBack()" style="cursor: pointer; margin:0 1rem 1rem 1rem;">arrow_back</mat-icon
+    >
+    <p style="font-weight: 700;">CENTUM WORLD MUTUAL RIG WORK-EARN SHARE BMM PAYOUT</p>
+  </div>
 </div>
-<div class="account-content">
-    <div class="bakk-div">
-        <!-- Check if approvedRequest is empty -->
-        <ng-container *ngIf="bmmReferralPayout.length === 0; else referralPayout">
-            <mat-card class="example-card">
-                <mat-card-content>
-                    <p>NO SHARE PAYOUT FOUND.</p>
-                </mat-card-content>
-            </mat-card>
-        </ng-container>
 
-        <!-- Display the list of approved withdrawals if approvedRequest is not empty -->
-        <ng-template #referralPayout>
-            <mat-card class="example-card" *ngFor="let data of bmmReferralPayout">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Payout Details</mat-card-title>
-                </mat-card-header>
-                <mat-divider></mat-divider>
-                <mat-card-content class="single-line-content">
-                    <div class="bank-details">
-                        <h2>BMM ID</h2><strong>{{data.userid}} </strong>
-                    </div>
-                    <div class="bank-details">
-                        <h2>Amount</h2><strong>{{data.amount | currency:'INR':'symbol':'1.2-2'}}</strong>
-                    </div>
-                    <div class="bank-details">
-                        <h2>Partner ID</h2><strong>{{data.partnerid }} </strong>
-                    </div>
-                    <div class="bank-details">
-                        <h2>Credit date</h2><strong>{{data.credit_date | date}} </strong>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </ng-template>
+   <!-- Add these lines within the search-container div -->
+   <div class="search-container">
+    <div>
+      <input
+        type="text"
+        id="searchUserId"
+        [(ngModel)]="searchUserId"
+        (input)="applySearch()"
+        placeholder="Search by UserID"
+      />
     </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+      <select id="searchMonth" [(ngModel)]="searchMonth">
+        <option value="" disabled selected>Month</option>
+        <option *ngFor="let month of months" [value]="month.value">
+          {{ month.label }}
+        </option>
+      </select>
+      <select id="searchYear" [(ngModel)]="searchYear">
+        <option value="" disabled selected>Year</option>
+        <option *ngFor="let year of years">{{ year }}</option>
+      </select>
+      <button mat-button (click)="applySearch()">Search</button>
+    </div>
+  </div>
+
+<div class="account-content">
+  <div class="bakk-div">
+    <!-- Check if requestHistory is empty -->
+    <ng-container *ngIf="requestHistory.length === 0; else referralPayout">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <p>NO SHARE PAYOUT FOUND.</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+
+    <!-- Display the list of referral payouts if requestHistory is not empty -->
+    <ng-template #referralPayout>
+      <mat-card class="example-card" *ngFor="let data of requestHistory">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Payout Details</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="single-line-content">
+          <div class="bank-details">
+            <h2>BMM ID</h2>
+            <strong>{{ data.userid }} </strong>
+          </div>
+          <div class="bank-details">
+            <h2>Amount</h2>
+            <strong>{{
+              data.amount | currency : "INR" : "symbol" : "1.2-2"
+            }}</strong>
+          </div>
+          <div class="bank-details">
+            <h2>Partner ID</h2>
+            <strong>{{ data.partnerid }} </strong>
+          </div>
+          <div class="bank-details">
+            <h2>Credit date</h2>
+            <strong>{{ data.credit_date | date }} </strong>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </div>
 </div>
