@@ -77,8 +77,8 @@ export class MemberCardComponent implements OnInit {
   usertype = localStorage.getItem("userType");
   currentdate: string;
   totalPayout:any;
-  totalAmountCurrentMonth:any;
-  totalAmountToday:any;
+  totalPayoutCurrentMonth:any;
+  totalPayoutToday:any;
 
   constructor(
     private userService: UserService,
@@ -127,8 +127,8 @@ export class MemberCardComponent implements OnInit {
     };
     this.userService.callApiToFetchTodaysAndTotalPayout(data1).subscribe((response: any) => {
         if (response) {
-          this.totalAmountToday = response.data.totalAmountToday
-          this.totalAmountCurrentMonth = response.data.totalAmountCurrentMonth
+          this.totalPayoutToday = response.data.totalAmountToday
+          this.totalPayoutCurrentMonth = response.data.totalAmountCurrentMonth
           this.totalPayout = response.data.totalPayout
         }
       });
@@ -438,8 +438,8 @@ export class MemberCardComponent implements OnInit {
 
   // -----------------------------------------------------//
 
-  viewListPartnerTeam() {
-    this.router.navigate(["/memberdashboard/my-team"]);
+  viewPartnerList() {
+    this.router.navigate(["/memberdashboard/partner-list"]);
   }
 
   memberAddBankDialog() {
@@ -486,7 +486,10 @@ export class MemberCardComponent implements OnInit {
     window.open(whatsappUrl, "_blank");
   }
 
-  viewTodaysTransaction() {
-    this.router.navigate(["/memberdashboard/todays-transaction"]);
+  // viewTodaysTransaction() {
+  //   this.router.navigate(["/memberdashboard/todays-transaction"]);
+  // }
+  viewReferralPayoutList(){
+    this.router.navigate(['/memberdashboard/referral-payout'])
   }
 }
