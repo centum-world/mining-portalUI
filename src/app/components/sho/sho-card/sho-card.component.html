@@ -1,12 +1,12 @@
 <main>
-  <div  class="cards">
+  <div class="cards">
 
     <div class="card-single">
       <div>
         <h5>Transaction</h5>
-        <span>Total Payout:     </span>
+        <span>Total Payout: </span>
         <span style="color: yellow;">{{totalPayout | currency:'INR' }}</span><br>
-        <span>Today's Payout:  </span>
+        <span>Today's Payout: </span>
         <span style="color: yellow;">{{totalPayoutToday | currency:'INR'}}</span> <br>
         <span>Month Payout:</span>
         <span style="color: yellow;">{{totalPayoutCurrentMonth | currency:'INR'}}</span>
@@ -20,10 +20,10 @@
 
     <div class="card-single">
       <div>
-        <span>Total Franchise:     </span>
+        <span>Total Franchise: </span>
         <span style="color: yellow;">{{totalFranchiseCount }}</span><br>
-        <span>Today Franchise:  </span>
-        <span style="color: yellow;">{{todayFranchiseCount}}</span> 
+        <span>Today Franchise: </span>
+        <span style="color: yellow;">{{todayFranchiseCount}}</span>
       </div>
       <div data-toggle="modal" (click)="viewFranchiseList()">
         <div class="icon">
@@ -35,10 +35,10 @@
 
     <div class="card-single">
       <div>
-        <span>Total Referral:     </span>
+        <span>Total Referral: </span>
         <span style="color: yellow;">{{totalMemberReferralCount }}</span><br>
-        <span>Today's Referral:  </span>
-        <span style="color: yellow;">{{todayMemberReferralCount  }}</span> 
+        <span>Today's Referral: </span>
+        <span style="color: yellow;">{{todayMemberReferralCount }}</span>
       </div>
       <div data-toggle="modal" (click)="viewReferralList()">
         <div class="icon">
@@ -49,10 +49,10 @@
 
     <div class="card-single">
       <div>
-        <span>Total RIG Partner:     </span>
+        <span>Total RIG Partner: </span>
         <span style="color: yellow;">{{totalPartnerCount}}</span><br>
-        <span>Today's RIG Partner:  </span>
-        <span style="color: yellow;">{{todayPartnerCount }}</span> 
+        <span>Today's RIG Partner: </span>
+        <span style="color: yellow;">{{todayPartnerCount }}</span>
       </div>
       <div data-toggle="modal" (click)="viewPartnerList()">
         <div class="icon">
@@ -61,13 +61,25 @@
       </div>
     </div>
 
-
+    <div class="card-single">
+      <div>
+        <h6>BMM ID :- {{displayStateHandlerId}}</h6>
+        <span>Referral ID :- &nbsp;<a>{{displayStateHandlerReferralId}}</a></span>&nbsp;
+        <button class="copy-icon" (click)="copyToClipboard()">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+        <span class="copy-icon">
+          <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+        </span>
+      </div>
+    </div>
 
     <div class="card-single">
       <div>
-        <h6 style="display: flex; ">Promotion 
+        <h6 style="display: flex; ">Promotion
           <span *ngIf="usertype === 'BMM'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
-          <span *ngIf="usertype === 'FRANCHISE'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
+          <span *ngIf="usertype === 'FRANCHISE'"><mat-icon
+              style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
           <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: rgb(140, 252, 120);">trending_up</mat-icon></span>
         </h6>
         <span>See your upgrade or downgrade</span>
@@ -101,20 +113,8 @@
         <!-- Add more menu items as needed -->
       </mat-menu>
     </div>
-    <div class="card-single">
-      <div >
-        <h6>BMM ID :- {{displayStateHandlerId}}</h6>
-        <span >Referral ID :- &nbsp;<a
-            >{{displayStateHandlerReferralId}}</a></span>&nbsp;
-            <button class="copy-icon" (click)="copyToClipboard()">
-              <mat-icon>content_copy</mat-icon>
-            </button>
-            <span class="copy-icon">
-              <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
-            </span>
-          </div>
-    </div>
-   
+
+
     <!-- <div class="card-single">
       <div>
         <h6>Total  Partner </h6>
