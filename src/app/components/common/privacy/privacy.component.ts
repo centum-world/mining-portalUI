@@ -14,7 +14,7 @@ export class PrivacyComponent implements OnInit {
   ngOnInit() {
   }
 
-  gotoHome() {
+  gotohome() {
     window.open('https://centumworldrig.com', '_blank');
   }
 

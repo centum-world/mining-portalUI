@@ -69,7 +69,7 @@ export class MiningEditAndViewBankComponent implements OnInit {
   
 
 
-  editPartnerBank() {
+  editPartnerBank(item:any) {
       const formData = this.bankDetailsForm.value;
 
       let data = {
