@@ -1,22 +1,27 @@
-.sho-list-header{
-    width: calc(100%-300px);
-    height: 70px;
-    border-radius: 8px;
-    margin-left: 330px;
-    padding: 20px;
-    margin-top: -41px;
+.sho-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100%-300px);
+  height: 70px;
+  border-radius: 8px;
+  margin-left: 330px;
+  padding: 20px;
+  margin-top: -41px;
 }
-.title h5{
-    font-weight: 600;
-    color: #000;
-    font-family: 'Roboto',sans-serif;
+.title h5 {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: max-content;
+  font-weight: 600;
+  color: #000;
+  font-family: "Roboto", sans-serif;
 }
-
 
 /* Background color when clicked */
 .mat-form-field.focused {
   background-color: lightblue;
- 
 }
 /* .search{
     display: flex;
@@ -29,77 +34,74 @@
 
 } */
 .large-expand {
-    overflow-x: auto;
-    margin-top:5px;
-    padding: 20px;
-    margin-left: 330px;
+  overflow-x: auto;
+  margin-top: 5px;
+  padding: 20px;
+  margin-left: 330px;
 }
 
 /* table {
     width: 100%;
 } */
-.member-history-header{
-    font-weight: bold;
-    color: black;
+.member-history-header {
+  font-weight: bold;
+  color: black;
 }
 /* Add this CSS to your component's CSS file */
 .table-container {
-    overflow-x: auto; /* Enable horizontal scrolling for the container */
-  }
-  
-  .mat-table {
-    width: 100%; /* Ensure the table takes up the full width of its container */
-    border-collapse: collapse; /* Remove default cell spacing */
-    font-family:'Roboto',sans-serif
-  }
-  
-  .mat-cell,
-  .mat-header-cell {
-    padding: 8px; /* Adjust the padding as needed */
-    text-align: left; /* Left-align cell content */
-    border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
-    font-family:'Roboto',sans-serif;
-  }
-  
-  /* Style the header row */
-  .mat-header-row {
-    background-color: #f0f0f0; /* Add a background color to the header row */
-  }
-  
-  /* Add a border to the last cell in each row */
-  .mat-cell:last-child,
-  .mat-header-cell:last-child {
-    border-right: 1px solid #ddd;
-  }
-  .active-status{
-    color:rgb(164, 247, 39)
-  }
-  .inactive-status{
-    color:red
-  }
-
-  @media screen and (max-width: 768px ){
-    .sho-list-header, .large-expand{
-     margin-left: 0px ;
-    } 
-    .sho-list-header{
-      margin-top: 60px;
-    }
-    .mat-form-field-infix {
-      width: 100px;
-  }
-  
-    
- }
-
- @media only screen and (min-width: 375px) and (max-width:767px) {
-  
-  .title h5{
-    font-weight: 600;
-    
+  overflow-x: auto; /* Enable horizontal scrolling for the container */
 }
- .mat-form-field-infix {
-      width: 128px;
-  }
 
+.mat-table {
+  width: 100%; /* Ensure the table takes up the full width of its container */
+  border-collapse: collapse; /* Remove default cell spacing */
+  font-family: "Roboto", sans-serif;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 8px; /* Adjust the padding as needed */
+  text-align: left; /* Left-align cell content */
+  border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+  font-family: "Roboto", sans-serif;
+}
+
+/* Style the header row */
+.mat-header-row {
+  background-color: #f0f0f0; /* Add a background color to the header row */
+}
+
+/* Add a border to the last cell in each row */
+.mat-cell:last-child,
+.mat-header-cell:last-child {
+  border-right: 1px solid #ddd;
+}
+.active-status {
+  color: rgb(164, 247, 39);
+}
+.inactive-status {
+  color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .sho-list-header,
+  .large-expand {
+    margin-left: 0px;
+  }
+  .sho-list-header {
+    margin-top: 60px;
+  }
+  .mat-form-field-infix {
+    width: 100px;
+  }
+  .title h5{
+    font-size:14px;
+    font-weight:600;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 767px) {
+  .mat-form-field-infix {
+    width: 128px;
+  }
 }
