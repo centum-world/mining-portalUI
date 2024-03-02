@@ -1,34 +1,66 @@
-<div class="header" style="gap: 1rem; margin-left: 10px;">
-  <div style="cursor: pointer;" (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
+<div class="referral-payout">
+  <div class="arow-title">
+    <span
+      ><mat-icon style="cursor: pointer" (click)="gotoDashboard()"
+        >arrow_back</mat-icon
+      ></span
+    >
+    <p style="margin-left: 1rem">
+      CENTUM WORLD MUTUAL RIG WORK-EARN SHARE FRANCHISE PAUOUT
+    </p>
   </div>
-  <p>CENTUM WORLD MUTUAL RIG WORK-EARN SHARE FRANCHISE PAYOUT</p>
 </div>
- 
+<!-- Add these lines within the search-container div -->
+<div class="search-container">
+  <div>
+    <input
+      type="text"
+      id="searchUserId"
+      [(ngModel)]="searchUserId"
+      (input)="applySearch()"
+      placeholder="Search by UserID"
+    />
+  </div>
+  <div style="display: flex;justify-content: center;align-items: center; gap: 1rem;">
+    <select id="searchMonth" [(ngModel)]="searchMonth">
+      <option value="" disabled selected>Month</option>
+      <option *ngFor="let month of months" [value]="month.value">
+        {{ month.label }}
+      </option>
+    </select>
+    <select id="searchYear" [(ngModel)]="searchYear">
+      <option value="" disabled selected>Year</option>
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+    <button  mat-button (click)="applySearch()">Search</button>
+  </div>
+</div>
 <div class="account-section">
   <div class="bakk-div">
-
-    <mat-card class="example-card" *ngIf="myReferralPayout.length === 0">
+    <!-- No data found card -->
+    <mat-card class="example-card" *ngIf="requestHistory.length === 0">
       <mat-card-content>
-        <p>No referral payout found</p>
+        <p>No data found</p>
       </mat-card-content>
     </mat-card>
 
-    <div *ngFor="let data of myReferralPayout">
-      <mat-card class="example-card">
+    <!-- Loop through the requestHistory array if it's not empty -->
+
+    <div class="card-container">
+      <mat-card class="example-card" *ngFor="let data of requestHistory">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>Payout</mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
         <mat-card-content class="single-line-content">
-          <div id = "id" class="bank-details">
-            <h2>Franchise ID</h2>
+          <div id="id" class="bank-details">
+            <h2>ID</h2>
             <strong>{{ data.userid }}</strong>
           </div>
           <div class="bank-details">
             <h2>Amount</h2>
-            <strong>{{ data.amount | currency:"INR" }}</strong>
+            <strong>{{ data.amount | currency : "INR" }}</strong>
           </div>
           <div class="bank-details">
             <h2>Referral Partner</h2>
@@ -36,7 +68,7 @@
           </div>
           <div class="bank-details">
             <h2>Credit Date</h2>
-            <strong>{{ data.credit_date | date}}</strong>
+            <strong>{{ data.credit_date | date }}</strong>
           </div>
         </mat-card-content>
         <mat-divider></mat-divider>
@@ -47,5 +79,5 @@
         </mat-card-actions> -->
       </mat-card>
     </div>
-  </div>
-</div>
+  </div></div>
+
