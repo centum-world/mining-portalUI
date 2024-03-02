@@ -30,8 +30,22 @@ interface Sho {
   styleUrls: ["./sho-history.component.css"],
 })
 export class ShoHistoryComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild('paginatorVerified', { static: true }) paginatorVerified: MatPaginator;
+  @ViewChild('paginatorUnverified', { static: true }) paginatorUnverified: MatPaginator;
+  @ViewChild('paginatorUpgradeDowngrade', { static: true }) paginatorUpgradeDowngrade: MatPaginator;
   displayedColumns: string[] = [
+    "stateHandlerId",
+    "fname",
+    "lname",
+    "email",
+    "phone",
+    "gender",
+    "referralId",
+    "selectedState",
+    "actions",
+  ];
+
+  displayedColumns1: string[] = [
     "stateHandlerId",
     "fname",
     "lname",
@@ -55,7 +69,9 @@ export class ShoHistoryComponent implements OnInit {
     "userType",
   ];
 
-  dataSource: MatTableDataSource<Sho>;
+  dataSourceVerified: MatTableDataSource<Sho>;
+  dataSourceUnverified: MatTableDataSource<Sho>;
+  dataSourceUpgradeDowngrade: MatTableDataSource<Sho>;
 
   constructor(
     private userService: UserService,
@@ -63,20 +79,27 @@ export class ShoHistoryComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router
   ) {
-    this.dataSource = new MatTableDataSource([]);
+    this.dataSourceVerified = new MatTableDataSource([]);
+    this.dataSourceUnverified = new MatTableDataSource([]);
+    this.dataSourceUpgradeDowngrade = new MatTableDataSource([]);
+    
   }
 
   ngOnInit() {
+    this.dataSourceVerified.paginator = this.paginatorVerified;
+    this.dataSourceUnverified.paginator = this.paginatorUnverified;
+    this.dataSourceUpgradeDowngrade.paginator = this.paginatorUpgradeDowngrade;
+
     this.tabChanged(0);
     this.callApiToFetchAllSho();
-    this.dataSource.paginator = this.paginator;
+    
   }
 
   tabChanged(event: any) {
     if (event === 0) {
       this.userService.CallApifetchVerifiedBmm().subscribe({
         next: (res: any) => {
-          this.dataSource.data = res.data;
+          this.dataSourceVerified.data = res.data;
         },
         error: (err) => {
           console.log(err.error.message);
@@ -85,7 +108,10 @@ export class ShoHistoryComponent implements OnInit {
     } else if (event === 1) {
       this.userService.CallApifetchUnVerifiedBmm().subscribe({
         next: (res: any) => {
-          this.dataSource.data = res.data;
+          console.log(res.data)
+          this.dataSourceUnverified.data = res.data;
+          this.dataSourceUnverified.paginator.pageSize = this.dataSourceUnverified.data.length;
+          this.dataSourceUnverified.paginator.firstPage();
         },
         error: (err) => {
           console.log(err.error.message);
@@ -94,7 +120,7 @@ export class ShoHistoryComponent implements OnInit {
     } else if (event === 2) {
       this.userService.CallApifetchUpgradeDowngradeBmm().subscribe({
         next: (res: any) => {
-          this.dataSource.data = res.data;
+          this.dataSourceUpgradeDowngrade.data = res.data;
         },
         error: (err) => {
           console.log(err.error.message);
@@ -105,7 +131,8 @@ export class ShoHistoryComponent implements OnInit {
   callApiToFetchAllSho() {
     this.userService.CallApifetchVerifiedBmm().subscribe({
       next: (res: any) => {
-        this.dataSource.data = res.data;
+        console.log(res.data)
+        this.dataSourceVerified.data = res.data;
       },
       error: (err) => {
         console.log(err.error.message);
@@ -114,7 +141,7 @@ export class ShoHistoryComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSourceVerified.filter = filterValue.trim().toLowerCase();
   }
 
   openIsBlockDialog(shoData: any) {

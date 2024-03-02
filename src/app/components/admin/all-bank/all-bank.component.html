@@ -1,0 +1,45 @@
+<div class="bank-container">
+   <div class="header-div">
+    <div class="back-arrow"><mat-icon (click)="gotohome()" style="cursor: pointer;">arrow_back</mat-icon><p>Bank details</p></div>
+    <div class="input-field">
+        <input placeholder="Search by userid..." (input)="onInputChange($event)"/>
+    </div>
+   </div>
+   <hr>
+   <div class="card-container">
+        <div class="cards" *ngFor="let item of allBanData">
+            <div class="cards-header">
+                <p>Bank details</p>
+                <h6>{{item.user_id}}</h6>
+            </div>
+            <hr>
+            <div class="cards-content">
+                <div class="cards-name">
+                    <p>Holder Name</p>
+                    <h6>{{item.holder_name}}</h6>
+                </div>
+                <div class="cards-name">
+                    <p>Bank Name</p>
+                    <h6>{{item.bank_name}}</h6>
+                </div>
+                <div class="cards-name">
+                    <p>Branch Name</p>
+                    <h6>{{item.branch_name}}</h6>
+                </div>
+                <div class="cards-name">
+                    <p>A/c no</p>
+                    <h6>{{item.account_no}}</h6>
+                </div>
+                <div class="cards-name">
+                    <p>IFSC Code</p>
+                    <h6>{{item.ifsc_code}}</h6>
+                </div>
+            </div>
+            <hr>
+            <div class="footer" [ngStyle]="{'color': item.isVerify ? 'green' : 'red'}">
+                <p>{{ item.isVerify ? 'Authorize' : 'Not authorize' }}</p>
+                <button *ngIf="!item.isVerify" (click)="doVerify(item.id)">Authorize</button>
+            </div>
+        </div>
+   </div>
+</div>

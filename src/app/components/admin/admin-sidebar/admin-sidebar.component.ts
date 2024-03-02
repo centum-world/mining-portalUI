@@ -102,9 +102,10 @@ export class AdminSidebarComponent implements OnInit {
        console.log(error)
       }
     })
+  }
 
-
-    
+  bankDetails(){
+    this.router.navigate(['/dashboard/bank-details'])
   }
 
 

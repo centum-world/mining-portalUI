@@ -241,6 +241,8 @@ import { PayoutReferralComponent } from './components/admin/payout-referral/payo
 import { MiningEditAndViewBankComponent } from './components/mining/dialog/mining-edit-and-view-bank/mining-edit-and-view-bank.component';
 import { BmmReferralListComponent } from './components/sho/bmm-referral-list/bmm-referral-list.component';
 import { PartnerTransactionHistoryComponent } from './components/mining/partner-transaction-history/partner-transaction-history.component';
+import { AllBankComponent } from './components/admin/all-bank/all-bank.component';
+import { ConfirmAuthorizeComponent } from './components/admin/dialog/confirm-authorize/confirm-authorize.component';
 
 
 
@@ -456,6 +458,8 @@ import { PartnerTransactionHistoryComponent } from './components/mining/partner-
     BmmReferralListComponent,
     PartnerTransactionHistoryComponent,
     PayoutReferralComponent,
+    AllBankComponent,
+    ConfirmAuthorizeComponent,
   ],
   imports: [
     BrowserModule,
@@ -572,7 +576,7 @@ import { PartnerTransactionHistoryComponent } from './components/mining/partner-
     FranchiseEditBankComponent,
     StateEditBankComponent,
     MiningEditAndViewBankComponent,
-    
+    ConfirmAuthorizeComponent
   ],
   providers: [
     {

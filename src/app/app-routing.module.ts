@@ -103,6 +103,7 @@ import { TodayTransactionHistoryComponent } from "./components/admin/today-trans
 import { BmmReferralListComponent } from "./components/sho/bmm-referral-list/bmm-referral-list.component";
 import { PartnerTransactionHistoryComponent } from "./components/mining/partner-transaction-history/partner-transaction-history.component";
 import { PayoutReferralComponent } from "./components/admin/payout-referral/payout-referral.component";
+import { AllBankComponent } from "./components/admin/all-bank/all-bank.component";
 
 
 const routes: Routes = [
@@ -157,6 +158,7 @@ const routes: Routes = [
       {path:"member-account/:id",component:MemberAccountComponent},
       {path: "franchise-account/:id", component: FranchiseAccountComponent},
       {path:"bd-account/:id", component: BdAccountComponent},
+      {path:"bank-details", component: AllBankComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
     ]
   },

@@ -1661,4 +1661,16 @@ export class UserService {
     });
   }
 
+  fetchAllBankDetails(){
+    return this.http.get(this.url + "/admin/fetch-all-verified-and-unverified-bank", {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  authorizeBank(data:any){
+    return this.http.get(this.url + `/admin/verify-bank/${data.id}`, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }
