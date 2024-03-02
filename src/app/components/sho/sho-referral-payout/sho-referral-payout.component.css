@@ -1,58 +1,65 @@
-.account-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    margin-left: 50px;
-    padding: 10px;
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin-left: 50px;
+  padding: 10px;
 }
-.account-header h5{
-    color: #000;
-    font-weight: 600;
-    font-family: "Roboto",sans-serif;
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
-.wallet-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 40px;
-    background: #3660ebaf;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 600;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    font-family: "Roboto", sans-serif;
+.wallet-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  background: #3660ebaf;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  font-family: "Roboto", sans-serif;
 }
-.account-content{
-    margin-left: 50px;
+.account-content {
+  margin-left: 50px;
 }
-.bakk-div{
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
-    font-family: 'Roboto', sans-serif; 
+.bakk-div {
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
 }
 .example-card {
-    margin: 10px;
-    width: 300px;
+  margin: 10px;
+  width: 300px;
 }
-  
-.bank-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
+.example-card mat-card-content {
+    margin-top:10px;
 }
-.bank-details h2{
-    font-weight: 400;
-    color: #9d9a9a;
-    font-size: small;
+
+.bank-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 }
-.example-header-image{
-    background-image: url("/assets/image/bank.jpg");
-    background-size: cover;
+.bank-details h2 {
+  font-weight: 400;
+  color: #9d9a9a;
+  font-size: small;
+}
+.example-header-image {
+  background-image: url("/assets/image/bank.jpg");
+  background-size: cover;
 }
 
 /* Additional styling for elements within the bakk-div */
@@ -62,20 +69,22 @@
 .bakk-div .bank-details,
 .bakk-div h2,
 .bakk-div strong {
-    font-family: 'Roboto', sans-serif; /* Roboto font family */
+  font-family: "Roboto", sans-serif; /* Roboto font family */
 }
 
-
-@media (min-width: 768px) and (max-width: 1200px){
-.account-header {
+@media (min-width: 768px) and (max-width: 1200px) {
+  .account-header {
     margin-top: 100px;
-}
+  }
 }
 @media (max-width: 767px) {
-    .account-header{
-        margin: 100px 0px 0px 0px;
-    }
-    .account-content{
-        margin-left: 0;
-    }
+  .account-header {
+    margin: 100px 0px 0px 0px;
+  }
+  .account-content {
+    margin-left: 0;
+  }
+  .title p{
+    font-size:14px;
+  }
 }

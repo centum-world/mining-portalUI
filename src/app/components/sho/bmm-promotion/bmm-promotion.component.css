@@ -28,6 +28,9 @@
     margin: 10px;
     width: 320px;
   }
+  .example-card mat-card-content  {
+    margin-top:10px;
+  }
   .mat-card-header {
     display: flex;
     align-items: center;
