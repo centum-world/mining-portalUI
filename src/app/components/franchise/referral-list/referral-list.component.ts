@@ -122,8 +122,11 @@ export class ReferralListComponent implements OnInit {
     });
   }
 
-  applyFilter(value: any) {}
-
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+  
   goBack() {
     this.router.navigate(["/franchisedashboard"]);
   }
