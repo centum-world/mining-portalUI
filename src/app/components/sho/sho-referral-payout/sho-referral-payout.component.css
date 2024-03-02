@@ -1,14 +1,18 @@
-/* General styling for account header */
-.account-header .title {
+.account-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  height: 60px;
+  margin-left: 50px;
 }
-
-.account-header .title .back-icon {
-  margin-right: 5px;
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
 }
-
-/* Styling for wallet section */
 .wallet-div {
   display: flex;
   justify-content: center;
@@ -24,45 +28,34 @@
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   font-family: "Roboto", sans-serif;
 }
-
-/* Styling for the main content area */
 .account-content {
   margin-left: 50px;
 }
-
-/* Styling for card container */
 .bakk-div {
   display: flex;
   height: auto;
   flex-wrap: wrap;
   font-family: "Roboto", sans-serif;
 }
-
-/* Styling for individual card */
 .example-card {
   margin: 10px;
   width: 300px;
 }
-
 .example-card mat-card-content {
-  margin-top: 10px;
+    margin-top:10px;
 }
 
-/* Styling for bank details section */
 .bank-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
 }
-
 .bank-details h2 {
   font-weight: 400;
   color: #9d9a9a;
   font-size: small;
 }
-
-/* Styling for card header image */
 .example-header-image {
   background-image: url("/assets/image/bank.jpg");
   background-size: cover;
@@ -75,14 +68,15 @@
 .bakk-div .bank-details,
 .bakk-div h2,
 .bakk-div strong {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif; /* Roboto font family */
 }
 
-/* Styling for search container */
+/* Add the following styles to your component's CSS file or your global styles */
+
 .search-container {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   margin-bottom: 20px;
 }
 
@@ -90,8 +84,8 @@
   margin-right: 10px;
 }
 
-.search-container button.mat-button {
-  background-color: #2196f3;
+button.mat-button {
+  background-color: #2196F3; /* Add your preferred background color */
   color: white;
   border: none;
   border-radius: 4px;
@@ -99,26 +93,28 @@
   transition: background-color 0.3s ease;
 }
 
-.search-container button.mat-button:hover {
-  background-color: #0e7ae6;
+button.mat-button:hover {
+  background-color: #0e7ae6; /* Change the color on hover */
 }
 
-/* Styling for input and select elements */
-.search-container input,
+
+.search-container input{
+  padding: 5px;
+}
 .search-container select {
-  padding: 8px;
+  padding: 5px !important;
   margin-right: 10px;
 }
 
-/* Media queries for responsiveness */
 @media screen and (max-width: 600px) {
-  button.mat-button {
-    margin-bottom: 0.6rem;
+  /* Adjust styles for smaller screens */
+  button.mat-button{
+    margin-bottom:0.6rem
   }
-
   .search-container {
-    flex-direction: column;
+    flex-direction:column;
     align-items: flex-start;
+    align-items:center;
     margin-left: 2rem;
   }
 
@@ -130,22 +126,20 @@
   }
 }
 
+
 @media (min-width: 768px) and (max-width: 1200px) {
   .account-header {
     margin-top: 78px;
   }
 }
-
 @media (max-width: 767px) {
   .account-header {
     margin: 78px 0px 0px 0px;
   }
-
   .account-content {
     margin-left: 0;
   }
-
-  .title p {
-    font-size: 14px;
+  .title p{
+    font-size:14px;
   }
 }
