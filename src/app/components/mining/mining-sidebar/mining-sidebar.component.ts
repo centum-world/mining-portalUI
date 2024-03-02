@@ -47,6 +47,7 @@ export class MiningSidebarComponent implements OnInit {
   }
 
   addBankDetails() {
+    this.closeSidebar()
     let config: MatDialogConfig = {
       panelClass: "partnerAddBankDialogClass",
     };
@@ -65,6 +66,7 @@ export class MiningSidebarComponent implements OnInit {
   }
 
   editAndViewBankDetails() {
+    this.closeSidebar()
     let config: MatDialogConfig = {
       panelClass: "partnerEditAndViewBankDetailsDialogClass",
     };

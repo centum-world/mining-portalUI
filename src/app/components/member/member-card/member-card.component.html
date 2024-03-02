@@ -28,32 +28,37 @@
   <main>
 
     <div *ngIf="!profileDetails" class="cards">
-      <div class="card-single">
-        <div>
-          <span>Total RIG Partner: </span>
-          <span>{{ totalPartnerCount }}</span
-          ><br />
-          <span>Today's RIG PARTNER: </span>
-          <span>{{ todayPartnerCount }}</span>
-        </div>
-        
-      </div>
-
+  
       <div class="card-single">
         <div>
           <h5>Transaction</h5>
           <div class="" style="display: flex; justify-content: space-between;" >
             <span>Today's Payout</span>&nbsp;&nbsp;
-            <span style="color: yellow;" >{{totalAmountToday | currency:'INR'}}</span>
+            <span style="color: yellow;" >{{totalPayoutToday | currency:'INR'}}</span>
           </div>
           <div class="">
             <span>Month Payout</span>&nbsp;&nbsp;
-            <span style="color: yellow;">{{totalAmountCurrentMonth | currency:'INR'}}</span>
+            <span style="color: yellow;">{{totalPayoutCurrentMonth | currency:'INR'}}</span>
           </div>
           <div class="">
             <span>Total Payout</span>&nbsp;&nbsp;
             <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span>
           </div>
+        </div>
+        <div data-toggle="modal" (click)="viewReferralPayoutList()">
+          <div class="icon">
+            <span>View</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-single">
+        <div>
+          <span>Total RIG Partner: </span>
+          <span style="color: yellow;">{{ totalPartnerCount }}</span
+          ><br />
+          <span>Today's RIG PARTNER: </span>
+          <span style="color: yellow;">{{ todayPartnerCount }}</span>
         </div>
       </div>
 
@@ -108,11 +113,11 @@
 
       <div class="card-single">
         <div>
-          <h6>Partner Team</h6>
+          <h6>Partner List</h6>
           <span></span>
         </div>
 
-        <div data-toggle="modal" (click)="viewListPartnerTeam()">
+        <div data-toggle="modal" (click)="viewPartnerList()">
           <div class="icon">
             <span>View</span>
           </div>

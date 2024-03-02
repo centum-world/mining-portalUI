@@ -30,18 +30,28 @@
                 <td mat-cell *matCellDef="let myTeam"> {{myTeam.p_name}} {{myTeam.p_lname}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Phone</th>
+                <td mat-cell *matCellDef="let myTeam"> {{myTeam.p_phone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef class="member-history-header">Email</th>
+                <td mat-cell *matCellDef="let myTeam"> {{myTeam.p_email}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="joinDate">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Joining Date</th>
                 <td mat-cell *matCellDef="let myTeam"> {{myTeam.p_dop | date}}
                 </td>
             </ng-container>
 
-            <ng-container matColumnDef="action">
+            <!-- <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Action</th>
                 <td mat-cell *matCellDef="let myTeam">
                     <button class="viewbutton" mat-button (click)="fetchPartnerDetails(myTeam.p_userid)" style="font-family: 'Roboto',sans-serif;">View</button>
                 </td>
-            </ng-container>
+            </ng-container> -->
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let myTeam; columns: displayedColumns;"></tr>
