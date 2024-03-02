@@ -4,12 +4,12 @@
     <div class="card-single">
       <div>
         <h5>Transaction</h5>
-        <span>Total Payout:     </span>
-        <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span><br>
-        <span>Today's Payout:  </span>
+        <span>Today's Payout: </span>
         <span style="color: yellow;">{{totalPayoutToday | currency:'INR'}}</span> <br>
         <span>Month Payout:</span>
-        <span style="color: yellow;">{{totalPayoutCurrentMonth | currency:'INR'}}</span>
+        <span style="color: yellow;">{{totalPayoutCurrentMonth | currency:'INR'}}</span><br>
+        <span>Total Payout: </span>
+        <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span>
       </div>
       <div data-toggle="modal" (click)="viewReferralPayout()">
         <div class="icon">
@@ -20,10 +20,10 @@
 
     <div class="card-single">
       <div>
-        <span>Total Referral:     </span>
-        <span style="color: yellow;">{{totalMemberReferralCount }}</span><br>
-        <span>Today's Referral:  </span>
-        <span style="color: yellow;">{{todayMemberReferralCount }}</span> 
+        <span>Today's Referral: </span>
+        <span style="color: yellow;">{{todayMemberReferralCount }}</span><br>
+        <span>Total Referral: </span>
+        <span style="color: yellow;">{{totalMemberReferralCount }}</span>
       </div>
       <div data-toggle="modal" (click)="viewReferralList()">
         <div class="icon">
@@ -35,10 +35,10 @@
 
     <div class="card-single">
       <div>
-        <span>Total RIG Partner:     </span>
-        <span style="color: yellow;">{{totalPartnerCount}}</span><br>
-        <span>Today's RIG Partner:  </span>
-        <span style="color: yellow;">{{todayPartnerCount }}</span> 
+        <span>Today's RIG Partner: </span>
+        <span style="color: yellow;">{{todayPartnerCount }}</span><br>
+        <span>Total RIG Partner: </span>
+        <span style="color: yellow;">{{totalPartnerCount}}</span>
       </div>
       <div data-toggle="modal" (click)="viewPartnerList()">
         <div class="icon">
@@ -47,30 +47,34 @@
       </div>
     </div>
 
+    <div class="card-single">
+      <div>
+        <h6>User ID :- <span style="color: yellow;">{{ displayFranchiseId }}</span></h6>
+        <span>Referral ID :- &nbsp;
+          <span style="color: yellow;"> {{ displayFranchiseReferralId }}</span>
+        </span>&nbsp;
+        <button class="copy-icon" (click)="copyToClipboard()">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+        <span class="copy-icon" style="margin-left: 1rem;">
+          <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
+        </span>
+      </div>
+    </div>
 
     <div class="card-single">
       <div>
         <h6 style="display: flex">
           Promotion
-          <span *ngIf="usertype === 'FRANCHISE'"
-            ><mat-icon style="color: orange">trending_flat</mat-icon></span
-          >
-          <span *ngIf="usertype === 'MEMBER'"
-            ><mat-icon style="color: rgb(140, 252, 120)"
-              >trending_up</mat-icon
-            ></span
-          >
-          <span *ngIf="usertype === 'BMM'"
-            ><mat-icon style="color: rgb(140, 252, 120)"
-              >trending_up</mat-icon
-            ></span
-          >
+          <span *ngIf="usertype === 'FRANCHISE'"><mat-icon style="color: orange">trending_flat</mat-icon></span>
+          <span *ngIf="usertype === 'MEMBER'"><mat-icon style="color: rgb(140, 252, 120)">trending_up</mat-icon></span>
+          <span *ngIf="usertype === 'BMM'"><mat-icon style="color: rgb(140, 252, 120)">trending_up</mat-icon></span>
         </h6>
         <span>See your upgrade or downgrade</span>
       </div>
       <div style="color:orange"><mat-icon (click)="udgrade()">visibility</mat-icon></div>
     </div>
-    
+
     <div class="card-single">
       <div>
         <h6>Bank</h6>
@@ -83,7 +87,7 @@
 
       <!-- Add a Material Design bank icon -->
       <button mat-icon-button [matMenuTriggerFor]="menuBank">
-        <mat-icon>account_balance</mat-icon>
+        <mat-icon style="color: yellow;">account_balance</mat-icon>
         <!-- Use the appropriate Material Design bank icon name -->
       </button>
 
@@ -95,32 +99,12 @@
         <button mat-menu-item (click)="franchiseEditBankDialog()">
           Edit And View Bank
         </button>
-     
+
       </mat-menu>
 
-      <mat-menu #menuProfile="matMenu">
-        <!-- Define your menu items here -->
-        <!-- <button mat-menu-item (click)="openDialog()">Details</button>
-          <button mat-menu-item (click)="stateAddBankDialog()">Documents</button> -->
-        <!-- Add more menu items as needed -->
-      </mat-menu>
     </div>
 
-    <div class="card-single">
-      <div>
-        <h6>User ID :- {{ displayFranchiseId }}</h6>
-        <span
-          >Referral ID :- &nbsp;
-            {{ displayFranchiseReferralId }}
-          </span>&nbsp;
-          <button class="copy-icon" (click)="copyToClipboard()">
-            <mat-icon>content_copy</mat-icon>
-          </button>
-          <span class="copy-icon" style="margin-left: 1rem;">
-            <mat-icon matSuffix (click)="shareFunction()">share</mat-icon>
-          </span>
-      </div>
-    </div>
+
 
     <!-- <div class="card-single">
       <div>
