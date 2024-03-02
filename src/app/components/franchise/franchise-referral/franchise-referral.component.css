@@ -1,23 +1,37 @@
-.header {
+.referral-payout {
   display: flex;
   justify-content: start;
-  margin-top: 100px;
+  margin-top:130px;
 }
-.header p {
-  font-size: 20px;
+.arow-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top:-50px;
+}
+.arow-title p {
+  font-size: 18px;
   font-weight: 600;
+  margin-top: 8px;
   font-family:'Roboto',sans-serif;
-  text-align: center;
-  margin: -4px 0 0 5px;
 }
+
 .bakk-div {
   display: flex;
   height: auto;
   flex-wrap: wrap;
+  margin-left:30px;
 }
 .example-card {
-  margin: 10px;
-  width: 330px;
+  margin-bottom: 16px;
+  width:300px;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:1rem;
 }
 
 .bank-details {
@@ -25,14 +39,6 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
-}
-
-  
-.bank-details{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
 }
 .bank-details h2 {
   font-weight: 400;
@@ -48,39 +54,103 @@
     background-image: url("/assets/image/bank.jpg");
     background-size: cover;
 }
-.example-card h2,
-.example-card strong,
-.example-card p,
-.example-card button {
-  font-family: 'Roboto', sans-serif;
+
+/* Add the following styles to your component's CSS file or your global styles */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+  margin-bottom: 20px;
 }
 
-mat-card-header mat-card-title {
-  font-family: 'Roboto', sans-serif;
+.search-container label {
+  margin-right: 10px;
+}
+
+button.mat-button {
+  background-color: #2196F3; /* Add your preferred background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.mat-button:hover {
+  background-color: #0e7ae6; /* Change the color on hover */
+}
+
+
+.search-container input{
+  padding: 5px;
+}
+.search-container select {
+  padding: 5px !important;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  /* Adjust styles for smaller screens */
+  button.mat-button{
+    margin-bottom:0.6rem
+  }
+  .search-container {
+    flex-direction:column;
+    align-items: flex-start;
+    align-items:center
+  }
+
+  .search-container label,
+  .search-container input,
+  .search-container select {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+
+
+  
+ 
+@media screen and (min-width: 768px) and (max-width:1200px){
+  .arow-title{
+    margin-top:0px;
+  }
 }
 
 
 @media (max-width: 767px) {
-  .bakk-div {
-    flex-direction: column;
-    align-items: center;
-  }
-  .referral-payout {
-    margin-top: 100px;
-  }
-  .account-section,
-  .referral-payout {
-    margin-left: 0;
-  }
-
+    .example-card {
+        /* width: calc(50% - 16px);  */
+      }
+    .bakk-div {
+        flex-direction: column;
+        align-items: center;
+    }
+    .referral-payout{
+        margin-top: 100px;
+    }
+    .account-section, .referral-payout{
+        margin-left: 0;
+    }
+    
+    .withdrwal-button {
+        width: 113px;
+        font-size: 12px;
+    }
+    .sho-withdrawal-header p{
+        font-size: 15px;
+    }
+    .arow-title{
+      margin-top:-30px;
+    }
+    .arow-title p{
+      font-size:14px;
+    }
+}
+@media (max-width: 480px) {
   .example-card {
-    width: 100%;
-  }
-  .withdrwal-button {
-    width: 113px;
-    font-size: 12px;
-  }
-  .header P {
-    font-size:14px;
+    width: 100%; 
   }
 }
