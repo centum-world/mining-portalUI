@@ -31,7 +31,9 @@ interface franchise {
   styleUrls: ["./franchise-history-component.component.css"],
 })
 export class FranchiseHistoryComponentComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild('paginatorVerified', { static: true }) paginatorVerified: MatPaginator;
+  @ViewChild('paginatorUnverified', { static: true }) paginatorUnverified: MatPaginator;
+  @ViewChild('paginatorUpgradeDowngrade', { static: true }) paginatorUpgradeDowngrade: MatPaginator;
 
   displayedColumns: string[] = [
     "franchiseId",
@@ -78,7 +80,9 @@ export class FranchiseHistoryComponentComponent implements OnInit {
   ngOnInit() {
     this.tabChanged(0);
     this.getAllFranchise();
-    // this.dataSource.paginator = this.paginator;
+     this.verifiedDataSource.paginator = this.paginatorVerified;
+     this.unverifiedDataSource.paginator = this.paginatorUnverified;
+     this.upgradeDowngradeDataSource.paginator = this.paginatorUpgradeDowngrade;
   }
 
   tabChanged(event : any){
@@ -88,7 +92,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
         next: (res: any) => {
           console.log(res.data);
           this.verifiedDataSource.data = res.data;
-          this.verifiedDataSource.paginator = this.paginator
+          // this.verifiedDataSource.paginator = this.paginator
         },
         error: (err) => {
           console.log(err.message);
@@ -99,7 +103,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
         next: (res: any) => {
           console.log(res.data);
           this.unverifiedDataSource.data = res.data;
-          this.unverifiedDataSource.paginator = this.paginator;
+          // this.unverifiedDataSource.paginator = this.paginator;
         },
         error: (err) => {
           console.log(err.message);
@@ -111,7 +115,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
         next: (res: any) => {
           console.log(res.data);
           this.upgradeDowngradeDataSource.data = res.data;
-          this.upgradeDowngradeDataSource.paginator = this.paginator;
+          // this.upgradeDowngradeDataSource.paginator = this.paginator;
         },
         error: (err) => {
           console.log(err.message);
@@ -125,7 +129,7 @@ export class FranchiseHistoryComponentComponent implements OnInit {
       next: (res: any) => {
         console.log(res.data);
         this.verifiedDataSource.data = res.data;
-        this.verifiedDataSource.paginator = this.paginator;
+        // this.verifiedDataSource.paginator = this.paginator;
       },
       error: (err) => {
         console.log(err.message);

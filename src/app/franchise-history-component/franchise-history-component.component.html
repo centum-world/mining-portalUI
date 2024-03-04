@@ -199,10 +199,10 @@
         </table>
 
         <mat-paginator
+          #paginatorVerified
           [pageSize]="10"
           [pageSizeOptions]="[5, 10, 20]"
           [showFirstLastButtons]="true"
-          *ngIf="verifiedDataSource?.paginator"
         ></mat-paginator>
       </div>
     </mat-tab>
@@ -355,10 +355,10 @@
         </table>
 
         <mat-paginator
+          #paginatorUnverified
           [pageSize]="10"
           [pageSizeOptions]="[5, 10, 20]"
           [showFirstLastButtons]="true"
-          *ngIf="unverifiedDataSource?.paginator"
         ></mat-paginator>
       </div>
     </mat-tab>
@@ -499,10 +499,10 @@
         </table>
 
         <mat-paginator
+          #paginatorUpgradeDowngrade
           [pageSize]="10"
           [pageSizeOptions]="[5, 10, 20]"
           [showFirstLastButtons]="true"
-          *ngIf="upgradeDowngradeDataSource?.paginator"
         ></mat-paginator>
       </div>
     </mat-tab>

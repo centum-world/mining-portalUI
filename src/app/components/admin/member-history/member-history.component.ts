@@ -31,7 +31,9 @@ interface Member {
   styleUrls: ["./member-history.component.css"],
 })
 export class MemberHistoryComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild('paginatorVerified', { static: true }) paginatorVerified: MatPaginator;
+  @ViewChild('paginatorUnverified', { static: true }) paginatorUnverified: MatPaginator;
+  @ViewChild('paginatorUpgradeDowngrade', { static: true }) paginatorUpgradeDowngrade: MatPaginator;
   displayedColumns: string[] = [
     "m_userid",
     "m_name",
@@ -56,7 +58,10 @@ export class MemberHistoryComponent implements OnInit {
     "reffer_id",
     "m_state",
   ];
-  dataSource: MatTableDataSource<Member>;
+  // dataSource: MatTableDataSource<Member>;
+  verifiedDataSource: MatTableDataSource<Member>;
+  unverifiedDataSource: MatTableDataSource<Member>;
+  upgradeDowngradeDataSource: MatTableDataSource<Member>;
 
   constructor(
     private userService: UserService,
@@ -64,19 +69,24 @@ export class MemberHistoryComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router
   ) {
-    this.dataSource = new MatTableDataSource([]);
+    // this.dataSource = new MatTableDataSource([]);
+    this.verifiedDataSource = new MatTableDataSource([]);
+    this.unverifiedDataSource = new MatTableDataSource([]);
+    this.upgradeDowngradeDataSource = new MatTableDataSource([]);
   }
 
   ngOnInit() {
     this.tabChanged(0);
-    this.dataSource.paginator = this.paginator;
+    this.verifiedDataSource.paginator = this.paginatorVerified;
+     this.unverifiedDataSource.paginator = this.paginatorUnverified;
+     this.upgradeDowngradeDataSource.paginator = this.paginatorUpgradeDowngrade;;
   }
 
   tabChanged(event: any) {
     if (event === 0) {
       this.userService.CallApifetchVerifiedMember().subscribe({
         next: (res: any) => {
-          this.dataSource.data = res.data;
+          this.verifiedDataSource.data = res.data;
         },
         error: (err) => {
           console.log(err.error.message);
@@ -86,7 +96,7 @@ export class MemberHistoryComponent implements OnInit {
       this.userService.CallApifetchUnVerifiedMember().subscribe({
         next: (res: any) => {
           console.log(res);
-          this.dataSource.data = res.data;
+          this.unverifiedDataSource.data = res.data;
         },
         error: (err) => {
           console.log(err.error.message);
@@ -96,7 +106,7 @@ export class MemberHistoryComponent implements OnInit {
       this.userService.CallApifetchUpgradedMember().subscribe({
         next: (res: any) => {
           console.log(res);
-          this.dataSource.data = res.data;
+          this.upgradeDowngradeDataSource.data = res.data;
         },
         error: (err) => {
           console.log("error");
@@ -108,7 +118,7 @@ export class MemberHistoryComponent implements OnInit {
   callApiToFetchAllMember() {
     this.userService.fetchMemberDetails().subscribe({
       next: (res: any) => {
-        this.dataSource.data = res.memberData;
+        this.verifiedDataSource.data = res.memberData;
       },
       error: (err) => {
         console.log(err.error.message);
@@ -117,7 +127,7 @@ export class MemberHistoryComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.verifiedDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openViewMemberDialog(memberData: any) {

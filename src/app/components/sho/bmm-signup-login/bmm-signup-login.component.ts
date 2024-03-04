@@ -109,7 +109,7 @@ export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
       reffered_id: new FormControl({ value: "admin123", disabled: true }, [Validators.required]),
       name: new FormControl("", [Validators.required]),
       lname: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required, Validators.email]),
+      email: new FormControl("", [ Validators.email]),
       phone: new FormControl("", [
         Validators.required,
         Validators.maxLength(10),

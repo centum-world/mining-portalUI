@@ -109,7 +109,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
       reffered_id: new FormControl("", [Validators.required]),
       name: new FormControl("", [Validators.required]),
       lname: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required, Validators.email]),
+      email: new FormControl("", [ Validators.email]),
       phone: new FormControl("", [
         Validators.required,
         Validators.maxLength(10),
