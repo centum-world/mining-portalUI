@@ -85,7 +85,7 @@ export class FranchiseReferralComponent implements OnInit {
     this.applySearch(); // This will fetch the original data
   }
 
-  goBack() {
+  gotoDashboard(){
     this.router.navigate(["/franchisedashboard/home"]);
   }
 }
