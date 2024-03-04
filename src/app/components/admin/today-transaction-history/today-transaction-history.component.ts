@@ -1,13 +1,24 @@
 // today-transaction-history.component.ts
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { UserService } from "src/app/service/user.service";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
 
+interface Data {
+  userId: string;
+  rigid: number;
+  amount: number;
+  liquidity: string;
+  date: string;
+}
 @Component({
   selector: "app-today-transaction-history",
   templateUrl: "./today-transaction-history.component.html",
   styleUrls: ["./today-transaction-history.component.css"],
 })
 export class TodayTransactionHistoryComponent implements OnInit {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
   displayedColumns: string[] = [
     "userId",
     "rigid",
@@ -15,12 +26,16 @@ export class TodayTransactionHistoryComponent implements OnInit {
     "date",
     "liquidity",
   ];
-  dataSource: any[] = [];
 
-  constructor(private userService: UserService) {}
+  dataSource: MatTableDataSource<Data>;
+
+  constructor(private userService: UserService) {
+    this.dataSource = new MatTableDataSource([]);
+  }
 
   ngOnInit(): void {
     this.fetchTodayTransactions();
+    this.dataSource.paginator = this.paginator;
   }
 
   fetchTodayTransactions(): void {

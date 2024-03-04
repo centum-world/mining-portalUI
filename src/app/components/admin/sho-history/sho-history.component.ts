@@ -81,8 +81,7 @@ export class ShoHistoryComponent implements OnInit {
   ) {
     this.dataSourceVerified = new MatTableDataSource([]);
     this.dataSourceUnverified = new MatTableDataSource([]);
-    this.dataSourceUpgradeDowngrade = new MatTableDataSource([]);
-    
+    this.dataSourceUpgradeDowngrade = new MatTableDataSource([]); 
   }
 
   ngOnInit() {

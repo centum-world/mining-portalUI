@@ -76,7 +76,7 @@ export class StateAddFranchiseComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', {
-        validators: [Validators.required, Validators.email],
+        validators: [ Validators.email],
         asyncValidators: [emailAsyncValidator],
         updateOn: 'blur'
       }],
