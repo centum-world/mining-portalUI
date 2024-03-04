@@ -47,7 +47,7 @@ export class TodayTransactionHistoryComponent implements OnInit {
 
     this.userService.fetchTotalTransactions(requestData).subscribe({
       next:(response: any) => {
-        console.log(response)
+        console.log(response,"hello")
         this.dataSource = response.data.map((transaction) => {
           return {
             userId: transaction.partnerId,

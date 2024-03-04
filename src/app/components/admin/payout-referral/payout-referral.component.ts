@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 
-interface DATA {
+interface Data {
   userid: string;
   partnerid: string;
   amount: number;
@@ -17,9 +17,9 @@ interface DATA {
   styleUrls: ["./payout-referral.component.css"],
 })
 export class PayoutReferralComponent implements OnInit {
-  displayedColumns: string[] = ["userid", "partnerid", "amount", "credit_date"];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  dataSource: MatTableDataSource<DATA>;;
+  displayedColumns: string[] = ["userid", "partnerid", "amount", "credit_date"];
+  // dataSource: MatTableDataSource<Data>;
 
   allData: {
     userid: string;
@@ -50,34 +50,35 @@ export class PayoutReferralComponent implements OnInit {
   ];
 
   isFetchingData: boolean = false;
-
+  dataSource: MatTableDataSource<Data>;
   constructor(private userService: UserService, private router: Router) {
     this.dataSource = new MatTableDataSource([]);
   }
 
   ngOnInit(): void {
-    this.fetchTransactions();
     this.dataSource.paginator = this.paginator;
+    this.fetchTransactions();
   }
 
   fetchTransactions(): void {
     const requestData: any = {};
     this.isFetchingData = true;
 
-    this.userService.callApiToReferralPayout(requestData).subscribe(
-      (response: any) => {
+    this.userService.callApiToReferralPayout(requestData).subscribe({
+      next:(response:any)=>{
         this.allData = response.data;
-        console.log(response.data);
-        this.dataSource.data = this.allData.filter(
-          (obj) => obj.userType === "MEMBER"
+        console.log(this.allData)
+        console.log(response.data)
+        this.dataSource.data = response.data.filter(
+          (obj:any) => obj.userType === "MEMBER"
         );
-
-        this.isFetchingData = false;
+        console.log(this.dataSource.data)
+         this.isFetchingData = false;
       },
-      (error) => {
-        console.error("Error fetching transaction history", error);
-        this.isFetchingData = false;
-      }
+      error:(error=>{
+
+      })
+    }
     );
   }
 

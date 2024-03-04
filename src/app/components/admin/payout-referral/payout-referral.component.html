@@ -1,24 +1,25 @@
 <div class="main-div">
   <div class="searchby">
     <mat-icon style="cursor: pointer" (click)="gotohome()">arrow_back</mat-icon>
-    <select [(ngModel)]="type" (change)="referralType()">
-      <option value="REFERRAL">REFERRAL</option>
-      <option value="FRANCHISE">FRANCHISE</option>
+    <select [(ngModel)]="type" (change)="referralType()" style="cursor: pointer;">
       <option value="BMM">BMM</option>
+      <option value="FRANCHISE">FRANCHISE</option>
+      <option value="REFERRAL">REFERRAL</option>
+      <option value="PARTNER">PARTNER</option>
     </select>
     <input placeholder="Search by userid..." (input)="onInputChange($event)" />
   </div>
   <form>
     <div class="input-field">
       <label for="year">Select Year:</label>
-      <select id="year" [(ngModel)]="selectedYear" name="year">
+      <select id="year" [(ngModel)]="selectedYear" name="year" style="cursor: pointer;">
         <option *ngFor="let year of availableYears" [value]="year">
           {{ year }}
         </option>
       </select>
 
       <label for="month">Select Month:</label>
-      <select id="month" [(ngModel)]="selectedMonth" name="month">
+      <select id="month" [(ngModel)]="selectedMonth" name="month" style="cursor: pointer;">
         <option *ngFor="let month of availableMonths" [value]="month">
           {{ month }}
         </option>
@@ -64,7 +65,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
     </table>
     <mat-paginator
       [pageSize]="5"

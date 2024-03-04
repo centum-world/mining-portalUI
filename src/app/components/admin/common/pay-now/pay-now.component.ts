@@ -86,7 +86,7 @@ export class PayNowComponent implements OnInit {
             this.totalLiquidity = 100000;
             this.refferalAmount = 1850;
           }
-        }
+        } 
       },
       error: () => {},
     });

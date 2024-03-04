@@ -4,12 +4,12 @@ import { Router } from "@angular/router";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 
-  interface Data {
-  userId: string;
-  rigid: number;
-  amount: number;
+interface Data {
+  partnerId: string;
+  rigId: number;
+  payableAmount: number;
   liquidity: string;
-  date: string;
+  payoutDate: string;
 }
 
 @Component({
@@ -20,11 +20,11 @@ import { MatTableDataSource } from "@angular/material/table";
 export class TransactionHistoryComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = [
-    "userId",
-    "rigid",
-    "amount",
+    "partnerId",
+    "rigId",
+    "payableAmount",
     "liquidity",
-    "date",
+    "payoutDate",
   ];
 
   selectedYear: number;
@@ -61,33 +61,18 @@ export class TransactionHistoryComponent implements OnInit {
     const requestData: any = {};
 
     if (this.selectedYear && this.selectedMonth) {
-      requestData.currentMonth = this.getMonthNumericValue(
-        this.selectedMonth
-      );
+      requestData.currentMonth = this.getMonthNumericValue(this.selectedMonth);
       requestData.currentYear = this.selectedYear;
     }
     this.isFetchingData = true;
 
-    this.userService.fetchTotalTransactions(requestData).subscribe(
-      (response: any) => {
-        this.dataSource.data = response.data.map((transaction: any) => {
-          return {
-            userId: transaction.partnerId,
-            rigid: transaction.rigId,
-            amount: transaction.payableAmount,
-            date: transaction.payoutDate,
-            liquidity: transaction.liquidity,
-          };
-        });
-
-        this.dataSource.paginator = this.paginator; 
-        this.isFetchingData = false;
+    this.userService.fetchTotalTransactions(requestData).subscribe({
+      next: (res: any) => {
+        console.log(res.data);
+        this.dataSource.data = res.data;
       },
-      (error) => {
-        console.error("Error fetching transaction history", error);
-        this.isFetchingData = false;
-      }
-    );
+      error: (error) => {},
+    });
   }
 
   getMonthNumericValue(monthString: string): number {
@@ -112,9 +97,7 @@ export class TransactionHistoryComponent implements OnInit {
 
   showTable(): boolean {
     return (
-      !this.isFetchingData &&
-      this.dataSource &&
-      this.dataSource.data.length > 0
+      !this.isFetchingData && this.dataSource && this.dataSource.data.length > 0
     );
   }
 
@@ -122,7 +105,7 @@ export class TransactionHistoryComponent implements OnInit {
     const inputValue = (event.target as HTMLInputElement).value;
     console.log(this.dataSource.data);
     this.dataSource.data = this.dataSource.data.filter((item) =>
-      item.userId.includes(inputValue)
+      item.partnerId.includes(inputValue)
     );
     if (!inputValue) {
       this.fetchTransactions();
