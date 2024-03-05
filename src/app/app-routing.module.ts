@@ -129,7 +129,7 @@ const routes: Routes = [
   {
     path: "dashboard",
     canActivate: [GuardGuard],
-    canDeactivate:[GuardGuard],
+    canDeactivate:[GuardGuard], 
     component: AdminDashboardComponent,
     children:[
       {path: "home" , component : HrDashboardComponent},
