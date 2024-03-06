@@ -12,7 +12,7 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./mining-account.component.css"],
 })
 export class MiningAccountComponent implements OnInit {
-  @ViewChild("contentToConvert", { static: false })
+  @ViewChild("contentToConvert")
   contentToConvert: ElementRef;
   rigId: string = "";
   constructor(

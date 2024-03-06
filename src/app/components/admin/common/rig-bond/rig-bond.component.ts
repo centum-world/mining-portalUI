@@ -18,7 +18,7 @@ export class RigBondComponent implements OnInit {
   fixedShareAmountInString:string="";
   fixedSharePerDayAmount:number=0;
   fixedShareAmount:number=0;
-  @ViewChild("contentToConvert", { static: false })
+  @ViewChild("contentToConvert")
   contentToConvert: ElementRef;
   hideContent = false;
   buttonText: string = "Download";

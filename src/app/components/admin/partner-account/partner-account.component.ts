@@ -25,7 +25,7 @@ export class PartnerAccountComponent implements OnInit {
   buttonText: string = "Download";
   isDownloading: boolean = false;
 
-  @ViewChild("contentToConvert", { static: false })
+  @ViewChild("contentToConvert")
   contentToConvert: ElementRef;
   hideContent = false;
   status: boolean;

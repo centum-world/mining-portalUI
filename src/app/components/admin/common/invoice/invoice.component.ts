@@ -17,7 +17,7 @@ export class InvoiceComponent implements OnInit {
   percentage: number = 0;
   verifyDate:string='';
 
-  @ViewChild("contentToConvert", { static: false })
+  @ViewChild("contentToConvert")
   contentToConvert: ElementRef;
   hideContent = false;
   constructor(private userService: UserService) {}

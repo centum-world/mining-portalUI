@@ -65,7 +65,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ["./member-signup.component.css"],
 })
 export class MemberSignupComponent implements OnInit, AfterViewInit {
-  @ViewChild("phoneNumberInput", { static: false })
+  @ViewChild("phoneNumberInput")
   phoneNumberInput: ElementRef;
   cradentialID:string="";
   cradentialPassword:string="";

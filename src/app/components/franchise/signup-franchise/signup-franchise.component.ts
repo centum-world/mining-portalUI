@@ -63,7 +63,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ["./signup-franchise.component.css"],
 })
 export class SignupFranchiseComponent implements OnInit, AfterViewInit {
-  @ViewChild("phoneNumberInput", { static: false })
+  @ViewChild("phoneNumberInput")
   phoneNumberInput: ElementRef;
 
   creatingAccount: boolean = false;

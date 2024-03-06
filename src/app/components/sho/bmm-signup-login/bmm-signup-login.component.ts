@@ -66,7 +66,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ["./bmm-signup-login.component.css"],
 })
 export class BmmSignupLoginComponent implements OnInit, AfterViewInit {
-  @ViewChild("phoneNumberInput", { static: false })
+  @ViewChild("phoneNumberInput")
   phoneNumberInput: ElementRef;
   cradentialID:string="";
   cradentialPassword:string="";

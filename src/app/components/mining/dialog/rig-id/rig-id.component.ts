@@ -26,7 +26,7 @@ import { MatDialogRef } from "@angular/material/dialog";
   styleUrls: ["./rig-id.component.css"],
 })
 export class RigIdComponent implements OnInit, AfterViewInit {
-  @ViewChild("phoneNumberInputForNew", { static: false })
+  @ViewChild("phoneNumberInputForNew")
   phoneNumberInputForNew: ElementRef | undefined;
   toggleValue: boolean = false;
   countryCode: string = "IN";
