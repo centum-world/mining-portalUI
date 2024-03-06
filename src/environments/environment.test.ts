@@ -1,10 +1,10 @@
 export const environment = {
     production:false,
     name:"Test",
-    baseUrl:'http//admin.centumworldrig.com',
+    baseUrl:'https//admin.centumworldrig.com',
 };
 
 export const hosturl = {
     production: false,
-    apiUrl:'http//admin.centumworldrig.com',
+    apiUrl:'https//admin.centumworldrig.com',
 };
