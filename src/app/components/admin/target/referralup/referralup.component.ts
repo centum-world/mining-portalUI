@@ -52,7 +52,7 @@ export class ReferralupComponent implements OnInit {
         this.toastr.success(res.message)
       },
       error:(error=>{
-
+        this.toastr.error(error.error.message)
       })
     })
   }

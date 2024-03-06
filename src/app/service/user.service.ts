@@ -1710,7 +1710,7 @@ export class UserService {
   }
 
   referralUpGrade(data:any){
-    return this.http.post(this.url + "/admin/ugrade-member-to-bmm",data, {
+    return this.http.post(this.url + "/admin/ugrade-member-to-franchise",data, {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
