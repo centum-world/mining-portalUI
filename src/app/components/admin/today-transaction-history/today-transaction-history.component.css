@@ -1,10 +1,28 @@
-/* transaction-history.component.css */
+
+.table-container{
+  max-height: 500px;
+  overflow-y: auto;
+  margin-left:330px;
+}
 .mat-table-custom {
-    width: fit-content; /* Adjust the width based on content */
-    margin: auto; /* Center the table */
-    margin-left: 250px; /* Adjust this value based on your sidebar's width */
-  }
-  
+  width: fit-content;
+  margin: auto;
+}
+
+.main-div{
+  display:flex;
+  margin-left:330px;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.searchby{
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+}
+ 
   
 /* Apply styles to the mat-table */
 .mat-elevation-z8 {
@@ -34,11 +52,22 @@
   tr.mat-row:hover {
     background-color: #e0e0e0; /* Hover background color */
   }
+
+  .searchby span{
+    font-family: "Roboto", sans-serif;
+    font-size:16px;
+    font-weight:600;
+    padding: 10px 0;
+  }
   
   /* Responsive styles for small screens */
   @media screen and (max-width: 600px) {
     .mat-elevation-z8 {
       overflow-x: auto; /* Enable horizontal scrolling on small screens */
+    }
+
+    .table-container, .main-div{
+      margin-left:0px;
     }
   }
   

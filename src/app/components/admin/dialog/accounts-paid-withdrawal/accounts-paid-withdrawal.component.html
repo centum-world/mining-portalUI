@@ -3,19 +3,25 @@
   <div>
     <div class="input-div">
       <div class="input-field">
-        <label for="year">Select Year:</label>
-        <select id="year" [(ngModel)]="selectedYear" name="year">
-          <option *ngFor="let year of availableYears" [value]="year">
-            {{ year }}
-          </option>
-        </select>
-  
-        <label for="month">Select Month:</label>
-        <select id="month" [(ngModel)]="selectedMonth" name="month">
+        <div class="vertical-container">
+          <label for="year">Select Year:</label>
+          <select id="year" [(ngModel)]="selectedYear" name="year" class="vertical-select">
+            <option *ngFor="let year of availableYears" [value]="year">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+        
+        &nbsp;
+        <div class="vertical-container">
+          <label for="month">Select Month:</label>
+        <select id="month" [(ngModel)]="selectedMonth" name="month" class="vertical-select">
           <option *ngFor="let month of availableMonths" [value]="month">
             {{ month }}
           </option>
         </select>
+        </div>
+        &nbsp;
       </div>
       <button type="button" (click)="fetchMonthWise()">Fetch payout</button>
     </div>
