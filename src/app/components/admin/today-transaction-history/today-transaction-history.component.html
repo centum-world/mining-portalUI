@@ -1,29 +1,34 @@
-<!-- material-table.component.html -->
-<div class="mat-elevation-z8">
+<div class="main-div">
+  <div class="searchby">
+    <mat-icon style="cursor: pointer" (click)="gotohome()">arrow_back</mat-icon>
+    <span>All today`s transaction</span>
+  </div>
+</div>  
+<div  class="table-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table-custom" >
   
       <!-- User ID Column -->
-      <ng-container matColumnDef="userId">
+      <ng-container matColumnDef="partnerId">
         <th mat-header-cell *matHeaderCellDef>User ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.partnerId }}</td>
       </ng-container>
   
       <!-- Rigid Column -->
-      <ng-container matColumnDef="rigid">
+      <ng-container matColumnDef="rigId">
         <th mat-header-cell *matHeaderCellDef>RIG Id</th>
-        <td mat-cell *matCellDef="let element">{{ element.rigid }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.rigId }}</td>
       </ng-container>
   
       <!-- Amount Column -->
-      <ng-container matColumnDef="amount">
+      <ng-container matColumnDef="payableAmount">
         <th mat-header-cell *matHeaderCellDef>Amount</th>
-        <td mat-cell *matCellDef="let element">{{ element.amount | currency:"INR" }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.payableAmount | currency:"INR" }}</td>
       </ng-container>
   
       <!-- Date Column -->
-      <ng-container matColumnDef="date">
+      <ng-container matColumnDef="payoutDate">
         <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.payoutDate | date }}</td>
       </ng-container>
   
       <!-- Liquidity Column -->

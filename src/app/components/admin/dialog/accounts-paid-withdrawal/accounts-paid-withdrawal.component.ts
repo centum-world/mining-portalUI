@@ -91,12 +91,23 @@ export class AccountsPaidWithdrawalComponent implements OnInit {
       this.monthData[monthYear],
       Number(this.selectedYear) + "-" + month
     );
-     this.payoutData.totalPayout = this.monthData[monthYear].totalAmount
+    if(this.monthData[monthYear] !== undefined){
+      this.payoutData.totalPayout = this.monthData[monthYear].totalAmount;
     this.payoutData.totalPartnerPayout = this.monthData[monthYear].partnerAmount;
     this.payoutData.totalBmmPayout = this.monthData[monthYear].userTypeAmounts.BMM;
 
     this.payoutData.totalFranchisePayout =  this.monthData[monthYear].userTypeAmounts.FRANCHISE;
     this.payoutData.totalReferralPayout = this.monthData[monthYear].userTypeAmounts.MEMBER;
     this.payoutData.totalReferralPartnerPayout =   this.monthData[monthYear].userTypeAmounts.PARTNER;
+    }else{
+      this.payoutData.totalPayout = 0;
+    this.payoutData.totalPartnerPayout = 0;
+    this.payoutData.totalBmmPayout = 0;
+
+    this.payoutData.totalFranchisePayout = 0;
+    this.payoutData.totalReferralPayout = 0;
+    this.payoutData.totalReferralPartnerPayout =  0;
+    }
+     
   }
 }

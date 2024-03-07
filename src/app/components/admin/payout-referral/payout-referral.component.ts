@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 
-interface Data {
+interface ReferralPayout {
   userid: string;
   partnerid: string;
   amount: number;
@@ -19,7 +19,7 @@ interface Data {
 export class PayoutReferralComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ["userid", "partnerid", "amount", "credit_date"];
-  // dataSource: MatTableDataSource<Data>;
+  dataSource: MatTableDataSource<ReferralPayout>;
 
   allData: {
     userid: string;
@@ -50,7 +50,6 @@ export class PayoutReferralComponent implements OnInit {
   ];
 
   isFetchingData: boolean = false;
-  dataSource: MatTableDataSource<Data>;
   constructor(private userService: UserService, private router: Router) {
     this.dataSource = new MatTableDataSource([]);
   }
@@ -67,7 +66,6 @@ export class PayoutReferralComponent implements OnInit {
     this.userService.callApiToReferralPayout(requestData).subscribe({
       next:(response:any)=>{
         this.allData = response.data;
-        console.log(this.allData)
         console.log(response.data)
         this.dataSource.data = response.data.filter(
           (obj:any) => obj.userType === "MEMBER"
