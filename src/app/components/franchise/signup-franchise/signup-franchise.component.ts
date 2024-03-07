@@ -148,7 +148,7 @@ export class SignupFranchiseComponent implements OnInit, AfterViewInit {
 
     if (referredIdControl) {
       if (selectedRole === "OFFICIAL") {
-        referredIdControl.setValue("BMM-BMM8018");
+        referredIdControl.setValue("BMM-BMM3384");
         referredIdControl.disable();
         this.officialReferral = referredIdControl.value;
       } else {

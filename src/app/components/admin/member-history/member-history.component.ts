@@ -11,6 +11,7 @@ import { VerifyMemberComponent } from "../dialog/verify-member/verify-member.com
 import { BlockMemberComponent } from "../dialog/block-member/block-member.component";
 import { EditMemberComponent } from "../dialog/edit-member/edit-member.component";
 import { Router } from "@angular/router";
+import { ReferralupComponent } from "../target/referralup/referralup.component";
 
 interface Member {
   m_userid: string;
@@ -136,6 +137,17 @@ export class MemberHistoryComponent implements OnInit {
       data: memberData,
     };
     const dialogRef = this.dialog.open(ViewMemberComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("Closed");
+    });
+  }
+
+  openMemberTargetDialog(memberData:any){
+    let config: MatDialogConfig = {
+      data: memberData,
+    };
+    const dialogRef = this.dialog.open(ReferralupComponent, config);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("Closed");

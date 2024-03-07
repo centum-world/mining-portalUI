@@ -11,6 +11,7 @@ import { VerifyFranchiseComponent } from "../components/admin/dialog/verify-fran
 import { ViewFranchiseComponent } from "../components/admin/dialog/view-franchise/view-franchise.component";
 import { AdminEditFranchiseComponent } from "../components/admin/dialog/admin-edit-franchise/admin-edit-franchise.component";
 import { Router } from "@angular/router";
+import { FranchiseupDownComponent } from "../components/admin/target/franchiseup-down/franchiseup-down.component";
 interface franchise {
   franchiseId: "";
   fname: string;
@@ -222,11 +223,18 @@ export class FranchiseHistoryComponentComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(AdminEditFranchiseComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
-      console.log("heeeeeeeeeeeelo")
       this.getAllFranchise();
     })
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("closed");
+    });
+  }
 
-
+  openFranchiseTarget(franchiseData : any){
+    let config: MatDialogConfig = {
+      data: franchiseData,
+    };
+    const dialogRef = this.dialog.open(FranchiseupDownComponent, config);
     dialogRef.afterClosed().subscribe((result) => {
       console.log("closed");
     });

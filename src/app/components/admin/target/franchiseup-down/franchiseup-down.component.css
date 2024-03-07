@@ -1,0 +1,49 @@
+.target-container{
+    width:30vw;
+    height:auto;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#5476f2;
+    height:40px;
+    margin:-24px -24px 0 -24px;
+    padding:10px 10px 0 10px;
+    font-family: "Roboto", sans-serif;
+    color:#fff;
+    font-size:20px;
+    font-weight:500;
+}
+.content{
+    margin-top:10px;
+}
+.content p{
+    font-family: "Roboto", sans-serif;
+    color:#1b1c29;
+    font-size:18px;
+    font-weight:500;
+}
+.amount{
+    display:flex;
+    justify-content:space-between;
+}
+.amount hr{
+    margin:0;
+}
+.amount p{
+    font-family: "Roboto", sans-serif;
+    color:#1b1c29;
+    font-size:14px;
+    font-weight:500;
+}
+
+.target-container button{
+    width:100%
+}
+
+@media only screen and (max-width:767px){
+    .target-container{
+        width:67vw
+    }
+}

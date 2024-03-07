@@ -11,6 +11,7 @@ import { VerifyShoComponent } from "../dialog/verify-sho/verify-sho.component";
 import { ShoViewComponent } from "../dialog/sho-view/sho-view.component";
 import { EditShoComponent } from "../dialog/edit-sho/edit-sho.component";
 import { Router } from "@angular/router";
+import { TargetComponent } from "../target/target/target.component";
 
 interface Sho {
   stateHandlerId: "";
@@ -222,6 +223,17 @@ export class ShoHistoryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.callApiToFetchAllSho();
+      console.log("closed");
+    });
+  }
+
+  openTargetDailog(shoData : any){
+    let config: MatDialogConfig = {
+      data: shoData,
+    };
+    const dialogRef = this.dialog.open(TargetComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
       console.log("closed");
     });
   }

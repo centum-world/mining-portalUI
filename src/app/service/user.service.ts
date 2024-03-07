@@ -1673,4 +1673,46 @@ export class UserService {
     });
   }
 
+  fetchBmmLastTrheeMonth(data:any){
+    return this.http.post(this.url + "/admin/fetch-bmm-last-three-months-target",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  bmmDownGrade(data:any){
+    return this.http.post(this.url + "/admin/downgrade-bmm",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  fetchFranchiseLastTrheeMonth(data:any){
+    return this.http.post(this.url + "/admin/fetch-franchise-last-three-months-target",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  franchiseDownGrade(data:any){
+    return this.http.post(this.url + "/admin/downgrade-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  franchiseUpGrade(data:any){
+    return this.http.post(this.url + "/admin/ugrade-franchise-to-bmm",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  fetchMemberLastTrheeMonth(data:any){
+    return this.http.post(this.url + "/admin/fetch-member-last-three-months-target",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  referralUpGrade(data:any){
+    return this.http.post(this.url + "/admin/ugrade-member-to-franchise",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }

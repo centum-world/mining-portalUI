@@ -1,0 +1,27 @@
+<div class="target-container">
+    <div class="header">
+        <p>Downgrade</p>
+        <div mat-dialog-close><mat-icon>close</mat-icon></div>
+    </div>
+    <div class="content">
+        <p>Last three month achive target is here</p>
+        <div class="amount">
+            <p>Last month</p>
+            <strong>{{lastThreeMonth.lastmonth | currency : "INR"}}</strong>
+        </div>
+        <div class="amount">
+            <p>Second last month</p>
+            <strong>{{lastThreeMonth.secontMonth | currency : "INR"}}</strong>
+        </div>
+        <div class="amount">
+            <p>Third last month</p>
+            <strong>{{lastThreeMonth.thirdMonth | currency : "INR"}}</strong>
+        </div>
+        <hr>
+        <div class="amount">
+            <p>Total</p>
+            <strong>{{lastThreeMonth.total | currency : "INR"}}</strong>
+        </div>
+    </div>
+    <button mat-dialog-close mat-raised-button color="primary" (click)="downGrade()">Downgrade</button>
+</div>
