@@ -15,10 +15,11 @@ export class AllBankComponent implements OnInit {
   toggle:boolean = false;
   allBanData:any[]=[];
   copyBankData:any[]=[];
-  constructor(private router : Router, private toastr: ToastrService, private userService: UserService,  private dialog: MatDialog) { }
+  constructor( private router : Router, private toastr: ToastrService, private userService: UserService,  private dialog: MatDialog) { }
 
   ngOnInit() {
     this.callApiToAllBankDetails();
+
   }
 
   callApiToAllBankDetails(){

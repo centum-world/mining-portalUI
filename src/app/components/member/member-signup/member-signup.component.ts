@@ -157,7 +157,7 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
 
     if (referredIdControl) {
       if (selectedRole === "OFFICIAL") {
-        referredIdControl.setValue("FC-FRA9112");
+        referredIdControl.setValue("FC-FRA3588");
         referredIdControl.disable();
         this.franchiseReferral = referredIdControl.value;
       } else {

@@ -69,4 +69,4 @@
   </table>
   <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"></mat-paginator>
 </div>
-<div *ngIf="!showTable()">No transactions found.</div>
+<div *ngIf="showTable()">No transactions found.</div>

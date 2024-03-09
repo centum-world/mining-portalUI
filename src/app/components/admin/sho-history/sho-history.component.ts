@@ -142,6 +142,8 @@ export class ShoHistoryComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSourceVerified.filter = filterValue.trim().toLowerCase();
+    this.dataSourceUnverified.filter = filterValue.trim().toLowerCase();
+    this.dataSourceUpgradeDowngrade.filter = filterValue.trim().toLowerCase();
   }
 
   openIsBlockDialog(shoData: any) {

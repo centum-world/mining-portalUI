@@ -95,7 +95,7 @@
 @media only screen and (max-width: 767px) {
   .bank-container {
     margin-left: 0;
-    padding: 2px;
+    padding: 10px 2px;
   }
 
   .card-container {

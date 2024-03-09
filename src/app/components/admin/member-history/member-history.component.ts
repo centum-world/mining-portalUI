@@ -96,7 +96,6 @@ export class MemberHistoryComponent implements OnInit {
     } else if (event === 1) {
       this.userService.CallApifetchUnVerifiedMember().subscribe({
         next: (res: any) => {
-          console.log(res);
           this.unverifiedDataSource.data = res.data;
         },
         error: (err) => {
@@ -106,7 +105,6 @@ export class MemberHistoryComponent implements OnInit {
     } else if (event === 2) {
       this.userService.CallApifetchUpgradedMember().subscribe({
         next: (res: any) => {
-          console.log(res);
           this.upgradeDowngradeDataSource.data = res.data;
         },
         error: (err) => {
@@ -129,6 +127,8 @@ export class MemberHistoryComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.verifiedDataSource.filter = filterValue.trim().toLowerCase();
+    this.unverifiedDataSource.filter = filterValue.trim().toLowerCase();
+    this.upgradeDowngradeDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openViewMemberDialog(memberData: any) {

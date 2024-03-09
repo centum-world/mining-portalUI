@@ -173,7 +173,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
 
     if (referredIdControl) {
       if (selectedRole === "OFFICIAL") {
-        referredIdControl.setValue("MO8326");
+        referredIdControl.setValue("RO8336");
         referredIdControl.disable();
         this.memberOfficialId = referredIdControl.value;
       } else {
