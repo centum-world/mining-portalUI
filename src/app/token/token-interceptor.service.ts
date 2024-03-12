@@ -34,7 +34,7 @@ export class TokenInterceptorService implements HttpInterceptor {
     );
   }
   private handleUnauthorizedError(error: HttpErrorResponse): Observable<any> {
-    this.toastr.warning('Session expired!!')
+    // this.toastr.warning('Session expired!!')
     this.authService.logout();
     return throwError(error);
   }
