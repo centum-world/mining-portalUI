@@ -117,10 +117,6 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
         Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
       ]),
       gender: new FormControl("", [Validators.required]),
-      qualification: new FormControl("", [Validators.required]),
-      designation: new FormControl("", [Validators.required]),
-      experience: new FormControl("", [Validators.required]),
-      salary: new FormControl("", [Validators.required]),
       address: new FormControl("", [Validators.required]),
       state: new FormControl("", [Validators.required]),
       dob: new FormControl("", [Validators.required]),
@@ -212,10 +208,6 @@ export class MemberSignupComponent implements OnInit, AfterViewInit {
     formData.append("m_phone",this.memberSignUpFrom.value.phone.replace(/\s/g, ""));
     formData.append("m_email", this.memberSignUpFrom.value.email);
     formData.append("m_gender", this.memberSignUpFrom.value.gender);
-    formData.append("m_quali", this.memberSignUpFrom.value.qualification);
-    formData.append("m_designation", this.memberSignUpFrom.value.designation);
-    formData.append("m_exp", this.memberSignUpFrom.value.experience);
-    formData.append("m_salary", this.memberSignUpFrom.value.salary);
     formData.append("m_add", this.memberSignUpFrom.value.address);
     formData.append("m_state", this.memberSignUpFrom.value.state);
     formData.append("m_dob", newDobFormat);
