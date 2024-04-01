@@ -1,31 +1,49 @@
 <div class="custom-heading" mat-dialog-title>
-    <div>
-        Partner's Query Here
-    </div>
-    <div class="close-btn" mat-dialog-close>
-        <mat-icon style="background: red; cursor: pointer;">close</mat-icon>
-    </div>
+  <div>Partner's Query Here1</div>
+  <div class="close-btn" mat-dialog-close>
+    <mat-icon style="background: red; cursor: pointer">close</mat-icon>
+  </div>
 </div>
 <div class="query-div-container">
-    <div style="margin-bottom: 2px;" *ngFor="let data of query">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>{{data.p_userid}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    {{data.query}}
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-stroked-button>Status</button>
-                <button mat-raised-button
-                    [ngStyle]="{'background-color': data.status === 1 ? '#81f803' : 'red'}">{{data.status === 1 ? 'Done'
-                    : 'Pending'}}</button>
-                <mat-checkbox [(ngModel)]="data.status" (change)="onCheckboxChange(data.id, data.status)">Change
-                    status</mat-checkbox>
-            </mat-card-actions>
-        </mat-card>
+  <div *ngIf="query.length > 0; else noDataFound">
+    <div style="margin-bottom: 2px" *ngFor="let data of query">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ data.p_userid }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ data.query }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button>Status</button>
+          <button
+            mat-raised-button
+            [ngStyle]="{
+              'background-color': data.status === 1 ? '#81f803' : 'red'
+            }"
+          >
+            {{ data.status === 1 ? "Done" : "Pending" }}
+          </button>
+          <mat-checkbox
+            [(ngModel)]="data.status"
+            (change)="onCheckboxChange(data.id, data.status)"
+            >Change status</mat-checkbox
+          >
+        </mat-card-actions>
+      </mat-card>
     </div>
+  </div>
+  <ng-template #noDataFound>
+    <div class="image-div">
+      <img
+        src="../../../../../assets/image/no-data.png"
+        width="200px"
+        height="200px"
+      />
+      <p>No query available</p>
+    </div>
+  </ng-template>
 </div>

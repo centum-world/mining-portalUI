@@ -39,3 +39,10 @@
   max-height: 300px;
   overflow-y: auto;
 }
+
+.image-div{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
