@@ -56,6 +56,7 @@ export class RigIdComponent implements OnInit, AfterViewInit {
         Validators.minLength(12),
       ]),
       dob: new FormControl(""),
+      dop: new FormControl("", [Validators.required]),
       liquidity: new FormControl("", [Validators.required]),
     });
   }
@@ -101,18 +102,21 @@ export class RigIdComponent implements OnInit, AfterViewInit {
   }
 
   addnewAccount(form: FormGroup) {
-    console.log(
-      this.newAccountForm,
-      this.aadharImage,
-      this.aadharBackImage,
-      this.panImage
-    );
-    const originalDateStrDop = this.newAccountForm.value.dob;
-    const dateObj1 = new Date(originalDateStrDop);
-    const yearDop = dateObj1.getFullYear();
-    const monthDop = String(dateObj1.getMonth() + 1).padStart(2, "0"); // Month is zero-based
-    const dayDop = String(dateObj1.getDate()).padStart(2, "0");
-    const newDobFormat = `${yearDop}-${monthDop}-${dayDop}`;
+    // date of birth
+    const originalDateStrDob = this.newAccountForm.value.dob;
+    const dateObj1 = new Date(originalDateStrDob);
+    const yearDob = dateObj1.getFullYear();
+    const monthDob = String(dateObj1.getMonth() + 1).padStart(2, "0");
+    const dayDob = String(dateObj1.getDate()).padStart(2, "0");
+    const newDobFormat = `${yearDob}-${monthDob}-${dayDob}`;
+
+    // date of joining
+    const originalDateStrDop = this.newAccountForm.value.dop;
+    const dateObj2 = new Date(originalDateStrDop);
+    const yearDop = dateObj2.getFullYear();
+    const monthDop = String(dateObj2.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    const dayDop = String(dateObj2.getDate()).padStart(2, "0");
+    const newDopFormat = `${yearDop}-${monthDop}-${dayDop}`;
 
     const formData = new FormData();
     formData.append("fname", this.newAccountForm.value.fname);
@@ -126,6 +130,7 @@ export class RigIdComponent implements OnInit, AfterViewInit {
         this.newAccountForm.value.phone.replace(/\s/g, "")
     );
     formData.append("dob", newDobFormat);
+    formData.append("dop", newDopFormat);
     formData.append("liquidity", this.newAccountForm.value.liquidity);
     formData.append("adhar_front_side", this.aadharImage);
     formData.append("adhar_back_side", this.aadharBackImage);

@@ -28,6 +28,10 @@
           <span>{{ item.liquidity | currency : "INR" }}</span>
         </div>
         <div class="name-div">
+          <p>Date of joining</p>
+          <span>{{ item.dop | date}}</span>
+        </div>
+        <div class="name-div">
           <p>Status</p>
           <span [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }">
             {{ item.partner_status ? "Active" : "Inactive" }}

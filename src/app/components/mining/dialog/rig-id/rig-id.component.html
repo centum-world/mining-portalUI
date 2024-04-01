@@ -58,6 +58,20 @@
           </mat-select>
         </mat-form-field>
 
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Date of Liquidity</mat-label>
+          <input
+            matInput
+            [matDatepicker]="dopPicker"
+            formControlName="dop"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="dopPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #dopPicker></mat-datepicker>
+        </mat-form-field>
+
         <ng-container *ngIf="!toggleValue">
           <mat-form-field appearance="outline">
             <mat-label>Aadhaar number</mat-label>

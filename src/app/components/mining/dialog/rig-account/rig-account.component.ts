@@ -31,6 +31,7 @@ export class RigAccountComponent implements OnInit {
           partner_status : response.data[0].partner_status,
           invoice: response.data[0].invoice,
           bond: response.data[0].bond,
+          dop : response.data[0].p_dop
         };
         response.data.unshift(newData);
         response.data.splice(1, 1);
