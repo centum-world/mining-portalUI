@@ -23,6 +23,8 @@ export class RigBondComponent implements OnInit {
   hideContent = false;
   buttonText: string = "Download";
   isDownloading: boolean = false;
+  fname:string="";
+  lname:string="";
   
   constructor(private userService : UserService, private toastr : ToastrService) { }
 
@@ -39,8 +41,11 @@ export class RigBondComponent implements OnInit {
       next: (result: any) => {
         const myString = result.data[0].rigId;
         const thirdChar = myString[2];
+        console.log(result)
         if (thirdChar === "0") {
           this.aadharNumber = result.data[0].p_aadhar;
+          this.fname = result.data[0].p_name;
+          this.lname = result.data[0].p_lname;
           if (result.data[0].p_liquidity === 1200000) {
             this.paymentDate = result.data[0].p_dop;
             this.fixedShareAmount = 128250;
@@ -74,6 +79,8 @@ export class RigBondComponent implements OnInit {
           }
         } else {
           this.aadharNumber = result.data[0].adharNumber;
+          this.fname = result.data[0].fname;
+          this.lname = result.data[0].lname;
           if (result.data[0].liquidity === 1200000) {
             this.fixedShareAmount = 128250;
             this.fixedSharePerDayAmount = 4500;
@@ -107,7 +114,9 @@ export class RigBondComponent implements OnInit {
           }
         }
       },
-      error: () => {},
+      error: (error) => {
+        console.log(error)
+      },
     });
   }
 

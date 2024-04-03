@@ -16,6 +16,7 @@ export class InvoiceComponent implements OnInit {
   liquidity: number = 0;
   percentage: number = 0;
   verifyDate:string='';
+  invoiceno:string='';
 
   @ViewChild("contentToConvert", { static: false })
   contentToConvert: ElementRef;
@@ -40,13 +41,14 @@ export class InvoiceComponent implements OnInit {
           this.liquidity = res.data[0].p_liquidity;
           this.percentage = (this.liquidity * 18) / 100;
           this.verifyDate = res.data[0].p_dop;
+          this.invoiceno = res.data[0].invoice_number;
         } else {
-          console.log(res.data[0]);
           this.fname = res.data[0].fname;
           this.lname = res.data[0].lname;
           this.liquidity = res.data[0].liquidity;
           this.percentage = (this.liquidity * 18) / 100;
           this.verifyDate = res.data[0].dop;
+          this.invoiceno = res.data[0].invoice_number;
         }
       },
       error: (error) => {},
