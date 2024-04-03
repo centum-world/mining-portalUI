@@ -39,14 +39,14 @@ export class InvoiceComponent implements OnInit {
           this.lname = res.data[0].p_lname;
           this.liquidity = res.data[0].p_liquidity;
           this.percentage = (this.liquidity * 18) / 100;
-          this.verifyDate = res.data[0].verifyDate;
+          this.verifyDate = res.data[0].p_dop;
         } else {
           console.log(res.data[0]);
           this.fname = res.data[0].fname;
           this.lname = res.data[0].lname;
           this.liquidity = res.data[0].liquidity;
           this.percentage = (this.liquidity * 18) / 100;
-          this.verifyDate = res.data[0].verifyDate;
+          this.verifyDate = res.data[0].dop;
         }
       },
       error: (error) => {},
