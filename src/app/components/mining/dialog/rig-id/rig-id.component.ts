@@ -27,6 +27,7 @@ import { MatDialogRef } from "@angular/material/dialog";
 })
 export class RigIdComponent implements OnInit, AfterViewInit {
   @ViewChild("phoneNumberInputForNew", { static: false })
+  
   phoneNumberInputForNew: ElementRef | undefined;
   toggleValue: boolean = false;
   countryCode: string = "IN";
@@ -36,6 +37,7 @@ export class RigIdComponent implements OnInit, AfterViewInit {
   aadharImageName: string = "";
   backAadharImageName: string = "";
   panImageName: string = "";
+  isSubmitting: boolean = false;
   newAccountForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -44,8 +46,8 @@ export class RigIdComponent implements OnInit, AfterViewInit {
     public dialogRef: MatDialogRef<RigIdComponent>
   ) {
     this.newAccountForm = this.formBuilder.group({
-      fname: new FormControl(""),
-      lname: new FormControl(""),
+      fname: new FormControl("",[Validators.required]),
+      lname: new FormControl("",[Validators.required]),
       phone: new FormControl("", [
         Validators.maxLength(10),
         Validators.minLength(10),
@@ -102,6 +104,10 @@ export class RigIdComponent implements OnInit, AfterViewInit {
   }
 
   addnewAccount(form: FormGroup) {
+
+    if (form.valid) {
+    this.isSubmitting = true;
+    
     // date of birth
     const originalDateStrDob = this.newAccountForm.value.dob;
     const dateObj1 = new Date(originalDateStrDob);
@@ -140,18 +146,23 @@ export class RigIdComponent implements OnInit, AfterViewInit {
     this.userService.newRigPartnerAccount(formData).subscribe({
       next: (response: any) => {
         if (response) {
-          
+         this.isSubmitting = false;
           form.reset();
           this.toastr.success(response.message);
           this.dialogRef.close();
+         
         }
       },
       error: (error: any) => {
-   
+       this.isSubmitting = false;
         this.toastr.error(error.error.message);
       },
     });
+  } else {
+    // Show a message or handle invalid form
+    this.toastr.error('Please fill in all required fields correctly.');
   }
+}
 
   onFileSelected(event: any, fileSelected: any): void {
     if (fileSelected === "front") {
