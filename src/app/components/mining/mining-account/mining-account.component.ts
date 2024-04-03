@@ -59,7 +59,7 @@ export class MiningAccountComponent implements OnInit {
           console.log(result.data);
           this.fname = result.data[0].fname;
           this.lname = result.data[0].lname;
-          this.paymentDate = result.data[0].doj;
+          this.paymentDate = result.data[0].dop;
           this.status = result.data[0].partner_status;
         }
       },

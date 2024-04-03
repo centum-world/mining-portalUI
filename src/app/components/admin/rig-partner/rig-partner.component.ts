@@ -41,7 +41,7 @@ export class RigPartnerComponent implements OnInit {
           lname: response.data[0].p_lname,
           liquidity: response.data[0].p_liquidity,
           rigId: response.data[0].rigId,
-          doj: response.data[0].p_dop,
+          dop: response.data[0].p_dop,
           partner_status: response.data[0].partner_status,
           userId:response.data[0].p_userid,
           isVerify : response.data[0].isVerify
