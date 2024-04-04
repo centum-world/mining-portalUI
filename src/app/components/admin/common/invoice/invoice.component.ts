@@ -17,6 +17,8 @@ export class InvoiceComponent implements OnInit {
   percentage: number = 0;
   verifyDate:string='';
   invoiceno:string='';
+  phonenumber:string="";
+  state:string="";
 
   @ViewChild("contentToConvert", { static: false })
   contentToConvert: ElementRef;
@@ -25,6 +27,7 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() {
     this.callApiToRigPartner();
+    this.callApiToPhoneNumber();
   }
 
   callApiToRigPartner() {
@@ -70,5 +73,21 @@ export class InvoiceComponent implements OnInit {
         pdf.save("generated_pdf.pdf");
       });
     }
+  }
+
+  callApiToPhoneNumber(){
+    let data = {
+      rigId : this.id
+    }
+    this.userService.callApiToPhoneNumber(data).subscribe({
+      next:(res:any)=>{
+        console.log(res.state,84)
+        this.phonenumber = res.phoneNumber
+        this.state = res.state
+      },
+      error:(error=>{
+        console.log(error);
+      })
+    })
   }
 }

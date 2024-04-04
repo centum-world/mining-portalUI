@@ -1715,4 +1715,10 @@ export class UserService {
     });
   }
 
+  callApiToPhoneNumber(data:any){
+    return this.http.post(this.url + "/admin/find-phone-last-three-digit-rig-id",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }

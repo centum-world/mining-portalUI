@@ -26,6 +26,7 @@ export class RigBondComponent implements OnInit {
   fname:string="";
   lname:string="";
   
+  
   constructor(private userService : UserService, private toastr : ToastrService) { }
 
   ngOnInit() {
@@ -152,5 +153,7 @@ export class RigBondComponent implements OnInit {
       });
     });
   }
+
+  
 
 }
