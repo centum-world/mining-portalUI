@@ -27,7 +27,7 @@
           Company)
         </p>
         <p>and with 2nd party (refer as Individual/Persons/Company)</p>
-        <p><strong>Individual Name / Company Name:</strong> {{fname}}&nbsp; {{lname}}</p>
+        <p><strong>Individual Name / Company Name:</strong> <strong> {{fname}}&nbsp; {{lname}}</strong></p>
         <p>
           <strong>Aadhaar / PAN no. {{ aadharNumber }}</strong>
         </p>
@@ -73,12 +73,12 @@
         </li>
         <li>
           <strong>Date of Liquidity add :</strong>
-          {{
+          <strong> {{
             paymentDate
               | date
                 : "dd
             MMM yyyy"
-          }}
+          }}</strong>
         </li>
         <li style="margin-bottom: 3rem">
           <strong>Payment mode in details:</strong>
