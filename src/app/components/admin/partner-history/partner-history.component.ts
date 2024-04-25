@@ -54,6 +54,7 @@ export class PartnerHistoryComponent implements OnInit {
     "p_address",
     "p_state",
     "p_liquidity",
+    "p_dop",
     "p_aadhar",
     "p_nominee_name",
     "p_nominee_phone",
@@ -63,11 +64,17 @@ export class PartnerHistoryComponent implements OnInit {
     "actions",
   ];
   dataSource: MatTableDataSource<Partner>;
-  selected = 'onetime'
-  afterData:[]=[];
-  beforeData:[]=[];
+  selected = "onetime";
+  afterData: [] = [];
+  beforeData: [] = [];
 
-  
+  payableCount: number = 0;
+  payoutDate: string = "";
+
+  allPayout: [] = [];
+  partnerID: string = "";
+
+  rig: any[] = [];
 
   constructor(
     private userService: UserService,
@@ -86,10 +93,24 @@ export class PartnerHistoryComponent implements OnInit {
   callApiToFetchAllPartner() {
     this.userService.adminFetchAllMiningPartner().subscribe({
       next: (res: any) => {
-        console.log(res)
-          this.dataSource.data = res.afterDec152023;
-          this.afterData = res.afterDec152023;
-          this.beforeData = res.beforeDec152023;
+        console.log(res.afterDec152023);
+        this.rig = res.afterDec152023;
+        console.log(this.rig, 99);
+        const rigIds: string[] = res.afterDec152023.map(
+          (item: any) => item.p_userid
+
+        );
+        console.log(rigIds, 100);
+        const lastThreeDigits: string[] = rigIds.map((rigId: string) =>
+          rigId.slice(-3)
+        );
+        console.log(lastThreeDigits);
+
+        this.dataSource.data = res.afterDec152023;
+        this.afterData = res.afterDec152023;
+        this.beforeData = res.beforeDec152023;
+
+        this.apiCallToPayoutCount(lastThreeDigits);
       },
       error: (err) => {
         console.log(err.error.message);
@@ -97,10 +118,10 @@ export class PartnerHistoryComponent implements OnInit {
     });
   }
 
-  onSelectionChange(){
-    if(this.selected === "onetime"){
+  onSelectionChange() {
+    if (this.selected === "onetime") {
       this.dataSource.data = this.afterData;
-    }else{
+    } else {
       this.dataSource.data = this.beforeData;
     }
   }
@@ -113,7 +134,7 @@ export class PartnerHistoryComponent implements OnInit {
     const dialogRef = this.dialog.open(VerifyPartnerComponent, config);
     dialogRef.componentInstance.okClicked.subscribe(() => {
       console.log("clicked");
-      let verifyDate = new Date()
+      let verifyDate = new Date();
       let data = {
         isVerify: true,
         p_userid: miningPartnerData.p_userid,
@@ -190,6 +211,28 @@ export class PartnerHistoryComponent implements OnInit {
     });
   }
 
+  apiCallToPayoutCount(lastThreeDigits: any) {
+    // let lastThreeDigits = rigIds.slice(-3);
+    // console.log("Last three digits:", lastThreeDigits);
+    let data = {
+      rigId: lastThreeDigits,
+    };
+
+    this.userService.callApiToFetchAllPartnerPayoutCount(data).subscribe({
+      next: (res: any) => {
+        console.log(res, 213);
+        // if (res.data.length > 0) {
+        //   this.allPayout = res.data;
+        //   this.payoutDate = res.data[res.data.length - 1].payoutDate;
+        //   this.payableCount = res.data[res.data.length - 1].payableCount;
+        // }
+      },
+      error: (error) => {
+        this.toastr.warning(error.error.message);
+      },
+    });
+  }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -197,11 +240,10 @@ export class PartnerHistoryComponent implements OnInit {
     this.router.navigate([
       "dashboard/partner-account",
       miningPartnerData.p_userid,
-      this.selected
+      this.selected,
     ]);
   }
 
-  
   goBack() {
     this.router.navigate(["/dashboard/home"]);
   }

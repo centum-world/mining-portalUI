@@ -8,6 +8,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatDialogConfig } from "@angular/material";
 import { RigIdComponent } from "../dialog/rig-id/rig-id.component";
 import { RigAccountComponent } from "../dialog/rig-account/rig-account.component";
+import { MyPayoutHistoryComponent } from "../dialog/my-payout-history/my-payout-history.component";
 
 @Component({
   selector: "app-mining-cards",
@@ -103,6 +104,8 @@ export class MiningCardsComponent implements OnInit {
   referralTodayPayout:any;
   referralMonthPayout:any;
   referralTotalPayout:any;
+
+ 
   constructor(
     private userService: UserService,
     private authService: AuthServiceService,
@@ -675,6 +678,19 @@ export class MiningCardsComponent implements OnInit {
       panelClass: "partnerRigAccountDialogClass",
     };
     const dialogRef = this.dialog.open(RigAccountComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
+  }
+
+  // My payout Card-------
+
+  viewMyPayout(): void {
+    let config: MatDialogConfig = {
+      panelClass: "partnerRigAccountDialogClass",
+    };
+    const dialogRef = this.dialog.open(MyPayoutHistoryComponent, config);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");

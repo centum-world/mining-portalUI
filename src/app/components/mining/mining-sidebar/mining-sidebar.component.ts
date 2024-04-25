@@ -8,6 +8,7 @@ import { MiningViewBankComponent } from "../dialog/mining-view-bank/mining-view-
 import { HelpSupportComponent } from "../dialog/help-support/help-support.component";
 import { ToastrService } from 'ngx-toastr';
 import { MiningEditAndViewBankComponent } from "../dialog/mining-edit-and-view-bank/mining-edit-and-view-bank.component";
+import { PartnerAddLiquidityComponent } from "../dialog/partner-add-liquidity/partner-add-liquidity.component";
 
 @Component({
   selector: "app-mining-sidebar",
@@ -101,6 +102,16 @@ export class MiningSidebarComponent implements OnInit {
       panelClass: "helpAndSupportDialogClass",
     };
     const dialogRef = this.dialog.open(HelpSupportComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  addLiquidity(){
+    this.isVisible = false;
+    let config: MatDialogConfig = {
+      panelClass: "partnerRigDialogClass",
+    };
+    const dialogRef = this.dialog.open(PartnerAddLiquidityComponent, config);
 
     dialogRef.afterClosed().subscribe((result) => {});
   }

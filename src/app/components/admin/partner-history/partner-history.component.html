@@ -122,6 +122,12 @@
           </span>
         </td>
       </ng-container>
+      <ng-container matColumnDef="p_dop">
+        <th mat-header-cell *matHeaderCellDef class="member-history-header">
+          DOJ
+        </th>
+        <td mat-cell *matCellDef="let partner">{{ partner.p_dop | date }}</td>
+      </ng-container>
 
       <ng-container matColumnDef="p_nominee_name">
         <th mat-header-cell *matHeaderCellDef class="member-history-header">

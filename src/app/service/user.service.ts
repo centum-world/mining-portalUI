@@ -1721,4 +1721,22 @@ export class UserService {
     });
   }
 
+  callApiToFetchMyPayoutCount(data:any){
+    return this.http.post(this.url + "/mining/partner/my-payout-count",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchNameFromRigId(data:any){
+    return this.http.post(this.url + "/admin/fetch-names-with-rig-ids",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchAllPartnerPayoutCount(data:any){
+    return this.http.post(this.url + "/admin/fetch-All-partner-payout-count",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
 }

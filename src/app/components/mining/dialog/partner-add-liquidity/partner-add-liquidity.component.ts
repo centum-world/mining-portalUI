@@ -21,11 +21,11 @@ import { ToastrService } from "ngx-toastr";
 import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
-  selector: "app-rig-id",
-  templateUrl: "./rig-id.component.html",
-  styleUrls: ["./rig-id.component.css"],
+  selector: 'app-partner-add-liquidity',
+  templateUrl: './partner-add-liquidity.component.html',
+  styleUrls: ['./partner-add-liquidity.component.css']
 })
-export class RigIdComponent implements OnInit, AfterViewInit {
+export class PartnerAddLiquidityComponent implements OnInit ,AfterViewInit {
   @ViewChild("phoneNumberInputForNew", { static: false })
   
   phoneNumberInputForNew: ElementRef | undefined;
@@ -43,7 +43,7 @@ export class RigIdComponent implements OnInit, AfterViewInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private toastr: ToastrService,
-    public dialogRef: MatDialogRef<RigIdComponent>
+    public dialogRef: MatDialogRef<PartnerAddLiquidityComponent>
   ) {
     this.newAccountForm = this.formBuilder.group({
       fname: new FormControl("",[Validators.required]),
@@ -63,7 +63,9 @@ export class RigIdComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
 
   onToggleChange(event: Event) {
     this.toggleValue = !this.toggleValue;
@@ -104,10 +106,10 @@ export class RigIdComponent implements OnInit, AfterViewInit {
   }
 
   addnewAccount(form: FormGroup) {
-    console.log(form.valid,107)
 
+    console.log('hiiiiiiiiii')
     // if (form.valid) {
-      
+
     this.isSubmitting = true;
     
     // date of birth
@@ -196,4 +198,5 @@ export class RigIdComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
 }

@@ -246,6 +246,8 @@ import { ConfirmAuthorizeComponent } from './components/admin/dialog/confirm-aut
 import { TargetComponent } from './components/admin/target/target/target.component';
 import { FranchiseupDownComponent } from './components/admin/target/franchiseup-down/franchiseup-down.component';
 import { ReferralupComponent } from './components/admin/target/referralup/referralup.component';
+import { MyPayoutHistoryComponent } from './components/mining/dialog/my-payout-history/my-payout-history.component';
+import { PartnerAddLiquidityComponent } from './components/mining/dialog/partner-add-liquidity/partner-add-liquidity.component';
 
 
 
@@ -466,6 +468,8 @@ import { ReferralupComponent } from './components/admin/target/referralup/referr
     TargetComponent,
     FranchiseupDownComponent,
     ReferralupComponent,
+    MyPayoutHistoryComponent,
+    PartnerAddLiquidityComponent,
   ],
   imports: [
     BrowserModule,
@@ -586,6 +590,8 @@ import { ReferralupComponent } from './components/admin/target/referralup/referr
     TargetComponent,
     FranchiseupDownComponent,
     ReferralupComponent,
+    MyPayoutHistoryComponent,
+    PartnerAddLiquidityComponent
   ],
   providers: [
     {

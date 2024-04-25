@@ -1,20 +1,25 @@
 <main>
   <div class="cards" *ngIf="!view_detail">
-
     <div class="card-single">
       <div>
         <h5>Transaction</h5>
-        <div class="" style="display: flex; justify-content: space-between;" >
+        <div class="" style="display: flex; justify-content: space-between">
           <span>Today's Transaction</span>&nbsp;&nbsp;
-          <span style="color: yellow;" >{{todayPayout | currency:'INR'}}</span>
+          <span style="color: yellow">{{
+            todayPayout | currency : "INR"
+          }}</span>
         </div>
         <div class="">
           <span>Month Transaction</span>&nbsp;&nbsp;
-          <span style="color: yellow;">{{monthPayout | currency:'INR'}}</span>
+          <span style="color: yellow">{{
+            monthPayout | currency : "INR"
+          }}</span>
         </div>
         <div class="">
           <span>Total Transaction</span>&nbsp;&nbsp;
-          <span style="color: yellow;">{{totalPayout | currency:'INR'}}</span>
+          <span style="color: yellow">{{
+            totalPayout | currency : "INR"
+          }}</span>
         </div>
       </div>
       <div data-toggle="modal" (click)="viewTransactionHistoryList()">
@@ -27,17 +32,23 @@
     <div class="card-single">
       <div>
         <h5>Referral Payout</h5>
-        <div class="" style="display: flex; justify-content: space-between;" >
+        <div class="" style="display: flex; justify-content: space-between">
           <span>Today's Payout</span>&nbsp;&nbsp;
-          <span style="color: yellow;" >{{referralTodayPayout | currency:'INR'}}</span>
+          <span style="color: yellow">{{
+            referralTodayPayout | currency : "INR"
+          }}</span>
         </div>
         <div class="">
           <span>Month Payout</span>&nbsp;&nbsp;
-          <span style="color: yellow;">{{referralMonthPayout | currency:'INR'}}</span>
+          <span style="color: yellow">{{
+            referralMonthPayout | currency : "INR"
+          }}</span>
         </div>
         <div class="">
           <span>Total Payout</span>&nbsp;&nbsp;
-          <span style="color: yellow;">{{referralTotalPayout | currency:'INR'}}</span>
+          <span style="color: yellow">{{
+            referralTotalPayout | currency : "INR"
+          }}</span>
         </div>
       </div>
       <div data-toggle="modal" (click)="viewReferralPayoutList()">
@@ -49,10 +60,33 @@
 
     <div class="card-single">
       <div>
+        <h5>My Payout</h5>
+        <div class="" style="display: flex; justify-content: space-between">
+          <span>Total Tenure</span>&nbsp;&nbsp;
+          <span style="color: yellow">12TN</span>
+        </div>
+        <!-- <div class="">
+          <span>Paid Tenure</span>&nbsp;&nbsp;
+          <span style="color: yellow;"></span>
+        </div>
+        <div class="">
+          <span>Remaining Tenure</span>&nbsp;&nbsp;
+          <span style="color: yellow;"></span>
+        </div> -->
+      </div>
+      <div data-toggle="modal" (click)="viewMyPayout()">
+        <div class="card-view">
+          <span>View</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
         <div>
           <div class="dop1" *ngIf="userStatus">
             <span style="font-weight: 600">Status</span>&nbsp;&nbsp;
-            <p style="color: yellowgreen;">Active</p>
+            <p style="color: yellowgreen">Active</p>
           </div>
           <div class="dop1" *ngIf="month_count === 12">
             <span style="font-weight: 600">Status</span>:
@@ -107,16 +141,26 @@
       </div>
     </div>
     <div class="card-single">
-      <div>All RIG Accounts : <span style="color: yellow;">{{multipleRigCount}}</span> </div>
+      <div>
+        All RIG Accounts :
+        <span style="color: yellow">{{ multipleRigCount }}</span>
+      </div>
       <div class="card-view">
-        <a href="javascript:void(0)" style="text-decoration: none;" (click)="allRigAccount()">
+        <a
+          href="javascript:void(0)"
+          style="text-decoration: none"
+          (click)="allRigAccount()"
+        >
           <span>View</span>
         </a>
       </div>
     </div>
     <div class="card-single">
       <div>
-        <h6>My Team : <span style="color: yellow;">{{partneReferPartnerCount}}</span></h6>
+        <h6>
+          My Team :
+          <span style="color: yellow">{{ partneReferPartnerCount }}</span>
+        </h6>
       </div>
       <div class="card-view">
         <a href="javascript:void(0)" (click)="myteam()">
@@ -143,12 +187,9 @@
       </div>
       <span style="font-weight: bold; color: yellow; margin-bottom: 1rem;">{{(totalAmount-(totalAmount*5)/100) | currency:'INR'}}</span>
     </div> -->
-    
   </div>
 
-
-  
-  <div *ngIf="view_detail" style="height: 100vh;">
+  <div *ngIf="view_detail" style="height: 100vh">
     <app-mining-profile-details></app-mining-profile-details>
   </div>
 </main>

@@ -10,7 +10,11 @@ import { ToastrService } from "ngx-toastr";
 })
 export class RigAccountComponent implements OnInit {
   data: any[] = [];
-  constructor(private userService: UserService, private toastr: ToastrService, private router : Router) {}
+  constructor(
+    private userService: UserService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.callApiToMultipleAccount();
@@ -28,10 +32,10 @@ export class RigAccountComponent implements OnInit {
           lname: response.data[0].p_lname,
           liquidity: response.data[0].p_liquidity,
           rigId: response.data[0].rigId,
-          partner_status : response.data[0].partner_status,
+          partner_status: response.data[0].partner_status,
           invoice: response.data[0].invoice,
           bond: response.data[0].bond,
-          dop : response.data[0].p_dop
+          dop: response.data[0].p_dop,
         };
         response.data.unshift(newData);
         response.data.splice(1, 1);
@@ -41,40 +45,37 @@ export class RigAccountComponent implements OnInit {
     });
   }
 
-  gotoPartnerPayout(data:any){
-    console.log(data.rigId)
-    this.router.navigate([
-      "miningdashboard/rig-payout",
-      data.rigId
-    ]);
+  gotoPartnerPayout(data: any) {
+    console.log(data.rigId);
+    this.router.navigate(["miningdashboard/rig-payout", data.rigId]);
   }
-  
-  downloadInvoice(data:any){
+
+  downloadInvoice(data: any) {
     console.log(data.invoice);
     const pdfUrl = data.invoice;
 
     if (pdfUrl) {
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = pdfUrl;
-      link.target = '_blank';
-      link.download = 'invoice.pdf';
+      link.target = "_blank";
+      link.download = "invoice.pdf";
       link.click();
     } else {
-      this.toastr.warning('Invoice is not available.');
+      this.toastr.warning("Invoice is not available.");
     }
   }
-  downloadBond(data:any){
+  downloadBond(data: any) {
     console.log(data.bond);
     const pdfUrl = data.bond;
 
     if (pdfUrl) {
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = pdfUrl;
-      link.target = '_blank';
-      link.download = 'bond.pdf';
+      link.target = "_blank";
+      link.download = "bond.pdf";
       link.click();
     } else {
-      this.toastr.warning('Bond is not available.');
+      this.toastr.warning("Bond is not available.");
     }
   }
 }

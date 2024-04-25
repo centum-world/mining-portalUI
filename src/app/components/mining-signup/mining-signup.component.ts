@@ -315,6 +315,7 @@ export class MiningSignupComponent implements OnInit, AfterViewInit {
       next: (response: any) => {
         if (response) {
           localStorage.setItem("login", "true");
+          localStorage.setItem("RIGID",response.data[0].rigId)
           this.spin = false;
           this.shareService.setPartnerId(response.data[0].p_userid);
           this.shareService.setMiningPartnerRefferId(
