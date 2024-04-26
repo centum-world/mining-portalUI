@@ -49,33 +49,36 @@ export class RigAccountComponent implements OnInit {
     console.log(data.rigId);
     this.router.navigate(["miningdashboard/rig-payout", data.rigId]);
   }
-
-  downloadInvoice(data: any) {
-    console.log(data.invoice);
-    const pdfUrl = data.invoice;
-
-    if (pdfUrl) {
-      const link = document.createElement("a");
-      link.href = pdfUrl;
-      link.target = "_blank";
-      link.download = "invoice.pdf";
-      link.click();
-    } else {
-      this.toastr.warning("Invoice is not available.");
-    }
+  gotoDownloadInvoceAndBond(data:any){
+    this.router.navigate(["miningdashboard/invoice-bond", data.rigId]);
   }
-  downloadBond(data: any) {
-    console.log(data.bond);
-    const pdfUrl = data.bond;
 
-    if (pdfUrl) {
-      const link = document.createElement("a");
-      link.href = pdfUrl;
-      link.target = "_blank";
-      link.download = "bond.pdf";
-      link.click();
-    } else {
-      this.toastr.warning("Bond is not available.");
-    }
-  }
+  // downloadInvoice(data: any) {
+  //   console.log(data.invoice);
+  //   const pdfUrl = data.invoice;
+
+  //   if (pdfUrl) {
+  //     const link = document.createElement("a");
+  //     link.href = pdfUrl;
+  //     link.target = "_blank";
+  //     link.download = "invoice.pdf";
+  //     link.click();
+  //   } else {
+  //     this.toastr.warning("Invoice is not available.");
+  //   }
+  // }
+  // downloadBond(data: any) {
+  //   console.log(data.bond);
+  //   const pdfUrl = data.bond;
+
+  //   if (pdfUrl) {
+  //     const link = document.createElement("a");
+  //     link.href = pdfUrl;
+  //     link.target = "_blank";
+  //     link.download = "bond.pdf";
+  //     link.click();
+  //   } else {
+  //     this.toastr.warning("Bond is not available.");
+  //   }
+  // }
 }

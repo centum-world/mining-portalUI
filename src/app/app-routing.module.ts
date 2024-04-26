@@ -104,6 +104,7 @@ import { BmmReferralListComponent } from "./components/sho/bmm-referral-list/bmm
 import { PartnerTransactionHistoryComponent } from "./components/mining/partner-transaction-history/partner-transaction-history.component";
 import { PayoutReferralComponent } from "./components/admin/payout-referral/payout-referral.component";
 import { AllBankComponent } from "./components/admin/all-bank/all-bank.component";
+import { InvoiceBondComponent } from "./components/mining/invoice-bond/invoice-bond.component";
 
 
 const routes: Routes = [
@@ -175,6 +176,7 @@ const routes: Routes = [
       {path: "my-team", component: MyteamPartnerComponent},
       {path: "referral-payout", component: ReferralPayoutComponent},
       {path: "rig-payout/:id", component: RigPayoutComponent},
+      {path: "invoice-bond/:rigId", component: InvoiceBondComponent},
       {path:"transaction-history",component:PartnerTransactionHistoryComponent},
       { path: "", redirectTo: "/miningdashboard/home", pathMatch: "full" },
     ] 

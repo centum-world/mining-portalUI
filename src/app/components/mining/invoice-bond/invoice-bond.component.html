@@ -1,0 +1,15 @@
+<div class="rigpayout-container">
+  <p>
+    <mat-icon (click)="goBack()" style="margin-top: 5px">arrow_back</mat-icon>
+    &nbsp; Download Invoice & Bond
+  </p>
+  <div class="payouttab-container">
+    <mat-tab-group animationDuration="2000ms">
+      
+      <mat-tab label="INVOICE"
+        ><app-invoice [id]="rigId"></app-invoice
+      ></mat-tab>
+      <mat-tab label="BOND"><app-rig-bond [id]="rigId"></app-rig-bond></mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
