@@ -16,6 +16,7 @@ export class MyPayoutHistoryComponent implements OnInit {
   RigID: string = "";
   allRigId: [] = [];
   allName:[]=[];
+  mergeData:[] =[];
 
   constructor(
     private userService: UserService,
@@ -42,7 +43,7 @@ export class MyPayoutHistoryComponent implements OnInit {
         this.data = res.data;
         const rigIds: string[] = res.data.map((item: any) => item.rigId);
 
-       this.apiCallToFetchName(rigIds)
+       this.apiCallToFetchName(rigIds, this.data)
 
       },
       error: (error) => {
@@ -51,7 +52,7 @@ export class MyPayoutHistoryComponent implements OnInit {
     });
   }
 
-  apiCallToFetchName(rigIds:any){
+  apiCallToFetchName(rigIds:any, allData:any){
     console.log(rigIds,80)
     let data = {
       rigIds: rigIds,
@@ -60,6 +61,11 @@ export class MyPayoutHistoryComponent implements OnInit {
       next: (res: any) => {
         console.log(res.data, 61);
         this.allName = res.data;
+        this.mergeData = allData.map((obj:any, index:any) => ({
+          ...obj,
+          ...res.data[index],
+        }));
+        // console.log(mergedArray,68)
       },
       error: (error) => {
         this.toastr.warning(error.error.message);

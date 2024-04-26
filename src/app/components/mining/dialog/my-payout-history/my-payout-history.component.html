@@ -4,7 +4,7 @@
       <div class="butonn-div" mat-dialog-close>X</div>
     </div>
     <div class="card-container">
-      <div class="card-div" *ngFor="let item of data; let i = index">
+      <div class="card-div" *ngFor="let item of mergeData; let i = index">
         <div class="card-header">
           <div class="header-content">
             <p>RIG ID</p>
@@ -21,7 +21,7 @@
         <div class="card-content">
           <div class="name-div">
             <p>Name</p>
-            <span>{{allName[i].name}}</span>
+            <span>{{item.name}}</span>
           </div>
           <div class="name-div">
             <p>Total Tenure</p>
