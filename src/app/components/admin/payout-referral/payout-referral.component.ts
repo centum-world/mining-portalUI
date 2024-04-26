@@ -18,7 +18,7 @@ interface ReferralPayout {
 })
 export class PayoutReferralComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  displayedColumns: string[] = ["userid", "partnerid", "amount", "credit_date"];
+  displayedColumns: string[] = ["userid", "partnerid","name", "amount", "credit_date"];
   dataSource: MatTableDataSource<ReferralPayout>;
 
   allData: {
@@ -27,6 +27,8 @@ export class PayoutReferralComponent implements OnInit {
     amount: number;
     credit_date: string;
     userType: string;
+    p_name:string;
+    p_lname:string;
   }[] = [];
 
 

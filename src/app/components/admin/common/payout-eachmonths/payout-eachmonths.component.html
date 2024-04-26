@@ -1,7 +1,7 @@
 <div class="payout-container">
   <div class="payout-cards">
     <div class="cards-header">
-      <p>RIG partner payout and history</p>
+      <p>RIG partner payout and history </p>
       <small>{{ id }}</small>
     </div>
     <hr />
@@ -45,7 +45,7 @@
           <mat-expansion-panel-header>
             <mat-panel-title> All Month </mat-panel-title>
           </mat-expansion-panel-header>
-          <div class="all-month" *ngFor="let item of allPayout">
+          <div class="all-month" *ngFor="let item of allPayout; let i of index">
             <div class="last-payout-data">
                 <p>Liquidity</p>
                 <h6>{{item.liquidity | currency:"INR"}}</h6>
@@ -58,6 +58,10 @@
                 <p>Payout Date</p>
                 <h6>{{item.payoutDate | date}}</h6>
             </div>
+            <div class="last-payout-data">
+              <p>Paid Tenure</p>
+              <h6>{{item.payableCount}} TN</h6>
+          </div>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

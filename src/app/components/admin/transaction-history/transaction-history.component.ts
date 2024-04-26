@@ -20,6 +20,7 @@ interface Data {
 export class TransactionHistoryComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = [
+    "name",
     "partnerId",
     "rigId",
     "payableAmount",
