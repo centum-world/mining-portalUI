@@ -58,8 +58,8 @@ export class MyPayoutHistoryComponent implements OnInit {
     };
     this.userService.callApiToFetchNameFromRigId(data).subscribe({
       next: (res: any) => {
-        console.log(res, 85);
-        
+        console.log(res.data, 61);
+        this.allName = res.data;
       },
       error: (error) => {
         this.toastr.warning(error.error.message);

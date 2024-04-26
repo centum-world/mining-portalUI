@@ -54,6 +54,7 @@ export class PartnerHistoryComponent implements OnInit {
     "p_address",
     "p_state",
     "p_liquidity",
+    "maxPayableCount",
     "p_dop",
     "p_aadhar",
     "p_nominee_name",
@@ -75,6 +76,7 @@ export class PartnerHistoryComponent implements OnInit {
   partnerID: string = "";
 
   rig: any[] = [];
+  mergeData: any[] = [];
 
   constructor(
     private userService: UserService,
@@ -96,21 +98,24 @@ export class PartnerHistoryComponent implements OnInit {
         console.log(res.afterDec152023);
         this.rig = res.afterDec152023;
         console.log(this.rig, 99);
-        const rigIds: string[] = res.afterDec152023.map(
-          (item: any) => item.p_userid
-
-        );
-        console.log(rigIds, 100);
-        const lastThreeDigits: string[] = rigIds.map((rigId: string) =>
-          rigId.slice(-3)
-        );
-        console.log(lastThreeDigits);
-
-        this.dataSource.data = res.afterDec152023;
+       if(this.selected === 'onetime'){
         this.afterData = res.afterDec152023;
+        var rigIds: string[] = res.afterDec152023.map(
+          (item: any) => item.rigId
+        );
+        this.apiCallToPayoutCount(rigIds, this.afterData)
+       }else{
         this.beforeData = res.beforeDec152023;
+        var rigIds: string[] = res.beforeDec152023.map(
+          (item: any) => item.rigId
+        );
+        this.apiCallToPayoutCount(rigIds, this.beforeData)
+       }
+        // this.dataSource.data = res.afterDec152023;
 
-        this.apiCallToPayoutCount(lastThreeDigits);
+       
+        
+        
       },
       error: (err) => {
         console.log(err.error.message);
@@ -119,11 +124,13 @@ export class PartnerHistoryComponent implements OnInit {
   }
 
   onSelectionChange() {
-    if (this.selected === "onetime") {
-      this.dataSource.data = this.afterData;
-    } else {
-      this.dataSource.data = this.beforeData;
-    }
+    this.callApiToFetchAllPartner();
+    
+    // if (this.selected === "onetime") {
+    //   this.dataSource.data = this.mergeData;
+    // } else {
+    //   this.dataSource.data = this.beforeData;
+    // }
   }
 
   openMiningPartnerVerifyDialog(miningPartnerData: any) {
@@ -211,21 +218,21 @@ export class PartnerHistoryComponent implements OnInit {
     });
   }
 
-  apiCallToPayoutCount(lastThreeDigits: any) {
-    // let lastThreeDigits = rigIds.slice(-3);
-    // console.log("Last three digits:", lastThreeDigits);
+  apiCallToPayoutCount(rigIds: any, allData: any) {
     let data = {
-      rigId: lastThreeDigits,
+      rigId: rigIds,
     };
 
     this.userService.callApiToFetchAllPartnerPayoutCount(data).subscribe({
       next: (res: any) => {
-        console.log(res, 213);
-        // if (res.data.length > 0) {
-        //   this.allPayout = res.data;
-        //   this.payoutDate = res.data[res.data.length - 1].payoutDate;
-        //   this.payableCount = res.data[res.data.length - 1].payableCount;
-        // }
+        console.log(res.maxPayableCounts,allData, 217);
+        this.mergeData = allData.map((obj:any, index:any) => ({
+          ...obj,
+          ...res.maxPayableCounts[index],
+        }));
+        this.dataSource.data = this.mergeData;
+        // console.log(this.mergeData)
+        
       },
       error: (error) => {
         this.toastr.warning(error.error.message);
