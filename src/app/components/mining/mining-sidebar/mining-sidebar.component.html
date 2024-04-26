@@ -3,14 +3,17 @@
   <div class="sidebar-brand" (click)="gotoDahashboard()">
     <h3><a class="fa fa-qrcode" href="javascript:void(0)"></a></h3>
     <h2>
-      <a href="javascript:void(0)"><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a>
+      <a href="javascript:void(0)"
+        ><span class="fa fa-qrcode"></span>&nbsp; Dashboard</a
+      >
     </h2>
   </div>
   <div class="sidebar-menu">
     <ul>
       <li>
         <div class="partner_history" (click)="payoutTransactionHistory()">
-          <a href="javascript:void(0)"><i class="material-icons">swap_horiz</i>
+          <a href="javascript:void(0)"
+            ><i class="material-icons">swap_horiz</i>
             <span>Transaction History</span>
           </a>
         </div>
@@ -18,7 +21,8 @@
 
       <li>
         <div class="partner_history" (click)="addLiquidity()">
-          <a href="javascript:void(0)"><i class="material-icons">attach_money</i>
+          <a href="javascript:void(0)"
+            ><i class="material-icons">attach_money</i>
             <span>Add Liquidity</span>
           </a>
         </div>
@@ -26,15 +30,26 @@
 
       <li>
         <div class="partner_history" (click)="myPayoutCount()">
-          <a href="javascript:void(0)"><i class="material-icons">payment</i>
+          <a href="javascript:void(0)"
+            ><i class="material-icons">payment</i>
             <span>My Payout</span>
           </a>
         </div>
       </li>
 
       <li>
+        <div class="partner_history" (click)="downloadInvoiceBond()">
+          <a href="javascript:void(0)">
+            <i class="material-icons">picture_as_pdf</i>
+            <span>Invoice/Bond</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
         <div class="member_history" (click)="partnerViewList()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">account_circle</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_circle</mat-icon>
 
             <span>Profile</span>
           </a>
@@ -43,14 +58,15 @@
 
       <li>
         <div class="partner_history">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">account_balance</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_balance</mat-icon>
             <!-- <span>Bank Details</span> -->
             <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="addBankDetails()">Add bank</button>
               <button mat-menu-item (click)="editAndViewBankDetails()">
                 Edit And View bank
-               </button>
+              </button>
               <!-- <button mat-menu-item (click)="viewBankDetails()">
                Edit And View bank
               </button> -->
@@ -59,15 +75,14 @@
         </div>
       </li>
 
-
       <li>
         <div class="partner_history" (click)="helpAndSupport()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">help</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">help</mat-icon>
             <span>Help & Support</span>
           </a>
         </div>
       </li>
-
 
       <!-- <li>
         <div class="partner_history" (click)="downloadBond()">
@@ -79,7 +94,8 @@
 
       <li>
         <div class="partner_history" (click)="myteam()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">group</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">group</mat-icon>
             <span>My team</span>
           </a>
         </div>
@@ -87,7 +103,8 @@
 
       <li>
         <div class="partner_history" (click)="referralPayout()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">payment</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">payment</mat-icon>
             <span>Referral Payout</span>
           </a>
         </div>
@@ -109,7 +126,7 @@
 <div class="main-content">
   <header>
     <div class="logo-centum">
-      <img src="../../../../assets/logo/Clogo (2).png" alt="CENTUM WORLD">
+      <img src="../../../../assets/logo/Clogo (2).png" alt="CENTUM WORLD" />
     </div>
     <div class="user-wrapper">
       <button mat-button class="login_button" [matMenuTriggerFor]="menuUser">
@@ -121,17 +138,27 @@
       <mat-menu #menuUser="matMenu">
         <button mat-menu-item (click)="partnerViewList()">Profile</button>
         <button mat-menu-item (click)="downloadBond()">Partnership Bond</button>
-        <a href="javascript:void(0)" mat-menu-item (click)="logOut()"> Logout </a>
+        <a href="javascript:void(0)" mat-menu-item (click)="logOut()">
+          Logout
+        </a>
       </mat-menu>
     </div>
   </header>
 </div>
 
-<div class="mobile-sidebar" [ngStyle]="{ display: isVisible ? 'block' : 'none' }">
+<div
+  class="mobile-sidebar"
+  [ngStyle]="{ display: isVisible ? 'block' : 'none' }"
+>
   <div class="mobile-sidebar-heading">
     <div class="mobile-header">
       <div class="centum-header">
-        <img src="../../../../assets/image/clogo.png" alt="" height="60" width="60" />
+        <img
+          src="../../../../assets/image/clogo.png"
+          alt=""
+          height="60"
+          width="60"
+        />
         <span>CENTUMO MINING RIG</span>
       </div>
       <span class="fa fa-close" (click)="closeSidebar()"></span>
@@ -141,7 +168,8 @@
     <ul>
       <li>
         <div class="partner_history" (click)="downloadBond()">
-          <a href="javascript:void(0)"><i class="material-icons">description</i>
+          <a href="javascript:void(0)"
+            ><i class="material-icons">description</i>
             <span>Partnership Bond</span>
           </a>
         </div>
@@ -149,22 +177,24 @@
 
       <li>
         <div class="member_history" (click)="partnerViewList()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">account_circle</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_circle</mat-icon>
 
-            <span style="font-family: Roboto;">Profile</span>
+            <span style="font-family: Roboto">Profile</span>
           </a>
         </div>
       </li>
 
       <li>
         <div class="partner_history">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">account_balance</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">account_balance</mat-icon>
             <button mat-button [matMenuTriggerFor]="menu">Bank details</button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="addBankDetails()">Add bank</button>
               <button mat-menu-item (click)="editAndViewBankDetails()">
                 Edit And View bank
-               </button>
+              </button>
               <!-- <button mat-menu-item (click)="viewBankDetails()">
                 View bank
               </button> -->
@@ -184,21 +214,24 @@
 
       <li>
         <div class="partner_history" (click)="helpAndSupport()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">help</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">help</mat-icon>
             <span>Help & Support1</span>
           </a>
         </div>
       </li>
       <li>
         <div class="partner_history" (click)="myteam()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">group</mat-icon>
-            <span >My team</span>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">group</mat-icon>
+            <span>My team</span>
           </a>
         </div>
       </li>
       <li>
         <div class="partner_history" (click)="referralPayout()">
-          <a href="javascript:void(0)"><mat-icon class="bank-icon">payment</mat-icon>
+          <a href="javascript:void(0)"
+            ><mat-icon class="bank-icon">payment</mat-icon>
             <span>Referral Payout</span>
           </a>
         </div>

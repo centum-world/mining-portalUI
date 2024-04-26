@@ -37,6 +37,7 @@ body {
   background: #0f172a;
   z-index: 100%;
   transition: width 300ms;
+  overflow-y: auto;
 }
 .partner_history ,.member_history span,button {
   font-family:'Roboto',sans-serif;
@@ -396,6 +397,9 @@ td {
   }
   header h2 {
     font-size: 1rem;
+  }
+  .sidebar{
+    overflow-y: auto;
   }
 }
 @media only screen and (max-width: 560px) {

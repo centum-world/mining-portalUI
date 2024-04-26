@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MiningEditAndViewBankComponent } from "../dialog/mining-edit-and-view-bank/mining-edit-and-view-bank.component";
 import { PartnerAddLiquidityComponent } from "../dialog/partner-add-liquidity/partner-add-liquidity.component";
 import { MyPayoutHistoryComponent } from "../dialog/my-payout-history/my-payout-history.component";
+import { RigAccountComponent } from "../dialog/rig-account/rig-account.component";
 
 @Component({
   selector: "app-mining-sidebar",
@@ -142,6 +143,17 @@ export class MiningSidebarComponent implements OnInit {
       panelClass: "partnerRigAccountDialogClass",
     };
     const dialogRef = this.dialog.open(MyPayoutHistoryComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
+  }
+
+  downloadInvoiceBond(){
+    let config: MatDialogConfig = {
+      panelClass: "partnerRigAccountDialogClass",
+    };
+    const dialogRef = this.dialog.open(RigAccountComponent, config);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");
