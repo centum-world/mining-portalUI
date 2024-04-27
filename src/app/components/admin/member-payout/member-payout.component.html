@@ -1,0 +1,72 @@
+<div class="main-container">
+    <div class="header-div">
+        <mat-icon (click)="goBack()" style="cursor: pointer;">arrow_back</mat-icon>
+        <p>My Partners</p>
+    </div>
+    <div class="cards-container">
+        <div class="cards" *ngFor="let item of partner">
+            <div class="cards-details">
+                <div class="name">
+                    <p>Name</p>
+                    <span>{{ item.p_name }}&nbsp;{{ item.p_lname }}</span>
+                </div>
+                <div class="name">
+                    <p>User Id</p>
+                    <span>{{ item.p_userid }}</span>
+                </div>
+                <div class="name">
+                    <p>RIG ID</p>
+                    <span>{{ item.rigId }}</span>
+                </div>
+                <div class="name">
+                    <p>Liquidity</p>
+                    <span>{{ item.p_liquidity | currency : "INR" }}</span>
+                </div>
+                <div class="name">
+                    <p>DOJ</p>
+                    <span>{{ item.p_dop | date }}</span>
+                </div>
+                <div class="name">
+                    <p>Status</p>
+                    <span [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }">{{ item.partner_status ? "Active" : "Close" }}</span>
+                </div>
+            </div>
+            <hr>
+            <div class="footer">
+                <div>Pay</div>
+                <div>hii</div>
+            </div>
+        </div>
+
+        <div class="cards" *ngFor="let item of newPartnerTeam">
+            <div class="cards-details">
+                <div class="name">
+                    <p>Name</p>
+                    <span>{{ item.fname }}&nbsp;{{ item.lname }}</span>
+                </div>
+                <div class="name">
+                    <p>User Id</p>
+                    <span>{{ item.userId }}</span>
+                </div>
+                <div class="name">
+                    <p>RIG ID</p>
+                    <span>{{ item.rigId }}</span>
+                </div>
+                <div class="name">
+                    <p>Liquidity</p>
+                    <span>{{ item.liquidity | currency : "INR" }}</span>
+                </div>
+                <div class="name">
+                    <p>DOJ</p>
+                    <span>{{ item.doj | date }}</span>
+                </div>
+                <div class="name">
+                    <p>Status</p>
+                    <span [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }">{{ item.partner_status ? "Active" : "Close" }}</span>
+                </div>
+            </div>
+            <hr style="margin: 0;">
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="myteam-container">
+  <div class="close-header">
+    <p class="my-team-header">Partners</p>
+    <!-- <button mat-raised-button mat-dialog-close>Cancel</button> -->
+    <mat-icon aria-label="Close dialog" mat-dialog-close>close</mat-icon>
+  </div>
+  <div class="my-team-body">
+    <div class="my-team-card" *ngFor="let item of partner">
+      <div class="partner-body">
+        <div class="partner-content">
+          <p class="name">Name</p>
+          <p class="content">{{ item.p_name }}&nbsp;{{ item.p_lname }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">Partner ID</p>
+          <p class="content">{{ item.p_userid }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">RIG ID</p>
+          <p class="content">{{ item.rigId }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">Liquidity</p>
+          <p class="content">{{ item.p_liquidity | currency : "INR" }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">DOJ</p>
+          <p class="content">{{ item.p_dop | date }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">Status</p>
+          <p
+            class="content"
+            [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }"
+          >
+            {{ item.partner_status ? "Active" : "Close" }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="my-team-card" *ngFor="let item of newPartnerTeam">
+      <div class="partner-body">
+        <div class="partner-content">
+          <p class="name">Name</p>
+          <p class="content">{{ item.fname }}&nbsp;{{ item.lname }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">Partner ID</p>
+          <p class="content">{{ item.userId }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">RIG ID</p>
+          <p class="content">{{ item.rigId }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">Liquidity</p>
+          <p class="content">{{ item.liquidity | currency : "INR" }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">DOJ</p>
+          <p class="content">{{ item.doj | date }}</p>
+        </div>
+        <div class="partner-content">
+          <p class="name">Status</p>
+          <p
+            class="content"
+            [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }"
+          >
+            {{ item.partner_status ? "Active" : "Close" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

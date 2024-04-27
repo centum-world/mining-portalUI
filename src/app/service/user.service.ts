@@ -1738,5 +1738,9 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
-
+  callApiToMyteamForReferral(data:any){
+    return this.http.post(this.url + "/admin/partners-rig-inside-referral-in-admin",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

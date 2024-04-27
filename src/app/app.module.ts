@@ -249,6 +249,9 @@ import { ReferralupComponent } from './components/admin/target/referralup/referr
 import { MyPayoutHistoryComponent } from './components/mining/dialog/my-payout-history/my-payout-history.component';
 import { PartnerAddLiquidityComponent } from './components/mining/dialog/partner-add-liquidity/partner-add-liquidity.component';
 import { InvoiceBondComponent } from './components/mining/invoice-bond/invoice-bond.component';
+import { MyteamAdminComponent } from './components/admin/dialog/myteam-admin/myteam-admin.component';
+import { MemberPayoutComponent } from './components/admin/member-payout/member-payout.component';
+import { ActivePartnersLiquidityDetailsComponent } from './components/admin/active-partners-liquidity-details/active-partners-liquidity-details.component';
 
 
 
@@ -472,6 +475,9 @@ import { InvoiceBondComponent } from './components/mining/invoice-bond/invoice-b
     MyPayoutHistoryComponent,
     PartnerAddLiquidityComponent,
     InvoiceBondComponent,
+    MyteamAdminComponent,
+    MemberPayoutComponent,
+    ActivePartnersLiquidityDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -593,7 +599,8 @@ import { InvoiceBondComponent } from './components/mining/invoice-bond/invoice-b
     FranchiseupDownComponent,
     ReferralupComponent,
     MyPayoutHistoryComponent,
-    PartnerAddLiquidityComponent
+    PartnerAddLiquidityComponent,
+    MyteamAdminComponent
   ],
   providers: [
     {

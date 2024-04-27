@@ -12,6 +12,7 @@ import { BlockMemberComponent } from "../dialog/block-member/block-member.compon
 import { EditMemberComponent } from "../dialog/edit-member/edit-member.component";
 import { Router } from "@angular/router";
 import { ReferralupComponent } from "../target/referralup/referralup.component";
+import { MyteamAdminComponent } from "../dialog/myteam-admin/myteam-admin.component";
 
 interface Member {
   m_userid: string;
@@ -231,7 +232,24 @@ export class MemberHistoryComponent implements OnInit {
     this.router.navigate(["dashboard/member-account", memberData.m_userid]);
   }
 
+  myPartner(memberData:any){
+    this.router.navigate(["dashboard/my-partner", memberData.reffer_id]);
+  }
+
   goBack() {
     this.router.navigate(["/dashboard/home"]);
+  }
+
+  myTeam(memberData:any){
+    let config: MatDialogConfig = {
+      // panelClass: "myMemberEditDialogClass",
+      data: memberData,
+    };
+    const dialogRef = this.dialog.open(MyteamAdminComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      // this.callApiToFetchAllMember();
+      console.log("closed");
+    });
   }
 }
