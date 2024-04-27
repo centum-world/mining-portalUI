@@ -48,5 +48,20 @@
 }
 .footer{
     display:flex;
-    justify-content:"space-between"
+    justify-content:space-between;
+    padding:8px;
+}
+.pay-button{
+    width:80px;
+    height:30px;
+    background-color:yellow;
+    color:green;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+.pay-button:hover{
+    background-color:#ebf5ff;
 }
