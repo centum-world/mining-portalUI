@@ -1,7 +1,7 @@
 <div class="rig-container">
   <p>
     <mat-icon (click)="goBack()" style="margin-top: 5px">arrow_back</mat-icon>
-    &nbsp; All RIG ID
+    &nbsp; All RIG ID1
   </p>
   <div class="rig-cards">
     <div class="cards-container" *ngFor="let item of allrig">
@@ -33,6 +33,10 @@
         <div class="card-body-data">
           <h6>Joining Date</h6>
           <p>{{ item.dop | date }}</p>
+        </div>
+        <div class="card-body-data">
+          <h6></h6>
+          <p style="font-weight: 700;">{{ item.dop > '2023-12-15T00:00:00.000Z'? "One Time" : "Monthly" }}</p>
         </div>
       </div>
       <div class="devide"><hr /></div>
