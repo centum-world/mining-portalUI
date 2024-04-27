@@ -105,6 +105,7 @@ import { PayoutReferralComponent } from "./components/admin/payout-referral/payo
 import { AllBankComponent } from "./components/admin/all-bank/all-bank.component";
 import { InvoiceBondComponent } from "./components/mining/invoice-bond/invoice-bond.component";
 import { MemberPayoutComponent } from "./components/admin/member-payout/member-payout.component";
+import { ActivePartnersLiquidityDetailsComponent } from "./components/admin/active-partners-liquidity-details/active-partners-liquidity-details.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -193,7 +194,9 @@ const routes: Routes = [
       { path: "my-partner/:id", component: MemberPayoutComponent },
       { path: "bd-account/:id", component: BdAccountComponent },
       { path: "bank-details", component: AllBankComponent },
+      {path:"active-partners-liquidity-details/:id",component:ActivePartnersLiquidityDetailsComponent},
       { path: "", redirectTo: "/dashboard/home", pathMatch: "full" },
+     
     ],
   },
   {

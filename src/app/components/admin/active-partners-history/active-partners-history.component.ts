@@ -30,7 +30,7 @@ export class ActivePartnersHistoryComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   displayedColumns: string[] = ['p_userid', 'p_name', 'p_lname','p_phone', 'p_reffered_id',  'p_liquidity',
-    'p_dop','status'];
+    'p_dop','status','action'];
   dataSource: MatTableDataSource<ActivePartner>;
 
   constructor(
@@ -57,6 +57,11 @@ export class ActivePartnersHistoryComponent implements OnInit {
         console.log(err.message)
       }
     })
+  }
+
+  gotoPartnerLiquidityAndDetails(partnerData:any){
+    console.log(partnerData)
+    this.router.navigate(["dashboard/active-partners-liquidity-details",partnerData]);
   }
 
   applyFilter(filterValue: string) {

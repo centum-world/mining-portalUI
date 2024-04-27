@@ -1743,4 +1743,10 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  callApifetchActivePartnersLiquidityDetails(data:any){
+    return this.http.post(this.url + "/admin/admin-fetch-liquidity-details-for-active-partners",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

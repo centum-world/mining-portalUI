@@ -40,7 +40,7 @@
 
             <ng-container matColumnDef="p_liquidity">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header">Liquidity</th>
-                <td mat-cell *matCellDef="let activePartner" style="font-weight: 600;"> {{activePartner.p_liquidity | currency: 'INR'}} </td>
+                <td mat-cell *matCellDef="let activePartner" style="font-weight: 600;"> {{activePartner.total_liquidity| currency: 'INR'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="p_dop">
@@ -54,38 +54,23 @@
                   {{ (activePartner.partner_status === 1 || activePartner.month_count === 11) || (activePartner.partner_status === 0 && activePartner.month_count === 12) ? 'Active' : '' }}
                 </td>
               </ng-container>
-              
-              
 
 
-<!-- 
-            <ng-container matColumnDef="actions">
+            <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef class="member-history-header"> Actions </th>
-                <td mat-cell *matCellDef="let member">
+                <td mat-cell *matCellDef="let activePartner">
                    
                     <button mat-icon-button [matMenuTriggerFor]="menu">
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="openViewMemberDialog(member)">
-                            View
-                        </button>
-                        <button mat-menu-item [disabled]="member.isVerify === 1" (click)="openMemberVerifyDialog(member)" >
-                            Verify
-                        </button>
-                        <button mat-menu-item (click)="openIsBlockMemberDialog(member)">
-                            {{ member.isBlocked === 0 ? 'Block' : 'Unblock' }}
-                        </button>
-                        <button mat-menu-item (click)="openMemberEditDialog(member)" >
-                            Edit
-                        </button>
-                        <button mat-menu-item >
-                            Account
-                        </button>
+                        <button mat-menu-item (click)="gotoPartnerLiquidityAndDetails(activePartner.p_userid)">
+                            <mat-icon>person</mat-icon> Account 
+                          </button>
                         
                     </mat-menu>
                 </td>
-            </ng-container> -->
+            </ng-container>
 
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
