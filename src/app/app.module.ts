@@ -252,6 +252,7 @@ import { InvoiceBondComponent } from './components/mining/invoice-bond/invoice-b
 import { MyteamAdminComponent } from './components/admin/dialog/myteam-admin/myteam-admin.component';
 import { MemberPayoutComponent } from './components/admin/member-payout/member-payout.component';
 import { ActivePartnersLiquidityDetailsComponent } from './components/admin/active-partners-liquidity-details/active-partners-liquidity-details.component';
+import { ReferralTransactionComponent } from './components/admin/referral-transaction/referral-transaction.component';
 
 
 
@@ -478,6 +479,7 @@ import { ActivePartnersLiquidityDetailsComponent } from './components/admin/acti
     MyteamAdminComponent,
     MemberPayoutComponent,
     ActivePartnersLiquidityDetailsComponent,
+    ReferralTransactionComponent,
   ],
   imports: [
     BrowserModule,

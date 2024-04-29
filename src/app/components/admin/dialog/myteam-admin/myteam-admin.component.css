@@ -44,15 +44,16 @@
     justify-content:space-between;
     /* padding:5px; */
 }
-.name{
-    color:#828792;
-    font-size:12px;
-    font-weight:600;
-    font-family: "Roboto", sans-serif;
-}
-.content{
-    color:black;
-    font-size:12px;
-    font-weight:600;
-    font-family: "Roboto", sans-serif;
-}
+
+.input-container {
+    display: flex;
+    flex-direction:column;
+  }
+  
+  .mat-form-field {
+    flex: 1; /* Take up remaining space */
+  }
+  
+  .submit-button {
+    width: 200px; /* Adjust width as needed */
+  }

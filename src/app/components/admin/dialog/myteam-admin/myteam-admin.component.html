@@ -1,75 +1,26 @@
 <div class="myteam-container">
   <div class="close-header">
-    <p class="my-team-header">Partners</p>
-    <!-- <button mat-raised-button mat-dialog-close>Cancel</button> -->
+    <p class="my-team-header">Referral Amount</p>
     <mat-icon aria-label="Close dialog" mat-dialog-close>close</mat-icon>
   </div>
   <div class="my-team-body">
-    <div class="my-team-card" *ngFor="let item of partner">
-      <div class="partner-body">
-        <div class="partner-content">
-          <p class="name">Name</p>
-          <p class="content">{{ item.p_name }}&nbsp;{{ item.p_lname }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">Partner ID</p>
-          <p class="content">{{ item.p_userid }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">RIG ID</p>
-          <p class="content">{{ item.rigId }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">Liquidity</p>
-          <p class="content">{{ item.p_liquidity | currency : "INR" }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">DOJ</p>
-          <p class="content">{{ item.p_dop | date }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">Status</p>
-          <p
-            class="content"
-            [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }"
-          >
-            {{ item.partner_status ? "Active" : "Close" }}
-          </p>
-        </div>
+    <form  [formGroup]="amountForm" (ngSubmit)="submitForm()">
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>&#8377;</mat-icon>
+          <input matInput placeholder="Amount" formControlName="amount">
+          <mat-error *ngIf="amountForm.get('amount').invalid && amountForm.get('amount').touched">Amount is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" formControlName="paymentDate" placeholder="Payment date">
+          <mat-error *ngIf="amountForm.get('paymentDate').invalid && amountForm.get('paymentDate').touched">Date is require</mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="amountForm.invalid" class="submit-button">Submit</button>
       </div>
-    </div>
-    <div class="my-team-card" *ngFor="let item of newPartnerTeam">
-      <div class="partner-body">
-        <div class="partner-content">
-          <p class="name">Name</p>
-          <p class="content">{{ item.fname }}&nbsp;{{ item.lname }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">Partner ID</p>
-          <p class="content">{{ item.userId }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">RIG ID</p>
-          <p class="content">{{ item.rigId }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">Liquidity</p>
-          <p class="content">{{ item.liquidity | currency : "INR" }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">DOJ</p>
-          <p class="content">{{ item.doj | date }}</p>
-        </div>
-        <div class="partner-content">
-          <p class="name">Status</p>
-          <p
-            class="content"
-            [ngStyle]="{ color: item.partner_status ? 'green' : 'red' }"
-          >
-            {{ item.partner_status ? "Active" : "Close" }}
-          </p>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

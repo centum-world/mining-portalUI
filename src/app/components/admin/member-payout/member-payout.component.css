@@ -65,3 +65,15 @@
 .pay-button:hover{
     background-color:#ebf5ff;
 }
+@media only screen and (max-width: 767px) {
+  .main-container {
+    margin-left:0;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction:column;
+  }
+  .cards {
+    width: 100%;
+  }
+}

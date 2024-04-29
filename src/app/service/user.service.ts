@@ -1749,4 +1749,16 @@ export class UserService {
       headers: new HttpHeaders().set("Content-Type", "application/json"),
     });
   }
+
+  callApiToGiveReferralMoney(data:any){
+    return this.http.post(this.url + "/admin/create-referral-wallet",data, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
+
+  callApiToFetchReferralTransaction(data:any){
+    return this.http.get(this.url + `/admin/fetch-referral-wallet-with-rig-id/${data.rigId}`, {
+      headers: new HttpHeaders().set("Content-Type", "application/json"),
+    });
+  }
 }

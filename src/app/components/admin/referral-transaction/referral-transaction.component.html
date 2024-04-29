@@ -1,0 +1,44 @@
+<div class="main-container">
+  <div class="header-div">
+    <mat-icon (click)="goBack()" style="cursor: pointer">arrow_back</mat-icon>
+    <p>Trasaction</p>
+  </div>
+  <div
+    class="cards-container"
+    *ngIf="referralTransactionData.length > 0; else noDataFound"
+  >
+    <div class="cards" *ngFor="let item of referralTransactionData">
+      <div class="cards-details">
+        <div class="name">
+          <p>Name</p>
+          <span>{{ item.name }}</span>
+        </div>
+        <div class="name">
+          <p>User Id</p>
+          <span>{{ item.userId }}</span>
+        </div>
+        <div class="name">
+          <p>RIG ID</p>
+          <span>{{ item.rigId }}</span>
+        </div>
+        <div class="name">
+          <p>Liquidity</p>
+          <span>{{ item.liquidity | currency : "INR" }}</span>
+        </div>
+        <div class="name">
+          <p>Paid Amount</p>
+          <span>{{ item.amount | currency : "INR" }}</span>
+        </div>
+        <div class="name">
+            <p>Paid date</p>
+            <span>{{ item.dateOfPayment | date }}</span>
+          </div>
+      </div>
+      <hr style="margin: 0" />
+      <div class="footer" style="color: rgb(30, 186, 19)">Suceessful</div>
+    </div>
+  </div>
+  <ng-template #noDataFound>
+    <div class="no-data">No data found</div>
+  </ng-template>
+</div>

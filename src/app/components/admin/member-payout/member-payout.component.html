@@ -33,8 +33,8 @@
             </div>
             <hr style="margin: 0;">
             <div class="footer">
-                <div class="pay-button">Pay</div>
-                <!-- <div>hii</div> -->
+                <div class="pay-button" (click)="memberGiveMoney(item,'single')">Pay</div>
+                <div style="color: blue; cursor: pointer;" (click)="viewDetails(item)">view</div>
             </div>
         </div>
 
@@ -67,8 +67,8 @@
             </div>
             <hr style="margin: 0;">
             <div class="footer">
-                <div class="pay-button">Pay</div>
-                <div></div>
+                <div class="pay-button" (click)="memberGiveMoney(item,'multiple')">Pay</div>
+                <div style="color: blue; cursor: pointer;" (click)="viewDetails(item)">view</div>
             </div>
         </div>
         
